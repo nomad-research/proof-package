@@ -1,0 +1,107 @@
+{
+  "thesis_id": "LDI-UK-SEP22-001",
+  "detection_date": "2022-09-28",
+  "headline": "UK Pension Funds Face Margin Calls as Gilt Yields Spike",
+  "violation_type": "strong",
+  "compound_packet": [
+    "UK Mini-Budget / LDI Doom Loop",
+    "Fed QT + BoE QT simultaneously active",
+    "Dutch pension DB sector facing same LDI stress"
+  ],
+  "weighted_tx_at_detection": {
+    "D1": 0.3,
+    "D2": 0.19,
+    "D3": 0.1
+  },
+  "remaining_gradient_energy": 0.7,
+  "conviction_score": 82,
+  "incoherence_score": 22,
+  "active_positions_at_detection": [
+    {
+      "instrument": "Long 30yr Gilts",
+      "direction": "long",
+      "conviction": 82,
+      "size": "3 x base"
+    },
+    {
+      "instrument": "Long GBP/USD",
+      "direction": "long",
+      "conviction": 74,
+      "size": "2 x base"
+    },
+    {
+      "instrument": "Short UK Homebuilders",
+      "direction": "short",
+      "conviction": 66,
+      "size": "1 x base"
+    },
+    {
+      "instrument": "ACK Divergence (GBP)",
+      "direction": "long",
+      "conviction": 72,
+      "size": "1 x base"
+    }
+  ],
+  "ack_conditions": [
+    {
+      "id": "ACK-1",
+      "observable": "Mini-budget reversal >50%",
+      "timeline": "7-21 days",
+      "d1_flag": true,
+      "fired": true,
+      "actual_date": "2022-10-03"
+    },
+    {
+      "id": "ACK-2",
+      "observable": "BoE emergency purchase programme end",
+      "timeline": "Oct 14",
+      "d1_flag": true,
+      "fired": true,
+      "actual_date": "2022-10-14"
+    },
+    {
+      "id": "ACK-3",
+      "observable": "UK PM resignation/replacement",
+      "timeline": "14-35 days",
+      "d1_flag": true,
+      "fired": true,
+      "actual_date": "2022-10-20"
+    },
+    {
+      "id": "ACK-4",
+      "observable": "Mortgage market repricing completion",
+      "timeline": "4-8 weeks",
+      "d1_flag": true,
+      "fired": true,
+      "actual_date": "2022-11-10"
+    },
+    {
+      "id": "ACK-5",
+      "observable": "BoE Nov MPC decision",
+      "timeline": "Nov 3, 2022",
+      "d1_flag": true,
+      "fired": true,
+      "actual_date": "2022-11-03"
+    },
+    {
+      "id": "ACK-6",
+      "observable": "TPR / FCA LDI consultation",
+      "timeline": "4-12 weeks",
+      "d1_flag": true,
+      "fired": true,
+      "actual_date": "2022-11-15"
+    }
+  ],
+  "calibration_score": 9.5,
+  "primary_calibration_metrics": {
+    "npc_script_detection": 10,
+    "ack_sequence": 10,
+    "gradient_topology": 9,
+    "multi_degree_accuracy": 9,
+    "timing_accuracy": 9,
+    "price_sector_outcome": 10
+  },
+  "realised_return": "+15.1%",
+  "thesis_status": "archived",
+  "disclaimer": "Observation model only. Historical session for calibration purposes. Not financial advice. Past performance does not guarantee future results."
+}
