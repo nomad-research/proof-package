@@ -2,7 +2,7 @@
 
 ### How to buy the Nomad Daily Thesis
 
-1. Send **$19 USD** via PayPal to: https://www.paypal.com/paypalme/QualifiedApplicant/19?description=Nomad%20Daily%20Thesis%20-%20Live%20Observation%20State%20%2B%20Updates
+1. Send **$9 USD** via PayPal to: https://www.paypal.com/paypalme/QualifiedApplicant/9?description=Nomad%20Daily%20Thesis%20-%20Live%20Observation%20State%20%2B%20Updates
 
 2. In the PayPal note / message field, please include:
    - Your email address where you want the files delivered
