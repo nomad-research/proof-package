@@ -20,6 +20,9 @@ A primary calibration score ≥ 8.5/10 counts as a valid hit.
 ### How to Use
 Download the JSON files and backtest against price, volume, and news data. The calibration fields show exactly how accurately the framework anticipated the cascades.
 
+### How can I get a thesis?
+See purchase_instructions.md for how to buy the current live thesis.
+
 ### Important Disclaimer
 Observation model only. These are historical sessions provided for calibration and transparency purposes only. Not financial advice. Past performance does not guarantee future results. Individual degrees carry amplitude risk.
 
