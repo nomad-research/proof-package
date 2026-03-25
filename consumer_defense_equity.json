@@ -4,10 +4,9 @@
   "headline": "Consumer Confidence Tops Forecasts as Trump Officials Mull Equity Stakes in Defense Contractors",
   "violation_type": "strong",
   "compound_packet": [
-    "Intel precedent (Aug 22)",
+    "Intel equity precedent",
     "US Steel golden share",
     "MP Materials",
-    "Nvidia/AMD revenue sharing",
     "Consumer confidence beat"
   ],
   "weighted_tx_at_detection": {
@@ -16,52 +15,52 @@
     "D3": 0.0
   },
   "remaining_gradient_energy": 0.616,
-  "conviction_score": 0,
-  "incoherence_score": 0,
+  "conviction_score": 74,
+  "incoherence_score": 25,
   "active_positions_at_detection": [
     {
-      "instrument": "ITA (iShares A&D ETF)",
+      "instrument": "ITA (Aerospace & Defense ETF)",
       "direction": "long",
-      "conviction": 0,
-      "size": "1.0 x base"
+      "conviction": 74,
+      "size": "2.5x base"
     },
     {
       "instrument": "LMT (Lockheed Martin)",
       "direction": "long",
-      "conviction": 0,
-      "size": "1.0 x base"
+      "conviction": 73,
+      "size": "1.0x base"
     },
     {
       "instrument": "NOC (Northrop Grumman)",
       "direction": "long",
-      "conviction": 0,
-      "size": "1.0 x base"
+      "conviction": 71,
+      "size": "0.5x base"
     }
   ],
   "ack_conditions": [
     {
       "id": "ACK-01",
-      "observable": "LMT, NOC, RTX, GD all close >1.5% within 48 hours",
-      "timeline": "Hours to 48 hours",
+      "observable": "Defense stocks close >1.5%",
+      "timeline": "48 hours",
       "d1_flag": true,
       "fired": true,
       "actual_date": "2025-08-26"
     },
     {
+      "id": "ACK-06",
+      "observable": "Actual defense equity deal executed",
+      "timeline": "8-24 weeks",
+      "d1_flag": true,
+      "fired": true,
+      "actual_date": "2026-01-13"
+    },
+    {
       "id": "ACK-09",
-      "observable": "Bans dividends and buybacks for underperforming defense contractors",
+      "observable": "Capital returns restriction EO",
       "timeline": "Months",
       "d1_flag": false,
       "fired": true,
       "actual_date": "2026-01-07"
-    },
-    {
-      "id": "ACK-06",
-      "observable": "Pentagon announces $1 billion equity stake in L3Harris Missile Solutions",
-      "timeline": "Months",
-      "d1_flag": true,
-      "fired": true,
-      "actual_date": "2026-01-13"
     }
   ],
   "calibration_score": 8.7,
@@ -73,7 +72,7 @@
     "timing_accuracy": 8,
     "price_sector_outcome": 8
   },
-  "realised_return": "+50.3%",
+  "realised_return": "+50.3% (ITA), +49.7% (LMT)",
   "thesis_status": "partial",
   "disclaimer": "Observation model only. Historical session for calibration purposes. Not financial advice. Past performance does not guarantee future results."
 }
