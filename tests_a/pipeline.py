@@ -110,7 +110,11 @@ def fetch_daily(symbol: str, refresh: bool = False, start: str = "2009-01-01") -
     safe = symbol.replace("^", "IDX_")
     path = CACHE / f"px_{safe}.parquet"
     if path.exists() and not refresh:
-        return pd.read_parquet(path)
+        cached = pd.read_parquet(path)
+        # A cache built for a later start silently truncates any caller that asks
+        # for more history. Only serve it when it actually covers the request.
+        if len(cached) and cached["date"].min() <= pd.Timestamp(start) + pd.Timedelta(days=7):
+            return cached
 
     p1 = int(pd.Timestamp(start, tz="UTC").timestamp())
     p2 = int(pd.Timestamp.now(tz="UTC").timestamp())

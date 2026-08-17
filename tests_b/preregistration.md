@@ -267,4 +267,46 @@ Per specification §3.4 and §8:
 
 ## Amendments
 
-*(none)*
+### Amendment 1 — 2026-08-17, before any analysis was run
+
+**Change.** Citation detail only. The Gilbert, Kogan, Lochstoer & Ozyildirim
+(2012) paper is titled **"Investor Inattention and the Market Impact of Summary
+Statistics"**, *Management Science* 58(2), 336–350. §1 above describes its
+content but does not name it; the specification likewise cited it by journal and
+volume without a title.
+
+**Reason.** Verified against the published record while the data was fetching.
+No claim in §1 changes — the paper does find that the LEI is a summary statistic
+of previously released inputs and that a strategy trading in the direction of the
+announcement one day before its release earns significant returns, which is the
+design §5.3 already registered.
+
+**Nothing else is altered.** Recorded as an amendment rather than edited in
+place, so the file is never silently changed after commit.
+
+### Amendment 2 — 2026-08-17, **after** results were seen
+
+**Change.** An influence diagnostic is added to every block: refit the primary
+regression after dropping the 1, 2, 3 and 5 observations with the largest Cook's
+distance, and report the resulting t-statistics alongside the full-sample one.
+
+**Reason.** The CFNAI block returned a full-sample coefficient on the predictable
+component clearing the hurdle (t = 3.91) while the pre-registered
+excluding-2020 specification returned t = 0.98. §7 anticipated exactly this
+disagreement and said it must be *reported as the finding rather than resolved by
+picking one* — but it did not specify a diagnostic capable of saying **why** the
+two disagree. Inspection showed a single April 2020 announcement with a
+standardised predictor value of −14, an artefact of the COVID collapse in the
+pre-released components. The influence check turns "these two specifications
+disagree" into a quantified statement about how many observations the result
+rests on.
+
+**Disclosure — made after seeing results.** As with Test A's amendment 3, the
+direction matters: this diagnostic can only *weaken* a positive finding, never
+create one. It cannot be used to rescue a result. It is applied uniformly to
+every block, including the ones where the full-sample coefficient was already
+insignificant, so it is not applied selectively to the inconvenient block.
+
+No pre-registered statistic is removed or altered. The full-sample and
+excluding-2020 specifications are still reported exactly as registered, and the
+pass thresholds are unchanged.

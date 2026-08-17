@@ -209,10 +209,10 @@ def render(path: Path, pb, primary, secondary, per_underlying, curve, hl,
       "expanding-window percentile computed through *t−1*, take the opposite side and exit at "
       "the next open. $10m notional per position, equal weight across underlyings.")
     A("")
-    A("Costs are the full spread round trip (half-spread each side) with the spread **estimated "
-      "from each proxy ETF's own daily high/low via Corwin–Schultz (2012)** rather than assumed, "
-      "plus a two-sided square-root impact term `η·σ·√(notional/ADV)` at η = 1.0, plus 0.5bp "
-      "fees per side.")
+    A("Costs are the full spread round trip (half-spread each side) plus a two-sided square-root "
+      "impact term `η·σ·√(notional/ADV)` at η = 1.0, plus 0.5bp fees per side. The headline "
+      "spread is two minimum price increments; see the cost sensitivity below and "
+      "pre-registration amendment 3 for why that replaced the Corwin–Schultz estimate.")
     A("")
     A("| Trigger | Positions | Gross bps | Gross t | Net bps | Net t | Cost bps | Net Sharpe |")
     A("|---|---|---|---|---|---|---|---|")

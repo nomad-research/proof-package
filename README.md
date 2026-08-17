@@ -8,11 +8,14 @@ mechanism is well documented.**
 Each test can kill the ones below it. **A negative result is a success.** The
 purpose is to kill the thesis cheaply if it is wrong, not to confirm it.
 
-| Test | Question | Kills what if it fails | Status |
+| Test | Question | Kills what if it fails | Result |
 |---|---|---|---|
-| **A** — LETF rebalancing | Does perfectly enumerated forced flow still pay? | Sets the ceiling: if perfect enumeration pays nothing, imperfect enumeration pays less | see `tests_a/results.md` |
-| **B** — Stale information | Does "public but unconnected" survive post-2012? | The bitemporal / backward-reading thesis | see `tests_b/results.md` |
-| **C** — Gate 1 | Do enumerated destinations predict returns? | The whole framework | gated on A and B |
+| **A** — LETF rebalancing | Does perfectly enumerated forced flow still pay? | Sets the ceiling: if perfect enumeration pays nothing, imperfect enumeration pays less | **FAIL** — [`tests_a/results.md`](tests_a/results.md) |
+| **B** — Stale information | Does "public but unconnected" survive post-2012? | The bitemporal / backward-reading thesis | **NOT REPLICATED** — [`tests_b/results.md`](tests_b/results.md) |
+| **C** — Gate 1 | Do enumerated destinations predict returns? | The whole framework | **not started, gated** — [`tests_c/README.md`](tests_c/README.md) |
+
+**Start here: [`SUMMARY.md`](SUMMARY.md)** — the cross-test verdict, the
+recommendation on Test C, and the qualifications that matter.
 
 ## Layout
 
