@@ -231,4 +231,34 @@ followed by another universe redefinition.
 
 ## Amendments
 
-*(none)*
+### Amendment 1 — 2026-08-17, **after** results were seen
+
+**Change.** The per-decile table additionally reports the **economically-scaled
+effect**, `β × sd(imbalance_ratio)` within each decile, in basis points. A
+Spearman rank correlation on that quantity is also computed and logged.
+
+**Reason.** §7.2 specified reporting `β` per decile, and `β` turns out not to be
+comparable across deciles. It is a slope in units of *return per unit of
+imbalance_ratio*, and mean |imbalance_ratio| runs from 0.00067 in decile 1 to
+0.80 in decile 10 — a span of over a thousand times. `β` therefore shrinks
+mechanically as imbalance rises, which makes decile 1 show the largest raw
+coefficient in the table and decile 10 the smallest. A reader scanning the `β`
+column would conclude the effect runs backwards; it is an artefact of units.
+
+**Disclosure — this amendment was made after seeing results, and unlike the
+earlier amendments in this project it runs in the direction that could
+*strengthen* a finding rather than weaken one.** That is the dangerous direction,
+so it is fenced explicitly:
+
+- It is **not** part of the pass condition. The pass condition remains exactly as
+  registered in §7.3–§7.5: the top-decile t and the pooled interaction t.
+- It is labelled post-hoc and exploratory everywhere it appears.
+- It is computed for **all ten deciles**, not just the ones that would help.
+- It happens to make no difference: the economically-scaled effects are
+  2.6, 3.0, −1.6, −5.7, −4.7, −4.0, 4.7, −2.2, −3.6, 1.4 bps across deciles 1–10,
+  with no trend and the top decile carrying the wrong sign. The null is
+  unchanged under both readings, which is why this is a reporting fix rather
+  than a rescue attempt.
+
+Had it changed the conclusion, the correct response would have been a fresh
+pre-registered test rather than a re-reading of this one.

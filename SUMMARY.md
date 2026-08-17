@@ -1,168 +1,206 @@
 # Nomad gate tests — summary and recommendation
 
-**Date:** 2026-08-17
-**Tests run:** A (LETF rebalancing), B (stale information). C is gated and not started.
-**Evaluations logged:** 77 (32 for A, 45 for B), zero failures, in `config_log.jsonl`.
+**Updated:** 2026-08-17, after Gate Spec Amendment 1.
+**Tests run:** A, B, A-2, B-2. C is gated and not started.
+**Cumulative evaluations logged:** 162 (A 32, B 45, A-2 19, B-2 66), zero failures.
+
+| Test | Question | Verdict |
+|---|---|---|
+| **A** | Does perfectly enumerated forced flow pay in mega-cap indices? | **FAIL** |
+| **A-2** | Does it pay where counterparty scarcity is high? | **FAIL — Test A closed permanently** |
+| **B** | Does "public but unconnected" survive post-2012? | **NOT REPLICATED** |
+| **B-2** | Same, on a sample that spans the split | **UNREADABLE** |
+| **C** | Do enumerated destinations predict returns? | **not started, gated** |
 
 ---
 
 ## The one-paragraph answer
 
-Neither cheap proxy found an effect. Test A says that the most perfectly
-enumerable forced flow that exists — closed-form, fully public, known execution
-window — does not predict the returns it mechanically causes at daily frequency
-(t = 1.58 against a 2.78 hurdle, and the coefficient has the wrong sign). Test B
-finds no support for markets responding to the already-public component of a
-composite announcement; its one significant coefficient rests on two COVID
-observations and collapses to t = 0.44 when they are removed. Specification §8
-says that when A and B both come back empty, Test C would be measuring a corpse
-and stopping is the legitimate and valuable outcome. **That is the
-recommendation.** But the recommendation comes with one honest qualification that
-matters: Test B never actually answered the question it was designed around, for
-a data reason rather than a market reason. That is a gap, not a negative result,
-and §4 below says what it would cost to close.
+The LETF mechanic is dead in both regimes and Test A is now closed by its own
+pre-registered stopping rule — including in the high-imbalance corner Amendment 1
+correctly identified as the one the original test never touched. The stale-information
+question is **not** answered: three of the four indicator blocks tried fail the
+validity check, which means the instrument cannot see a market reaction even to
+news that genuinely *is* new, and a blind instrument's null says nothing. So the
+project sits in the gap between the amendment's two decision rules: Test A is
+permanently closed, Test C remains gated and unstarted, and the
+stop-permanently trigger has **not** fired because it requires a clean null with
+validity passing. The binding constraint is no longer the hypothesis. It is the
+outcome measurement, and §4 below says exactly how to fix it.
 
 ---
 
-## Test A — Leveraged ETF rebalancing decay
+## Test A-2 — the amendment's central claim, tested
 
-**Verdict: FAIL.** Full detail in [`tests_a/results.md`](tests_a/results.md).
+Amendment 1 §0.1 was right, and the correction is accepted without reservation.
+Test A tested SPX, NDX, Russell 2000 and the Dow: perfect enumeration, near-zero
+counterparty scarcity, minimum idiosyncratic risk — the regime McLean & Pontiff
+(2016) already identify as where alpha does not survive. Reading that null as a
+ceiling on the illiquid regime collapsed two independent variables.
+
+**The premise checks out.** The cross-section has real range in the hypothesis
+variable, which had to be true for the test to have any power:
+
+| Underlying | median M/ADV |
+|---|---|
+| Semiconductors | **82.9** |
+| Technology | 14.7 |
+| Internet | 12.8 |
+| Home construction | 9.9 |
+| Financials | 9.6 |
+| *S&P 500 (control)* | *2.0* |
+| Industrials | 0.19 |
+
+A 400× span from top to bottom. Semiconductors alone carry a rebalance multiplier
+of roughly $145bn against semiconductor-ETF ADV of order $1bn.
+
+**The result is null on every pre-registered statistic:**
+
+| Statistic | Result | Hurdle |
+|---|---|---|
+| H1 — top-decile β | t = **0.65**, wrong sign | t < −2.78 |
+| H2 — pooled decile-rank interaction | t = **−0.01** | \|t\| > 2.78 |
+| H2 — Spearman ρ (decile vs β) | −0.067, permutation p = 0.87 | — |
+| Thin underlyings only | t = −0.15 | — |
+| Top-decile strategy, gross | t = **0.05** | — |
+| Deciles individually clearing the hurdle | **0 of 10** | — |
+
+**The stopping condition has fired.** Pre-registration §8, written before the test
+ran: *if the top-decile coefficient is not significant AND there is no monotone
+gradient, the LETF mechanic is dead in both regimes and Test A is closed
+permanently. No third regime will be proposed.* Both conditions are met. The
+value of having written that sentence down in advance is precisely that it removes
+the option of proposing a fourth universe now.
+
+Two things worth carrying forward from how this was built:
+
+- **Direxion AUM had to be reconstructed**, because they publish no historical NAV
+  or shares-outstanding feed and their 3x sector funds *are* the high-imbalance
+  regime. Quarterly SEC N-PORT `netAssets` anchors were interpolated to daily via
+  each fund's own return path. The method was **validated against ProShares
+  funds, where true daily AUM is published: 2.7% median absolute error.**
+- **Leverage was estimated, not assumed.** Direxion cut several funds from 3x to
+  2x during 2020; a fixed table would have mis-stated `L·(L−1)`, which is the
+  whole signal.
+
+---
+
+## Test B-2 — could not be delivered as specified
+
+**CFNAI could not be extended.** Amendment 1 §2.2 assumed the Chicago Fed archives
+historical release dates in a retrievable form. Four routes were tried and all
+failed: ALFRED's first CFNAI vintage is 2011-05-23; the Chicago Fed
+`past-releases` page renders its list client-side with no JSON or AJAX endpoint in
+the served source (confirmed twice, including with an independent renderer);
+`/cfnai/archive` returns 404; and FRED's release-date API needs a key that cannot
+be obtained here. The amendment forbids reconstructing dates from a schedule, so
+that was not done. **If a working archive URL exists, extending to CFNAI is a
+small delta on the committed code.**
+
+The amendment's actual criterion — *any composite that passes validity and spans
+the split* — was applied instead, using the **core PCE price index**. That
+delivered the sample the test needed:
 
 | | |
 |---|---|
-| Sample | 16,560 underlying-days, 2010-03 to 2026-08, 4 indices, 16 ProShares LETFs |
-| Primary coefficient | β = 0.00457, **t = 1.58** (hurdle 2.78), sign opposite to prediction |
-| Years individually significant | **0 of 17** |
-| Strategy gross | +0.38 bps/day, t = 0.44 |
-| Strategy net | −3.91 bps/day, t = −4.53 |
-| Deflated Sharpe | ~0 against 32 logged trials |
+| Sample | 2005-02 to 2026-07, 253 announcements |
+| Pre-2012 | **83** |
+| Post-2012 | **170** |
 
-**Why this result is trustworthy.** The rebalance multiplier is not estimated —
-ProShares publish full-life daily NAV, shares outstanding and AUM per fund, so
-`A·L·(L−1)·r` is computed from published inputs. As a check, each fund's daily
-NAV return was regressed on its index: **all 16 recover their stated leverage to
-within 0.004 with R² > 0.998.** The AUM file, the leverage assumptions and the
-index mapping are mutually consistent.
+**And then failed the validity check.** The market shows no measurable reaction to
+genuine core-PCE surprise: t = 0.32 on the pre-registered close-to-close window,
+and t = 1.26 on the overnight window that brackets the 08:30 release without six
+and a half hours of unrelated news. Neither clears 2.78. Per the pre-registered
+rule this is **a gap, not a negative result**, and the stop-permanently trigger
+does **not** fire.
 
-**What this does and does not kill.** It kills the tested channel: the overnight
-reversal of mechanically forced closing-auction flow, at daily frequency, net of
-generic short-horizon reversal. The specification's logic then applies — imperfect
-enumeration cannot pay more than perfect enumeration. It does **not** kill the
-intraday impact channel over the full period, because free intraday history goes
-back roughly two years and no vendor gives fifteen years without payment. On the
-two years available the impact coefficient is t = 0.25, consistent with no effect
-but underpowered, and it was registered as underpowered and non-gating before it
-was run.
+Two honest admissions about that block:
 
-**The half-life the framework wanted does not exist.** The specification hoped
-Test A would replace the invented "12–36 month" decay figure with a measured
-number, and called that potentially more valuable than the trade itself. The
-exponential fit does return 6.3 years — with a bootstrap 95% CI of **[0.5, 64.9]
-years**, and with **zero of seventeen** yearly coefficients individually
-distinguishable from zero. It is flagged NOT INTERPRETABLE in the code and in the
-report. Fitting decay to a quantity that was never distinguishable from zero
-measures the decay of noise, and substituting 6.3 years for 12–36 months would be
-swapping one invented number for another with a regression table stapled to it.
+- Core PCE was justified in the pre-registration as near-deterministic from CPI.
+  Its measured prediction R² is **0.28**, against CFNAI's 0.92. It is a much
+  weaker analogue of the LEI than claimed before running.
+- The sample guard fired on its own mis-calibrated tripwire (a fixed 2004 start
+  date standing in for "enough pre-2012 data"). It was relaxed *after firing* —
+  the pattern that should always attract suspicion — and the amendment showing
+  the arithmetic is in `tests_b2/preregistration.md`. The substantive condition it
+  was proxying for passes by a factor of two.
 
 ---
 
-## Test B — Stale information / "public but unconnected"
+## The real finding: the instrument, not the hypothesis
 
-**Verdict: NOT REPLICATED.** Full detail in [`tests_b/results.md`](tests_b/results.md).
+Across four blocks, the validity check — *does this specification detect a market
+reaction to news that genuinely is new?* — has now failed three times:
 
-The Conference Board LEI is proprietary and unobtainable, so the specification's
-permitted substitute was used. Two blocks, because no single free indicator has
-both properties needed:
+| Block | Indicator | Validity t | Readable? |
+|---|---|---|---|
+| B1 | Industrial Production | −0.02 | no |
+| B2 | CFNAI | 4.51 | yes, but the pass leans on COVID |
+| B-2 (cc) | Core PCE | 0.32 | no |
+| B-2 (overnight) | Core PCE | 1.26 | no |
 
-| | B1 — Industrial Production | B2 — CFNAI |
-|---|---|---|
-| Period | 2003-07 to 2026-07, 275 announcements | 2017-10 to 2026-07, 104 announcements |
-| Prediction R² | 0.49 | **0.92** |
-| Spans the pre/post-2012 split? | **yes** | no |
-| Detects genuine surprise? (validity) | **no** (t = −0.02) | yes (t = 4.51) |
-| Predictable component, full sample | t = 0.14 | t = 3.91 |
-| …excluding Mar–Dec 2020 | t = −0.10 | t = 0.98 |
-| …dropping 2 most influential obs | t = 0.74 | **t = 0.44** |
+That is a pattern about the **measurement**, not about the indicators. Two causes,
+both fixable and neither requiring paid data:
 
-**B2's significance is two data points.** The influential releases are April and
-May 2020, when the COVID collapse in the pre-released components drove the
-standardised predictor to −14 standard deviations. Dropping them takes t from
-3.91 to 0.44. Two observations are not an effect.
+1. **The outcome variable is wrong.** Macro announcement studies use
+   interest-rate futures, not equity indices, because the signal-to-noise is far
+   higher — the front end reprices sharply on inflation and activity data while
+   SPY's day is dominated by everything else. Gilbert et al. used Treasury futures
+   alongside the S&P precisely for this reason. Every block here used SPY.
+2. **The window is still too wide.** The overnight fix was directionally right —
+   validity improved from 0.32 to 1.26 — but 17 hours still swamps a release that
+   is priced in seconds.
 
-**B1 is blind, and that is the important limitation.** B1 was the only block whose
-release history spans 2012, so it was the only one that could test the decay
-claim §3.3 designates the primary comparison. It fails the validity check
-registered in advance: it does not detect a market reaction even to genuine
-industrial-production *surprise* (t = −0.02). Its pre-2012 and post-2012
-coefficients are therefore unreadable in either direction. **The primary
-comparison this test was designed around went unanswered** — for a data reason,
-not a market reason.
-
-**What did work.** The point-in-time machinery is sound and verified rather than
-assumed: every macro input is a first print pulled from the ALFRED vintage in
-which the reference month first appeared, release dates are measured from the
-archive rather than taken from a schedule, and the resulting ordering check
-confirms the Employment Situation preceded Industrial Production in **364 of 364
-months**, median gap 11 days.
+**This is the highest-value next step in the whole project**, and it costs a day,
+not three weeks: re-run Test B's existing machinery with a rates instrument
+(TLT/IEF daily, or 2-year yield changes from FRED, both free) as the outcome. The
+vintage assembly, the release-date verification, the influence diagnostic and the
+cost model are all built and tested. If validity passes there, every block already
+run becomes readable — including the pre/post-2012 split that Test B and B-2 were
+both built to deliver and neither could.
 
 ---
 
-## What this means for Test C
+## Where this leaves Test C
 
-**Recommendation: do not start Test C.**
+**Still gated. Do not start.** Amendment 1 §3: Test C may begin only on a positive
+B-2 result or a positive A-2 gradient. Neither occurred. A-2 was decisively null
+and B-2 was unreadable.
 
-Specification §8: *"If A and B both return decay-to-zero, the honest conclusion is
-that enumerated forced-flow edges do not survive publication, and Test C would be
-measuring a corpse. That is a legitimate and valuable place to stop."*
+But note precisely what has and has not been established, because the two
+decision rules in the amendment do not cover the outcome that actually happened:
 
-Both cheap proxies came back empty, one of them on the most perfectly enumerable
-forced flow that exists. Test C costs roughly three weeks. Ordering the tests by
-cost-per-bit was done precisely so this decision could be bought for a few days,
-and it has been.
+- **Test A is closed permanently** — that rule fired cleanly and is settled.
+- **The stop-permanently trigger did not fire.** It requires a clean null *with
+  validity passing*. Validity did not pass. The "public but unconnected"
+  mechanism has therefore **not** been shown to lack empirical support; it has not
+  been tested with a working instrument.
 
-**Two corrections to how that conclusion should be stated.** Neither test measured
-a *decay*. Test A found no effect at any point in the seventeen years, not an
-effect that faded; Test B could not read its decay comparison at all. So the
-finding is "neither proxy found an effect to decay", which is a weaker and more
-accurate claim than "the edge decayed after publication". The framework's
-12–36 month decay clock is not refuted by this work — it is simply still
-unsupported, and now demonstrably untested.
-
-**What would change the recommendation,** in ascending order of cost:
-
-1. **Buy LEI vintage data and run the actual Gilbert et al. replication.** This is
-   the single highest-value next step. Test B's substitute failed on the validity
-   check, not on the hypothesis, so the canonical test remains genuinely open. A
-   few hundred dollars of data is a far better use of budget than three weeks of
-   Test C.
-2. **Buy intraday index data back to 2010** and run Test A's H-A1 impact leg
-   properly. The overnight leg is dead; the impact leg is untested before 2023.
-3. Only if one of those returns positive: reconsider Test C.
-
-If Test C is ever run, the two things to build in from the start — because
-neither can be retrofitted — are inference-family tagging at enumeration time,
-and the contamination split at the mapping model's training cutoff. See
-[`tests_c/README.md`](tests_c/README.md).
+Treating B-2's unreadable result as a negative would be the single easiest
+mistake to make from here, and it is the one the pre-registration was written to
+prevent.
 
 ---
 
-## Methodological notes worth carrying forward
+## Methodological notes
 
-- **The config log is the denominator.** 77 evaluations across both tests,
-  including every abandoned and unreported variant. The Deflated Sharpe Ratios
-  are computed against that count, read from the file rather than asserted.
-- **Three amendments were made after seeing results**, and each is dated and
-  disclosed in the relevant `preregistration.md` rather than edited in silently.
-  All three can only weaken a positive finding, never create one: a cost-model
-  correction that *lowers* costs (Test A #3), a citation correction (Test B #1),
-  and an influence diagnostic that *removes* significance (Test B #2).
-- **One real bug was found and fixed mid-analysis**: the price cache returned a
-  file built for a later start date regardless of the start requested, silently
-  truncating Test B's sample by five years and suppressing the pre/post-2012
-  split entirely. The fix is in `tests_a/pipeline.py`; the lesson is that a cache
-  keyed on symbol alone is a correctness bug, not a performance detail.
-- **Corwin–Schultz is the wrong spread estimator for liquid instruments.** It
-  returned 47bp round-trip on SPY/QQQ/IWM/DIA, off by two orders of magnitude,
-  because its identifying assumption fails when an instrument trades millions of
-  times a session. It is retained in `cost_model.py` for the illiquid names Test C
-  would need, alongside a tick-based estimator for liquid ones.
+- **The config log is the denominator.** 162 evaluations across four tests,
+  including every abandoned variant. Deflated Sharpe Ratios are computed against
+  that cumulative count, read from the file rather than asserted, per Amendment 1
+  §4.
+- **Six amendments were made after seeing results.** Each is dated and disclosed
+  in the relevant `preregistration.md`, never edited in silently. Five can only
+  weaken a positive finding. The two that could have strengthened one — A-2's
+  economically-scaled effect column and B-2's dual event window — are fenced
+  explicitly: neither is part of a pass condition, both are applied to all rows
+  rather than selectively, and neither changed a verdict.
+- **A β column can lie.** In A-2 the raw per-decile β runs *backwards* because it
+  is a slope whose regressor spans three orders of magnitude across deciles. The
+  economically-scaled effect is the comparable quantity. A reader scanning the raw
+  column would have drawn the opposite conclusion from the correct one.
+- **Corwin–Schultz is the wrong spread estimator for liquid instruments** and the
+  right one for illiquid ones; both are retained, assigned per instrument by ADV.
+- **One real bug**: the price cache returned a file built for a later start date
+  regardless of the start requested, silently truncating Test B's sample by five
+  years and suppressing the pre/post-2012 split entirely. A cache keyed on symbol
+  alone is a correctness bug, not a performance detail.

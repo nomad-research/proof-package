@@ -1,6 +1,6 @@
 # Nomad — Gate Tests
 
-Three tests, ordered by cost-per-bit, of a single claim: that **enumerating which
+Tests, ordered by cost-per-bit, of a single claim: that **enumerating which
 entities are forced to transact, and where that forced capital must land, predicts
 returns better than chance — and that this survives even though the underlying
 mechanism is well documented.**
@@ -8,11 +8,18 @@ mechanism is well documented.**
 Each test can kill the ones below it. **A negative result is a success.** The
 purpose is to kill the thesis cheaply if it is wrong, not to confirm it.
 
-| Test | Question | Kills what if it fails | Result |
-|---|---|---|---|
-| **A** — LETF rebalancing | Does perfectly enumerated forced flow still pay? | Sets the ceiling: if perfect enumeration pays nothing, imperfect enumeration pays less | **FAIL** — [`tests_a/results.md`](tests_a/results.md) |
-| **B** — Stale information | Does "public but unconnected" survive post-2012? | The bitemporal / backward-reading thesis | **NOT REPLICATED** — [`tests_b/results.md`](tests_b/results.md) |
-| **C** — Gate 1 | Do enumerated destinations predict returns? | The whole framework | **not started, gated** — [`tests_c/README.md`](tests_c/README.md) |
+A-2 and B-2 were added by Gate Spec Amendment 1, which corrected Test A's
+ceiling logic — a null in a maximally liquid universe bounds nothing about the
+illiquid one, because the premium from forced flow comes from scarcity of the
+other side rather than from difficulty of enumeration.
+
+| Test | Question | Result |
+|---|---|---|
+| **A** — LETF rebalancing | Does perfectly enumerated forced flow still pay in mega-cap indices? | **FAIL** — [`tests_a/`](tests_a/results.md) |
+| **A-2** — LETF in thin underlyings | Does it pay where counterparty scarcity is high? | **FAIL — Test A closed permanently** — [`tests_a2/`](tests_a2/results.md) |
+| **B** — Stale information | Does "public but unconnected" survive post-2012? | **NOT REPLICATED** — [`tests_b/`](tests_b/results.md) |
+| **B-2** — Extended across the split | Same, on a sample that spans 2012 | **UNREADABLE** (validity failed) — [`tests_b2/`](tests_b2/results.md) |
+| **C** — Gate 1 | Do enumerated destinations predict returns? | **not started, gated** — [`tests_c/`](tests_c/README.md) |
 
 **Start here: [`SUMMARY.md`](SUMMARY.md)** — the cross-test verdict, the
 recommendation on Test C, and the qualifications that matter.
@@ -27,9 +34,11 @@ nomad/infra/            shared infrastructure, built once, used by all three tes
   cost_model.py           half-spread + square-root impact; Corwin-Schultz spread estimation
   inference_family.py     link tagging and effective-breadth measurement
 nomad/tests_common/     unit tests for the above
-tests_a/                Test A: preregistration, pipeline, analysis, results, decay curve
-tests_b/                Test B: preregistration, pipeline, analysis, results
-tests_c/                Test C: gated — not started unless A or B leaves the thesis alive
+tests_a/                Test A: LETF rebalancing, mega-cap index underlyings
+tests_a2/               Test A-2: same mechanic, thin underlyings (Amendment 1)
+tests_b/                Test B: stale information
+tests_b2/               Test B-2: extended across the 2012 split (Amendment 1)
+tests_c/                Test C: gated — not started
 config_log.jsonl        every evaluation ever run, including abandoned ones
 ```
 
@@ -60,6 +69,9 @@ python -m tests_a.pipeline                      # fetch and cache Test A data
 python -m tests_a.analysis                      # run Test A, write results + decay curve
 python -m tests_b.pipeline                      # fetch and cache Test B data
 python -m tests_b.analysis                      # run Test B, write results
+python -m tests_a2.pipeline                     # Direxion N-PORT + build the A-2 panel
+python -m tests_a2.analysis                     # run Test A-2, write the decile curve
+python -m tests_b2.analysis                     # run Test B-2 (fetches PCE/CPI vintages)
 ```
 
 Data is fetched from public sources and cached under `data/cache/`. Sources and
