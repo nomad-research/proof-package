@@ -265,4 +265,73 @@ Per specification §2.5 and §8:
 
 ## Amendments
 
-*(none)*
+### Amendment 1 — 2026-08-17, before any analysis was run
+
+**Change.** §4.3's intraday test window moves from "15:00 → 16:00, controlling for
+the return through 15:00" to **"15:30 → 16:00, controlling for the return through
+15:30"**.
+
+**Reason.** §4.3 was written before the structure of the available hourly bars was
+inspected. Yahoo stamps hourly bars at bar *open*, so the final bar of the session
+is stamped 15:30 and covers 15:30→16:00, and the preceding bar's close is the
+price at 15:30. The available data therefore supports the specification's *exact*
+window (§2.3 asks for 15:30 and 16:00 marks) rather than the coarser one assumed
+when §4.3 was drafted. This is a change toward the original specification, not
+away from it.
+
+**Made before results were seen.** The bar timestamps were inspected; no return,
+coefficient or strategy output had been computed at the time of this amendment.
+The available period is still ~2 years and the test remains underpowered and
+non-gating.
+
+### Amendment 2 — 2026-08-17, before any analysis was run
+
+**Change.** §4.5 fixes the expanding-percentile threshold warm-up at **252
+trading days**: no position is taken for an underlying until 252 observations of
+`|imbalance_ratio|` exist for it.
+
+**Reason.** §4.5 specified an expanding window through `t−1` but omitted the
+minimum number of observations before the first trade. Without a stated minimum
+the earliest thresholds are estimated from a handful of points and the strategy's
+first months are dominated by threshold noise. 252 days (one year) is chosen as
+the conventional default and is fixed here rather than tuned.
+
+**Made before results were seen.** No strategy return had been computed at the
+time of this amendment. The choice is logged to `config_log.jsonl` with every
+strategy evaluation.
+
+### Amendment 3 — 2026-08-17, **after** a first set of results was seen
+
+**Change.** §4.5's spread estimate changes from "Corwin–Schultz estimated from
+the proxy ETF's own daily high/low" to **"two minimum price increments
+(2 × $0.01 ÷ price), with one-tick and Corwin–Schultz reported alongside as a
+sensitivity band"**. The headline configuration is the two-tick estimate.
+
+**Reason.** The first run returned a mean round-trip cost of 47bp on SPY, QQQ,
+IWM and DIA. That is wrong by roughly two orders of magnitude — these are four of
+the most liquid instruments in existence and quote penny-wide almost
+continuously, which at their price levels is 0.15–0.4bp. Inspection of the
+estimator confirmed the cause: Corwin–Schultz identifies the spread from the
+daily high/low range on the assumption that the high is a buy at the ask and the
+low a sell at the bid. For an instrument that trades millions of times a session,
+the high/low range is dominated by real price movement rather than bid-ask
+bounce, and the estimator is badly upward-biased. This is a known limitation of
+the method for liquid securities, not a coding error; Corwin–Schultz remains the
+right tool for the illiquid names Test C will need, and is retained in
+`cost_model.py` for that purpose.
+
+**Disclosure — this amendment was made after seeing results, and that is a
+weaker position than amendments 1 and 2.** Stating plainly what it does and does
+not change:
+
+- It **cannot** rescue a positive result, because it only *lowers* costs. The
+  direction of the change is toward making the strategy look better.
+- The primary test (§4.1) does not use costs at all and is **unaffected**.
+- The strategy's **gross** result is unaffected.
+- The pre-registered pass condition — net `t > 2.78` — was failed under the
+  original cost assumption and is failed under the amended one. The amendment
+  changes the magnitude of the net loss, not the verdict.
+
+All three spread regimes are evaluated, all three are logged to
+`config_log.jsonl`, and all three are reported in `results.md`. A reader who
+prefers the original Corwin–Schultz assumption can read that row directly.

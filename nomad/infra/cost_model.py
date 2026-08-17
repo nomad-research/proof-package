@@ -72,6 +72,26 @@ def corwin_schultz_spread(high: pd.Series, low: pd.Series, window: int | None = 
     return spread
 
 
+def tick_spread_bps(close: pd.Series | float, ticks: float = 2.0, tick_size: float = 0.01) -> pd.Series | float:
+    """Spread in bps implied by a fixed number of minimum price increments.
+
+    For continuously-quoted, penny-tick instruments -- large ETFs, mega-cap
+    equities -- the quoted spread is pinned at one tick for most of the session,
+    so `ticks * tick_size / price` is a tighter and far more accurate estimate
+    than any high/low-based estimator.
+
+    Corwin-Schultz is the right tool for names where the spread is genuinely wide
+    and unobserved; it is badly upward-biased for instruments that trade millions
+    of times a day, because its identifying assumption -- that the daily high is
+    a buy at the ask and the daily low a sell at the bid -- fails when the
+    high/low range is dominated by real price movement rather than by bid-ask
+    bounce. Use this function for liquid instruments and Corwin-Schultz for
+    illiquid ones; report both when it matters.
+    """
+    px = pd.to_numeric(close, errors="coerce") if isinstance(close, pd.Series) else float(close)
+    return (ticks * tick_size) / px * 1e4
+
+
 def realised_volatility(close: pd.Series, window: int = 21) -> pd.Series:
     """Daily return volatility, used as the sigma in the impact term."""
     r = pd.to_numeric(close, errors="coerce").pct_change()
