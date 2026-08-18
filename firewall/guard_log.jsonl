@@ -1,0 +1,13 @@
+{"permitted": false, "reason": "WebSearch is banned for the entire blind run. Search result snippets leak post-dated material even when the target document predates the fire date. Ask the analyst for the URL instead.", "payload": null}
+{"permitted": false, "reason": "mcp__alphaXiv__discover_papers is a search-shaped tool; banned for the blind run.", "payload": null}
+{"permitted": true, "reason": "host www.sec.gov matches allowlist entry sec.gov | fetch permitted", "payload": {"url": "https://www.sec.gov/Archives/edgar/data/1/x.htm"}}
+{"permitted": true, "reason": "host www.spglobal.com matches allowlist entry spglobal.com | fetch permitted", "payload": {"url": "https://www.spglobal.com/spdji/en/methodology.pdf"}}
+{"permitted": false, "reason": "host www.reuters.com matches denylist entry reuters.com | not permitted. If you need this document, ask the analyst for the URL and add the host to allowlist.txt with a recorded reason.", "payload": {"url": "https://www.reuters.com/markets/x"}}
+{"permitted": false, "reason": "host www.google.com matches denylist entry google.com | not permitted. If you need this document, ask the analyst for the URL and add the host to allowlist.txt with a recorded reason.", "payload": {"url": "https://www.google.com/search?q=x"}}
+{"permitted": false, "reason": "host example.com is not on the allowlist | not permitted. If you need this document, ask the analyst for the URL and add the host to allowlist.txt with a recorded reason.", "payload": {"url": "https://example.com/a"}}
+{"permitted": true, "reason": "bash egress to allowlisted host(s): www.sec.gov", "payload": null}
+{"permitted": false, "reason": "bash network egress blocked: host www.bloomberg.com matches denylist entry bloomberg.com", "payload": {"command": "curl -s https://www.bloomberg.com/x"}}
+{"permitted": false, "reason": "FAIL-CLOSED: command appears to reach the network but no URL could be extracted to check against the allowlist. Route fetches through firewall/fetch.py, which logs and checks them.", "payload": {"command": "curl -sS $U -o out"}}
+{"permitted": false, "reason": "FAIL-CLOSED: command appears to reach the network but no URL could be extracted to check against the allowlist. Route fetches through firewall/fetch.py, which logs and checks them.", "payload": {"command": "python3 -c \"import requests;requests.get(U)\""}}
+{"permitted": true, "reason": "bash command has no detectable network egress", "payload": null}
+{"permitted": false, "reason": "FAIL-CLOSED: could not parse hook input (Expecting value: line 1 column 1 (char 0))", "payload": null}

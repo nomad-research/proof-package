@@ -1,0 +1,37 @@
+# Nomad blind-run firewall: PERMITTED domain suffixes.
+# Everything not listed here is denied by default.
+# Per operator instruction: sec.gov + EDGAR, named issuer IR sites,
+# index-provider methodology, exchange notices.
+
+# --- SEC / EDGAR ---
+sec.gov
+www.sec.gov
+data.sec.gov
+efts.sec.gov
+
+# --- index providers (methodology documents) ---
+spglobal.com
+us.spindices.com
+ftserussell.com
+lseg.com
+msci.com
+solactive.com
+nasdaq.com
+indexes.nasdaqomx.com
+crsp.org
+stoxx.com
+ice.com
+theice.com
+bloombergindices.com
+
+# --- exchanges / SROs (notices, rule filings) ---
+nyse.com
+cboe.com
+finra.org
+dtcc.com
+occ.treas.gov
+federalreserve.gov
+ecb.europa.eu
+
+# --- issuer investor-relations hosts ---
+# Added per-event, on request, with the reason recorded in run_log.md.
