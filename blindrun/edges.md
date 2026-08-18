@@ -102,6 +102,50 @@ so the gap between intuition and documentation is visible.
 - Peers of the miner-to-AI-datacentre cohort (the sector SA is concentrated in)
   not held by SA. Same failure.
 
+## Magnitude — a correction to the record
+
+An earlier draft of this log argued that Q3 also failed, on the ground that
+"A-2 found 82.9x ADV produced nothing, and the largest position here is 3x ADV."
+**That comparison was wrong and is withdrawn.**
+
+A-2 defines two different quantities (`tests_a2/pipeline.py:157-158`):
+
+```
+scale     = M / ADV                 <- a multiplier. 82.9 is this.
+imb_ratio = M * r_proxy / ADV       <- the realised flow. This is days of ADV.
+```
+
+`M/ADV = 82.9` only becomes flow once multiplied by the day's return: at r = 1%
+it is **0.83 days of ADV**. A-2's top decile has a mean realised flow of **0.80
+days of ADV**, and the whole A-2 cross-section runs 0.001 to 0.80.
+
+| | days of ADV |
+|---|---|
+| A-2 decile 10 (mean realised flow) | 0.80 |
+| A-2 decile 1 | 0.001 |
+| **SA — Core Scientific** | **3.07** |
+| **SA — SharonAI (incl. warrants)** | **2.80** |
+| SA — Power Solutions | 0.90 |
+| SA — Riot | 0.80 |
+| SA — Nebius | 0.62 |
+
+**The comparison inverts.** SA's two largest positions carry roughly **3.5x the
+flow of A-2's most extreme decile**, and several more sit at the top of A-2's
+range. Q3 is not obviously failed; on the flow measure it is arguably passed.
+
+Two consequences:
+
+1. **My secondary argument for stopping collapses.** Only Q1 binds. The verdict
+   is unchanged because Q1 alone is sufficient, but it now rests on one leg, not
+   two, and that should be visible.
+2. **The operating procedure's own Q3 carries the same conflation.** §2.2 reads
+   *"Calibration from Test A-2: 82.9x ADV in a liquid sector index produced no
+   measurable effect."* That is the multiplier, not the flow. The calibration
+   sentence should read: *A-2 found no measurable effect at realised flows up to
+   ~0.8 days of ADV in liquid sector indices.* Left uncorrected, every future
+   screen inherits a magnitude bar roughly 100x too high and would reject events
+   that A-2 never tested.
+
 ## Quarantine rate
 
 **Edges attempted: 3. Verified: 0. Quarantined: 3. Quarantine rate: 100%.**

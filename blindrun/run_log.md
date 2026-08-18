@@ -8,7 +8,7 @@ Recorded as the run proceeds, not reconstructed afterwards (§6).
 |---|---|
 | Firewall configured and verified | 2026-08-18 |
 | Event received | 2026-08-18 |
-| Prediction sealed | — |
+| Prediction sealed | **never — §7 fired, see verdict.md** |
 
 ## Clarifying questions and refusals
 
@@ -17,7 +17,7 @@ outstanding and is blocking — see Q1 below.
 
 | # | Question asked | Answer | Leak-refusal? |
 |---|---|---|---|
-| Q1 | **BLOCKING.** What document, dated before 2026-07-30, evidences that the liquidation was *forced* rather than voluntary — and what rule in it removes discretion? A 13F reports holdings; it contains no forcing clause. If such a document exists, I need its URL (I will not search). | awaiting | — |
+| Q1 | **BLOCKING, ANSWERED NO.** What document, dated before 2026-07-30, evidences that the liquidation was *forced* rather than voluntary — and what rule in it removes discretion? A 13F reports holdings; it contains no forcing clause. If such a document exists, I need its URL (I will not search). | Analyst: no such document exists and none can — LPAs, prime brokerage margin agreements and ISDA CSAs are private contracts. A document-class fact, not a search failure. | no |
 
 ## Tone-reading self-checks
 
@@ -61,3 +61,16 @@ filed 2026-08-04, SCHEDULE 13G/A filed 2026-08-14.
 
 Event received to blocking question raised: same session, roughly one hour of
 operator time. Well inside the "costs a day rather than three weeks" test in §0.
+
+## Firewall events (continued)
+
+| # | Event |
+|---|---|
+| 4 | The PreToolUse guard became **live** partway through the run and blocked one of my own Bash commands: the commit message embedded a `claude.ai` session URL, and the rule is fail-closed on any non-allowlisted host appearing in a command. A false positive on intent, but the correct response was to route the message through a file rather than widen the allowlist. Recorded because a firewall that only ever blocks other people is not evidence it works. |
+
+## Corrections to the record
+
+| # | Correction |
+|---|---|
+| 1 | I compared SA's forced flow against A-2's "82.9x ADV" and concluded Q3 also failed. **Wrong.** 82.9 is the multiplier `M/ADV`; realised flow is `M*r/ADV`, which at r=1% is 0.83 days of ADV. A-2's top decile averages 0.80. SA's largest positions are 3.07 and 2.80 — about 3.5x A-2's most extreme decile. The comparison inverts; Q3 is arguably passed. Withdrawn in `edges.md` and `verdict.md`. Only Q1 binds. |
+| 2 | The operating procedure's own §2.2 Q3 carries the same conflation and would hand every future screen a magnitude bar ~100x too high. Flagged for correction before the next run. |

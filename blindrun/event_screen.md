@@ -52,3 +52,40 @@ and held by the human analyst for scoring.
 the withheld tickers, that is recorded as a **coincidence flag** in the results.
 It does not invalidate the map — it was built blind — but it must be visible
 rather than buried.
+
+---
+
+## Amendment 2 — Q8, added 2026-08-18, post-hoc and disclosed
+
+> **Q8 — RETRIEVABLE FORCING DOCUMENT.** The document naming the rule that
+> removes discretion must be publicly retrievable at the fire date. Private
+> contracts — prime brokerage margin agreements, LPAs, ISDA CSAs, bilateral
+> covenants — do not qualify regardless of how certain the forcing is.
+
+**Fence:** exclude-only, identical to Q7. It can never admit an event, so it
+cannot manufacture a positive result.
+
+**Why it was needed.** The analyst confirmed that no public document names the
+clause that forced this liquidation, and that none can exist — LPAs, margin
+agreements and CSAs are private contracts. This is a **document-class fact, not
+a search failure**: no amount of looking would have produced it, which is why
+refusing to search was correct and why stopping was correct.
+
+### This is the SECOND post-hoc amendment in a single run
+
+Q7 was added after seeing which candidates passed. Q8 was added after the
+selected event failed to map. Both are exclude-only and both are disclosed, so
+neither can fabricate a hit. But the pattern itself is the warning:
+
+**A third post-hoc amendment in one run would indicate the screen is being
+fitted to the candidates rather than derived from the framework.** Recorded here
+as a tripwire for the next run.
+
+The next run starts fresh with **Q1–Q8 applied from the outset**, rather than
+discovered mid-map.
+
+### No second event in this session
+
+§2.1: if the first qualifying event turns out to be unmappable, that is a result
+— recorded as a failure of *this* event, not as a search for a better one. Per
+the analyst's instruction, no second event is attempted here.
