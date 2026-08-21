@@ -21,9 +21,12 @@ other side rather than from difficulty of enumeration.
 | **B-2** — Extended across the split | Same, on a sample that spans 2012 | **UNREADABLE** (validity failed) — [`tests_b2/`](tests_b2/results.md) |
 | **C** — Gate 1 | Do enumerated destinations predict returns? | **not started, gated** — [`tests_c/`](tests_c/README.md) |
 
-**Start here: [`REPORT.md`](REPORT.md)** — the full record of every attempt in
-one file, including everything that went wrong. `SUMMARY.md` — the cross-test verdict, the
-recommendation on Test C, and the qualifications that matter.
+**Start here: [`REPORT.md`](REPORT.md)** — the full record of every attempt in a
+single file, including a complete account of everything that went wrong.
+
+Also: [`SUMMARY.md`](SUMMARY.md) for the cross-test verdict and the
+recommendation on Test C, and [`blindrun/verdict.md`](blindrun/verdict.md) for
+the one test of the framework itself.
 
 ## Layout
 
@@ -40,6 +43,8 @@ tests_a2/               Test A-2: same mechanic, thin underlyings (Amendment 1)
 tests_b/                Test B: stale information
 tests_b2/               Test B-2: extended across the 2012 split (Amendment 1)
 tests_c/                Test C: gated — not started
+blindrun/               blind prediction test on one real event (NOT OPERABLE)
+firewall/               contamination firewall used for the blind run
 config_log.jsonl        every evaluation ever run, including abandoned ones
 ```
 
