@@ -21,7 +21,8 @@ other side rather than from difficulty of enumeration.
 | **B-2** — Extended across the split | Same, on a sample that spans 2012 | **UNREADABLE** (validity failed) — [`tests_b2/`](tests_b2/results.md) |
 | **C** — Gate 1 | Do enumerated destinations predict returns? | **not started, gated** — [`tests_c/`](tests_c/README.md) |
 
-**Start here: [`SUMMARY.md`](SUMMARY.md)** — the cross-test verdict, the
+**Start here: [`REPORT.md`](REPORT.md)** — the full record of every attempt in
+one file, including everything that went wrong. `SUMMARY.md` — the cross-test verdict, the
 recommendation on Test C, and the qualifications that matter.
 
 ## Layout
