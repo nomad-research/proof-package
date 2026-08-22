@@ -97,6 +97,16 @@ The premise of this test is that thin underlyings carry materially larger forced
 | MATERIALS | 0.194 | 0.00187 | 0% | 1,534 |
 | INDU | 0.192 | 0.00164 | 0% | 1,133 |
 
+> **`M/ADV` is a multiplier, not flow.** Realised forced flow is `M · r / ADV` —
+> the multiplier times the day's return. At a 1% move, a multiplier of 82.9 is
+> **0.83 days of ADV**, and A-2's top decile averaged **0.80 days of ADV** of
+> realised flow across its whole range of 0.001–0.80. So A-2 established that
+> **~0.8 days of ADV produces no measurable effect**, and says nothing about 5x,
+> 10x or 20x ADV — the regime fire sales and forced liquidations occupy. Any
+> screen inheriting the multiplier as though it were flow sets a magnitude bar
+> roughly 100x too high and rejects events A-2 never tested.
+
+
 ## 5. Top-decile strategy, gross and net
 
 Fade the predicted flow in the highest-imbalance decile only: at the close, take the opposite side and exit at the next open.

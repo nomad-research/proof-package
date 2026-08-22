@@ -1,8 +1,8 @@
 # Nomad gate tests — summary and recommendation
 
 **Updated:** 2026-08-17, after Gate Spec Amendment 1.
-**Tests run:** A, B, A-2, B-2. C is gated and not started.
-**Cumulative evaluations logged:** 162 (A 32, B 45, A-2 19, B-2 66), zero failures.
+**Tests run:** A, B, A-2, B-2, **B-3**. C is gated and never started.
+**Cumulative evaluations logged:** 204 (A 32, B 45, A-2 19, B-2 66, B-3 42), zero failures.
 
 | Test | Question | Verdict |
 |---|---|---|
@@ -10,23 +10,26 @@
 | **A-2** | Does it pay where counterparty scarcity is high? | **FAIL — Test A closed permanently** |
 | **B** | Does "public but unconnected" survive post-2012? | **NOT REPLICATED** |
 | **B-2** | Same, on a sample that spans the split | **UNREADABLE** |
+| **B-3** | Same blocks, measured against rates instead of SPY | **VALIDITY PASSES + NO ROBUST EFFECT — STOP TRIGGER FIRES** |
 | **C** | Do enumerated destinations predict returns? | **not started, gated** |
 
 ---
 
 ## The one-paragraph answer
 
-The LETF mechanic is dead in both regimes and Test A is now closed by its own
-pre-registered stopping rule — including in the high-imbalance corner Amendment 1
-correctly identified as the one the original test never touched. The stale-information
-question is **not** answered: three of the four indicator blocks tried fail the
-validity check, which means the instrument cannot see a market reaction even to
-news that genuinely *is* new, and a blind instrument's null says nothing. So the
-project sits in the gap between the amendment's two decision rules: Test A is
-permanently closed, Test C remains gated and unstarted, and the
-stop-permanently trigger has **not** fired because it requires a clean null with
-validity passing. The binding constraint is no longer the hypothesis. It is the
-outcome measurement, and §4 below says exactly how to fix it.
+The LETF mechanic is dead in both regimes and Test A is closed by its own
+pre-registered rule. The stale-information line is now **also** closed, and this
+one is a genuine result rather than a gap: B-3 swapped the outcome variable from
+SPY to rates, confirmed with a positive control that the new instrument
+demonstrably detects macro news (t = 4.68, correct sign, coherent yield/price
+relationship), and **still found no robust response to the already-public
+component of an announcement.** Every earlier null was unreadable because the
+instrument was blind; this one is not. The pre-registered stop trigger fired and
+no fourth instrument will be proposed. Two things remain genuinely open and
+should not be confused with the above: the pre/post-2012 decay question was never
+answered — B1 fails validity even on rates, though the failure is now diagnosed
+as the announcement's silence rather than the instrument's — and the actual
+Gilbert et al. indicator was never tested, because the LEI is proprietary.
 
 ---
 
@@ -50,6 +53,16 @@ variable, which had to be true for the test to have any power:
 | Financials | 9.6 |
 | *S&P 500 (control)* | *2.0* |
 | Industrials | 0.19 |
+
+> **`M/ADV` is a multiplier, not flow.** Realised forced flow is `M · r / ADV` —
+> the multiplier times the day's return. At a 1% move, a multiplier of 82.9 is
+> **0.83 days of ADV**, and A-2's top decile averaged **0.80 days of ADV** of
+> realised flow across its whole range of 0.001–0.80. So A-2 established that
+> **~0.8 days of ADV produces no measurable effect**, and says nothing about 5x,
+> 10x or 20x ADV — the regime fire sales and forced liquidations occupy. Any
+> screen inheriting the multiplier as though it were flow sets a magnitude bar
+> roughly 100x too high and rejects events A-2 never tested.
+
 
 A 400× span from top to bottom. Semiconductors alone carry a rebalance multiplier
 of roughly $145bn against semiconductor-ETF ADV of order $1bn.

@@ -183,6 +183,13 @@ def render(path: Path, panel, diag, recon, curve, top, grad, sp, sp_eff, subsamp
       "before any return result, because if it fails the test has no power regardless of what "
       "the regressions say.")
     A("")
+    A("> **`M/ADV` below is a multiplier, not flow.** Realised flow is `M · r / ADV` — the "
+      "multiplier times the day's return. At a 1% move a multiplier of 82.9 is **0.83 days of "
+      "ADV**, and this test's top decile averaged **0.80 days of ADV** of realised flow. So A-2 "
+      "establishes that ~0.8 days of ADV produces no measurable effect, and says nothing about "
+      "5x, 10x or 20x ADV, which is the regime fire sales occupy. A screen inheriting the "
+      "multiplier as flow sets a bar roughly 100x too high.")
+    A("")
     A("| Underlying | median M/ADV | mean \\|imb ratio\\| | share of top decile | days |")
     A("|---|---|---|---|---|")
     top_dec = panel["decile"].max()

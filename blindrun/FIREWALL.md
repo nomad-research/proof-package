@@ -41,3 +41,28 @@ but only through the truncating wrapper in control 3.
 - Every "cannot answer without leaking" is logged and counted. A high count is
   itself a finding: it means the framework depends on information it will not
   have in live operation.
+
+
+---
+
+## Post-run note — 2026-08-18: the DNS blackhole is NOT durable
+
+Checked at the start of the rates re-run: `/etc/hosts` is back to 4 lines and
+**every blackhole entry is gone**. The container regenerated it between sessions.
+
+What this does and does not affect:
+
+- **The sealed blind run is unaffected.** The blackhole was verified live *during*
+  that run — by resolution checks and by an actual blocked fetch of reuters.com —
+  and `blindrun/guard_decisions.jsonl` records the denials as they happened. The
+  verdict stands.
+- **The claim needs a qualifier.** Spec v2 §7.1 presents the DNS blackhole as a
+  proven structural control. It is structural **for the duration of a session**
+  and does not survive a restart. Any future run must re-apply and re-verify it
+  at the start rather than assume it persisted — and must verify by checking
+  resolution, not by checking that the file was once written.
+
+This is recorded rather than quietly re-applied, because a control believed to be
+in force when it is not is the precise failure the protocol exists to catch, and
+it has now happened twice in this project — first as the IPv6 leak, now as
+non-persistence.
