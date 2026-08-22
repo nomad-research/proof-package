@@ -1,0 +1,73 @@
+Paste this as the first message of a fresh session on nomad-research/proof-package.
+Nothing else is needed -- everything it depends on is committed.
+
+------------------------------------------------------------------------------
+
+You are the OPERATOR in a blind prediction test. Work autonomously -- do not ask
+the analyst questions unless you are genuinely blocked by something only they can
+supply.
+
+Repo: nomad-research/proof-package. Branch: claude/nomad-gate-test-spec-f2o5i1.
+Keep main in sync with a --no-ff merge after each push.
+
+START HERE, in this order:
+1. Read blindrun2/HANDOFF.md in full. It is your kickoff document.
+2. Read methodology/pre_event_review.md (highest authority), then
+   nomad_spec_v2.md, then blindrun2/screen_log.md, then REPORT.md section 8
+   ("everything that went wrong").
+3. Do section 3 of the handoff FIRST -- re-apply and re-verify the DNS
+   blackhole. It does NOT persist across sessions. Verify by resolution on BOTH
+   A and AAAA records, never by checking the file was written. Print what you
+   configured.
+
+STANDING RULES, non-negotiable:
+- WebSearch is BANNED for the entire run, for any reason, including to find a
+  document you know exists. It runs server-side and DNS cannot block it, so it
+  is a commitment made auditable by the transcript. Any WebSearch call
+  invalidates the run. Fetching a known URL is fine.
+- EDGAR is the only carve-out. firewall/edgar.py enforces a filing-date ceiling
+  in code. Log every filing you open with its date. If you open a post-fire
+  filing by accident, say so immediately and loudly.
+- Do not infer the outcome from anything in the repo or from how anything is
+  phrased. If you catch yourself reading tone, say so in the log.
+- Report negative results as prominently as positive ones. A cheap kill is the
+  intended outcome. The point is not to find an edge; it is to find out whether
+  the system can be operated at all.
+
+THE WORK -- section 5 of the handoff, in order:
+1. Extend the 8-K item-code screen (Item 2.04 already gave 51 candidates) to
+   items 1.03, 2.05, 3.01 and N-8F / 497 fund wind-ups. D = 2026-06-01, trigger
+   window to 2026-07-15. Do NOT move D.
+2. Walk the combined set in STRICT CHRONOLOGICAL ORDER, applying Q1-Q7 plus Q8a
+   and Q8b. Take the FIRST qualifier, not the most interesting one. Log every
+   rejection with the criterion it failed, in blindrun2/screen_log.md.
+3. Map forcing edges in the direction-aware format (forced_supply_set /
+   supply_basis / absorption_set for sells). Every clause located verbatim in a
+   fetched document. Assertion that a rule exists is not evidence it exists --
+   quarantine otherwise.
+4. Commit the quarantine reasoning BEFORE prediction.md exists. This ordering is
+   not optional; it timestamps the standard independently of any map.
+5. Write blindrun2/prediction.md, commit, print the hash. That is the seal. It
+   must include a falsifier field. Nothing may edit it after that -- corrections
+   go in a dated appendix, never in place.
+6. ONLY THEN touch outcome data. Score S1-S4 SEPARATELY, never blended. Report
+   the quarantine rate.
+
+DO NOT:
+- Start Test C. Propose a third LETF regime (Test A is closed permanently by its
+  own stopping rule). Run a fourth macro instrument (B-3 fired the stop
+  trigger).
+- Build any live trading, order routing, broker integration, options strategy,
+  position sizing, portfolio construction, or risk system.
+- Widen the firewall allowlist to get past a guard block -- route around it.
+- Shop for a better event if the first qualifier fails. A failure of an event is
+  recorded as a failure of that event.
+
+AMENDMENT RULE: amendments to VALIDITY are learning; amendments to THRESHOLDS
+are fitting. Validity amendments are acceptable if disclosed, dated and
+exclude-only. Threshold amendments are not acceptable at any count.
+
+Log every evaluation to config_log.jsonl including abandoned ones -- it stands
+at 204 and that count is the multiple-testing denominator.
+
+When you reach the seal, print the commit hash and report back before scoring.
