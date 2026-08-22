@@ -114,8 +114,9 @@ def build_panel(cfg: dict) -> tuple[pd.DataFrame, dict]:
 
 # ------------------------------------------------------------------ PIT prediction
 
-def add_predictions(df: pd.DataFrame, cfg: dict) -> pd.DataFrame:
+def add_predictions(df: pd.DataFrame, cfg: dict, min_train: int | None = None) -> pd.DataFrame:
     """Expanding-window OLS using only months already released at each decision point."""
+    min_train = MIN_TRAIN if min_train is None else min_train
     pred_cols = [s for s, _ in cfg["predictors"]]
     d = df.copy()
     d["y_lag1"] = d["y"].shift(1)
@@ -127,7 +128,7 @@ def add_predictions(df: pd.DataFrame, cfg: dict) -> pd.DataFrame:
     r2s = np.full(len(d), np.nan)
     for i in range(len(d)):
         train = d.iloc[:i]                      # strictly earlier releases only
-        if len(train) < MIN_TRAIN:
+        if len(train) < min_train:
             continue
         X = sm.add_constant(train[feats].values, has_constant="add")
         beta, *_ = np.linalg.lstsq(X, train["y"].values, rcond=None)
@@ -159,6 +160,10 @@ def add_market(d: pd.DataFrame) -> pd.DataFrame:
     spy["spread_bps"] = tick_spread_bps(spy["close"], ticks=2.0)
     # forward 5-day return from the release close, for the reversal leg
     spy["fwd5"] = spy["close"].shift(-5) / spy["close"] - 1.0
+    # Macro releases land at 08:30 ET, before the open. The overnight window
+    # (prior close -> release-day open) brackets the announcement; the
+    # close-to-close window adds 6.5 hours of unrelated news on top of it.
+    spy["ret_on"] = spy["open"] / spy["close"].shift(1) - 1.0
 
     idx = spy.index
     out = d.copy()
@@ -169,7 +174,8 @@ def add_market(d: pd.DataFrame) -> pd.DataFrame:
             continue
         keep.append(i)
         rec.append({
-            "r_rel": spy.at[rd, "ret"], "fwd5": spy.at[rd, "fwd5"],
+            "r_rel": spy.at[rd, "ret"], "r_rel_on": spy.at[rd, "ret_on"],
+            "fwd5": spy.at[rd, "fwd5"],
             "sigma": spy.at[rd, "sigma"], "adv": spy.at[rd, "adv"],
             "spread_bps": spy.at[rd, "spread_bps"],
         })
@@ -184,9 +190,9 @@ def add_market(d: pd.DataFrame) -> pd.DataFrame:
 # ------------------------------------------------------------------ tests
 
 def regress(d: pd.DataFrame, label: str, params: dict, interaction: bool = False,
-            reported: bool = False) -> dict:
-    dd = d.dropna(subset=["r_rel", "predicted_z", "surprise_z"]).copy()
-    res = {"label": label, "n_obs": len(dd)}
+            reported: bool = False, dep: str = "r_rel") -> dict:
+    dd = d.dropna(subset=[dep, "predicted_z", "surprise_z"]).copy()
+    res = {"label": label, "n_obs": len(dd), "dep": dep}
     if len(dd) < 40:
         res["note"] = "insufficient observations"
         LOG.log(params, description=label, outcome=res, status="skipped:insufficient_n")
@@ -199,7 +205,7 @@ def regress(d: pd.DataFrame, label: str, params: dict, interaction: bool = False
         X["surprise_z_post"] = X["surprise_z"] * post
         X["post"] = post
     X = sm.add_constant(X)
-    m = sm.OLS(dd["r_rel"].astype(float), X.astype(float)).fit(
+    m = sm.OLS(dd[dep].astype(float), X.astype(float)).fit(
         cov_type="HAC", cov_kwds={"maxlags": 3})
 
     res.update({
@@ -222,7 +228,7 @@ def regress(d: pd.DataFrame, label: str, params: dict, interaction: bool = False
     return res
 
 
-def influence_check(d: pd.DataFrame, label: str, params: dict) -> dict:
+def influence_check(d: pd.DataFrame, label: str, params: dict, dep: str = "r_rel") -> dict:
     """How much of the result rests on a handful of observations?
 
     Refits after dropping the k observations with the largest Cook's distance. A
@@ -231,12 +237,12 @@ def influence_check(d: pd.DataFrame, label: str, params: dict) -> dict:
     contains points with enormous leverage by construction. Added as amendment 2;
     see the pre-registration.
     """
-    dd = d.dropna(subset=["r_rel", "predicted_z", "surprise_z"]).copy()
+    dd = d.dropna(subset=[dep, "predicted_z", "surprise_z"]).copy()
     if len(dd) < 40:
         return {"note": "insufficient observations"}
 
     X = sm.add_constant(dd[["predicted_z", "surprise_z"]].astype(float))
-    y = dd["r_rel"].astype(float)
+    y = dd[dep].astype(float)
     base = sm.OLS(y, X).fit()
     cooks = base.get_influence().cooks_distance[0]
     order = np.argsort(-cooks)

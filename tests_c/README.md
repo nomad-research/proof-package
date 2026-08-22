@@ -6,9 +6,22 @@ Specification §4 opens with: *"This is the actual gate. Tests A and B are cheap
 proxies; this tests the framework directly. **Do not start it before A and B
 return.**"*
 
-A and B have returned. See [`../tests_a/results.md`](../tests_a/results.md) and
-[`../tests_b/results.md`](../tests_b/results.md) for the verdicts and for the
-gating recommendation each one makes.
+A, A-2, B and B-2 have all returned. Gate Spec Amendment 1 §3 narrows the gate
+further: **Test C may begin only on a positive B-2 result or a positive A-2
+gradient result.** Neither occurred — A-2 was decisively null on every
+pre-registered statistic and closed Test A permanently, and B-2 failed its
+validity check and is unreadable.
+
+One distinction matters more than the verdicts themselves. The
+**stop-permanently trigger did not fire**: it requires a clean null *with
+validity passing*, and validity did not pass. The "public but unconnected"
+mechanism has therefore not been shown to lack empirical support — it has not yet
+been tested with a working instrument. Treating B-2's unreadable result as a
+negative is the easiest available mistake, and the one the pre-registrations were
+written to prevent.
+
+See [`../SUMMARY.md`](../SUMMARY.md) for the cross-test position and for the
+one-day fix that would make every block already run readable.
 
 Test C costs roughly three weeks. Ordering the tests by cost-per-bit was done
 precisely so that the decision to spend it could be taken for the price of a few
