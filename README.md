@@ -21,6 +21,8 @@ other side rather than from difficulty of enumeration.
 | **B-2** — Extended across the split | Same, on a sample that spans 2012 | **UNREADABLE** (validity failed) — [`tests_b2/`](tests_b2/results.md) |
 | **B-3** — Rates re-run | Same blocks, measured against rates instead of SPY | **STOP TRIGGER FIRES** — [`tests_b3/`](tests_b3/results.md) |
 | **C** — Gate 1 | Do enumerated destinations predict returns? | **not started, gated** — [`tests_c/`](tests_c/README.md) |
+| **Blind run** — SA LP | Can the framework be operated on one real event? | **NOT OPERABLE** for that event — [`blindrun/`](blindrun/verdict.md) |
+| **Blind run 2** — self-screened | Can a qualifying event be found at all, from a fixed date? | **NOT OPERABLE — 175 candidates, 0 qualifiers** — [`blindrun2/`](blindrun2/verdict.md) |
 
 **Start here: [`REPORT.md`](REPORT.md)** — the full record of every attempt in a
 single file, including a complete account of everything that went wrong.
@@ -48,6 +50,8 @@ tests_b3/               Test B-3: rates re-run (spec v2) — the first readable 
 tests_c/                Test C: gated — not started
 methodology/            decisions taken cold, before the next real-events run
 blindrun/               blind prediction test on one real event (NOT OPERABLE)
+blindrun2/              operator self-screened run: 175 candidates, 0 qualifiers (NOT OPERABLE)
+nomad_spec_v2.md        the authoritative spec — Q1-Q8, edge format, blind-run protocol
 firewall/               contamination firewall used for the blind run
 config_log.jsonl        every evaluation ever run, including abandoned ones
 ```
