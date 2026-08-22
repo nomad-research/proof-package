@@ -19,19 +19,21 @@ other side rather than from difficulty of enumeration.
 | **A-2** — LETF in thin underlyings | Does it pay where counterparty scarcity is high? | **FAIL — Test A closed permanently** — [`tests_a2/`](tests_a2/results.md) |
 | **B** — Stale information | Does "public but unconnected" survive post-2012? | **NOT REPLICATED** — [`tests_b/`](tests_b/results.md) |
 | **B-2** — Extended across the split | Same, on a sample that spans 2012 | **UNREADABLE** (validity failed) — [`tests_b2/`](tests_b2/results.md) |
+| **B-3** — Rates re-run | Same blocks, measured against rates instead of SPY | **STOP TRIGGER FIRES** — [`tests_b3/`](tests_b3/results.md) |
 | **C** — Gate 1 | Do enumerated destinations predict returns? | **not started, gated** — [`tests_c/`](tests_c/README.md) |
 
 **Start here: [`REPORT.md`](REPORT.md)** — the full record of every attempt in a
 single file, including a complete account of everything that went wrong.
 
-Also: [`SUMMARY.md`](SUMMARY.md) for the cross-test verdict and the
-recommendation on Test C, and [`blindrun/verdict.md`](blindrun/verdict.md) for
-the one test of the framework itself.
+Also: [`SUMMARY.md`](SUMMARY.md) for the cross-test verdict,
+[`tests_b3/results.md`](tests_b3/results.md) for the only readable negative the
+project produced, and [`blindrun/verdict.md`](blindrun/verdict.md) for the one
+test of the framework itself.
 
 ## Layout
 
 ```
-nomad/infra/            shared infrastructure, built once, used by all three tests
+nomad/infra/            shared infrastructure, built once, used by every test
   config_logger.py        append-only evaluation log — the multiple-testing denominator
   deflated_sharpe.py      Bailey & López de Prado DSR + CSCV probability of overfitting
   pit_corpus.py           point-in-time document store (valid_from / known_from / retrieved_at)
@@ -42,6 +44,7 @@ tests_a/                Test A: LETF rebalancing, mega-cap index underlyings
 tests_a2/               Test A-2: same mechanic, thin underlyings (Amendment 1)
 tests_b/                Test B: stale information
 tests_b2/               Test B-2: extended across the 2012 split (Amendment 1)
+tests_b3/               Test B-3: rates re-run (spec v2) — the first readable null
 tests_c/                Test C: gated — not started
 blindrun/               blind prediction test on one real event (NOT OPERABLE)
 firewall/               contamination firewall used for the blind run

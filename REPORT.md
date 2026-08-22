@@ -1,8 +1,10 @@
 # Nomad — full record of every attempt
 
 One file, everything. Written to be read start to finish without opening
-anything else. Five attempts, **none of which produced a positive result**, plus
-the things that went wrong along the way — which is most of the value here.
+anything else. Six attempts, **none of which produced a positive result** — but
+the last one produced the project's first *readable* negative, which is a
+different and more useful thing. Plus everything that went wrong along the way,
+which is most of the value here.
 
 Last updated 2026-08-18. Branch `claude/nomad-gate-test-spec-f2o5i1`.
 
@@ -13,11 +15,12 @@ Last updated 2026-08-18. Branch `claude/nomad-gate-test-spec-f2o5i1`.
 3. [Test B — Stale information](#3-test-b--stale-information)
 4. [Test A-2 — LETF rebalancing, thin underlyings](#4-test-a-2--letf-rebalancing-thin-underlyings)
 5. [Test B-2 — Stale information across the 2012 split](#5-test-b-2--stale-information-across-the-2012-split)
-6. [Blind run — Situational Awareness LP](#6-blind-run--situational-awareness-lp)
-7. [Everything that went wrong](#7-everything-that-went-wrong)
-8. [Amendments made after seeing results](#8-amendments-made-after-seeing-results)
-9. [What was built](#9-what-was-built)
-10. [Where this leaves the project](#10-where-this-leaves-the-project)
+6. [Test B-3 — the rates re-run](#6-test-b-3--the-rates-re-run)
+7. [Blind run — Situational Awareness LP](#7-blind-run--situational-awareness-lp)
+8. [Everything that went wrong](#8-everything-that-went-wrong)
+9. [Amendments made after seeing results](#9-amendments-made-after-seeing-results)
+10. [What was built](#10-what-was-built)
+11. [Where this leaves the project](#11-where-this-leaves-the-project)
 
 ---
 
@@ -29,16 +32,20 @@ Last updated 2026-08-18. Branch `claude/nomad-gate-test-spec-f2o5i1`.
 | A-2 | LETF, thin underlyings | Does it pay where counterparty scarcity is high? | **FAIL — Test A closed permanently** |
 | B | Stale information | Does "public but unconnected" survive post-2012? | **NOT REPLICATED** |
 | B-2 | Extended across the split | Same, on a sample spanning 2012 | **UNREADABLE** (instrument failed) |
+| **B-3** | **Rates re-run** | **Same blocks, measured against rates instead of SPY** | **VALIDITY PASSES + NO ROBUST EFFECT — STOP TRIGGER FIRES** |
 | — | Blind run (SA LP) | Can the framework be operated on one real event? | **NOT OPERABLE** for that event |
 | C | Gate 1 | Do enumerated destinations predict returns? | **never started** — gated, gate never opened |
 
-**Cumulative evaluations logged: 162** (A 32, B 45, A-2 19, B-2 66), zero
-failures, 160 distinct configurations. Every Deflated Sharpe Ratio is computed
+**Cumulative evaluations logged: 204** (A 32, B 45, A-2 19, B-2 66, B-3 42), zero
+failures, 181 distinct configurations. Every Deflated Sharpe Ratio is computed
 against that cumulative count, read from `config_log.jsonl` rather than asserted.
 
-**Nothing here is statistical evidence against the thesis.** Four tests measured
-assumptions underneath the framework and one measured the framework itself. What
-they establish is narrower, and mostly about operability.
+**What changed with B-3.** Every earlier null was *unreadable* — the instrument
+could not detect a reaction even to genuinely new information, so its silence on
+stale information meant nothing. B-3 fixed the instrument, confirmed it works
+against a positive control, and got a null anyway. That is the first result in
+this project that can actually be interpreted, and it fires the pre-registered
+stop trigger.
 
 ---
 
@@ -173,6 +180,16 @@ The correction was right and was accepted without reservation.
 | *S&P 500 (control)* | *2.0* |
 | Industrials | 0.19 |
 
+> **`M/ADV` is a multiplier, not flow.** Realised forced flow is `M · r / ADV` —
+> the multiplier times the day's return. At a 1% move, a multiplier of 82.9 is
+> **0.83 days of ADV**, and A-2's top decile averaged **0.80 days of ADV** of
+> realised flow across its whole range of 0.001–0.80. So A-2 established that
+> **~0.8 days of ADV produces no measurable effect**, and says nothing about 5x,
+> 10x or 20x ADV — the regime fire sales and forced liquidations occupy. Any
+> screen inheriting the multiplier as though it were flow sets a magnitude bar
+> roughly 100x too high and rejects events A-2 never tested.
+
+
 A 400× span. 33,284 underlying-days, 23 underlyings (19 thin + 4 index controls),
 2020-07 to 2026-08.
 
@@ -276,7 +293,96 @@ not pass.
 
 ---
 
-## 6. Blind run — Situational Awareness LP
+## 6. Test B-3 — the rates re-run
+
+**Verdict: VALIDITY PASSES + NO ROBUST EFFECT — STOP TRIGGER FIRES.**
+Full detail: `tests_b3/results.md`.
+
+### Why this ran
+
+All four earlier macro blocks used SPY, and three of four failed the validity
+check. An equity index's daily return is dominated by everything other than a
+macro release; the front end of the Treasury curve reprices sharply on inflation
+and activity data. Gilbert et al. used Treasury futures alongside the S&P for
+exactly this reason, and the original spec never questioned the SPY choice.
+
+**Only the outcome variable changed.** Vintage assembly, first prints,
+archive-measured release dates, ordering verification, the expanding-window
+prediction and the hurdle are byte-identical to the runs that produced the SPY
+results. Three outcomes: `DGS2` yield change (primary), `TLT` and `IEF` returns.
+The overnight window was registered **in advance** this time, removing the fence
+that was needed when it was added mid-run.
+
+### Step 1 — validity, reported before any other coefficient
+
+| Block | Best t (surprise) across outcomes | Pass? |
+|---|---|---|
+| B1 — Industrial Production | 2.22 | **no** |
+| **B2 — CFNAI** (positive control) | **4.68** | **yes** — 3 of 5 outcomes |
+| B-2 — core PCE | 0.96, and **wrong sign** on 3 of 5 | **no** |
+
+**3 of 15** block-outcome combinations pass.
+
+**The positive control did its job.** CFNAI passed validity on SPY at 4.51 and
+passes on rates at 4.68. The rates instrument demonstrably detects macro news, so
+a null from it is readable rather than blind — which is the entire point of the
+exercise.
+
+A coherence check that SPY could never have provided also holds for all three
+blocks: yields and bond prices move in **opposite** directions on the same
+surprise, confirming the instrument measures what it is meant to.
+
+### Step 2 — the predictable component, on the readable block
+
+| Combination | raw t | after dropping 1 | 2 | 3 | 5 |
+|---|---|---|---|---|---|
+| CFNAI / TLT close-to-close | **−2.98** | −1.00 | 0.92 | −0.58 | −0.44 |
+| CFNAI / IEF close-to-close | **−3.55** | −1.39 | −1.36 | −4.67 | −4.68 |
+| CFNAI / IEF overnight | −1.83 | −3.89 | −0.37 | 0.32 | 0.36 |
+
+Two of three clear the hurdle in raw form. **This is not a flat zero and is not
+described as one.** But none survives the pre-registered influence diagnostic:
+dropping a **single** observation takes the strongest from −2.98 to −1.00, and
+the three most influential releases are the same COVID dates that drove the SPY
+result — March, April and May 2020.
+
+The second row is the more instructive one. It swings −3.55 → −1.39 → −1.36 →
+−4.67 → −4.68 depending on which points are removed. A coefficient with a real
+effect behind it does not behave like that; a small sample steered by its
+extremes does.
+
+### The prize was not won
+
+**B1 still fails validity**, on all five outcomes, best t = 2.22. The
+pre/post-2012 split — the primary output the whole B-line was built to deliver —
+**remains unanswered**.
+
+But the *reason* changed, and that is worth recording. Previously B1's failure
+was ambiguous: a blind instrument and a silent announcement look identical from
+the outside. Now the instrument is demonstrably not blind, because the control
+clears the hurdle on the same data. So the failure is attributable to the
+announcement: **industrial production surprises do not measurably move the front
+end.** The split is now unanswerable *demonstrably* rather than presumptively.
+
+Core PCE's failure is also better diagnosed: it fails validity with the **wrong
+sign** on three of five outcomes, which is further evidence it was a weak
+analogue all along rather than a good one poorly measured.
+
+### The stop trigger
+
+Pre-registered before running: *validity passes + null → the stop trigger fires;
+state it plainly, do not soften it, do not propose a fourth instrument.*
+
+Validity passes. No robust effect. **The trigger fires.** On the one indicator a
+working instrument can read, there is no robust market response to the
+already-public component of a composite announcement.
+
+This is **the first clean stop in the project.** Every previous null was
+unreadable. This one is not.
+
+---
+
+## 7. Blind run — Situational Awareness LP
 
 **Verdict: NOT OPERABLE for this event.** Full detail: `blindrun/verdict.md`.
 
@@ -343,7 +449,7 @@ Q8 excludes: forcing documented only privately  (margin, LPA, CSA, covenants)
 
 ---
 
-## 7. Everything that went wrong
+## 8. Everything that went wrong
 
 The most useful section. Every error, bug and dead end, including mine.
 
@@ -364,20 +470,21 @@ The most useful section. Every error, bug and dead end, including mine.
 | 6 | **IPv4-only DNS blackhole** — the first firewall attempt blocked only A records. | reuters.com and google.com resolved over IPv6 and stayed **fully reachable**. A firewall believed to work but not working is exactly the failure the protocol exists to catch. Fixed with `::` entries before the run began. |
 | 7 | **PreToolUse hook not live mid-session** — project settings are read at session start. | Verified empirically (a fetch to a non-allowlisted host succeeded) rather than assumed. Primary enforcement fell to DNS plus wrappers. The hook did go live later. |
 | 8 | **B-2 sample guard fired on its own mis-calibrated tripwire** — a fixed 2004 start date proxying for "enough pre-2012 data". | Relaxed **after firing**. The substantive condition it proxied for passes by a factor of two (83 against 40 required), and the arithmetic ruling out truncation is recorded. |
-| 9 | **The guard blocked me four times, all false positives.** (a) A commit message embedding a session URL. (b) Writing this very report, whose prose names a network tool. (c) A commit message using an ordinary English word that also happens to be the name of a text-mode browser. (d) The follow-up commit describing (b) and (c), which therefore contained both trigger words. The rule is fail-closed on any network-tool mention with no extractable URL. | Every time the fix was to route around it — a message file, then a non-network write tool, then a reword — **never** to widen the allowlist. This is the real cost of fail-closed and it is worth paying: the same rule that trips on ordinary prose is the rule that would stop an actual unchecked fetch. It is most annoying exactly when it is working. Note (d) especially: writing *about* the firewall's trigger words is enough to trip it, which is a genuine ergonomic flaw rather than a virtue. |
+| 9 | **The DNS blackhole did not survive the session.** Checked at the start of the rates re-run: `/etc/hosts` was back to 4 lines with every blackhole entry gone — the container regenerates it. | The sealed blind run is unaffected: the blackhole was verified live *during* that run, by resolution checks and an actually-blocked fetch, and the guard log records the denials as they happened. But the control is structural **only within a session**, and spec v2 §7.1 presents it as a proven configuration without that qualifier. A future run must re-apply and re-verify at the start rather than assume persistence. Recorded rather than quietly re-applied — a control believed to be in force when it is not is the exact failure the protocol exists to catch, and that has now happened **twice**: first the IPv6 leak, now non-persistence. |
+| 10 | **The guard blocked me four times, all false positives.** (a) A commit message embedding a session URL. (b) Writing this very report, whose prose names a network tool. (c) A commit message using an ordinary English word that also happens to be the name of a text-mode browser. (d) The follow-up commit describing (b) and (c), which therefore contained both trigger words. The rule is fail-closed on any network-tool mention with no extractable URL. | Every time the fix was to route around it — a message file, then a non-network write tool, then a reword — **never** to widen the allowlist. This is the real cost of fail-closed and it is worth paying: the same rule that trips on ordinary prose is the rule that would stop an actual unchecked fetch. It is most annoying exactly when it is working. Note (d) especially: writing *about* the firewall's trigger words is enough to trip it, which is a genuine ergonomic flaw rather than a virtue. |
 
 ### Data dead ends
 
 | # | Source | Outcome |
 |---|---|---|
-| 10 | Direxion historical NAV / shares outstanding | 403 to automated access; only a current-day holdings snapshot. Worked around via SEC N-PORT quarterly anchors. |
-| 11 | Chicago Fed CFNAI release archive | Client-side rendered, no data endpoint; archive path 404s. Killed the CFNAI extension outright. |
-| 12 | Stooq | JavaScript proof-of-work challenge |
-| 13 | `yfinance` package | SSL failures through the outbound proxy; replaced with direct requests |
-| 14 | ALFRED multi-vintage request | Silently returns only the first vintage — needed **about 1,100 individual requests** instead |
-| 15 | Wayback Machine | Blocked by egress policy |
-| 16 | Free intraday history | About 60 days at 30m, 730 days at 1h. Killed Test A's 2010–present impact leg; only the overnight leg survived. |
-| 17 | N-PORT for ERY, NUGT, YANG, NAIL, TMV | Zero observations returned — excluded from A-2 |
+| 11 | Direxion historical NAV / shares outstanding | 403 to automated access; only a current-day holdings snapshot. Worked around via SEC N-PORT quarterly anchors. |
+| 12 | Chicago Fed CFNAI release archive | Client-side rendered, no data endpoint; archive path 404s. Killed the CFNAI extension outright. |
+| 13 | Stooq | JavaScript proof-of-work challenge |
+| 14 | `yfinance` package | SSL failures through the outbound proxy; replaced with direct requests |
+| 15 | ALFRED multi-vintage request | Silently returns only the first vintage — needed **about 1,100 individual requests** instead |
+| 16 | Wayback Machine | Blocked by egress policy |
+| 17 | Free intraday history | About 60 days at 30m, 730 days at 1h. Killed Test A's 2010–present impact leg; only the overnight leg survived. |
+| 18 | N-PORT for ERY, NUGT, YANG, NAIL, TMV | Zero observations returned — excluded from A-2 |
 
 ### Things that worked and are worth keeping
 
@@ -394,7 +501,7 @@ The most useful section. Every error, bug and dead end, including mine.
 
 ---
 
-## 8. Amendments made after seeing results
+## 9. Amendments made after seeing results
 
 Eight across the project. Each dated and disclosed in the relevant
 `preregistration.md`, never edited in silently.
@@ -410,6 +517,11 @@ Eight across the project. Each dated and disclosed in the relevant
 | 7 | B-2 | Sample guard tripwire replaced with an arithmetic check | after — no result threshold touched |
 | 8 | B-2 | Dual event window, selected on the *validity* statistic | **after** — could have manufactured readability, so fenced |
 
+**B-3 added none.** The overnight window and the validity-first ordering were
+both registered *in advance* this time, precisely because they had to be fenced
+when introduced mid-run. That is the amendment rule working: the fix for a
+post-hoc amendment is to pre-register it next time, not to keep fencing it.
+
 The two that could have strengthened a finding (6, 8) are fenced explicitly:
 neither forms part of a pass condition, both are applied to all rows rather than
 selectively, and **neither changed a verdict**.
@@ -422,7 +534,7 @@ would mean the screen is being fitted to the candidates rather than derived.**
 
 ---
 
-## 9. What was built
+## 10. What was built
 
 Shared infrastructure, unit tested (**25/25 passing**), used across all tests:
 
@@ -443,44 +555,72 @@ never opened.
 
 ---
 
-## 10. Where this leaves the project
+## 11. Where this leaves the project
 
-**Settled:**
+### Settled
 
 - **Test A is closed permanently**, in both the liquid and illiquid regimes, by
   its own pre-registered stopping rule.
-- **Test C never started.** The gate required a positive A-2 gradient or a
-  positive B-2 result. Neither occurred.
+- **The stale-information line is closed.** B-3 fired the pre-registered stop
+  trigger: a working instrument, verified against a positive control, returns no
+  robust response to the already-public component of a composite announcement.
+  Per the pre-registration, **no fourth instrument will be proposed.**
+- **Test C never started.** The gate required a positive result upstream. It
+  never came.
 
-**Not settled, and this distinction matters most:**
+### The one thing B-3 changed, and it matters
 
-- **The stale-information question is unanswered, not answered negatively.**
-  Three of four indicator blocks failed the validity check — the instrument could
-  not see a reaction even to genuinely new news. A blind instrument's null
-  carries no information. Treating B-2's unreadable result as a negative is the
-  easiest available mistake.
-- **No decay half-life was ever measured.** The framework's invented "12–36
-  month" clock is **unsupported, not refuted** — and now demonstrably untested.
+Every earlier null in this project was **unreadable**. Three of four SPY blocks
+could not detect a reaction even to genuinely new information, and a blind
+instrument's silence carries no information. The honest position after five
+attempts was *"we do not know"* — not *"there is nothing there."*
 
-**The highest-value next step, and it costs a day:**
+B-3 closes that gap. The rates instrument sees macro news (control at t = 4.68,
+correct sign, coherent yield/price relationship) and still finds nothing in the
+predictable component. **That is a real negative result, not an absence of
+evidence.** It is the only interpretable finding the project has produced about
+the mechanism underneath the enumeration thesis.
 
-Every block used **SPY** as the outcome variable. Macro announcement studies use
-**interest-rate futures**, because the front end reprices sharply on inflation
-and activity data while an equity index's day is dominated by everything else —
-Gilbert et al. used Treasury futures alongside the S&P. Re-running the existing,
-already-built machinery against a rates instrument (TLT/IEF daily, or 2-year
-yields from FRED, both free) would make **every block already run readable**,
-including the pre/post-2012 split that Tests B and B-2 were both built to deliver
-and neither could.
+### What remains genuinely open
 
-After that, in order: buy intraday index data back to 2010 for Test A's untested
-impact leg; and correct the spec's Q3 magnitude line before any future screen
-inherits a bar 100× too high.
+- **The pre/post-2012 decay question is still unanswered.** B1 was the only block
+  spanning 2012 and it fails validity even on rates. The difference now is that
+  the failure is *diagnosed*: industrial production surprises do not move the
+  front end, so the silence is the announcement's, not the instrument's.
+- **No decay half-life was ever measured.** The invented "12–36 month" clock is
+  unsupported, not refuted — and demonstrably untested.
+- **The LEI test itself was never run.** Gilbert et al.'s actual indicator is
+  proprietary. Everything here used substitutes.
+- **Nothing here is statistical evidence about enumeration.** Five of six tests
+  measured assumptions *underneath* the framework. The one that measured the
+  framework directly stalled on document class, not on prediction quality.
 
-**On the framework itself:** the blind run's finding has the longest reach. The
-verification standard is correct — it is what prevents plausible citations to
-rules that do not exist — but it excludes private-contract forcing entirely, and
-that is where the largest price-insensitive flows live. Combined with Q7's
+### The framework constraint that outlives all of it
+
+From the blind run, and independent of every result above: **the verification
+standard structurally excludes private-contract forcing.** Margin agreements,
+LPAs, ISDA CSAs and bilateral covenants are where the largest and most
+price-insensitive forced flows live, and none is public. Combined with Q7's
 exclusion of pre-published destinations, the addressable universe is materially
-smaller than the thesis has been assuming. That conclusion does not depend on any
-prediction being right or wrong.
+smaller than the thesis assumed.
+
+That conclusion does not depend on any prediction being right or wrong, and it is
+the finding most worth carrying forward.
+
+### If anything continues
+
+Not a recommendation to continue — the stop conditions fired and the honest
+reading is that they should be respected. But if work does continue, the order
+that follows from what was actually learned:
+
+1. **Settle the Q8 relaxation cold**, against no candidate, as spec v2 §3.1
+   requires. The blind run showed Q7 and Q8 together may leave the universe
+   nearly empty. That question is decidable on paper and costs nothing.
+2. **Buy LEI vintage data** and run the real Gilbert et al. replication. B-3
+   established the instrument; it did not establish the indicator. This is the
+   only remaining way to test the actual published claim rather than a substitute.
+3. **Intraday index data to 2010** for Test A's untested impact leg — the one leg
+   the LETF work never reached.
+
+What should *not* happen: a fourth macro instrument, a third LETF regime, or
+Test C on the strength of anything above.
