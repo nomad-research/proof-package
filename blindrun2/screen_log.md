@@ -265,3 +265,31 @@ the direction of the error is conservative — it can only *remove* candidates,
 never manufacture one.
 
 **Pool carried into the walk: 166 8-K filings + 9 N-8F = 175 candidates.**
+
+---
+
+## Walk complete — 175 candidates, 0 qualifiers. See `verdict.md`.
+
+The chronological walk was performed over the full 175-candidate pool in strict
+`(filing date, accession)` order, with criteria applied in numerical order and
+the first failure recorded. **No candidate qualified.**
+
+| Criterion | First failures |
+|---|---:|
+| **Q1** citable forcing | 99 |
+| **Q7** enumeration content | 37 |
+| **Q2** price insensitivity | 34 |
+| **Q3** magnitude floor | 5 |
+| | **175** |
+
+**Nothing reached Q4**, so Q8a and Q8b — the criteria this whole methodology
+review was built around, and the ones that ended blind run 1 — were never
+exercised by a single candidate.
+
+Per-candidate log: `walk_log.md`. Verdict and reasoning: `verdict.md`.
+Robustness of the two interpretive calls that carried the largest blocks:
+`robustness.py` — withdrawing either leaves every affected candidate rejected.
+
+**Stop condition fired (spec v2 §7.4, first clause): no event satisfies Q1–Q8b.**
+Recorded against the screen, not against any event, because no event was ever
+selected. No prediction was sealed and no outcome data was touched.
