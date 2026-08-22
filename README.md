@@ -46,6 +46,7 @@ tests_b/                Test B: stale information
 tests_b2/               Test B-2: extended across the 2012 split (Amendment 1)
 tests_b3/               Test B-3: rates re-run (spec v2) — the first readable null
 tests_c/                Test C: gated — not started
+methodology/            decisions taken cold, before the next real-events run
 blindrun/               blind prediction test on one real event (NOT OPERABLE)
 firewall/               contamination firewall used for the blind run
 config_log.jsonl        every evaluation ever run, including abandoned ones
