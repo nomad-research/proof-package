@@ -1,0 +1,4396 @@
+{
+ "variants": {
+  "guarded": [
+   {
+    "notice_id": "R08-N1",
+    "row": 8,
+    "kind": "incident_report",
+    "forced": "clear",
+    "read_in_full": true,
+    "status": "evaluated",
+    "tiers": {
+     "forced": false,
+     "switch_le1": false,
+     "switch_any": true
+    },
+    "best": {
+     "template": "obl.incident_generation_unit_outage_publication",
+     "result": "switch",
+     "binding": {
+      "generator": "01a07c3e-5cb4-7622-93d6-f680e3b092d9"
+     },
+     "states": {
+      "c1": "unknown",
+      "c2": "unknown",
+      "c3": "unknown",
+      "c4": "true"
+     },
+     "n_unknown": 3,
+     "unknown": [
+      "generator.operating_status",
+      "generator.capacity",
+      "generator.generation_outage_reporting_regime"
+     ],
+     "in_window": true,
+     "window_days": 90
+    },
+    "audit": [
+     {
+      "template": "obl.incident_emissions_event_report",
+      "result": "no_binding",
+      "empty_roles": [
+       "regulator"
+      ]
+     },
+     {
+      "template": "obl.incident_shared_infrastructure_closure_notice",
+      "result": "issuer_unbound"
+     },
+     {
+      "template": "obl.incident_serious_accident_notification",
+      "result": "no_binding",
+      "empty_roles": [
+       "regulator"
+      ]
+     },
+     {
+      "template": "obl.incident_generation_unit_outage_publication",
+      "result": "switch",
+      "binding": {
+       "generator": "01a07c3e-5cb4-7622-93d6-f680e3b092d9"
+      },
+      "states": {
+       "c1": "unknown",
+       "c2": "unknown",
+       "c3": "unknown",
+       "c4": "true"
+      },
+      "n_unknown": 3,
+      "unknown": [
+       "generator.operating_status",
+       "generator.capacity",
+       "generator.generation_outage_reporting_regime"
+      ],
+      "in_window": true,
+      "window_days": 90
+     }
+    ]
+   },
+   {
+    "notice_id": "R11-N1",
+    "row": 11,
+    "kind": "regulatory_decision",
+    "forced": "doubtful",
+    "read_in_full": false,
+    "status": "evaluated",
+    "tiers": {
+     "forced": false,
+     "switch_le1": false,
+     "switch_any": false
+    },
+    "best": null,
+    "audit": [
+     {
+      "template": "obl.reg_fatality_regulator_inquiry",
+      "result": "no_binding",
+      "empty_roles": [
+       "site"
+      ]
+     },
+     {
+      "template": "obl.reg_prohibition_lift_before_restart",
+      "result": "no_binding",
+      "empty_roles": [
+       "held_asset"
+      ]
+     }
+    ]
+   },
+   {
+    "notice_id": "R13-N1",
+    "row": 13,
+    "kind": "regulatory_decision",
+    "forced": "clear",
+    "read_in_full": true,
+    "status": "evaluated",
+    "tiers": {
+     "forced": false,
+     "switch_le1": false,
+     "switch_any": false
+    },
+    "best": null,
+    "audit": [
+     {
+      "template": "obl.reg_fatality_regulator_inquiry",
+      "result": "no_binding",
+      "empty_roles": [
+       "site"
+      ]
+     },
+     {
+      "template": "obl.reg_prohibition_lift_before_restart",
+      "result": "no_binding",
+      "empty_roles": [
+       "held_asset"
+      ]
+     }
+    ]
+   },
+   {
+    "notice_id": "R13-N2",
+    "row": 13,
+    "kind": "regulatory_decision",
+    "forced": "clear",
+    "read_in_full": true,
+    "status": "evaluated",
+    "tiers": {
+     "forced": false,
+     "switch_le1": false,
+     "switch_any": false
+    },
+    "best": null,
+    "audit": [
+     {
+      "template": "obl.reg_fatality_regulator_inquiry",
+      "result": "no_binding",
+      "empty_roles": [
+       "site"
+      ]
+     },
+     {
+      "template": "obl.reg_prohibition_lift_before_restart",
+      "result": "no_binding",
+      "empty_roles": [
+       "held_asset"
+      ]
+     }
+    ]
+   },
+   {
+    "notice_id": "R13-N3",
+    "row": 13,
+    "kind": "regulatory_decision",
+    "forced": "clear",
+    "read_in_full": true,
+    "status": "evaluated",
+    "tiers": {
+     "forced": false,
+     "switch_le1": false,
+     "switch_any": false
+    },
+    "best": null,
+    "audit": [
+     {
+      "template": "obl.reg_fatality_regulator_inquiry",
+      "result": "no_binding",
+      "empty_roles": [
+       "site"
+      ]
+     },
+     {
+      "template": "obl.reg_prohibition_lift_before_restart",
+      "result": "no_binding",
+      "empty_roles": [
+       "held_asset"
+      ]
+     }
+    ]
+   },
+   {
+    "notice_id": "R13-N4",
+    "row": 13,
+    "kind": "restart_statement",
+    "forced": "doubtful",
+    "read_in_full": true,
+    "status": "issuer_unbound",
+    "tiers": {
+     "forced": false,
+     "switch_le1": false,
+     "switch_any": false
+    },
+    "best": null,
+    "audit": [
+     {
+      "template": "obl.restart_shared_infrastructure_reopening",
+      "result": "issuer_unbound"
+     },
+     {
+      "template": "obl.restart_listed_owner_material_outage_guidance",
+      "result": "issuer_unbound"
+     },
+     {
+      "template": "obl.restart_fm_lifting_notice",
+      "result": "issuer_unbound"
+     }
+    ]
+   },
+   {
+    "notice_id": "R13-N5",
+    "row": 13,
+    "kind": "corporate_disclosure_of_event_impact",
+    "forced": "doubtful",
+    "read_in_full": true,
+    "status": "issuer_unbound",
+    "tiers": {
+     "forced": false,
+     "switch_le1": false,
+     "switch_any": false
+    },
+    "best": null,
+    "audit": [
+     {
+      "template": "obl.corp_listed_material_owner_impact_statement",
+      "result": "issuer_unbound"
+     }
+    ]
+   },
+   {
+    "notice_id": "R13-N6",
+    "row": 13,
+    "kind": "counterparty_notice",
+    "forced": "doubtful",
+    "read_in_full": true,
+    "status": "evaluated",
+    "tiers": {
+     "forced": false,
+     "switch_le1": false,
+     "switch_any": false
+    },
+    "best": null,
+    "audit": [
+     {
+      "template": "obl.cpn_liner_carrier_call_omission_advisory",
+      "result": "issuer_unbound"
+     },
+     {
+      "template": "obl.cpn_war_risk_cover_cancellation",
+      "result": "no_binding",
+      "empty_roles": [
+       "route"
+      ]
+     }
+    ]
+   },
+   {
+    "notice_id": "R13-N7",
+    "row": 13,
+    "kind": "other:development_suspension_disclosure",
+    "forced": "doubtful",
+    "read_in_full": false,
+    "status": "no_template_kind",
+    "tiers": null,
+    "best": null,
+    "audit": []
+   },
+   {
+    "notice_id": "R15-N1",
+    "row": 15,
+    "kind": "regulatory_decision",
+    "forced": "doubtful",
+    "read_in_full": false,
+    "status": "evaluated",
+    "tiers": {
+     "forced": false,
+     "switch_le1": false,
+     "switch_any": false
+    },
+    "best": null,
+    "audit": [
+     {
+      "template": "obl.reg_fatality_regulator_inquiry",
+      "result": "no_binding",
+      "empty_roles": [
+       "site"
+      ]
+     },
+     {
+      "template": "obl.reg_prohibition_lift_before_restart",
+      "result": "no_binding",
+      "empty_roles": [
+       "held_asset"
+      ]
+     }
+    ]
+   },
+   {
+    "notice_id": "R16-N1",
+    "row": 16,
+    "kind": "restart_statement",
+    "forced": "clear",
+    "read_in_full": true,
+    "status": "issuer_unbound",
+    "tiers": {
+     "forced": false,
+     "switch_le1": false,
+     "switch_any": false
+    },
+    "best": null,
+    "audit": [
+     {
+      "template": "obl.restart_shared_infrastructure_reopening",
+      "result": "issuer_unbound"
+     },
+     {
+      "template": "obl.restart_listed_owner_material_outage_guidance",
+      "result": "issuer_unbound"
+     },
+     {
+      "template": "obl.restart_fm_lifting_notice",
+      "result": "issuer_unbound"
+     }
+    ]
+   },
+   {
+    "notice_id": "R16-N2",
+    "row": 16,
+    "kind": "restart_statement",
+    "forced": "doubtful",
+    "read_in_full": true,
+    "status": "issuer_unbound",
+    "tiers": {
+     "forced": false,
+     "switch_le1": false,
+     "switch_any": false
+    },
+    "best": null,
+    "audit": [
+     {
+      "template": "obl.restart_shared_infrastructure_reopening",
+      "result": "issuer_unbound"
+     },
+     {
+      "template": "obl.restart_listed_owner_material_outage_guidance",
+      "result": "issuer_unbound"
+     },
+     {
+      "template": "obl.restart_fm_lifting_notice",
+      "result": "issuer_unbound"
+     }
+    ]
+   },
+   {
+    "notice_id": "R17-N1",
+    "row": 17,
+    "kind": "incident_report",
+    "forced": "clear",
+    "read_in_full": true,
+    "status": "issuer_unbound",
+    "tiers": {
+     "forced": false,
+     "switch_le1": false,
+     "switch_any": false
+    },
+    "best": null,
+    "audit": [
+     {
+      "template": "obl.incident_emissions_event_report",
+      "result": "issuer_unbound"
+     },
+     {
+      "template": "obl.incident_shared_infrastructure_closure_notice",
+      "result": "issuer_unbound"
+     },
+     {
+      "template": "obl.incident_serious_accident_notification",
+      "result": "issuer_unbound"
+     },
+     {
+      "template": "obl.incident_generation_unit_outage_publication",
+      "result": "issuer_unbound"
+     }
+    ]
+   }
+  ],
+  "S1_no_knowable_from": [
+   {
+    "notice_id": "R08-N1",
+    "row": 8,
+    "kind": "incident_report",
+    "forced": "clear",
+    "read_in_full": true,
+    "status": "evaluated",
+    "tiers": {
+     "forced": false,
+     "switch_le1": false,
+     "switch_any": true
+    },
+    "best": {
+     "template": "obl.incident_generation_unit_outage_publication",
+     "result": "switch",
+     "binding": {
+      "generator": "01a07c3e-5cb4-7622-93d6-f680e3b092d9"
+     },
+     "states": {
+      "c1": "unknown",
+      "c2": "unknown",
+      "c3": "unknown",
+      "c4": "true"
+     },
+     "n_unknown": 3,
+     "unknown": [
+      "generator.operating_status",
+      "generator.capacity",
+      "generator.generation_outage_reporting_regime"
+     ],
+     "in_window": true,
+     "window_days": 90
+    },
+    "audit": [
+     {
+      "template": "obl.incident_emissions_event_report",
+      "result": "no_binding",
+      "empty_roles": [
+       "regulator"
+      ]
+     },
+     {
+      "template": "obl.incident_shared_infrastructure_closure_notice",
+      "result": "issuer_unbound"
+     },
+     {
+      "template": "obl.incident_serious_accident_notification",
+      "result": "no_binding",
+      "empty_roles": [
+       "regulator"
+      ]
+     },
+     {
+      "template": "obl.incident_generation_unit_outage_publication",
+      "result": "switch",
+      "binding": {
+       "generator": "01a07c3e-5cb4-7622-93d6-f680e3b092d9"
+      },
+      "states": {
+       "c1": "unknown",
+       "c2": "unknown",
+       "c3": "unknown",
+       "c4": "true"
+      },
+      "n_unknown": 3,
+      "unknown": [
+       "generator.operating_status",
+       "generator.capacity",
+       "generator.generation_outage_reporting_regime"
+      ],
+      "in_window": true,
+      "window_days": 90
+     }
+    ]
+   },
+   {
+    "notice_id": "R11-N1",
+    "row": 11,
+    "kind": "regulatory_decision",
+    "forced": "doubtful",
+    "read_in_full": false,
+    "status": "evaluated",
+    "tiers": {
+     "forced": false,
+     "switch_le1": true,
+     "switch_any": true
+    },
+    "best": {
+     "template": "obl.reg_fatality_regulator_inquiry",
+     "result": "switch",
+     "binding": {
+      "regulator": "01a0816b-35cb-7378-b0a6-546ade92fa72",
+      "site": "01a0816b-35be-7087-8508-117c443803fc"
+     },
+     "states": {
+      "c1": "unknown",
+      "c2": "true",
+      "c3": "true"
+     },
+     "n_unknown": 1,
+     "unknown": [
+      "site.fatalities"
+     ],
+     "in_window": true,
+     "window_days": 90
+    },
+    "audit": [
+     {
+      "template": "obl.reg_fatality_regulator_inquiry",
+      "result": "switch",
+      "binding": {
+       "regulator": "01a0816b-35cb-7378-b0a6-546ade92fa72",
+       "site": "01a0816b-35be-7087-8508-117c443803fc"
+      },
+      "states": {
+       "c1": "unknown",
+       "c2": "true",
+       "c3": "true"
+      },
+      "n_unknown": 1,
+      "unknown": [
+       "site.fatalities"
+      ],
+      "in_window": true,
+      "window_days": 90
+     },
+     {
+      "template": "obl.reg_prohibition_lift_before_restart",
+      "result": "no_binding",
+      "empty_roles": [
+       "held_asset"
+      ]
+     }
+    ]
+   },
+   {
+    "notice_id": "R13-N1",
+    "row": 13,
+    "kind": "regulatory_decision",
+    "forced": "clear",
+    "read_in_full": true,
+    "status": "evaluated",
+    "tiers": {
+     "forced": false,
+     "switch_le1": true,
+     "switch_any": true
+    },
+    "best": {
+     "template": "obl.reg_fatality_regulator_inquiry",
+     "result": "switch",
+     "binding": {
+      "regulator": "01a081ae-26c6-7440-9d5c-fea77486d9b1",
+      "site": "01a081ae-26c3-763c-b48a-c8cdccb44713"
+     },
+     "states": {
+      "c1": "unknown",
+      "c2": "true",
+      "c3": "true"
+     },
+     "n_unknown": 1,
+     "unknown": [
+      "site.fatalities"
+     ],
+     "in_window": true,
+     "window_days": 90
+    },
+    "audit": [
+     {
+      "template": "obl.reg_fatality_regulator_inquiry",
+      "result": "switch",
+      "binding": {
+       "regulator": "01a081ae-26c6-7440-9d5c-fea77486d9b1",
+       "site": "01a081ae-26c3-763c-b48a-c8cdccb44713"
+      },
+      "states": {
+       "c1": "unknown",
+       "c2": "true",
+       "c3": "true"
+      },
+      "n_unknown": 1,
+      "unknown": [
+       "site.fatalities"
+      ],
+      "in_window": true,
+      "window_days": 90
+     },
+     {
+      "template": "obl.reg_prohibition_lift_before_restart",
+      "result": "no_binding",
+      "empty_roles": [
+       "held_asset"
+      ]
+     }
+    ]
+   },
+   {
+    "notice_id": "R13-N2",
+    "row": 13,
+    "kind": "regulatory_decision",
+    "forced": "clear",
+    "read_in_full": true,
+    "status": "evaluated",
+    "tiers": {
+     "forced": false,
+     "switch_le1": true,
+     "switch_any": true
+    },
+    "best": {
+     "template": "obl.reg_fatality_regulator_inquiry",
+     "result": "switch",
+     "binding": {
+      "regulator": "01a081ae-26c6-7440-9d5c-fea77486d9b1",
+      "site": "01a081ae-26c3-763c-b48a-c8cdccb44713"
+     },
+     "states": {
+      "c1": "unknown",
+      "c2": "true",
+      "c3": "true"
+     },
+     "n_unknown": 1,
+     "unknown": [
+      "site.fatalities"
+     ],
+     "in_window": true,
+     "window_days": 90
+    },
+    "audit": [
+     {
+      "template": "obl.reg_fatality_regulator_inquiry",
+      "result": "switch",
+      "binding": {
+       "regulator": "01a081ae-26c6-7440-9d5c-fea77486d9b1",
+       "site": "01a081ae-26c3-763c-b48a-c8cdccb44713"
+      },
+      "states": {
+       "c1": "unknown",
+       "c2": "true",
+       "c3": "true"
+      },
+      "n_unknown": 1,
+      "unknown": [
+       "site.fatalities"
+      ],
+      "in_window": true,
+      "window_days": 90
+     },
+     {
+      "template": "obl.reg_prohibition_lift_before_restart",
+      "result": "no_binding",
+      "empty_roles": [
+       "held_asset"
+      ]
+     }
+    ]
+   },
+   {
+    "notice_id": "R13-N3",
+    "row": 13,
+    "kind": "regulatory_decision",
+    "forced": "clear",
+    "read_in_full": true,
+    "status": "evaluated",
+    "tiers": {
+     "forced": false,
+     "switch_le1": true,
+     "switch_any": true
+    },
+    "best": {
+     "template": "obl.reg_fatality_regulator_inquiry",
+     "result": "switch",
+     "binding": {
+      "regulator": "<unnamed:authority>",
+      "site": "01a081ae-26c3-763c-b48a-c8cdccb44713"
+     },
+     "states": {
+      "c1": "unknown",
+      "c2": "true",
+      "c3": "true"
+     },
+     "n_unknown": 1,
+     "unknown": [
+      "site.fatalities"
+     ],
+     "in_window": true,
+     "window_days": 90
+    },
+    "audit": [
+     {
+      "template": "obl.reg_fatality_regulator_inquiry",
+      "result": "switch",
+      "binding": {
+       "regulator": "<unnamed:authority>",
+       "site": "01a081ae-26c3-763c-b48a-c8cdccb44713"
+      },
+      "states": {
+       "c1": "unknown",
+       "c2": "true",
+       "c3": "true"
+      },
+      "n_unknown": 1,
+      "unknown": [
+       "site.fatalities"
+      ],
+      "in_window": true,
+      "window_days": 90
+     },
+     {
+      "template": "obl.reg_prohibition_lift_before_restart",
+      "result": "no_binding",
+      "empty_roles": [
+       "held_asset"
+      ]
+     }
+    ]
+   },
+   {
+    "notice_id": "R13-N4",
+    "row": 13,
+    "kind": "restart_statement",
+    "forced": "doubtful",
+    "read_in_full": true,
+    "status": "evaluated",
+    "tiers": {
+     "forced": false,
+     "switch_le1": false,
+     "switch_any": true
+    },
+    "best": {
+     "template": "obl.restart_fm_lifting_notice",
+     "result": "switch",
+     "binding": {
+      "declarant": "01a081ae-26c3-763c-b48a-c8cdccb44713"
+     },
+     "states": {
+      "c1": "unknown",
+      "c2": "unknown",
+      "c3": "true"
+     },
+     "n_unknown": 2,
+     "unknown": [
+      "declarant.fm_status",
+      "declarant.contract_type"
+     ],
+     "in_window": true,
+     "window_days": 90
+    },
+    "audit": [
+     {
+      "template": "obl.restart_shared_infrastructure_reopening",
+      "result": "issuer_unbound"
+     },
+     {
+      "template": "obl.restart_listed_owner_material_outage_guidance",
+      "result": "no_binding",
+      "empty_roles": [
+       "asset"
+      ]
+     },
+     {
+      "template": "obl.restart_fm_lifting_notice",
+      "result": "switch",
+      "binding": {
+       "declarant": "01a081ae-26c3-763c-b48a-c8cdccb44713"
+      },
+      "states": {
+       "c1": "unknown",
+       "c2": "unknown",
+       "c3": "true"
+      },
+      "n_unknown": 2,
+      "unknown": [
+       "declarant.fm_status",
+       "declarant.contract_type"
+      ],
+      "in_window": true,
+      "window_days": 90
+     }
+    ]
+   },
+   {
+    "notice_id": "R13-N5",
+    "row": 13,
+    "kind": "corporate_disclosure_of_event_impact",
+    "forced": "doubtful",
+    "read_in_full": true,
+    "status": "evaluated",
+    "tiers": {
+     "forced": false,
+     "switch_le1": false,
+     "switch_any": false
+    },
+    "best": null,
+    "audit": [
+     {
+      "template": "obl.corp_listed_material_owner_impact_statement",
+      "result": "no_binding",
+      "empty_roles": [
+       "asset"
+      ]
+     }
+    ]
+   },
+   {
+    "notice_id": "R13-N6",
+    "row": 13,
+    "kind": "counterparty_notice",
+    "forced": "doubtful",
+    "read_in_full": true,
+    "status": "evaluated",
+    "tiers": {
+     "forced": false,
+     "switch_le1": false,
+     "switch_any": false
+    },
+    "best": {
+     "template": "obl.cpn_liner_carrier_call_omission_advisory",
+     "result": "switch",
+     "binding": {
+      "closed_node": "01a081ae-26c6-7440-9d5c-fea77486d9b1",
+      "carrier": "01a081ae-26c3-763c-b48a-c8cdccb44713"
+     },
+     "states": {
+      "c1": "unknown",
+      "c2": "unknown",
+      "c3": "unknown",
+      "c4": "unknown",
+      "c5": "true",
+      "c6": "true"
+     },
+     "n_unknown": 4,
+     "unknown": [
+      "closed_node.operating_status",
+      "closed_node.shared_access",
+      "closed_node.duration",
+      "carrier.contract_type"
+     ],
+     "in_window": false,
+     "window_days": 7
+    },
+    "audit": [
+     {
+      "template": "obl.cpn_liner_carrier_call_omission_advisory",
+      "result": "switch",
+      "binding": {
+       "closed_node": "01a081ae-26c6-7440-9d5c-fea77486d9b1",
+       "carrier": "01a081ae-26c3-763c-b48a-c8cdccb44713"
+      },
+      "states": {
+       "c1": "unknown",
+       "c2": "unknown",
+       "c3": "unknown",
+       "c4": "unknown",
+       "c5": "true",
+       "c6": "true"
+      },
+      "n_unknown": 4,
+      "unknown": [
+       "closed_node.operating_status",
+       "closed_node.shared_access",
+       "closed_node.duration",
+       "carrier.contract_type"
+      ],
+      "in_window": false,
+      "window_days": 7
+     },
+     {
+      "template": "obl.cpn_war_risk_cover_cancellation",
+      "result": "no_binding",
+      "empty_roles": [
+       "route"
+      ]
+     }
+    ]
+   },
+   {
+    "notice_id": "R13-N7",
+    "row": 13,
+    "kind": "other:development_suspension_disclosure",
+    "forced": "doubtful",
+    "read_in_full": false,
+    "status": "no_template_kind",
+    "tiers": null,
+    "best": null,
+    "audit": []
+   },
+   {
+    "notice_id": "R15-N1",
+    "row": 15,
+    "kind": "regulatory_decision",
+    "forced": "doubtful",
+    "read_in_full": false,
+    "status": "evaluated",
+    "tiers": {
+     "forced": false,
+     "switch_le1": true,
+     "switch_any": true
+    },
+    "best": {
+     "template": "obl.reg_fatality_regulator_inquiry",
+     "result": "switch",
+     "binding": {
+      "regulator": "01a082b4-b6b3-75eb-95e3-bd5cac2461f2",
+      "site": "01a082b4-b6af-748c-87a2-38da9f4837b7"
+     },
+     "states": {
+      "c1": "unknown",
+      "c2": "true",
+      "c3": "true"
+     },
+     "n_unknown": 1,
+     "unknown": [
+      "site.fatalities"
+     ],
+     "in_window": true,
+     "window_days": 90
+    },
+    "audit": [
+     {
+      "template": "obl.reg_fatality_regulator_inquiry",
+      "result": "switch",
+      "binding": {
+       "regulator": "01a082b4-b6b3-75eb-95e3-bd5cac2461f2",
+       "site": "01a082b4-b6af-748c-87a2-38da9f4837b7"
+      },
+      "states": {
+       "c1": "unknown",
+       "c2": "true",
+       "c3": "true"
+      },
+      "n_unknown": 1,
+      "unknown": [
+       "site.fatalities"
+      ],
+      "in_window": true,
+      "window_days": 90
+     },
+     {
+      "template": "obl.reg_prohibition_lift_before_restart",
+      "result": "no_binding",
+      "empty_roles": [
+       "held_asset"
+      ]
+     }
+    ]
+   },
+   {
+    "notice_id": "R16-N1",
+    "row": 16,
+    "kind": "restart_statement",
+    "forced": "clear",
+    "read_in_full": true,
+    "status": "evaluated",
+    "tiers": {
+     "forced": false,
+     "switch_le1": false,
+     "switch_any": true
+    },
+    "best": {
+     "template": "obl.restart_fm_lifting_notice",
+     "result": "switch",
+     "binding": {
+      "declarant": "01a0857b-b68c-7567-bf71-dbd75ae1d2c7"
+     },
+     "states": {
+      "c1": "unknown",
+      "c2": "unknown",
+      "c3": "true"
+     },
+     "n_unknown": 2,
+     "unknown": [
+      "declarant.fm_status",
+      "declarant.contract_type"
+     ],
+     "in_window": true,
+     "window_days": 90
+    },
+    "audit": [
+     {
+      "template": "obl.restart_shared_infrastructure_reopening",
+      "result": "issuer_unbound"
+     },
+     {
+      "template": "obl.restart_listed_owner_material_outage_guidance",
+      "result": "switch",
+      "binding": {
+       "owner": "01a0857b-b68c-7567-bf71-dbd75ae1d2c7",
+       "asset": "01a0857b-b68b-725d-9576-835e2f538d26"
+      },
+      "states": {
+       "c1": "unknown",
+       "c2": "unknown",
+       "c3": "true",
+       "c4": "unknown",
+       "c5": "true"
+      },
+      "n_unknown": 3,
+      "unknown": [
+       "asset.operating_status",
+       "owner.listed",
+       "owner.share"
+      ],
+      "in_window": true,
+      "window_days": 136
+     },
+     {
+      "template": "obl.restart_fm_lifting_notice",
+      "result": "switch",
+      "binding": {
+       "declarant": "01a0857b-b68c-7567-bf71-dbd75ae1d2c7"
+      },
+      "states": {
+       "c1": "unknown",
+       "c2": "unknown",
+       "c3": "true"
+      },
+      "n_unknown": 2,
+      "unknown": [
+       "declarant.fm_status",
+       "declarant.contract_type"
+      ],
+      "in_window": true,
+      "window_days": 90
+     }
+    ]
+   },
+   {
+    "notice_id": "R16-N2",
+    "row": 16,
+    "kind": "restart_statement",
+    "forced": "doubtful",
+    "read_in_full": true,
+    "status": "evaluated",
+    "tiers": {
+     "forced": false,
+     "switch_le1": false,
+     "switch_any": true
+    },
+    "best": {
+     "template": "obl.restart_shared_infrastructure_reopening",
+     "result": "switch",
+     "binding": {
+      "operator": "01a0857b-b68b-725d-9576-835e2f538d26"
+     },
+     "states": {
+      "c1": "unknown",
+      "c2": "unknown",
+      "c3": "true"
+     },
+     "n_unknown": 2,
+     "unknown": [
+      "operator.operating_status",
+      "operator.shared_access"
+     ],
+     "in_window": true,
+     "window_days": 90
+    },
+    "audit": [
+     {
+      "template": "obl.restart_shared_infrastructure_reopening",
+      "result": "switch",
+      "binding": {
+       "operator": "01a0857b-b68b-725d-9576-835e2f538d26"
+      },
+      "states": {
+       "c1": "unknown",
+       "c2": "unknown",
+       "c3": "true"
+      },
+      "n_unknown": 2,
+      "unknown": [
+       "operator.operating_status",
+       "operator.shared_access"
+      ],
+      "in_window": true,
+      "window_days": 90
+     },
+     {
+      "template": "obl.restart_listed_owner_material_outage_guidance",
+      "result": "issuer_unbound"
+     },
+     {
+      "template": "obl.restart_fm_lifting_notice",
+      "result": "switch",
+      "binding": {
+       "declarant": "01a0857b-b68b-725d-9576-835e2f538d26"
+      },
+      "states": {
+       "c1": "unknown",
+       "c2": "unknown",
+       "c3": "true"
+      },
+      "n_unknown": 2,
+      "unknown": [
+       "declarant.fm_status",
+       "declarant.contract_type"
+      ],
+      "in_window": true,
+      "window_days": 90
+     }
+    ]
+   },
+   {
+    "notice_id": "R17-N1",
+    "row": 17,
+    "kind": "incident_report",
+    "forced": "clear",
+    "read_in_full": true,
+    "status": "evaluated",
+    "tiers": {
+     "forced": false,
+     "switch_le1": false,
+     "switch_any": true
+    },
+    "best": {
+     "template": "obl.incident_generation_unit_outage_publication",
+     "result": "switch",
+     "binding": {
+      "generator": "01a085ed-bd0a-76d0-b46b-f83c3ab032a8"
+     },
+     "states": {
+      "c1": "unknown",
+      "c2": "unknown",
+      "c3": "unknown",
+      "c4": "true"
+     },
+     "n_unknown": 3,
+     "unknown": [
+      "generator.operating_status",
+      "generator.capacity",
+      "generator.generation_outage_reporting_regime"
+     ],
+     "in_window": true,
+     "window_days": 90
+    },
+    "audit": [
+     {
+      "template": "obl.incident_emissions_event_report",
+      "result": "no_binding",
+      "empty_roles": [
+       "regulator"
+      ]
+     },
+     {
+      "template": "obl.incident_shared_infrastructure_closure_notice",
+      "result": "issuer_unbound"
+     },
+     {
+      "template": "obl.incident_serious_accident_notification",
+      "result": "no_binding",
+      "empty_roles": [
+       "regulator"
+      ]
+     },
+     {
+      "template": "obl.incident_generation_unit_outage_publication",
+      "result": "switch",
+      "binding": {
+       "generator": "01a085ed-bd0a-76d0-b46b-f83c3ab032a8"
+      },
+      "states": {
+       "c1": "unknown",
+       "c2": "unknown",
+       "c3": "unknown",
+       "c4": "true"
+      },
+      "n_unknown": 3,
+      "unknown": [
+       "generator.operating_status",
+       "generator.capacity",
+       "generator.generation_outage_reporting_regime"
+      ],
+      "in_window": true,
+      "window_days": 90
+     }
+    ]
+   }
+  ],
+  "S2_inferred_accepted": [
+   {
+    "notice_id": "R08-N1",
+    "row": 8,
+    "kind": "incident_report",
+    "forced": "clear",
+    "read_in_full": true,
+    "status": "evaluated",
+    "tiers": {
+     "forced": false,
+     "switch_le1": false,
+     "switch_any": true
+    },
+    "best": {
+     "template": "obl.incident_generation_unit_outage_publication",
+     "result": "switch",
+     "binding": {
+      "generator": "01a07c3e-5cb4-7622-93d6-f680e3b092d9"
+     },
+     "states": {
+      "c1": "unknown",
+      "c2": "unknown",
+      "c3": "unknown",
+      "c4": "true"
+     },
+     "n_unknown": 3,
+     "unknown": [
+      "generator.operating_status",
+      "generator.capacity",
+      "generator.generation_outage_reporting_regime"
+     ],
+     "in_window": true,
+     "window_days": 90
+    },
+    "audit": [
+     {
+      "template": "obl.incident_emissions_event_report",
+      "result": "no_binding",
+      "empty_roles": [
+       "regulator"
+      ]
+     },
+     {
+      "template": "obl.incident_shared_infrastructure_closure_notice",
+      "result": "issuer_unbound"
+     },
+     {
+      "template": "obl.incident_serious_accident_notification",
+      "result": "no_binding",
+      "empty_roles": [
+       "regulator"
+      ]
+     },
+     {
+      "template": "obl.incident_generation_unit_outage_publication",
+      "result": "switch",
+      "binding": {
+       "generator": "01a07c3e-5cb4-7622-93d6-f680e3b092d9"
+      },
+      "states": {
+       "c1": "unknown",
+       "c2": "unknown",
+       "c3": "unknown",
+       "c4": "true"
+      },
+      "n_unknown": 3,
+      "unknown": [
+       "generator.operating_status",
+       "generator.capacity",
+       "generator.generation_outage_reporting_regime"
+      ],
+      "in_window": true,
+      "window_days": 90
+     }
+    ]
+   },
+   {
+    "notice_id": "R11-N1",
+    "row": 11,
+    "kind": "regulatory_decision",
+    "forced": "doubtful",
+    "read_in_full": false,
+    "status": "evaluated",
+    "tiers": {
+     "forced": false,
+     "switch_le1": false,
+     "switch_any": false
+    },
+    "best": null,
+    "audit": [
+     {
+      "template": "obl.reg_fatality_regulator_inquiry",
+      "result": "no_binding",
+      "empty_roles": [
+       "site"
+      ]
+     },
+     {
+      "template": "obl.reg_prohibition_lift_before_restart",
+      "result": "no_binding",
+      "empty_roles": [
+       "held_asset"
+      ]
+     }
+    ]
+   },
+   {
+    "notice_id": "R13-N1",
+    "row": 13,
+    "kind": "regulatory_decision",
+    "forced": "clear",
+    "read_in_full": true,
+    "status": "evaluated",
+    "tiers": {
+     "forced": false,
+     "switch_le1": false,
+     "switch_any": false
+    },
+    "best": null,
+    "audit": [
+     {
+      "template": "obl.reg_fatality_regulator_inquiry",
+      "result": "no_binding",
+      "empty_roles": [
+       "site"
+      ]
+     },
+     {
+      "template": "obl.reg_prohibition_lift_before_restart",
+      "result": "no_binding",
+      "empty_roles": [
+       "held_asset"
+      ]
+     }
+    ]
+   },
+   {
+    "notice_id": "R13-N2",
+    "row": 13,
+    "kind": "regulatory_decision",
+    "forced": "clear",
+    "read_in_full": true,
+    "status": "evaluated",
+    "tiers": {
+     "forced": false,
+     "switch_le1": false,
+     "switch_any": false
+    },
+    "best": null,
+    "audit": [
+     {
+      "template": "obl.reg_fatality_regulator_inquiry",
+      "result": "no_binding",
+      "empty_roles": [
+       "site"
+      ]
+     },
+     {
+      "template": "obl.reg_prohibition_lift_before_restart",
+      "result": "no_binding",
+      "empty_roles": [
+       "held_asset"
+      ]
+     }
+    ]
+   },
+   {
+    "notice_id": "R13-N3",
+    "row": 13,
+    "kind": "regulatory_decision",
+    "forced": "clear",
+    "read_in_full": true,
+    "status": "evaluated",
+    "tiers": {
+     "forced": false,
+     "switch_le1": false,
+     "switch_any": false
+    },
+    "best": null,
+    "audit": [
+     {
+      "template": "obl.reg_fatality_regulator_inquiry",
+      "result": "no_binding",
+      "empty_roles": [
+       "site"
+      ]
+     },
+     {
+      "template": "obl.reg_prohibition_lift_before_restart",
+      "result": "no_binding",
+      "empty_roles": [
+       "held_asset"
+      ]
+     }
+    ]
+   },
+   {
+    "notice_id": "R13-N4",
+    "row": 13,
+    "kind": "restart_statement",
+    "forced": "doubtful",
+    "read_in_full": true,
+    "status": "issuer_unbound",
+    "tiers": {
+     "forced": false,
+     "switch_le1": false,
+     "switch_any": false
+    },
+    "best": null,
+    "audit": [
+     {
+      "template": "obl.restart_shared_infrastructure_reopening",
+      "result": "issuer_unbound"
+     },
+     {
+      "template": "obl.restart_listed_owner_material_outage_guidance",
+      "result": "issuer_unbound"
+     },
+     {
+      "template": "obl.restart_fm_lifting_notice",
+      "result": "issuer_unbound"
+     }
+    ]
+   },
+   {
+    "notice_id": "R13-N5",
+    "row": 13,
+    "kind": "corporate_disclosure_of_event_impact",
+    "forced": "doubtful",
+    "read_in_full": true,
+    "status": "issuer_unbound",
+    "tiers": {
+     "forced": false,
+     "switch_le1": false,
+     "switch_any": false
+    },
+    "best": null,
+    "audit": [
+     {
+      "template": "obl.corp_listed_material_owner_impact_statement",
+      "result": "issuer_unbound"
+     }
+    ]
+   },
+   {
+    "notice_id": "R13-N6",
+    "row": 13,
+    "kind": "counterparty_notice",
+    "forced": "doubtful",
+    "read_in_full": true,
+    "status": "evaluated",
+    "tiers": {
+     "forced": false,
+     "switch_le1": false,
+     "switch_any": false
+    },
+    "best": null,
+    "audit": [
+     {
+      "template": "obl.cpn_liner_carrier_call_omission_advisory",
+      "result": "issuer_unbound"
+     },
+     {
+      "template": "obl.cpn_war_risk_cover_cancellation",
+      "result": "no_binding",
+      "empty_roles": [
+       "route"
+      ]
+     }
+    ]
+   },
+   {
+    "notice_id": "R13-N7",
+    "row": 13,
+    "kind": "other:development_suspension_disclosure",
+    "forced": "doubtful",
+    "read_in_full": false,
+    "status": "no_template_kind",
+    "tiers": null,
+    "best": null,
+    "audit": []
+   },
+   {
+    "notice_id": "R15-N1",
+    "row": 15,
+    "kind": "regulatory_decision",
+    "forced": "doubtful",
+    "read_in_full": false,
+    "status": "evaluated",
+    "tiers": {
+     "forced": false,
+     "switch_le1": false,
+     "switch_any": false
+    },
+    "best": null,
+    "audit": [
+     {
+      "template": "obl.reg_fatality_regulator_inquiry",
+      "result": "no_binding",
+      "empty_roles": [
+       "site"
+      ]
+     },
+     {
+      "template": "obl.reg_prohibition_lift_before_restart",
+      "result": "no_binding",
+      "empty_roles": [
+       "held_asset"
+      ]
+     }
+    ]
+   },
+   {
+    "notice_id": "R16-N1",
+    "row": 16,
+    "kind": "restart_statement",
+    "forced": "clear",
+    "read_in_full": true,
+    "status": "issuer_unbound",
+    "tiers": {
+     "forced": false,
+     "switch_le1": false,
+     "switch_any": false
+    },
+    "best": null,
+    "audit": [
+     {
+      "template": "obl.restart_shared_infrastructure_reopening",
+      "result": "issuer_unbound"
+     },
+     {
+      "template": "obl.restart_listed_owner_material_outage_guidance",
+      "result": "issuer_unbound"
+     },
+     {
+      "template": "obl.restart_fm_lifting_notice",
+      "result": "issuer_unbound"
+     }
+    ]
+   },
+   {
+    "notice_id": "R16-N2",
+    "row": 16,
+    "kind": "restart_statement",
+    "forced": "doubtful",
+    "read_in_full": true,
+    "status": "issuer_unbound",
+    "tiers": {
+     "forced": false,
+     "switch_le1": false,
+     "switch_any": false
+    },
+    "best": null,
+    "audit": [
+     {
+      "template": "obl.restart_shared_infrastructure_reopening",
+      "result": "issuer_unbound"
+     },
+     {
+      "template": "obl.restart_listed_owner_material_outage_guidance",
+      "result": "issuer_unbound"
+     },
+     {
+      "template": "obl.restart_fm_lifting_notice",
+      "result": "issuer_unbound"
+     }
+    ]
+   },
+   {
+    "notice_id": "R17-N1",
+    "row": 17,
+    "kind": "incident_report",
+    "forced": "clear",
+    "read_in_full": true,
+    "status": "issuer_unbound",
+    "tiers": {
+     "forced": false,
+     "switch_le1": false,
+     "switch_any": false
+    },
+    "best": null,
+    "audit": [
+     {
+      "template": "obl.incident_emissions_event_report",
+      "result": "issuer_unbound"
+     },
+     {
+      "template": "obl.incident_shared_infrastructure_closure_notice",
+      "result": "issuer_unbound"
+     },
+     {
+      "template": "obl.incident_serious_accident_notification",
+      "result": "issuer_unbound"
+     },
+     {
+      "template": "obl.incident_generation_unit_outage_publication",
+      "result": "issuer_unbound"
+     }
+    ]
+   }
+  ],
+  "S3_touched_set_rows": [
+   {
+    "notice_id": "R08-N1",
+    "row": 8,
+    "kind": "incident_report",
+    "forced": "clear",
+    "read_in_full": true,
+    "status": "evaluated",
+    "tiers": {
+     "forced": false,
+     "switch_le1": false,
+     "switch_any": true
+    },
+    "best": {
+     "template": "obl.incident_generation_unit_outage_publication",
+     "result": "switch",
+     "binding": {
+      "generator": "01a07c3e-5cb4-7622-93d6-f680e3b092d9"
+     },
+     "states": {
+      "c1": "unknown",
+      "c2": "unknown",
+      "c3": "unknown",
+      "c4": "true"
+     },
+     "n_unknown": 3,
+     "unknown": [
+      "generator.operating_status",
+      "generator.capacity",
+      "generator.generation_outage_reporting_regime"
+     ],
+     "in_window": true,
+     "window_days": 90
+    },
+    "audit": [
+     {
+      "template": "obl.incident_emissions_event_report",
+      "result": "no_binding",
+      "empty_roles": [
+       "regulator"
+      ]
+     },
+     {
+      "template": "obl.incident_shared_infrastructure_closure_notice",
+      "result": "issuer_unbound"
+     },
+     {
+      "template": "obl.incident_serious_accident_notification",
+      "result": "no_binding",
+      "empty_roles": [
+       "regulator"
+      ]
+     },
+     {
+      "template": "obl.incident_generation_unit_outage_publication",
+      "result": "switch",
+      "binding": {
+       "generator": "01a07c3e-5cb4-7622-93d6-f680e3b092d9"
+      },
+      "states": {
+       "c1": "unknown",
+       "c2": "unknown",
+       "c3": "unknown",
+       "c4": "true"
+      },
+      "n_unknown": 3,
+      "unknown": [
+       "generator.operating_status",
+       "generator.capacity",
+       "generator.generation_outage_reporting_regime"
+      ],
+      "in_window": true,
+      "window_days": 90
+     }
+    ]
+   },
+   {
+    "notice_id": "R11-N1",
+    "row": 11,
+    "kind": "regulatory_decision",
+    "forced": "doubtful",
+    "read_in_full": false,
+    "status": "evaluated",
+    "tiers": {
+     "forced": false,
+     "switch_le1": false,
+     "switch_any": true
+    },
+    "best": {
+     "template": "obl.reg_fatality_regulator_inquiry",
+     "result": "switch",
+     "binding": {
+      "regulator": "01a0816b-35cb-7378-b0a6-546ade92fa72",
+      "site": "01a0816b-35be-7087-8508-117c443803fc"
+     },
+     "states": {
+      "c1": "unknown",
+      "c2": "unknown",
+      "c3": "true"
+     },
+     "n_unknown": 2,
+     "unknown": [
+      "site.fatalities",
+      "site.sign_of_exposure"
+     ],
+     "in_window": true,
+     "window_days": 90
+    },
+    "audit": [
+     {
+      "template": "obl.reg_fatality_regulator_inquiry",
+      "result": "switch",
+      "binding": {
+       "regulator": "01a0816b-35cb-7378-b0a6-546ade92fa72",
+       "site": "01a0816b-35be-7087-8508-117c443803fc"
+      },
+      "states": {
+       "c1": "unknown",
+       "c2": "unknown",
+       "c3": "true"
+      },
+      "n_unknown": 2,
+      "unknown": [
+       "site.fatalities",
+       "site.sign_of_exposure"
+      ],
+      "in_window": true,
+      "window_days": 90
+     },
+     {
+      "template": "obl.reg_prohibition_lift_before_restart",
+      "result": "no_binding",
+      "empty_roles": [
+       "held_asset"
+      ]
+     }
+    ]
+   },
+   {
+    "notice_id": "R13-N1",
+    "row": 13,
+    "kind": "regulatory_decision",
+    "forced": "clear",
+    "read_in_full": true,
+    "status": "evaluated",
+    "tiers": {
+     "forced": false,
+     "switch_le1": false,
+     "switch_any": true
+    },
+    "best": {
+     "template": "obl.reg_fatality_regulator_inquiry",
+     "result": "switch",
+     "binding": {
+      "regulator": "01a081ae-26c6-7440-9d5c-fea77486d9b1",
+      "site": "01a081ae-26c3-763c-b48a-c8cdccb44713"
+     },
+     "states": {
+      "c1": "unknown",
+      "c2": "unknown",
+      "c3": "true"
+     },
+     "n_unknown": 2,
+     "unknown": [
+      "site.fatalities",
+      "site.sign_of_exposure"
+     ],
+     "in_window": true,
+     "window_days": 90
+    },
+    "audit": [
+     {
+      "template": "obl.reg_fatality_regulator_inquiry",
+      "result": "switch",
+      "binding": {
+       "regulator": "01a081ae-26c6-7440-9d5c-fea77486d9b1",
+       "site": "01a081ae-26c3-763c-b48a-c8cdccb44713"
+      },
+      "states": {
+       "c1": "unknown",
+       "c2": "unknown",
+       "c3": "true"
+      },
+      "n_unknown": 2,
+      "unknown": [
+       "site.fatalities",
+       "site.sign_of_exposure"
+      ],
+      "in_window": true,
+      "window_days": 90
+     },
+     {
+      "template": "obl.reg_prohibition_lift_before_restart",
+      "result": "no_binding",
+      "empty_roles": [
+       "held_asset"
+      ]
+     }
+    ]
+   },
+   {
+    "notice_id": "R13-N2",
+    "row": 13,
+    "kind": "regulatory_decision",
+    "forced": "clear",
+    "read_in_full": true,
+    "status": "evaluated",
+    "tiers": {
+     "forced": false,
+     "switch_le1": false,
+     "switch_any": true
+    },
+    "best": {
+     "template": "obl.reg_fatality_regulator_inquiry",
+     "result": "switch",
+     "binding": {
+      "regulator": "01a081ae-26c6-7440-9d5c-fea77486d9b1",
+      "site": "01a081ae-26c3-763c-b48a-c8cdccb44713"
+     },
+     "states": {
+      "c1": "unknown",
+      "c2": "unknown",
+      "c3": "true"
+     },
+     "n_unknown": 2,
+     "unknown": [
+      "site.fatalities",
+      "site.sign_of_exposure"
+     ],
+     "in_window": true,
+     "window_days": 90
+    },
+    "audit": [
+     {
+      "template": "obl.reg_fatality_regulator_inquiry",
+      "result": "switch",
+      "binding": {
+       "regulator": "01a081ae-26c6-7440-9d5c-fea77486d9b1",
+       "site": "01a081ae-26c3-763c-b48a-c8cdccb44713"
+      },
+      "states": {
+       "c1": "unknown",
+       "c2": "unknown",
+       "c3": "true"
+      },
+      "n_unknown": 2,
+      "unknown": [
+       "site.fatalities",
+       "site.sign_of_exposure"
+      ],
+      "in_window": true,
+      "window_days": 90
+     },
+     {
+      "template": "obl.reg_prohibition_lift_before_restart",
+      "result": "no_binding",
+      "empty_roles": [
+       "held_asset"
+      ]
+     }
+    ]
+   },
+   {
+    "notice_id": "R13-N3",
+    "row": 13,
+    "kind": "regulatory_decision",
+    "forced": "clear",
+    "read_in_full": true,
+    "status": "evaluated",
+    "tiers": {
+     "forced": false,
+     "switch_le1": false,
+     "switch_any": true
+    },
+    "best": {
+     "template": "obl.reg_fatality_regulator_inquiry",
+     "result": "switch",
+     "binding": {
+      "regulator": "<unnamed:authority>",
+      "site": "01a081ae-26c3-763c-b48a-c8cdccb44713"
+     },
+     "states": {
+      "c1": "unknown",
+      "c2": "unknown",
+      "c3": "true"
+     },
+     "n_unknown": 2,
+     "unknown": [
+      "site.fatalities",
+      "site.sign_of_exposure"
+     ],
+     "in_window": true,
+     "window_days": 90
+    },
+    "audit": [
+     {
+      "template": "obl.reg_fatality_regulator_inquiry",
+      "result": "switch",
+      "binding": {
+       "regulator": "<unnamed:authority>",
+       "site": "01a081ae-26c3-763c-b48a-c8cdccb44713"
+      },
+      "states": {
+       "c1": "unknown",
+       "c2": "unknown",
+       "c3": "true"
+      },
+      "n_unknown": 2,
+      "unknown": [
+       "site.fatalities",
+       "site.sign_of_exposure"
+      ],
+      "in_window": true,
+      "window_days": 90
+     },
+     {
+      "template": "obl.reg_prohibition_lift_before_restart",
+      "result": "no_binding",
+      "empty_roles": [
+       "held_asset"
+      ]
+     }
+    ]
+   },
+   {
+    "notice_id": "R13-N4",
+    "row": 13,
+    "kind": "restart_statement",
+    "forced": "doubtful",
+    "read_in_full": true,
+    "status": "evaluated",
+    "tiers": {
+     "forced": false,
+     "switch_le1": false,
+     "switch_any": true
+    },
+    "best": {
+     "template": "obl.restart_fm_lifting_notice",
+     "result": "switch",
+     "binding": {
+      "declarant": "01a081ae-26c3-763c-b48a-c8cdccb44713"
+     },
+     "states": {
+      "c1": "unknown",
+      "c2": "unknown",
+      "c3": "unknown"
+     },
+     "n_unknown": 3,
+     "unknown": [
+      "declarant.fm_status",
+      "declarant.contract_type",
+      "declarant.sign_of_exposure"
+     ],
+     "in_window": true,
+     "window_days": 90
+    },
+    "audit": [
+     {
+      "template": "obl.restart_shared_infrastructure_reopening",
+      "result": "issuer_unbound"
+     },
+     {
+      "template": "obl.restart_listed_owner_material_outage_guidance",
+      "result": "no_binding",
+      "empty_roles": [
+       "asset"
+      ]
+     },
+     {
+      "template": "obl.restart_fm_lifting_notice",
+      "result": "switch",
+      "binding": {
+       "declarant": "01a081ae-26c3-763c-b48a-c8cdccb44713"
+      },
+      "states": {
+       "c1": "unknown",
+       "c2": "unknown",
+       "c3": "unknown"
+      },
+      "n_unknown": 3,
+      "unknown": [
+       "declarant.fm_status",
+       "declarant.contract_type",
+       "declarant.sign_of_exposure"
+      ],
+      "in_window": true,
+      "window_days": 90
+     }
+    ]
+   },
+   {
+    "notice_id": "R13-N5",
+    "row": 13,
+    "kind": "corporate_disclosure_of_event_impact",
+    "forced": "doubtful",
+    "read_in_full": true,
+    "status": "evaluated",
+    "tiers": {
+     "forced": false,
+     "switch_le1": false,
+     "switch_any": false
+    },
+    "best": null,
+    "audit": [
+     {
+      "template": "obl.corp_listed_material_owner_impact_statement",
+      "result": "no_binding",
+      "empty_roles": [
+       "asset"
+      ]
+     }
+    ]
+   },
+   {
+    "notice_id": "R13-N6",
+    "row": 13,
+    "kind": "counterparty_notice",
+    "forced": "doubtful",
+    "read_in_full": true,
+    "status": "evaluated",
+    "tiers": {
+     "forced": false,
+     "switch_le1": false,
+     "switch_any": false
+    },
+    "best": {
+     "template": "obl.cpn_liner_carrier_call_omission_advisory",
+     "result": "switch",
+     "binding": {
+      "closed_node": "01a081ae-26c6-7440-9d5c-fea77486d9b1",
+      "carrier": "01a081ae-26c3-763c-b48a-c8cdccb44713"
+     },
+     "states": {
+      "c1": "unknown",
+      "c2": "unknown",
+      "c3": "unknown",
+      "c4": "unknown",
+      "c5": "unknown",
+      "c6": "true"
+     },
+     "n_unknown": 5,
+     "unknown": [
+      "closed_node.operating_status",
+      "closed_node.shared_access",
+      "closed_node.duration",
+      "carrier.contract_type",
+      "carrier.sign_of_exposure"
+     ],
+     "in_window": false,
+     "window_days": 7
+    },
+    "audit": [
+     {
+      "template": "obl.cpn_liner_carrier_call_omission_advisory",
+      "result": "switch",
+      "binding": {
+       "closed_node": "01a081ae-26c6-7440-9d5c-fea77486d9b1",
+       "carrier": "01a081ae-26c3-763c-b48a-c8cdccb44713"
+      },
+      "states": {
+       "c1": "unknown",
+       "c2": "unknown",
+       "c3": "unknown",
+       "c4": "unknown",
+       "c5": "unknown",
+       "c6": "true"
+      },
+      "n_unknown": 5,
+      "unknown": [
+       "closed_node.operating_status",
+       "closed_node.shared_access",
+       "closed_node.duration",
+       "carrier.contract_type",
+       "carrier.sign_of_exposure"
+      ],
+      "in_window": false,
+      "window_days": 7
+     },
+     {
+      "template": "obl.cpn_war_risk_cover_cancellation",
+      "result": "no_binding",
+      "empty_roles": [
+       "route"
+      ]
+     }
+    ]
+   },
+   {
+    "notice_id": "R13-N7",
+    "row": 13,
+    "kind": "other:development_suspension_disclosure",
+    "forced": "doubtful",
+    "read_in_full": false,
+    "status": "no_template_kind",
+    "tiers": null,
+    "best": null,
+    "audit": []
+   },
+   {
+    "notice_id": "R15-N1",
+    "row": 15,
+    "kind": "regulatory_decision",
+    "forced": "doubtful",
+    "read_in_full": false,
+    "status": "evaluated",
+    "tiers": {
+     "forced": false,
+     "switch_le1": false,
+     "switch_any": true
+    },
+    "best": {
+     "template": "obl.reg_fatality_regulator_inquiry",
+     "result": "switch",
+     "binding": {
+      "regulator": "01a082b4-b6b3-75eb-95e3-bd5cac2461f2",
+      "site": "01a082b4-b6ad-72d7-bdd3-b16ea246fb2f"
+     },
+     "states": {
+      "c1": "unknown",
+      "c2": "unknown",
+      "c3": "true"
+     },
+     "n_unknown": 2,
+     "unknown": [
+      "site.fatalities",
+      "site.sign_of_exposure"
+     ],
+     "in_window": true,
+     "window_days": 90
+    },
+    "audit": [
+     {
+      "template": "obl.reg_fatality_regulator_inquiry",
+      "result": "switch",
+      "binding": {
+       "regulator": "01a082b4-b6b3-75eb-95e3-bd5cac2461f2",
+       "site": "01a082b4-b6ad-72d7-bdd3-b16ea246fb2f"
+      },
+      "states": {
+       "c1": "unknown",
+       "c2": "unknown",
+       "c3": "true"
+      },
+      "n_unknown": 2,
+      "unknown": [
+       "site.fatalities",
+       "site.sign_of_exposure"
+      ],
+      "in_window": true,
+      "window_days": 90
+     },
+     {
+      "template": "obl.reg_prohibition_lift_before_restart",
+      "result": "no_binding",
+      "empty_roles": [
+       "held_asset"
+      ]
+     }
+    ]
+   },
+   {
+    "notice_id": "R16-N1",
+    "row": 16,
+    "kind": "restart_statement",
+    "forced": "clear",
+    "read_in_full": true,
+    "status": "evaluated",
+    "tiers": {
+     "forced": false,
+     "switch_le1": false,
+     "switch_any": true
+    },
+    "best": {
+     "template": "obl.restart_fm_lifting_notice",
+     "result": "switch",
+     "binding": {
+      "declarant": "01a0857b-b68c-7567-bf71-dbd75ae1d2c7"
+     },
+     "states": {
+      "c1": "unknown",
+      "c2": "unknown",
+      "c3": "unknown"
+     },
+     "n_unknown": 3,
+     "unknown": [
+      "declarant.fm_status",
+      "declarant.contract_type",
+      "declarant.sign_of_exposure"
+     ],
+     "in_window": true,
+     "window_days": 90
+    },
+    "audit": [
+     {
+      "template": "obl.restart_shared_infrastructure_reopening",
+      "result": "issuer_unbound"
+     },
+     {
+      "template": "obl.restart_listed_owner_material_outage_guidance",
+      "result": "switch",
+      "binding": {
+       "owner": "01a0857b-b68c-7567-bf71-dbd75ae1d2c7",
+       "asset": "01a0857b-b68b-725d-9576-835e2f538d26"
+      },
+      "states": {
+       "c1": "unknown",
+       "c2": "unknown",
+       "c3": "unknown",
+       "c4": "unknown",
+       "c5": "true"
+      },
+      "n_unknown": 4,
+      "unknown": [
+       "asset.operating_status",
+       "owner.listed",
+       "owner.sign_of_exposure",
+       "owner.share"
+      ],
+      "in_window": true,
+      "window_days": 136
+     },
+     {
+      "template": "obl.restart_fm_lifting_notice",
+      "result": "switch",
+      "binding": {
+       "declarant": "01a0857b-b68c-7567-bf71-dbd75ae1d2c7"
+      },
+      "states": {
+       "c1": "unknown",
+       "c2": "unknown",
+       "c3": "unknown"
+      },
+      "n_unknown": 3,
+      "unknown": [
+       "declarant.fm_status",
+       "declarant.contract_type",
+       "declarant.sign_of_exposure"
+      ],
+      "in_window": true,
+      "window_days": 90
+     }
+    ]
+   },
+   {
+    "notice_id": "R16-N2",
+    "row": 16,
+    "kind": "restart_statement",
+    "forced": "doubtful",
+    "read_in_full": true,
+    "status": "evaluated",
+    "tiers": {
+     "forced": false,
+     "switch_le1": false,
+     "switch_any": true
+    },
+    "best": {
+     "template": "obl.restart_shared_infrastructure_reopening",
+     "result": "switch",
+     "binding": {
+      "operator": "01a0857b-b68b-725d-9576-835e2f538d26"
+     },
+     "states": {
+      "c1": "unknown",
+      "c2": "unknown",
+      "c3": "unknown"
+     },
+     "n_unknown": 3,
+     "unknown": [
+      "operator.operating_status",
+      "operator.shared_access",
+      "operator.sign_of_exposure"
+     ],
+     "in_window": true,
+     "window_days": 90
+    },
+    "audit": [
+     {
+      "template": "obl.restart_shared_infrastructure_reopening",
+      "result": "switch",
+      "binding": {
+       "operator": "01a0857b-b68b-725d-9576-835e2f538d26"
+      },
+      "states": {
+       "c1": "unknown",
+       "c2": "unknown",
+       "c3": "unknown"
+      },
+      "n_unknown": 3,
+      "unknown": [
+       "operator.operating_status",
+       "operator.shared_access",
+       "operator.sign_of_exposure"
+      ],
+      "in_window": true,
+      "window_days": 90
+     },
+     {
+      "template": "obl.restart_listed_owner_material_outage_guidance",
+      "result": "issuer_unbound"
+     },
+     {
+      "template": "obl.restart_fm_lifting_notice",
+      "result": "switch",
+      "binding": {
+       "declarant": "01a0857b-b68b-725d-9576-835e2f538d26"
+      },
+      "states": {
+       "c1": "unknown",
+       "c2": "unknown",
+       "c3": "unknown"
+      },
+      "n_unknown": 3,
+      "unknown": [
+       "declarant.fm_status",
+       "declarant.contract_type",
+       "declarant.sign_of_exposure"
+      ],
+      "in_window": true,
+      "window_days": 90
+     }
+    ]
+   },
+   {
+    "notice_id": "R17-N1",
+    "row": 17,
+    "kind": "incident_report",
+    "forced": "clear",
+    "read_in_full": true,
+    "status": "evaluated",
+    "tiers": {
+     "forced": false,
+     "switch_le1": false,
+     "switch_any": true
+    },
+    "best": {
+     "template": "obl.incident_generation_unit_outage_publication",
+     "result": "switch",
+     "binding": {
+      "generator": "01a085ed-bd0a-76d0-b46b-f83c3ab032a8"
+     },
+     "states": {
+      "c1": "unknown",
+      "c2": "unknown",
+      "c3": "unknown",
+      "c4": "true"
+     },
+     "n_unknown": 3,
+     "unknown": [
+      "generator.operating_status",
+      "generator.capacity",
+      "generator.generation_outage_reporting_regime"
+     ],
+     "in_window": true,
+     "window_days": 90
+    },
+    "audit": [
+     {
+      "template": "obl.incident_emissions_event_report",
+      "result": "no_binding",
+      "empty_roles": [
+       "regulator"
+      ]
+     },
+     {
+      "template": "obl.incident_shared_infrastructure_closure_notice",
+      "result": "issuer_unbound"
+     },
+     {
+      "template": "obl.incident_serious_accident_notification",
+      "result": "no_binding",
+      "empty_roles": [
+       "regulator"
+      ]
+     },
+     {
+      "template": "obl.incident_generation_unit_outage_publication",
+      "result": "switch",
+      "binding": {
+       "generator": "01a085ed-bd0a-76d0-b46b-f83c3ab032a8"
+      },
+      "states": {
+       "c1": "unknown",
+       "c2": "unknown",
+       "c3": "unknown",
+       "c4": "true"
+      },
+      "n_unknown": 3,
+      "unknown": [
+       "generator.operating_status",
+       "generator.capacity",
+       "generator.generation_outage_reporting_regime"
+      ],
+      "in_window": true,
+      "window_days": 90
+     }
+    ]
+   }
+  ],
+  "upper_bound": [
+   {
+    "notice_id": "R08-N1",
+    "row": 8,
+    "kind": "incident_report",
+    "forced": "clear",
+    "read_in_full": true,
+    "status": "evaluated",
+    "tiers": {
+     "forced": false,
+     "switch_le1": false,
+     "switch_any": true
+    },
+    "best": {
+     "template": "obl.incident_generation_unit_outage_publication",
+     "result": "switch",
+     "binding": {
+      "generator": "01a07c3e-5cb4-7622-93d6-f680e3b092d9"
+     },
+     "states": {
+      "c1": "unknown",
+      "c2": "unknown",
+      "c3": "unknown",
+      "c4": "true"
+     },
+     "n_unknown": 3,
+     "unknown": [
+      "generator.operating_status",
+      "generator.capacity",
+      "generator.generation_outage_reporting_regime"
+     ],
+     "in_window": true,
+     "window_days": 90
+    },
+    "audit": [
+     {
+      "template": "obl.incident_emissions_event_report",
+      "result": "no_binding",
+      "empty_roles": [
+       "regulator"
+      ]
+     },
+     {
+      "template": "obl.incident_shared_infrastructure_closure_notice",
+      "result": "issuer_unbound"
+     },
+     {
+      "template": "obl.incident_serious_accident_notification",
+      "result": "no_binding",
+      "empty_roles": [
+       "regulator"
+      ]
+     },
+     {
+      "template": "obl.incident_generation_unit_outage_publication",
+      "result": "switch",
+      "binding": {
+       "generator": "01a07c3e-5cb4-7622-93d6-f680e3b092d9"
+      },
+      "states": {
+       "c1": "unknown",
+       "c2": "unknown",
+       "c3": "unknown",
+       "c4": "true"
+      },
+      "n_unknown": 3,
+      "unknown": [
+       "generator.operating_status",
+       "generator.capacity",
+       "generator.generation_outage_reporting_regime"
+      ],
+      "in_window": true,
+      "window_days": 90
+     }
+    ]
+   },
+   {
+    "notice_id": "R11-N1",
+    "row": 11,
+    "kind": "regulatory_decision",
+    "forced": "doubtful",
+    "read_in_full": false,
+    "status": "evaluated",
+    "tiers": {
+     "forced": false,
+     "switch_le1": true,
+     "switch_any": true
+    },
+    "best": {
+     "template": "obl.reg_fatality_regulator_inquiry",
+     "result": "switch",
+     "binding": {
+      "regulator": "01a0816b-35cb-7378-b0a6-546ade92fa72",
+      "site": "01a0816b-35be-7087-8508-117c443803fc"
+     },
+     "states": {
+      "c1": "unknown",
+      "c2": "true",
+      "c3": "true"
+     },
+     "n_unknown": 1,
+     "unknown": [
+      "site.fatalities"
+     ],
+     "in_window": true,
+     "window_days": 90
+    },
+    "audit": [
+     {
+      "template": "obl.reg_fatality_regulator_inquiry",
+      "result": "switch",
+      "binding": {
+       "regulator": "01a0816b-35cb-7378-b0a6-546ade92fa72",
+       "site": "01a0816b-35be-7087-8508-117c443803fc"
+      },
+      "states": {
+       "c1": "unknown",
+       "c2": "true",
+       "c3": "true"
+      },
+      "n_unknown": 1,
+      "unknown": [
+       "site.fatalities"
+      ],
+      "in_window": true,
+      "window_days": 90
+     },
+     {
+      "template": "obl.reg_prohibition_lift_before_restart",
+      "result": "no_binding",
+      "empty_roles": [
+       "held_asset"
+      ]
+     }
+    ]
+   },
+   {
+    "notice_id": "R13-N1",
+    "row": 13,
+    "kind": "regulatory_decision",
+    "forced": "clear",
+    "read_in_full": true,
+    "status": "evaluated",
+    "tiers": {
+     "forced": false,
+     "switch_le1": true,
+     "switch_any": true
+    },
+    "best": {
+     "template": "obl.reg_fatality_regulator_inquiry",
+     "result": "switch",
+     "binding": {
+      "regulator": "01a081ae-26c6-7440-9d5c-fea77486d9b1",
+      "site": "01a081ae-26c3-763c-b48a-c8cdccb44713"
+     },
+     "states": {
+      "c1": "unknown",
+      "c2": "true",
+      "c3": "true"
+     },
+     "n_unknown": 1,
+     "unknown": [
+      "site.fatalities"
+     ],
+     "in_window": true,
+     "window_days": 90
+    },
+    "audit": [
+     {
+      "template": "obl.reg_fatality_regulator_inquiry",
+      "result": "switch",
+      "binding": {
+       "regulator": "01a081ae-26c6-7440-9d5c-fea77486d9b1",
+       "site": "01a081ae-26c3-763c-b48a-c8cdccb44713"
+      },
+      "states": {
+       "c1": "unknown",
+       "c2": "true",
+       "c3": "true"
+      },
+      "n_unknown": 1,
+      "unknown": [
+       "site.fatalities"
+      ],
+      "in_window": true,
+      "window_days": 90
+     },
+     {
+      "template": "obl.reg_prohibition_lift_before_restart",
+      "result": "no_binding",
+      "empty_roles": [
+       "held_asset"
+      ]
+     }
+    ]
+   },
+   {
+    "notice_id": "R13-N2",
+    "row": 13,
+    "kind": "regulatory_decision",
+    "forced": "clear",
+    "read_in_full": true,
+    "status": "evaluated",
+    "tiers": {
+     "forced": false,
+     "switch_le1": true,
+     "switch_any": true
+    },
+    "best": {
+     "template": "obl.reg_fatality_regulator_inquiry",
+     "result": "switch",
+     "binding": {
+      "regulator": "01a081ae-26c6-7440-9d5c-fea77486d9b1",
+      "site": "01a081ae-26c3-763c-b48a-c8cdccb44713"
+     },
+     "states": {
+      "c1": "unknown",
+      "c2": "true",
+      "c3": "true"
+     },
+     "n_unknown": 1,
+     "unknown": [
+      "site.fatalities"
+     ],
+     "in_window": true,
+     "window_days": 90
+    },
+    "audit": [
+     {
+      "template": "obl.reg_fatality_regulator_inquiry",
+      "result": "switch",
+      "binding": {
+       "regulator": "01a081ae-26c6-7440-9d5c-fea77486d9b1",
+       "site": "01a081ae-26c3-763c-b48a-c8cdccb44713"
+      },
+      "states": {
+       "c1": "unknown",
+       "c2": "true",
+       "c3": "true"
+      },
+      "n_unknown": 1,
+      "unknown": [
+       "site.fatalities"
+      ],
+      "in_window": true,
+      "window_days": 90
+     },
+     {
+      "template": "obl.reg_prohibition_lift_before_restart",
+      "result": "no_binding",
+      "empty_roles": [
+       "held_asset"
+      ]
+     }
+    ]
+   },
+   {
+    "notice_id": "R13-N3",
+    "row": 13,
+    "kind": "regulatory_decision",
+    "forced": "clear",
+    "read_in_full": true,
+    "status": "evaluated",
+    "tiers": {
+     "forced": false,
+     "switch_le1": true,
+     "switch_any": true
+    },
+    "best": {
+     "template": "obl.reg_fatality_regulator_inquiry",
+     "result": "switch",
+     "binding": {
+      "regulator": "<unnamed:authority>",
+      "site": "01a081ae-26c3-763c-b48a-c8cdccb44713"
+     },
+     "states": {
+      "c1": "unknown",
+      "c2": "true",
+      "c3": "true"
+     },
+     "n_unknown": 1,
+     "unknown": [
+      "site.fatalities"
+     ],
+     "in_window": true,
+     "window_days": 90
+    },
+    "audit": [
+     {
+      "template": "obl.reg_fatality_regulator_inquiry",
+      "result": "switch",
+      "binding": {
+       "regulator": "<unnamed:authority>",
+       "site": "01a081ae-26c3-763c-b48a-c8cdccb44713"
+      },
+      "states": {
+       "c1": "unknown",
+       "c2": "true",
+       "c3": "true"
+      },
+      "n_unknown": 1,
+      "unknown": [
+       "site.fatalities"
+      ],
+      "in_window": true,
+      "window_days": 90
+     },
+     {
+      "template": "obl.reg_prohibition_lift_before_restart",
+      "result": "no_binding",
+      "empty_roles": [
+       "held_asset"
+      ]
+     }
+    ]
+   },
+   {
+    "notice_id": "R13-N4",
+    "row": 13,
+    "kind": "restart_statement",
+    "forced": "doubtful",
+    "read_in_full": true,
+    "status": "evaluated",
+    "tiers": {
+     "forced": false,
+     "switch_le1": false,
+     "switch_any": true
+    },
+    "best": {
+     "template": "obl.restart_fm_lifting_notice",
+     "result": "switch",
+     "binding": {
+      "declarant": "01a081ae-26c3-763c-b48a-c8cdccb44713"
+     },
+     "states": {
+      "c1": "unknown",
+      "c2": "unknown",
+      "c3": "true"
+     },
+     "n_unknown": 2,
+     "unknown": [
+      "declarant.fm_status",
+      "declarant.contract_type"
+     ],
+     "in_window": true,
+     "window_days": 90
+    },
+    "audit": [
+     {
+      "template": "obl.restart_shared_infrastructure_reopening",
+      "result": "issuer_unbound"
+     },
+     {
+      "template": "obl.restart_listed_owner_material_outage_guidance",
+      "result": "no_binding",
+      "empty_roles": [
+       "asset"
+      ]
+     },
+     {
+      "template": "obl.restart_fm_lifting_notice",
+      "result": "switch",
+      "binding": {
+       "declarant": "01a081ae-26c3-763c-b48a-c8cdccb44713"
+      },
+      "states": {
+       "c1": "unknown",
+       "c2": "unknown",
+       "c3": "true"
+      },
+      "n_unknown": 2,
+      "unknown": [
+       "declarant.fm_status",
+       "declarant.contract_type"
+      ],
+      "in_window": true,
+      "window_days": 90
+     }
+    ]
+   },
+   {
+    "notice_id": "R13-N5",
+    "row": 13,
+    "kind": "corporate_disclosure_of_event_impact",
+    "forced": "doubtful",
+    "read_in_full": true,
+    "status": "evaluated",
+    "tiers": {
+     "forced": false,
+     "switch_le1": false,
+     "switch_any": false
+    },
+    "best": null,
+    "audit": [
+     {
+      "template": "obl.corp_listed_material_owner_impact_statement",
+      "result": "no_binding",
+      "empty_roles": [
+       "asset"
+      ]
+     }
+    ]
+   },
+   {
+    "notice_id": "R13-N6",
+    "row": 13,
+    "kind": "counterparty_notice",
+    "forced": "doubtful",
+    "read_in_full": true,
+    "status": "evaluated",
+    "tiers": {
+     "forced": false,
+     "switch_le1": false,
+     "switch_any": false
+    },
+    "best": {
+     "template": "obl.cpn_liner_carrier_call_omission_advisory",
+     "result": "switch",
+     "binding": {
+      "closed_node": "01a081ae-26c6-7440-9d5c-fea77486d9b1",
+      "carrier": "01a081ae-26c3-763c-b48a-c8cdccb44713"
+     },
+     "states": {
+      "c1": "unknown",
+      "c2": "unknown",
+      "c3": "unknown",
+      "c4": "unknown",
+      "c5": "true",
+      "c6": "true"
+     },
+     "n_unknown": 4,
+     "unknown": [
+      "closed_node.operating_status",
+      "closed_node.shared_access",
+      "closed_node.duration",
+      "carrier.contract_type"
+     ],
+     "in_window": false,
+     "window_days": 7
+    },
+    "audit": [
+     {
+      "template": "obl.cpn_liner_carrier_call_omission_advisory",
+      "result": "switch",
+      "binding": {
+       "closed_node": "01a081ae-26c6-7440-9d5c-fea77486d9b1",
+       "carrier": "01a081ae-26c3-763c-b48a-c8cdccb44713"
+      },
+      "states": {
+       "c1": "unknown",
+       "c2": "unknown",
+       "c3": "unknown",
+       "c4": "unknown",
+       "c5": "true",
+       "c6": "true"
+      },
+      "n_unknown": 4,
+      "unknown": [
+       "closed_node.operating_status",
+       "closed_node.shared_access",
+       "closed_node.duration",
+       "carrier.contract_type"
+      ],
+      "in_window": false,
+      "window_days": 7
+     },
+     {
+      "template": "obl.cpn_war_risk_cover_cancellation",
+      "result": "no_binding",
+      "empty_roles": [
+       "route"
+      ]
+     }
+    ]
+   },
+   {
+    "notice_id": "R13-N7",
+    "row": 13,
+    "kind": "other:development_suspension_disclosure",
+    "forced": "doubtful",
+    "read_in_full": false,
+    "status": "no_template_kind",
+    "tiers": null,
+    "best": null,
+    "audit": []
+   },
+   {
+    "notice_id": "R15-N1",
+    "row": 15,
+    "kind": "regulatory_decision",
+    "forced": "doubtful",
+    "read_in_full": false,
+    "status": "evaluated",
+    "tiers": {
+     "forced": false,
+     "switch_le1": true,
+     "switch_any": true
+    },
+    "best": {
+     "template": "obl.reg_fatality_regulator_inquiry",
+     "result": "switch",
+     "binding": {
+      "regulator": "01a082b4-b6b3-75eb-95e3-bd5cac2461f2",
+      "site": "01a082b4-b6af-748c-87a2-38da9f4837b7"
+     },
+     "states": {
+      "c1": "unknown",
+      "c2": "true",
+      "c3": "true"
+     },
+     "n_unknown": 1,
+     "unknown": [
+      "site.fatalities"
+     ],
+     "in_window": true,
+     "window_days": 90
+    },
+    "audit": [
+     {
+      "template": "obl.reg_fatality_regulator_inquiry",
+      "result": "switch",
+      "binding": {
+       "regulator": "01a082b4-b6b3-75eb-95e3-bd5cac2461f2",
+       "site": "01a082b4-b6af-748c-87a2-38da9f4837b7"
+      },
+      "states": {
+       "c1": "unknown",
+       "c2": "true",
+       "c3": "true"
+      },
+      "n_unknown": 1,
+      "unknown": [
+       "site.fatalities"
+      ],
+      "in_window": true,
+      "window_days": 90
+     },
+     {
+      "template": "obl.reg_prohibition_lift_before_restart",
+      "result": "no_binding",
+      "empty_roles": [
+       "held_asset"
+      ]
+     }
+    ]
+   },
+   {
+    "notice_id": "R16-N1",
+    "row": 16,
+    "kind": "restart_statement",
+    "forced": "clear",
+    "read_in_full": true,
+    "status": "evaluated",
+    "tiers": {
+     "forced": false,
+     "switch_le1": false,
+     "switch_any": true
+    },
+    "best": {
+     "template": "obl.restart_fm_lifting_notice",
+     "result": "switch",
+     "binding": {
+      "declarant": "01a0857b-b68c-7567-bf71-dbd75ae1d2c7"
+     },
+     "states": {
+      "c1": "unknown",
+      "c2": "unknown",
+      "c3": "true"
+     },
+     "n_unknown": 2,
+     "unknown": [
+      "declarant.fm_status",
+      "declarant.contract_type"
+     ],
+     "in_window": true,
+     "window_days": 90
+    },
+    "audit": [
+     {
+      "template": "obl.restart_shared_infrastructure_reopening",
+      "result": "issuer_unbound"
+     },
+     {
+      "template": "obl.restart_listed_owner_material_outage_guidance",
+      "result": "switch",
+      "binding": {
+       "owner": "01a0857b-b68c-7567-bf71-dbd75ae1d2c7",
+       "asset": "01a0857b-b68b-725d-9576-835e2f538d26"
+      },
+      "states": {
+       "c1": "unknown",
+       "c2": "unknown",
+       "c3": "true",
+       "c4": "unknown",
+       "c5": "true"
+      },
+      "n_unknown": 3,
+      "unknown": [
+       "asset.operating_status",
+       "owner.listed",
+       "owner.share"
+      ],
+      "in_window": true,
+      "window_days": 136
+     },
+     {
+      "template": "obl.restart_fm_lifting_notice",
+      "result": "switch",
+      "binding": {
+       "declarant": "01a0857b-b68c-7567-bf71-dbd75ae1d2c7"
+      },
+      "states": {
+       "c1": "unknown",
+       "c2": "unknown",
+       "c3": "true"
+      },
+      "n_unknown": 2,
+      "unknown": [
+       "declarant.fm_status",
+       "declarant.contract_type"
+      ],
+      "in_window": true,
+      "window_days": 90
+     }
+    ]
+   },
+   {
+    "notice_id": "R16-N2",
+    "row": 16,
+    "kind": "restart_statement",
+    "forced": "doubtful",
+    "read_in_full": true,
+    "status": "evaluated",
+    "tiers": {
+     "forced": false,
+     "switch_le1": false,
+     "switch_any": true
+    },
+    "best": {
+     "template": "obl.restart_shared_infrastructure_reopening",
+     "result": "switch",
+     "binding": {
+      "operator": "01a0857b-b68b-725d-9576-835e2f538d26"
+     },
+     "states": {
+      "c1": "unknown",
+      "c2": "unknown",
+      "c3": "true"
+     },
+     "n_unknown": 2,
+     "unknown": [
+      "operator.operating_status",
+      "operator.shared_access"
+     ],
+     "in_window": true,
+     "window_days": 90
+    },
+    "audit": [
+     {
+      "template": "obl.restart_shared_infrastructure_reopening",
+      "result": "switch",
+      "binding": {
+       "operator": "01a0857b-b68b-725d-9576-835e2f538d26"
+      },
+      "states": {
+       "c1": "unknown",
+       "c2": "unknown",
+       "c3": "true"
+      },
+      "n_unknown": 2,
+      "unknown": [
+       "operator.operating_status",
+       "operator.shared_access"
+      ],
+      "in_window": true,
+      "window_days": 90
+     },
+     {
+      "template": "obl.restart_listed_owner_material_outage_guidance",
+      "result": "issuer_unbound"
+     },
+     {
+      "template": "obl.restart_fm_lifting_notice",
+      "result": "switch",
+      "binding": {
+       "declarant": "01a0857b-b68b-725d-9576-835e2f538d26"
+      },
+      "states": {
+       "c1": "unknown",
+       "c2": "unknown",
+       "c3": "true"
+      },
+      "n_unknown": 2,
+      "unknown": [
+       "declarant.fm_status",
+       "declarant.contract_type"
+      ],
+      "in_window": true,
+      "window_days": 90
+     }
+    ]
+   },
+   {
+    "notice_id": "R17-N1",
+    "row": 17,
+    "kind": "incident_report",
+    "forced": "clear",
+    "read_in_full": true,
+    "status": "evaluated",
+    "tiers": {
+     "forced": false,
+     "switch_le1": false,
+     "switch_any": true
+    },
+    "best": {
+     "template": "obl.incident_generation_unit_outage_publication",
+     "result": "switch",
+     "binding": {
+      "generator": "01a085ed-bd0a-76d0-b46b-f83c3ab032a8"
+     },
+     "states": {
+      "c1": "unknown",
+      "c2": "unknown",
+      "c3": "unknown",
+      "c4": "true"
+     },
+     "n_unknown": 3,
+     "unknown": [
+      "generator.operating_status",
+      "generator.capacity",
+      "generator.generation_outage_reporting_regime"
+     ],
+     "in_window": true,
+     "window_days": 90
+    },
+    "audit": [
+     {
+      "template": "obl.incident_emissions_event_report",
+      "result": "no_binding",
+      "empty_roles": [
+       "regulator"
+      ]
+     },
+     {
+      "template": "obl.incident_shared_infrastructure_closure_notice",
+      "result": "issuer_unbound"
+     },
+     {
+      "template": "obl.incident_serious_accident_notification",
+      "result": "no_binding",
+      "empty_roles": [
+       "regulator"
+      ]
+     },
+     {
+      "template": "obl.incident_generation_unit_outage_publication",
+      "result": "switch",
+      "binding": {
+       "generator": "01a085ed-bd0a-76d0-b46b-f83c3ab032a8"
+      },
+      "states": {
+       "c1": "unknown",
+       "c2": "unknown",
+       "c3": "unknown",
+       "c4": "true"
+      },
+      "n_unknown": 3,
+      "unknown": [
+       "generator.operating_status",
+       "generator.capacity",
+       "generator.generation_outage_reporting_regime"
+      ],
+      "in_window": true,
+      "window_days": 90
+     }
+    ]
+   }
+  ]
+ },
+ "notices": [
+  {
+   "notice_id": "R08-N1",
+   "kind": "incident_report",
+   "issuer_name": "Phillips 66 (filer of the Sweeny refinery and petrochemical complex entity; Reuters: 'Phillips 66 reported ... according to a Texas Commission on Environmental Quality filing')",
+   "issuer_holder_id": "01a07c3e-5cb4-7622-93d6-f680e3b092d9",
+   "issuer_class": "company",
+   "node": "sweeny_refinery_output",
+   "node_source": "event",
+   "date_arrived": "2026-07-28",
+   "evidence_ids": [
+    "01a07c42-36d4-71ab-9b4b-47ae55cd2653",
+    "01a07c42-36d5-74c8-9af9-663386a4657d"
+   ],
+   "resolution_ids": [
+    "01a07c42-3a85-719b-8f3c-6bd6da154de5",
+    "01a07c42-3a84-743b-b3fb-d956d0e157c8",
+    "01a07c42-3a85-719b-8f3c-6bdbd7843605"
+   ],
+   "obligation_basis": "TCEQ emissions event report (STEERS) for the 27 Jul lightning upset; the record itself treats it as 'a filing obligation, not a market mechanism' (prediction 01a07c3e-5f28-77f1-8c34-df9a9b1d9107) and no calendar date exists for it",
+   "forced": "clear",
+   "summary": "P66's TCEQ emissions-event filing on the Sweeny lightning upset, known to the record only through the Reuters 28 Jul brief that quotes it; the filing itself (units, start/end times, flaring) was unreachable to the fetcher",
+   "row": 8,
+   "read_in_full": true,
+   "resolution_coverage": [
+    "adequate",
+    "thin",
+    "thin"
+   ],
+   "unlinked_resolution_ids": 0
+  },
+  {
+   "notice_id": "R11-N1",
+   "kind": "regulatory_decision",
+   "issuer_name": "European Commission (DG COMP)",
+   "issuer_holder_id": "01a0816b-35cb-7378-b0a6-546ade92fa72",
+   "issuer_class": "authority",
+   "node": "upm_sappi_jv_completion",
+   "node_source": "touched_set",
+   "date_arrived": "2026-08-27",
+   "evidence_ids": [
+    "01a0816d-b1cc-7781-917f-9b3140b793b9"
+   ],
+   "resolution_ids": [],
+   "obligation_basis": "EU Merger Regulation Phase II timetable: the Commission must decide by a fixed deadline (statutory window); whether any new procedural act (deadline reset or extension) was issued after the Statement of Objections is not shown",
+   "forced": "doubtful",
+   "summary": "Search-summary record (MLex paywalled, Concurrences and paper trades; evidence source_time 8 Sep 2026, knowable_from 27 Aug 2026): 'The Commission now has until 11 November 2026 to issue a final decision'; JV valued at EUR 1.42bn. Doubtful because it is a third-party summary of a date that may be an ordinary calendared statutory deadline (the ledger stores it as a scheduled-type 'mechanical' node fact) or may reflect a new Commission procedural act; the record cannot tell. No resolution bears on it (call 7, the 24 Nov lag call, and call 6, the 25 Sep null call, are unresolved).",
+   "row": 11,
+   "read_in_full": false,
+   "resolution_coverage": [],
+   "unlinked_resolution_ids": 0
+  },
+  {
+   "notice_id": "R13-N1",
+   "kind": "regulatory_decision",
+   "issuer_name": "Servicio Nacional de Geologia y Mineria (Sernageomin)",
+   "issuer_holder_id": "01a081ae-26c6-7440-9d5c-fea77486d9b1",
+   "issuer_class": "authority",
+   "node": "el_teniente_copper_supply",
+   "node_source": "event",
+   "date_arrived": "2025-08-01",
+   "evidence_ids": [
+    "01a081b9-0d8b-731b-8cf0-9c1283187afe"
+   ],
+   "resolution_ids": [
+    "01a081ba-79d4-7414-92c4-7ded9cb7144d",
+    "01a081ba-79d5-742e-817d-fdede710464a"
+   ],
+   "obligation_basis": "regulator's formal suspension order over underground operations after a fatal collapse, with reports required before it would evaluate lifting (regulatory action; record calls it a 'formal suspension')",
+   "forced": "clear",
+   "summary": "Formal suspension of underground operations at El Teniente plus instruction that Codelco present four reports (cause analysis, recovery plan, fortification assessment, structural evaluation) before lifting is evaluated; date ambiguous in the record (scorer_note 'evening of 31 July', evidence knowable_from 2025-08-01, article 2025-08-04), see notes.",
+   "row": 13,
+   "read_in_full": true,
+   "resolution_coverage": [
+    "adequate",
+    "adequate"
+   ],
+   "unlinked_resolution_ids": 0
+  },
+  {
+   "notice_id": "R13-N2",
+   "kind": "regulatory_decision",
+   "issuer_name": "Servicio Nacional de Geologia y Mineria (Sernageomin)",
+   "issuer_holder_id": "01a081ae-26c6-7440-9d5c-fea77486d9b1",
+   "issuer_class": "authority",
+   "node": "el_teniente_copper_supply",
+   "node_source": "event",
+   "date_arrived": "2025-08-09",
+   "evidence_ids": [
+    "01a081b9-0d8b-731b-8cf0-9c14eb477395"
+   ],
+   "resolution_ids": [
+    "01a081ba-79d4-7414-92c4-7ded9cb7144d",
+    "01a081ba-79d5-742e-817d-fdede710464a"
+   ],
+   "obligation_basis": "regulator's permit action lifting part of its suspension (approval of partial restart)",
+   "forced": "clear",
+   "summary": "Approval (jointly reported with the Labour Directorate) on 9 August to restart eight of twelve underground sectors; Recursos Norte and Andesita stay suspended indefinitely pending engineering evaluation and remedial work.",
+   "row": 13,
+   "read_in_full": true,
+   "resolution_coverage": [
+    "adequate",
+    "adequate"
+   ],
+   "unlinked_resolution_ids": 0
+  },
+  {
+   "notice_id": "R13-N3",
+   "kind": "regulatory_decision",
+   "issuer_name": "Labour Directorate (as named in the record)",
+   "issuer_holder_id": null,
+   "issuer_class": "authority",
+   "node": "el_teniente_copper_supply",
+   "node_source": "event",
+   "date_arrived": "2025-08-09",
+   "evidence_ids": [
+    "01a081b9-0d8b-731b-8cf0-9c14eb477395"
+   ],
+   "resolution_ids": [
+    "01a081ba-79d4-7414-92c4-7ded9cb7144d"
+   ],
+   "obligation_basis": "labour regulator's approval needed for the partial restart (regulatory permit action)",
+   "forced": "clear",
+   "summary": "Approval alongside Sernageomin, reported in one sentence with N2, to restart eight of twelve underground sectors on 9 August; may be one joint approval with N2 (see notes).",
+   "row": 13,
+   "read_in_full": true,
+   "resolution_coverage": [
+    "adequate"
+   ],
+   "unlinked_resolution_ids": 0
+  },
+  {
+   "notice_id": "R13-N4",
+   "kind": "restart_statement",
+   "issuer_name": "Corporacion Nacional del Cobre de Chile (Codelco)",
+   "issuer_holder_id": "01a081ae-26c3-763c-b48a-c8cdccb44713",
+   "issuer_class": "company",
+   "node": "el_teniente_copper_supply",
+   "node_source": "event",
+   "date_arrived": "2025-08-06",
+   "evidence_ids": [
+    "01a081b9-0d8b-731b-8cf0-9c132cd5d885"
+   ],
+   "resolution_ids": [
+    "01a081ba-79d4-7414-92c4-7ded9cb7144d"
+   ],
+   "obligation_basis": "operating necessity: after the suspension order the operator had to ask the regulator for permission before any restart; the request itself was Codelco's timing, so obligation is not shown",
+   "forced": "doubtful",
+   "summary": "Six days after the 31 July stoppage Codelco asked the regulator for permission to restart part of El Teniente (reported by Reuters via US News, 6 August).",
+   "row": 13,
+   "read_in_full": true,
+   "resolution_coverage": [
+    "adequate"
+   ],
+   "unlinked_resolution_ids": 0
+  },
+  {
+   "notice_id": "R13-N5",
+   "kind": "corporate_disclosure_of_event_impact",
+   "issuer_name": "Corporacion Nacional del Cobre de Chile (Codelco)",
+   "issuer_holder_id": "01a081ae-26c3-763c-b48a-c8cdccb44713",
+   "issuer_class": "company",
+   "node": "el_teniente_copper_supply",
+   "node_source": "event",
+   "date_arrived": "2025-08-21",
+   "evidence_ids": [
+    "01a081b9-0d8c-7652-ab4d-675211722a54"
+   ],
+   "resolution_ids": [
+    "01a081ba-79d5-742e-817d-fdf434b33d7f",
+    "01a081ba-79d4-7414-92c4-7ded9cb7144d"
+   ],
+   "obligation_basis": "not shown as obliged: Codelco is unlisted (holders.listed=0); the scorer_note for the guidance call asserts a state-owned producer 'with bond-market disclosure duties'; the record does not say the date was uncalendared",
+   "forced": "doubtful",
+   "summary": "Codelco cut 2025 production guidance to 1.34-1.37 Mt from 1.37-1.40 Mt, put El Teniente at 316,000 t and named 33,000 t and about $340 million of lost output (Reuters via Mining.com, 21 August).",
+   "row": 13,
+   "read_in_full": true,
+   "resolution_coverage": [
+    "adequate",
+    "adequate"
+   ],
+   "unlinked_resolution_ids": 0
+  },
+  {
+   "notice_id": "R13-N6",
+   "kind": "counterparty_notice",
+   "issuer_name": "Corporacion Nacional del Cobre de Chile (Codelco)",
+   "issuer_holder_id": "01a081ae-26c3-763c-b48a-c8cdccb44713",
+   "issuer_class": "company",
+   "node": "codelco_capex_programme",
+   "node_source": "touched_set",
+   "date_arrived": "2025-08-08",
+   "evidence_ids": [
+    "01a081b9-0d8c-7652-ab4d-6754c743a601"
+   ],
+   "resolution_ids": [
+    "01a081ba-79d5-742e-817d-fdf21997764b"
+   ],
+   "obligation_basis": "not shown: a contractual suspension of contractors' contracts is Codelco's own act; obligation and issue date are not stated (record gives only 'until at least 13 August')",
+   "forced": "doubtful",
+   "summary": "Codelco suspended the contracts of the contractors directly involved (Gardilcic, Salfa Montajes) until at least 13 August; reported by the Business and Human Rights Resource Centre (knowable from 8 August, published 14 August).",
+   "row": 13,
+   "read_in_full": true,
+   "resolution_coverage": [
+    "adequate"
+   ],
+   "unlinked_resolution_ids": 0
+  },
+  {
+   "notice_id": "R13-N7",
+   "kind": "other:development_suspension_disclosure",
+   "issuer_name": "Corporacion Nacional del Cobre de Chile (Codelco)",
+   "issuer_holder_id": "01a081ae-26c3-763c-b48a-c8cdccb44713",
+   "issuer_class": "company",
+   "node": "codelco_capex_programme",
+   "node_source": "touched_set",
+   "date_arrived": "2026-08-04",
+   "evidence_ids": [
+    "01a081b9-0d8d-7240-9597-39a95cea2536"
+   ],
+   "resolution_ids": [],
+   "obligation_basis": "not shown; the record itself labels this a different event (August 2026, 'not a collapse'), dated a year after the clock; listed only because it concerns the El Teniente development programme (touched_set node) and is after the 2025-07-31 clock",
+   "forced": "doubtful",
+   "summary": "Codelco suspended development of the Andes Norte section at El Teniente for up to two years after analysis found a seismic phenomenon tied to project depth (Northern Miner, source 2026-08-05, knowable 2026-08-04); the exact date of Codelco's own statement is not in the record.",
+   "row": 13,
+   "read_in_full": false,
+   "resolution_coverage": [],
+   "unlinked_resolution_ids": 0
+  },
+  {
+   "notice_id": "R15-N1",
+   "kind": "regulatory_decision",
+   "issuer_name": "US International Trade Commission (ALJ initial determination in the parallel trade-secrets investigation)",
+   "issuer_holder_id": "01a082b4-b6b3-75eb-95e3-bd5cac2461f2",
+   "issuer_class": "authority",
+   "node": "us_display_glass_imports",
+   "node_source": "event",
+   "date_arrived": "2026-08-13",
+   "evidence_ids": [
+    "01a082ba-5aba-767e-afde-655a254e2b55"
+   ],
+   "resolution_ids": [
+    "01a082bb-f6d6-7296-9fe2-20bab19daf6d"
+   ],
+   "obligation_basis": "statutory Section 337 process: public version of an initial determination in a pending investigation; the determination itself is dated 24 July, so what arrived on 13 August is the public version, and its issue date is not shown as calendared",
+   "forced": "doubtful",
+   "summary": "Public version of the trade-secrets initial determination issued 13 August 2026: ALJ recommends exclusion orders against all remaining respondents and a cease-and-desist order, which would take effect January 2027 subject to Commission review (reported by DigiTimes 2026-08-20).",
+   "row": 15,
+   "read_in_full": false,
+   "resolution_coverage": [
+    "thin"
+   ],
+   "unlinked_resolution_ids": 0
+  },
+  {
+   "notice_id": "R16-N1",
+   "kind": "restart_statement",
+   "issuer_name": "PT Freeport Indonesia (President Director Tony Wenas; joint owner of PT Smelting with Mitsubishi Materials)",
+   "issuer_holder_id": "01a0857b-b68c-7567-bf71-dbd75ae1d2c7",
+   "issuer_class": "company",
+   "node": "indonesian_copper_smelting",
+   "node_source": "event",
+   "date_arrived": "2026-08-13",
+   "evidence_ids": [
+    "01a08584-1e92-76c4-bf94-31edd3a55934"
+   ],
+   "resolution_ids": [
+    "01a08584-1fdc-70cb-a9ae-172b56b35589",
+    "01a08584-1fdb-724d-91a5-8663510c64d0",
+    "01a08584-1fdc-70cb-a9ae-17287583b0f9",
+    "01a08584-1fdc-70cb-a9ae-172965096fb5"
+   ],
+   "obligation_basis": "(c) operating necessity to state a status after an outage: the owner of the halted plant confirmed the halt and gave a repair-completion timeline; PTFI is an unlisted subsidiary of listed FCX, so the record shows no exchange-rule or statutory basis, only operating necessity",
+   "forced": "clear",
+   "summary": "Announced 13 Aug (as reported by the Jakarta Post, relaying Bisnis.com): smelter halted effective 8 Aug for urgent furnace repairs, completion projected Q3 2026, Grasberg production unaffected, sales timing under review. Same document also works as an event-impact statement (alt kind corporate_disclosure_of_event_impact) and is the one the record calls 'PT Freeport Indonesia's own announcement of 13 August'. Caveat: the timeline is quoted from an executive's remarks to a news outlet, so a strict reader could call it interview-form.",
+   "row": 16,
+   "read_in_full": true,
+   "resolution_coverage": [
+    "adequate",
+    "adequate",
+    "adequate",
+    "adequate"
+   ],
+   "unlinked_resolution_ids": 0
+  },
+  {
+   "notice_id": "R16-N2",
+   "kind": "restart_statement",
+   "issuer_name": "PT Smelting (Gresik smelter), inferred: the record says only 'buyers were told' and names no issuer",
+   "issuer_holder_id": "01a0857b-b68b-725d-9576-835e2f538d26",
+   "issuer_class": "plant",
+   "node": "indonesian_copper_smelting",
+   "node_source": "event",
+   "date_arrived": "2026-08-10",
+   "evidence_ids": [
+    "01a08584-1e92-76c4-bf94-31efe315a673"
+   ],
+   "resolution_ids": [
+    "01a08584-1fdc-70cb-a9ae-172b56b35589",
+    "01a08584-1fdc-70cb-a9ae-172ce84b755c",
+    "01a08584-1fdb-724d-91a5-8663510c64d0"
+   ],
+   "obligation_basis": "(b) contractual service notice to offtake buyers (alt kind counterparty_notice) or (c) operating necessity to state a status after an outage; the record does not say which, and does not name the issuer or the contract",
+   "forced": "doubtful",
+   "summary": "Buyers were told the plant would stay closed for checks and repairs over the coming weeks (Reuters via Mining.com, source_time 2026-08-11, knowable_from 2026-08-10). The notice's own date is not given; date_arrived is the first date the record shows it. The call-7 scorer note says buyers had 'already been told at the event', which points to the event date or just after; if it was on 2026-08-08 it is before_clock. The Reuters page itself returned 403 to the fetcher and was read through a search summary.",
+   "row": 16,
+   "read_in_full": true,
+   "resolution_coverage": [
+    "adequate",
+    "thin",
+    "adequate"
+   ],
+   "unlinked_resolution_ids": 0
+  },
+  {
+   "notice_id": "R17-N1",
+   "kind": "incident_report",
+   "issuer_name": "Google Cloud (Google Cloud Service Health incident page, us-west1 incident of 20 Aug 2026; operator of the region, unit of Alphabet Inc)",
+   "issuer_holder_id": "01a085ed-bd0a-76d0-b46b-f83c3ab032a8",
+   "issuer_class": "company",
+   "node": "gcp_us_west1_region",
+   "node_source": "event",
+   "date_arrived": "2026-08-27",
+   "evidence_ids": [
+    "01a085f8-554e-75d4-9cd8-32ee84f47929",
+    "01a085f8-7e14-74bd-b583-1909c2367dc8"
+   ],
+   "resolution_ids": [
+    "01a085f9-4f05-73ce-9bec-c08c3f7f491d",
+    "01a085f9-4f04-7372-bfca-0830297fcd4b",
+    "01a085f9-4f05-73ce-9bec-c09093a40253"
+   ],
+   "obligation_basis": "(b) contract, customary post-incident account: the record's own ack_nodes obligation says an operator carrying an availability SLA across a multi-tenant region must account publicly for a multi-service failure to the tenants who will claim against it; the obligation follows from the contract, the publication date is not published anywhere",
+   "forced": "clear",
+   "summary": "Root cause published 2026-08-27 (day 7) on the operator's incident page: scheduled fibre-optic maintenance compromised inter-datacentre capacity in us-west1, automated rerouting failed, congestion cascaded through Spanner Paxos consensus and the Unified Metadata Server; window 08:00-10:22 PDT on 2026-08-20 (2h22m). Ledger: ack_nodes 01a085ed-bd21-716d-8a2e-07d13fc1c051 (forced) fired in ack_firings 01a085f8-5551-74fb-be55-878ebe875f4a, delivered=1, opening segment 01a085f8-5552-7028-85ce-357886970fbd. The evidence table holds two identical rows for this page (554e and 7e14); both are linked.",
+   "row": 17,
+   "read_in_full": true,
+   "resolution_coverage": [
+    "adequate",
+    "adequate",
+    "adequate"
+   ],
+   "unlinked_resolution_ids": 0
+  }
+ ],
+ "store_rows": {
+  "guarded": {
+   "8": 20,
+   "9": 22,
+   "10": 22,
+   "11": 22,
+   "13": 0,
+   "15": 22,
+   "16": 22,
+   "17": 22
+  },
+  "S1_no_knowable_from": {
+   "8": 26,
+   "9": 30,
+   "10": 34,
+   "11": 38,
+   "13": 44,
+   "15": 48,
+   "16": 53,
+   "17": 68
+  },
+  "S2_inferred_accepted": {
+   "8": 55,
+   "9": 59,
+   "10": 59,
+   "11": 59,
+   "13": 0,
+   "15": 59,
+   "16": 59,
+   "17": 59
+  },
+  "S3_touched_set_rows": {
+   "8": 20,
+   "9": 22,
+   "10": 22,
+   "11": 22,
+   "13": 0,
+   "15": 22,
+   "16": 22,
+   "17": 22
+  },
+  "upper_bound": {
+   "8": 71,
+   "9": 91,
+   "10": 104,
+   "11": 118,
+   "13": 146,
+   "15": 161,
+   "16": 178,
+   "17": 194
+  }
+ },
+ "engine_stats": {},
+ "summary": {
+  "guarded": {
+   "primary_clear_read_in_full": {
+    "n": 6,
+    "forced": {
+     "derived": 0,
+     "share": 0.0
+    },
+    "switch_le1": {
+     "derived": 0,
+     "share": 0.0
+    },
+    "switch_any": {
+     "derived": 1,
+     "share": 0.167
+    },
+    "by_row": {
+     "8": {
+      "n": 1,
+      "forced": 0
+     },
+     "9": {
+      "n": 0,
+      "forced": 0
+     },
+     "10": {
+      "n": 0,
+      "forced": 0
+     },
+     "11": {
+      "n": 0,
+      "forced": 0
+     },
+     "13": {
+      "n": 3,
+      "forced": 0
+     },
+     "15": {
+      "n": 0,
+      "forced": 0
+     },
+     "16": {
+      "n": 1,
+      "forced": 0
+     },
+     "17": {
+      "n": 1,
+      "forced": 0
+     }
+    },
+    "status_counts": {
+     "evaluated": 4,
+     "issuer_unbound": 2
+    }
+   },
+   "all_clear": {
+    "n": 6,
+    "forced": {
+     "derived": 0,
+     "share": 0.0
+    },
+    "switch_le1": {
+     "derived": 0,
+     "share": 0.0
+    },
+    "switch_any": {
+     "derived": 1,
+     "share": 0.167
+    },
+    "by_row": {
+     "8": {
+      "n": 1,
+      "forced": 0
+     },
+     "9": {
+      "n": 0,
+      "forced": 0
+     },
+     "10": {
+      "n": 0,
+      "forced": 0
+     },
+     "11": {
+      "n": 0,
+      "forced": 0
+     },
+     "13": {
+      "n": 3,
+      "forced": 0
+     },
+     "15": {
+      "n": 0,
+      "forced": 0
+     },
+     "16": {
+      "n": 1,
+      "forced": 0
+     },
+     "17": {
+      "n": 1,
+      "forced": 0
+     }
+    },
+    "status_counts": {
+     "evaluated": 4,
+     "issuer_unbound": 2
+    }
+   },
+   "clear_and_doubtful": {
+    "n": 13,
+    "forced": {
+     "derived": 0,
+     "share": 0.0
+    },
+    "switch_le1": {
+     "derived": 0,
+     "share": 0.0
+    },
+    "switch_any": {
+     "derived": 1,
+     "share": 0.077
+    },
+    "by_row": {
+     "8": {
+      "n": 1,
+      "forced": 0
+     },
+     "9": {
+      "n": 0,
+      "forced": 0
+     },
+     "10": {
+      "n": 0,
+      "forced": 0
+     },
+     "11": {
+      "n": 1,
+      "forced": 0
+     },
+     "13": {
+      "n": 7,
+      "forced": 0
+     },
+     "15": {
+      "n": 1,
+      "forced": 0
+     },
+     "16": {
+      "n": 2,
+      "forced": 0
+     },
+     "17": {
+      "n": 1,
+      "forced": 0
+     }
+    },
+    "status_counts": {
+     "evaluated": 7,
+     "issuer_unbound": 5,
+     "no_template_kind": 1
+    }
+   }
+  },
+  "S1_no_knowable_from": {
+   "primary_clear_read_in_full": {
+    "n": 6,
+    "forced": {
+     "derived": 0,
+     "share": 0.0
+    },
+    "switch_le1": {
+     "derived": 3,
+     "share": 0.5
+    },
+    "switch_any": {
+     "derived": 6,
+     "share": 1.0
+    },
+    "by_row": {
+     "8": {
+      "n": 1,
+      "forced": 0
+     },
+     "9": {
+      "n": 0,
+      "forced": 0
+     },
+     "10": {
+      "n": 0,
+      "forced": 0
+     },
+     "11": {
+      "n": 0,
+      "forced": 0
+     },
+     "13": {
+      "n": 3,
+      "forced": 0
+     },
+     "15": {
+      "n": 0,
+      "forced": 0
+     },
+     "16": {
+      "n": 1,
+      "forced": 0
+     },
+     "17": {
+      "n": 1,
+      "forced": 0
+     }
+    },
+    "status_counts": {
+     "evaluated": 6
+    }
+   },
+   "all_clear": {
+    "n": 6,
+    "forced": {
+     "derived": 0,
+     "share": 0.0
+    },
+    "switch_le1": {
+     "derived": 3,
+     "share": 0.5
+    },
+    "switch_any": {
+     "derived": 6,
+     "share": 1.0
+    },
+    "by_row": {
+     "8": {
+      "n": 1,
+      "forced": 0
+     },
+     "9": {
+      "n": 0,
+      "forced": 0
+     },
+     "10": {
+      "n": 0,
+      "forced": 0
+     },
+     "11": {
+      "n": 0,
+      "forced": 0
+     },
+     "13": {
+      "n": 3,
+      "forced": 0
+     },
+     "15": {
+      "n": 0,
+      "forced": 0
+     },
+     "16": {
+      "n": 1,
+      "forced": 0
+     },
+     "17": {
+      "n": 1,
+      "forced": 0
+     }
+    },
+    "status_counts": {
+     "evaluated": 6
+    }
+   },
+   "clear_and_doubtful": {
+    "n": 13,
+    "forced": {
+     "derived": 0,
+     "share": 0.0
+    },
+    "switch_le1": {
+     "derived": 5,
+     "share": 0.385
+    },
+    "switch_any": {
+     "derived": 10,
+     "share": 0.769
+    },
+    "by_row": {
+     "8": {
+      "n": 1,
+      "forced": 0
+     },
+     "9": {
+      "n": 0,
+      "forced": 0
+     },
+     "10": {
+      "n": 0,
+      "forced": 0
+     },
+     "11": {
+      "n": 1,
+      "forced": 0
+     },
+     "13": {
+      "n": 7,
+      "forced": 0
+     },
+     "15": {
+      "n": 1,
+      "forced": 0
+     },
+     "16": {
+      "n": 2,
+      "forced": 0
+     },
+     "17": {
+      "n": 1,
+      "forced": 0
+     }
+    },
+    "status_counts": {
+     "evaluated": 12,
+     "no_template_kind": 1
+    }
+   }
+  },
+  "S2_inferred_accepted": {
+   "primary_clear_read_in_full": {
+    "n": 6,
+    "forced": {
+     "derived": 0,
+     "share": 0.0
+    },
+    "switch_le1": {
+     "derived": 0,
+     "share": 0.0
+    },
+    "switch_any": {
+     "derived": 1,
+     "share": 0.167
+    },
+    "by_row": {
+     "8": {
+      "n": 1,
+      "forced": 0
+     },
+     "9": {
+      "n": 0,
+      "forced": 0
+     },
+     "10": {
+      "n": 0,
+      "forced": 0
+     },
+     "11": {
+      "n": 0,
+      "forced": 0
+     },
+     "13": {
+      "n": 3,
+      "forced": 0
+     },
+     "15": {
+      "n": 0,
+      "forced": 0
+     },
+     "16": {
+      "n": 1,
+      "forced": 0
+     },
+     "17": {
+      "n": 1,
+      "forced": 0
+     }
+    },
+    "status_counts": {
+     "evaluated": 4,
+     "issuer_unbound": 2
+    }
+   },
+   "all_clear": {
+    "n": 6,
+    "forced": {
+     "derived": 0,
+     "share": 0.0
+    },
+    "switch_le1": {
+     "derived": 0,
+     "share": 0.0
+    },
+    "switch_any": {
+     "derived": 1,
+     "share": 0.167
+    },
+    "by_row": {
+     "8": {
+      "n": 1,
+      "forced": 0
+     },
+     "9": {
+      "n": 0,
+      "forced": 0
+     },
+     "10": {
+      "n": 0,
+      "forced": 0
+     },
+     "11": {
+      "n": 0,
+      "forced": 0
+     },
+     "13": {
+      "n": 3,
+      "forced": 0
+     },
+     "15": {
+      "n": 0,
+      "forced": 0
+     },
+     "16": {
+      "n": 1,
+      "forced": 0
+     },
+     "17": {
+      "n": 1,
+      "forced": 0
+     }
+    },
+    "status_counts": {
+     "evaluated": 4,
+     "issuer_unbound": 2
+    }
+   },
+   "clear_and_doubtful": {
+    "n": 13,
+    "forced": {
+     "derived": 0,
+     "share": 0.0
+    },
+    "switch_le1": {
+     "derived": 0,
+     "share": 0.0
+    },
+    "switch_any": {
+     "derived": 1,
+     "share": 0.077
+    },
+    "by_row": {
+     "8": {
+      "n": 1,
+      "forced": 0
+     },
+     "9": {
+      "n": 0,
+      "forced": 0
+     },
+     "10": {
+      "n": 0,
+      "forced": 0
+     },
+     "11": {
+      "n": 1,
+      "forced": 0
+     },
+     "13": {
+      "n": 7,
+      "forced": 0
+     },
+     "15": {
+      "n": 1,
+      "forced": 0
+     },
+     "16": {
+      "n": 2,
+      "forced": 0
+     },
+     "17": {
+      "n": 1,
+      "forced": 0
+     }
+    },
+    "status_counts": {
+     "evaluated": 7,
+     "issuer_unbound": 5,
+     "no_template_kind": 1
+    }
+   }
+  },
+  "S3_touched_set_rows": {
+   "primary_clear_read_in_full": {
+    "n": 6,
+    "forced": {
+     "derived": 0,
+     "share": 0.0
+    },
+    "switch_le1": {
+     "derived": 0,
+     "share": 0.0
+    },
+    "switch_any": {
+     "derived": 6,
+     "share": 1.0
+    },
+    "by_row": {
+     "8": {
+      "n": 1,
+      "forced": 0
+     },
+     "9": {
+      "n": 0,
+      "forced": 0
+     },
+     "10": {
+      "n": 0,
+      "forced": 0
+     },
+     "11": {
+      "n": 0,
+      "forced": 0
+     },
+     "13": {
+      "n": 3,
+      "forced": 0
+     },
+     "15": {
+      "n": 0,
+      "forced": 0
+     },
+     "16": {
+      "n": 1,
+      "forced": 0
+     },
+     "17": {
+      "n": 1,
+      "forced": 0
+     }
+    },
+    "status_counts": {
+     "evaluated": 6
+    }
+   },
+   "all_clear": {
+    "n": 6,
+    "forced": {
+     "derived": 0,
+     "share": 0.0
+    },
+    "switch_le1": {
+     "derived": 0,
+     "share": 0.0
+    },
+    "switch_any": {
+     "derived": 6,
+     "share": 1.0
+    },
+    "by_row": {
+     "8": {
+      "n": 1,
+      "forced": 0
+     },
+     "9": {
+      "n": 0,
+      "forced": 0
+     },
+     "10": {
+      "n": 0,
+      "forced": 0
+     },
+     "11": {
+      "n": 0,
+      "forced": 0
+     },
+     "13": {
+      "n": 3,
+      "forced": 0
+     },
+     "15": {
+      "n": 0,
+      "forced": 0
+     },
+     "16": {
+      "n": 1,
+      "forced": 0
+     },
+     "17": {
+      "n": 1,
+      "forced": 0
+     }
+    },
+    "status_counts": {
+     "evaluated": 6
+    }
+   },
+   "clear_and_doubtful": {
+    "n": 13,
+    "forced": {
+     "derived": 0,
+     "share": 0.0
+    },
+    "switch_le1": {
+     "derived": 0,
+     "share": 0.0
+    },
+    "switch_any": {
+     "derived": 10,
+     "share": 0.769
+    },
+    "by_row": {
+     "8": {
+      "n": 1,
+      "forced": 0
+     },
+     "9": {
+      "n": 0,
+      "forced": 0
+     },
+     "10": {
+      "n": 0,
+      "forced": 0
+     },
+     "11": {
+      "n": 1,
+      "forced": 0
+     },
+     "13": {
+      "n": 7,
+      "forced": 0
+     },
+     "15": {
+      "n": 1,
+      "forced": 0
+     },
+     "16": {
+      "n": 2,
+      "forced": 0
+     },
+     "17": {
+      "n": 1,
+      "forced": 0
+     }
+    },
+    "status_counts": {
+     "evaluated": 12,
+     "no_template_kind": 1
+    }
+   }
+  },
+  "upper_bound": {
+   "primary_clear_read_in_full": {
+    "n": 6,
+    "forced": {
+     "derived": 0,
+     "share": 0.0
+    },
+    "switch_le1": {
+     "derived": 3,
+     "share": 0.5
+    },
+    "switch_any": {
+     "derived": 6,
+     "share": 1.0
+    },
+    "by_row": {
+     "8": {
+      "n": 1,
+      "forced": 0
+     },
+     "9": {
+      "n": 0,
+      "forced": 0
+     },
+     "10": {
+      "n": 0,
+      "forced": 0
+     },
+     "11": {
+      "n": 0,
+      "forced": 0
+     },
+     "13": {
+      "n": 3,
+      "forced": 0
+     },
+     "15": {
+      "n": 0,
+      "forced": 0
+     },
+     "16": {
+      "n": 1,
+      "forced": 0
+     },
+     "17": {
+      "n": 1,
+      "forced": 0
+     }
+    },
+    "status_counts": {
+     "evaluated": 6
+    }
+   },
+   "all_clear": {
+    "n": 6,
+    "forced": {
+     "derived": 0,
+     "share": 0.0
+    },
+    "switch_le1": {
+     "derived": 3,
+     "share": 0.5
+    },
+    "switch_any": {
+     "derived": 6,
+     "share": 1.0
+    },
+    "by_row": {
+     "8": {
+      "n": 1,
+      "forced": 0
+     },
+     "9": {
+      "n": 0,
+      "forced": 0
+     },
+     "10": {
+      "n": 0,
+      "forced": 0
+     },
+     "11": {
+      "n": 0,
+      "forced": 0
+     },
+     "13": {
+      "n": 3,
+      "forced": 0
+     },
+     "15": {
+      "n": 0,
+      "forced": 0
+     },
+     "16": {
+      "n": 1,
+      "forced": 0
+     },
+     "17": {
+      "n": 1,
+      "forced": 0
+     }
+    },
+    "status_counts": {
+     "evaluated": 6
+    }
+   },
+   "clear_and_doubtful": {
+    "n": 13,
+    "forced": {
+     "derived": 0,
+     "share": 0.0
+    },
+    "switch_le1": {
+     "derived": 5,
+     "share": 0.385
+    },
+    "switch_any": {
+     "derived": 10,
+     "share": 0.769
+    },
+    "by_row": {
+     "8": {
+      "n": 1,
+      "forced": 0
+     },
+     "9": {
+      "n": 0,
+      "forced": 0
+     },
+     "10": {
+      "n": 0,
+      "forced": 0
+     },
+     "11": {
+      "n": 1,
+      "forced": 0
+     },
+     "13": {
+      "n": 7,
+      "forced": 0
+     },
+     "15": {
+      "n": 1,
+      "forced": 0
+     },
+     "16": {
+      "n": 2,
+      "forced": 0
+     },
+     "17": {
+      "n": 1,
+      "forced": 0
+     }
+    },
+    "status_counts": {
+     "evaluated": 12,
+     "no_template_kind": 1
+    }
+   }
+  },
+  "fetch_list_guarded": [
+   [
+    "generator.operating_status",
+    1
+   ],
+   [
+    "generator.capacity",
+    1
+   ],
+   [
+    "generator.generation_outage_reporting_regime",
+    1
+   ]
+  ],
+  "verdict": {
+   "value": "dies",
+   "x10": 0.5,
+   "guarded_share": 0.0,
+   "upper_bound_share": 0.0,
+   "primary_denominator": 6
+  }
+ },
+ "templates_meta": {
+  "n_templates": 16,
+  "kinds": [
+   "allocation_notice",
+   "corporate_disclosure_of_event_impact",
+   "counterparty_notice",
+   "force_majeure_declaration",
+   "incident_report",
+   "regulatory_decision",
+   "restart_statement"
+  ],
+  "n_attributes": 23,
+  "n_bounds": 8
+ }
+}

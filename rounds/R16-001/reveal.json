@@ -1,0 +1,849 @@
+{
+ "round_id": "R16-001",
+ "event_line": "Fermi 2 automatic reactor scram, 2026-07-03",
+ "event_date": "2026-07-03",
+ "node": "fermi-2",
+ "node_type": "power_reactor",
+ "stratum": "energy",
+ "class": "learning",
+ "tags": [
+  "weather",
+  "learning"
+ ],
+ "holders_and_positions": "the names book is empty in this fresh build: author holders and positions per asset from documents knowable by the clock (pit_fetch, alt_fetch)",
+ "node_facts": [],
+ "scheduled_facts": "none registered; add scheduled ACKs from the calendar if any",
+ "library_as_of": [
+  {
+   "rule_id": "lib.account_precedes_the_rebate",
+   "kind": "mechanism",
+   "layer": "candidate",
+   "status": "candidate",
+   "text": "An operator of shared infrastructure under an availability commitment must publish an account of a multi-tenant failure, and the account precedes the money",
+   "forbids": "money moving before the account",
+   "carries": [
+    "ordering",
+    "occurrence"
+   ],
+   "weight": 0.0,
+   "weight_state": "untested_as_carried",
+   "trials_as_carried": 0,
+   "tide_count": 0
+  },
+  {
+   "rule_id": "lib.availability_no_constraint_price",
+   "kind": "mechanism",
+   "layer": "transmission",
+   "status": "active",
+   "text": "An availability failure consumes nothing and leaves nothing short; it has no constraint price",
+   "forbids": "citing constraint-price, toll-booth or allocation rules on an event that withholds no consumable",
+   "carries": [
+    "absence"
+   ],
+   "weight": 0.0,
+   "weight_state": "untested_as_carried",
+   "trials_as_carried": 0,
+   "tide_count": 0
+  },
+  {
+   "rule_id": "lib.catalyst_not_node_is_tide",
+   "kind": "mechanism",
+   "layer": "transmission",
+   "status": "active",
+   "text": "A catalyst that does not concern the node is a tide",
+   "forbids": "counting a non-node catalyst as an ACK",
+   "carries": [
+    "occurrence"
+   ],
+   "weight": 0.0,
+   "weight_state": "untested_as_carried",
+   "trials_as_carried": 0,
+   "tide_count": 0
+  },
+  {
+   "rule_id": "lib.constraint_prices_slowest",
+   "kind": "mechanism",
+   "layer": "transmission",
+   "status": "active",
+   "text": "Constraint prices de-escalate slowest",
+   "forbids": "constraint premia unwinding before flows",
+   "carries": [
+    "ordering",
+    "duration"
+   ],
+   "weight": 0.0,
+   "weight_state": "untested_as_carried",
+   "trials_as_carried": 0,
+   "tide_count": 0
+  },
+  {
+   "rule_id": "lib.cut_into_glut_silent",
+   "kind": "mechanism",
+   "layer": "transmission",
+   "status": "active",
+   "text": "A cut into a glut is silent",
+   "forbids": "a price response to a supply cut absorbed by slack",
+   "carries": [
+    "absence"
+   ],
+   "weight": 0.0,
+   "weight_state": "untested_as_carried",
+   "trials_as_carried": 0,
+   "tide_count": 0
+  },
+  {
+   "rule_id": "lib.equity_visibility",
+   "kind": "mechanism",
+   "layer": "ownership",
+   "status": "active",
+   "text": "Equity visibility = event size / ambient tide",
+   "forbids": "an equity reaction below the tide's noise",
+   "carries": [
+    "absence",
+    "magnitude"
+   ],
+   "weight": 0.0,
+   "weight_state": "untested_as_carried",
+   "trials_as_carried": 0,
+   "tide_count": 0
+  },
+  {
+   "rule_id": "lib.hardest_substitution",
+   "kind": "mechanism",
+   "layer": "transmission",
+   "status": "active",
+   "text": "The move is largest where substitution is hardest",
+   "forbids": "the largest move where substitutes are easy",
+   "carries": [
+    "magnitude",
+    "ordering"
+   ],
+   "weight": 0.0,
+   "weight_state": "untested_as_carried",
+   "trials_as_carried": 0,
+   "tide_count": 0
+  },
+  {
+   "rule_id": "lib.headline_names_reopened",
+   "kind": "mechanism",
+   "layer": "sequence",
+   "status": "active",
+   "text": "The headline names what reopened, not what stayed shut",
+   "forbids": "a reopening headline implying the whole node reopened",
+   "carries": [
+    "map"
+   ],
+   "weight": 0.0,
+   "weight_state": "untested_as_carried",
+   "trials_as_carried": 0,
+   "tide_count": 0
+  },
+  {
+   "rule_id": "lib.junction_shared_node",
+   "kind": "mechanism",
+   "layer": "candidate",
+   "status": "candidate",
+   "text": "Unrelated stories correlate only where they share a constrained node",
+   "forbids": "a junction with no shared node behind it",
+   "carries": [
+    "ordering"
+   ],
+   "weight": 0.0,
+   "weight_state": "untested_as_carried",
+   "trials_as_carried": 0,
+   "tide_count": 0
+  },
+  {
+   "rule_id": "lib.larger_operator_prior",
+   "kind": "mechanism",
+   "layer": "map",
+   "status": "active",
+   "text": "When an event names a site with more than one operator, the larger operator is the prior",
+   "forbids": "attributing a multi-operator site event to the smaller operator by default",
+   "carries": [
+    "map"
+   ],
+   "weight": 0.0,
+   "weight_state": "untested_as_carried",
+   "trials_as_carried": 0,
+   "tide_count": 0
+  },
+  {
+   "rule_id": "lib.late_crisis_resolution",
+   "kind": "mechanism",
+   "layer": "sequence",
+   "status": "active",
+   "text": "Late in a crisis the neglected side is resolution",
+   "forbids": "late-crisis moves concentrated on escalation",
+   "carries": [
+    "ordering"
+   ],
+   "weight": 0.0,
+   "weight_state": "untested_as_carried",
+   "trials_as_carried": 0,
+   "tide_count": 0
+  },
+  {
+   "rule_id": "lib.no_pure_play_spectacle",
+   "kind": "mechanism",
+   "layer": "ownership",
+   "status": "active",
+   "text": "A lag without a listed pure-play is a spectacle, not an edge",
+   "forbids": "claiming an edge with no listed pure-play",
+   "carries": [
+    "occurrence"
+   ],
+   "weight": 0.0,
+   "weight_state": "untested_as_carried",
+   "trials_as_carried": 0,
+   "tide_count": 0
+  },
+  {
+   "rule_id": "lib.novelty_channels",
+   "kind": "mechanism",
+   "layer": "sequence",
+   "status": "active",
+   "text": "Novelty belongs to channels, not events",
+   "forbids": "novelty attributed to an event rather than its channel",
+   "carries": [
+    "ordering"
+   ],
+   "weight": 0.0,
+   "weight_state": "untested_as_carried",
+   "trials_as_carried": 0,
+   "tide_count": 0
+  },
+  {
+   "rule_id": "lib.recurring_weather",
+   "kind": "mechanism",
+   "layer": "sequence",
+   "status": "active",
+   "text": "Recurring disruption is priced as weather",
+   "forbids": "a lag on a recurring disruption",
+   "carries": [
+    "absence",
+    "magnitude"
+   ],
+   "weight": 0.0,
+   "weight_state": "untested_as_carried",
+   "trials_as_carried": 0,
+   "tide_count": 0
+  },
+  {
+   "rule_id": "lib.repeat_filer_base_rate",
+   "kind": "mechanism",
+   "layer": "sequence",
+   "status": "active",
+   "text": "A repeat filer gets the base-rate procedure, not the form of its last filing",
+   "forbids": "predicting a filing's form from the filer's last one",
+   "carries": [
+    "map",
+    "occurrence"
+   ],
+   "weight": 0.0,
+   "weight_state": "untested_as_carried",
+   "trials_as_carried": 0,
+   "tide_count": 0
+  },
+  {
+   "rule_id": "lib.tide_prices_everything",
+   "kind": "mechanism",
+   "layer": "transmission",
+   "status": "active",
+   "text": "A tide sets the price of everything it touches; events under it are visible only in what the tide does not price",
+   "forbids": "attributing a tide move to an event",
+   "carries": [
+    "magnitude"
+   ],
+   "weight": 0.0,
+   "weight_state": "untested_as_carried",
+   "trials_as_carried": 0,
+   "tide_count": 0
+  },
+  {
+   "rule_id": "lib.toll_booth_first",
+   "kind": "mechanism",
+   "layer": "transmission",
+   "status": "active",
+   "text": "The toll booth learns before the cargo",
+   "forbids": "the cargo owner learning before the node operator",
+   "carries": [
+    "ordering"
+   ],
+   "weight": 0.0,
+   "weight_state": "untested_as_carried",
+   "trials_as_carried": 0,
+   "tide_count": 0
+  },
+  {
+   "rule_id": "lib.toxic_release_shared_space",
+   "kind": "mechanism",
+   "layer": "transmission",
+   "status": "active",
+   "text": "A toxic release closes the shared space, not the failed asset",
+   "forbids": "a release closing only the failed asset",
+   "carries": [
+    "map"
+   ],
+   "weight": 0.0,
+   "weight_state": "untested_as_carried",
+   "trials_as_carried": 0,
+   "tide_count": 0
+  },
+  {
+   "rule_id": "lib.wounded_owner_premium",
+   "kind": "mechanism",
+   "layer": "ownership",
+   "status": "active",
+   "text": "The wounded owner of the substitutes collects its own scarcity premium",
+   "forbids": "the owner of the failed asset losing when it owns the substitutes",
+   "carries": [
+    "magnitude"
+   ],
+   "weight": 0.0,
+   "weight_state": "untested_as_carried",
+   "trials_as_carried": 0,
+   "tide_count": 0
+  },
+  {
+   "rule_id": "obl.allocation_notice",
+   "kind": "obligation",
+   "layer": "obligation",
+   "status": "active",
+   "text": "A supplier short of contracted volume with several contracted buyers must allocate and notify the allocation.",
+   "forbids": "no allocation notice without a shortfall across several contracted buyers",
+   "carries": [
+    "occurrence"
+   ],
+   "weight": 0.0,
+   "weight_state": "untested_as_carried",
+   "trials_as_carried": 0,
+   "tide_count": 0
+  },
+  {
+   "rule_id": "obl.force_majeure_notice",
+   "kind": "obligation",
+   "layer": "obligation",
+   "status": "active",
+   "text": "A supplier that can't deliver contracted offtake, with no substitute inside the window and buyers' inventory below the window, must notify its counterparties.",
+   "forbids": "no force-majeure notice without a contracted offtake the supplier can't serve inside the window",
+   "carries": [
+    "occurrence"
+   ],
+   "weight": 0.0,
+   "weight_state": "untested_as_carried",
+   "trials_as_carried": 0,
+   "tide_count": 0
+  },
+  {
+   "rule_id": "obl.material_event_current_report",
+   "kind": "obligation",
+   "layer": "obligation",
+   "status": "active",
+   "text": "A listed issuer for which an event is material must file a current report within the statutory window.",
+   "forbids": "no current report of this kind without an event material to the issuer",
+   "carries": [
+    "occurrence"
+   ],
+   "weight": 0.0,
+   "weight_state": "untested_as_carried",
+   "trials_as_carried": 0,
+   "tide_count": 0
+  },
+  {
+   "rule_id": "obl.regulator_decision",
+   "kind": "obligation",
+   "layer": "obligation",
+   "status": "active",
+   "text": "A regulator with a pending application under a statutory decision window must answer inside it.",
+   "forbids": "no regulatory decision of this kind without a pending application",
+   "carries": [
+    "occurrence"
+   ],
+   "weight": 0.0,
+   "weight_state": "untested_as_carried",
+   "trials_as_carried": 0,
+   "tide_count": 0
+  },
+  {
+   "rule_id": "obl.replacement_procurement",
+   "kind": "obligation",
+   "layer": "obligation",
+   "status": "active",
+   "text": "An owner with an obligation to serve load, whose owned share of an offline unit exceeds its uncommitted capacity, must buy replacement energy or capacity for the outage.",
+   "forbids": "no replacement-cost disclosure without an obligated owner short of uncommitted capacity",
+   "carries": [
+    "occurrence"
+   ],
+   "weight": 0.0,
+   "weight_state": "untested_as_carried",
+   "trials_as_carried": 0,
+   "tide_count": 0
+  },
+  {
+   "rule_id": "obl.sovereign_payment",
+   "kind": "obligation",
+   "layer": "obligation",
+   "status": "active",
+   "text": "A sovereign with a coupon due inside the window must pay, pay in grace, or miss; the payment status is published.",
+   "forbids": "no payment status notice without a coupon falling due",
+   "carries": [
+    "occurrence"
+   ],
+   "weight": 0.0,
+   "weight_state": "untested_as_carried",
+   "trials_as_carried": 0,
+   "tide_count": 0
+  },
+  {
+   "rule_id": "obl.unit_status_publication",
+   "kind": "obligation",
+   "layer": "obligation",
+   "status": "active",
+   "text": "A unit taken offline, under a regulator that publishes every unit's status daily, must appear either restarted or still down in each daily report; its return to service is published.",
+   "forbids": "no published return to service without a unit that was offline or reduced",
+   "carries": [
+    "occurrence"
+   ],
+   "weight": 0.0,
+   "weight_state": "untested_as_carried",
+   "trials_as_carried": 0,
+   "tide_count": 0
+  },
+  {
+   "rule_id": "obl.war_risk_notice",
+   "kind": "obligation",
+   "layer": "obligation",
+   "status": "active",
+   "text": "An insurer covering transits of a node that becomes a declared risk area must give notice of cancellation or re-rating within its policy notice period.",
+   "forbids": "no war-risk notice without covered transits of a constrained node",
+   "carries": [
+    "occurrence"
+   ],
+   "weight": 0.0,
+   "weight_state": "untested_as_carried",
+   "trials_as_carried": 0,
+   "tide_count": 0
+  },
+  {
+   "rule_id": "obl.written_event_report",
+   "kind": "obligation",
+   "layer": "obligation",
+   "status": "active",
+   "text": "A licensee that made an immediate notification of a reportable event, under a regime requiring a written follow-up, must file the written report within the statutory window.",
+   "forbids": "no written event report of this kind without a reportable-event notification by a licensee under the regime",
+   "carries": [
+    "occurrence"
+   ],
+   "weight": 0.0,
+   "weight_state": "untested_as_carried",
+   "trials_as_carried": 0,
+   "tide_count": 0
+  }
+ ],
+ "obligation_templates": [
+  {
+   "key": "obl.material_event_current_report",
+   "roles": [
+    {
+     "holder_classes": [
+      "listed_instrument"
+     ],
+     "requires_attribute": "listed_domestic_filer",
+     "role": "issuer"
+    }
+   ],
+   "conditions": [
+    {
+     "attribute": "listed_domestic_filer",
+     "op": "==",
+     "role": "issuer",
+     "value": "true"
+    },
+    {
+     "attribute": "event_impact_share",
+     "op": ">=",
+     "role": "issuer",
+     "value": 0.05
+    }
+   ],
+   "forces": "current_report",
+   "window_rule": {
+    "kind": "statute",
+    "quantity": "current_report_days",
+    "subject": "domestic_listed_issuer"
+   },
+   "forbids": "no current report of this kind without an event material to the issuer"
+  },
+  {
+   "key": "obl.regulator_decision",
+   "roles": [
+    {
+     "requires_attribute": "pending_application",
+     "role": "applicant"
+    }
+   ],
+   "conditions": [
+    {
+     "attribute": "pending_application",
+     "op": "==",
+     "role": "applicant",
+     "value": "true"
+    }
+   ],
+   "forces": "regulatory_decision",
+   "window_rule": {
+    "kind": "none"
+   },
+   "forbids": "no regulatory decision of this kind without a pending application"
+  },
+  {
+   "key": "obl.replacement_procurement",
+   "roles": [
+    {
+     "requires_attribute": "owns_unit",
+     "role": "owner"
+    }
+   ],
+   "conditions": [
+    {
+     "attribute": "owns_unit",
+     "op": "==",
+     "role": "owner",
+     "value": "true"
+    },
+    {
+     "attribute": "obligation_to_serve",
+     "op": "==",
+     "role": "owner",
+     "value": "true"
+    },
+    {
+     "attribute": "uncommitted_capacity_share",
+     "op": "<",
+     "role": "owner",
+     "value": 1.0
+    }
+   ],
+   "forces": "replacement_cost_disclosure",
+   "window_rule": {
+    "kind": "none"
+   },
+   "forbids": "no replacement-cost disclosure without an obligated owner short of uncommitted capacity"
+  },
+  {
+   "key": "obl.unit_status_publication",
+   "roles": [
+    {
+     "requires_attribute": "unit_status",
+     "role": "operator"
+    }
+   ],
+   "conditions": [
+    {
+     "attribute": "unit_status",
+     "op": "in",
+     "role": "operator",
+     "value": [
+      "offline",
+      "reduced"
+     ]
+    },
+    {
+     "attribute": "daily_status_published",
+     "op": "==",
+     "role": "operator",
+     "value": "true"
+    }
+   ],
+   "forces": "restart_status",
+   "window_rule": {
+    "kind": "none"
+   },
+   "forbids": "no published return to service without a unit that was offline or reduced"
+  },
+  {
+   "key": "obl.written_event_report",
+   "roles": [
+    {
+     "requires_attribute": "licensed_facility",
+     "role": "licensee"
+    }
+   ],
+   "conditions": [
+    {
+     "attribute": "licensed_facility",
+     "op": "==",
+     "role": "licensee",
+     "value": "true"
+    },
+    {
+     "attribute": "reportable_event_notified",
+     "op": "==",
+     "role": "licensee",
+     "value": "true"
+    }
+   ],
+   "forces": "written_event_report",
+   "window_rule": {
+    "kind": "statute",
+    "quantity": "statutory_report_days",
+    "subject": "licensed_reactor_written_report"
+   },
+   "forbids": "no written event report of this kind without a reportable-event notification by a licensee under the regime"
+  }
+ ],
+ "outcome_vocabs": {
+  "current_report": [
+   {
+    "label": "current report quantifies the impact",
+    "needs": [
+     {
+      "attribute": "event_impact_share",
+      "op": ">=",
+      "role": "issuer",
+      "value": 0.05
+     }
+    ],
+    "outcome_id": "quantified_impact"
+   },
+   {
+    "label": "current report without a figure",
+    "needs": [],
+    "outcome_id": "unquantified_disclosure"
+   },
+   {
+    "label": "no current report by the window's end",
+    "needs": [],
+    "outcome_id": "no_report_in_window"
+   },
+   {
+    "falsifier": "one of the named outcomes is delivered",
+    "label": "none of the named outcomes",
+    "needs": [],
+    "outcome_id": "other"
+   }
+  ],
+  "regulatory_decision": [
+   {
+    "label": "approve",
+    "needs": [],
+    "outcome_id": "approve"
+   },
+   {
+    "label": "reject",
+    "needs": [],
+    "outcome_id": "reject"
+   },
+   {
+    "label": "extend the review",
+    "needs": [],
+    "outcome_id": "extend"
+   },
+   {
+    "label": "nothing by the deadline",
+    "needs": [],
+    "outcome_id": "nothing_by_deadline"
+   },
+   {
+    "falsifier": "one of the named outcomes is delivered",
+    "label": "none of the named outcomes",
+    "needs": [],
+    "outcome_id": "other"
+   }
+  ],
+  "replacement_cost_disclosure": [
+   {
+    "label": "replacement cost quantified in a filing",
+    "needs": [],
+    "outcome_id": "cost_quantified"
+   },
+   {
+    "label": "replacement mentioned without a figure",
+    "needs": [],
+    "outcome_id": "cost_mentioned"
+   },
+   {
+    "label": "nothing disclosed by the window's end",
+    "needs": [],
+    "outcome_id": "not_disclosed"
+   },
+   {
+    "falsifier": "one of the named outcomes is delivered",
+    "label": "none of the named outcomes",
+    "needs": [],
+    "outcome_id": "other"
+   }
+  ],
+  "restart_status": [
+   {
+    "label": "back at power within 2 weeks of the event",
+    "needs": [
+     {
+      "bound": {
+       "quantity": "repair_lead_days",
+       "subject_from": {
+        "attribute": "failed_component_class",
+        "role": "operator"
+       }
+      },
+      "op": "<",
+      "value": 14
+     }
+    ],
+    "outcome_id": "restart_lt_2w"
+   },
+   {
+    "label": "back at power in 2-6 weeks",
+    "needs": [
+     {
+      "bound": {
+       "quantity": "repair_lead_days",
+       "subject_from": {
+        "attribute": "failed_component_class",
+        "role": "operator"
+       }
+      },
+      "op": "<",
+      "value": 42
+     }
+    ],
+    "outcome_id": "restart_2_6w"
+   },
+   {
+    "label": "still down after 6 weeks",
+    "needs": [],
+    "outcome_id": "restart_gt_6w"
+   },
+   {
+    "falsifier": "one of the named outcomes is delivered",
+    "label": "none of the named outcomes",
+    "needs": [],
+    "outcome_id": "other"
+   }
+  ],
+  "written_event_report": [
+   {
+    "label": "cause attributed to equipment failure",
+    "needs": [],
+    "outcome_id": "cause_equipment"
+   },
+   {
+    "label": "cause attributed to human performance or procedure",
+    "needs": [],
+    "outcome_id": "cause_human_or_procedure"
+   },
+   {
+    "label": "cause attributed to an external or grid event",
+    "needs": [],
+    "outcome_id": "cause_external"
+   },
+   {
+    "label": "notification retracted, no written report",
+    "needs": [],
+    "outcome_id": "report_retracted"
+   },
+   {
+    "falsifier": "one of the named outcomes is delivered",
+    "label": "none of the named outcomes",
+    "needs": [],
+    "outcome_id": "other"
+   }
+  ]
+ },
+ "q1a_window_search": [],
+ "q1b_registry": [
+  "58286 2026-05-19 MANUAL REACTOR SCRAM"
+ ],
+ "carrier_registry": [
+  {
+   "key": "edgar",
+   "kind": "securities_filings",
+   "fetch_path": "python -m nomad16 pit_fetch source=edgar_filings",
+   "read_in_full_rule": "the filer's filing list through due_at"
+  },
+  {
+   "key": "firms",
+   "kind": "fire_detections",
+   "fetch_path": "python -m nomad16 alt_fetch source=firms (needs FIRMS_MAP_KEY)",
+   "read_in_full_rule": "detections through due_at"
+  },
+  {
+   "key": "gdelt",
+   "kind": "event_feed",
+   "fetch_path": "python -m nomad16 alt_fetch source=gdelt_events",
+   "read_in_full_rule": "every 15-minute export through due_at"
+  },
+  {
+   "key": "ioda",
+   "kind": "internet_outage",
+   "fetch_path": "python -m nomad16 alt_fetch source=ioda",
+   "read_in_full_rule": "signals through due_at"
+  },
+  {
+   "key": "nrc_adams_ler",
+   "kind": "regulator_docket",
+   "fetch_path": "not built: licensee event reports are in ADAMS; use wayback or the licensee's filings",
+   "read_in_full_rule": "not_covered"
+  },
+  {
+   "key": "nrc_event_notification",
+   "kind": "regulator_docket",
+   "fetch_path": "python -m nomad16 pit_fetch source=nrc_en",
+   "read_in_full_rule": "every daily report from the event date through due_at"
+  },
+  {
+   "key": "nrc_power_reactor_status",
+   "kind": "daily_unit_status",
+   "fetch_path": "python -m nomad16 pit_fetch source=nrc_status",
+   "read_in_full_rule": "every daily status report from the event date through due_at"
+  },
+  {
+   "key": "sentinel2",
+   "kind": "satellite_imagery",
+   "fetch_path": "python -m nomad16 alt_fetch source=s2_scenes / s2_image",
+   "read_in_full_rule": "every scene over the AOI through due_at"
+  },
+  {
+   "key": "usgs",
+   "kind": "hazard_catalogue",
+   "fetch_path": "python -m nomad16 alt_fetch source=usgs_quakes",
+   "read_in_full_rule": "catalogue through due_at"
+  }
+ ],
+ "instrument_map": "empty: add instruments (instrument_add) for holders in reach, listed before the clock",
+ "story_registry": [],
+ "tide_registry": [
+  {
+   "id": "ai_capex",
+   "label": "AI capex",
+   "proxy": "SMH"
+  },
+  {
+   "id": "energy_complex",
+   "label": "Energy complex",
+   "proxy": "XLE"
+  },
+  {
+   "id": "geopolitical_conflict",
+   "label": "Geopolitical conflict premium",
+   "proxy": "XLE"
+  },
+  {
+   "id": "rates",
+   "label": "US rates",
+   "proxy": "TLT"
+  },
+  {
+   "id": "us_equity_beta",
+   "label": "US equity beta",
+   "proxy": "SPY"
+  },
+  {
+   "id": "utilities_power",
+   "label": "US power and utilities",
+   "proxy": "XLU"
+  }
+ ],
+ "point_in_time_fetcher": "python -m nomad16 pit_fetch / alt_fetch; nothing after the clock is readable"
+}

@@ -1,0 +1,110 @@
+{
+  "rows": [
+    {
+      "row": 10,
+      "round_id": "01a0801b-19c3-757a-b01f-5e7339e5f5fa",
+      "event_date": "2026-09-07",
+      "notices": [],
+      "excluded": [
+        {
+          "what": "EQS ad-hoc, paragon GmbH & Co. KGaA (with paragon electronic GmbH and paragon movasys GmbH), 7 Sep 2026 11:51 CEST: insolvency filings at Amtsgericht Paderborn, regular proceedings, management expects continuation. Kind would be corporate_disclosure_of_event_impact (issuer holder 01a0801d-98ea-71d0-aec6-72f7ad4e6414, node paragon_automotive_electronics_supply). This is the event's own disclosure. evidence 01a08023-5a1f-7285-bcf8-22cf48c948d6; bears on resolutions 01a08023-5db6-702b-8e4e-e7d27fa49a77 (map, miss, adequate) and 01a08023-5db7-7686-a5ce-4ab3554c4c3c (sign, hit, adequate).",
+          "why": "before_clock"
+        },
+        {
+          "what": "Amtsgericht Paderborn orders, 7 Sep 2026 at 13:51, 14:25, 14:38 (97 IN 318/26, 319/26, 320/26): provisional insolvency administration ordered for all three companies, Martin Mucha appointed, disposals only with his consent, no Eigenverwaltung. Kind would be regulatory_decision (court order; authority; node paragon_automotive_electronics_supply). Dated the same day as the event. evidence 01a08023-5a20-7004-b607-40ffd3a11ca4 (carried via diebewertung.de, a third-party page reproducing the orders); bears on resolution 01a08023-5db6-702b-8e4e-e7d27fa49a77 (map call, scored early on this order, adequate).",
+          "why": "before_clock"
+        },
+        {
+          "what": "EQS corporate news, paragon, 7 Sep 2026: the company's own account (Tejascore term sheet of 19 June and unpaid EUR 12m loan, 552 employees, six German sites, sole-supplier share about 94%, order backlog). Kind would be corporate_disclosure_of_event_impact (node paragon_automotive_electronics_supply). Same day as the event. evidence 01a08023-5a20-7004-b607-410053b4bc4d; no resolution links directly (its 94% fact is used in a predicate check, not a call).",
+          "why": "before_clock"
+        },
+        {
+          "what": "BondGuide 7 Sep 2026 (evidence 01a08023-5a20-7004-b607-4101842649f7) and Anleihen-Finder 7 Sep 2026 (evidence 01a08023-5a20-7004-b607-4102bd845db7): trade-press reports on the filing and the notes DE000A2GSB86 (EUR 43.65m, extended to 2031), with quotes of CEO Frers. Reports about the event, not the notice; also dated on the event date.",
+          "why": "third_party_report"
+        },
+        {
+          "what": "ad-hoc-news / regional press, 8 Sep 2026 (evidence 01a08023-5a20-7004-b607-41035b2d0b5e): 552 jobs at risk, over 250 in Suhl; production intended to continue without interruption; management 'betonte, dass das Unternehmen grundsätzlich profitabel arbeite'. This is the only document in the row dated after 7 Sep that is not a price print. It is a press report relaying management statements, no notice document is shown, and the continuation statement is not a post-outage restart statement (no outage occurred); the quoted remark is discretionary commentary. Not linked to any resolution (call 8, continuation statement, is unresolved).",
+          "why": "third_party_report"
+        },
+        {
+          "what": "Price prints: XETRA PGN closes 1-8 Sep (evidence 01a08023-5a20-7004-b607-41043a71062a), ariva Frankfurt quote of the notes on 8 Sep (01a08023-5a20-7004-b607-41059403071c), VOW3/BMW/CON/DAX closes (01a08023-5a20-7004-b607-41067267ce4a), Voltabox closes (01a08023-5a20-7004-b607-4107356bb45c).",
+          "why": "price_print"
+        },
+        {
+          "what": "Any OEM statement (Volkswagen, BMW, Mercedes) naming paragon as a supply risk or giving an allocation or sourcing notice. The 8 Sep coverage record (evidence 01a08023-5a20-7004-b607-4108ad1b0938) says 'No OEM has commented'; the null call (60 days) and the narrative call are unresolved. No resolution exists.",
+          "why": "not_arrived"
+        },
+        {
+          "what": "A company or administrator statement on continuation of operations and wage cover (Insolvenzgeld) within 14 days (call due 21 Sep). The coverage record says 'no Insolvenzgeld statement yet; no administrator statement beyond the appointment'; the recap says 'the administrator has not spoken, Insolvenzgeld unaddressed'. No resolution exists.",
+          "why": "not_arrived"
+        },
+        {
+          "what": "Opening of proceedings (Eröffnungsbeschluss), creditors' report meeting (Berichtstermin) notice, and any public court notice on insolvenzbekanntmachungen.de. Not in the record: the site could not be read on day one (TLS failure) and no later document is on the ledger. Also no bondholder-meeting, trustee or exchange (Scale segment) notice appears anywhere in the record.",
+          "why": "not_arrived"
+        },
+        {
+          "what": "EQS ad-hoc of hGears AG (subsidiary hGears Schramberg GmbH files for insolvency in self-administration), 7 Sep 2026: named in the intake record as the first-listed candidate in the enumeration window and skipped. A different issuer's event, not in the round's evidence, and not concerning this round's event or node.",
+          "why": "other"
+        }
+      ],
+      "notes": "Result: no forced notice arrived after the clock in the v15 record for this row. The record for round 10 was closed on day one and two (evidence recorded 8 Sep 2026; the ledger holds only two resolutions for the round, the two early ones, both scored on 7 Sep documents). Every notice-like document (the EQS ad-hoc, the three court orders, the EQS corporate release) is dated 7 Sep 2026, equal to the event_date, so under the on-or-before rule all are excluded as before_clock. If the orchestrator wants to reconsider the boundary for an event that was itself a same-day filing, those three same-day items (corporate_disclosure_of_event_impact, regulatory_decision, corporate_disclosure_of_event_impact) are the ones it would flip; I have not listed them as notices because the instruction says on or before the event_date is excluded. Later forced notices that a filing of this kind normally produces (proceedings opening, administrator statements, Insolvenzgeld, OEM statements, bond notices) are not in the record, so they cannot count. Nodes in play: event node paragon_automotive_electronics_supply and touched_set node paragon_2027_bond. The DB's -wal file was empty (0 bytes), so the immutable read hides nothing. Later ledger additions for this round (price observations, predicate checks, effects) contain no dated documents. The export's evidence (11 rows) and resolutions (2 rows) match the ledger exactly."
+    },
+    {
+      "row": 11,
+      "round_id": "01a0816a-0e1d-7619-b83d-2995e6bb75df",
+      "event_date": "2026-08-26",
+      "notices": [
+        {
+          "notice_id": "R11-N1",
+          "kind": "regulatory_decision",
+          "issuer_name": "European Commission (DG COMP)",
+          "issuer_holder_id": "01a0816b-35cb-7378-b0a6-546ade92fa72",
+          "issuer_class": "authority",
+          "node": "upm_sappi_jv_completion",
+          "node_source": "touched_set",
+          "date_arrived": "2026-08-27",
+          "evidence_ids": ["01a0816d-b1cc-7781-917f-9b3140b793b9"],
+          "resolution_ids": [],
+          "obligation_basis": "EU Merger Regulation Phase II timetable: the Commission must decide by a fixed deadline (statutory window); whether any new procedural act (deadline reset or extension) was issued after the Statement of Objections is not shown",
+          "forced": "doubtful",
+          "summary": "Search-summary record (MLex paywalled, Concurrences and paper trades; evidence source_time 8 Sep 2026, knowable_from 27 Aug 2026): 'The Commission now has until 11 November 2026 to issue a final decision'; JV valued at EUR 1.42bn. Doubtful because it is a third-party summary of a date that may be an ordinary calendared statutory deadline (the ledger stores it as a scheduled-type 'mechanical' node fact) or may reflect a new Commission procedural act; the record cannot tell. No resolution bears on it (call 7, the 24 Nov lag call, and call 6, the 25 Sep null call, are unresolved)."
+        }
+      ],
+      "excluded": [
+        {
+          "what": "European Commission IP/26/1747, 26 Aug 2026: the Statement of Objections itself (preliminary view, horizontal concern in coated mechanical and coated woodfree paper, right to reply, file access, oral hearing). Kind would be regulatory_decision (issuer holder 01a0816b-35cb-7378-b0a6-546ade92fa72, authority, node upm_sappi_jv_completion); it is the event itself, dated on the event_date. evidence 01a0816d-b1cb-71ce-a8ab-b4588e91959c (read through trade-press and Concurrences summaries, press-corner page returned only a header); bears on resolution 01a0816d-b315-7592-ac02-0ba215ef96f7 (map call, hit, adequate) and on the UPM sign call resolution 01a0816d-b315-7592-ac02-0ba43b8ae793.",
+          "why": "before_clock"
+        },
+        {
+          "what": "UPM-Kymmene public statement on the Statement of Objections, 26 Aug 2026 (via PaperAge): 'a customary step', 'Together with Sappi, UPM is reviewing the SO carefully', 'will respond in due course'. Kind would be corporate_disclosure_of_event_impact (UPM holder 01a0816b-35be-7087-8508-117c443803fc, listed, HEL:UPM, node eea_graphic_paper_supply). Call 5 itself frames the confirmation as a listed party's disclosure obligation. Dated the same day as the event. evidence 01a0816d-b1cc-7781-917f-9b2f9334e2eb; bears on resolution 01a0816d-b316-7470-9ecb-4753bd38eedc (both-parties-confirm call, unverified, coverage thin).",
+          "why": "before_clock"
+        },
+        {
+          "what": "Lesprom, 26 Aug 2026 (evidence 01a0816d-b1cc-7781-917f-9b30cafeb227): trade-press report of the SO and the parties' intention to respond; reports about the event, dated on the event date.",
+          "why": "third_party_report"
+        },
+        {
+          "what": "Pulp & Paper News, 3 Sep 2026, 'UPM-Sappi deal could weaken competition, EU warns' (evidence 01a0816d-b1cc-7781-917f-9b324fe16e30; page 403 to the fetcher, headline and framing from a search summary): trade-press report relaying the Commission's warning and the parties' response. The only post-clock trade-press document; it reports the earlier step and shows no new notice.",
+          "why": "third_party_report"
+        },
+        {
+          "what": "Price prints: UPM (HEL) daily closes 21 Aug to 4 Sep (evidence 01a0816d-b1cc-7781-917f-9b33047379b7), Sappi (JSE) daily closes (01a0816d-b1cc-7781-917f-9b34b35ddfc1), and the Sanoma coverage record (01a0816d-b1cc-7781-917f-9b35fff73184, series not read).",
+          "why": "price_print"
+        },
+        {
+          "what": "A statement by Sappi Limited in its own name (JSE SENS or company release) on the Statement of Objections. The record says 'No statement by Sappi in its own name was found; SENS was not searched' and every report quotes UPM speaking for both. Resolution 01a0816d-b316-7470-9ecb-4753bd38eedc is unverified with coverage thin for exactly this reason. Not shown to have arrived in the record.",
+          "why": "not_arrived"
+        },
+        {
+          "what": "The Commission's final decision (deadline 11 Nov 2026), any remedy package or commitments filing, abandonment or withdrawal (null call, due 25 Sep), oral-hearing notices, and any exchange filing by UPM or Sappi on remedies. Expected in the calls and factors, none shown in the record; calls 6, 7 and 8 have no resolution.",
+          "why": "not_arrived"
+        },
+        {
+          "what": "The 11 November 2026 decision deadline stored as a scheduled-type node fact (node_facts 01a0816d-66d4-762e-9b61-ad714b8a4f24 and two duplicates, fact_type mechanical, knowable_from 27 Aug 2026). It is the same underlying date as the doubtful notice R11-N1; listed here so the alternative reading (calendared statutory deadline, so scheduled) is on the record.",
+          "why": "scheduled"
+        }
+      ],
+      "notes": "Result: one doubtful notice, no clear notice, for this row. The two real notice documents in the record (the Commission's press release IP/26/1747 and UPM's statement) are both dated 26 Aug 2026, equal to the event_date, so under the on-or-before rule they are before_clock. The only post-clock items are a 3 Sep trade-press report, an 8 Sep search-summary record carrying the 11 Nov deadline (knowable_from 27 Aug), and price prints. The recap's contamination note says the operator's pre-submission search returned 'the Commission's own release' as aftermath; the evidence row dates that release 26 Aug, on the clock, not after it. Six of nine calls are resolved; three (null 25 Sep, lag 24 Nov, meta 14 Sep) are unresolved, so nothing later than the round's 8 Sep close is in the record. Round is learning class (operator-declared), which does not change this enumeration. The event node is eea_graphic_paper_supply; the notice sits on upm_sappi_jv_completion, a node in that round's touched_set (holder rows for the EC, UPM, Sappi and the proposed JV are on that node). The DB's -wal file was empty (0 bytes), so the immutable read hides nothing. The export's evidence (8 rows) and resolutions (6 rows) match the ledger exactly."
+    }
+  ]
+}

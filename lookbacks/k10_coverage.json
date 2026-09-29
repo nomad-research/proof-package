@@ -1,0 +1,276 @@
+{
+ "positions_by_attribute_all": {
+  "sign_of_exposure": 169,
+  "share": 18,
+  "substitutability": 6,
+  "duration": 5,
+  "tier": 1,
+  "priority": 1
+ },
+ "positions_by_attribute_stated_and_stamped": {
+  "sign_of_exposure": 18,
+  "share": 2,
+  "duration": 2
+ },
+ "templates_testing_each_attribute": {
+  "sign_of_exposure": 12,
+  "operating_status": 11,
+  "contract_type": 6,
+  "shared_access": 3,
+  "input_share": 2,
+  "inventory_days": 2,
+  "substitutability": 2,
+  "listed": 2,
+  "share": 2,
+  "fm_status": 1,
+  "fatalities": 1,
+  "regulatory_hold": 1,
+  "emissions_event_regime": 1,
+  "emissions_release": 1,
+  "casualties": 1,
+  "capacity": 1,
+  "generation_outage_reporting_regime": 1,
+  "duration": 1,
+  "war_risk_listed_area": 1
+ },
+ "attributes_tested_never_stored": [
+  "operating_status",
+  "contract_type",
+  "shared_access",
+  "input_share",
+  "inventory_days",
+  "listed",
+  "fm_status",
+  "fatalities",
+  "regulatory_hold",
+  "emissions_event_regime",
+  "emissions_release",
+  "casualties",
+  "capacity",
+  "generation_outage_reporting_regime",
+  "war_risk_listed_area"
+ ],
+ "templates_with_no_never_stored_condition": [],
+ "n_templates": 16,
+ "per_template": {
+  "obl.fm_producer_outage_offtake": {
+   "kind": "force_majeure_declaration",
+   "attributes": [
+    "contract_type",
+    "operating_status",
+    "sign_of_exposure"
+   ],
+   "never_stored": [
+    "contract_type",
+    "operating_status"
+   ],
+   "stored_but_no_stated_stamped_row": []
+  },
+  "obl.fm_downstream_single_source_feedstock": {
+   "kind": "force_majeure_declaration",
+   "attributes": [
+    "contract_type",
+    "input_share",
+    "inventory_days",
+    "operating_status",
+    "sign_of_exposure",
+    "substitutability"
+   ],
+   "never_stored": [
+    "contract_type",
+    "input_share",
+    "inventory_days",
+    "operating_status"
+   ],
+   "stored_but_no_stated_stamped_row": [
+    "substitutability"
+   ]
+  },
+  "obl.restart_shared_infrastructure_reopening": {
+   "kind": "restart_statement",
+   "attributes": [
+    "operating_status",
+    "shared_access",
+    "sign_of_exposure"
+   ],
+   "never_stored": [
+    "operating_status",
+    "shared_access"
+   ],
+   "stored_but_no_stated_stamped_row": []
+  },
+  "obl.restart_listed_owner_material_outage_guidance": {
+   "kind": "restart_statement",
+   "attributes": [
+    "listed",
+    "operating_status",
+    "share",
+    "sign_of_exposure"
+   ],
+   "never_stored": [
+    "listed",
+    "operating_status"
+   ],
+   "stored_but_no_stated_stamped_row": []
+  },
+  "obl.restart_fm_lifting_notice": {
+   "kind": "restart_statement",
+   "attributes": [
+    "contract_type",
+    "fm_status",
+    "sign_of_exposure"
+   ],
+   "never_stored": [
+    "contract_type",
+    "fm_status"
+   ],
+   "stored_but_no_stated_stamped_row": []
+  },
+  "obl.reg_fatality_regulator_inquiry": {
+   "kind": "regulatory_decision",
+   "attributes": [
+    "fatalities",
+    "sign_of_exposure"
+   ],
+   "never_stored": [
+    "fatalities"
+   ],
+   "stored_but_no_stated_stamped_row": []
+  },
+  "obl.reg_prohibition_lift_before_restart": {
+   "kind": "regulatory_decision",
+   "attributes": [
+    "operating_status",
+    "regulatory_hold"
+   ],
+   "never_stored": [
+    "operating_status",
+    "regulatory_hold"
+   ],
+   "stored_but_no_stated_stamped_row": []
+  },
+  "obl.alloc_partial_capacity_multicustomer": {
+   "kind": "allocation_notice",
+   "attributes": [
+    "contract_type",
+    "operating_status",
+    "sign_of_exposure"
+   ],
+   "never_stored": [
+    "contract_type",
+    "operating_status"
+   ],
+   "stored_but_no_stated_stamped_row": []
+  },
+  "obl.alloc_midstream_constrained_input": {
+   "kind": "allocation_notice",
+   "attributes": [
+    "contract_type",
+    "input_share",
+    "inventory_days",
+    "operating_status",
+    "sign_of_exposure",
+    "substitutability"
+   ],
+   "never_stored": [
+    "contract_type",
+    "input_share",
+    "inventory_days",
+    "operating_status"
+   ],
+   "stored_but_no_stated_stamped_row": [
+    "substitutability"
+   ]
+  },
+  "obl.incident_emissions_event_report": {
+   "kind": "incident_report",
+   "attributes": [
+    "emissions_event_regime",
+    "emissions_release"
+   ],
+   "never_stored": [
+    "emissions_event_regime",
+    "emissions_release"
+   ],
+   "stored_but_no_stated_stamped_row": []
+  },
+  "obl.incident_shared_infrastructure_closure_notice": {
+   "kind": "incident_report",
+   "attributes": [
+    "operating_status",
+    "shared_access",
+    "sign_of_exposure"
+   ],
+   "never_stored": [
+    "operating_status",
+    "shared_access"
+   ],
+   "stored_but_no_stated_stamped_row": []
+  },
+  "obl.incident_serious_accident_notification": {
+   "kind": "incident_report",
+   "attributes": [
+    "casualties",
+    "sign_of_exposure"
+   ],
+   "never_stored": [
+    "casualties"
+   ],
+   "stored_but_no_stated_stamped_row": []
+  },
+  "obl.incident_generation_unit_outage_publication": {
+   "kind": "incident_report",
+   "attributes": [
+    "capacity",
+    "generation_outage_reporting_regime",
+    "operating_status"
+   ],
+   "never_stored": [
+    "capacity",
+    "generation_outage_reporting_regime",
+    "operating_status"
+   ],
+   "stored_but_no_stated_stamped_row": []
+  },
+  "obl.cpn_liner_carrier_call_omission_advisory": {
+   "kind": "counterparty_notice",
+   "attributes": [
+    "contract_type",
+    "duration",
+    "operating_status",
+    "shared_access",
+    "sign_of_exposure"
+   ],
+   "never_stored": [
+    "contract_type",
+    "operating_status",
+    "shared_access"
+   ],
+   "stored_but_no_stated_stamped_row": []
+  },
+  "obl.cpn_war_risk_cover_cancellation": {
+   "kind": "counterparty_notice",
+   "attributes": [
+    "war_risk_listed_area"
+   ],
+   "never_stored": [
+    "war_risk_listed_area"
+   ],
+   "stored_but_no_stated_stamped_row": []
+  },
+  "obl.corp_listed_material_owner_impact_statement": {
+   "kind": "corporate_disclosure_of_event_impact",
+   "attributes": [
+    "listed",
+    "operating_status",
+    "share",
+    "sign_of_exposure"
+   ],
+   "never_stored": [
+    "listed",
+    "operating_status"
+   ],
+   "stored_but_no_stated_stamped_row": []
+  }
+ }
+}

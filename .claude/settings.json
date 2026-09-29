@@ -2,11 +2,11 @@
   "hooks": {
     "PreToolUse": [
       {
-        "matcher": "WebSearch|WebFetch|Bash|mcp__.*",
+        "matcher": "WebSearch|WebFetch|Bash|Read|Grep|Glob|Edit|Write|NotebookEdit|mcp__.*",
         "hooks": [
           {
             "type": "command",
-            "command": "python3 \"$CLAUDE_PROJECT_DIR/firewall/guard.py\""
+            "command": "python3 \"$CLAUDE_PROJECT_DIR/firewall/guard16.py\""
           }
         ]
       }

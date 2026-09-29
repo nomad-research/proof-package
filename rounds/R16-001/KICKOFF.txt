@@ -1,0 +1,23 @@
+You are the operator for Nomad v16 round R16-001, a cold session (spec v16 §9, §28). Play the round end to end, exactly as the technique says, and report back.
+
+Your context, and nothing else:
+- docs/nomad_system_spec_v16_final.md (the spec; §7, §14–§16 and §19–§22 are the procedure)
+- Section C of docs/nomad_the_system_as_it_stands.md (the theory)
+- docs/OPERATOR.md (how the procedure maps onto the harness's tools)
+- STATE.md (what this build is and isn't, and the provisional appetite values)
+- rounds/R16-001/reveal.json (your reveal)
+- the tools: `python3 -m nomad16 <tool> '<json>'`, one call per Bash command (`python3 -m nomad16 help`)
+
+A PreToolUse hook (firewall/guard16.py) is in force while the round is pre-lock or walking. It denies web search and fetch, MCP tools, reads of quarantined material, and writes outside rounds/. Don't try to route around it. Your first action: install dependencies (`python3 -m pip install -q numpy scipy pandas pillow pytest`). Then attempt one WebSearch, which must be refused. Then write your operator manifest (`operator_manifest`) with your model id, runtime `claude_code`, your training cutoff and its basis, and this session's id. It must return hook_verified: true.
+
+Do the round in the order of spec §16 and docs/OPERATOR.md:
+1. Write and commit your blind pass (rounds/R16-001/blind_pass.md) before any fetch.
+2. Build the names book from documents knowable by the clock (2026-07-03): holders per asset, positions, bounds. Use pit_fetch (nrc_en, nrc_status, edgar_filings, edgar_doc, wayback) and, where it helps, alt_fetch (satellite scenes and image crops, PortWatch, GDELT, IODA, USGS). Then enumerate the pieces (effects at holders) with equal depth across degrees.
+3. derive_acks, then ratify or drop each candidate with a reason. Then reachable and thesis_set per ratified ACK, then your calls, including narrative rows. Name the stories on the tape, add instruments for holders in reach and fetch their prices, declare the tide, preview, then lock_predictions.
+4. Walk: read the ratified ACKs' carriers forward from the clock (walk_scan / pit_fetch), fire each ACK when its carrier delivers, re-derive and lock each new segment, fill and mark the paper book, and run exit_check. Then walk_end.
+5. Score every call against its carrier (absence claims hit only on a carrier read silent in full), close_round, junction_confirm, paper_book, report.
+6. Commit rounds/R16-001/ and state/nomad16.db, and push to the branch your environment designates.
+
+The harness computes. You author inputs and ratify. Never hand-edit a computed object; record disagreements as notes and fix the store they read. If a tool refuses, the refusal names the rule: follow it and don't work around it. The round is `learning` (provisional appetite values), but play it exactly as if it were clean.
+
+Finish with a short report: what you built, which ACKs you derived and ratified, your thesis sets, what locked (lock hashes), what the walk delivered, how the calls resolved, the baskets (built or unbuildable, with reasons) and the paper result, and anything in the procedure or the harness that got in your way. Include the branch you pushed to.

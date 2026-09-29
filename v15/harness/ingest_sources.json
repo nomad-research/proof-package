@@ -1,0 +1,17 @@
+{
+  "_notes": [
+    "B4 daily ingest sources, verified from this machine on 2026-09-07 (nomad-harness ingest). Items land in node_facts with the given node and fact_type; dedupe by url + node.",
+    "Gaps, honestly: no free feed for war-risk premium assessments (Lloyd's List, Argus, Platts are paid; gCaptain and Hellenic carry the headlines); no dedicated chemical force-majeure feed (Plasteurope, KunststoffWeb, ICIS, ChemAnalyst serve HTML or paywalls; Chemical Engineering covers some); Antwerp-Bruges and Los Angeles port newsrooms have no discoverable feed; EPA news RSS answers 405.",
+    "Dead candidates tried: epa.gov newsreleases rss (405/404), federalregister search.rss (malformed), portofrotterdam news rss (404; rss.xml works), newsroom.portofantwerpbruges.com (404), portoflosangeles rss (404), hydrocarbonprocessing rss (HTML), kunststoffweb rss/feed (HTML), plasteurope rss (parses, 0 items), rigzone (timeout), chemanalyst rss (HTML), icis feed (HTML), argusmedia rss (404)."
+  ],
+  "sources": [
+    {"name": "UK HSE press releases (enforcement)", "url": "https://press.hse.gov.uk/feed/", "node": "uk_hse_enforcement", "fact_type": "enforcement", "verified": "2026-09-07"},
+    {"name": "Port of Rotterdam news", "url": "https://www.portofrotterdam.com/rss.xml", "node": "port_of_rotterdam", "fact_type": "port_notice", "verified": "2026-09-07"},
+    {"name": "gCaptain (shipping, war-risk, port disruption)", "url": "https://gcaptain.com/feed/", "node": "global_shipping", "fact_type": "port_notice", "verified": "2026-09-07"},
+    {"name": "Hellenic Shipping News (tankers, freight, war risk)", "url": "https://www.hellenicshippingnews.com/feed/", "node": "global_shipping", "fact_type": "premium_assessment", "verified": "2026-09-07"},
+    {"name": "Splash247 (shipping)", "url": "https://splash247.com/feed/", "node": "global_shipping", "fact_type": "port_notice", "verified": "2026-09-07"},
+    {"name": "Marine Insight (shipping incidents)", "url": "https://www.marineinsight.com/feed/", "node": "global_shipping", "fact_type": "outage", "verified": "2026-09-07"},
+    {"name": "Chemical Engineering magazine (plant outages, force majeure, projects)", "url": "https://www.chemengonline.com/feed/", "node": "global_chemicals", "fact_type": "outage", "verified": "2026-09-07"},
+    {"name": "OilPrice.com (refining, outages, chokepoints)", "url": "https://oilprice.com/rss/main", "node": "global_oil", "fact_type": "outage", "verified": "2026-09-07"}
+  ]
+}

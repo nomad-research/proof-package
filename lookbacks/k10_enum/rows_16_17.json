@@ -1,0 +1,102 @@
+{"rows": [
+ {
+  "row": 16,
+  "round_id": "01a0857b-b404-711e-8de9-e2e6f4ec17ec",
+  "event_date": "2026-08-08",
+  "notices": [
+   {
+    "notice_id": "R16-N1",
+    "kind": "restart_statement",
+    "issuer_name": "PT Freeport Indonesia (President Director Tony Wenas; joint owner of PT Smelting with Mitsubishi Materials)",
+    "issuer_holder_id": "01a0857b-b68c-7567-bf71-dbd75ae1d2c7",
+    "issuer_class": "company",
+    "node": "indonesian_copper_smelting",
+    "node_source": "event",
+    "date_arrived": "2026-08-13",
+    "evidence_ids": ["01a08584-1e92-76c4-bf94-31edd3a55934"],
+    "resolution_ids": [
+      "01a08584-1fdc-70cb-a9ae-172b56b35589",
+      "01a08584-1fdb-724d-91a5-8663510c64d0",
+      "01a08584-1fdc-70cb-a9ae-17287583b0f9",
+      "01a08584-1fdc-70cb-a9ae-172965096fb5"
+    ],
+    "obligation_basis": "(c) operating necessity to state a status after an outage: the owner of the halted plant confirmed the halt and gave a repair-completion timeline; PTFI is an unlisted subsidiary of listed FCX, so the record shows no exchange-rule or statutory basis, only operating necessity",
+    "forced": "clear",
+    "summary": "Announced 13 Aug (as reported by the Jakarta Post, relaying Bisnis.com): smelter halted effective 8 Aug for urgent furnace repairs, completion projected Q3 2026, Grasberg production unaffected, sales timing under review. Same document also works as an event-impact statement (alt kind corporate_disclosure_of_event_impact) and is the one the record calls 'PT Freeport Indonesia's own announcement of 13 August'. Caveat: the timeline is quoted from an executive's remarks to a news outlet, so a strict reader could call it interview-form."
+   },
+   {
+    "notice_id": "R16-N2",
+    "kind": "restart_statement",
+    "issuer_name": "PT Smelting (Gresik smelter), inferred: the record says only 'buyers were told' and names no issuer",
+    "issuer_holder_id": "01a0857b-b68b-725d-9576-835e2f538d26",
+    "issuer_class": "plant",
+    "node": "indonesian_copper_smelting",
+    "node_source": "event",
+    "date_arrived": "2026-08-10",
+    "evidence_ids": ["01a08584-1e92-76c4-bf94-31efe315a673"],
+    "resolution_ids": [
+      "01a08584-1fdc-70cb-a9ae-172b56b35589",
+      "01a08584-1fdc-70cb-a9ae-172ce84b755c",
+      "01a08584-1fdb-724d-91a5-8663510c64d0"
+    ],
+    "obligation_basis": "(b) contractual service notice to offtake buyers (alt kind counterparty_notice) or (c) operating necessity to state a status after an outage; the record does not say which, and does not name the issuer or the contract",
+    "forced": "doubtful",
+    "summary": "Buyers were told the plant would stay closed for checks and repairs over the coming weeks (Reuters via Mining.com, source_time 2026-08-11, knowable_from 2026-08-10). The notice's own date is not given; date_arrived is the first date the record shows it. The call-7 scorer note says buyers had 'already been told at the event', which points to the event date or just after; if it was on 2026-08-08 it is before_clock. The Reuters page itself returned 403 to the fetcher and was read through a search summary."
+   }
+  ],
+  "excluded": [
+   {"what": "Freeport force majeure at Grasberg after the 8 Sep 2025 mud rush (Fastmarkets, dated 2025-09-24): a declaration on the mine, not on this smelter outage; the record itself calls it a confound", "why": "before_clock"},
+   {"what": "TechTimes 2026-08-11, 'Indonesia smelter failure extends copper record rally': press framing of the outage as a supply event", "why": "third_party_report"},
+   {"what": "Shanghai Metals Market 2026-08-12, 'PT Smelting Gresik sudden accident, SMM analysis': trade-desk analysis of regional tightening", "why": "discretionary"},
+   {"what": "Reuters via Mining.com 2026-08-11 as a press report of the outage (its buyers-were-told content is listed as R16-N2)", "why": "third_party_report"},
+   {"what": "Jakarta Post 2026-08-13 as a press report (the announcement it relays is listed as R16-N1)", "why": "third_party_report"},
+   {"what": "Daily closes for 5711.T, FCX, AMMN.JK, 8058.T, SCCO and ANTO.L around 8 Aug 2026 (Yahoo chart API)", "why": "price_print"},
+   {"what": "Force majeure declaration on concentrate offtake or cathode delivery (null call, due 2026-09-07): scored hit, no declaration seen in any carrier read, but coverage was 'thin'", "why": "not_arrived"},
+   {"what": "Indonesian ESDM ministry instrument relaxing or varying export-licence terms because of the outage (null call, due 2026-09-22): call unresolved, none shown in the record", "why": "not_arrived"},
+   {"what": "Actual restart or return-to-production statement by an owner (lag_band call, due 2026-10-22): call unresolved; the Q3 2026 completion in R16-N1 is a projection and no restart is shown", "why": "not_arrived"},
+   {"what": "Mitsubishi Materials investor-relations or TDnet disclosure on PT Smelting (named as the map call's settling document and carrier): none in the record; the as-of-2026-08-07 fetch of mmc.co.jp/english/ir returned not_found and no post-event MMC document was read", "why": "not_arrived"}
+  ],
+  "notes": "Two notices, drawn only from the six evidence rows, seven resolution notes, recap and export for round 14. No node_facts, ack_nodes, ack_firings or segments rows exist for this round or its nodes. Limits: the evidence is metals and mining trade press only, plus price closes; no primary carrier (Mitsubishi Materials IR, TDnet, ESDM notices, PTFI or FCX filings) was read after the event, so the record cannot show that no regulator, exchange or ministry notice arrived, only that none was seen. Two of the nine calls (restart lag_band, ESDM null) have no resolution and the ledger was written 2026-09-09, so nothing dated after about 2026-09-09 is visible. The force-majeure absence call was scored on thin coverage. R16-N1 is the only item the record itself treats as an owner's own statement; R16-N2 is doubtful on issuer, date and obligation. The touched_set for this round lists nodes indonesian_copper_smelting, indonesian_concentrate_exports and el_teniente_copper_supply; both notices sit on the event's own node."
+ },
+ {
+  "row": 17,
+  "round_id": "01a085ea-d88c-70bf-92dd-85f3e44db228",
+  "event_date": "2026-08-20",
+  "notices": [
+   {
+    "notice_id": "R17-N1",
+    "kind": "incident_report",
+    "issuer_name": "Google Cloud (Google Cloud Service Health incident page, us-west1 incident of 20 Aug 2026; operator of the region, unit of Alphabet Inc)",
+    "issuer_holder_id": "01a085ed-bd0a-76d0-b46b-f83c3ab032a8",
+    "issuer_class": "company",
+    "node": "gcp_us_west1_region",
+    "node_source": "event",
+    "date_arrived": "2026-08-27",
+    "evidence_ids": ["01a085f8-554e-75d4-9cd8-32ee84f47929", "01a085f8-7e14-74bd-b583-1909c2367dc8"],
+    "resolution_ids": [
+      "01a085f9-4f05-73ce-9bec-c08c3f7f491d",
+      "01a085f9-4f04-7372-bfca-0830297fcd4b",
+      "01a085f9-4f05-73ce-9bec-c09093a40253"
+    ],
+    "obligation_basis": "(b) contract, customary post-incident account: the record's own ack_nodes obligation says an operator carrying an availability SLA across a multi-tenant region must account publicly for a multi-service failure to the tenants who will claim against it; the obligation follows from the contract, the publication date is not published anywhere",
+    "forced": "clear",
+    "summary": "Root cause published 2026-08-27 (day 7) on the operator's incident page: scheduled fibre-optic maintenance compromised inter-datacentre capacity in us-west1, automated rerouting failed, congestion cascaded through Spanner Paxos consensus and the Unified Metadata Server; window 08:00-10:22 PDT on 2026-08-20 (2h22m). Ledger: ack_nodes 01a085ed-bd21-716d-8a2e-07d13fc1c051 (forced) fired in ack_firings 01a085f8-5551-74fb-be55-878ebe875f4a, delivered=1, opening segment 01a085f8-5552-7028-85ce-357886970fbd. The evidence table holds two identical rows for this page (554e and 7e14); both are linked."
+   }
+  ],
+  "excluded": [
+   {"what": "In-progress and restoration status updates on the same Service Health incident page on 2026-08-20 (outage ran 08:00-10:22 PDT): the record dates only the outage window and the 27 Aug root-cause publication, never a separate earlier posting, so any such update would be on the event date", "why": "before_clock"},
+   {"what": "shattered.io 2026-08-21, 'Google Cloud outage hits 33 services for 2h22m' (stored in two evidence rows, 01a085f8-554f-751a-a66f-1d00dcda9c96 and 01a085f8-7e14-74bd-b583-190a02ff2b92): press account giving cause as routine fibre maintenance and backlogs cleared the same day. It may relay operator status text, but the record does not identify or date any such operator statement", "why": "third_party_report"},
+   {"what": "Daily closes for GOOGL, AMZN and MSFT, 2026-08-20 to 2026-09-08 (stooq, harness backfill)", "why": "price_print"},
+   {"what": "Forced ACK 01a085ed-bd22-72ef-9d69-f436d6fa772d: service credits requested and applied against August invoices (tenants to Alphabet under the SLA); no firing on the ledger", "why": "not_arrived"},
+   {"what": "Forced ACK 01a085ed-bd23-7468-bbfb-42132498a25e: an affected tenant names an upstream cloud region in its own service notice; no firing and no tenant notice in the record", "why": "not_arrived"},
+   {"what": "Forced ACK 01a085f8-5550-7793-a74c-00f77253f1ff (successor of the incident report): operator states what it changed so the automated rerouting does not fail the same way; no firing, no follow-up in the record", "why": "not_arrived"},
+   {"what": "Forced ACK 01a085f8-5551-74fb-be55-878de92c9c8b (successor): a tenant states a credit received or a financial impact taken; no firing, and the magnitude_order call notes no credit stated by anyone", "why": "not_arrived"},
+   {"what": "Scheduled ACK 01a085ed-bd22-72ef-9d69-f43773926a0e: the August uptime measurement period closes 2026-08-31 (calendar date)", "why": "scheduled"},
+   {"what": "Alphabet segment disclosure or results statement as carrier of the SLA-credit cost effect (effect due 2026-10-31): a scheduled results disclosure, and nothing of it is in the record", "why": "scheduled"},
+   {"what": "Constraint-price signals for cloud capacity (spot or auction rate, allocation or rationing notice, indemnity reprice, broker quote) naming the outage (null call, due 2026-09-19): call unresolved, none shown", "why": "not_arrived"},
+   {"what": "Listed-company filing, results statement or public disclosure attributing a material financial impact to the outage (null call, due 2026-10-04): call unresolved, none shown", "why": "not_arrived"}
+  ],
+  "notes": "One notice arrived in the record. Sources read: six evidence rows (three distinct documents, each stored twice), nine predictions and six resolutions, the 6 ack_nodes rows (3 forced at lock, 1 scheduled, 2 forced successors named at the 27 Aug firing), the single ack_firings row, the two segments rows, the effects rows, and the recap and export. No node_facts rows exist for the node. Limits: the ledger was written 2026-09-09 and three calls are still inside their windows (2026-09-19, 2026-10-04, 2026-10-05), so later notices are not visible, and the four forced ACKs listed as not_arrived may still arrive; the SLA-credit claims are between tenants and Alphabet and may never be public. The round records no regulator, court, exchange or insolvency notice. Q7 failed for this node kind (no open carrier registered), so the record's coverage of tenant notices and filings is thin by construction. The event's own node (gcp_us_west1_region) is the only node any notice sits on; the touched_set also lists us_public_cloud_iaas, us_listing, usd_reporting and mega_cap_tech, none with a notice."
+ }
+ ]
+}
