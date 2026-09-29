@@ -179,6 +179,11 @@ def lock(db: DB, round_id: str) -> dict:
     if man is None or not man.get("hook_verified") or not man.get("operator_model") or not man.get("operator_cutoff"):
         raise Refused("no operator manifest with model, runtime, cutoff and a verified hook: a round "
                       "without one can't lock (fold smoke 15)")
+    hm = meta(db, round_id, "harness_match")
+    if hm is not None and not hm:
+        raise Refused("the operator's harness or config differs from the one the round was admitted on "
+                      f"(admitted {rnd['harness_version']}, operator {meta(db, round_id, 'operator_harness_version')}): "
+                      "the round can't lock until it is re-admitted on the commit the operator cloned")
     tide_id = meta(db, round_id, "tide_id")
     if not tide_id:
         raise Refused("declare the round's tide at lock (tide_declare)")
@@ -200,6 +205,8 @@ def lock(db: DB, round_id: str) -> dict:
     cutoff = now_iso()
     view = View(db, ledger_cutoff=cutoff)
     objs = compute_segment(view, rnd, seg, budget)
+    fl = derive.fetch_list(view, rnd, seg["clock"])
+    set_meta(db, round_id, f"fetch_list_seg{seg['idx']}", fl)
     manifest = manifest_for(view, db, round_id, seg["idx"], budget, tide_id, cutoff)
     mid = f"M:{round_id}:{seg['idx']}"
     mrow = db.append("lock_manifests", manifest_id=mid, round_id=round_id, segment_idx=seg["idx"],
@@ -284,6 +291,7 @@ def lock(db: DB, round_id: str) -> dict:
                                                   "z_star": b.get("z_star"), "max_loss": b.get("max_loss")}
                                                  for b in objs["baskets"]],
             "built": built, "veto_rate": objs["veto_rate"], "context_ok": ctx_ok,
+            "fetch_list": fl["counts"],
             "provisional_values_read": len(provisional), "state": state(db, round_id)}
 
 

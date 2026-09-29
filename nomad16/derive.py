@@ -207,3 +207,28 @@ def ack_window(db: DB, ack_id: str, window_to: str, basis: str) -> dict:
     if day(window_to) > cap:
         raise Refused(f"window_to exceeds the DUE_AT_MAX_DAYS cap ({cap})")
     return db.upsert("ack_nodes", ack_id, window_to=day(window_to), window_basis=basis, window_ratified=True)
+
+
+FETCH_ATTRS = ["operating_status", "contract_type", "shared_access", "listed", "inventory_days", "input_share"]
+
+
+def fetch_list(view, round_row: dict, clock: str) -> dict:
+    """The K10 fetch list, recorded at lock (v17 checkpoint): for every holder in reach, which of the
+    standing facts an obligation needs are documented, only inferred, or missing. Positions only,
+    never prices. Frozen K10 templates re-run unchanged on rounds that carry these rows."""
+    from .conditions import visible_positions
+    rid = round_row["round_id"]
+    nodes = scope_nodes(view, round_row["node"])
+    rows = visible_positions(view, clock, nodes=nodes)
+    holders = {r["holder_id"] for r in rows} | {e["holder_id"] for e in view.led("effects", "round_id=?", (rid,))}
+    out = []
+    for h in sorted(holders):
+        for a in FETCH_ATTRS:
+            have = [r for r in rows if r["holder_id"] == h and r["attribute"] == a]
+            state = ("documented" if any(r["confidence"] == "stated" for r in have)
+                     else "inferred" if have else "missing")
+            out.append({"holder": h, "attribute": a, "state": state})
+    n = len(out)
+    return {"clock": clock, "attributes": FETCH_ATTRS, "rows": out,
+            "counts": {k: sum(1 for x in out if x["state"] == k) for k in ("documented", "inferred", "missing")},
+            "cells": n}

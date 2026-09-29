@@ -1,6 +1,6 @@
 """K8 look-back over the v15 ledger, per K8_prereg.md. Read-only."""
 import json, sqlite3, sys, collections
-DB = sys.argv[1]
+DB = sys.argv[1]  # optional: --overlay v15_overlay/knowable_from_backfill.json
 c = sqlite3.connect(f"file:{DB}?mode=ro", uri=True); c.row_factory = sqlite3.Row
 rounds = []
 for n, r in enumerate(c.execute("SELECT r.id, r.round_class, e.event_date, e.node, substr(e.event_text,1,70) t "
@@ -11,6 +11,11 @@ for n, r in enumerate(c.execute("SELECT r.id, r.round_class, e.event_date, e.nod
     rounds.append(dict(r) | {"seq": n, "lock": lock, "void": void, "states": [x["to_state"] for x in tr]})
 holders = {h["id"]: dict(h) for h in c.execute("SELECT * FROM holders")}
 pos = [dict(p) for p in c.execute("SELECT * FROM positions ORDER BY rowid")]
+if "--overlay" in sys.argv:  # v15/ stays frozen: dates come from the overlay, never written to the database
+    ov = {r["position_id"]: r["knowable_from"] for r in json.load(open(sys.argv[sys.argv.index("--overlay") + 1]))["rows"]}
+    for p in pos:
+        if not p["knowable_from"] and ov.get(p["id"]):
+            p["knowable_from"] = ov[p["id"]]
 vec = collections.defaultdict(list)
 for s in c.execute("SELECT round_id, holder_id, node, vector FROM surviving_risk WHERE vector IS NOT NULL"):
     try:

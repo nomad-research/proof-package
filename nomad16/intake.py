@@ -9,6 +9,7 @@ from __future__ import annotations
 
 import datetime as _dt
 import json
+import os
 import re
 
 from . import config
@@ -20,6 +21,18 @@ from .util import curl, day, ts
 
 CACHE = ROOT / "data" / "cache" / "nrc_en"
 GUARD_LOG = ROOT / "firewall" / "guard16_log.jsonl"
+
+
+def git_state() -> tuple[str | None, list[str]]:
+    """(HEAD commit, uncommitted paths under the code the operator clones)."""
+    import subprocess
+    try:
+        head = subprocess.run(["git", "-C", str(ROOT), "rev-parse", "HEAD"], capture_output=True, text=True).stdout.strip()
+        st = subprocess.run(["git", "-C", str(ROOT), "status", "--porcelain", "--", "nomad16", "config", "firewall",
+                             ".claude"], capture_output=True, text=True).stdout.splitlines()
+    except OSError:
+        return None, []
+    return head or None, [x[3:] for x in st if not x.endswith("guard16_log.jsonl")]
 
 
 def _page(d: str) -> str | None:
@@ -150,6 +163,11 @@ def submit_event(db: DB, cand_id: str, round_id: str, event_line: str, node: str
     """Admission: the human has confirmed Q3, Q4, Q6, Q8 and picked the size band."""
     from .positions import node_upsert
     op_model = config.operator_model()
+    head, dirty = git_state()
+    if dirty and not os.environ.get("NOMAD_ALLOW_DIRTY"):
+        raise Refused("admit a round on the exact commit the operator will clone: nomad16/, config/ or "
+                      f"firewall/ has uncommitted changes ({dirty[:5]}). Commit and push them, then admit "
+                      "(R16-001 was admitted and played on different harness versions)")
     c = db.one("intake_candidates", "cand_id=?", (cand_id,))
     if c is None or c["decision"] != "confirm":
         raise Refused("the candidate must be confirmed by the human first (intake_decide confirm)")
@@ -203,6 +221,7 @@ def submit_event(db: DB, cand_id: str, round_id: str, event_line: str, node: str
     set_meta(db, round_id, "class_reasons", reasons)
     set_meta(db, round_id, "cutoff_basis", cutoff_basis)
     set_meta(db, round_id, "confirmed_by", confirmed_by)
+    set_meta(db, round_id, "admitted_commit", head)
     db.append("segments", round_id=round_id, idx=0, clock=q["event_date"], opened_by_ack_id=None,
               opened_by_firing_id=None, locked_at=None, lock_hash=None, manifest_id=None, wall_clock=None)
     set_state(db, round_id, "admitted", f"admitted by {confirmed_by}; class {rclass}")
@@ -267,14 +286,26 @@ def operator_manifest(db: DB, round_id: str, operator_model: str, operator_runti
     verified = bool(denials)
     if ts(operator_cutoff) >= ts(rnd["event_date"]):
         set_meta(db, round_id, "q2_operator_cutoff_note", "operator cutoff is not before the event: Q2 fails, learning")
+    mine, admitted = config.harness_version(), rnd["harness_version"]
+    cmine, cadm = config.config_hash(), rnd["config_hash"]
+    set_meta(db, round_id, "operator_harness_version", mine)
+    set_meta(db, round_id, "operator_config_hash", cmine)
+    set_meta(db, round_id, "harness_match", bool(mine == admitted and cmine == cadm))
     row = db.append("operator_manifests", round_id=round_id, operator_model=operator_model,
                     operator_runtime=operator_runtime, operator_cutoff=operator_cutoff, cutoff_basis=cutoff_basis,
                     session_id=session_id, hook_verified=verified,
                     hook_evidence=denials[-1] if denials else "no denied WebSearch/WebFetch on the guard log since reveal",
                     cold=bool(cold))
-    return {"hook_verified": verified, "manifest": {k: row[k] for k in ("operator_model", "operator_runtime",
+    match = mine == admitted and cmine == cadm
+    return {"hook_verified": verified, "harness_match": match,
+            "harness": {"admitted": admitted, "operator": mine, "config_admitted": str(cadm)[:16],
+                        "config_operator": cmine[:16]},
+            "manifest": {k: row[k] for k in ("operator_model", "operator_runtime",
                                                                       "operator_cutoff", "session_id", "cold")},
-            "next": None if verified else "attempt a WebSearch now (it must be refused), then write the manifest again"}
+            "next": (None if verified and match else
+                     ("attempt a WebSearch now (it must be refused), then write the manifest again" if not verified else
+                      "the harness or config in this clone differs from the one the round was admitted on; "
+                      "the round can't lock. Ask the builder to re-admit on the commit you cloned"))}
 
 
 def tide_declare(db: DB, round_id: str, tide_id: str, basis: str) -> dict:

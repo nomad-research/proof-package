@@ -163,9 +163,9 @@ def test_17_reach_cut_and_unknown(db):
     rid2 = admit_round(db, rid="R-T2", node="unit-y")
     ack2 = None
     for h in ("h.unit",):
-        positions.position_add(db, h, "unit-y", "unit_status", "offline", "f", "2026-07-01", source_document="d")
-        positions.position_add(db, h, "unit-y", "daily_status_published", "true", "f", "2026-07-01", source_document="d")
-        positions.position_add(db, h, "unit-y", "failed_component_class", "main_transformer", "f", "2026-07-01", source_document="d")
+        positions.position_add(db, h, "unit-y", "unit_status", "offline", "f", "2026-07-01", "stated", source_document="d")
+        positions.position_add(db, h, "unit-y", "daily_status_published", "true", "f", "2026-07-01", "stated", source_document="d")
+        positions.position_add(db, h, "unit-y", "failed_component_class", "main_transformer", "f", "2026-07-01", "stated", source_document="d")
     positions.bound_add(db, "b.tx", "main_transformer", "repair_lead_days", 30, "days", "fixture", "2026-06-01")
     res = derive.derive_acks(db, rid2)
     ack2 = [d for d in res["derivations"] if d["template_id"] == "obl.unit_status_publication"][0]["ack_id"]
@@ -430,3 +430,60 @@ def test_replay_pins_the_appetite_it_locked_with(db, tmp_path, monkeypatch):
     monkeypatch.setattr(config, "APPETITE_PATH", p)
     rep = lock.replay(db, rid, 0)
     assert rep["reproduces"] and "pinned" in rep["config"]
+
+
+def test_positions_are_stamped_at_write(db):
+    holders(db)
+    positions.node_upsert(db, "unit-z", "power_plant", "fixture")
+    with pytest.raises(Refused, match="knowable_from"):
+        positions.position_add(db, "h.unit", "unit-z", "unit_status", "offline", "f", None, "stated",
+                               source_document="d")
+    with pytest.raises(TypeError):  # confidence has no default any more
+        positions.position_add(db, "h.unit", "unit-z", "unit_status", "offline", "f", "2026-07-01",
+                               source_document="d")
+
+
+def test_lock_records_the_fetch_list(db):
+    rid, ack = _full_round(db)
+    out = lock.lock(db, rid)
+    fl = rounds.meta(db, rid, "fetch_list_seg0")
+    assert fl["attributes"] == derive.FETCH_ATTRS and fl["cells"] > 0
+    assert out["fetch_list"]["missing"] > 0  # the fixture documents none of the six standing facts
+
+
+def test_operator_harness_must_match_the_admitted_one(db, monkeypatch):
+    rid = base(db)
+    intake.tide_declare(db, rid, "us_equity_beta", "fixture")
+    monkeypatch.setattr(config, "harness_version", lambda: "a-different-clone")
+    res = manifest(db, rid)
+    assert res["harness_match"] is False and "can't lock" in res["next"]
+    with pytest.raises(Refused, match="re-admitted"):
+        lock.lock(db, rid)
+
+
+def test_admission_refuses_a_dirty_harness_tree(db, monkeypatch):
+    monkeypatch.setattr(intake, "git_state", lambda: ("abc123", ["nomad16/lock.py"]))
+    monkeypatch.delenv("NOMAD_ALLOW_DIRTY", raising=False)
+    with pytest.raises(Refused, match="exact commit"):
+        intake.submit_event(db, "x", "R-X", "line", "n", "power_reactor", "energy", "2026-01-01", "me", "underread",
+                            "2026-06-30", "b", {"Q3": "pass", "Q4": "pass", "Q6": "pass", "Q8": "pass"})
+
+
+def test_census_control_alone_is_not_a_find_and_share_is_rob_s(db):
+    from nomad16 import census
+    kw = dict(earliest_event_date="2026-07-15", knowable_from="2026-03-01", basis="fixture")
+    with pytest.raises(Refused, match="concentration"):
+        census.census_add(db, "h1", "Refinery A", "found", instrument_symbol="AAA", instrument_kind="equity",
+                          relation="listed_parent", concentration_pct=3.0, source_document="d", **kw)
+    census.census_add(db, "h1", "Refinery A", "unquantified_control", instrument_symbol="AAA",
+                      instrument_kind="equity", relation="listed_parent", source_document="d", **kw)
+    census.census_add(db, "h2", "Smelter B", "found", instrument_symbol="BBB", instrument_kind="equity",
+                      relation="major_customer", concentration_pct=60.0, source_document="d", **kw)
+    census.census_add(db, "h3", "Plant C", "not_found", **kw)
+    with pytest.raises(Refused, match="time guard|after the earliest"):
+        census.census_add(db, "h4", "Plant D", "found", instrument_symbol="DDD", instrument_kind="bond",
+                          relation="lender", concentration_pct=80.0, source_document="d",
+                          earliest_event_date="2026-07-15", knowable_from="2026-09-01", basis="fixture")
+    out = census.census(db, candidates=3)
+    assert out["by_status"]["found"] == 1 and out["by_status"]["unquantified_control"] == 1
+    assert out["share_found"] == 0.333 and out["verdict"].startswith("not stated")  # K7_SHARE is unset

@@ -85,7 +85,7 @@ def _coerce(db: DB, attribute: str, value):
 
 
 def position_add(db: DB, holder_id: str, node: str, attribute: str, value, source: str,
-                 knowable_from: str | None, confidence: str = "stated",
+                 knowable_from: str, confidence: str,
                  asset_ref: str | None = None, unit: str | None = None,
                  source_document: str | None = None, source_time: str | None = None,
                  supersedes: str | None = None, evidence_ids: list | None = None,
@@ -95,11 +95,13 @@ def position_add(db: DB, holder_id: str, node: str, attribute: str, value, sourc
     if db.get("nodes", node) is None:
         raise Refused(f"no node {node}; add it with node_upsert")
     if confidence not in CONFIDENCE:
-        raise Refused(f"confidence must be one of {sorted(CONFIDENCE)}")
+        raise Refused(f"confidence must be one of {sorted(CONFIDENCE)}; every row is stamped at write")
+    if not knowable_from:
+        raise Refused("every position row carries knowable_from, stamped at write: the date its source "
+                      "became public (v17 checkpoint; v15 left 141 of 200 rows undated and K8/K10 could not read it)")
     if confidence == "stated" and not (source_document or evidence_ids):
         raise Refused("a stated position needs a source document or evidence id")
-    if knowable_from:
-        ts(knowable_from)
+    ts(knowable_from)
     sval, num = _coerce(db, attribute, value)
     n = len(db.rows("positions")) + 1
     pid = f"P{n:05d}"

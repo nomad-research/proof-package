@@ -273,3 +273,54 @@ branches, which were left alone). A tag marking that commit was refused by the r
 the commit hash is cited in the README instead. Kept: `firewall/guard.py` and its allow/deny lists, which
 `guard16.py` defers to when no round is in play. `nomad16/pit.py` no longer reads its SEC user agent out of
 the deleted `firewall/edgar.py`.
+
+## 2026-09-29 — v17 checkpoint prep: harness gaps, K7 tooling, blind back-fill
+
+Against `v17_Checkpoint_Actionables.md` (groups 1–3 need a person; this is the part that didn't).
+
+### Harness gaps closed (tests: 58 pass; R16-001's two locks still replay to their hashes)
+
+- **Positions are stamped at write.** `position_add` refuses a row with no `knowable_from` and no longer
+  defaults `confidence`. (v15 left 141 of 200 rows undated.)
+- **Admit on the exact commit the operator will clone.** `submit_event` refuses to admit while `nomad16/`,
+  `config/`, `firewall/` or `.claude/` has uncommitted changes, and records `admitted_commit`.
+  `operator_manifest` compares the operator's own harness hash and config hash with the admitted ones, records
+  `harness_match`, and `lock` refuses on a mismatch. Rounds admitted before this (R16-001) carry no
+  `harness_match` and are unaffected. Caveat: the hash is over source bytes, so a checkout that rewrites line
+  endings would mismatch.
+- **The fetch list is recorded at lock.** For every holder in reach, `operating_status`, `contract_type`,
+  `shared_access`, `listed`, `inventory_days` and `input_share` are classed documented / inferred / missing
+  and written to `round_meta` as `fetch_list_seg<n>`. It is deliberately **not** part of the lock hash, so
+  R16-001's locks still replay; it is ledger-chained and dated. The registry now carries the frozen K10
+  templates' exact attribute vocabulary, so `lookbacks/k10.py` can re-run unchanged on new rounds.
+- **The GDELT probe now requires matched events**, not just files read (the earlier probe couldn't tell a
+  broken parser from an empty area). Verified separately: 53 events over Tehran, 103 over Washington, 0 over
+  rural Monroe County (the world, not the code).
+
+### Not done here, on purpose
+
+- **D15 (domain-preference tie-break) is still not implemented**, and the enumerator reads only the NRC
+  power-reactor feed. Group 3 needs a selection path for other feeds and for K7-derived nodes.
+- **Nothing in group 1 was applied.** No threshold was ratified, `RHO_MIN` is still in place, and no D-register
+  row was marked. Those are the requester's dated commits.
+
+### K7 (`lookbacks/K7_prereg.md`, DRAFT, share unset)
+
+`nomad16/census.py` (`census_add`, `census`) and a ledger table `census_rows`. A find needs a **concentration**
+figure at or above `CENSUS_CONCENTRATION_PCT` (25, provisional); control alone (a listed parent or majority
+owner) is recorded as `unquantified_control` and is not a find, because a diluted parent is exactly what
+R16-001 hit. A source that became public after the earliest event the holder appears in is refused.
+`K7_SHARE` is deliberately absent from the appetite file: the census reports counts and refuses a verdict until
+it is set, in a dated commit before the census starts. `lookbacks/k7_candidates.py` produced the mechanical
+top-15 unlisted holders from v15 (`k7_candidates.json`). Two features of that list are flagged for a decision
+before use: sister entries (ranks 3/4, 5/15) and an aggregate with no single listed parent (rank 13).
+
+### Blind back-fill of `knowable_from` (`lookbacks/backfill/RESULT.md`, overlay `v15_overlay/`)
+
+Procedure written first; a fresh subagent dated 115 distinct sources from source text and `source_time` only.
+**14 of 141 undated positions got an exact date; 127 stay null.** Positions with a `knowable_from`: 59 → 73
+of 200. The 127 are operator priors and generic statements with no document to date, which matches v15's own
+labels (131 of 200 `inferred`). So K8's unreadability was not only missing stamps. `k8.py --overlay` applies
+the overlay (default behaviour unchanged, checked); **K8 has not been re-run**: `K8_rerun_expectations.md` is a
+blank template for the requester to fill in first. "Cold" is a procedure, not a wall (the container holds the
+v15 database); the dater's self-report is committed.

@@ -13,7 +13,7 @@ import numpy as np
 import pandas as pd
 import pytest
 
-from nomad16 import intake, rounds, seed as seedmod
+from nomad16 import config, intake, rounds, seed as seedmod
 from nomad16.db import DB, canon, sha
 
 
@@ -69,7 +69,8 @@ def admit_round(db: DB, rid="R-T1", event_date="2026-07-15", node="unit-x", node
     db.append("rounds", round_id=rid, event_line="Unit X trips offline", event_date=event_date, event_time=None,
               node=node, node_type=node_type, stratum="energy", feed_set="fixture", intake_mode="strict_v3",
               round_class="learning", live=live, operator_model="test-model", operator_cutoff="2026-06-30",
-              operator_runtime="pytest", harness_version="t", logic_version="v16", config_hash="t",
+              operator_runtime="pytest", harness_version=config.harness_version(), logic_version="v16",
+              config_hash=config.config_hash(),
               presort_active=False, domain_pref=None, candidate_id=None, q_results={"event_date": event_date})
     rounds.set_meta(db, rid, "knowable_from", event_date)
     db.append("segments", round_id=rid, idx=0, clock=event_date, opened_by_ack_id=None, opened_by_firing_id=None,

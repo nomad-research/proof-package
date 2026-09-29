@@ -34,7 +34,7 @@ PHASE = Path(os.environ.get("NOMAD16_PHASE_FILE") or ROOT / "state" / "phase.jso
 QUARANTINE = ["blindrun/", "blindrun2/", "firewall/fetched", "data/blindrun", "data/cache", "REPORT.md",
               "SUMMARY.md", "firewall/fetch_log.jsonl", "firewall/guard_log.jsonl", "firewall/guard16_log.jsonl",
               "config_log.jsonl", "methodology/", "tests_b3/", "firewall/hosts.backup", ".git/",
-              "state/nomad16.db", "v15/", "lookbacks/"]
+              "state/nomad16.db", "v15/", "v15_overlay/", "lookbacks/"]
 NET_TOOLS = re.compile(r"\b(curl|wget|httpie|nc|ncat|telnet|ssh|scp|rsync|lynx|w3m|links|aria2c|yt-dlp)\b")
 URL_RE = re.compile(r"https?://")
 CODE_NET = re.compile(r"\b(requests\.|urllib|urlopen|httpx|aiohttp|socket\.|fetch\(|axios)")
