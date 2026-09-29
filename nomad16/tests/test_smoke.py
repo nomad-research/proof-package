@@ -279,6 +279,8 @@ def test_22_correlation_without_shared_node_is_a_piano(db):
     a = rng.normal(0, 0.01, 400); b = rng.normal(0, 0.01, 400)
     a[split:] += common[split:]; b[split:] += common[split:]
     write_prices(db, "PWR", dates, 100 * np.cumprod(1 + a)); write_prices(db, "GAS", dates, 100 * np.cumprod(1 + b))
+    with pytest.raises(Refused, match="JUNCTION_WINDOW"):
+        stories.junction_confirm(db, rid, 0, "2026-09-20")  # too few sessions after the trigger
     out = stories.junction_confirm(db, rid, 0, "2026-08-03")
     assert any(p["status"] == "piano" for p in out["pairs"])
     assert db.rows("pianos") and db.rows("pianos")[-1]["outside"] == "junction_without_node"

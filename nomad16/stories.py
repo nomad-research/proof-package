@@ -470,12 +470,14 @@ def junction_confirm(db: DB, round_id: str, segment_idx: int, trigger_date: str)
         F[k] = F[k].values - X @ b
     before = F[F.index < day(trigger_date)].iloc[-win:]
     after = F[F.index >= day(trigger_date)].iloc[:win]
+    if len(after) < win or len(before) < win:
+        raise Refused(f"junction_confirm needs JUNCTION_WINDOW ({win}) sessions on each side of the trigger; "
+                      f"the vintage store has {len(before)} before and {len(after)} after {day(trigger_date)}. "
+                      f"Fetch the story proxies past the window (price_fetch) and re-run; nothing was logged")
     out = []
     ks = sorted(fac)
     for i, a in enumerate(ks):
         for b_ in ks[i + 1:]:
-            if len(before) < 5 or len(after) < 5:
-                continue
             cb, ca = float(before[a].corr(before[b_])), float(after[a].corr(after[b_]))
             rise = ca - cb
             is_flag = (a, b_) in flagged or (b_, a) in flagged

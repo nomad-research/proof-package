@@ -207,3 +207,21 @@ prevent concluding. Making K8 readable needs a blind back-fill of `knowable_from
 - **K9:** a rebuild of rounds 5–15 by cold operator sessions, one per round. Their events (2026-07-14 →
   2026-09-07) are after this environment's declared cutoff (2026-06-30), so the time-wall guard is
   satisfiable. The cost is one operator session per round (R16-001 used about $13).
+
+### From the operator's closing notes (fixed after the round)
+
+- **Junction confirmation on short data.** The first `junction_confirm` ran on story proxies whose vintages
+  stopped five sessions after the trigger, and logged two pianos. The operator re-ran it on refreshed
+  vintages, and both runs stay on the ledger; read the second. `junction_confirm` now refuses unless
+  `JUNCTION_WINDOW` sessions exist on both sides of the trigger. Constructed stories are still not tested
+  by it (estimated proxies only).
+- **One map call per ACK.** The replacement-cost ACK's vocabulary was registered as a map call in both
+  segments (C002, C008: the same claim). `thesis_set` now registers one per ACK across the walk. Score
+  R16-001's C002 and C008 as one observation.
+- **Harness version drift, disclosed.** R16-001's round row records harness `ad0779d5…` (at admission);
+  the operator's calls ran on `ab6b3fde…`. The builder changed the harness between admission and the
+  push that the operator cloned (it added `walk_scan` and hardened the guard). Nothing changed while the
+  operator was playing, and the operator made no edits under `nomad16/`. Future rounds should be admitted
+  on the exact commit the operator will clone.
+- **A domain caveat worth carrying:** DTE's Q2 release records a regulator's disallowance of previously
+  recorded power-supply costs. The pass-through premise (positions P00010, P00019) isn't unconditional.

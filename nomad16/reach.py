@@ -161,7 +161,8 @@ def thesis_set(db: DB, ack_id: str, in_thesis: list[str], exclusions: dict, basi
     row = db.append("thesis_sets", ack_id=ack_id, round_id=ack["round_id"], segment_idx=seg["idx"],
                     in_thesis=sorted(in_thesis), exclusions=exclusions, basis=basis)
     vocab = view.mget("outcome_vocabs", ack["notice_kind"])
-    existing = db.one("predictions", "ack_id=? AND call_type='map' AND segment_idx=?", (ack_id, seg["idx"]))
+    # one map call per ACK across the whole walk: a later segment's thesis restates, it doesn't re-register
+    existing = db.one("predictions", "ack_id=? AND call_type='map'", (ack_id,))
     call = None
     if existing is None:
         branches = [{"branch": o["outcome_id"], "label": o["label"],
