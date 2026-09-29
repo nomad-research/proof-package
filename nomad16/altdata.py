@@ -250,9 +250,12 @@ def alt_probe(db: DB, source: str) -> dict:
                 problems.append("no records in a window that must have them")
         elif source == "gdelt_events":
             r = _gdelt("2025-01-02T00:00:00Z", "2025-01-02T01:00:00Z", country="IR", max_files=4)
-            n = r["files_read"]
-            if n == 0:
+            n = sum(v["n"] for v in r["by_cameo_root"].values())
+            if r["files_read"] == 0:
                 problems.append("no export files read")
+            if n == 0:
+                problems.append("files read but no events matched a country that has events every hour: "
+                                "the parser or the column mapping is broken")
         elif source == "ioda":
             r = _ioda("IR", start, end)
             n = sum(len(s["points"]) for s in r)

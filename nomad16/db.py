@@ -140,6 +140,10 @@ TABLES: dict[str, tuple[str, list[str]]] = {
                              "split"]),
     "pianos": (LEDGER, ["piano_id", "round_id", "basket_id", "description", "outside",
                         "cost"]),
+    # --- K7 ownership and instrument census ---------------------------------------
+    "census_rows": (LEDGER, ["census_id", "holder_key", "holder_name", "instrument_symbol", "instrument_kind",
+                             "relation", "concentration_pct", "concentrated", "basis", "source_document",
+                             "knowable_from", "earliest_event_date", "status"]),
     # --- library ------------------------------------------------------------------
     "library_history": (LEDGER, ["rule_id", "weight", "weight_state", "trials_as_carried",
                                  "computed_from_resolutions", "valid_from", "tide_count"]),

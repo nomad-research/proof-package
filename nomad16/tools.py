@@ -10,7 +10,7 @@ import inspect
 import json
 import sys
 
-from . import (altdata, calls, config, construct, derive, effects, instruments, intake, lock, paper, pit,
+from . import (altdata, calls, census, config, construct, derive, effects, instruments, intake, lock, paper, pit,
                positions, prices, reach, report, rounds, seed, stories, walk)
 from .db import DB, Refused
 from .rounds import current_segment, state
@@ -121,6 +121,8 @@ TOOLS = {
     "paper_exit": paper.exit_basket, "exit_check": paper.exit_check, "paper_book": paper.paper_book,
     # walk
     "ack_fire": walk.ack_fire, "walk_read": walk.walk_read, "walk_end": walk.walk_end, "walk_scan": walk.walk_scan,
+    # K7 census
+    "census_add": census.census_add, "census": census.census,
     # reports
     "report": report.round_report,
 }

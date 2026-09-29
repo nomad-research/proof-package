@@ -70,14 +70,18 @@
    "unit": null,
    "description": "contract with the node",
    "allowed": [
-    "offtake",
-    "input_supply",
-    "ppa",
-    "tolling",
+    "bilateral_ppa",
     "capacity",
+    "captive",
+    "input_supply",
     "insurance",
     "loan",
-    "none"
+    "none",
+    "offtake",
+    "ppa",
+    "scheduled_service",
+    "spot",
+    "tolling"
    ]
   },
   {
@@ -268,6 +272,32 @@
    "type": "numeric",
    "unit": "fraction",
    "description": "weight of the node's holders in an index or fund",
+   "allowed": []
+  },
+  {
+   "attribute": "operating_status",
+   "type": "enum",
+   "unit": null,
+   "description": "operating state of the asset (K10 vocabulary)",
+   "allowed": [
+    "running",
+    "partial",
+    "shut",
+    "unknown"
+   ]
+  },
+  {
+   "attribute": "shared_access",
+   "type": "bool",
+   "unit": null,
+   "description": "the asset shares access, a route or a facility with other holders (K10)",
+   "allowed": []
+  },
+  {
+   "attribute": "listed",
+   "type": "bool",
+   "unit": null,
+   "description": "the holder has a listed instrument (K10)",
    "allowed": []
   }
  ],
