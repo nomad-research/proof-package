@@ -261,3 +261,15 @@ before construction. The attribute list in `k10_coverage.json` is the fetch list
   rounds 1–4 for rounds 5–7). `lookbacks/k10.py` re-runs unchanged on v16 rounds with the frozen templates.
 - The v15 database is opened `immutable=1` in all K10 code so no `-shm`/`-wal` is created in the tracked
   directory.
+
+## 2026-09-29 — repository cleaned
+
+On the user's instruction, the earlier gate-test line was removed from the tree: `tests_a`, `tests_a2`,
+`tests_b`, `tests_b2`, `tests_b3`, `tests_c`, both blind runs (`blindrun`, `blindrun2`), `methodology/`, the
+`nomad/` infrastructure package, `data/`, `REPORT.md`, `SUMMARY.md`, `nomad_spec_v2.md`, `config_log.jsonl`,
+and the old firewall's fetchers, logs and hosts backups. It all remains in git history (`main` at
+`ca4edf1`, and the `claude/nomad-gate-test-spec-f2o5i1` and `claude/blindrun2-operator-handoff-g0xpfs`
+branches, which were left alone). A tag marking that commit was refused by the remote (HTTP 403), so
+the commit hash is cited in the README instead. Kept: `firewall/guard.py` and its allow/deny lists, which
+`guard16.py` defers to when no round is in play. `nomad16/pit.py` no longer reads its SEC user agent out of
+the deleted `firewall/edgar.py`.

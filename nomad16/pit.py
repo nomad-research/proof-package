@@ -27,15 +27,11 @@ NRC_PS = ("https://www.nrc.gov/documents-reports/document-collections/events-rep
           "power-reactor-status-reports/{y}/{ymd}ps")
 
 
+SEC_UA = "nomad-research bato2912@gmail.com"  # SEC requires a contact user agent; override with NOMAD_SEC_UA
+
+
 def sec_ua() -> str:
-    ua = os.environ.get("NOMAD_SEC_UA")
-    if ua:
-        return ua
-    src = (ROOT / "firewall" / "edgar.py").read_text()
-    m = re.search(r'^UA = "([^"]+)"', src, re.M)
-    if not m:
-        raise Refused("set NOMAD_SEC_UA (SEC requires a contact user agent)")
-    return m.group(1)
+    return os.environ.get("NOMAD_SEC_UA") or SEC_UA
 
 
 def bound(db: DB, round_id: str, as_of: str) -> str:

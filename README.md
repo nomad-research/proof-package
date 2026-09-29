@@ -1,114 +1,64 @@
 # Nomad
 
-Two lines of work live here.
+An AI-operated research system that looks for relationships between economic and financial entities that
+are *inferable* from public facts but not yet in relative prices. It plays real events against reality,
+scores every call, and records which channels actually carried an effect. The open question is whether any
+of it can be held as a position.
 
-- **Nomad v16** (`nomad16/`, from 2026-09-29): the system specified in
-  [`docs/nomad_system_spec_v16_final.md`](docs/nomad_system_spec_v16_final.md), built fresh here
-  (spec §30.3) because the v15 harness it evolves isn't in this repository. **Read
-  [`STATE.md`](STATE.md) first**: what was built, what wasn't, and why every round it plays is
-  `learning` until the appetite values are ratified. Operators read [`docs/OPERATOR.md`](docs/OPERATOR.md).
-  Rounds live in `rounds/<id>/`; the hash-chained ledger is `state/nomad16.db`.
-  `python3 -m nomad16 help` lists the tools; `python3 -m pytest nomad16/tests -q` runs the smoke tests.
-- **The gate tests** (below, spec v2): the earlier forced-flow line, closed by its own stop rules.
+The system is specified in [`docs/nomad_system_spec_v16_final.md`](docs/nomad_system_spec_v16_final.md) and
+built here as `nomad16/`. [`docs/nomad_the_system_as_it_stands.md`](docs/nomad_the_system_as_it_stands.md)
+holds the theory, the ideas in plain terms, the intake rules and the data-product spec in one file.
 
----
+**Read [`STATE.md`](STATE.md) first.** It records, dated, every gap between the spec and the build, the
+round played so far, and every kill-test result. The spec is never rewritten to match the code.
 
-# Nomad — Gate Tests
+## Status, 2026-09-29
 
-Tests, ordered by cost-per-bit, of a single claim: that **enumerating which
-entities are forced to transact, and where that forced capital must land, predicts
-returns better than chance — and that this survives even though the underlying
-mechanism is well documented.**
-
-Each test can kill the ones below it. **A negative result is a success.** The
-purpose is to kill the thesis cheaply if it is wrong, not to confirm it.
-
-A-2 and B-2 were added by Gate Spec Amendment 1, which corrected Test A's
-ceiling logic — a null in a maximally liquid universe bounds nothing about the
-illiquid one, because the premium from forced flow comes from scarcity of the
-other side rather than from difficulty of enumeration.
-
-| Test | Question | Result |
-|---|---|---|
-| **A** — LETF rebalancing | Does perfectly enumerated forced flow still pay in mega-cap indices? | **FAIL** — [`tests_a/`](tests_a/results.md) |
-| **A-2** — LETF in thin underlyings | Does it pay where counterparty scarcity is high? | **FAIL — Test A closed permanently** — [`tests_a2/`](tests_a2/results.md) |
-| **B** — Stale information | Does "public but unconnected" survive post-2012? | **NOT REPLICATED** — [`tests_b/`](tests_b/results.md) |
-| **B-2** — Extended across the split | Same, on a sample that spans 2012 | **UNREADABLE** (validity failed) — [`tests_b2/`](tests_b2/results.md) |
-| **B-3** — Rates re-run | Same blocks, measured against rates instead of SPY | **STOP TRIGGER FIRES** — [`tests_b3/`](tests_b3/results.md) |
-| **C** — Gate 1 | Do enumerated destinations predict returns? | **not started, gated** — [`tests_c/`](tests_c/README.md) |
-| **Blind run** — SA LP | Can the framework be operated on one real event? | **NOT OPERABLE** for that event — [`blindrun/`](blindrun/verdict.md) |
-| **Blind run 2** — self-screened | Can a qualifying event be found at all, from a fixed date? | **NOT OPERABLE — 175 candidates, 0 qualifiers** — [`blindrun2/`](blindrun2/verdict.md) |
-
-**Start here: [`REPORT.md`](REPORT.md)** — the full record of every attempt in a
-single file, including a complete account of everything that went wrong.
-
-Also: [`SUMMARY.md`](SUMMARY.md) for the cross-test verdict,
-[`tests_b3/results.md`](tests_b3/results.md) for the only readable negative the
-project produced, and [`blindrun/verdict.md`](blindrun/verdict.md) for the one
-test of the framework itself.
+- **Built:** the v16 harness (a fresh build, spec §30.3, because the v15 code it evolves wasn't available at
+  the time), with a firewall hook, point-in-time fetchers and alternative data (satellite scenes, ship
+  counts, event feeds). 53 tests.
+- **Played:** round R16-001 (Fermi 2 reactor scram), by a cold operator session. Two segments locked and
+  replayed; no basket could be built, because every priced effect sat below its noise band.
+- **Kill tests on the v15 record:** K10 and K11 die, K8 and K12 are unreadable there. See `lookbacks/`.
+- **Every round is `learning`** until Rob ratifies the provisional appetite values in
+  `config/appetite.json`.
 
 ## Layout
 
 ```
-nomad/infra/            shared infrastructure, built once, used by every test
-  config_logger.py        append-only evaluation log — the multiple-testing denominator
-  deflated_sharpe.py      Bailey & López de Prado DSR + CSCV probability of overfitting
-  pit_corpus.py           point-in-time document store (valid_from / known_from / retrieved_at)
-  cost_model.py           half-spread + square-root impact; Corwin-Schultz spread estimation
-  inference_family.py     link tagging and effective-breadth measurement
-nomad/tests_common/     unit tests for the above
-tests_a/                Test A: LETF rebalancing, mega-cap index underlyings
-tests_a2/               Test A-2: same mechanic, thin underlyings (Amendment 1)
-tests_b/                Test B: stale information
-tests_b2/               Test B-2: extended across the 2012 split (Amendment 1)
-tests_b3/               Test B-3: rates re-run (spec v2) — the first readable null
-tests_c/                Test C: gated — not started
-methodology/            decisions taken cold, before the next real-events run
-blindrun/               blind prediction test on one real event (NOT OPERABLE)
-blindrun2/              operator self-screened run: 175 candidates, 0 qualifiers (NOT OPERABLE)
-nomad_spec_v2.md        the authoritative spec — Q1-Q8, edge format, blind-run protocol
-firewall/               contamination firewall used for the blind run
-config_log.jsonl        every evaluation ever run, including abandoned ones
+docs/                   the v16 spec, the theory and system document, OPERATOR.md (how to play a round)
+nomad16/                the harness (ledger, derive, reach, stories, construct, paper, walk, lock, fetchers)
+nomad16/tests/          smoke tests, including the pre-lock guard
+config/                 appetite.json (every value with its status) and seed.json (library, templates, bounds)
+firewall/               guard16.py, the PreToolUse hook; guard.py and the allow/deny lists it defers to when idle
+rounds/<id>/            one directory per round: reveal, blind pass, operator notes, fetched documents, report
+state/nomad16.db        the hash-chained ledger; state/phase.json switches the hook between closed and open
+lookbacks/              pre-registered look-backs on the v15 record (K8, K10, K11, K12) and their results
+v15/                    the v15 harness and its record, frozen untouched, with a sha256 manifest
+STATE.md                what is built, what isn't, and what every result does and doesn't show
 ```
 
-## Non-negotiable methodology
-
-These are not stylistic. Each guards a failure mode identified in advance.
-
-1. **Pre-registration.** `preregistration.md` is committed before any analysis code
-   is written. Changes are dated amendments appended at the bottom, never edits.
-2. **Configuration logging.** Every parameter combination, universe filter, window
-   and threshold *ever evaluated* — not only those reported — is appended to
-   `config_log.jsonl`. That count is the denominator for multiple-testing
-   correction. Without it the results are uninterpretable.
-3. **Significance hurdle.** `t > 2.78` (Harvey, Liu & Zhu), plus the Deflated
-   Sharpe Ratio computed against the trial count in `config_log.jsonl`.
-4. **Point-in-time discipline.** No data that was not available at the decision
-   timestamp. Where a survivorship-free source is unavailable, that is stated in
-   the output and the result is labelled upward-biased.
-5. **Costs.** Every return figure is reported gross *and* net. A gross-only number
-   is not a result.
-
-## Reproducing
+## Running
 
 ```bash
-pip install pandas numpy scipy statsmodels requests pytest
-python -m pytest nomad/tests_common -q          # infrastructure tests
-python -m tests_a.pipeline                      # fetch and cache Test A data
-python -m tests_a.analysis                      # run Test A, write results + decay curve
-python -m tests_b.pipeline                      # fetch and cache Test B data
-python -m tests_b.analysis                      # run Test B, write results
-python -m tests_a2.pipeline                     # Direxion N-PORT + build the A-2 panel
-python -m tests_a2.analysis                     # run Test A-2, write the decile curve
-python -m tests_b2.analysis                     # run Test B-2 (fetches PCE/CPI vintages)
+pip install -r requirements.txt
+python3 -m pytest nomad16/tests -q       # smoke tests
+python3 -m nomad16 help                  # the tool surface (one JSON call per command)
 ```
 
-Data is fetched from public sources and cached under `data/cache/`. Sources and
-their limitations are documented in each test's `preregistration.md` §7.
+Operators read [`docs/OPERATOR.md`](docs/OPERATOR.md). The pre-lock hook (`.claude/settings.json` →
+`firewall/guard16.py`) denies web access and quarantined reads while a round is closed.
 
-## Explicit non-goals
+## Standing rules
 
-Not built here, deliberately: live trading or broker integration; options
-strategies; position sizing, portfolio construction or risk systems; a
-general-purpose event detection pipeline; any signal that cannot be traced to a
-retrieved document with a located clause; multi-agent judgment ensembles.
+- **Pre-registration.** A look-back or test is written down and committed before any number is computed.
+- **A negative result is a success.** The purpose is to kill the thesis cheaply if it is wrong.
+- **No verdict-governing number has a default.** The config loader refuses a missing value.
+- **Point-in-time.** Nothing may be used at time T that couldn't have been known at T.
+- **Never rewrite the spec to describe what got built.** Gaps go in `STATE.md`, dated.
+
+## History
+
+The earlier gate tests (LETF rebalancing, stale information and its rates re-run, and two blind runs) all
+returned nulls or "not operable", and were retired on 2026-09-29 in favour of the v16 line. Their code,
+pre-registrations, data and the consolidated record are in git history: `main` at commit `ca4edf1`.
