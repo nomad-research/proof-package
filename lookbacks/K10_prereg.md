@@ -156,3 +156,30 @@ a dated addendum, both runs stay in the record, and the first run is reported be
 §30.2 step 14 stops construction only if **K8 and K10 both die**. K8 came back `unreadable`
 (`K8_result.md`), not dead. Whatever K10 returns, this file records that the joint condition is
 evaluated by the operator of the programme, not here.
+
+## Addendum 1 — 2026-09-29, before any template was opened or any number computed
+
+Written while the author and enumerators were still working, so it decides nothing about what they return.
+It fixes how `lookbacks/k10.py` reads the pre-registration where the text left a choice.
+
+- **Units.** v15 position rows carry free-text units (`share` is stored as a capacity such as `620`
+  with unit `kt/yr po capacity`, not as a fraction). A numeric condition is tested on a row only if the
+  row's unit is empty or compatible (either string contains the other, case-insensitive) with the unit the
+  author's registry gives the attribute. An incompatible row makes the condition `unknown`, and is counted in
+  `engine_stats.unit_mismatch`. No unit conversion is attempted.
+- **The relaxations alone.** The five variants are: `guarded` (the primary); `S1_no_knowable_from` (drop
+  the `knowable_from` requirement only); `S2_inferred_accepted` (accept `inferred` and `implicit` rows only,
+  which still need a `knowable_from`); `S3_touched_set_rows` (add `touched_set` rows only); and
+  `upper_bound` (all three together, which is the bound the verdict rule uses).
+- **S3 rows.** For each `touched_set` row of the round: `substitutability` becomes a position row on that
+  holder and node, and `duration_factor` (free text) becomes a row for attribute `duration_factor`. A
+  numeric `duration` condition is not helped by S3.
+- **Issuer with no holder.** A notice whose issuer is not in the names book binds only to an issuer role
+  marked `binds_without_position` whose holder kinds include the notice's issuer class. Its conditions can
+  then only be bounds; a condition on a position attribute of that role is `unknown`.
+- **Bound conditions** compare the bound's value with the condition's value by the condition's op, so a
+  bound-only template is `forced` or `none` and never `switch`.
+- **Window.** The derived window is the template's `window_rule.days` when it is an integer, else
+  `DUE_AT_MAX_DAYS` (90), counted from the event date. A notice that arrives after it does not match.
+- **Engine check.** `python lookbacks/k10.py --selftest` runs the engine on a synthetic in-memory ledger
+  (guards, tiers, units, windows, unbound issuers, coverage lookup). It contains no v15 data.
