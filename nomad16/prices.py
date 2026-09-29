@@ -119,6 +119,8 @@ def frame(view, symbol: str, before: str | None = None, after: str | None = None
     if not hasattr(view, "read_vintages"):
         view.read_vintages = set()
     view.read_vintages |= used
+    if not merged:  # a vintage can be empty (the source had no rows): no series, not a crash
+        return pd.DataFrame(columns=["close", "adjclose", "volume"])
     df = pd.DataFrame(sorted(merged.values(), key=lambda r: r["date"])).set_index("date")
     if before is not None:
         df = df[df.index < day(before)]

@@ -225,3 +225,13 @@ prevent concluding. Making K8 readable needs a blind back-fill of `knowable_from
   on the exact commit the operator will clone.
 - **A domain caveat worth carrying:** DTE's Q2 release records a regulator's disallowance of previously
   recorded power-supply costs. The pass-through premise (positions P00010, P00019) isn't unconditional.
+
+### K11 and K12 (`lookbacks/K11_K12_result.md`)
+
+Pre-registered and pushed (6110244) before any price was fetched. **K11 dies:** units whose tide-hedged
+residual later left its band did not carry higher ρ at lock (pooled MWU p = 0.65, 8 left vs 79 stayed,
+medians 0.92 vs 0.95). Per §31, the priced test (`RHO_MIN`) is dropped from construction in favour of the
+visibility test. That is a construction change for Rob to ratify, and it hasn't been applied. Caveats:
+only 9% of units left a 90% band (about the noise rate), and H held at most one story per round. **K12 is
+unreadable on v15:** one narrative story per round, no paths. It accumulates from v16 rounds.
+`prices.frame` no longer crashes on an empty vintage.
