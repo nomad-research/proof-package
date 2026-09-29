@@ -49,6 +49,25 @@ holder sits on the node with stake above noise (`lib.no_pure_play_spectacle`).
 4. **The written-event-report ACK was dropped** only because its carrier (LERs in ADAMS) is
    `not_covered`. Store: the carrier registry.
 
+## Walk: an over-read past a delivery (my error)
+
+The restart carrier delivered on 2026-07-12: `walk_scan` hit, with Fermi 2 at 8% and "Increasing
+Power" (EV00034). I did not fire the ACK at the hit. I called `walk_scan` again three times and
+`pit_fetch` EDGAR three times, which read:
+
+- NRC status 2026-07-13 (41%), 2026-07-14 (82%, Hot Weather Alert), 2026-07-15 (99%, "Core Flow
+  Limited; Conservative Operations; Hot Weather Alert; Capacity Advisory") — EV00036, EV00038, EV00040;
+- EDGAR parent filing lists as of 2026-07-12, -13, -14 (no new filings) — EV00035, EV00037, EV00039.
+
+The harness allowed it: `walk_scan` stops at a hit but does not refuse the next call, and the frontier
+moved to 2026-07-15. The procedure does not allow it (§14: nothing dated after the first delivered
+fact is readable until that segment locks). Repair: I fired the ACK at the true delivery date
+(knowable_from 2026-07-12, EV00034), not a later one, so segment 1's clock is 2026-07-12. Segment 1
+authors no call and no position from anything dated after 2026-07-12: no power-ascension call, no
+MISO capacity-advisory story, and nothing on EDGAR after 07-12. Segment 1's calls should be read as
+exposed to this leak. Suggested harness fix: `walk_scan` and `pit_fetch` refuse to read past a
+`walk_scan` hit until an `ack_fire` or an explicit `walk_read` on that date is recorded.
+
 ## Harness friction
 
 - The guard treats any URL inside a Bash command as egress, so the commit trailer
