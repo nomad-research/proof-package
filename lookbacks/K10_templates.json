@@ -1,0 +1,716 @@
+{
+  "authored_by": "cold subagent session",
+  "declared_knowledge_cutoff": "2026-06",
+  "files_read": [
+    "/tmp/claude-0/-home-user-Nomad-Research/803e979b-dae6-528c-876d-693f29802132/scratchpad/k10_author/package.md"
+  ],
+  "attributes": [
+    {
+      "name": "sign_of_exposure",
+      "type": "enum",
+      "unit": "",
+      "allowed": ["-", "0", "+"],
+      "recorded_in_rounds_1_7": true,
+      "documented_by": "a stated row whose source (closure notice, force majeure letter, results attribution, carrier advisory) shows the holder lost, gained or was unaffected by the event on that node",
+      "justification": "v15 attribute; recorded on every holder in rounds 2-7. Used here as the test that a holder is the hit party on the node."
+    },
+    {
+      "name": "share",
+      "type": "numeric",
+      "unit": "percent of the holder's consolidated earnings (or, where earnings are not stated, operating capacity) exposed at the node",
+      "allowed": [],
+      "recorded_in_rounds_1_7": true,
+      "documented_by": "a stated row giving the exposed fraction of the holder's group, from a filing, results deck or call",
+      "justification": "v15 attribute. Recorded in rounds 2, 3, 4, 5 but with inconsistent semantics: a plant capacity (620 kt/yr) in round 2, the text 'small' in rounds 3, 4, 5, and a percent of capacity (14) in round 4. Only the percent form can be compared; 'small' is read as below any threshold used here."
+    },
+    {
+      "name": "substitutability",
+      "type": "enum",
+      "unit": "optional: weeks of requalification or sourcing lead time",
+      "allowed": ["low", "medium", "high"],
+      "recorded_in_rounds_1_7": true,
+      "documented_by": "a stated row saying the holder has, or lacks, an alternative source for the input it loses on this node (single-supplier link, requalification lead time)",
+      "justification": "v15 attribute. Recorded in rounds 2 (foam producers: low, 8-12 week requalification), 5 (feedstock buyer: low, single-supplier link) and 7 (a producer: high, import-substitutable). Rounds 2 and 5 use it for the holder's replacement of an input; round 7 uses it for the holder's own product. Here it is defined as the ease with which the holder can replace the input it loses (the round 2 and 5 sense)."
+    },
+    {
+      "name": "duration",
+      "type": "numeric",
+      "unit": "days out of operation",
+      "allowed": [],
+      "recorded_in_rounds_1_7": true,
+      "documented_by": "a stated row giving the outage or closure length in days, from a guidance statement, notice or results call",
+      "justification": "v15 attribute. Recorded in rounds 4 (5.5 months), 6 ('3 days terminal; 10+ days north berth') and 7 ('unknown'). Values were stored as prose, not numbers; only a numeric day count can be tested."
+    },
+    {
+      "name": "tier",
+      "type": "numeric",
+      "unit": "chain distance from the event asset (0 = the asset, 1 = direct supplier or customer, 2 = next)",
+      "allowed": [],
+      "recorded_in_rounds_1_7": false,
+      "documented_by": "a stated row placing the holder at a chain position relative to the event asset",
+      "justification": "v15 attribute never recorded in rounds 1-7; the meaning here is my reading of the name. Listed for completeness; no template tests it."
+    },
+    {
+      "name": "priority",
+      "type": "numeric",
+      "unit": "rank in the supplier's allocation or restart queue (1 = served first)",
+      "allowed": [],
+      "recorded_in_rounds_1_7": false,
+      "documented_by": "a stated row giving the customer's rank or contractual priority tier under an allocation scheme",
+      "justification": "v15 attribute never recorded in rounds 1-7; the meaning here is my reading of the name. Listed for completeness; no template tests it."
+    },
+    {
+      "name": "inventory_days",
+      "type": "numeric",
+      "unit": "days of cover held by the holder",
+      "allowed": [],
+      "recorded_in_rounds_1_7": false,
+      "documented_by": "a stated row giving days of input or product cover, from a company statement or trade press",
+      "justification": "Named in the spec. Rounds 2 and 5 show downstream force majeure and allocation arriving within days of an upstream stop (day 5 in round 5), which implies short cover, but no round recorded a cover figure."
+    },
+    {
+      "name": "contract_type",
+      "type": "enum",
+      "unit": "",
+      "allowed": ["offtake", "bilateral_ppa", "tolling", "scheduled_service", "spot", "captive", "none"],
+      "recorded_in_rounds_1_7": false,
+      "documented_by": "a stated row saying how the holder's volume is committed: offtake = term supply contracts to more than one third-party customer; bilateral_ppa = one counterparty; tolling; scheduled_service = fixed-schedule carriage; spot; captive = own use; none",
+      "justification": "Named in the spec. The distinction between term supply to several customers (rounds 2 and 5, force majeure public) and a single-counterparty contract (round 4, no public notice) drives the force majeure and allocation templates. Round 4 held the single-counterparty contract only inside a position's source text."
+    },
+    {
+      "name": "hedge_ratio",
+      "type": "numeric",
+      "unit": "percent of the exposure hedged",
+      "allowed": [],
+      "recorded_in_rounds_1_7": false,
+      "documented_by": "a stated row giving the hedged fraction, from a filing or call",
+      "justification": "Named in the spec. Round 2's self-hedge of an owner holding sister plants points at it, but it was never recorded. Listed for completeness; no template tests it."
+    },
+    {
+      "name": "input_share",
+      "type": "numeric",
+      "unit": "percent of the holder's requirement for the constrained input that is sourced from the constrained node",
+      "allowed": [],
+      "recorded_in_rounds_1_7": false,
+      "documented_by": "a stated row or a trade-press statement of the supply link (for example 'core feedstock supplier', 'sole source'); a self-supplied holder has 0",
+      "justification": "Named in the spec. Round 5's benzene link to a phenol chain (stated in trade press since 2024) and round 2's derivative producers buying the constrained chemical are the cases; round 5 recorded the link as text under substitutability."
+    },
+    {
+      "name": "capacity",
+      "type": "numeric",
+      "unit": "MW for generating units; kt per year for chemical or polymer lines (compare only within one node type)",
+      "allowed": [],
+      "recorded_in_rounds_1_7": false,
+      "documented_by": "a stated row giving nameplate capacity of the asset",
+      "justification": "Named in the spec. Round 2's 620 kt/yr and round 4's 600 MW unit were recorded, but the first under share and the second inside a source string, not as capacity."
+    },
+    {
+      "name": "substitute_lead_days",
+      "type": "numeric",
+      "unit": "days to obtain or requalify a substitute",
+      "allowed": [],
+      "recorded_in_rounds_1_7": false,
+      "documented_by": "a stated row giving the lead time to replace the lost supply (requalification, contract nomination, seaborne import)",
+      "justification": "Named in the spec. Round 2's 8-12 week polyol requalification was recorded as a note on substitutability, not as a lead time. Listed for completeness; no template tests it directly (substitutability = low is used instead because that is what the store holds)."
+    },
+    {
+      "name": "operating_status",
+      "type": "enum",
+      "unit": "",
+      "allowed": ["running", "partial", "shut", "unknown"],
+      "recorded_in_rounds_1_7": false,
+      "documented_by": "a stated row from the holder, an authority notice or a trade-press report saying the asset is shut, running below commitments, or running normally",
+      "justification": "Every round stated shutdown status (round 4 unit shut from 14 Apr, round 5 site shut with benzene deliveries suspended, round 6 dock closed, round 7 line shut pending investigation) but only inside the source text of sign_of_exposure rows. The templates need it as a first-class fact."
+    },
+    {
+      "name": "listed",
+      "type": "bool",
+      "unit": "",
+      "allowed": [true, false],
+      "recorded_in_rounds_1_7": false,
+      "documented_by": "a stated row naming a stock exchange listing of the holder (or of its parent for a plant)",
+      "justification": "The names book carried a 'listed' column on each holder in rounds 2-7 but not as a position attribute, so it is registered here so that a template can test it."
+    },
+    {
+      "name": "shared_access",
+      "type": "bool",
+      "unit": "",
+      "allowed": [true, false],
+      "recorded_in_rounds_1_7": false,
+      "documented_by": "a stated row saying the asset is open to more than one third-party user (a dock, lock, berth, common-user terminal, common-carrier segment)",
+      "justification": "Rounds 3 and 6: a closed dock and lock issued notices to all users through open port and terminal notice feeds. Not recorded as an attribute; the closures appear only in prose."
+    },
+    {
+      "name": "fm_status",
+      "type": "enum",
+      "unit": "",
+      "allowed": ["none", "declared", "lifted"],
+      "recorded_in_rounds_1_7": false,
+      "documented_by": "a stated row citing the holder's own force majeure notice or a dated trade report of it (declared) or of its withdrawal (lifted)",
+      "justification": "Rounds 2 and 5 saw declarations; round 5 opened a fetch target for the lifting. The state was recorded only inside source strings."
+    },
+    {
+      "name": "fatalities",
+      "type": "numeric",
+      "unit": "persons killed",
+      "allowed": [],
+      "recorded_in_rounds_1_7": false,
+      "documented_by": "a stated row giving the death toll from an official or company statement",
+      "justification": "Round 4 (24 deaths) was the only round with a stated toll; it was recorded in prose, not as a position."
+    },
+    {
+      "name": "casualties",
+      "type": "numeric",
+      "unit": "persons killed or admitted to hospital",
+      "allowed": [],
+      "recorded_in_rounds_1_7": false,
+      "documented_by": "a stated row giving deaths plus persons admitted to hospital, from an official or company statement",
+      "justification": "Rounds 4 (24 deaths) and 6 (186 assessed, 28 hospitalised) had casualties; never recorded as a position."
+    },
+    {
+      "name": "regulatory_hold",
+      "type": "bool",
+      "unit": "",
+      "allowed": [true, false],
+      "recorded_in_rounds_1_7": false,
+      "documented_by": "a stated row citing a regulator's prohibition, stop-work or restart-conditional order in force on the asset",
+      "justification": "Round 7: a prohibition notice was in force on the shut line; recorded in the duration row's source text only."
+    },
+    {
+      "name": "emissions_release",
+      "type": "bool",
+      "unit": "",
+      "allowed": [true, false],
+      "recorded_in_rounds_1_7": false,
+      "documented_by": "a stated row from a press, agency or company source saying the event released, flared or burned material to air (fire with smoke, flaring, vapour cloud)",
+      "justification": "Rounds 2, 5, 6 all involved airborne release (fire, smoke warning, toxic vapour cloud); never recorded as a position."
+    },
+    {
+      "name": "emissions_event_regime",
+      "type": "bool",
+      "unit": "",
+      "allowed": [true, false],
+      "recorded_in_rounds_1_7": false,
+      "documented_by": "a stated row saying the site's permit regime requires a report of a reportable emissions event, with initial notice within about 24 hours and a final report within two weeks of the event's end",
+      "justification": "Round 2 carriers table lists a dated, unit-level, public emissions-event report feed; the regime is site-specific, so it has to be a holder fact, not a bound."
+    },
+    {
+      "name": "generation_outage_reporting_regime",
+      "type": "bool",
+      "unit": "",
+      "allowed": [true, false],
+      "recorded_in_rounds_1_7": false,
+      "documented_by": "a stated row saying the generating unit falls under a rule that requires publication of unplanned unavailability to the market or the grid operator",
+      "justification": "Round 4 (a 600 MW unit trip) and the carriers table entries for grid operator notices and the energy regulator; regime membership is a property of the unit's market, so it is a holder fact."
+    },
+    {
+      "name": "war_risk_listed_area",
+      "type": "bool",
+      "unit": "",
+      "allowed": [true, false],
+      "recorded_in_rounds_1_7": false,
+      "documented_by": "a stated row citing the marine war-risk underwriters' listed-area circular that covers the route",
+      "justification": "Round 1: war-risk premia of 3-10 percent of hull and the observation that insurers closed the strait before any attack did."
+    }
+  ],
+  "bounds": [
+    {
+      "bound_id": "emissions_event_initial_notice_days",
+      "subject": "reportable air-emissions event, state-level permitting rule",
+      "quantity": "statutory_max_days",
+      "value": 1,
+      "source_document": "state air-permitting rule on reportable emissions events: initial notification as soon as practicable and no later than 24 hours after discovery",
+      "basis": "general statutory rule for jurisdictions that have such a regime; only applies where the emissions_event_regime attribute is true"
+    },
+    {
+      "bound_id": "emissions_event_final_report_days",
+      "subject": "reportable air-emissions event, state-level permitting rule",
+      "quantity": "statutory_max_days",
+      "value": 14,
+      "source_document": "state air-permitting rule on reportable emissions events: final record due within two weeks after the end of the event",
+      "basis": "counted from the end of the event; equals 14 days from the event date for a one-day event"
+    },
+    {
+      "bound_id": "workplace_serious_injury_report_days",
+      "subject": "employer report of a work-related fatality or hospitalisation to the safety authority",
+      "quantity": "statutory_max_days",
+      "value": 1,
+      "source_document": "national workplace-safety recordkeeping regulation (fatality within 8 hours; in-patient hospitalisation, amputation or loss of an eye within 24 hours); most other regimes require immediate or 'forthwith' notice",
+      "basis": "upper bound for the initial notification only; written follow-up periods differ and are not asserted"
+    },
+    {
+      "bound_id": "periodic_results_max_lag_days",
+      "subject": "listed issuer quarterly results",
+      "quantity": "statutory_max_days",
+      "value": 45,
+      "source_document": "securities-regulator rules on periodic reports (quarterly results within 40 to 45 days of period end, for regimes that require quarterly reporting)",
+      "basis": "regimes with only half-year reporting allow longer; the template that uses this bound states that case is not covered"
+    },
+    {
+      "bound_id": "materiality_rule_of_thumb_pct",
+      "subject": "materiality of an event to a listed issuer's earnings",
+      "quantity": "materiality_threshold_pct",
+      "value": 5,
+      "source_document": "securities-regulator staff guidance on materiality: 5 percent of pre-tax income as a starting rule of thumb, with qualitative factors that can make smaller items material",
+      "basis": "a starting point, not a safe harbour; used to set the share threshold in the disclosure templates"
+    },
+    {
+      "bound_id": "liner_service_rotation_days",
+      "subject": "deep-sea container liner service",
+      "quantity": "service_rotation_days",
+      "value": 7,
+      "source_document": "container-shipping industry norm: main-line services rotate weekly, so each service calls at a given port once a week",
+      "basis": "feeder services can differ; the norm is what makes a closure of a day or more likely to force an omitted or delayed call"
+    },
+    {
+      "bound_id": "war_risk_cancellation_notice_days",
+      "subject": "marine war and strikes insurance cover",
+      "quantity": "notice_norm_days",
+      "value": 7,
+      "source_document": "standard marine war and strikes insurance clauses for hulls and cargo: either party may cancel on 7 days' notice",
+      "basis": "market-standard clause; some special areas use shorter notice"
+    },
+    {
+      "bound_id": "generation_unavailability_disclosure_threshold_mw",
+      "subject": "unplanned unavailability of a generation unit",
+      "quantity": "threshold_mw",
+      "value": 100,
+      "source_document": "regional wholesale-energy-market integrity rules and regulator guidance: unavailability of a generation unit of 100 MW or more is inside information to be published as soon as possible",
+      "basis": "applies only where the generation_outage_reporting_regime attribute is true; other grid regimes have their own thresholds"
+    }
+  ],
+  "templates": [
+    {
+      "template_id": "obl.fm_producer_outage_offtake",
+      "notice_kind": "force_majeure_declaration",
+      "node_types": "production node (chemical, polymer, fuel or other commodity plant) with an unplanned outage from fire, explosion or unplanned shutdown, whose product is sold under term supply contracts to more than one customer",
+      "issuer_role": "producer",
+      "roles": {
+        "producer": {"holder_kinds": ["company", "plant", "facility"], "binds_without_position": false}
+      },
+      "conditions": [
+        {"id": "c1", "role": "producer", "attribute": "sign_of_exposure", "op": "eq", "value": "-"},
+        {"id": "c2", "role": "producer", "attribute": "operating_status", "op": "in", "value": ["shut", "partial"]},
+        {"id": "c3", "role": "producer", "attribute": "contract_type", "op": "eq", "value": "offtake"}
+      ],
+      "carrier_kinds": ["company_ir", "notice_feed", "newspaper", "price_assessment", "filing"],
+      "window_rule": {"basis": "none", "days": null, "text": "No statutory window. Contract clauses ask for prompt notice; in the observed cases the first notice arrived on day 1 and day 5."},
+      "forbids": "no force_majeure_declaration without this conjunction",
+      "authored_from": [
+        "round 2: fire at the Pasadena, Texas propylene oxide plant (Bayport Choate); propylene glycol force majeure effective 13 Mar (day 1), propylene oxide force majeure 17 Mar (day 5); CFO confirmed the constraint 17 Mar; the plant's sign row (-) and capacity row were stated from the letters",
+        "round 5: fire in the diesel desulphurisation unit at the Gelsenkirchen Scholven site; BP suspended all benzene deliveries although the fuels unit was the one that burned (call 4 was a misread of exactly this)",
+        "round 4: contrast: one 200 MW single-counterparty contract, unit shut 14 Apr, no public force majeure notice found (call 5 unverified)",
+        "round 7: contrast: single polymer line, no force majeure found in a thin-coverage market (call 4)"
+      ],
+      "motivation": "A force majeure letter is the contractual response when a supplier that has committed volumes to several customers cannot deliver them. The conjunction is: the producer is the hit party, its asset is shut or running below commitments, and its volume is committed under term supply contracts rather than sold spot or held captive. Worked example: round 2, the plant was shut, sold under term contracts, and letters followed within 1 to 5 days. The template deliberately excludes single-counterparty contracts (round 4), where the notice goes to one party and is not published. Round 7 is an open risk: the absence of a found notice may be thin coverage, not the absence of a notice."
+    },
+    {
+      "template_id": "obl.fm_downstream_single_source_feedstock",
+      "notice_kind": "force_majeure_declaration",
+      "node_types": "downstream conversion plant (chemical, polymer, fuel-derived product) whose main feedstock comes from an upstream plant that has stopped",
+      "issuer_role": "downstream_producer",
+      "roles": {
+        "upstream_plant": {"holder_kinds": ["plant", "facility", "company"], "binds_without_position": false},
+        "downstream_producer": {"holder_kinds": ["company", "plant", "facility"], "binds_without_position": false}
+      },
+      "conditions": [
+        {"id": "c1", "role": "upstream_plant", "attribute": "operating_status", "op": "in", "value": ["shut", "partial"]},
+        {"id": "c2", "role": "upstream_plant", "attribute": "sign_of_exposure", "op": "eq", "value": "-"},
+        {"id": "c3", "role": "downstream_producer", "attribute": "input_share", "op": "ge", "value": 50},
+        {"id": "c4", "role": "downstream_producer", "attribute": "substitutability", "op": "eq", "value": "low"},
+        {"id": "c5", "role": "downstream_producer", "attribute": "contract_type", "op": "in", "value": ["offtake", "tolling"]},
+        {"id": "c6", "role": "downstream_producer", "attribute": "inventory_days", "op": "lt", "value": 14}
+      ],
+      "carrier_kinds": ["company_ir", "notice_feed", "newspaper", "price_assessment"],
+      "window_rule": {"basis": "none", "days": null, "text": "No statutory window. The observed downstream notice arrived about 5 days after the upstream stop and stayed in force at least 12 days."},
+      "forbids": "no force_majeure_declaration without this conjunction",
+      "authored_from": [
+        "round 5: BP suspended all benzene deliveries after the 15 Jul fire; INEOS Phenol declared force majeure on phenol and acetone (position knowable 20 Jul, reported 29 Jul), with pro-rata allocation, still in force 27 Jul; the benzene to cumene (Marl) to phenol (Gladbeck) single-supplier link had been public since Feb 2024 (knowable_from 2024-02-14)",
+        "round 2: derivative buyers of the constrained chemical (foam producers) held substitutability low with 8-12 week requalification and received allocation letters"
+      ],
+      "motivation": "A downstream plant that draws at least half of its feed from a node that has stopped, has no substitute, and holds under two weeks of cover cannot honour its own term contracts, so it must declare force majeure to its customers. Worked example: round 5, where the upstream stop on 15 Jul was followed by a downstream declaration on 20 Jul. Inventory is the condition most likely to be unknown (never recorded in rounds 1-7), so most bindings will be switches with inventory_days on the fetch list."
+    },
+    {
+      "template_id": "obl.restart_shared_infrastructure_reopening",
+      "notice_kind": "restart_statement",
+      "node_types": "shared-use infrastructure node (dock, lock, berth, common-user terminal, common-carrier segment) closed by an incident",
+      "issuer_role": "operator",
+      "roles": {
+        "operator": {"holder_kinds": ["facility", "authority", "plant"], "binds_without_position": false}
+      },
+      "conditions": [
+        {"id": "c1", "role": "operator", "attribute": "operating_status", "op": "in", "value": ["shut", "partial"]},
+        {"id": "c2", "role": "operator", "attribute": "shared_access", "op": "eq", "value": true},
+        {"id": "c3", "role": "operator", "attribute": "sign_of_exposure", "op": "eq", "value": "-"}
+      ],
+      "carrier_kinds": ["notice_feed", "newspaper", "company_ir"],
+      "window_rule": {"basis": "none", "days": null, "text": "No statute. Reopening notices come as each part reopens; observed from the same day to about a week after the event, with one berth still without a date after 10 days."},
+      "forbids": "no restart_statement without this conjunction",
+      "authored_from": [
+        "round 3: 9 Apr bunker spill at the Antwerp dock; river reopened 13:30 on 10 Apr; dock shut about 4 days with berths from 13 Apr, per port notices (position rows knowable 10 Apr and 13 Apr)",
+        "round 6: 14 Jul hydrofluoric acid leak at the same dock; the other terminal resumed 15 Jul afternoon, one quay 15 Jul 22:00, terminal declared safe 17 Jul 14:00, rail 20 Jul; one north-berth quay still out 24 Jul with no reopening date found (coverage partly paywalled)"
+      ],
+      "motivation": "Users of shared-use infrastructure (vessels, shippers) cannot plan without knowing when each part reopens, and the operator's notice feed is the channel by which it tells them; a closed common-user asset therefore forces reopening statements from its operator. Worked example: round 6, four dated reopening statements in six days. The conjunction does not cover a dedicated private asset, which is why shared_access is tested. The north-berth case in round 6 shows a statement can be late for one part while others reopen."
+    },
+    {
+      "template_id": "obl.restart_listed_owner_material_outage_guidance",
+      "notice_kind": "restart_statement",
+      "node_types": "plant or unit outage where the owner is a listed group and the unit is a material part of the group",
+      "issuer_role": "owner",
+      "roles": {
+        "owner": {"holder_kinds": ["company"], "binds_without_position": false},
+        "asset": {"holder_kinds": ["plant", "facility"], "binds_without_position": false}
+      },
+      "conditions": [
+        {"id": "c1", "role": "asset", "attribute": "operating_status", "op": "in", "value": ["shut", "partial"]},
+        {"id": "c2", "role": "owner", "attribute": "listed", "op": "eq", "value": true},
+        {"id": "c3", "role": "owner", "attribute": "sign_of_exposure", "op": "eq", "value": "-"},
+        {"id": "c4", "role": "owner", "attribute": "share", "op": "ge", "value": 5},
+        {"id": "c5", "bound": "periodic_results_max_lag_days", "op": "le", "value": 45}
+      ],
+      "carrier_kinds": ["filing", "company_ir", "newspaper"],
+      "window_rule": {"basis": "procedural_chain", "days": 136, "text": "Latest date is the next quarterly results release: up to one quarter (about 91 days) after the event plus up to 45 days of reporting lag. An earlier unscheduled statement is possible. Does not cover regimes with half-year reporting only."},
+      "forbids": "no restart_statement without this conjunction",
+      "authored_from": [
+        "round 4: Chhattisgarh boiler explosion 14 Apr; the owner's restart guidance (end Q2 FY27, 30 Sep 2026) came at the Q1 FY27 earnings call on 30 Jul, day 107; the listed power company held about 14 percent of operating capacity in the unit",
+        "round 2: restart in June was part of the owner's account of the $250M EBITDA outage, inside its quarterly results; CFO spoke on 17 Mar",
+        "round 7: contrast: a single polymer line inside a diversified group; the group's FY26 results on 1 Sep were silent on it and no restart statement was found by 7 Sep",
+        "round 5: contrast: refinery owner with a small share; restart date not found; only 'temporarily shut' by 8 Aug"
+      ],
+      "motivation": "A listed owner whose loss from an outage is material must say something about the restart at its next periodic report, if not before; below materiality it is silent. Worked example: round 4, the guidance came on day 107, inside the 136-day window. Rounds 5 and 7 give the counter-cases that fix the share condition: small shares, no statement. The 5 percent threshold follows the materiality rule of thumb and is consistent with, but not fixed by, the three rounds (14 percent spoke; a single line inside a large group did not). At event time the round 4 unit belonged to a parent with a small share; the template only became applicable when the demerged owner listed on 15 Jun."
+    },
+    {
+      "template_id": "obl.restart_fm_lifting_notice",
+      "notice_kind": "restart_statement",
+      "node_types": "plant under a declared force majeure on term supply contracts",
+      "issuer_role": "declarant",
+      "roles": {
+        "declarant": {"holder_kinds": ["company", "plant", "facility"], "binds_without_position": false}
+      },
+      "conditions": [
+        {"id": "c1", "role": "declarant", "attribute": "fm_status", "op": "eq", "value": "declared"},
+        {"id": "c2", "role": "declarant", "attribute": "contract_type", "op": "in", "value": ["offtake", "tolling"]},
+        {"id": "c3", "role": "declarant", "attribute": "sign_of_exposure", "op": "eq", "value": "-"}
+      ],
+      "carrier_kinds": ["company_ir", "notice_feed", "newspaper", "price_assessment"],
+      "window_rule": {"basis": "none", "days": null, "text": "No statutory window. The notice comes when the cause ends; the clause asks for prompt notice of cessation."},
+      "forbids": "no restart_statement without this conjunction",
+      "authored_from": [
+        "round 5: INEOS Phenol force majeure in force 27 Jul, plant 'temporarily shut' by 8 Aug; the lifting notice was opened as a fetch target and was not found (paywalled trade press)",
+        "round 2: propylene glycol and propylene oxide force majeure 13 and 17 Mar; the restart date (June) was later public"
+      ],
+      "motivation": "Standard force majeure clauses require the affected party to tell its customers when the impediment ends, so a declared force majeure carries a later lifting or restart notice as an obligation. Weakest-grounded of the restart templates: no lifting notice was actually observed in rounds 1-7 (round 5's was behind a paywall), so the grounds are the two declarations plus contract practice, not an observed lifting."
+    },
+    {
+      "template_id": "obl.reg_fatality_regulator_inquiry",
+      "notice_kind": "regulatory_decision",
+      "node_types": "plant or site where a workplace accident has killed at least one person",
+      "issuer_role": "regulator",
+      "roles": {
+        "regulator": {"holder_kinds": ["authority"], "binds_without_position": true},
+        "site": {"holder_kinds": ["plant", "facility", "company"], "binds_without_position": false}
+      },
+      "conditions": [
+        {"id": "c1", "role": "site", "attribute": "fatalities", "op": "ge", "value": 1},
+        {"id": "c2", "role": "site", "attribute": "sign_of_exposure", "op": "eq", "value": "-"},
+        {"id": "c3", "bound": "workplace_serious_injury_report_days", "op": "le", "value": 1}
+      ],
+      "carrier_kinds": ["regulator_docket", "notice_feed", "newspaper"],
+      "window_rule": {"basis": "none", "days": null, "text": "No general window; the inquiry or stop-work decision follows within days to weeks of the mandatory notification."},
+      "forbids": "no regulatory_decision without this conjunction",
+      "authored_from": [
+        "round 4: boiler explosion killed 24 (victims were staff of the O&M contractor); probes of the plant followed; the call that the state would inspect peer plants within 14 days missed (probes of the plant itself only)",
+        "round 5: contrast: no injuries, smoke warning only, no lasting regulatory constraint found",
+        "round 6: contrast: 28 hospitalised, no fatality, no regulatory order found within 30 days (order leg hit); the labour prosecutor opened a criminal investigation"
+      ],
+      "motivation": "A workplace fatality must be notified to the safety authority within a day, and the authority then investigates the plant; the visible output is an inquiry, stop-work or prohibition decision on that plant. Worked example: round 4. The template is keyed to fatalities, not to hospitalisations or fires, because round 6 (hospitalisations, no deaths) and round 5 (fire, no injuries) produced no order. It does not reach peer plants: the round 4 miss says so. Round 7's prohibition notice arrived with no stated fatality, so this template would not have fired there, and no documented condition separates round 7 from rounds 5 and 6."
+    },
+    {
+      "template_id": "obl.reg_prohibition_lift_before_restart",
+      "notice_kind": "regulatory_decision",
+      "node_types": "plant or unit shut under a regulator's prohibition or stop-work order",
+      "issuer_role": "regulator",
+      "roles": {
+        "regulator": {"holder_kinds": ["authority"], "binds_without_position": true},
+        "held_asset": {"holder_kinds": ["plant", "facility"], "binds_without_position": false}
+      },
+      "conditions": [
+        {"id": "c1", "role": "held_asset", "attribute": "regulatory_hold", "op": "eq", "value": true},
+        {"id": "c2", "role": "held_asset", "attribute": "operating_status", "op": "eq", "value": "shut"}
+      ],
+      "carrier_kinds": ["regulator_docket", "notice_feed", "newspaper"],
+      "window_rule": {"basis": "none", "days": null, "text": "No window. The lifting decision must precede any restart, and its date follows the owner's remediation."},
+      "forbids": "no regulatory_decision without this conjunction",
+      "authored_from": [
+        "round 7: Sasolburg Poly 3 fire on 21 Jul; the plant stayed shut pending investigation under a prohibition notice from the labour department; no restart statement or lifting found by 7 Sep (day 48)"
+      ],
+      "motivation": "A unit that is shut under a prohibition or stop-work order cannot lawfully restart until the regulator lifts or varies the order, so a lifting decision is unavoidable before any restart. It is conditional on a restart happening: a permanently closed asset needs no lifting. Grounded in one round only; no lifting was observed. The template does not say a prohibition will follow a fire; rounds 5 and 6 show it does not always."
+    },
+    {
+      "template_id": "obl.alloc_partial_capacity_multicustomer",
+      "notice_kind": "allocation_notice",
+      "node_types": "production node running below its committed volumes after an outage, selling under term contracts to more than one customer",
+      "issuer_role": "supplier",
+      "roles": {
+        "supplier": {"holder_kinds": ["company", "plant", "facility"], "binds_without_position": false}
+      },
+      "conditions": [
+        {"id": "c1", "role": "supplier", "attribute": "operating_status", "op": "eq", "value": "partial"},
+        {"id": "c2", "role": "supplier", "attribute": "contract_type", "op": "eq", "value": "offtake"},
+        {"id": "c3", "role": "supplier", "attribute": "sign_of_exposure", "op": "eq", "value": "-"}
+      ],
+      "carrier_kinds": ["company_ir", "notice_feed", "newspaper", "price_assessment"],
+      "window_rule": {"basis": "none", "days": null, "text": "No numeric window; sale-of-goods law requires seasonable notice of the estimated quota."},
+      "forbids": "no allocation_notice without this conjunction",
+      "authored_from": [
+        "round 5: INEOS Phenol force majeure carried pro-rata allocation; 15 rail cars cut to 10 (about two-thirds)",
+        "round 2: allocation letters in the propylene oxide, glycol and polyol chain in March and April"
+      ],
+      "motivation": "When a seller can supply only part of what it has committed to several customers, sale-of-goods law (the uniform commercial code rule on partial inability, and the equivalent contract clauses elsewhere) requires it to apportion supply fairly and tell each buyer its estimated quota. Worked example: round 5, 10 cars in place of 15. The conjunction requires that the supplier is partial, not shut, and has several term customers; a full stop produces force majeure rather than allocation."
+    },
+    {
+      "template_id": "obl.alloc_midstream_constrained_input",
+      "notice_kind": "allocation_notice",
+      "node_types": "midstream conversion plant that buys a constrained input from a stopped upstream plant and sells to customers who cannot easily switch",
+      "issuer_role": "midstream_producer",
+      "roles": {
+        "upstream_plant": {"holder_kinds": ["plant", "facility", "company"], "binds_without_position": false},
+        "midstream_producer": {"holder_kinds": ["company", "plant", "facility"], "binds_without_position": false},
+        "customer": {"holder_kinds": ["company", "plant", "facility", "other"], "binds_without_position": false}
+      },
+      "conditions": [
+        {"id": "c1", "role": "upstream_plant", "attribute": "operating_status", "op": "in", "value": ["shut", "partial"]},
+        {"id": "c2", "role": "midstream_producer", "attribute": "input_share", "op": "ge", "value": 50},
+        {"id": "c3", "role": "midstream_producer", "attribute": "contract_type", "op": "eq", "value": "offtake"},
+        {"id": "c4", "role": "midstream_producer", "attribute": "inventory_days", "op": "lt", "value": 14},
+        {"id": "c5", "role": "customer", "attribute": "sign_of_exposure", "op": "eq", "value": "-"},
+        {"id": "c6", "role": "customer", "attribute": "substitutability", "op": "eq", "value": "low"}
+      ],
+      "carrier_kinds": ["company_ir", "notice_feed", "newspaper", "price_assessment"],
+      "window_rule": {"basis": "none", "days": null, "text": "No numeric window. In the observed cases allocation letters reached customers within days of the upstream stop."},
+      "forbids": "no allocation_notice without this conjunction",
+      "authored_from": [
+        "round 2: after the propylene oxide stop, polyol and glycol makers sent allocation letters; foam producers were documented sign - (stated, 20 Mar, 15-20 percent cost increase within days, allocation) with substitutability low (8-12 week polyol requalification)",
+        "round 5: INEOS Phenol allocated phenol and acetone pro rata after the benzene stop"
+      ],
+      "motivation": "A midstream plant that draws at least half of its feed from a stopped node, has under two weeks of cover, and sells term volume to customers who cannot switch has to apportion its scarce output among them. Worked example: round 2, where derivative makers rationed to foam producers. The customer conditions (hit and locked in) are what turn a shortage into an apportionment rather than a lost sale."
+    },
+    {
+      "template_id": "obl.incident_emissions_event_report",
+      "notice_kind": "incident_report",
+      "node_types": "industrial site under a reportable-emissions-event permit regime that has a fire, explosion, flaring or vapour release",
+      "issuer_role": "emitter",
+      "roles": {
+        "emitter": {"holder_kinds": ["plant", "facility", "company"], "binds_without_position": false},
+        "regulator": {"holder_kinds": ["authority"], "binds_without_position": true}
+      },
+      "conditions": [
+        {"id": "c1", "role": "emitter", "attribute": "emissions_event_regime", "op": "eq", "value": true},
+        {"id": "c2", "role": "emitter", "attribute": "emissions_release", "op": "eq", "value": true},
+        {"id": "c3", "bound": "emissions_event_initial_notice_days", "op": "le", "value": 1},
+        {"id": "c4", "bound": "emissions_event_final_report_days", "op": "le", "value": 14}
+      ],
+      "carrier_kinds": ["notice_feed", "regulator_docket"],
+      "window_rule": {"basis": "statute", "days": 14, "text": "Initial notification within 24 hours of discovery; final report within two weeks after the event ends (14 days from the event date for a one-day event)."},
+      "forbids": "no incident_report without this conjunction",
+      "authored_from": [
+        "round 2: fire at the Pasadena, Texas propylene oxide plant on 12 Mar; the carriers table lists the state emissions-event report feed (dated, unit-level, public) as a known carrier",
+        "round 5: fire with smoke warning for four towns; round 6: toxic vapour cloud (both at sites in other countries, which the package does not show to be under this kind of regime; no such report is recorded)"
+      ],
+      "motivation": "Where a permit regime requires a report of any reportable emissions event, a fire or release at the site forces an initial notice within 24 hours and a final report within two weeks. Worked example: round 2. Grounds are indirect: rounds 1-7 record the feed as a carrier and the event as a fire in a state with such a regime, but no round records the report itself. The regime is a property of the site (emissions_event_regime), because the rule is site- and state-specific. Reportability also depends on quantities released, which are usually unknown early."
+    },
+    {
+      "template_id": "obl.incident_shared_infrastructure_closure_notice",
+      "notice_kind": "incident_report",
+      "node_types": "shared-use infrastructure node (dock, lock, berth, common-user terminal, common-carrier segment) closed by an incident",
+      "issuer_role": "operator",
+      "roles": {
+        "operator": {"holder_kinds": ["authority", "facility", "plant"], "binds_without_position": false}
+      },
+      "conditions": [
+        {"id": "c1", "role": "operator", "attribute": "operating_status", "op": "in", "value": ["shut", "partial"]},
+        {"id": "c2", "role": "operator", "attribute": "shared_access", "op": "eq", "value": true},
+        {"id": "c3", "role": "operator", "attribute": "sign_of_exposure", "op": "eq", "value": "-"}
+      ],
+      "carrier_kinds": ["notice_feed", "newspaper", "company_ir"],
+      "window_rule": {"basis": "none", "days": null, "text": "No statute. The closure notice is the same day; a periodic post-incident account can follow months later."},
+      "forbids": "no incident_report without this conjunction",
+      "authored_from": [
+        "round 3: the port's notices announced the closure and later the dock's berths; the port's half-year report (31 Jul) gave ~85,000 TEU lost to the April spill",
+        "round 6: the emergency plan closed the dock and lock on 14 Jul and the port and terminals posted advisories; the port's crisis page and a carrier update were unreachable"
+      ],
+      "motivation": "An operator of shared infrastructure that closes it must tell all users what happened and what is closed; this is the incident notice, with the periodic account of losses as its later customary form. Worked example: round 6, closure of the dock and lock. It shares its conjunction with the reopening template but forces a different notice; both are needed because a closure notice and a reopening statement are separate documents."
+    },
+    {
+      "template_id": "obl.incident_serious_accident_notification",
+      "notice_kind": "incident_report",
+      "node_types": "plant or site where an accident has killed or hospitalised at least one person",
+      "issuer_role": "employer",
+      "roles": {
+        "employer": {"holder_kinds": ["plant", "facility", "company"], "binds_without_position": false},
+        "regulator": {"holder_kinds": ["authority"], "binds_without_position": true}
+      },
+      "conditions": [
+        {"id": "c1", "role": "employer", "attribute": "casualties", "op": "ge", "value": 1},
+        {"id": "c2", "role": "employer", "attribute": "sign_of_exposure", "op": "eq", "value": "-"},
+        {"id": "c3", "bound": "workplace_serious_injury_report_days", "op": "le", "value": 1}
+      ],
+      "carrier_kinds": ["regulator_docket", "newspaper"],
+      "window_rule": {"basis": "statute", "days": 1, "text": "Initial notification within 8 hours of a fatality and 24 hours of a hospitalisation in the strictest common regime; other regimes use immediate or forthwith notice. Applies to the initial notification only."},
+      "forbids": "no incident_report without this conjunction",
+      "authored_from": [
+        "round 4: boiler explosion with 24 deaths at the Chhattisgarh plant; official probes reported a cause (unburnt fuel accumulation) within weeks",
+        "round 6: hydrofluoric acid leak, 186 assessed, 28 hospitalised; a labour prosecutor opened an investigation"
+      ],
+      "motivation": "A workplace death or hospitalisation is a mandatory notification to the safety authority within a day, and the resulting file is the authority's incident record. This is rarely public: the visible traces in rounds 4 and 6 were the probes' findings and the investigation opening, which are not the notification itself. The template is therefore an obligation that will often be unobservable in the carriers; a hit in the mechanical test is possible only where the notification or the authority's incident page is public."
+    },
+    {
+      "template_id": "obl.incident_generation_unit_outage_publication",
+      "notice_kind": "incident_report",
+      "node_types": "generating unit of 100 MW or more with an unplanned outage, in a market or grid with mandatory unavailability publication",
+      "issuer_role": "generator",
+      "roles": {
+        "generator": {"holder_kinds": ["plant", "company"], "binds_without_position": false}
+      },
+      "conditions": [
+        {"id": "c1", "role": "generator", "attribute": "operating_status", "op": "in", "value": ["shut", "partial"]},
+        {"id": "c2", "role": "generator", "attribute": "capacity", "op": "ge", "value": 100},
+        {"id": "c3", "role": "generator", "attribute": "generation_outage_reporting_regime", "op": "eq", "value": true},
+        {"id": "c4", "bound": "generation_unavailability_disclosure_threshold_mw", "op": "le", "value": 100}
+      ],
+      "carrier_kinds": ["notice_feed", "regulator_docket"],
+      "window_rule": {"basis": "none", "days": null, "text": "No numeric window; the rule is publication as soon as possible after the unavailability is known."},
+      "forbids": "no incident_report without this conjunction",
+      "authored_from": [
+        "round 4: 600 MW unit at the Chhattisgarh plant shut from 14 Apr; the carriers table lists grid operator notices and the energy regulator's feed as open carriers, but round 4 records no unit-outage notice in them and no attributable step in day-ahead prices"
+      ],
+      "motivation": "Where a market or grid requires publication of unplanned unavailability of a generation unit above a threshold, an outage of such a unit forces a published unavailability notice. Worked example: round 4, a 600 MW unit. This is the least-grounded incident template: rounds 1-7 contain the unit, the size and the carrier entries, but no observed notice. It fires only where the regime attribute is documented true, so it stays silent for markets whose rule I do not know."
+    },
+    {
+      "template_id": "obl.cpn_liner_carrier_call_omission_advisory",
+      "notice_kind": "counterparty_notice",
+      "node_types": "container port or terminal (shared-use) closed for a day or more, with scheduled liner services calling",
+      "issuer_role": "carrier",
+      "roles": {
+        "closed_node": {"holder_kinds": ["facility", "authority", "plant"], "binds_without_position": false},
+        "carrier": {"holder_kinds": ["company"], "binds_without_position": false}
+      },
+      "conditions": [
+        {"id": "c1", "role": "closed_node", "attribute": "operating_status", "op": "in", "value": ["shut", "partial"]},
+        {"id": "c2", "role": "closed_node", "attribute": "shared_access", "op": "eq", "value": true},
+        {"id": "c3", "role": "closed_node", "attribute": "duration", "op": "ge", "value": 1},
+        {"id": "c4", "role": "carrier", "attribute": "contract_type", "op": "eq", "value": "scheduled_service"},
+        {"id": "c5", "role": "carrier", "attribute": "sign_of_exposure", "op": "eq", "value": "-"},
+        {"id": "c6", "bound": "liner_service_rotation_days", "op": "le", "value": 7}
+      ],
+      "carrier_kinds": ["notice_feed", "company_ir", "newspaper"],
+      "window_rule": {"basis": "procedural_chain", "days": 7, "text": "Weekly service rotation: the first omitted or delayed call is advised to customers within the rotation in which it occurs."},
+      "forbids": "no counterparty_notice without this conjunction",
+      "authored_from": [
+        "round 3: the container line's advisory of omissions and backlog into the following week (position stated, knowable 10 Apr) after the river closed for about a day and the dock for about 4 days",
+        "round 6: contrast: no line advisory found within 7 days after a 3-day terminal closure (second scorer: unverified; a week-29 operational update could not be retrieved)"
+      ],
+      "motivation": "A carrier that runs scheduled services into a closed shared-use port must tell its customers which calls are omitted or delayed. Worked example: round 3, with a 4-day dock closure and advisories reaching into the following week. The duration threshold of one day is set by the weekly rotation norm: any closure of a day or more misses a call on some service. Round 6 is an open counter-case where the advisory could not be found; whether that is absence or thin coverage is unresolved."
+    },
+    {
+      "template_id": "obl.cpn_war_risk_cover_cancellation",
+      "notice_kind": "counterparty_notice",
+      "node_types": "chokepoint or route whose waters are in a war-risk listed area",
+      "issuer_role": "underwriter",
+      "roles": {
+        "underwriter": {"holder_kinds": ["company"], "binds_without_position": true},
+        "route": {"holder_kinds": ["other", "facility"], "binds_without_position": false}
+      },
+      "conditions": [
+        {"id": "c1", "role": "route", "attribute": "war_risk_listed_area", "op": "eq", "value": true},
+        {"id": "c2", "bound": "war_risk_cancellation_notice_days", "op": "eq", "value": 7}
+      ],
+      "carrier_kinds": ["price_assessment", "newspaper", "notice_feed"],
+      "window_rule": {"basis": "none", "days": null, "text": "No window on the notice itself; cover ends 7 days after a notice of cancellation and is re-quoted at an additional premium."},
+      "forbids": "no counterparty_notice without this conjunction",
+      "authored_from": [
+        "round 1: Hormuz day 34 of the war; war-risk premia 3-10 percent of hull into July; VLCC rates 4x pre-war; library note that the insurance market closed the strait before any attack did"
+      ],
+      "motivation": "Marine war-risk cover is cancellable on 7 days' notice, and underwriters use it when a route becomes a listed area, re-quoting at an additional premium. The notice is a communication to the assured, not a public filing, so the visible trace is the quoted premium in the press. Weak grounds: round 1 shows the premia and the insurers' early move but not the notice; the template rests on that plus the contract norm."
+    },
+    {
+      "template_id": "obl.corp_listed_material_owner_impact_statement",
+      "notice_kind": "corporate_disclosure_of_event_impact",
+      "node_types": "plant or unit outage where the owner is a listed group and the unit is a material part of it",
+      "issuer_role": "owner",
+      "roles": {
+        "owner": {"holder_kinds": ["company"], "binds_without_position": false},
+        "asset": {"holder_kinds": ["plant", "facility"], "binds_without_position": false}
+      },
+      "conditions": [
+        {"id": "c1", "role": "asset", "attribute": "operating_status", "op": "in", "value": ["shut", "partial"]},
+        {"id": "c2", "role": "owner", "attribute": "listed", "op": "eq", "value": true},
+        {"id": "c3", "role": "owner", "attribute": "sign_of_exposure", "op": "eq", "value": "-"},
+        {"id": "c4", "role": "owner", "attribute": "share", "op": "ge", "value": 5},
+        {"id": "c5", "bound": "materiality_rule_of_thumb_pct", "op": "le", "value": 5}
+      ],
+      "carrier_kinds": ["filing", "company_ir", "newspaper"],
+      "window_rule": {"basis": "none", "days": null, "text": "Continuous-disclosure regimes require prompt disclosure of inside information, with no numeric window."},
+      "forbids": "no corporate_disclosure_of_event_impact without this conjunction",
+      "authored_from": [
+        "round 2: the owner's CFO confirmed the propylene oxide constraint at a bank conference on 17 Mar (day 5); the outage cost about $250M EBITDA",
+        "round 4: the owner's impact (Q1 FY27 segment EBITDA -30 percent) surfaced only in the scheduled results of 30 Jul; no earlier unscheduled disclosure found (partial counter-case)",
+        "round 5: contrast: refinery owner with a small share; Q2 trading statement dominated by oil price and margins",
+        "round 7: contrast: single polymer line inside a large group; FY26 results silent on the fire"
+      ],
+      "motivation": "A listed issuer must disclose promptly an event that is material to its earnings; below the materiality floor it stays silent. Worked example: round 2 (large unit, unscheduled CFO confirmation). Rounds 5 and 7 fix the floor from below; round 4 is a partial counter-case because the disclosure came in a scheduled release rather than an unscheduled one. The 5 percent threshold is the rule of thumb, not a value the rounds establish. A qualitative override (a death toll, a criminal complaint) can make a smaller share disclosable; that is not modelled."
+    }
+  ],
+  "gaps": [
+    {
+      "notice_kind": "insolvency_or_restructuring_notice",
+      "reason": "None of rounds 1-7 had an insolvency or restructuring notice. Round 4's plant was bought out of insolvency in 2022, which is history and produced no notice in the event. Round 5's site sale was a completed transaction, not a restructuring. No template."
+    },
+    {
+      "notice_kind": "regulatory_decision",
+      "reason": "Decisions inside a statutory window (permit, merger clearance, court ruling) were not observed in rounds 1-7; the round 5 site sale completed on schedule with no approval decision recorded. Only two event-driven regulatory templates could be grounded (fatality inquiry, prohibition lifting). A prohibition or order after a non-fatal fire is not templated: round 7 saw one, rounds 5 and 6 did not, and no documented position separates them."
+    },
+    {
+      "notice_kind": "force_majeure_declaration",
+      "reason": "Single-counterparty contracts (round 4: one utility offtaker) are excluded: the notice goes to one party and no public carrier was found. Contract type bilateral_ppa is therefore not in any force majeure template. The obligation exists in law; rounds 1-7 give no observation of the notice."
+    },
+    {
+      "notice_kind": "counterparty_notice",
+      "reason": "Surcharge pass-through, service-credit and supplier-switch notices: rounds 1-7 show price rises (polyol +28 percent, glycol +34 percent) but they are discretionary, with no obligation or clock. Not templated. Only the carrier call-omission advisory and the war-risk cancellation notice have grounds."
+    },
+    {
+      "notice_kind": "corporate_disclosure_of_event_impact",
+      "reason": "No template for listed downstream users: round 2's four listed foam users held sign - (inferred) with a small share of cost, and no statements were seen. No template for unlisted or below-floor owners: rounds 5 and 7 were silent."
+    },
+    {
+      "notice_kind": "restart_statement",
+      "reason": "No template for an unlisted or below-floor owner with a private, non-shared asset: round 7 saw no restart statement in 48 days and no documented condition forces one. Restart statements from the authority for a shared-use asset and from a material listed owner are covered."
+    },
+    {
+      "notice_kind": "incident_report",
+      "reason": "Customary post-incident accounts (the port's half-year report, the probes' findings) are not templated as forced; only the mandatory or operator-side notices are."
+    }
+  ],
+  "attributes_never_recorded_in_rounds_1_7": [
+    "tier",
+    "priority",
+    "inventory_days",
+    "contract_type",
+    "hedge_ratio",
+    "input_share",
+    "capacity",
+    "substitute_lead_days",
+    "operating_status",
+    "listed",
+    "shared_access",
+    "fm_status",
+    "fatalities",
+    "casualties",
+    "regulatory_hold",
+    "emissions_release",
+    "emissions_event_regime",
+    "generation_outage_reporting_regime",
+    "war_risk_listed_area"
+  ],
+  "notes": "Files: I read only package.md, all 675 lines. Cutoff: the platform declares my knowledge as ending June 2026; I hold no event-specific knowledge from 2026 and used none. World knowledge used is structural only (statutory notice periods, contract clauses, disclosure regimes). Limits the orchestrator should know: (1) The rounds 1-7 store recorded only four of the attributes (sign_of_exposure, share, substitutability, duration), and those inconsistently (share as capacity, as text 'small' and as a percent; substitutability in two senses; duration as prose). Almost every template therefore contains conditions that would have been unknown at any time in rounds 1-7, so derivation would have produced switches, not forced ACKs. That is a property of the store, not an error in a template. (2) Many rows in the store are inferred; only stated rows with a knowable_from date count. (3) Templates sharing one conjunction (obl.restart_shared_infrastructure_reopening and obl.incident_shared_infrastructure_closure_notice) do so by design, since they force different notices. (4) Grounding strength, strongest first: obl.fm_producer_outage_offtake, obl.fm_downstream_single_source_feedstock, obl.restart_shared_infrastructure_reopening, obl.alloc_partial_capacity_multicustomer, obl.alloc_midstream_constrained_input, obl.restart_listed_owner_material_outage_guidance, obl.corp_listed_material_owner_impact_statement, obl.cpn_liner_carrier_call_omission_advisory, obl.incident_shared_infrastructure_closure_notice, obl.reg_fatality_regulator_inquiry, then weakest: obl.restart_fm_lifting_notice, obl.reg_prohibition_lift_before_restart (one round, no lifting observed), obl.incident_emissions_event_report, obl.incident_serious_accident_notification, obl.incident_generation_unit_outage_publication, obl.cpn_war_risk_cover_cancellation (grounds are carrier-table entries or premia, not observed notices). (5) Thresholds not fixed by the rounds: share >= 5 percent (materiality rule of thumb), inventory_days < 14, input_share >= 50, duration >= 1 day for the carrier advisory. (6) Templates that will often be unobservable in carriers: accident notification, generation outage publication, war-risk cancellation. Bound citations, kept out of the bounds fields to keep them generic: emissions_event_initial_notice_days and emissions_event_final_report_days follow 30 Tex. Admin. Code 101.201; workplace_serious_injury_report_days follows 29 CFR 1904.39; periodic_results_max_lag_days follows SEBI LODR Reg. 33 (45 days) and SEC Form 10-Q (40 or 45 days); materiality_rule_of_thumb_pct follows SEC Staff Accounting Bulletin 99; war_risk_cancellation_notice_days follows the Institute War and Strikes Clauses (7 days); generation_unavailability_disclosure_threshold_mw follows EU REMIT (Regulation 1227/2011) and ACER guidance; the allocation duty in obl.alloc_partial_capacity_multicustomer follows UCC 2-615(b)-(c)."
+}
