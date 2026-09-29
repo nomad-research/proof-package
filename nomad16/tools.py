@@ -10,7 +10,7 @@ import inspect
 import json
 import sys
 
-from . import (altdata, calls, census, config, construct, derive, effects, instruments, intake, lock, paper, pit,
+from . import (altdata, calls, census, documents, entities, config, construct, derive, effects, instruments, intake, lock, paper, pit,
                positions, prices, reach, report, rounds, seed, stories, walk)
 from .db import DB, Refused
 from .rounds import current_segment, state
@@ -121,6 +121,15 @@ TOOLS = {
     "paper_exit": paper.exit_basket, "exit_check": paper.exit_check, "paper_book": paper.paper_book,
     # walk
     "ack_fire": walk.ack_fire, "walk_read": walk.walk_read, "walk_end": walk.walk_end, "walk_scan": walk.walk_scan,
+    # v17 V0: the open entity
+    "seed_v17": seed.seed_v17, "migrate_v17": entities.migrate_v17, "entity_upsert": entities.entity_upsert,
+    "entity_kind_add": entities.kind_add, "entity_kind_ratify": entities.kind_ratify,
+    "attribute_scope_add": entities.attribute_scope_add, "entity_merge": entities.entity_merge,
+    "entity_merge_ratify": entities.entity_merge_ratify, "entity_merge_decline": entities.entity_merge_decline, "entity_split": entities.entity_split,
+    # v17 V1: documents as evidence, derived dating
+    "document_from_evidence": documents.document_from_evidence, "admission_record": documents.admission_record,
+    "statement_add": documents.statement_add, "document_state_set": documents.document_state_set,
+    "dating_report": documents.dating_report,
     # K7 census
     "census_add": census.census_add, "census": census.census,
     # reports

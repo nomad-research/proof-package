@@ -324,3 +324,66 @@ labels (131 of 200 `inferred`). So K8's unreadability was not only missing stamp
 the overlay (default behaviour unchanged, checked); **K8 has not been re-run**: `K8_rerun_expectations.md` is a
 blank template for the requester to fill in first. "Cold" is a procedure, not a wall (the container holds the
 v15 database); the dater's self-report is committed.
+
+## 2026-09-29 — v17 V0 and V1 built (`docs/nomad_v17_open_entity.md`; ratifications in `docs/RATIFICATIONS.md`)
+
+D17, D18, D19, D20, D21, D24 and D25 were ratified and persons put in the schema with ingestion off, on the
+requester's instruction in this session. **Built: V0 (schema and compatibility) and V1 (documents as evidence).
+Not built: V2 onward** (relations as rows, capability role binding in derivation, `edge_basis`, carriers as
+series, `nomad_reach`), V3 composites, V4 instruments as entities and stake by kind, V5 the data-product spine.
+K14, K15 and K16 have not been run.
+
+### V0
+
+- **`entities`** (mutable) with a kind tree (`entity_kinds`, 60 seed kinds, 32 reviewed), `capabilities`,
+  `key_map`, `attribute_scope`. **`holders`, `nodes` and `node_types` are kept as they are**: v16 code paths and
+  every old lock manifest read them, so nothing was renamed (the document says "renamed"; that would have broken
+  replay of any manifest that pins `holders`). `holder_upsert` and `node_upsert` write the v16 table and mirror
+  into `entities` once `seed_v17` has run; `migrate_v17` mirrored R16-001's 7 holders and 2 nodes (9 entities).
+- **An unseen kind registers `unreviewed`** and can propose and never support; ratifying a kind needs a scale
+  attribute (or an explicit none), a capability list, and an attribute registered *for that kind or an
+  ancestor* (the generic `*` attributes don't count; the first version let them, and a test caught it).
+- **Identity is a claim with evidence.** Merge, split, ratify and decline are appended events in
+  `entity_events`; an as-of read honours the evidence's `knowable_from` and the view's `ledger_cutoff`, and a split
+  restores the earlier graph. Merges need compatible kinds (the same, or one refining the other). A name alone never
+  merges two persons. `migrate_v17` proposed two merges by a name-stem heuristic; **one was wrong** (`miso_lrz7_energy`,
+  a market, and `miso-lrz7`, the place that is its footprint) because the heuristic ignored kinds. Fixed, and the
+  wrong proposal is closed by an appended `decline` event (`EV00002`); it stays on the ledger. The other
+  (`fermi2_unit` with `fermi-2`) is a proposal awaiting an operator's ratification, never applied automatically.
+- **Persons.** `PERSON_INGEST` is `off` and read fail-closed (a missing value is off); `entity_upsert` refuses a
+  person or any descendant kind; only five public-capacity attributes are scoped to `person`, and an attribute
+  whose name suggests health, family, residence, location, sanctions, offences or motive can't be registered for one.
+- **A18:** no existing ledger table gained a column (a frozen column fixture is compared); the three new ledger
+  tables are `entity_events`, `evidence_entities`, `statement_links`. `position_attributes` did **not** gain
+  `applies_to_kinds` (the document allows it): a side table `attribute_scope` does the job, so the v16 table stays
+  byte-identical.
+- **A1:** the R16-001 record is unchanged (every v16 ledger table's row count still sits at its pre-V0 head hash),
+  the chain verifies, and both locks replay to their hashes on the migrated store.
+- **Lifecycle (A12, entities):** `exists_from`/`exists_to` each honour their own `knowable_from`.
+
+### V1
+
+- **Documents are entities**, keyed by content hash and linked from an evidence row through `evidence_entities`
+  when cited; a list fetch of a series is not a document. Lifecycle statements follow the document's state chain
+  (draft → executed → in_force → …), each evidenced by another document.
+- **`knowable_from` is derived** (`statement_add`): earliest verified `states` link, else latest `component` link,
+  else the statement's own time. A `states` link needs its quoted span in the stored text (and, for numeric and
+  enumerated attributes, the value in the span), otherwise it is stored as `component`. The check is literal: "1,141"
+  in a span does not verify 1141. A typed date is refused; an embargo may only move a date later, with a reason.
+  A v17 round writes its admission record (the Q8 line) as a document, so its first stated statement can cite it.
+  `position_add` refuses while the active round is v17, and `statement_add` refuses on a v16 round.
+- **Null-node statements** (about a subject's own state) are visible to a read that names the subject.
+- **`dating_report` on R16-001 confirms the document's figures exactly:** 22 of 25 positions cite evidence; 20
+  typed stamps equal the earliest cited document; 2 differ (`prior_outage_restart_days`, typed 05-22 against
+  documents dated 05-20 to 05-26; `listed_domestic_filer`, typed 07-02 against 06-05 and 07-03); 3 cite nothing.
+
+### Not done, and worth knowing
+
+- V0 changes nothing about how a v16 round is played or scored; V1's derived dating applies only to rounds admitted
+  with `logic_version: "v17"`. None exists yet.
+- The relational test of §1.1 (an entity with no relation is an orphan) has nothing to check until V2 adds relation
+  rows; `observable` records only whether the caller named a carrier.
+- `resolve`, `orphans`, `nomad_opposite_census` and `relation_add` (the document's §7.7) are not built.
+- `MATERIALITY_BAND`'s new `notional` key (V4) and the V2/V3 appetite values are added to the appetite file (all
+  provisional) but nothing reads them yet.
+- K14 needs a cold reader over 11 rounds' lock-time documents; it hasn't been started.

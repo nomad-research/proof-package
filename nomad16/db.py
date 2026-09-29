@@ -144,6 +144,13 @@ TABLES: dict[str, tuple[str, list[str]]] = {
     "census_rows": (LEDGER, ["census_id", "holder_key", "holder_name", "instrument_symbol", "instrument_kind",
                              "relation", "concentration_pct", "concentrated", "basis", "source_document",
                              "knowable_from", "earliest_event_date", "status"]),
+    # --- v17 (V0, V1): identity events, document links, statement links. New ledger tables that point
+    # at existing rows by id; no existing ledger table gains a column (A18) --------------------------
+    "entity_events": (LEDGER, ["event_id", "event_type", "entity_keys", "payload", "evidence_ids",
+                               "knowable_from", "status", "reason", "by", "ref_event"]),
+    "evidence_entities": (LEDGER, ["evidence_id", "entity_key", "content_hash"]),
+    "statement_links": (LEDGER, ["statement_id", "evidence_entity", "role", "span", "span_verified",
+                                 "published_at", "note"]),
     # --- library ------------------------------------------------------------------
     "library_history": (LEDGER, ["rule_id", "weight", "weight_state", "trials_as_carried",
                                  "computed_from_resolutions", "valid_from", "tide_count"]),
@@ -182,6 +189,15 @@ TABLES: dict[str, tuple[str, list[str]]] = {
                            "read_in_full_rule"]),
     "procedural_models": (MUTABLE, ["process_type", "states", "transitions",
                                     "counted_through"]),
+    # --- v17 mutable stores. holders, nodes and node_types stay as they are: v16 code paths and every old
+    # lock manifest read them. ``entities`` is the one table of things; key_map ties the two together. -------
+    "entities": (MUTABLE, ["canonical_name", "kind", "exists_from", "exists_from_knowable", "exists_to",
+                           "exists_to_knowable", "declared_capabilities", "entity_refs", "aliases",
+                           "state_attributes", "observable", "legacy", "document", "first_seen_round"]),
+    "entity_kinds": (MUTABLE, ["parent", "description", "scale_attribute", "capabilities", "review", "seeded"]),
+    "capabilities": (MUTABLE, ["meaning", "mode", "note"]),
+    "key_map": (MUTABLE, ["entity_key", "source_table", "collision"]),
+    "attribute_scope": (MUTABLE, ["kinds", "note"]),
 }
 
 LEDGER_TABLES = [t for t, (k, _) in TABLES.items() if k == LEDGER]

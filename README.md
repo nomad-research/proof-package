@@ -20,6 +20,8 @@ round played so far, and every kill-test result. The spec is never rewritten to 
 - **Played:** round R16-001 (Fermi 2 reactor scram), by a cold operator session. Two segments locked and
   replayed; no basket could be built, because every priced effect sat below its noise band.
 - **Kill tests on the v15 record:** K10 and K11 die, K8 and K12 are unreadable there. See `lookbacks/`.
+- **v17 (open entity):** V0 (entities, kinds, identity events, person switch) and V1 (documents as evidence, derived
+  dating) are built; V2 onward is not. See `docs/nomad_v17_open_entity.md`, `docs/RATIFICATIONS.md` and `STATE.md`.
 - **Every round is `learning`** until Rob ratifies the provisional appetite values in
   `config/appetite.json`.
 

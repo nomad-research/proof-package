@@ -63,13 +63,13 @@ def make_world(db: DB, clock="2026-07-15", n=400, seed=7, collinear=False):
 
 
 def admit_round(db: DB, rid="R-T1", event_date="2026-07-15", node="unit-x", node_type="power_plant",
-                provisional=True, live=False):
+                provisional=True, live=False, logic="v16"):
     from nomad16.positions import node_upsert
     node_upsert(db, node, node_type, "fixture unit")
     db.append("rounds", round_id=rid, event_line="Unit X trips offline", event_date=event_date, event_time=None,
               node=node, node_type=node_type, stratum="energy", feed_set="fixture", intake_mode="strict_v3",
               round_class="learning", live=live, operator_model="test-model", operator_cutoff="2026-06-30",
-              operator_runtime="pytest", harness_version=config.harness_version(), logic_version="v16",
+              operator_runtime="pytest", harness_version=config.harness_version(), logic_version=logic,
               config_hash=config.config_hash(),
               presort_active=False, domain_pref=None, candidate_id=None, q_results={"event_date": event_date})
     rounds.set_meta(db, rid, "knowable_from", event_date)

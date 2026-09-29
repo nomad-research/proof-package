@@ -16,6 +16,15 @@ CONFIDENCE = {"stated", "inferred", "implicit"}
 ATTR_TYPES = {"numeric", "enum", "bool", "text"}
 
 
+def _mirror(db: DB, what: str, key: str) -> None:
+    """holder_upsert and node_upsert stay as aliases for one release: they write the v16 table and mirror the
+    row into ``entities`` once the v17 registry is seeded (before that they behave exactly as in v16)."""
+    if db.get("entity_kinds", "organisation") is None:
+        return
+    from . import entities
+    (entities.mirror_holder if what == "holder" else entities.mirror_node)(db, key)
+
+
 def holder_upsert(db: DB, holder_id: str, name: str, holder_class: str, entity_kind: str,
                   listed: bool = False, ticker: str | None = None, exchange: str | None = None,
                   parent_id: str | None = None, options_listed: bool | None = None,
@@ -24,10 +33,12 @@ def holder_upsert(db: DB, holder_id: str, name: str, holder_class: str, entity_k
         raise Refused(f"holder_class must be one of {sorted(HOLDER_CLASSES)}")
     if entity_kind not in ENTITY_KINDS:
         raise Refused(f"entity_kind must be one of {sorted(ENTITY_KINDS)}")
-    return db.upsert("holders", holder_id, name=name, holder_class=holder_class,
-                     entity_kind=entity_kind, listed=bool(listed), ticker=ticker,
-                     exchange=exchange, parent_id=parent_id, options_listed=options_listed,
-                     cik=cik, entity_ref=entity_ref)
+    row = db.upsert("holders", holder_id, name=name, holder_class=holder_class,
+                    entity_kind=entity_kind, listed=bool(listed), ticker=ticker,
+                    exchange=exchange, parent_id=parent_id, options_listed=options_listed,
+                    cik=cik, entity_ref=entity_ref)
+    _mirror(db, "holder", holder_id)
+    return row
 
 
 def node_upsert(db: DB, node: str, node_type: str, description: str = "",
@@ -39,8 +50,10 @@ def node_upsert(db: DB, node: str, node_type: str, description: str = "",
     if db.get("node_types", node_type) is None:
         db.upsert("node_types", node_type, description=f"registered on first use ({node})",
                   first_seen_round=round_id)
-    return db.upsert("nodes", node, node_kind=node_kind, node_type=node_type,
-                     description=description, neighbours=neighbours or [])
+    row = db.upsert("nodes", node, node_kind=node_kind, node_type=node_type,
+                    description=description, neighbours=neighbours or [])
+    _mirror(db, "node", node)
+    return row
 
 
 def attribute_add(db: DB, attribute: str, type: str, unit: str | None = None,
@@ -84,12 +97,32 @@ def _coerce(db: DB, attribute: str, value):
     return str(value), None
 
 
+def append_position(db: DB, holder_id: str, node: str | None, attribute: str, value, source: str, knowable_from: str,
+                    confidence: str, asset_ref: str | None = None, unit: str | None = None,
+                    source_document: str | None = None, source_time: str | None = None,
+                    supersedes: str | None = None, evidence_ids: list | None = None) -> dict:
+    """The one place a position row is written (v16 ``position_add`` and v17 ``statement_add`` both end here)."""
+    sval, num = _coerce(db, attribute, value)
+    n = len(db.rows("positions")) + 1
+    return db.append("positions", position_id=f"P{n:05d}", holder_id=holder_id, node=node,
+                     asset_ref=asset_ref, attribute=attribute, value=sval, value_num=num,
+                     unit=unit, source=source, source_document=source_document,
+                     source_time=source_time, knowable_from=knowable_from,
+                     confidence=confidence, supersedes=supersedes,
+                     evidence_ids=evidence_ids or [])
+
+
 def position_add(db: DB, holder_id: str, node: str, attribute: str, value, source: str,
                  knowable_from: str, confidence: str,
                  asset_ref: str | None = None, unit: str | None = None,
                  source_document: str | None = None, source_time: str | None = None,
                  supersedes: str | None = None, evidence_ids: list | None = None,
                  round_id: str | None = None) -> dict:
+    """The v16 write path: a typed ``knowable_from``, on a holder and a node. On a v17 round it is refused."""
+    from .rounds import active_logic
+    if active_logic(db) == "v17":
+        raise Refused("the active round is v17: write positions with statement_add. Its knowable_from is derived from "
+                      "the cited documents and a typed one is refused (D19)")
     if db.get("holders", holder_id) is None:
         raise Refused(f"no holder {holder_id}; add it with holder_upsert")
     if db.get("nodes", node) is None:
@@ -102,15 +135,8 @@ def position_add(db: DB, holder_id: str, node: str, attribute: str, value, sourc
     if confidence == "stated" and not (source_document or evidence_ids):
         raise Refused("a stated position needs a source document or evidence id")
     ts(knowable_from)
-    sval, num = _coerce(db, attribute, value)
-    n = len(db.rows("positions")) + 1
-    pid = f"P{n:05d}"
-    return db.append("positions", position_id=pid, holder_id=holder_id, node=node,
-                     asset_ref=asset_ref, attribute=attribute, value=sval, value_num=num,
-                     unit=unit, source=source, source_document=source_document,
-                     source_time=source_time, knowable_from=knowable_from,
-                     confidence=confidence, supersedes=supersedes,
-                     evidence_ids=evidence_ids or [])
+    return append_position(db, holder_id, node, attribute, value, source, knowable_from, confidence, asset_ref, unit,
+                           source_document, source_time, supersedes, evidence_ids)
 
 
 def node_fact_add(db: DB, round_id: str, node: str, kind: str, text: str, knowable_from: str,

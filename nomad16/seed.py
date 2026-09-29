@@ -63,3 +63,20 @@ def library_as_of(db: DB, date: str) -> dict:
                     "trials_as_carried": h["trials_as_carried"] if h else 0,
                     "tide_count": h["tide_count"] if h else 0})
     return {"as_of": date, "rules": out}
+
+
+def seed_v17(db: DB, path=None) -> dict:
+    """Load ``config/seed_v17.json``: kind tree, capabilities, new attributes and attribute scopes (V0, V1).
+    Idempotent. Each entry is a proposal until its D-row is ratified (docs/RATIFICATIONS.md)."""
+    from .entities import attribute_scope_add, kind_add
+    doc = json.loads((path or ROOT / "config" / "seed_v17.json").read_text())
+    for c in doc["capabilities"]:
+        db.upsert("capabilities", c["capability"], by="seed_v17", meaning=c["meaning"], mode=c["mode"], note=c["note"])
+    for k in doc["entity_kinds"]:  # parents come before children in the file
+        kind_add(db, k["kind"], k["parent"], k["description"], k["scale_attribute"], k["capabilities"], k["review"], seeded=True)
+    for a in doc["position_attributes"]:
+        attribute_add(db, a["attribute"], a["type"], a.get("unit"), a.get("allowed"), a.get("description", ""))
+    for attr, sc in doc["attribute_scope"].items():
+        if db.get("position_attributes", attr) is not None:
+            attribute_scope_add(db, attr, sc["kinds"], sc.get("note", ""))
+    return {k: len(v) for k, v in doc.items() if k != "_meta"}

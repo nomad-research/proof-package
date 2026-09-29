@@ -524,6 +524,54 @@
    "status": "provisional_unratified",
    "basis": "K7 find threshold: the candidate is at least this percent of the instrument's revenue, earnings, capacity or collateral; reuses the inert-stake ceiling (0.25). K7_SHARE itself is deliberately absent: Rob sets it before the census starts",
    "section": "\u00a731 K7"
+  },
+  "PERSON_INGEST": {
+   "value": "off",
+   "status": "provisional_unratified",
+   "basis": "a switch, not a number. Persons are in the schema and templates; the tool refuses to store one until a legal review and an erasable person store exist (v17 \u00a73.5). Read fail-closed: a missing value is off",
+   "section": "v17 \u00a714"
+  },
+  "ENTITY_MATERIALISE_MAX": {
+   "value": 400,
+   "status": "provisional_unratified",
+   "basis": "non-document entities expanded per round (V2); the effect frontier is 120",
+   "section": "v17 \u00a714"
+  },
+  "DOCUMENT_MATERIALISE_MAX": {
+   "value": 2000,
+   "status": "provisional_unratified",
+   "basis": "documents are leaves (V2)",
+   "section": "v17 \u00a714"
+  },
+  "COMPOSITE_DEPTH_MAX": {
+   "value": 2,
+   "status": "provisional_unratified",
+   "basis": "a chain inside a market is two levels; a third is a classification (V3)",
+   "section": "v17 \u00a714"
+  },
+  "X14": {
+   "value": 0.25,
+   "status": "provisional_unratified",
+   "basis": "K14: share of readable qualifying rounds that must show an open-entity find (v17 \u00a79.1)",
+   "section": "v17 \u00a714"
+  },
+  "X15": {
+   "value": 0.98,
+   "status": "provisional_unratified",
+   "basis": "K15: merge precision; a wrong merge is worse than a missed one",
+   "section": "v17 \u00a714"
+  },
+  "N16": {
+   "value": 20,
+   "status": "provisional_unratified",
+   "basis": "K16: resolved composite calls needed",
+   "section": "v17 \u00a714"
+  },
+  "RELATION_UNREVIEWED_MODE": {
+   "value": "classificatory",
+   "status": "provisional_unratified",
+   "basis": "a fixed rule, not a threshold (V2)",
+   "section": "v17 \u00a714"
   }
  }
 }
