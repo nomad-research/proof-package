@@ -1,0 +1,725 @@
+{
+ "_meta": {
+  "note": "Merged verbatim from lookbacks/k10_enum/rows_*.json by concatenation and sort by ledger row; no field edited.",
+  "enumerators": {
+   "rows_8_9": "read K10_prereg.md lines 48-107, slightly past the forced-notice section (the start of 'When is a notice derivable', format in general terms, no template content)",
+   "rows_10_11": "read the definitions section only",
+   "rows_13_15": "as instructed",
+   "rows_16_17": "did not open K10_prereg.md"
+  },
+  "frozen_before": "the template file was opened by the orchestrator"
+ },
+ "rows": [
+  {
+   "row": 8,
+   "round_id": "01a07c3d-f101-7627-b48a-ffd4eca12d7f",
+   "event_date": "2026-07-27",
+   "notices": [
+    {
+     "notice_id": "R08-N1",
+     "kind": "incident_report",
+     "issuer_name": "Phillips 66 (filer of the Sweeny refinery and petrochemical complex entity; Reuters: 'Phillips 66 reported ... according to a Texas Commission on Environmental Quality filing')",
+     "issuer_holder_id": "01a07c3e-5cb4-7622-93d6-f680e3b092d9",
+     "issuer_class": "company",
+     "node": "sweeny_refinery_output",
+     "node_source": "event",
+     "date_arrived": "2026-07-28",
+     "evidence_ids": [
+      "01a07c42-36d4-71ab-9b4b-47ae55cd2653",
+      "01a07c42-36d5-74c8-9af9-663386a4657d"
+     ],
+     "resolution_ids": [
+      "01a07c42-3a85-719b-8f3c-6bd6da154de5",
+      "01a07c42-3a84-743b-b3fb-d956d0e157c8",
+      "01a07c42-3a85-719b-8f3c-6bdbd7843605"
+     ],
+     "obligation_basis": "TCEQ emissions event report (STEERS) for the 27 Jul lightning upset; the record itself treats it as 'a filing obligation, not a market mechanism' (prediction 01a07c3e-5f28-77f1-8c34-df9a9b1d9107) and no calendar date exists for it",
+     "forced": "clear",
+     "summary": "P66's TCEQ emissions-event filing on the Sweeny lightning upset, known to the record only through the Reuters 28 Jul brief that quotes it; the filing itself (units, start/end times, flaring) was unreachable to the fetcher"
+    }
+   ],
+   "excluded": [
+    {
+     "what": "Reuters via TradingView wire, 28 Jul 2026, 'Phillips 66 reports unit upset due to lightning storm at Sweeny' (evidence 01a07c42-36d4-71ab-9b4b-47ae55cd2653): a press report about the event; it is the record's only carrier of the TCEQ filing and is cited as evidence for R08-N1, not counted as a second notice",
+     "why": "third_party_report"
+    },
+    {
+     "what": "UBS raises Phillips 66 price target to $235 from $212 on 28 Jul (evidence 01a07c42-36d5-74c8-9af9-66351058f3b3)",
+     "why": "discretionary"
+    },
+    {
+     "what": "EIA Weekly Petroleum Status Report, week ending 31 Jul 2026, published 5 Aug (evidence 01a07c42-36d5-74c8-9af9-6632635f59e6)",
+     "why": "scheduled"
+    },
+    {
+     "what": "Phillips 66 Q2 2026 results release of 5 Aug, OGJ coverage of it, and the Q2 call transcript (evidence 01a07c42-36d5-74c8-9af9-6636d64b9f7e); the record says the summaries carry no Sweeny mention and the IR page itself was not read",
+     "why": "scheduled"
+    },
+    {
+     "what": "Daily closes for PSX, XLE, VLO and MPC, 24 Jul to 4 Aug (evidence 01a07c42-36d5-74c8-9af9-662e8c253666, ...662fd480f7c8, ...6630a0ccacfa, ...663101ef8e02)",
+     "why": "price_print"
+    },
+    {
+     "what": "Earlier TCEQ emissions-event filings for the same site, 9 Jan 2026 (fuel-gas upset) and 13 Jul 2026 (power-related upset), cited in the recap, predicate_checks basis and node_facts",
+     "why": "before_clock"
+    },
+    {
+     "what": "Any restart, end-time or 'back to normal' statement for the tripped units (record: 'No end time, restart or back to normal statement found'; the TCEQ end time sits in the unread filing)",
+     "why": "not_arrived"
+    },
+    {
+     "what": "Any owner damage statement or owner statement on the upset (lag_band factor 1 note: owner statements 'were not located at all')",
+     "why": "not_arrived"
+    },
+    {
+     "what": "Any CPChem Sweeny event, filing or statement (coverage record: 'No CPChem Sweeny event' found; branch complex_wide did not arise)",
+     "why": "not_arrived"
+    },
+    {
+     "what": "Any force majeure or allocation notice: none appears in the record and none was predicted for this round",
+     "why": "not_arrived"
+    }
+   ],
+   "notes": "One notice only. Dating: the Reuters brief (source_time 28 Jul) says P66 'reported on Tuesday' (28 Jul 2026 is a Tuesday); the scorer_notes and the prediction claim call the filing 'dated 27 July' (the event date). The record never shows the filing's own date because STEERS was unreachable, so date_arrived uses the dated document the record does hold (28 Jul, one day after the clock). If the filing is taken to be dated 27 Jul it would fall on the clock and be excluded as before_clock. Coverage caution for the orchestrator: the linked resolution 01a07c42-3a85-719b-8f3c-6bd6da154de5 carries source_coverage 'adequate', but its scorer_note says the filing's own page was unreachable and its existence is established only by the wire that quotes it; the map (01a07c42-3a84-743b-b3fb-d956d0e157c8) and lag_band (01a07c42-3a85-719b-8f3c-6bdbd7843605) resolutions, which name the TCEQ report as their carrier, are both 'thin'. Issuer alternative: the plant holder 'Phillips 66 Sweeny Refinery' (01a07c3e-5cb5-75d4-a348-2fc3febe419c, kind plant, parent Phillips 66) is the TCEQ-facing entity in the touched set; the wire names Phillips 66 as the reporter. All eight touched_set rows sit on the event node sweeny_refinery_output. Round 8 has no resolution or evidence row on any other notice kind."
+  },
+  {
+   "row": 9,
+   "round_id": "01a07e03-1a20-7445-a4de-634c281d09de",
+   "event_date": "2026-08-12",
+   "notices": [],
+   "excluded": [
+    {
+     "what": "JOIFF incident report, Aug 2026 (evidence 01a07e0d-f1a8-7756-8d9e-3634cffef939, source_time 12 Aug): an industry fire-forum account of the yard fire; not an authority or operator of shared infrastructure, and dated on the event date",
+     "why": "before_clock"
+    },
+    {
+     "what": "Shelter-in-place order over about four square miles, its extension into East St. Louis north of Illinois Route 15, and its lift at 8:53 a.m. (KFVS12 and STLPR, 12 Aug; evidence 01a07e0d-f1a8-7756-8d9e-3635276c706f, ...363652a110c6); issued by local emergency officials, all on 12 Aug. This is the item most shaped like a forced authority notice in the round, and it sits on the clock, not after it",
+     "why": "before_clock"
+    },
+    {
+     "what": "St. Clair County EMA statement (Herb Simmons) requesting five tandem loads of sand for a runoff berm, 12 Aug (evidence 01a07e0d-f1a8-7756-8d9e-3635276c706f)",
+     "why": "before_clock"
+    },
+    {
+     "what": "East St. Louis District 189 closure of all schools for the day, 12 Aug",
+     "why": "before_clock"
+    },
+    {
+     "what": "Railroad operations in the area shut down, 12 Aug (STLPR/FOX 2 search summary; issuer not named in the record)",
+     "why": "before_clock"
+    },
+    {
+     "what": "First Alert 4 (KMOV) 12 Aug piece: EPA and Illinois regulators report no violations at the site; 'No company statement in the piece' (evidence 01a07e0d-f1a8-7756-8d9e-36337c1057db)",
+     "why": "third_party_report"
+    },
+    {
+     "what": "RiverBender 'emergency director details decisions' article and HazardEx piece: returned HTTP 403 to the fetcher, never read, no date in the record beyond the 12 Aug lift time RiverBender is quoted for (evidence 01a07e0d-f1a9-7191-9ec0-16b6f6090919; the second scorer's mention of a HazardEx 'incident report' is not backed by a readable document)",
+     "why": "third_party_report"
+    },
+    {
+     "what": "Leslie's, Inc. Q3 fiscal 2026 results and withdrawn outlook, released after the close on 12 Aug (evidence 01a07e0d-f1a9-7191-9ec0-16ad93273370); the date was announced on 5 Aug and the release does not mention the fire, Sauget or trichlor",
+     "why": "scheduled"
+    },
+    {
+     "what": "Leslie's 5 Aug announcement of its 12 Aug results date (evidence 01a07e0d-f1a9-7191-9ec0-16af0d9be251)",
+     "why": "scheduled"
+    },
+    {
+     "what": "Benzinga/Investing.com 12-13 Aug: Leslie's falls 44% after hours on results (evidence 01a07e0d-f1a9-7191-9ec0-16ae95e0f7b0); no coverage connects it to the fire",
+     "why": "third_party_report"
+    },
+    {
+     "what": "Daily closes for POOL, XRT, LESL, OXY, XLE, EMN, XLB and HAYW, 10-21 Aug (evidence 01a07e0d-f1a9-7191-9ec0-16b085717623, ...16b14a3f1d28, ...16b2ed53be60, ...16b3bd3af360, ...16b4bc41ba49)",
+     "why": "price_print"
+    },
+    {
+     "what": "C&EN 2021 article on the 2020 BioLab Westlake fire shortages, and the 23 Sep 2020 Pool & Spa News piece (evidence 01a07e0d-f1a9-7191-9ec0-16b719e450a5, ...16b592775533): prior-class commentary on other events",
+     "why": "discretionary"
+    },
+    {
+     "what": "National Response Center report for the fire (prediction 01a07e06-bd97-7309-afe8-60cb374aa3f6, resolution 01a07e0d-f317-72f7-91b9-8e5fa5baf85f): expected as a filing obligation, but no report number surfaced and the NRC FOIA database was never searched; scored unverified",
+     "why": "not_arrived"
+    },
+    {
+     "what": "US Coast Guard safety zone or marine safety information bulletin for the river at Sauget (prediction 01a07e06-bd97-7309-afe8-60ca320e3585, resolutions 01a07e0d-f317-72f7-91b9-8e5efdef012e and human-superseding 01a08001-a2b6-767f-af61-5678ddd9371c): sector page returned 403, nothing found; the human ruled it unverified, not a miss",
+     "why": "not_arrived"
+    },
+    {
+     "what": "Force majeure, allocation or supply notice from any US trichlor producer, importer or distributor (null call, resolution 01a07e0d-f317-72f7-91b9-8e5c959de382; evidence 01a07e0d-f1a9-7191-9ec0-16b592775533): none found in 14 days, coverage thin",
+     "why": "not_arrived"
+    },
+    {
+     "what": "Any ContainerPort Group or material-owner statement, yard reopening or restart statement, or Illinois EPA / US EPA cleanup order (lag_band factor 2 note: 'no report on an Illinois EPA order or the yard's reopening'; no report names the owner of the material)",
+     "why": "not_arrived"
+    },
+    {
+     "what": "Any post-12 Aug regulatory, insolvency or restructuring notice concerning the yard, the operator or a listed party's exposure to the fire: none in the record; the Leslie's strategic-alternatives language sits inside the scheduled results release and does not concern the event",
+     "why": "not_arrived"
+    }
+   ],
+   "notes": "No forced notice arrived after the clock in the v15 record for this round. The only forced-shaped items (the shelter-in-place order and its extension and lift, the school closure, the rail shutdown, the JOIFF incident page) are all dated 12 Aug, the event date itself, so under the after-the-clock rule they are listed under excluded as before_clock rather than counted. If the orchestrator wants a same-day variant, those are the candidates (issuers: St. Clair County emergency management and East St. Louis District 189; obligation would be emergency-response authority, plausibly doubtful). The operator's own coverage record found nothing from any producer, importer or distributor, but its coverage was thin (trade press through search only, ICIS closed, USCG sector page, RiverBender, HazardEx and FOX 2 returned 403, NRC FOIA not searched), so absence here is a limit of the record, not proof that nothing arrived. Events node us_trichlor_supply; touched_set has 15 rows across us_trichlor_supply and sauget_industrial_corridor_access, and no notice sits on either. Resolution 01a08001-a2b6-767f-af61-5678ddd9371c is a human ruling that supersedes the operator's miss on the USCG call."
+  },
+  {
+   "row": 10,
+   "round_id": "01a0801b-19c3-757a-b01f-5e7339e5f5fa",
+   "event_date": "2026-09-07",
+   "notices": [],
+   "excluded": [
+    {
+     "what": "EQS ad-hoc, paragon GmbH & Co. KGaA (with paragon electronic GmbH and paragon movasys GmbH), 7 Sep 2026 11:51 CEST: insolvency filings at Amtsgericht Paderborn, regular proceedings, management expects continuation. Kind would be corporate_disclosure_of_event_impact (issuer holder 01a0801d-98ea-71d0-aec6-72f7ad4e6414, node paragon_automotive_electronics_supply). This is the event's own disclosure. evidence 01a08023-5a1f-7285-bcf8-22cf48c948d6; bears on resolutions 01a08023-5db6-702b-8e4e-e7d27fa49a77 (map, miss, adequate) and 01a08023-5db7-7686-a5ce-4ab3554c4c3c (sign, hit, adequate).",
+     "why": "before_clock"
+    },
+    {
+     "what": "Amtsgericht Paderborn orders, 7 Sep 2026 at 13:51, 14:25, 14:38 (97 IN 318/26, 319/26, 320/26): provisional insolvency administration ordered for all three companies, Martin Mucha appointed, disposals only with his consent, no Eigenverwaltung. Kind would be regulatory_decision (court order; authority; node paragon_automotive_electronics_supply). Dated the same day as the event. evidence 01a08023-5a20-7004-b607-40ffd3a11ca4 (carried via diebewertung.de, a third-party page reproducing the orders); bears on resolution 01a08023-5db6-702b-8e4e-e7d27fa49a77 (map call, scored early on this order, adequate).",
+     "why": "before_clock"
+    },
+    {
+     "what": "EQS corporate news, paragon, 7 Sep 2026: the company's own account (Tejascore term sheet of 19 June and unpaid EUR 12m loan, 552 employees, six German sites, sole-supplier share about 94%, order backlog). Kind would be corporate_disclosure_of_event_impact (node paragon_automotive_electronics_supply). Same day as the event. evidence 01a08023-5a20-7004-b607-410053b4bc4d; no resolution links directly (its 94% fact is used in a predicate check, not a call).",
+     "why": "before_clock"
+    },
+    {
+     "what": "BondGuide 7 Sep 2026 (evidence 01a08023-5a20-7004-b607-4101842649f7) and Anleihen-Finder 7 Sep 2026 (evidence 01a08023-5a20-7004-b607-4102bd845db7): trade-press reports on the filing and the notes DE000A2GSB86 (EUR 43.65m, extended to 2031), with quotes of CEO Frers. Reports about the event, not the notice; also dated on the event date.",
+     "why": "third_party_report"
+    },
+    {
+     "what": "ad-hoc-news / regional press, 8 Sep 2026 (evidence 01a08023-5a20-7004-b607-41035b2d0b5e): 552 jobs at risk, over 250 in Suhl; production intended to continue without interruption; management 'betonte, dass das Unternehmen grunds\u00e4tzlich profitabel arbeite'. This is the only document in the row dated after 7 Sep that is not a price print. It is a press report relaying management statements, no notice document is shown, and the continuation statement is not a post-outage restart statement (no outage occurred); the quoted remark is discretionary commentary. Not linked to any resolution (call 8, continuation statement, is unresolved).",
+     "why": "third_party_report"
+    },
+    {
+     "what": "Price prints: XETRA PGN closes 1-8 Sep (evidence 01a08023-5a20-7004-b607-41043a71062a), ariva Frankfurt quote of the notes on 8 Sep (01a08023-5a20-7004-b607-41059403071c), VOW3/BMW/CON/DAX closes (01a08023-5a20-7004-b607-41067267ce4a), Voltabox closes (01a08023-5a20-7004-b607-4107356bb45c).",
+     "why": "price_print"
+    },
+    {
+     "what": "Any OEM statement (Volkswagen, BMW, Mercedes) naming paragon as a supply risk or giving an allocation or sourcing notice. The 8 Sep coverage record (evidence 01a08023-5a20-7004-b607-4108ad1b0938) says 'No OEM has commented'; the null call (60 days) and the narrative call are unresolved. No resolution exists.",
+     "why": "not_arrived"
+    },
+    {
+     "what": "A company or administrator statement on continuation of operations and wage cover (Insolvenzgeld) within 14 days (call due 21 Sep). The coverage record says 'no Insolvenzgeld statement yet; no administrator statement beyond the appointment'; the recap says 'the administrator has not spoken, Insolvenzgeld unaddressed'. No resolution exists.",
+     "why": "not_arrived"
+    },
+    {
+     "what": "Opening of proceedings (Er\u00f6ffnungsbeschluss), creditors' report meeting (Berichtstermin) notice, and any public court notice on insolvenzbekanntmachungen.de. Not in the record: the site could not be read on day one (TLS failure) and no later document is on the ledger. Also no bondholder-meeting, trustee or exchange (Scale segment) notice appears anywhere in the record.",
+     "why": "not_arrived"
+    },
+    {
+     "what": "EQS ad-hoc of hGears AG (subsidiary hGears Schramberg GmbH files for insolvency in self-administration), 7 Sep 2026: named in the intake record as the first-listed candidate in the enumeration window and skipped. A different issuer's event, not in the round's evidence, and not concerning this round's event or node.",
+     "why": "other"
+    }
+   ],
+   "notes": "Result: no forced notice arrived after the clock in the v15 record for this row. The record for round 10 was closed on day one and two (evidence recorded 8 Sep 2026; the ledger holds only two resolutions for the round, the two early ones, both scored on 7 Sep documents). Every notice-like document (the EQS ad-hoc, the three court orders, the EQS corporate release) is dated 7 Sep 2026, equal to the event_date, so under the on-or-before rule all are excluded as before_clock. If the orchestrator wants to reconsider the boundary for an event that was itself a same-day filing, those three same-day items (corporate_disclosure_of_event_impact, regulatory_decision, corporate_disclosure_of_event_impact) are the ones it would flip; I have not listed them as notices because the instruction says on or before the event_date is excluded. Later forced notices that a filing of this kind normally produces (proceedings opening, administrator statements, Insolvenzgeld, OEM statements, bond notices) are not in the record, so they cannot count. Nodes in play: event node paragon_automotive_electronics_supply and touched_set node paragon_2027_bond. The DB's -wal file was empty (0 bytes), so the immutable read hides nothing. Later ledger additions for this round (price observations, predicate checks, effects) contain no dated documents. The export's evidence (11 rows) and resolutions (2 rows) match the ledger exactly."
+  },
+  {
+   "row": 11,
+   "round_id": "01a0816a-0e1d-7619-b83d-2995e6bb75df",
+   "event_date": "2026-08-26",
+   "notices": [
+    {
+     "notice_id": "R11-N1",
+     "kind": "regulatory_decision",
+     "issuer_name": "European Commission (DG COMP)",
+     "issuer_holder_id": "01a0816b-35cb-7378-b0a6-546ade92fa72",
+     "issuer_class": "authority",
+     "node": "upm_sappi_jv_completion",
+     "node_source": "touched_set",
+     "date_arrived": "2026-08-27",
+     "evidence_ids": [
+      "01a0816d-b1cc-7781-917f-9b3140b793b9"
+     ],
+     "resolution_ids": [],
+     "obligation_basis": "EU Merger Regulation Phase II timetable: the Commission must decide by a fixed deadline (statutory window); whether any new procedural act (deadline reset or extension) was issued after the Statement of Objections is not shown",
+     "forced": "doubtful",
+     "summary": "Search-summary record (MLex paywalled, Concurrences and paper trades; evidence source_time 8 Sep 2026, knowable_from 27 Aug 2026): 'The Commission now has until 11 November 2026 to issue a final decision'; JV valued at EUR 1.42bn. Doubtful because it is a third-party summary of a date that may be an ordinary calendared statutory deadline (the ledger stores it as a scheduled-type 'mechanical' node fact) or may reflect a new Commission procedural act; the record cannot tell. No resolution bears on it (call 7, the 24 Nov lag call, and call 6, the 25 Sep null call, are unresolved)."
+    }
+   ],
+   "excluded": [
+    {
+     "what": "European Commission IP/26/1747, 26 Aug 2026: the Statement of Objections itself (preliminary view, horizontal concern in coated mechanical and coated woodfree paper, right to reply, file access, oral hearing). Kind would be regulatory_decision (issuer holder 01a0816b-35cb-7378-b0a6-546ade92fa72, authority, node upm_sappi_jv_completion); it is the event itself, dated on the event_date. evidence 01a0816d-b1cb-71ce-a8ab-b4588e91959c (read through trade-press and Concurrences summaries, press-corner page returned only a header); bears on resolution 01a0816d-b315-7592-ac02-0ba215ef96f7 (map call, hit, adequate) and on the UPM sign call resolution 01a0816d-b315-7592-ac02-0ba43b8ae793.",
+     "why": "before_clock"
+    },
+    {
+     "what": "UPM-Kymmene public statement on the Statement of Objections, 26 Aug 2026 (via PaperAge): 'a customary step', 'Together with Sappi, UPM is reviewing the SO carefully', 'will respond in due course'. Kind would be corporate_disclosure_of_event_impact (UPM holder 01a0816b-35be-7087-8508-117c443803fc, listed, HEL:UPM, node eea_graphic_paper_supply). Call 5 itself frames the confirmation as a listed party's disclosure obligation. Dated the same day as the event. evidence 01a0816d-b1cc-7781-917f-9b2f9334e2eb; bears on resolution 01a0816d-b316-7470-9ecb-4753bd38eedc (both-parties-confirm call, unverified, coverage thin).",
+     "why": "before_clock"
+    },
+    {
+     "what": "Lesprom, 26 Aug 2026 (evidence 01a0816d-b1cc-7781-917f-9b30cafeb227): trade-press report of the SO and the parties' intention to respond; reports about the event, dated on the event date.",
+     "why": "third_party_report"
+    },
+    {
+     "what": "Pulp & Paper News, 3 Sep 2026, 'UPM-Sappi deal could weaken competition, EU warns' (evidence 01a0816d-b1cc-7781-917f-9b324fe16e30; page 403 to the fetcher, headline and framing from a search summary): trade-press report relaying the Commission's warning and the parties' response. The only post-clock trade-press document; it reports the earlier step and shows no new notice.",
+     "why": "third_party_report"
+    },
+    {
+     "what": "Price prints: UPM (HEL) daily closes 21 Aug to 4 Sep (evidence 01a0816d-b1cc-7781-917f-9b33047379b7), Sappi (JSE) daily closes (01a0816d-b1cc-7781-917f-9b34b35ddfc1), and the Sanoma coverage record (01a0816d-b1cc-7781-917f-9b35fff73184, series not read).",
+     "why": "price_print"
+    },
+    {
+     "what": "A statement by Sappi Limited in its own name (JSE SENS or company release) on the Statement of Objections. The record says 'No statement by Sappi in its own name was found; SENS was not searched' and every report quotes UPM speaking for both. Resolution 01a0816d-b316-7470-9ecb-4753bd38eedc is unverified with coverage thin for exactly this reason. Not shown to have arrived in the record.",
+     "why": "not_arrived"
+    },
+    {
+     "what": "The Commission's final decision (deadline 11 Nov 2026), any remedy package or commitments filing, abandonment or withdrawal (null call, due 25 Sep), oral-hearing notices, and any exchange filing by UPM or Sappi on remedies. Expected in the calls and factors, none shown in the record; calls 6, 7 and 8 have no resolution.",
+     "why": "not_arrived"
+    },
+    {
+     "what": "The 11 November 2026 decision deadline stored as a scheduled-type node fact (node_facts 01a0816d-66d4-762e-9b61-ad714b8a4f24 and two duplicates, fact_type mechanical, knowable_from 27 Aug 2026). It is the same underlying date as the doubtful notice R11-N1; listed here so the alternative reading (calendared statutory deadline, so scheduled) is on the record.",
+     "why": "scheduled"
+    }
+   ],
+   "notes": "Result: one doubtful notice, no clear notice, for this row. The two real notice documents in the record (the Commission's press release IP/26/1747 and UPM's statement) are both dated 26 Aug 2026, equal to the event_date, so under the on-or-before rule they are before_clock. The only post-clock items are a 3 Sep trade-press report, an 8 Sep search-summary record carrying the 11 Nov deadline (knowable_from 27 Aug), and price prints. The recap's contamination note says the operator's pre-submission search returned 'the Commission's own release' as aftermath; the evidence row dates that release 26 Aug, on the clock, not after it. Six of nine calls are resolved; three (null 25 Sep, lag 24 Nov, meta 14 Sep) are unresolved, so nothing later than the round's 8 Sep close is in the record. Round is learning class (operator-declared), which does not change this enumeration. The event node is eea_graphic_paper_supply; the notice sits on upm_sappi_jv_completion, a node in that round's touched_set (holder rows for the EC, UPM, Sappi and the proposed JV are on that node). The DB's -wal file was empty (0 bytes), so the immutable read hides nothing. The export's evidence (8 rows) and resolutions (6 rows) match the ledger exactly."
+  },
+  {
+   "row": 13,
+   "round_id": "01a081b4-f08f-72ec-bdef-4719ac5f04bf",
+   "event_date": "2025-07-31",
+   "notices": [
+    {
+     "notice_id": "R13-N1",
+     "kind": "regulatory_decision",
+     "issuer_name": "Servicio Nacional de Geologia y Mineria (Sernageomin)",
+     "issuer_holder_id": "01a081ae-26c6-7440-9d5c-fea77486d9b1",
+     "issuer_class": "authority",
+     "node": "el_teniente_copper_supply",
+     "node_source": "event",
+     "date_arrived": "2025-08-01",
+     "evidence_ids": [
+      "01a081b9-0d8b-731b-8cf0-9c1283187afe"
+     ],
+     "resolution_ids": [
+      "01a081ba-79d4-7414-92c4-7ded9cb7144d",
+      "01a081ba-79d5-742e-817d-fdede710464a"
+     ],
+     "obligation_basis": "regulator's formal suspension order over underground operations after a fatal collapse, with reports required before it would evaluate lifting (regulatory action; record calls it a 'formal suspension')",
+     "forced": "clear",
+     "summary": "Formal suspension of underground operations at El Teniente plus instruction that Codelco present four reports (cause analysis, recovery plan, fortification assessment, structural evaluation) before lifting is evaluated; date ambiguous in the record (scorer_note 'evening of 31 July', evidence knowable_from 2025-08-01, article 2025-08-04), see notes."
+    },
+    {
+     "notice_id": "R13-N2",
+     "kind": "regulatory_decision",
+     "issuer_name": "Servicio Nacional de Geologia y Mineria (Sernageomin)",
+     "issuer_holder_id": "01a081ae-26c6-7440-9d5c-fea77486d9b1",
+     "issuer_class": "authority",
+     "node": "el_teniente_copper_supply",
+     "node_source": "event",
+     "date_arrived": "2025-08-09",
+     "evidence_ids": [
+      "01a081b9-0d8b-731b-8cf0-9c14eb477395"
+     ],
+     "resolution_ids": [
+      "01a081ba-79d4-7414-92c4-7ded9cb7144d",
+      "01a081ba-79d5-742e-817d-fdede710464a"
+     ],
+     "obligation_basis": "regulator's permit action lifting part of its suspension (approval of partial restart)",
+     "forced": "clear",
+     "summary": "Approval (jointly reported with the Labour Directorate) on 9 August to restart eight of twelve underground sectors; Recursos Norte and Andesita stay suspended indefinitely pending engineering evaluation and remedial work."
+    },
+    {
+     "notice_id": "R13-N3",
+     "kind": "regulatory_decision",
+     "issuer_name": "Labour Directorate (as named in the record)",
+     "issuer_holder_id": null,
+     "issuer_class": "authority",
+     "node": "el_teniente_copper_supply",
+     "node_source": "event",
+     "date_arrived": "2025-08-09",
+     "evidence_ids": [
+      "01a081b9-0d8b-731b-8cf0-9c14eb477395"
+     ],
+     "resolution_ids": [
+      "01a081ba-79d4-7414-92c4-7ded9cb7144d"
+     ],
+     "obligation_basis": "labour regulator's approval needed for the partial restart (regulatory permit action)",
+     "forced": "clear",
+     "summary": "Approval alongside Sernageomin, reported in one sentence with N2, to restart eight of twelve underground sectors on 9 August; may be one joint approval with N2 (see notes)."
+    },
+    {
+     "notice_id": "R13-N4",
+     "kind": "restart_statement",
+     "issuer_name": "Corporacion Nacional del Cobre de Chile (Codelco)",
+     "issuer_holder_id": "01a081ae-26c3-763c-b48a-c8cdccb44713",
+     "issuer_class": "company",
+     "node": "el_teniente_copper_supply",
+     "node_source": "event",
+     "date_arrived": "2025-08-06",
+     "evidence_ids": [
+      "01a081b9-0d8b-731b-8cf0-9c132cd5d885"
+     ],
+     "resolution_ids": [
+      "01a081ba-79d4-7414-92c4-7ded9cb7144d"
+     ],
+     "obligation_basis": "operating necessity: after the suspension order the operator had to ask the regulator for permission before any restart; the request itself was Codelco's timing, so obligation is not shown",
+     "forced": "doubtful",
+     "summary": "Six days after the 31 July stoppage Codelco asked the regulator for permission to restart part of El Teniente (reported by Reuters via US News, 6 August)."
+    },
+    {
+     "notice_id": "R13-N5",
+     "kind": "corporate_disclosure_of_event_impact",
+     "issuer_name": "Corporacion Nacional del Cobre de Chile (Codelco)",
+     "issuer_holder_id": "01a081ae-26c3-763c-b48a-c8cdccb44713",
+     "issuer_class": "company",
+     "node": "el_teniente_copper_supply",
+     "node_source": "event",
+     "date_arrived": "2025-08-21",
+     "evidence_ids": [
+      "01a081b9-0d8c-7652-ab4d-675211722a54"
+     ],
+     "resolution_ids": [
+      "01a081ba-79d5-742e-817d-fdf434b33d7f",
+      "01a081ba-79d4-7414-92c4-7ded9cb7144d"
+     ],
+     "obligation_basis": "not shown as obliged: Codelco is unlisted (holders.listed=0); the scorer_note for the guidance call asserts a state-owned producer 'with bond-market disclosure duties'; the record does not say the date was uncalendared",
+     "forced": "doubtful",
+     "summary": "Codelco cut 2025 production guidance to 1.34-1.37 Mt from 1.37-1.40 Mt, put El Teniente at 316,000 t and named 33,000 t and about $340 million of lost output (Reuters via Mining.com, 21 August)."
+    },
+    {
+     "notice_id": "R13-N6",
+     "kind": "counterparty_notice",
+     "issuer_name": "Corporacion Nacional del Cobre de Chile (Codelco)",
+     "issuer_holder_id": "01a081ae-26c3-763c-b48a-c8cdccb44713",
+     "issuer_class": "company",
+     "node": "codelco_capex_programme",
+     "node_source": "touched_set",
+     "date_arrived": "2025-08-08",
+     "evidence_ids": [
+      "01a081b9-0d8c-7652-ab4d-6754c743a601"
+     ],
+     "resolution_ids": [
+      "01a081ba-79d5-742e-817d-fdf21997764b"
+     ],
+     "obligation_basis": "not shown: a contractual suspension of contractors' contracts is Codelco's own act; obligation and issue date are not stated (record gives only 'until at least 13 August')",
+     "forced": "doubtful",
+     "summary": "Codelco suspended the contracts of the contractors directly involved (Gardilcic, Salfa Montajes) until at least 13 August; reported by the Business and Human Rights Resource Centre (knowable from 8 August, published 14 August)."
+    },
+    {
+     "notice_id": "R13-N7",
+     "kind": "other:development_suspension_disclosure",
+     "issuer_name": "Corporacion Nacional del Cobre de Chile (Codelco)",
+     "issuer_holder_id": "01a081ae-26c3-763c-b48a-c8cdccb44713",
+     "issuer_class": "company",
+     "node": "codelco_capex_programme",
+     "node_source": "touched_set",
+     "date_arrived": "2026-08-04",
+     "evidence_ids": [
+      "01a081b9-0d8d-7240-9597-39a95cea2536"
+     ],
+     "resolution_ids": [],
+     "obligation_basis": "not shown; the record itself labels this a different event (August 2026, 'not a collapse'), dated a year after the clock; listed only because it concerns the El Teniente development programme (touched_set node) and is after the 2025-07-31 clock",
+     "forced": "doubtful",
+     "summary": "Codelco suspended development of the Andes Norte section at El Teniente for up to two years after analysis found a seismic phenomenon tied to project depth (Northern Miner, source 2026-08-05, knowable 2026-08-04); the exact date of Codelco's own statement is not in the record."
+    }
+   ],
+   "excluded": [
+    {
+     "what": "Codelco's public statement that mining at El Teniente was suspended, made the evening of 31 July (record: 'stated the same evening'; ev 01a081b9-0d8b-731b-8cf0-9c132cd5d885, res 01a081ba-79d5-742e-817d-fdecbed702c0)",
+     "why": "before_clock"
+    },
+    {
+     "what": "US tariff proclamation of 30 July exempting refined copper (cited in ev 01a081b9-0d8c-7652-ab4d-67573b7a8a53 as the week's copper story); not about the event or node",
+     "why": "before_clock"
+    },
+    {
+     "what": "Wikipedia entry on the 2025 accident, source 2025-08-03 (ev 01a081b9-0d8a-7543-b9e3-fb034be129b4): encyclopaedic account of the event, not a notice by a named issuer",
+     "why": "third_party_report"
+    },
+    {
+     "what": "National mourning declared on 3 August (inside the Wikipedia entry, ev 01a081b9-0d8a-7543-b9e3-fb034be129b4): government act, no obligation or notice shown, not concerning the node's supply",
+     "why": "discretionary"
+    },
+    {
+     "what": "World Socialist Web Site article of 2025-08-10 naming the contractors of the dead (ev 01a081b9-0d8c-7652-ab4d-67530a6afc46)",
+     "why": "third_party_report"
+    },
+    {
+     "what": "Engineering and Mining Journal trade-press framing of a rock burst, 2025-08-05 (ev 01a081b9-0d8c-7652-ab4d-6755b5543058)",
+     "why": "third_party_report"
+    },
+    {
+     "what": "COMEX copper daily closes 25 July to 12 August 2025 (ev 01a081b9-0d8c-7652-ab4d-67573b7a8a53)",
+     "why": "price_print"
+    },
+    {
+     "what": "Gardilcic's response to the Business and Human Rights Resource Centre's invitation: record says the company did not respond (ev 01a081b9-0d8c-7652-ab4d-6754c743a601)",
+     "why": "not_arrived"
+    },
+    {
+     "what": "Codelco's own response to the Business and Human Rights Resource Centre, mentioned only as 'a parallel entry' whose content the record does not give (ev 01a081b9-0d8c-7652-ab4d-6754c743a601)",
+     "why": "discretionary"
+    },
+    {
+     "what": "Codelco's submission of the four reports Sernageomin required (cause analysis, recovery plan, fortification assessment, structural evaluation): required by N1 but no submission or date shown anywhere in the record",
+     "why": "not_arrived"
+    },
+    {
+     "what": "Any Sernageomin decision lifting the indefinite suspension of Recursos Norte and Andesita (record says they reopen only after engineering evaluation and remedial work): none shown",
+     "why": "not_arrived"
+    },
+    {
+     "what": "Claimed wider Sernageomin special-inspection programme for other underground mines: only a content aggregator says so, unsupported by regulator notices or wires (res 01a081ba-79d5-742e-817d-fdeeb7dbef23, coverage thin)",
+     "why": "not_arrived"
+    },
+    {
+     "what": "Line that half of El Teniente's twelve sectors have reopened, inside the 21 August Reuters text (ev 01a081b9-0d8c-7652-ab4d-675211722a54): background sentence, not shown as a Codelco or regulator statement",
+     "why": "third_party_report"
+    },
+    {
+     "what": "Mining.com 2026-08-15 report of a later technical finding that the seismicity was probably mining-induced (ev 01a081b9-0d8c-7652-ab4d-675662235be5): no issuing party or document is named (could be the cause-analysis report or an independent study; the record does not say)",
+     "why": "third_party_report"
+    }
+   ],
+   "notes": "Clock is events.event_date 2025-07-31 (re-run of voided row 12, whose clock was 2026-07-31). Nodes: event node el_teniente_copper_supply; touched_set nodes el_teniente_copper_supply and codelco_capex_programme. DATE AMBIGUITY on R13-N1: the map call's scorer_note dates Sernageomin's suspension 'on the evening of 31 July' (the clock date), call 2's scorer_note says 'within a day', the evidence row's knowable_from is 2025-08-01 and the article is dated 2025-08-04. I dated it 2025-08-01 (the evidence row's date); if the orchestrator dates the order 31 July it falls under before_clock. The record does not separate the suspension from the four-report instruction, so they are one notice. R13-N2 and R13-N3 come from one UPI sentence ('approval from Sernageomin and the Labour Directorate'); they may be one joint approval and can be merged. Codelco is unlisted (holders.listed=0), so no exchange rule applies to it; R13-N5 rests on the scorer_note's mention of bond-market disclosure duties. Record limits: the ledger holds no accident notification, no exchange or securities-regulator filing, no force majeure or allocation notice, no contractor notice and no Codelco or Sernageomin primary document; every notice reaches the record through press (Reuters, UPI, Mining.com, BHRRC). Links deliberately not made: res 01a081ba-79d5-742e-817d-fdeeb7dbef23 (null call, thin coverage, about orders beyond the site) is not linked to R13-N1/N2, which are orders at the site; res 01a081ba-79d5-742e-817d-fdecbed702c0 (Codelco states a stoppage) bears only on the 31 July stoppage statement listed under excluded. All evidence rows for this round have carrier = null. The database was opened immutable, so uncheckpointed WAL frames are invisible; the export's evidence and resolutions matched the database row for row (11 evidence, 11 resolutions)."
+  },
+  {
+   "row": 15,
+   "round_id": "01a082b4-918a-75d9-9132-637c692e2aec",
+   "event_date": "2026-08-06",
+   "notices": [
+    {
+     "notice_id": "R15-N1",
+     "kind": "regulatory_decision",
+     "issuer_name": "US International Trade Commission (ALJ initial determination in the parallel trade-secrets investigation)",
+     "issuer_holder_id": "01a082b4-b6b3-75eb-95e3-bd5cac2461f2",
+     "issuer_class": "authority",
+     "node": "us_display_glass_imports",
+     "node_source": "event",
+     "date_arrived": "2026-08-13",
+     "evidence_ids": [
+      "01a082ba-5aba-767e-afde-655a254e2b55"
+     ],
+     "resolution_ids": [
+      "01a082bb-f6d6-7296-9fe2-20bab19daf6d"
+     ],
+     "obligation_basis": "statutory Section 337 process: public version of an initial determination in a pending investigation; the determination itself is dated 24 July, so what arrived on 13 August is the public version, and its issue date is not shown as calendared",
+     "forced": "doubtful",
+     "summary": "Public version of the trade-secrets initial determination issued 13 August 2026: ALJ recommends exclusion orders against all remaining respondents and a cease-and-desist order, which would take effect January 2027 subject to Commission review (reported by DigiTimes 2026-08-20)."
+    }
+   ],
+   "excluded": [
+    {
+     "what": "USITC Limited Exclusion Order of 6 August 2026 in the glass-composition patents case: this is the round's event itself, dated on the clock (ev 01a082ba-5ab9-715f-86c6-75b8c2206bb1, res 01a082bb-f6d5-751b-bb42-83ae8970821d)",
+     "why": "before_clock"
+    },
+    {
+     "what": "USITC Cease and Desist Order against the remaining importer respondent, issued with the 6 August order (ev 01a082ba-5ab9-715f-86c6-75b8c2206bb1, res 01a082bb-f6d5-751b-bb42-83ae8970821d)",
+     "why": "before_clock"
+    },
+    {
+     "what": "Bond rate for the Presidential review period, part of the 6 August remedy (res 01a082bb-f6d6-7296-9fe2-20bab19daf6d)",
+     "why": "before_clock"
+    },
+    {
+     "what": "ALJ initial determination in the trade-secrets investigation, 24 July 2026 (ev 01a082ba-5ab9-715f-86c6-75b9a745fb5d, 01a082ba-5aba-767e-afde-655b6cdef68d)",
+     "why": "before_clock"
+    },
+    {
+     "what": "ALJ initial determination with recommended Limited Exclusion Order, 7 April 2026, and Unified Patent Court ruling in Germany, 16 April 2026 (ev 01a082ba-5ab9-715f-86c6-75b9a745fb5d)",
+     "why": "before_clock"
+    },
+    {
+     "what": "USITC news release of 2025-03-03 instituting the second Section 337 investigation, captioned with 'Products Containing the Same' (ev 01a082ba-5aba-767e-afde-655c61aec8dc)",
+     "why": "before_clock"
+    },
+    {
+     "what": "Kellogg Hansen, counsel to Corning, announcement of the 24 July determination; record notes it is counsel, not Corning in its own name (ev 01a082ba-5aba-767e-afde-655b6cdef68d)",
+     "why": "before_clock"
+    },
+    {
+     "what": "Corning's Brendan Mosher quoted on the July trade-secrets determination (ev 01a082ba-5ab9-715f-86c6-75b9a745fb5d)",
+     "why": "discretionary"
+    },
+    {
+     "what": "Covington and Burling client alert on the 6 August order, source 2026-08-14 (ev 01a082ba-5ab9-715f-86c6-75b8c2206bb1): law-firm commentary, not a notice by a party to the case",
+     "why": "discretionary"
+    },
+    {
+     "what": "DigiTimes reports of 2026-07-24 and 2026-08-20 (ev 01a082ba-5ab9-715f-86c6-75b9a745fb5d, 01a082ba-5aba-767e-afde-655a254e2b55): press about the case; the 13 August public version they report is listed as R15-N1",
+     "why": "third_party_report"
+    },
+    {
+     "what": "Corning's own-name public confirmation of the 6 August determination (call resolved unverified, thin coverage: no statement found, Corning IR feed not read; ev 01a082ba-5aba-767e-afde-655b6cdef68d, res 01a082bb-f6d6-7296-9fe2-20b46ab0ae15)",
+     "why": "not_arrived"
+    },
+    {
+     "what": "Any CBP ruling, message or guidance naming finished displays as within the order's scope, expected as a possibility in the 45-day window; none found (res 01a082bb-f6d6-7296-9fe2-20b79ecbd21f, thin coverage)",
+     "why": "not_arrived"
+    },
+    {
+     "what": "Any Presidential disapproval message or notice that the order became final (call window runs to 2026-10-20); none shown, exact effective date not established (res 01a082bb-f6d6-7296-9fe2-20bab19daf6d)",
+     "why": "not_arrived"
+    },
+    {
+     "what": "Daily closes for GLW, 600707.SS, 5201.T, 5214.T, 000725.SZ and LPL around 6 August 2026 (ev 01a082ba-5aba-767e-afde-655d8c0c4af9)",
+     "why": "price_print"
+    }
+   ],
+   "notes": "Clock is events.event_date 2026-08-06. Event node us_display_glass_imports; touched_set nodes us_display_glass_imports and us_display_downstream_assembly. The event itself (the Limited Exclusion Order and the Cease and Desist Order) is dated on the clock and so is excluded as before_clock; the only dated document in the record that postdates the clock is the 13 August public version of the parallel trade-secrets initial determination, and it is doubtful for three reasons: it belongs to a different investigation from the event's (the same respondents and node; round intake Q1b describes it as an active parallel dispute on the same node), the determination itself is dated 24 July, and the record does not show the 13 August date was uncalendared. The record for this row is thin: 6 evidence rows, all press, law-firm or counsel write-ups apart from one 2025 USITC news release; it holds no filing by Corning, IRICO or any downstream company, no CBP instrument, no Federal Register item and no Presidential-review notice. Corning's IR feed and CBP's rulings database were not read directly (calls resolved with thin coverage), so absence from the record is not absence in the world. Only res 01a082bb-f6d6-7296-9fe2-20bab19daf6d (thin) is linked to R15-N1, because its scorer_note cites the parallel case's orders 'described as taking effect in January 2027'; the map call's resolution (adequate) bears on the 6 August order, which is excluded. The database was opened immutable; the export's evidence and resolutions matched the database (6 evidence, 9 resolutions)."
+  },
+  {
+   "row": 16,
+   "round_id": "01a0857b-b404-711e-8de9-e2e6f4ec17ec",
+   "event_date": "2026-08-08",
+   "notices": [
+    {
+     "notice_id": "R16-N1",
+     "kind": "restart_statement",
+     "issuer_name": "PT Freeport Indonesia (President Director Tony Wenas; joint owner of PT Smelting with Mitsubishi Materials)",
+     "issuer_holder_id": "01a0857b-b68c-7567-bf71-dbd75ae1d2c7",
+     "issuer_class": "company",
+     "node": "indonesian_copper_smelting",
+     "node_source": "event",
+     "date_arrived": "2026-08-13",
+     "evidence_ids": [
+      "01a08584-1e92-76c4-bf94-31edd3a55934"
+     ],
+     "resolution_ids": [
+      "01a08584-1fdc-70cb-a9ae-172b56b35589",
+      "01a08584-1fdb-724d-91a5-8663510c64d0",
+      "01a08584-1fdc-70cb-a9ae-17287583b0f9",
+      "01a08584-1fdc-70cb-a9ae-172965096fb5"
+     ],
+     "obligation_basis": "(c) operating necessity to state a status after an outage: the owner of the halted plant confirmed the halt and gave a repair-completion timeline; PTFI is an unlisted subsidiary of listed FCX, so the record shows no exchange-rule or statutory basis, only operating necessity",
+     "forced": "clear",
+     "summary": "Announced 13 Aug (as reported by the Jakarta Post, relaying Bisnis.com): smelter halted effective 8 Aug for urgent furnace repairs, completion projected Q3 2026, Grasberg production unaffected, sales timing under review. Same document also works as an event-impact statement (alt kind corporate_disclosure_of_event_impact) and is the one the record calls 'PT Freeport Indonesia's own announcement of 13 August'. Caveat: the timeline is quoted from an executive's remarks to a news outlet, so a strict reader could call it interview-form."
+    },
+    {
+     "notice_id": "R16-N2",
+     "kind": "restart_statement",
+     "issuer_name": "PT Smelting (Gresik smelter), inferred: the record says only 'buyers were told' and names no issuer",
+     "issuer_holder_id": "01a0857b-b68b-725d-9576-835e2f538d26",
+     "issuer_class": "plant",
+     "node": "indonesian_copper_smelting",
+     "node_source": "event",
+     "date_arrived": "2026-08-10",
+     "evidence_ids": [
+      "01a08584-1e92-76c4-bf94-31efe315a673"
+     ],
+     "resolution_ids": [
+      "01a08584-1fdc-70cb-a9ae-172b56b35589",
+      "01a08584-1fdc-70cb-a9ae-172ce84b755c",
+      "01a08584-1fdb-724d-91a5-8663510c64d0"
+     ],
+     "obligation_basis": "(b) contractual service notice to offtake buyers (alt kind counterparty_notice) or (c) operating necessity to state a status after an outage; the record does not say which, and does not name the issuer or the contract",
+     "forced": "doubtful",
+     "summary": "Buyers were told the plant would stay closed for checks and repairs over the coming weeks (Reuters via Mining.com, source_time 2026-08-11, knowable_from 2026-08-10). The notice's own date is not given; date_arrived is the first date the record shows it. The call-7 scorer note says buyers had 'already been told at the event', which points to the event date or just after; if it was on 2026-08-08 it is before_clock. The Reuters page itself returned 403 to the fetcher and was read through a search summary."
+    }
+   ],
+   "excluded": [
+    {
+     "what": "Freeport force majeure at Grasberg after the 8 Sep 2025 mud rush (Fastmarkets, dated 2025-09-24): a declaration on the mine, not on this smelter outage; the record itself calls it a confound",
+     "why": "before_clock"
+    },
+    {
+     "what": "TechTimes 2026-08-11, 'Indonesia smelter failure extends copper record rally': press framing of the outage as a supply event",
+     "why": "third_party_report"
+    },
+    {
+     "what": "Shanghai Metals Market 2026-08-12, 'PT Smelting Gresik sudden accident, SMM analysis': trade-desk analysis of regional tightening",
+     "why": "discretionary"
+    },
+    {
+     "what": "Reuters via Mining.com 2026-08-11 as a press report of the outage (its buyers-were-told content is listed as R16-N2)",
+     "why": "third_party_report"
+    },
+    {
+     "what": "Jakarta Post 2026-08-13 as a press report (the announcement it relays is listed as R16-N1)",
+     "why": "third_party_report"
+    },
+    {
+     "what": "Daily closes for 5711.T, FCX, AMMN.JK, 8058.T, SCCO and ANTO.L around 8 Aug 2026 (Yahoo chart API)",
+     "why": "price_print"
+    },
+    {
+     "what": "Force majeure declaration on concentrate offtake or cathode delivery (null call, due 2026-09-07): scored hit, no declaration seen in any carrier read, but coverage was 'thin'",
+     "why": "not_arrived"
+    },
+    {
+     "what": "Indonesian ESDM ministry instrument relaxing or varying export-licence terms because of the outage (null call, due 2026-09-22): call unresolved, none shown in the record",
+     "why": "not_arrived"
+    },
+    {
+     "what": "Actual restart or return-to-production statement by an owner (lag_band call, due 2026-10-22): call unresolved; the Q3 2026 completion in R16-N1 is a projection and no restart is shown",
+     "why": "not_arrived"
+    },
+    {
+     "what": "Mitsubishi Materials investor-relations or TDnet disclosure on PT Smelting (named as the map call's settling document and carrier): none in the record; the as-of-2026-08-07 fetch of mmc.co.jp/english/ir returned not_found and no post-event MMC document was read",
+     "why": "not_arrived"
+    }
+   ],
+   "notes": "Two notices, drawn only from the six evidence rows, seven resolution notes, recap and export for round 14. No node_facts, ack_nodes, ack_firings or segments rows exist for this round or its nodes. Limits: the evidence is metals and mining trade press only, plus price closes; no primary carrier (Mitsubishi Materials IR, TDnet, ESDM notices, PTFI or FCX filings) was read after the event, so the record cannot show that no regulator, exchange or ministry notice arrived, only that none was seen. Two of the nine calls (restart lag_band, ESDM null) have no resolution and the ledger was written 2026-09-09, so nothing dated after about 2026-09-09 is visible. The force-majeure absence call was scored on thin coverage. R16-N1 is the only item the record itself treats as an owner's own statement; R16-N2 is doubtful on issuer, date and obligation. The touched_set for this round lists nodes indonesian_copper_smelting, indonesian_concentrate_exports and el_teniente_copper_supply; both notices sit on the event's own node."
+  },
+  {
+   "row": 17,
+   "round_id": "01a085ea-d88c-70bf-92dd-85f3e44db228",
+   "event_date": "2026-08-20",
+   "notices": [
+    {
+     "notice_id": "R17-N1",
+     "kind": "incident_report",
+     "issuer_name": "Google Cloud (Google Cloud Service Health incident page, us-west1 incident of 20 Aug 2026; operator of the region, unit of Alphabet Inc)",
+     "issuer_holder_id": "01a085ed-bd0a-76d0-b46b-f83c3ab032a8",
+     "issuer_class": "company",
+     "node": "gcp_us_west1_region",
+     "node_source": "event",
+     "date_arrived": "2026-08-27",
+     "evidence_ids": [
+      "01a085f8-554e-75d4-9cd8-32ee84f47929",
+      "01a085f8-7e14-74bd-b583-1909c2367dc8"
+     ],
+     "resolution_ids": [
+      "01a085f9-4f05-73ce-9bec-c08c3f7f491d",
+      "01a085f9-4f04-7372-bfca-0830297fcd4b",
+      "01a085f9-4f05-73ce-9bec-c09093a40253"
+     ],
+     "obligation_basis": "(b) contract, customary post-incident account: the record's own ack_nodes obligation says an operator carrying an availability SLA across a multi-tenant region must account publicly for a multi-service failure to the tenants who will claim against it; the obligation follows from the contract, the publication date is not published anywhere",
+     "forced": "clear",
+     "summary": "Root cause published 2026-08-27 (day 7) on the operator's incident page: scheduled fibre-optic maintenance compromised inter-datacentre capacity in us-west1, automated rerouting failed, congestion cascaded through Spanner Paxos consensus and the Unified Metadata Server; window 08:00-10:22 PDT on 2026-08-20 (2h22m). Ledger: ack_nodes 01a085ed-bd21-716d-8a2e-07d13fc1c051 (forced) fired in ack_firings 01a085f8-5551-74fb-be55-878ebe875f4a, delivered=1, opening segment 01a085f8-5552-7028-85ce-357886970fbd. The evidence table holds two identical rows for this page (554e and 7e14); both are linked."
+    }
+   ],
+   "excluded": [
+    {
+     "what": "In-progress and restoration status updates on the same Service Health incident page on 2026-08-20 (outage ran 08:00-10:22 PDT): the record dates only the outage window and the 27 Aug root-cause publication, never a separate earlier posting, so any such update would be on the event date",
+     "why": "before_clock"
+    },
+    {
+     "what": "shattered.io 2026-08-21, 'Google Cloud outage hits 33 services for 2h22m' (stored in two evidence rows, 01a085f8-554f-751a-a66f-1d00dcda9c96 and 01a085f8-7e14-74bd-b583-190a02ff2b92): press account giving cause as routine fibre maintenance and backlogs cleared the same day. It may relay operator status text, but the record does not identify or date any such operator statement",
+     "why": "third_party_report"
+    },
+    {
+     "what": "Daily closes for GOOGL, AMZN and MSFT, 2026-08-20 to 2026-09-08 (stooq, harness backfill)",
+     "why": "price_print"
+    },
+    {
+     "what": "Forced ACK 01a085ed-bd22-72ef-9d69-f436d6fa772d: service credits requested and applied against August invoices (tenants to Alphabet under the SLA); no firing on the ledger",
+     "why": "not_arrived"
+    },
+    {
+     "what": "Forced ACK 01a085ed-bd23-7468-bbfb-42132498a25e: an affected tenant names an upstream cloud region in its own service notice; no firing and no tenant notice in the record",
+     "why": "not_arrived"
+    },
+    {
+     "what": "Forced ACK 01a085f8-5550-7793-a74c-00f77253f1ff (successor of the incident report): operator states what it changed so the automated rerouting does not fail the same way; no firing, no follow-up in the record",
+     "why": "not_arrived"
+    },
+    {
+     "what": "Forced ACK 01a085f8-5551-74fb-be55-878de92c9c8b (successor): a tenant states a credit received or a financial impact taken; no firing, and the magnitude_order call notes no credit stated by anyone",
+     "why": "not_arrived"
+    },
+    {
+     "what": "Scheduled ACK 01a085ed-bd22-72ef-9d69-f43773926a0e: the August uptime measurement period closes 2026-08-31 (calendar date)",
+     "why": "scheduled"
+    },
+    {
+     "what": "Alphabet segment disclosure or results statement as carrier of the SLA-credit cost effect (effect due 2026-10-31): a scheduled results disclosure, and nothing of it is in the record",
+     "why": "scheduled"
+    },
+    {
+     "what": "Constraint-price signals for cloud capacity (spot or auction rate, allocation or rationing notice, indemnity reprice, broker quote) naming the outage (null call, due 2026-09-19): call unresolved, none shown",
+     "why": "not_arrived"
+    },
+    {
+     "what": "Listed-company filing, results statement or public disclosure attributing a material financial impact to the outage (null call, due 2026-10-04): call unresolved, none shown",
+     "why": "not_arrived"
+    }
+   ],
+   "notes": "One notice arrived in the record. Sources read: six evidence rows (three distinct documents, each stored twice), nine predictions and six resolutions, the 6 ack_nodes rows (3 forced at lock, 1 scheduled, 2 forced successors named at the 27 Aug firing), the single ack_firings row, the two segments rows, the effects rows, and the recap and export. No node_facts rows exist for the node. Limits: the ledger was written 2026-09-09 and three calls are still inside their windows (2026-09-19, 2026-10-04, 2026-10-05), so later notices are not visible, and the four forced ACKs listed as not_arrived may still arrive; the SLA-credit claims are between tenants and Alphabet and may never be public. The round records no regulator, court, exchange or insolvency notice. Q7 failed for this node kind (no open carrier registered), so the record's coverage of tenant notices and filings is thin by construction. The event's own node (gcp_us_west1_region) is the only node any notice sits on; the touched_set also lists us_public_cloud_iaas, us_listing, usd_reporting and mega_cap_tech, none with a notice."
+  }
+ ]
+}

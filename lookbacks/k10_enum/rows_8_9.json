@@ -1,0 +1,70 @@
+{"rows": [
+ {
+  "row": 8,
+  "round_id": "01a07c3d-f101-7627-b48a-ffd4eca12d7f",
+  "event_date": "2026-07-27",
+  "notices": [
+   {
+    "notice_id": "R08-N1",
+    "kind": "incident_report",
+    "issuer_name": "Phillips 66 (filer of the Sweeny refinery and petrochemical complex entity; Reuters: 'Phillips 66 reported ... according to a Texas Commission on Environmental Quality filing')",
+    "issuer_holder_id": "01a07c3e-5cb4-7622-93d6-f680e3b092d9",
+    "issuer_class": "company",
+    "node": "sweeny_refinery_output",
+    "node_source": "event",
+    "date_arrived": "2026-07-28",
+    "evidence_ids": [
+     "01a07c42-36d4-71ab-9b4b-47ae55cd2653",
+     "01a07c42-36d5-74c8-9af9-663386a4657d"
+    ],
+    "resolution_ids": [
+     "01a07c42-3a85-719b-8f3c-6bd6da154de5",
+     "01a07c42-3a84-743b-b3fb-d956d0e157c8",
+     "01a07c42-3a85-719b-8f3c-6bdbd7843605"
+    ],
+    "obligation_basis": "TCEQ emissions event report (STEERS) for the 27 Jul lightning upset; the record itself treats it as 'a filing obligation, not a market mechanism' (prediction 01a07c3e-5f28-77f1-8c34-df9a9b1d9107) and no calendar date exists for it",
+    "forced": "clear",
+    "summary": "P66's TCEQ emissions-event filing on the Sweeny lightning upset, known to the record only through the Reuters 28 Jul brief that quotes it; the filing itself (units, start/end times, flaring) was unreachable to the fetcher"
+   }
+  ],
+  "excluded": [
+   {"what": "Reuters via TradingView wire, 28 Jul 2026, 'Phillips 66 reports unit upset due to lightning storm at Sweeny' (evidence 01a07c42-36d4-71ab-9b4b-47ae55cd2653): a press report about the event; it is the record's only carrier of the TCEQ filing and is cited as evidence for R08-N1, not counted as a second notice", "why": "third_party_report"},
+   {"what": "UBS raises Phillips 66 price target to $235 from $212 on 28 Jul (evidence 01a07c42-36d5-74c8-9af9-66351058f3b3)", "why": "discretionary"},
+   {"what": "EIA Weekly Petroleum Status Report, week ending 31 Jul 2026, published 5 Aug (evidence 01a07c42-36d5-74c8-9af9-6632635f59e6)", "why": "scheduled"},
+   {"what": "Phillips 66 Q2 2026 results release of 5 Aug, OGJ coverage of it, and the Q2 call transcript (evidence 01a07c42-36d5-74c8-9af9-6636d64b9f7e); the record says the summaries carry no Sweeny mention and the IR page itself was not read", "why": "scheduled"},
+   {"what": "Daily closes for PSX, XLE, VLO and MPC, 24 Jul to 4 Aug (evidence 01a07c42-36d5-74c8-9af9-662e8c253666, ...662fd480f7c8, ...6630a0ccacfa, ...663101ef8e02)", "why": "price_print"},
+   {"what": "Earlier TCEQ emissions-event filings for the same site, 9 Jan 2026 (fuel-gas upset) and 13 Jul 2026 (power-related upset), cited in the recap, predicate_checks basis and node_facts", "why": "before_clock"},
+   {"what": "Any restart, end-time or 'back to normal' statement for the tripped units (record: 'No end time, restart or back to normal statement found'; the TCEQ end time sits in the unread filing)", "why": "not_arrived"},
+   {"what": "Any owner damage statement or owner statement on the upset (lag_band factor 1 note: owner statements 'were not located at all')", "why": "not_arrived"},
+   {"what": "Any CPChem Sweeny event, filing or statement (coverage record: 'No CPChem Sweeny event' found; branch complex_wide did not arise)", "why": "not_arrived"},
+   {"what": "Any force majeure or allocation notice: none appears in the record and none was predicted for this round", "why": "not_arrived"}
+  ],
+  "notes": "One notice only. Dating: the Reuters brief (source_time 28 Jul) says P66 'reported on Tuesday' (28 Jul 2026 is a Tuesday); the scorer_notes and the prediction claim call the filing 'dated 27 July' (the event date). The record never shows the filing's own date because STEERS was unreachable, so date_arrived uses the dated document the record does hold (28 Jul, one day after the clock). If the filing is taken to be dated 27 Jul it would fall on the clock and be excluded as before_clock. Coverage caution for the orchestrator: the linked resolution 01a07c42-3a85-719b-8f3c-6bd6da154de5 carries source_coverage 'adequate', but its scorer_note says the filing's own page was unreachable and its existence is established only by the wire that quotes it; the map (01a07c42-3a84-743b-b3fb-d956d0e157c8) and lag_band (01a07c42-3a85-719b-8f3c-6bdbd7843605) resolutions, which name the TCEQ report as their carrier, are both 'thin'. Issuer alternative: the plant holder 'Phillips 66 Sweeny Refinery' (01a07c3e-5cb5-75d4-a348-2fc3febe419c, kind plant, parent Phillips 66) is the TCEQ-facing entity in the touched set; the wire names Phillips 66 as the reporter. All eight touched_set rows sit on the event node sweeny_refinery_output. Round 8 has no resolution or evidence row on any other notice kind."
+ },
+ {
+  "row": 9,
+  "round_id": "01a07e03-1a20-7445-a4de-634c281d09de",
+  "event_date": "2026-08-12",
+  "notices": [],
+  "excluded": [
+   {"what": "JOIFF incident report, Aug 2026 (evidence 01a07e0d-f1a8-7756-8d9e-3634cffef939, source_time 12 Aug): an industry fire-forum account of the yard fire; not an authority or operator of shared infrastructure, and dated on the event date", "why": "before_clock"},
+   {"what": "Shelter-in-place order over about four square miles, its extension into East St. Louis north of Illinois Route 15, and its lift at 8:53 a.m. (KFVS12 and STLPR, 12 Aug; evidence 01a07e0d-f1a8-7756-8d9e-3635276c706f, ...363652a110c6); issued by local emergency officials, all on 12 Aug. This is the item most shaped like a forced authority notice in the round, and it sits on the clock, not after it", "why": "before_clock"},
+   {"what": "St. Clair County EMA statement (Herb Simmons) requesting five tandem loads of sand for a runoff berm, 12 Aug (evidence 01a07e0d-f1a8-7756-8d9e-3635276c706f)", "why": "before_clock"},
+   {"what": "East St. Louis District 189 closure of all schools for the day, 12 Aug", "why": "before_clock"},
+   {"what": "Railroad operations in the area shut down, 12 Aug (STLPR/FOX 2 search summary; issuer not named in the record)", "why": "before_clock"},
+   {"what": "First Alert 4 (KMOV) 12 Aug piece: EPA and Illinois regulators report no violations at the site; 'No company statement in the piece' (evidence 01a07e0d-f1a8-7756-8d9e-36337c1057db)", "why": "third_party_report"},
+   {"what": "RiverBender 'emergency director details decisions' article and HazardEx piece: returned HTTP 403 to the fetcher, never read, no date in the record beyond the 12 Aug lift time RiverBender is quoted for (evidence 01a07e0d-f1a9-7191-9ec0-16b6f6090919; the second scorer's mention of a HazardEx 'incident report' is not backed by a readable document)", "why": "third_party_report"},
+   {"what": "Leslie's, Inc. Q3 fiscal 2026 results and withdrawn outlook, released after the close on 12 Aug (evidence 01a07e0d-f1a9-7191-9ec0-16ad93273370); the date was announced on 5 Aug and the release does not mention the fire, Sauget or trichlor", "why": "scheduled"},
+   {"what": "Leslie's 5 Aug announcement of its 12 Aug results date (evidence 01a07e0d-f1a9-7191-9ec0-16af0d9be251)", "why": "scheduled"},
+   {"what": "Benzinga/Investing.com 12-13 Aug: Leslie's falls 44% after hours on results (evidence 01a07e0d-f1a9-7191-9ec0-16ae95e0f7b0); no coverage connects it to the fire", "why": "third_party_report"},
+   {"what": "Daily closes for POOL, XRT, LESL, OXY, XLE, EMN, XLB and HAYW, 10-21 Aug (evidence 01a07e0d-f1a9-7191-9ec0-16b085717623, ...16b14a3f1d28, ...16b2ed53be60, ...16b3bd3af360, ...16b4bc41ba49)", "why": "price_print"},
+   {"what": "C&EN 2021 article on the 2020 BioLab Westlake fire shortages, and the 23 Sep 2020 Pool & Spa News piece (evidence 01a07e0d-f1a9-7191-9ec0-16b719e450a5, ...16b592775533): prior-class commentary on other events", "why": "discretionary"},
+   {"what": "National Response Center report for the fire (prediction 01a07e06-bd97-7309-afe8-60cb374aa3f6, resolution 01a07e0d-f317-72f7-91b9-8e5fa5baf85f): expected as a filing obligation, but no report number surfaced and the NRC FOIA database was never searched; scored unverified", "why": "not_arrived"},
+   {"what": "US Coast Guard safety zone or marine safety information bulletin for the river at Sauget (prediction 01a07e06-bd97-7309-afe8-60ca320e3585, resolutions 01a07e0d-f317-72f7-91b9-8e5efdef012e and human-superseding 01a08001-a2b6-767f-af61-5678ddd9371c): sector page returned 403, nothing found; the human ruled it unverified, not a miss", "why": "not_arrived"},
+   {"what": "Force majeure, allocation or supply notice from any US trichlor producer, importer or distributor (null call, resolution 01a07e0d-f317-72f7-91b9-8e5c959de382; evidence 01a07e0d-f1a9-7191-9ec0-16b592775533): none found in 14 days, coverage thin", "why": "not_arrived"},
+   {"what": "Any ContainerPort Group or material-owner statement, yard reopening or restart statement, or Illinois EPA / US EPA cleanup order (lag_band factor 2 note: 'no report on an Illinois EPA order or the yard's reopening'; no report names the owner of the material)", "why": "not_arrived"},
+   {"what": "Any post-12 Aug regulatory, insolvency or restructuring notice concerning the yard, the operator or a listed party's exposure to the fire: none in the record; the Leslie's strategic-alternatives language sits inside the scheduled results release and does not concern the event", "why": "not_arrived"}
+  ],
+  "notes": "No forced notice arrived after the clock in the v15 record for this round. The only forced-shaped items (the shelter-in-place order and its extension and lift, the school closure, the rail shutdown, the JOIFF incident page) are all dated 12 Aug, the event date itself, so under the after-the-clock rule they are listed under excluded as before_clock rather than counted. If the orchestrator wants a same-day variant, those are the candidates (issuers: St. Clair County emergency management and East St. Louis District 189; obligation would be emergency-response authority, plausibly doubtful). The operator's own coverage record found nothing from any producer, importer or distributor, but its coverage was thin (trade press through search only, ICIS closed, USCG sector page, RiverBender, HazardEx and FOX 2 returned 403, NRC FOIA not searched), so absence here is a limit of the record, not proof that nothing arrived. Events node us_trichlor_supply; touched_set has 15 rows across us_trichlor_supply and sauget_industrial_corridor_access, and no notice sits on either. Resolution 01a08001-a2b6-767f-af61-5678ddd9371c is a human ruling that supersedes the operator's miss on the USCG call."
+ }
+]}
