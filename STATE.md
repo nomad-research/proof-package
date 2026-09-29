@@ -235,3 +235,29 @@ visibility test. That is a construction change for Rob to ratify, and it hasn't 
 only 9% of units left a 90% band (about the noise rate), and H held at most one story per round. **K12 is
 unreadable on v15:** one narrative story per round, no paths. It accumulates from v16 rounds.
 `prices.frame` no longer crashes on an empty vintage.
+
+### K10 — dies (`lookbacks/K10_result.md`)
+
+Pre-registered (`73fc53c`) before any template was authored or notice enumerated. **0 of 6 forced notices
+that arrived in rounds 8–15 were derivable at lock, under the guards and under the all-relaxations upper
+bound** (X₁₀ = 0.5). The zero is structural: **all 16 templates test at least one attribute no v15 position
+row ever holds** (15 such attributes; `operating_status` in 11 templates, `contract_type` in 6), and only 22
+of v15's 200 positions are both `stated` and stamped with a `knowable_from`. So `forced` was unreachable
+from the v15 store for any denominator. Per §31: emergence is limited by the stores; invest in positions
+before construction. The attribute list in `k10_coverage.json` is the fetch list, in order.
+
+- **Not a claim about what a census could reach.** v15 never recorded these attributes. It's a floor for
+  the stores as they were.
+- **The decision point is not formally met.** It needs K8 and K10 both dead; K8 is `unreadable`. They fail
+  for the same reason, and the call is Rob's (§11 shapes). Nothing here changes construction.
+- **Small denominator:** 6 notices (rows 8, 16, 17 one each; row 13 three); rows 9, 10, 11, 15 have none,
+  because their notice-like documents are dated on the event date (pre-registered `before_clock`). "Read in
+  full" is v15's `source_coverage = adequate`, which counts a wire-only filing (R08-N1).
+- **Process.** The orchestrating session had read the round 8–14 story summaries, so it did not author. A
+  fresh subagent authored the 16 templates from a rounds-1–7-only package (`k10_package.py`, entity-scanned),
+  four others enumerated the notices without seeing templates, and the notice list was committed
+  (`04dbcb4`) before the template file was opened (`9d2c2b2`). "Cold" is procedure, not a wall.
+- **Owed:** outcome vocabularies (the cold author wasn't asked for them; K9 needs them, authored from
+  rounds 1–4 for rounds 5–7). `lookbacks/k10.py` re-runs unchanged on v16 rounds with the frozen templates.
+- The v15 database is opened `immutable=1` in all K10 code so no `-shm`/`-wal` is created in the tracked
+  directory.
