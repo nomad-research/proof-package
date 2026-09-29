@@ -68,6 +68,44 @@ MISO capacity-advisory story, and nothing on EDGAR after 07-12. Segment 1's call
 exposed to this leak. Suggested harness fix: `walk_scan` and `pit_fetch` refuse to read past a
 `walk_scan` hit until an `ack_fire` or an explicit `walk_read` on that date is recorded.
 
+## Walk end: a window that has not closed in real time
+
+The replacement-procurement ACK's window runs to 2026-10-01 (the DUE_AT_MAX_DAYS cap). This session
+runs on 2026-09-29. `walk_scan` read EDGAR "through 2026-10-01", but a filing list fetched on 09-29 for
+as_of 09-30 or 10-01 only returns what exists on 09-29: the two future dates were not read. The frontier
+note says 10-01; the true full read is through 2026-09-29 (walk_read recorded that). So I did not fire
+the ACK as a non-delivery: its silence is not yet observable. I ended the walk (every carrier read to
+the present), and its two map calls (C002, segment 0; C008, segment 1; the same claim) stay open for a
+later session to score after 2026-10-01. Suggested harness fix: `pit_fetch` caps as_of at the real
+current date and refuses to advance the frontier past it.
+
+Also: `edgar_doc` saves every document of one accession to the same file (`edgar_<accession>.txt`), so
+reading an 8-K, its index and its exhibits overwrites the earlier text on disk. The evidence rows keep
+each content hash, but only the last document's text survives. Store: the `_save` name in `pit.py`.
+
+## Scoring notes
+
+- **C006 (price absence) hit narrowly:** the DTE residual hedged on XLU (beta 0.891, 250 pre-clock
+  sessions) from the 07-02 close to the 07-17 close was −2.95%, against a 90% band of 3.40% over 10
+  sessions. Raw DTE was −3.88%, XLU −1.30%. The residual after the restart news (07-13..07-17) was
+  −1.03%. It is inside the band, but a reader should not treat it as a comfortable absence.
+- **The pass-through premise has a documented crack:** the Q2 earnings release (EV00056) reconciles
+  an "MPSC disallowance of power supply costs previously recorded" in the six-month numbers. PSCR
+  recovery is not unconditional. It did not touch this outage inside the window, but P00010/P00019
+  should carry that caveat in later rounds.
+- **Junction confirmation, run twice:** the first `junction_confirm` for segment 0 ran on story-proxy
+  vintages that stopped at 2026-07-10 (≈5 "after" sessions) and logged two pianos (AI×rates,
+  nuclear×rates). I then fetched the proxies live and re-ran: segment 0 shows no rise, and segment 1
+  logs two pianos (heat×AI, heat×nuclear). The first run's rows stay on the ledger; the second run
+  is the one to read. The only flagged junction (st_nuclear × st_unit_exposure on fermi-2) involves a
+  constructed story, which `junction_confirm` does not test (estimated proxies only).
+- **Harness version:** the round row records harness `ad0779d5dd7bd979` (admission); every tool call in
+  this session returned `ab6b3fde744f0e67`. The harness source changed between admission and play;
+  this session made no edits under `nomad16/`.
+- **C002 and C008** (the replacement-cost map call, segments 0 and 1, the same claim) stay open until
+  2026-10-01. Read through 2026-09-29, the carrier is silent on the July outage's replacement cost; if it
+  stays silent, both resolve on branch `not_disclosed`, inside the thesis. Score them as one observation.
+
 ## Harness friction
 
 - The guard treats any URL inside a Bash command as egress, so the commit trailer
