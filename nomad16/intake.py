@@ -56,19 +56,38 @@ def power_events(d_from: str, d_to: str) -> list[dict]:
                             "unit": f.get("Unit"), "event_date": _mdy(f.get("Event Date")),
                             "notification_date": _mdy(f.get("Notification Date")),
                             "section": f.get("10 CFR Section"), "title": e["title"],
-                            "emergency_class": f.get("Emergency Class"), "text": e["text"]})
+                            "emergency_class": f.get("Emergency Class"), "units": e.get("units"),
+                            "text": e["text"]})
         d += _dt.timedelta(days=1)
     return out
 
 
-DISRUPTIVE = re.compile(r"SCRAM|TRIP|SHUTDOWN|SHUT DOWN|MANUAL REACTOR|AUTOMATIC REACTOR|LOSS OF|FIRE", re.I)
+DISRUPTIVE = re.compile(r"SCRAM|REACTOR TRIP|MANUAL REACTOR|AUTOMATIC REACTOR|SHUTDOWN|SHUT DOWN", re.I)
+
+
+def disruptive(e: dict) -> bool:
+    """A power-reactor event that took output: a scram code, power below its initial level,
+    or a title naming a trip, scram, shutdown, loss or fire."""
+    units = e.get("units") or []
+    for u in units:
+        if u.get("SCRAM Code") not in (None, "", "N"):
+            return True
+        try:
+            if int(u.get("Current PWR") or 0) < int(u.get("Initial PWR") or 0):
+                return True
+        except ValueError:
+            pass
+    if units:
+        return False  # the unit table is authoritative where the report carries one
+    return bool(DISRUPTIVE.search(e.get("title") or ""))
 
 
 def enumerate_feed(db: DB, d_from: str, d_to: str, operator_cutoff: str, stop_at_first: bool = True) -> dict:
     """Enumerate the feed in date order and dry-run the harness-computable questions."""
     look = (ts(d_from) - _dt.timedelta(days=365)).strftime("%Y-%m-%d")
     hist = power_events(look, (ts(d_from) - _dt.timedelta(days=1)).strftime("%Y-%m-%d"))
-    run_id = f"ENUM-{d_from}-{d_to}"
+    n_runs = len(db.rows("enumeration_runs", "from_date=? AND to_date=?", (d_from, d_to)))
+    run_id = f"ENUM-{d_from}-{d_to}-r{n_runs + 1}"
     items = []
     d = ts(d_from)
     while d <= ts(d_to):
@@ -79,17 +98,18 @@ def enumerate_feed(db: DB, d_from: str, d_to: str, operator_cutoff: str, stop_at
             ed = e["event_date"] or e["report_date"]
             prior = [h for h in hist if h["facility"] == e["facility"]]
             p30 = [h for h in prior if 0 <= (ts(ed) - ts(h["report_date"])).days <= 30]
-            p90 = [h for h in prior if 0 <= (ts(ed) - ts(h["report_date"])).days <= 90 and DISRUPTIVE.search(h["title"] or "")]
-            p365 = [h for h in prior if 0 <= (ts(ed) - ts(h["report_date"])).days <= 365 and DISRUPTIVE.search(h["title"] or "")]
+            p90 = [h for h in prior if 0 <= (ts(ed) - ts(h["report_date"])).days <= 90 and disruptive(h)]
+            p365 = [h for h in prior if 0 <= (ts(ed) - ts(h["report_date"])).days <= 365 and disruptive(h)]
             q = {"Q1a": "fail" if p30 else "pass", "Q1a_basis": [f"{h['event_number']} {h['report_date']} {h['title']}" for h in p30],
                  "Q1b": "fail" if (p90 or len(p365) >= 3) else "pass",
                  "Q1b_basis": [f"{h['event_number']} {h['report_date']} {h['title']}" for h in p365],
                  "Q2": "pass" if ts(ed) > ts(operator_cutoff) else "fail",
+                 "disruptive": disruptive(e), "units": e.get("units"),
                  "Q5_hint": "underread (regulator feed / trade press)", "Q7": "pass (carriers registered for power_reactor)",
                  "event_date": ed}
             items.append((e, q))
             hist.append(e)
-        if stop_at_first and any(DISRUPTIVE.search(e["title"] or "") and q["Q2"] == "pass" for e, q in items):
+        if stop_at_first and any(disruptive(e) and q["Q2"] == "pass" for e, q in items):
             d_to_eff = ds
             break
         d += _dt.timedelta(days=1)

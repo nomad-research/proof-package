@@ -33,6 +33,15 @@ def run(tmp_path, state, tool, ti):
     ("Read", {"file_path": "/home/user/Nomad-Research/docs/nomad_system_spec_v16_final.md"}, "allow"),
     ("Grep", {"pattern": "scram"}, "deny"),
     ("mcp__github__search_code", {}, "deny"),
+    ("mcp__Claude_Code_Remote__create_session", {}, "deny"),
+    ("Edit", {"file_path": "/home/user/Nomad-Research/firewall/guard16.py"}, "deny"),
+    ("Write", {"file_path": "/home/user/Nomad-Research/config/appetite.json"}, "deny"),
+    ("Write", {"file_path": "/home/user/Nomad-Research/rounds/R16-001/blind_pass.md"}, "allow"),
+    ("Bash", {"command": "sed -i s/x/y/ nomad16/lock.py"}, "deny"),
+    ("Bash", {"command": "git add rounds/R16-001 state/nomad16.db"}, "allow"),
+    ("Bash", {"command": "git add rounds/R16-001 && git commit -m x && git push"}, "allow"),
+    ("Bash", {"command": "git add rounds/R16-001 && cat state/nomad16.db"}, "deny"),
+    ("Read", {"file_path": "/home/user/Nomad-Research/state/nomad16.db"}, "deny"),
 ])
 def test_closed_phase(tmp_path, tool, ti, want):
     assert run(tmp_path, "pre_lock", tool, ti) == want

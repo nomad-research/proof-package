@@ -12,10 +12,12 @@ rewrites on every transition, so the hook and the harness always agree.
 from __future__ import annotations
 
 import json
+import os
+from pathlib import Path
 
 from .db import DB, ROOT, Refused, now_iso
 
-PHASE_FILE = ROOT / "state" / "phase.json"
+PHASE_FILE = Path(os.environ.get("NOMAD16_PHASE_FILE") or ROOT / "state" / "phase.json")
 STATES = {"admitted", "pre_lock", "walking", "live", "scored", "void"}
 
 

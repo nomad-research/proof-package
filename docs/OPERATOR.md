@@ -50,6 +50,10 @@ Commit and push after the lock (`git add rounds/<id> state/nomad16.db && git com
 After lock the round is `walking`. Read each ratified ACK's carriers **forward from the clock, one date
 at a time**. `pit_fetch` refuses anything more than one day past the frontier, and each read advances it.
 
+- `walk_scan` reads one carrier forward date by date and stops at the first date matching a predicate you
+  declare before it runs: a unit's power in `nrc_status`, an event for a facility in `nrc_en`, or a filing
+  form in `edgar_filings`. It's mechanical. You still read the matching document and decide what it
+  delivered.
 - When a carrier **delivers**, fire the ACK with the outcome from its vocabulary, the fact's
   `knowable_from`, and the evidence id: `ack_fire`. The round goes back to `pre_lock` at the new clock.
   Add the positions the fact changes (`knowable_from` = the new clock), re-run `derive_acks`,

@@ -96,38 +96,56 @@ def _text(h: str) -> list[str]:
 
 
 def parse_en(page: str) -> list[dict]:
-    """Split a daily Event Notification Report into events."""
+    """Split a daily Event Notification Report into events: header fields, the unit-info
+    table (power reactors), and the event text whose first line is the event's title."""
     k = page.find("EVENT REPORTS FOR")
     lines = _text(page[k:]) if k >= 0 else []
     end = next((i for i, l in enumerate(lines) if l == "Return to top"), len(lines))
     lines = lines[:end]
-    events, cur = [], None
+    keys = {"Facility", "Licensee", "Rep Org", "Region", "State", "Unit", "RX Type", "NRC Notified By",
+            "HQ OPS Officer", "Notification Date", "Notification Time", "Event Date", "Event Time",
+            "Last Update Date", "Emergency Class", "10 CFR Section", "City", "County", "License #",
+            "Agreement", "Docket", "Person (Organization)"}
+    events, cur, mode, pending = [], None, "fields", None
     for i, l in enumerate(lines):
         if l.startswith("Event Number:"):
             if cur:
                 events.append(cur)
             cur = {"category": lines[i - 1] if i > 0 else None, "event_number": l.split(":", 1)[1].strip(),
-                   "fields": {}, "text": []}
+                   "fields": {}, "unit_info": [], "text": []}
+            mode, pending = "fields", None
             continue
         if cur is None:
             continue
-        m = re.match(r"^([A-Za-z #/()]+):\s*(.*)$", l)
-        if m and not cur["text"] and m.group(1) in {"Facility", "Licensee", "Rep Org", "Region", "State",
-                                                    "Unit", "RX Type", "Notification Date", "Notification Time",
-                                                    "Event Date", "Event Time", "Last Update Date",
-                                                    "Emergency Class", "10 CFR Section", "City"}:
-            cur["fields"][m.group(1)] = m.group(2)
-        elif l == "Event Text":
-            cur["text"].append("")
-        elif cur["text"] or l.isupper():
+        if l == "Event Text":
+            mode = "text"
+            continue
+        if mode == "text":
             cur["text"].append(l)
-        else:
-            cur.setdefault("other", []).append(l)
+            continue
+        if l == "Power Reactor Unit Info":
+            mode = "unit"
+            continue
+        if mode == "unit":
+            cur["unit_info"].append(l)
+            continue
+        m = re.match(r"^([A-Za-z0-9 #/()]+):\s*(.*)$", l)
+        if m and m.group(1).strip() in keys:
+            key, val = m.group(1).strip(), m.group(2).strip()
+            cur["fields"][key] = val
+            pending = key if not val else None
+        elif pending:
+            cur["fields"][pending] = (cur["fields"][pending] + " " + l).strip()
     if cur:
         events.append(cur)
     for e in events:
-        e["text"] = "\n".join(x for x in e["text"] if x)
-        e["title"] = next((x for x in e["text"].split("\n") if x.isupper()), "")
+        e["title"] = e["text"][0] if e["text"] else ""
+        e["text"] = "\n".join(e["text"])
+        ui = e.pop("unit_info")
+        hdr = ["Unit", "SCRAM Code", "RX Crit", "Initial PWR", "Initial RX Mode", "Current PWR", "Current RX Mode"]
+        if ui[:len(hdr)] == hdr:
+            vals = ui[len(hdr):]
+            e["units"] = [dict(zip(hdr, vals[j:j + len(hdr)])) for j in range(0, len(vals) - len(hdr) + 1, len(hdr))]
     return events
 
 

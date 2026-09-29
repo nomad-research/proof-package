@@ -120,7 +120,7 @@ TOOLS = {
     "instrument_add": instruments.instrument_add, "paper_fill": paper.fill, "paper_mark": paper.mark,
     "paper_exit": paper.exit_basket, "exit_check": paper.exit_check, "paper_book": paper.paper_book,
     # walk
-    "ack_fire": walk.ack_fire, "walk_read": walk.walk_read, "walk_end": walk.walk_end,
+    "ack_fire": walk.ack_fire, "walk_read": walk.walk_read, "walk_end": walk.walk_end, "walk_scan": walk.walk_scan,
     # reports
     "report": report.round_report,
 }

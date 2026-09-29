@@ -52,7 +52,7 @@ structure.
 
 ### Appetite: provisional, so every round is `learning`
 
-`config/appetite.json` holds 69 values: 17 ratified or carried from §33.1, and **52
+`config/appetite.json` holds 69 values: 18 ratified or carried, and **51
 `provisional_unratified`**, set by the builder on the user's instruction (2026-09-29) so a round can run
 end to end. The loader still refuses any missing value. **Any round that reads a provisional value is
 classed `learning`** (recorded per segment in `round_meta`) and never counts toward K9 or K13. Rob
@@ -115,3 +115,28 @@ backfilled round).
 `python -m pytest nomad16/tests -q`: 40 passed. Covered: smoke 1, 2, 5, 6, 7, 8, 10, 15–29, chain
 tamper, loader refusal, construction building a structural pair, the paper round trip, and the guard.
 Not covered: 3, 4, 9, 11–14 (v15 record, decider, data product).
+
+## 2026-09-29 — round R16-001 admitted
+
+- **Selection.** Fixed feed `nrc_en_power_reactor` (the NRC daily Event Notification Reports, power
+  reactors only), window 2026-07-01 → 2026-07-31, after the operator cutoff 2026-06-30, read in date order.
+  The feed and window were fixed and the seed library committed (3219c25) before enumeration.
+- **Two enumeration defects, both on the ledger (`notes`, subject `enumeration_defect`).** Run 1 parsed
+  unit-table cells as event titles, so nothing read as disruptive and the whole month was enumerated.
+  Run 2's title test stopped on a loss-of-communication report. Run 3 reads the unit table. The stop rule
+  only decides where the harness stops presenting items; the human decided every item in date order.
+- **Decisions (the user, in the build session):** item 1, South Texas loss of communication capability
+  (2026-07-01), rejected as Q5 trivia. Item 2, Fermi 2 automatic reactor scram (2026-07-03), confirmed on
+  Q3, Q4, Q6 and Q8, size band underread. Q1a pass; Q1b fail (a manual scram on 2026-05-19), so tagged
+  `weather`; Q2 pass; Q9 pass. Class `learning` (provisional appetite).
+- **Clock and knowable_from.** Segment 0's clock is the event date, 2026-07-03. The event became public
+  in NRC's report dated 2026-07-06, which is after the clock, so the operator gets only the Q8 line
+  pre-lock.
+- **What the ledger carries that the operator must not read.** Enumeration run 1 wrote July items dated
+  after the clock, and the candidate rows hold the Fermi report text. Ledger rows can't be removed. The
+  guard quarantines direct reads of `state/nomad16.db` pre-lock, and no harness tool exposes
+  `intake_candidates`. A script the operator writes could still open the database; that is a violation
+  by procedure, not a structural block.
+- **The builder is not the operator.** This build session has read the item text and saw July's item
+  titles in enumeration run 1. It plays no part in the round; it writes the phase file outside its own
+  working tree so its tools stay usable, and the operator's clone carries the closed phase from git.

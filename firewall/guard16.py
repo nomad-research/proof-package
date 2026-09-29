@@ -33,12 +33,17 @@ PHASE = Path(os.environ.get("NOMAD16_PHASE_FILE") or ROOT / "state" / "phase.jso
 
 QUARANTINE = ["blindrun/", "blindrun2/", "firewall/fetched", "data/blindrun", "data/cache", "REPORT.md",
               "SUMMARY.md", "firewall/fetch_log.jsonl", "firewall/guard_log.jsonl", "firewall/guard16_log.jsonl",
-              "config_log.jsonl", "methodology/", "tests_b3/", "firewall/hosts.backup", ".git/"]
+              "config_log.jsonl", "methodology/", "tests_b3/", "firewall/hosts.backup", ".git/",
+              "state/nomad16.db"]
 NET_TOOLS = re.compile(r"\b(curl|wget|httpie|nc|ncat|telnet|ssh|scp|rsync|lynx|w3m|links|aria2c|yt-dlp)\b")
 URL_RE = re.compile(r"https?://")
 CODE_NET = re.compile(r"\b(requests\.|urllib|urlopen|httpx|aiohttp|socket\.|fetch\(|axios)")
 HARNESS = re.compile(r"^\s*(cd\s+\S+\s*&&\s*)?(NOMAD\w*=\S+\s+)*python3?\s+-m\s+nomad16(\s|$)")
 CHAIN = re.compile(r"[;|`]|&&|\|\||\$\(|>\s*/")
+# pre-lock the operator writes only under rounds/; the harness, config, docs, state and the
+# firewall are protected (an operator who edits its own guard has no guard)
+PROTECTED = ["nomad16/", "config/", "firewall/", ".claude/", "state/", "docs/", "STATE.md", "README.md"]
+GIT_OK = re.compile(r"^\s*git\s+(add|commit|push|status|log\s+--oneline|diff\s+--stat)\b")
 GIT_DENY = re.compile(r"\bgit\s+(show|log\s+.*-p|log\s+-p|fetch|pull|checkout|switch|cat-file|grep|blame|diff\s+\S*origin)")
 
 
@@ -101,6 +106,11 @@ def main():
         emit(False, f"round is '{st}': MCP tools are denied pre-lock", tool)
     if tool in {"Read", "Grep", "Glob", "NotebookEdit", "Edit", "Write"}:
         target = " ".join(str(ti.get(k, "")) for k in ("file_path", "path", "pattern", "glob", "notebook_path"))
+        if tool in {"Edit", "Write", "NotebookEdit"}:
+            rel = target.replace(str(ROOT) + "/", "").strip()
+            if not rel.startswith("rounds/"):
+                emit(False, f"round is '{st}': pre-lock the operator writes only under rounds/ "
+                            f"(the harness, config, docs, state and firewall are protected)", tool, {"target": rel[:300]})
         q = quarantined(target)
         if q and tool != "Glob":
             emit(False, f"round is '{st}': {q} is quarantined pre-lock (post-cutoff material from earlier work)", tool,
@@ -110,9 +120,14 @@ def main():
         emit(True, "file tool on a permitted path", tool)
     if tool == "Bash":
         cmd = ti.get("command", "") or ""
-        q = quarantined(cmd)
+        parts = [x for x in re.split(r"&&|\|\||;|\||`|\$\(", cmd) if x.strip()]
+        git_only = bool(parts) and all(GIT_OK.search(x) for x in parts)
+        q = None if git_only else quarantined(cmd)  # git add/commit/push read no content
         if q:
             emit(False, f"round is '{st}': command touches quarantined {q}", tool, {"command": cmd[:300]})
+        if not git_only and not HARNESS.search(cmd) and any(p in cmd for p in PROTECTED):
+            emit(False, f"round is '{st}': command touches a protected path (harness, config, docs, state, "
+                        f"firewall); read files with the Read tool", tool, {"command": cmd[:300]})
         if HARNESS.search(cmd) and not CHAIN.search(cmd.split("python", 1)[1] if "python" in cmd else cmd):
             emit(True, "single harness call; the harness bounds every read by the clock", tool)
         if URL_RE.search(cmd) or NET_TOOLS.search(cmd) or CODE_NET.search(cmd):

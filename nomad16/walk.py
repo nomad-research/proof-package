@@ -102,3 +102,58 @@ def walk_end(db: DB, round_id: str, reason: str) -> dict:
         raise Refused("the last segment must be locked before live retrieval opens")
     set_state(db, round_id, "live", f"walk ended: {reason}; live retrieval opens for scoring")
     return {"state": "live", "segments": seg["idx"] + 1}
+
+
+def walk_scan(db: DB, round_id: str, source: str, until: str, reason: str, unit: str | None = None,
+              op: str = ">", value: float = 0, facility: str | None = None, cik: str | None = None,
+              forms: list | None = None) -> dict:
+    """Read a carrier forward from the frontier one date at a time, stopping at the first date
+    whose document matches a predicate declared up front. Mechanical: the operator still
+    decides what the matching document delivers, and fires the ACK.
+
+    - ``nrc_status``: stop when ``unit``'s power satisfies ``op value`` (e.g. power > 0).
+    - ``nrc_en``: stop at the first report carrying an event for ``facility``.
+    - ``edgar_filings``: stop at the first filing by ``cik`` of a form in ``forms`` dated after the frontier.
+    """
+    import datetime as _dt
+    from .pit import pit_fetch
+    if state(db, round_id) != "walking":
+        raise Refused("walk_scan runs while the round is walking")
+    ops = {">": lambda a, b: a > b, ">=": lambda a, b: a >= b, "<": lambda a, b: a < b, "==": lambda a, b: a == b}
+    if op not in ops:
+        raise Refused("op is one of > >= < ==")
+    read, hit = [], None
+    while True:
+        f = frontier(db, round_id)
+        d = (ts(f[:10]) + _dt.timedelta(days=1)).strftime("%Y-%m-%d")
+        if ts(d) > ts(until):
+            break
+        if source == "nrc_status":
+            r = pit_fetch(db, round_id, "nrc_status", d, d, reason)
+            rows = [u for u in r.get("units", []) if unit and u["unit"].lower() == unit.lower()]
+            read.append({"date": d, "evidence_id": r.get("evidence_id"),
+                         "unit": rows[0] if rows else None, "status": r.get("status")})
+            if rows and ops[op](rows[0]["power"], value):
+                hit = read[-1]
+                break
+        elif source == "nrc_en":
+            r = pit_fetch(db, round_id, "nrc_en", d, d, reason)
+            evs = [e for e in r.get("events", []) if facility and facility.lower() in
+                   str(e["fields"].get("Facility") or e["fields"].get("Licensee") or "").lower()]
+            read.append({"date": d, "evidence_id": r.get("evidence_id"), "matches": len(evs)})
+            if evs:
+                hit = {"date": d, "evidence_id": r.get("evidence_id"), "events": evs}
+                break
+        elif source == "edgar_filings":
+            r = pit_fetch(db, round_id, "edgar_filings", cik, d, reason)
+            new = [x for x in r.get("filings", []) if x["filing_date"] == d and (not forms or x["form"] in forms)]
+            read.append({"date": d, "evidence_id": r.get("evidence_id"), "matches": len(new)})
+            if new:
+                hit = {"date": d, "evidence_id": r.get("evidence_id"), "filings": new}
+                break
+        else:
+            raise Refused("walk_scan reads nrc_status, nrc_en or edgar_filings")
+    return {"read_through": frontier(db, round_id), "dates_read": len(read), "hit": hit,
+            "last_reads": read[-5:],
+            "note": "no match through the frontier" if hit is None else
+                    "first match: read the document; if it delivers, ack_fire with its outcome and knowable_from"}
