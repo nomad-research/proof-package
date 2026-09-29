@@ -9,7 +9,21 @@ from __future__ import annotations
 
 from .db import DB, Refused
 from .rounds import current_segment, get_round, is_locked, set_state, state
-from .util import ts
+from .util import day, ts
+
+
+def pending_hit(db: DB, round_id: str) -> str | None:
+    """The date of an unresolved walk_scan hit, if any: reads past it are refused until the ACK
+    fires or the date is recorded as not delivering (walk_read ... not_delivering)."""
+    seg = current_segment(db, round_id)
+    hits = db.rows("notes", "round_id=? AND subject='walk_hit' AND segment_idx=?", (round_id, seg["idx"]))
+    if not hits:
+        return None
+    d = hits[-1]["text"].split("|")[0].strip()
+    cleared = db.rows("notes", "round_id=? AND subject='walk_hit_cleared' AND segment_idx=?", (round_id, seg["idx"]))
+    if any(c["text"].split("|")[0].strip() == d for c in cleared):
+        return None
+    return d
 
 
 def frontier(db: DB, round_id: str) -> str:
@@ -59,6 +73,10 @@ def ack_fire(db: DB, ack_id: str, delivered: bool, knowable_from: str, evidence_
                     knowable_from=knowable_from, successor_ack_ids=successor_ack_ids or [],
                     evidence_ids=evidence_ids, segment_idx_opened=new_idx)
     out = {"firing": fid, "delivered": delivered, "outcome_id": outcome_id}
+    hit = pending_hit(db, rid)
+    if hit is not None:
+        db.append("notes", round_id=rid, segment_idx=seg["idx"], subject="walk_hit_cleared",
+                  text=f"{hit} | ack_fire {fid} | {','.join(evidence_ids)}")
     if outcome_id == "other":
         n = len(db.rows("pianos")) + 1
         db.append("pianos", piano_id=f"PI{n:03d}", round_id=rid, basket_id=None,
@@ -87,9 +105,18 @@ def walk_read(db: DB, round_id: str, through: str, carrier: str, result: str, ev
     """Record that a carrier was read in full through a date on the walk (silent or spoke)."""
     if state(db, round_id) != "walking":
         raise Refused("walk reads happen while the round is walking")
-    if result not in {"silent", "spoke"}:
-        raise Refused("result is silent or spoke")
-    return db.append("notes", round_id=round_id, segment_idx=current_segment(db, round_id)["idx"],
+    if result not in {"silent", "spoke", "not_delivering"}:
+        raise Refused("result is silent, spoke or not_delivering")
+    idx = current_segment(db, round_id)["idx"]
+    hit = pending_hit(db, round_id)
+    if result == "not_delivering":
+        if hit is None or day(through) != hit:
+            raise Refused("not_delivering clears a pending walk_scan hit, on the hit's own date")
+        if not evidence_ids:
+            raise Refused("clearing a hit cites the document read")
+        db.append("notes", round_id=round_id, segment_idx=idx, subject="walk_hit_cleared",
+                  text=f"{hit} | {carrier} | {','.join(evidence_ids)}")
+    return db.append("notes", round_id=round_id, segment_idx=idx,
                      subject="walk_read", text=f"{through} | {carrier} | {result} | {','.join(evidence_ids)}")
 
 
@@ -153,6 +180,9 @@ def walk_scan(db: DB, round_id: str, source: str, until: str, reason: str, unit:
                 break
         else:
             raise Refused("walk_scan reads nrc_status, nrc_en or edgar_filings")
+    if hit is not None:
+        db.append("notes", round_id=round_id, segment_idx=current_segment(db, round_id)["idx"],
+                  subject="walk_hit", text=f"{hit['date']} | {source} | {hit.get('evidence_id')}")
     return {"read_through": frontier(db, round_id), "dates_read": len(read), "hit": hit,
             "last_reads": read[-5:],
             "note": "no match through the frontier" if hit is None else

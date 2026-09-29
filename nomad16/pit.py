@@ -49,7 +49,12 @@ def bound(db: DB, round_id: str, as_of: str) -> str:
             raise Refused(f"pre-lock: nothing after the segment clock {day(c)} may be read (asked {day(as_of)})")
         return as_of
     if st == "walking":
-        from .walk import frontier
+        from .walk import frontier, pending_hit
+        hit = pending_hit(db, round_id)
+        if hit and day(as_of) > hit:
+            raise Refused(f"walking: a walk_scan hit on {hit} is unresolved. Read that document, then either "
+                          f"fire the ACK (ack_fire) or record it as not delivering (walk_read with result "
+                          f"not_delivering); nothing after {hit} is readable until then (§14)")
         f = frontier(db, round_id)
         nxt = (ts(day(f)) + _dt.timedelta(days=1)).strftime("%Y-%m-%d")
         if day(as_of) > nxt:

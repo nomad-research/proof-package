@@ -119,32 +119,36 @@
   },
   "HOP_DISCOUNT": {
    "value": {
-    "input_supply": 0.6,
-    "offtake": 0.6,
-    "ownership": 0.9,
-    "customer": 0.5,
-    "competitor": 0.4,
-    "substitute": 0.5,
-    "lender": 0.5,
-    "insurer": 0.4,
-    "grid_neighbour": 0.5,
-    "regulator": 0.7,
-    "counterparty": 0.6
+    "offtake": 0.7,
+    "input_supply": 0.7,
+    "input_cost": 0.65,
+    "ownership": 0.85,
+    "shared_facility": 0.75,
+    "shared_infrastructure": 0.7,
+    "logistics": 0.65,
+    "regulatory_scope": 0.6,
+    "coverage": 0.4,
+    "analogy": 0.0,
+    "index_membership": 0.0,
+    "listing_venue": 0.0,
+    "reporting_currency": 0.0,
+    "sector": 0.0,
+    "size_bucket": 0.0
    },
-   "status": "provisional_unratified",
-   "basis": "\u00a733.1 says 'as in the v15 config'; the v15 config is not in this repository (fresh build, \u00a730.3)",
+   "status": "carried",
+   "basis": "v15 harness/config.py HOP_DISCOUNT, carried as ratified per \u00a733.1 (v15 record imported 2026-09-29)",
    "section": "\u00a733.1"
   },
   "DEFAULT_HOP_DISCOUNT": {
    "value": 0.5,
    "status": "provisional_unratified",
-   "basis": "\u00a733.1 'to ratify'; v15 value unavailable",
+   "basis": "v15 value 0.5 confirmed from harness/config.py; still 'to ratify' (\u00a733.1, P0): it was a silent default in v15",
    "section": "\u00a733.1"
   },
   "TRANSFORM_SEED_STATUS": {
-   "value": "authored_by_builder",
-   "status": "provisional_unratified",
-   "basis": "\u00a733.1 says 28 entries as in v15; unavailable, re-authored in config/seed_transforms.json",
+   "value": "v15 TRANSFORM_SEED (28 entries) carried; builder entries for relations or kinds v15 lacks kept as provisional",
+   "status": "carried",
+   "basis": "\u00a733.1; see transforms.basis per row",
    "section": "\u00a733.1"
   },
   "OPERATOR_MIN_N": {
@@ -499,6 +503,21 @@
    "status": "carried",
    "basis": "\u00a79, \u00a723.3",
    "section": "\u00a79"
+  },
+  "HOP_DISCOUNT_BUILDER": {
+   "value": {
+    "customer": 0.5,
+    "competitor": 0.4,
+    "substitute": 0.5,
+    "lender": 0.5,
+    "insurer": 0.4,
+    "grid_neighbour": 0.5,
+    "regulator": 0.7,
+    "counterparty": 0.6
+   },
+   "status": "provisional_unratified",
+   "basis": "builder's hop discounts for relations v15 never had (customer, competitor, substitute, lender, insurer, grid_neighbour, regulator, counterparty)",
+   "section": "\u00a733.1"
   }
  }
 }

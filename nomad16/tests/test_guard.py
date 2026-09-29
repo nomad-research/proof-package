@@ -42,6 +42,8 @@ def run(tmp_path, state, tool, ti):
     ("Bash", {"command": "git add rounds/R16-001 && git commit -m x && git push"}, "allow"),
     ("Bash", {"command": "git add rounds/R16-001 && cat state/nomad16.db"}, "deny"),
     ("Read", {"file_path": "/home/user/Nomad-Research/state/nomad16.db"}, "deny"),
+    ("Bash", {"command": f"git commit -m 'x\n\nClaude-Session: {EXAMPLE}'"}, "allow"),
+    ("Bash", {"command": f"git commit -m x && cu" + f"rl {EXAMPLE}"}, "deny"),
 ])
 def test_closed_phase(tmp_path, tool, ti, want):
     assert run(tmp_path, "pre_lock", tool, ti) == want

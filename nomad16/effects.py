@@ -11,7 +11,7 @@ from . import config
 from .db import DB, Refused
 
 EFFECT_KINDS = {"volume", "cost", "price", "revenue", "obligation", "availability", "credit",
-                "margin", "demand"}
+                "margin", "demand", "timing", "direction"}  # timing and direction carried from v15
 
 
 def transform_add(db: DB, relation: str, from_kind: str, to_kind: str, value: float, basis: str) -> dict:
@@ -26,6 +26,9 @@ def hop_discount(relation: str) -> tuple[float, str]:
     hd = config.get("HOP_DISCOUNT")
     if relation in hd:
         return float(hd[relation]), "HOP_DISCOUNT"
+    hb = config.get("HOP_DISCOUNT_BUILDER")
+    if relation in hb:
+        return float(hb[relation]), "HOP_DISCOUNT_BUILDER"
     return float(config.get("DEFAULT_HOP_DISCOUNT")), "DEFAULT_HOP_DISCOUNT"
 
 

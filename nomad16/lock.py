@@ -152,6 +152,11 @@ def manifest_for(view: View, db: DB, round_id: str, idx: int, budget: dict, tide
             if db.one("store_snapshots", "content_hash=?", (h,)) is None:
                 r = view.mget(t, k)
                 db.append("store_snapshots", content_hash=h, tbl=t, row_key=k, canonical_json=canon(r))
+    # pin the appetite document itself, content-addressed by its hash, so replay never reads a later one
+    chash = config.config_hash()
+    if db.one("store_snapshots", "content_hash=?", (chash,)) is None:
+        db.append("store_snapshots", content_hash=chash, tbl="config", row_key="appetite.json",
+                  canonical_json=canon(config.document()))
     vids = sorted(r["vintage_id"] for r in db.rows("price_vintages") if r["recorded_at"] <= cutoff)
     lh = db.rows("library_history")
     return {"store_rows": rows, "vintage_ids": vids, "ledger_cutoff": cutoff,
@@ -282,6 +287,14 @@ def lock(db: DB, round_id: str) -> dict:
             "provisional_values_read": len(provisional), "state": state(db, round_id)}
 
 
+class _nullctx:
+    def __enter__(self):
+        return self
+
+    def __exit__(self, *exc):
+        return False
+
+
 def replay(db: DB, round_id: str, idx: int) -> dict:
     """Recompute a locked segment from its manifest and compare the lock hash."""
     lk = db.one("locks", "round_id=? AND segment_idx=?", (round_id, idx))
@@ -296,11 +309,29 @@ def replay(db: DB, round_id: str, idx: int) -> dict:
     for r in db.rows("lock_manifests", "manifest_id=?", (lk["manifest_id"],)):
         budget = r
     b = {"round_used": budget["round_budget_used"], "tide_used": budget["tide_budget_used"]}
-    b["round_remaining"] = max(float(config.get("LOSS_BUDGET_PER_ROUND")) - b["round_used"], 0.0)
-    b["tide_remaining"] = max(float(config.get("LOSS_CAP_PER_TIDE")) - b["tide_used"], 0.0)
-    objs = compute_segment(view, rnd, seg, b)
+    snap0 = db.one("store_snapshots", "content_hash=?", (m["config_hash"],))
+    doc0 = None
+    if snap0 is not None:
+        cj0 = snap0["canonical_json"]
+        doc0 = cj0 if isinstance(cj0, dict) else __import__("json").loads(cj0)
+    with config.pinned(doc0) if doc0 else _nullctx():
+        b["round_remaining"] = max(float(config.get("LOSS_BUDGET_PER_ROUND")) - b["round_used"], 0.0)
+        b["tide_remaining"] = max(float(config.get("LOSS_CAP_PER_TIDE")) - b["tide_used"], 0.0)
+    snap = db.one("store_snapshots", "content_hash=?", (m["config_hash"],))
+    if snap is not None:
+        cj = snap["canonical_json"]
+        doc = cj if isinstance(cj, dict) else __import__("json").loads(cj)
+        with config.pinned(doc):
+            objs = compute_segment(view, rnd, seg, b)
+        pinned_note = "appetite pinned from the lock's snapshot"
+    else:
+        objs = compute_segment(view, rnd, seg, b)
+        pinned_note = ("appetite not pinned at this lock (locked before pinning existed); replay used the live "
+                       f"file, whose hash {'matches' if config.config_hash() == m['config_hash'] else 'DIFFERS FROM'} "
+                       f"the lock's")
     oh = ohash(objs)
     ok = oh == lk["objects_hash"]
     if not ok:
         set_meta(db, round_id, f"nondeterministic_seg{idx}", True)
-    return {"segment": idx, "reproduces": ok, "objects_hash": oh, "locked_objects_hash": lk["objects_hash"]}
+    return {"segment": idx, "reproduces": ok, "objects_hash": oh, "locked_objects_hash": lk["objects_hash"],
+            "config": pinned_note}

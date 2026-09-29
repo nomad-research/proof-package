@@ -1,0 +1,107 @@
+{
+  "_notes": [
+    "seed_v1: only what is derivable from nomad_harness_spec_v1.md itself. The v4 companion (predicates §4.3-4.5, library §3.4, rounds 1-3, PO/freight/port holders) was not available when this seed was written.",
+    "Fill seed_v4_template.json from nomad_system_as_it_stands_v4.md and load it with: nomad-harness init --seed harness/seed/seed_v4_template.json",
+    "Items marked PLACEHOLDER in role_note/provenance should be replaced or retired once v4 content is loaded."
+  ],
+  "predicates": [
+    {
+      "name": "pair_gate_opposing_listed_positions",
+      "kind": "arming",
+      "source": "positions store (nomad_positions_on_node)",
+      "threshold": "On the shocked node there exist two listed holders with opposite sign_of_exposure and a position difference above threshold. Day one: any difference, logged.",
+      "role_note": "Arming predicate 6, pair form (spec §4.12). Pre-registered test: for shocks where two listed holders held opposing positions on the node, the pair's relative move exceeded either leg's absolute attributable move. If this fails across ten rounds, tide-cancellation is dead and positions are ontology only."
+    },
+    {
+      "name": "listed_party_position_on_node",
+      "kind": "arming",
+      "source": "positions store (nomad_positions_on_node) + names book",
+      "threshold": "At least one listed holder has a recorded position on the shocked node and a named carrier exists for the call.",
+      "role_note": "PLACEHOLDER for arming predicate 6, single form (t0_candidates.arming_pass_single / listed_party / carrier). Replace wording from v4 §4.3."
+    }
+  ],
+  "library_rules": [
+    {
+      "key": "toll_booth",
+      "rule_text": "The toll booth learns before the cargo",
+      "forbids": "the physical cargo price moving before the chokepoint toll (insurance, freight, transit premia) has repriced",
+      "obscurity": 3,
+      "layer": "sequence",
+      "provenance": "PLACEHOLDER: taken from harness spec v1 §9 test 5 as a worked rule; confirm wording, obscurity and round nouns against v4 §3.4 (Hormuz insurance repricing, rounds 1-3)."
+    },
+    {
+      "key": "operators_wake_fresh",
+      "rule_text": "AI operators wake fresh",
+      "forbids": "assuming the operator carries state between rounds; every round starts from the lock, not from memory",
+      "obscurity": 2,
+      "layer": "operator",
+      "provenance": "PLACEHOLDER: taken from harness spec v1 §9 test 5; confirm against v4 §3.4."
+    }
+  ],
+  "holders": [
+    {
+      "key": "lyb",
+      "canonical_name": "LyondellBasell Industries N.V.",
+      "kind": "company",
+      "listed": true,
+      "ticker": "LYB",
+      "exchange": "NYSE",
+      "aliases": [
+        {"alias": "LyondellBasell", "alias_kind": "abbreviation", "source": "seed"},
+        {"alias": "Lyondell", "alias_kind": "former_name", "source": "seed"}
+      ]
+    },
+    {
+      "key": "bayport_choate",
+      "canonical_name": "Bayport Choate",
+      "kind": "plant",
+      "parent": "lyb",
+      "listed": false,
+      "aliases": [
+        {"alias": "LyondellBasell Bayport Choate", "alias_kind": "plant_name", "source": "seed"},
+        {"alias": "Bayport Choate PO/TBA plant", "alias_kind": "plant_name", "source": "seed"}
+      ]
+    }
+  ],
+  "positions": [
+    {
+      "holder": "lyb",
+      "node": "propylene oxide",
+      "attribute": "sign_of_exposure",
+      "value": "+",
+      "source": "seed: PO producer (spec §8); scarcity on PO helps a producer",
+      "confidence": "inferred"
+    },
+    {
+      "holder": "bayport_choate",
+      "node": "propylene oxide",
+      "attribute": "sign_of_exposure",
+      "value": "+",
+      "source": "seed: PO/TBA plant (spec §8, per-plant positions)",
+      "confidence": "inferred"
+    }
+  ],
+  "retro_rounds": [],
+  "hypotheses": [
+    {
+      "text": "For shocks where two listed holders held opposing positions on the shocked node, the pair's relative move exceeds either leg's absolute attributable move.",
+      "node": null,
+      "holders": [],
+      "mechanisms": [],
+      "arming": ["pair_gate_opposing_listed_positions"],
+      "disarming": [],
+      "falsifier": "Across ten scored rounds with an opposing listed pair on the node, the pair's relative move does not exceed either leg's absolute attributable move; tide-cancellation is then dead and positions are ontology only.",
+      "granularity": "pair-level, per shocked node, per scored round; ten-round window"
+    },
+    {
+      "text": "When a chokepoint shock unwinds, constraint prices (insurance and freight premia on the constrained route) de-escalate slower than the prices of the cargo that was constrained.",
+      "node": "Strait of Hormuz",
+      "holders": [],
+      "mechanisms": ["toll_booth"],
+      "arming": ["listed_party_position_on_node"],
+      "disarming": [],
+      "falsifier": "A premia-ladder observation in which route insurance or freight premia normalise before, or at the same pace as, the constrained cargo price.",
+      "granularity": "weekly, per rung of the Hormuz premia ladder (war-risk insurance, tanker freight, cargo)"
+    }
+  ]
+}

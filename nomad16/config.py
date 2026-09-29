@@ -28,9 +28,32 @@ class MissingAppetite(KeyError):
 
 
 _used: set[str] = set()
+_pinned: dict | None = None
+
+
+class pinned:
+    """Evaluate with a pinned appetite document (replay reads the one its lock used)."""
+
+    def __init__(self, doc: dict):
+        self.doc = doc
+
+    def __enter__(self):
+        global _pinned
+        self.prev, _pinned = _pinned, self.doc
+        return self
+
+    def __exit__(self, *exc):
+        global _pinned
+        _pinned = self.prev
+
+
+def document(path: Path | None = None) -> dict:
+    return _load(path)
 
 
 def _load(path: Path | None = None) -> dict:
+    if _pinned is not None and path is None:
+        return _pinned
     p = Path(path or APPETITE_PATH)
     if not p.exists():
         raise MissingAppetite(f"appetite file {p} does not exist")

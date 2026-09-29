@@ -140,3 +140,70 @@ Not covered: 3, 4, 9, 11–14 (v15 record, decider, data product).
 - **The builder is not the operator.** This build session has read the item text and saw July's item
   titles in enumeration run 1. It plays no part in the round; it writes the phase file outside its own
   working tree so its tools stay usable, and the operator's clone carries the closed phase from git.
+
+## 2026-09-29 — R16-001 played; v15 record imported
+
+### R16-001 (Fermi 2 automatic scram, 2026-07-03), cold operator session
+
+- **Played end to end** by a fresh operator session (claude-opus-5-5, declared cutoff 2026-06-30, hook
+  verified from the guard log). Blind pass committed before any fetch. Two segments locked:
+  seg 0 (clock 2026-07-03) `fdbf68d4…`; seg 1 (clock 2026-07-12, opened by the restart ACK firing
+  `restart_lt_2w`) `9c7359af…`. **Both replay to their lock hashes** (manifests pin stores, vintages
+  and, back-filled from git, the appetite file each lock read, whose hash equals the recorded one).
+- **Derived ACKs:** 5 forced, 3 switch. Ratified: restart status, current report (switch), replacement
+  procurement. The written event report was dropped because its carrier (the regulator's document system)
+  is `not_covered`.
+- **Calls:** 8. Six resolved, all hit: 3 on carriers that spoke, 3 absence calls on carriers read
+  silent in full. The absence record is 2/2 under both the v16 and v15 rules. Two map calls on the
+  replacement-procurement ACK stay open until their cap window closes on 2026-10-01; `close_round` after
+  that date scores the round.
+- **Baskets: all four `unbuildable: shape_mixed`.** Every priced effect on the listed parents (DTE, CMS)
+  was vetoed `below_band`: a restart inside two weeks costs the listed parent about 0.01% and a long
+  outage about 0.4%, against a hedged-residual band near 8%. No listed holder on the node carries stake
+  above noise. That is the structural answer, not a construction failure. No paper positions.
+- **Pianos:** 4 story-correlation rises with no shared constrained node, logged and not modelled.
+- **A disclosed leak in segment 1.** After `walk_scan` hit the delivery on 07-12, the operator made
+  further reads through 07-15, which the harness then allowed. It fired at the true delivery date and
+  authored nothing from the later reads. Segment 1's calls are flagged as exposed. **Fixed after the
+  round:** an unresolved `walk_scan` hit now pins the frontier until the ACK fires or the date is recorded
+  as not delivering (test `test_walk_hit_holds_the_frontier`).
+- **Operator friction, and what changed:** the commit-trailer URL was refused by the guard (fixed: plain
+  `git commit/add/push` parts pass). A transform gap (`ownership: availability → obligation`) is left
+  unfilled: filling it is library authorship, owed from rounds 1–7 authoring (K10). Hop discounts that
+  stop the grid-price and insurer chains: v15's ratified discounts are now carried (below). Story classes
+  set by rank: with two listed instruments in reach, three stories were classed synthetic by arithmetic.
+  That is a real limit of construction on thin nodes, recorded rather than patched.
+
+### v15 imported (the user uploaded `nomad.zip`, Rob's `Documents/nomad`, v15 head 2dd1507)
+
+- Frozen, untouched, under `v15/`: code, database, docs, tests, and the git history as a bundle, with
+  `v15/MANIFEST.json` (sha256 per file and of the zip). **v15's chain verifies with v15's own
+  `verify_chain`: ok on all 48 ledger tables, no break.** This is §30.2 step 1.
+- The user chose to keep the v16 build and import v15 into it, not to evolve v15 in place. The fresh build
+  stands; v15 is the reference and the look-back source.
+- **Carried config (§33.1):** `HOP_DISCOUNT` (15 relations) and the 28-entry `TRANSFORM_SEED` are now
+  `carried`. The builder's entries for relations and kinds v15 lacks stay provisional
+  (`HOP_DISCOUNT_BUILDER`, the per-row `transforms.basis`). v15's `timing` and `direction` effect kinds were
+  added. `DEFAULT_HOP_DISCOUNT` 0.5 is confirmed as v15's value and is still "to ratify".
+- **Quarantine:** `v15/` and `lookbacks/` hold material dated after July 2026, and are quarantined from
+  operators pre-lock.
+
+### K8 — unreadable under its guards (`lookbacks/K8_result.md`)
+
+Pre-registered before any number was computed (`lookbacks/K8_prereg.md`). Under the guards, 2 nodes
+qualify, which is unreadable. The v15 record can't carry K8: **141 of 200 positions have no
+`knowable_from`**, rounds 1–6 carry no node link, and v15's stake term is blank on almost every leg. A
+labelled post-hoc sensitivity with the time-wall guard dropped reads 9/11 nodes with a listed hedge (both
+sides or options), 6/11 with both sides. That is indicative only, and exactly what the guard exists to
+prevent concluding. Making K8 readable needs a blind back-fill of `knowable_from` on v15 positions.
+
+### Still owed on the v15 record
+
+- **K10:** templates, vocabularies and bounds authored **from rounds 1–7 only**, by an author who hasn't
+  seen rounds 8–15. This build session has seen the titles of rounds 8–15, so the authoring should be a
+  cold session given only the rounds 1–7 materials.
+- **K11, K12:** mechanical on v15 narrative rows plus prices, once the story-to-proxy mapping rule is
+  written down before any ρ is computed.
+- **K9:** a rebuild of rounds 5–15 by cold operator sessions, one per round. Their events (2026-07-14 →
+  2026-09-07) are after this environment's declared cutoff (2026-06-30), so the time-wall guard is
+  satisfiable. The cost is one operator session per round (R16-001 used about $13).

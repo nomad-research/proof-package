@@ -1,0 +1,2305 @@
+{
+  "schema": "nomad_harness_seed_v4",
+  "generated_at": "2026-09-06T00:00:00Z",
+  "notes": "Field names and enums follow nomad_harness_spec_v1.md exactly. All rule_text/forbids lowercase, no proper nouns; names live in provenance. Evidence URLs not retained across compaction; url fields use 'search:' placeholders and scorer_note carries the fact.",
+  "config": {
+    "NULL_CALL_WEIGHT": 0.2,
+    "operator_cutoff": "2026-01-31"
+  },
+  "predicates": [
+    {
+      "id": "pred.arm.path_composition",
+      "name": "path composition",
+      "kind": "arming",
+      "source": "own graph",
+      "threshold": "supporting path contains >=1 non-stated edge",
+      "date": null,
+      "role_note": "property of things held; needs no claim about others' beliefs",
+      "active": true
+    },
+    {
+      "id": "pred.arm.existence_floor",
+      "name": "existence floor",
+      "kind": "arming",
+      "source": "independent non-price source class not used at generation",
+      "threshold": "at least one trace confirms the relation is real",
+      "date": null,
+      "role_note": "guards adverse-selection case where zero pricing means nobody cares",
+      "active": true
+    },
+    {
+      "id": "pred.arm.first_traversal",
+      "name": "first traversal (event and node)",
+      "kind": "arming",
+      "source": "news corpus, bounded window",
+      "threshold": "no related market-moving news in prior ~30 days for the channel; node is not a recurring-disruption node",
+      "date": null,
+      "role_note": "rounds 1 and 3 failed this at event and node respectively",
+      "active": true
+    },
+    {
+      "id": "pred.arm.bounded_channel_absence",
+      "name": "bounded-channel absence",
+      "kind": "arming",
+      "source": "pre-named fast channels: analyst q&a co-mention, sell-side notes, independent-outlet co-mention, optionally 13f shifts",
+      "threshold": "all below calibrated thresholds",
+      "date": null,
+      "role_note": "checkable negative over a defined set, not a universal one",
+      "active": true
+    },
+    {
+      "id": "pred.arm.slack_check",
+      "name": "slack check",
+      "kind": "arming",
+      "source": "destination-market inventory and capacity data",
+      "threshold": "receiving market has no spare capacity or glut",
+      "date": null,
+      "role_note": "round 2 co-product leg failed this",
+      "active": true
+    },
+    {
+      "id": "pred.arm.tradability_gate",
+      "name": "tradability gate (single-name and pair forms)",
+      "kind": "arming",
+      "source": "names book + positions store",
+      "threshold": "single: a listed holder whose event impact clears micro/macro ratio; pair: two listed holders with opposing sign_of_exposure on the shocked node and difference above threshold",
+      "date": null,
+      "role_note": "THIS IS THE TRADABILITY GATE. log both forms; if neither holds the shock is scored but not armed",
+      "active": true
+    },
+    {
+      "id": "pred.arm.catalyst_class",
+      "name": "catalyst class",
+      "kind": "arming",
+      "source": "forward-dated facts",
+      "threshold": "known statement window exists -> armed dated (directional permitted); none -> armed undated (support-branch only)",
+      "date": null,
+      "role_note": "hard restriction: undated directional bets are not permitted",
+      "active": true
+    },
+    {
+      "id": "pred.disarm.falsifier",
+      "name": "falsifier",
+      "kind": "disarming",
+      "source": "hypothesis's own falsifier field",
+      "threshold": "the pre-registered killing fact appears before resolution",
+      "date": null,
+      "role_note": "every hypothesis carries one at creation",
+      "active": true
+    },
+    {
+      "id": "pred.disarm.channel_fill",
+      "name": "channel fill",
+      "kind": "disarming",
+      "source": "bounded channel set",
+      "threshold": "any channel crosses its threshold",
+      "date": null,
+      "role_note": "noisy instruments are allowed to disarm",
+      "active": true
+    },
+    {
+      "id": "pred.disarm.rate_of_change",
+      "name": "rate of change",
+      "kind": "disarming",
+      "source": "adoption proxies over time",
+      "threshold": "adoption curve has visibly inflected",
+      "date": null,
+      "role_note": "too noisy to arm; fine to disarm",
+      "active": true
+    },
+    {
+      "id": "pred.disarm.date_passed",
+      "name": "date passed",
+      "kind": "disarming",
+      "source": "forward-dated calendar",
+      "threshold": "the statement date has arrived",
+      "date": null,
+      "role_note": "",
+      "active": true
+    },
+    {
+      "id": "pred.disarm.staleness",
+      "name": "staleness",
+      "kind": "disarming",
+      "source": "fact class half-lives",
+      "threshold": "a load-bearing fact exceeded its half-life without re-verification",
+      "date": null,
+      "role_note": "",
+      "active": true
+    },
+    {
+      "id": "pred.exit.residual_recovered",
+      "name": "residual recovered",
+      "kind": "exit",
+      "source": "epistemic-class ladder on the ridden edges",
+      "threshold": "the market's projection has absorbed the inferred fine-grained state (e.g. implicit edge went stated)",
+      "date": null,
+      "role_note": "evaluated on the net book, never leg by leg",
+      "active": true
+    },
+    {
+      "id": "pred.catalyst.forward_dated",
+      "name": "forward-dated statement",
+      "kind": "catalyst",
+      "source": "roadmaps, guidance, regulatory timelines, scheduled announcements",
+      "threshold": "a statement event with a known future date exists",
+      "date": null,
+      "role_note": "an ack in the original sense: source, threshold, date",
+      "active": true
+    }
+  ],
+  "library_rules": [
+    {
+      "id": "lib.chokepoint_premium",
+      "rule_text": "when a transit chokepoint is threatened, the price of passage rises before and more durably than the price of what passes through it",
+      "forbids": "forbids: freight and insurance being flat while the commodity spikes on a chokepoint threat",
+      "obscurity": 2,
+      "layer": "transmission",
+      "status": "candidate",
+      "composed_of": [],
+      "provenance": "Round 1: Strait of Hormuz; VLCC rates 4x pre-war, war-risk premia 3-10% of hull.",
+      "proposed_in_round": null
+    },
+    {
+      "id": "lib.supply_fear_fade",
+      "rule_text": "a supply-fear spike with no physical interdiction mean-reverts within weeks",
+      "forbids": "forbids: a sustained commodity premium without a physical constraint",
+      "obscurity": 1,
+      "layer": "transmission",
+      "status": "candidate",
+      "composed_of": [],
+      "provenance": "Round 1: Brent fell below $100 within weeks — but on de-escalation, with Hormuz already closed. Outcome hit, mechanism wrong; quarantined.",
+      "proposed_in_round": null
+    },
+    {
+      "id": "lib.substitutes_gift",
+      "rule_text": "when one supplier of a region-locked product is removed, the remaining suppliers capture the spread",
+      "forbids": "forbids: remaining suppliers' spreads staying flat after a peer outage in a region-locked market",
+      "obscurity": 2,
+      "layer": "ownership",
+      "status": "candidate",
+      "composed_of": [],
+      "provenance": "Round 1: non-Gulf methanol/urea producers. Round 2: US PO producers — but see lib.wounded_owner.",
+      "proposed_in_round": null
+    },
+    {
+      "id": "lib.dark_factory_chain",
+      "rule_text": "when a large producing region is shut, its exports vanish and the chain downstream reprices in the order of substitution difficulty",
+      "forbids": "forbids: downstream derivative prices being unaffected by an upstream regional shutdown",
+      "obscurity": 3,
+      "layer": "transmission",
+      "status": "candidate",
+      "composed_of": [],
+      "provenance": "Round 1: Iranian methanol/urea plants down; SE Asia methanol +72%, urea to ~$780/t. Round 2: PO -> polyols -> foam.",
+      "proposed_in_round": null
+    },
+    {
+      "id": "lib.route_closure",
+      "rule_text": "closing a route reprices everything that must use it, in proportion to how hard it is to reroute",
+      "forbids": "forbids: route-dependent carriers being unaffected by closure",
+      "obscurity": 1,
+      "layer": "transmission",
+      "status": "candidate",
+      "composed_of": [],
+      "provenance": "Round 1: Hormuz. Round 3: Scheldt (half a day) vs Deurganck Dock (four days).",
+      "proposed_in_round": null
+    },
+    {
+      "id": "lib.escalation_words_cheap",
+      "rule_text": "statements of intent to escalate move prices on the day and fade unless followed by physical action",
+      "forbids": "forbids: a durable premium built on rhetoric alone",
+      "obscurity": 1,
+      "layer": "sequence",
+      "status": "candidate",
+      "composed_of": [],
+      "provenance": "Round 1: +7.9% crude on 'continue attacks' statement, then fade.",
+      "proposed_in_round": null
+    },
+    {
+      "id": "lib.visible_victim_overweight",
+      "rule_text": "the named victim of an event is over-attended relative to its earnings impact; single-unit losses at diversified owners are equity noise",
+      "forbids": "forbids: predicting a large sustained equity loss for a diversified owner from one unit outage absent casualties or liability",
+      "obscurity": 2,
+      "layer": "ownership",
+      "status": "candidate",
+      "composed_of": [],
+      "provenance": "Round 2: LyondellBasell — untestable because macro swamped, but the premise held.",
+      "proposed_in_round": null
+    },
+    {
+      "id": "lib.force_majeure_fast_carrier",
+      "rule_text": "a producer's force majeure declaration is the fastest public carrier of a plant outage, preceding every price print",
+      "forbids": "forbids: waiting for price prints to confirm a plant outage when a force majeure letter is available",
+      "obscurity": 2,
+      "layer": "transmission",
+      "status": "candidate",
+      "composed_of": [],
+      "provenance": "Round 2: PG FM day 1, PO FM day 5.",
+      "proposed_in_round": null
+    },
+    {
+      "id": "lib.region_locked_concentration",
+      "rule_text": "a product that is hazardous to ship and made by few producers reprices locally and stays repriced until local capacity returns",
+      "forbids": "forbids: expecting import relief to cap a regional price spike in a hard-to-ship product",
+      "obscurity": 3,
+      "layer": "transmission",
+      "status": "candidate",
+      "composed_of": [],
+      "provenance": "Round 2: US propylene oxide.",
+      "proposed_in_round": null
+    },
+    {
+      "id": "lib.chain_lag",
+      "rule_text": "cost travels down a chain with contract lag; derivatives reprice weeks after the parent chemical, downstream buyers at their next contract or earnings",
+      "forbids": "forbids: downstream repricing on the same day as the upstream event",
+      "obscurity": 3,
+      "layer": "transmission",
+      "status": "candidate",
+      "composed_of": [],
+      "provenance": "Round 2: polyol +28%, MPG +34% in April contracts; foam costs +15-20% within days (faster than predicted).",
+      "proposed_in_round": null
+    },
+    {
+      "id": "lib.coproduct_collateral",
+      "rule_text": "a plant that co-produces two products cuts both when it stops; the second product is named later than the first",
+      "forbids": "forbids: ignoring the co-product when scoping a plant outage",
+      "obscurity": 3,
+      "layer": "transmission",
+      "status": "candidate",
+      "composed_of": [],
+      "provenance": "Round 2: PO/TBA -> MTBE. Channel was real but specialists named it in five days and the destination market was in glut.",
+      "proposed_in_round": null
+    },
+    {
+      "id": "lib.feedstock_backwash",
+      "rule_text": "a large consumer of a feedstock going offline softens that feedstock at the margin",
+      "forbids": "forbids: predicting feedstock tightening from a consumer outage",
+      "obscurity": 3,
+      "layer": "transmission",
+      "status": "candidate",
+      "composed_of": [],
+      "provenance": "Round 2: propylene; unverified under war noise.",
+      "proposed_in_round": null
+    },
+    {
+      "id": "lib.demand_slump_mute",
+      "rule_text": "a supply shock landing in a demand slump produces a smaller price response than the same shock in a tight market",
+      "forbids": "forbids: full-strength price predictions when downstream demand is contracting",
+      "obscurity": 2,
+      "layer": "transmission",
+      "status": "candidate",
+      "composed_of": [],
+      "provenance": "Round 2: cautious downstream buying capped PO spot.",
+      "proposed_in_round": null
+    },
+    {
+      "id": "lib.congestion_memory",
+      "rule_text": "a short closure at an already-congested node produces a ripple that outlasts the closure by weeks",
+      "forbids": "forbids: assuming the effect ends when the closure ends",
+      "obscurity": 2,
+      "layer": "transmission",
+      "status": "candidate",
+      "composed_of": [],
+      "provenance": "Round 3: Antwerp; backlog into the following week; ~85,000 teu lost.",
+      "proposed_in_round": null
+    },
+    {
+      "id": "lib.liability_periphery",
+      "rule_text": "liability for an operational accident lands on a party too small or private to trade; no listed exposure is created",
+      "forbids": "forbids: predicting a tradeable liability leg from an ordinary operational accident",
+      "obscurity": 2,
+      "layer": "ownership",
+      "status": "candidate",
+      "composed_of": [],
+      "provenance": "Round 3: responsible vessel belonged to a large private carrier — partly wrong on size, right on tradeability.",
+      "proposed_in_round": null
+    },
+    {
+      "id": "lib.novelty_channels_not_events",
+      "rule_text": "novelty belongs to channels, not events; a channel already traversed by a crisis is priced for every later headline in that crisis",
+      "forbids": "forbids: predicting a lag on a channel the current crisis has already repriced",
+      "obscurity": 2,
+      "layer": "sequence",
+      "status": "candidate",
+      "composed_of": [],
+      "provenance": "Round 1: methanol/urea mainstream by march 20-25; april 3 entry bought the top.",
+      "proposed_in_round": null
+    },
+    {
+      "id": "lib.recurring_disruption_weather",
+      "rule_text": "recurring disruption at a node is priced as weather; single events there transmit nothing regardless of size",
+      "forbids": "forbids: arming on an event at a node with recent recurring failures",
+      "obscurity": 2,
+      "layer": "sequence",
+      "status": "candidate",
+      "composed_of": [],
+      "provenance": "Round 3: Antwerp — strike in march, spill in april, pilots in june, leak in july.",
+      "proposed_in_round": null
+    },
+    {
+      "id": "lib.late_crisis_resolution_side",
+      "rule_text": "late in a crisis the neglected side is resolution; when every channel is priced for continuation the unpriced asymmetry is de-escalation",
+      "forbids": "forbids: adding to the crisis basket when all its channels are already traversed",
+      "obscurity": 4,
+      "layer": "sequence",
+      "status": "candidate",
+      "composed_of": [],
+      "provenance": "Round 1: real april 3 trade was short the war basket into ceasefire talks.",
+      "proposed_in_round": null
+    },
+    {
+      "id": "lib.headline_names_what_reopened",
+      "rule_text": "the headline names what reopened, not what stayed shut; duration lives one node smaller than the choke that made the news",
+      "forbids": "forbids: using the headline node's closure time as the event duration",
+      "obscurity": 3,
+      "layer": "sequence",
+      "status": "candidate",
+      "composed_of": [],
+      "provenance": "Round 3: river reopened in half a day, dock shut four days.",
+      "proposed_in_round": null
+    },
+    {
+      "id": "lib.cut_into_glut_silent",
+      "rule_text": "a cut into a glut is silent; supply loss transmits only where the receiving market has no slack",
+      "forbids": "forbids: predicting repricing of a co-product or substitute without checking destination-market slack",
+      "obscurity": 3,
+      "layer": "transmission",
+      "status": "candidate",
+      "composed_of": [],
+      "provenance": "Round 2: MTBE in chinese-overcapacity glut; no step.",
+      "proposed_in_round": null
+    },
+    {
+      "id": "lib.largest_where_substitution_hardest",
+      "rule_text": "the price move is largest at the chain position with least optionality — requalification lags, formulation lock-in, route dependence",
+      "forbids": "forbids: expecting the largest move at the constrained input itself rather than at the least-substitutable consumer",
+      "obscurity": 3,
+      "layer": "transmission",
+      "status": "candidate",
+      "composed_of": [],
+      "provenance": "Round 1: shippers who could not reroute. Round 2: foamers facing 8-12 week polyol requalification; derivatives moved 2-3x the parent chemical.",
+      "proposed_in_round": null
+    },
+    {
+      "id": "lib.toll_booth_learns_first",
+      "rule_text": "the toll booth learns before the cargo; constraint prices (insurance, freight, allocation) reprice before the commodity they gate",
+      "forbids": "forbids: treating the commodity price as the earliest signal of a chokepoint or plant event",
+      "obscurity": 3,
+      "layer": "transmission",
+      "status": "candidate",
+      "composed_of": [],
+      "provenance": "Round 1: 'the insurance market closed the strait before any attack did'. Round 2: FM letters before price prints.",
+      "proposed_in_round": null
+    },
+    {
+      "id": "lib.constraint_prices_deescalate_slowest",
+      "rule_text": "constraint prices de-escalate slowest; fear enters through the commodity and leaves through the insurance bill",
+      "forbids": "forbids: assuming freight and premia round-trip on the same timescale as spot",
+      "obscurity": 3,
+      "layer": "transmission",
+      "status": "candidate",
+      "composed_of": [],
+      "provenance": "Round 1: premia 3-10% into july while crude round-tripped by early july.",
+      "proposed_in_round": null
+    },
+    {
+      "id": "lib.wounded_owner_collects_premium",
+      "rule_text": "the wounded owner of the substitutes collects its own scarcity premium; when the victim also owns remaining capacity the competitor's gift self-cancels",
+      "forbids": "forbids: long-rival/short-owner where the owner holds sister plants on the same node",
+      "obscurity": 4,
+      "layer": "ownership",
+      "status": "candidate",
+      "composed_of": [],
+      "provenance": "Round 2: owner's other po plants sold into the tightness its own outage created.",
+      "proposed_in_round": null
+    },
+    {
+      "id": "lib.equity_visibility_ratio",
+      "rule_text": "equity visibility equals event size divided by ambient tide; below a ratio to be measured there is no trace to trade",
+      "forbids": "forbids: predicting a stock move without comparing event earnings impact to concurrent macro variance on the same name",
+      "obscurity": 2,
+      "layer": "ownership",
+      "status": "candidate",
+      "composed_of": [],
+      "provenance": "Round 2: ~$250m outage inside a quarter where ebitda tripled; owner upgraded same day on a sector trade.",
+      "proposed_in_round": null
+    },
+    {
+      "id": "lib.lag_without_pureplay_spectacle",
+      "rule_text": "a lag without a listed pure-play is a spectacle, not an edge",
+      "forbids": "forbids: arming a shock whose touched channel has no listed holder above the noise floor",
+      "obscurity": 2,
+      "layer": "ownership",
+      "status": "candidate",
+      "composed_of": [],
+      "provenance": "Promoted to pred.arm.tradability_gate. Rounds 2 and 3.",
+      "proposed_in_round": null
+    },
+    {
+      "id": "lib.op_freshness_not_market",
+      "rule_text": "the operator wakes new to every event while the market has been living in it; operator surprise is a bias toward assuming un-inferredness",
+      "forbids": "forbids: treating the operator's own surprise as evidence that a channel is unpriced",
+      "obscurity": 1,
+      "layer": "operator",
+      "status": "candidate",
+      "composed_of": [],
+      "provenance": "Round 1: predicted day 34 of a war as a fresh shock.",
+      "proposed_in_round": null
+    },
+    {
+      "id": "lib.op_specialists_hold_map",
+      "rule_text": "specialists already hold the operator's map; obscurity must be measured against the people at the terminal, not the public",
+      "forbids": "forbids: rating a channel obscure without checking specialist coverage",
+      "obscurity": 2,
+      "layer": "operator",
+      "status": "candidate",
+      "composed_of": [],
+      "provenance": "Round 2: sell-side analyst named the co-product channel in five days.",
+      "proposed_in_round": null
+    },
+    {
+      "id": "lib.op_overweights_famous",
+      "rule_text": "the operator overweights famous names, first-order links, and connections that make good sentences",
+      "forbids": "forbids: leading a prediction with the most quotable connection",
+      "obscurity": 1,
+      "layer": "operator",
+      "status": "candidate",
+      "composed_of": [],
+      "provenance": "Prior distortion list, carried.",
+      "proposed_in_round": null
+    },
+    {
+      "id": "lib.op_underweights_plumbing",
+      "rule_text": "the operator underweights boring intermediaries, logistics, insurance, and second-order plumbing",
+      "forbids": "forbids: omitting the intermediary layer from a touched-set",
+      "obscurity": 1,
+      "layer": "operator",
+      "status": "candidate",
+      "composed_of": [],
+      "provenance": "Prior distortion list, carried. Round 1 partially corrected by the toll-booth entry.",
+      "proposed_in_round": null
+    },
+    {
+      "id": "lib.comp.plant_outage_chain",
+      "rule_text": "a plant outage in a region-locked concentrated product with an owner holding sister plants: force majeure arrives first, derivatives reprice larger than the parent, the co-product reprices only if its market is tight, and the owner's equity shows nothing",
+      "forbids": "forbids: the round-2 pre-lock prediction set",
+      "obscurity": 4,
+      "layer": "transmission",
+      "status": "candidate",
+      "composed_of": [
+        "lib.force_majeure_fast_carrier",
+        "lib.region_locked_concentration",
+        "lib.largest_where_substitution_hardest",
+        "lib.cut_into_glut_silent",
+        "lib.wounded_owner_collects_premium",
+        "lib.equity_visibility_ratio"
+      ],
+      "provenance": "Composition assembled from round 2.",
+      "proposed_in_round": null
+    },
+    {
+      "id": "lib.comp.chokepoint_late_crisis",
+      "rule_text": "a chokepoint crisis in its nth week: constraint prices lead and lag, all traversed channels are priced, the unpriced side is resolution",
+      "forbids": "forbids: adding to the crisis basket late",
+      "obscurity": 4,
+      "layer": "sequence",
+      "status": "candidate",
+      "composed_of": [
+        "lib.toll_booth_learns_first",
+        "lib.constraint_prices_deescalate_slowest",
+        "lib.novelty_channels_not_events",
+        "lib.late_crisis_resolution_side"
+      ],
+      "provenance": "Composition assembled from round 1.",
+      "proposed_in_round": null
+    }
+  ],
+  "holders": [
+    {
+      "id": "holder.lyb",
+      "canonical_name": "LyondellBasell Industries",
+      "kind": "company",
+      "parent_id": null,
+      "listed": true,
+      "ticker": "LYB",
+      "exchange": "NYSE",
+      "first_seen_round": "round.2"
+    },
+    {
+      "id": "holder.lyb_bayport",
+      "canonical_name": "LyondellBasell Bayport Choate",
+      "kind": "plant",
+      "parent_id": "holder.lyb",
+      "listed": false,
+      "ticker": null,
+      "exchange": null,
+      "first_seen_round": "round.2"
+    },
+    {
+      "id": "holder.lyb_channelview",
+      "canonical_name": "LyondellBasell Channelview",
+      "kind": "plant",
+      "parent_id": "holder.lyb",
+      "listed": false,
+      "ticker": null,
+      "exchange": null,
+      "first_seen_round": "round.2"
+    },
+    {
+      "id": "holder.dow",
+      "canonical_name": "Dow Inc.",
+      "kind": "company",
+      "parent_id": null,
+      "listed": true,
+      "ticker": "DOW",
+      "exchange": "NYSE",
+      "first_seen_round": "round.2"
+    },
+    {
+      "id": "holder.hun",
+      "canonical_name": "Huntsman Corporation",
+      "kind": "company",
+      "parent_id": null,
+      "listed": true,
+      "ticker": "HUN",
+      "exchange": "NYSE",
+      "first_seen_round": "round.2"
+    },
+    {
+      "id": "holder.hun_port_neches",
+      "canonical_name": "Huntsman Port Neches",
+      "kind": "plant",
+      "parent_id": "holder.hun",
+      "listed": false,
+      "ticker": null,
+      "exchange": null,
+      "first_seen_round": "round.2"
+    },
+    {
+      "id": "holder.us_flex_foam",
+      "canonical_name": "US flexible polyurethane foam producers (aggregate, mostly private)",
+      "kind": "other",
+      "parent_id": null,
+      "listed": false,
+      "ticker": null,
+      "exchange": null,
+      "first_seen_round": "round.2"
+    },
+    {
+      "id": "holder.leg",
+      "canonical_name": "Leggett & Platt",
+      "kind": "company",
+      "parent_id": null,
+      "listed": true,
+      "ticker": "LEG",
+      "exchange": "NYSE",
+      "first_seen_round": "round.2"
+    },
+    {
+      "id": "holder.tpx",
+      "canonical_name": "Tempur Sealy International",
+      "kind": "company",
+      "parent_id": null,
+      "listed": true,
+      "ticker": "TPX",
+      "exchange": "NYSE",
+      "first_seen_round": "round.2"
+    },
+    {
+      "id": "holder.lea",
+      "canonical_name": "Lear Corporation",
+      "kind": "company",
+      "parent_id": null,
+      "listed": true,
+      "ticker": "LEA",
+      "exchange": "NYSE",
+      "first_seen_round": "round.2"
+    },
+    {
+      "id": "holder.adnt",
+      "canonical_name": "Adient",
+      "kind": "company",
+      "parent_id": null,
+      "listed": true,
+      "ticker": "ADNT",
+      "exchange": "NYSE",
+      "first_seen_round": "round.2"
+    },
+    {
+      "id": "holder.fro",
+      "canonical_name": "Frontline",
+      "kind": "company",
+      "parent_id": null,
+      "listed": true,
+      "ticker": "FRO",
+      "exchange": "NYSE",
+      "first_seen_round": "round.1"
+    },
+    {
+      "id": "holder.dht",
+      "canonical_name": "DHT Holdings",
+      "kind": "company",
+      "parent_id": null,
+      "listed": true,
+      "ticker": "DHT",
+      "exchange": "NYSE",
+      "first_seen_round": "round.1"
+    },
+    {
+      "id": "holder.insw",
+      "canonical_name": "International Seaways",
+      "kind": "company",
+      "parent_id": null,
+      "listed": true,
+      "ticker": "INSW",
+      "exchange": "NYSE",
+      "first_seen_round": "round.1"
+    },
+    {
+      "id": "holder.meoh",
+      "canonical_name": "Methanex",
+      "kind": "company",
+      "parent_id": null,
+      "listed": true,
+      "ticker": "MEOH",
+      "exchange": "NASDAQ",
+      "first_seen_round": "round.1"
+    },
+    {
+      "id": "holder.cf",
+      "canonical_name": "CF Industries",
+      "kind": "company",
+      "parent_id": null,
+      "listed": true,
+      "ticker": "CF",
+      "exchange": "NYSE",
+      "first_seen_round": "round.1"
+    },
+    {
+      "id": "holder.ntr",
+      "canonical_name": "Nutrien",
+      "kind": "company",
+      "parent_id": null,
+      "listed": true,
+      "ticker": "NTR",
+      "exchange": "NYSE",
+      "first_seen_round": "round.1"
+    },
+    {
+      "id": "holder.lmt",
+      "canonical_name": "Lockheed Martin",
+      "kind": "company",
+      "parent_id": null,
+      "listed": true,
+      "ticker": "LMT",
+      "exchange": "NYSE",
+      "first_seen_round": "round.1"
+    },
+    {
+      "id": "holder.gulf_petchem_exporters",
+      "canonical_name": "Gulf-region methanol and urea exporters (aggregate, mostly state-owned)",
+      "kind": "other",
+      "parent_id": null,
+      "listed": false,
+      "ticker": null,
+      "exchange": null,
+      "first_seen_round": "round.1"
+    },
+    {
+      "id": "holder.airlines_agg",
+      "canonical_name": "Airlines with Gulf routings (aggregate)",
+      "kind": "other",
+      "parent_id": null,
+      "listed": false,
+      "ticker": null,
+      "exchange": null,
+      "first_seen_round": "round.1"
+    },
+    {
+      "id": "holder.antwerp_port",
+      "canonical_name": "Port of Antwerp-Bruges",
+      "kind": "authority",
+      "parent_id": null,
+      "listed": false,
+      "ticker": null,
+      "exchange": null,
+      "first_seen_round": "round.3"
+    },
+    {
+      "id": "holder.msc",
+      "canonical_name": "Mediterranean Shipping Company",
+      "kind": "company",
+      "parent_id": null,
+      "listed": false,
+      "ticker": null,
+      "exchange": null,
+      "first_seen_round": "round.3"
+    },
+    {
+      "id": "holder.mpet",
+      "canonical_name": "MSC PSA European Terminal",
+      "kind": "facility",
+      "parent_id": "holder.msc",
+      "listed": false,
+      "ticker": null,
+      "exchange": null,
+      "first_seen_round": "round.3"
+    },
+    {
+      "id": "holder.maersk",
+      "canonical_name": "A.P. Moller-Maersk",
+      "kind": "company",
+      "parent_id": null,
+      "listed": true,
+      "ticker": "MAERSK-B",
+      "exchange": "CPH",
+      "first_seen_round": "round.3"
+    },
+    {
+      "id": "holder.hlag",
+      "canonical_name": "Hapag-Lloyd",
+      "kind": "company",
+      "parent_id": null,
+      "listed": true,
+      "ticker": "HLAG",
+      "exchange": "XETRA",
+      "first_seen_round": "round.3"
+    }
+  ],
+  "aliases": [
+    {
+      "holder_id": "holder.lyb",
+      "alias": "LyondellBasell",
+      "alias_kind": "name",
+      "source": "session record",
+      "knowable_from": null
+    },
+    {
+      "holder_id": "holder.lyb",
+      "alias": "Lyondell",
+      "alias_kind": "abbreviation",
+      "source": "session record",
+      "knowable_from": null
+    },
+    {
+      "holder_id": "holder.lyb",
+      "alias": "LYB",
+      "alias_kind": "ticker",
+      "source": "session record",
+      "knowable_from": null
+    },
+    {
+      "holder_id": "holder.lyb_bayport",
+      "alias": "Bayport Choate",
+      "alias_kind": "plant_name",
+      "source": "session record",
+      "knowable_from": null
+    },
+    {
+      "holder_id": "holder.lyb_bayport",
+      "alias": "Bayport",
+      "alias_kind": "plant_name",
+      "source": "session record",
+      "knowable_from": null
+    },
+    {
+      "holder_id": "holder.lyb_bayport",
+      "alias": "Choate",
+      "alias_kind": "plant_name",
+      "source": "session record",
+      "knowable_from": null
+    },
+    {
+      "holder_id": "holder.lyb_channelview",
+      "alias": "Channelview",
+      "alias_kind": "plant_name",
+      "source": "session record",
+      "knowable_from": null
+    },
+    {
+      "holder_id": "holder.dow",
+      "alias": "Dow",
+      "alias_kind": "name",
+      "source": "session record",
+      "knowable_from": null
+    },
+    {
+      "holder_id": "holder.dow",
+      "alias": "Dow Chemical",
+      "alias_kind": "former_name",
+      "source": "session record",
+      "knowable_from": null
+    },
+    {
+      "holder_id": "holder.dow",
+      "alias": "DOW",
+      "alias_kind": "ticker",
+      "source": "session record",
+      "knowable_from": null
+    },
+    {
+      "holder_id": "holder.hun",
+      "alias": "Huntsman",
+      "alias_kind": "name",
+      "source": "session record",
+      "knowable_from": null
+    },
+    {
+      "holder_id": "holder.hun",
+      "alias": "HUN",
+      "alias_kind": "ticker",
+      "source": "session record",
+      "knowable_from": null
+    },
+    {
+      "holder_id": "holder.hun_port_neches",
+      "alias": "Port Neches",
+      "alias_kind": "plant_name",
+      "source": "session record",
+      "knowable_from": null
+    },
+    {
+      "holder_id": "holder.us_flex_foam",
+      "alias": "foam producers",
+      "alias_kind": "name",
+      "source": "session record",
+      "knowable_from": null
+    },
+    {
+      "holder_id": "holder.us_flex_foam",
+      "alias": "foamers",
+      "alias_kind": "abbreviation",
+      "source": "session record",
+      "knowable_from": null
+    },
+    {
+      "holder_id": "holder.leg",
+      "alias": "Leggett",
+      "alias_kind": "abbreviation",
+      "source": "session record",
+      "knowable_from": null
+    },
+    {
+      "holder_id": "holder.leg",
+      "alias": "LEG",
+      "alias_kind": "ticker",
+      "source": "session record",
+      "knowable_from": null
+    },
+    {
+      "holder_id": "holder.tpx",
+      "alias": "Tempur Sealy",
+      "alias_kind": "name",
+      "source": "session record",
+      "knowable_from": null
+    },
+    {
+      "holder_id": "holder.tpx",
+      "alias": "TPX",
+      "alias_kind": "ticker",
+      "source": "session record",
+      "knowable_from": null
+    },
+    {
+      "holder_id": "holder.lea",
+      "alias": "Lear",
+      "alias_kind": "name",
+      "source": "session record",
+      "knowable_from": null
+    },
+    {
+      "holder_id": "holder.lea",
+      "alias": "LEA",
+      "alias_kind": "ticker",
+      "source": "session record",
+      "knowable_from": null
+    },
+    {
+      "holder_id": "holder.adnt",
+      "alias": "ADNT",
+      "alias_kind": "ticker",
+      "source": "session record",
+      "knowable_from": null
+    },
+    {
+      "holder_id": "holder.fro",
+      "alias": "FRO",
+      "alias_kind": "ticker",
+      "source": "session record",
+      "knowable_from": null
+    },
+    {
+      "holder_id": "holder.dht",
+      "alias": "DHT",
+      "alias_kind": "ticker",
+      "source": "session record",
+      "knowable_from": null
+    },
+    {
+      "holder_id": "holder.insw",
+      "alias": "INSW",
+      "alias_kind": "ticker",
+      "source": "session record",
+      "knowable_from": null
+    },
+    {
+      "holder_id": "holder.meoh",
+      "alias": "MEOH",
+      "alias_kind": "ticker",
+      "source": "session record",
+      "knowable_from": null
+    },
+    {
+      "holder_id": "holder.cf",
+      "alias": "CF",
+      "alias_kind": "ticker",
+      "source": "session record",
+      "knowable_from": null
+    },
+    {
+      "holder_id": "holder.ntr",
+      "alias": "NTR",
+      "alias_kind": "ticker",
+      "source": "session record",
+      "knowable_from": null
+    },
+    {
+      "holder_id": "holder.lmt",
+      "alias": "Lockheed",
+      "alias_kind": "abbreviation",
+      "source": "session record",
+      "knowable_from": null
+    },
+    {
+      "holder_id": "holder.lmt",
+      "alias": "LMT",
+      "alias_kind": "ticker",
+      "source": "session record",
+      "knowable_from": null
+    },
+    {
+      "holder_id": "holder.antwerp_port",
+      "alias": "Antwerp",
+      "alias_kind": "name",
+      "source": "session record",
+      "knowable_from": null
+    },
+    {
+      "holder_id": "holder.antwerp_port",
+      "alias": "Antwerp-Bruges",
+      "alias_kind": "name",
+      "source": "session record",
+      "knowable_from": null
+    },
+    {
+      "holder_id": "holder.antwerp_port",
+      "alias": "Port of Antwerp",
+      "alias_kind": "former_name",
+      "source": "session record",
+      "knowable_from": null
+    },
+    {
+      "holder_id": "holder.msc",
+      "alias": "MSC",
+      "alias_kind": "abbreviation",
+      "source": "session record",
+      "knowable_from": null
+    },
+    {
+      "holder_id": "holder.mpet",
+      "alias": "MPET",
+      "alias_kind": "abbreviation",
+      "source": "session record",
+      "knowable_from": null
+    },
+    {
+      "holder_id": "holder.mpet",
+      "alias": "Deurganck Dock",
+      "alias_kind": "plant_name",
+      "source": "session record",
+      "knowable_from": null
+    },
+    {
+      "holder_id": "holder.mpet",
+      "alias": "Deurganckdok",
+      "alias_kind": "plant_name",
+      "source": "session record",
+      "knowable_from": null
+    },
+    {
+      "holder_id": "holder.maersk",
+      "alias": "Maersk",
+      "alias_kind": "name",
+      "source": "session record",
+      "knowable_from": null
+    }
+  ],
+  "positions": [
+    {
+      "id": "pos.r2.bayport.sign",
+      "holder_id": "holder.lyb_bayport",
+      "node": "us_propylene_oxide_supply",
+      "attribute": "sign_of_exposure",
+      "value": "-",
+      "unit": null,
+      "source": "operator force majeure letters, march 13 and 17 2026",
+      "source_time": "2026-03-17",
+      "knowable_from": "2026-03-17",
+      "confidence": "stated",
+      "superseded_by": null
+    },
+    {
+      "id": "pos.r2.bayport.share",
+      "holder_id": "holder.lyb_bayport",
+      "node": "us_propylene_oxide_supply",
+      "attribute": "share",
+      "value": "620",
+      "unit": "kt/yr po capacity",
+      "source": "cfo remarks at a bank conference, march 17 2026",
+      "source_time": "2026-03-17",
+      "knowable_from": "2026-03-17",
+      "confidence": "stated",
+      "superseded_by": null
+    },
+    {
+      "id": "pos.r2.channelview.sign",
+      "holder_id": "holder.lyb_channelview",
+      "node": "us_propylene_oxide_supply",
+      "attribute": "sign_of_exposure",
+      "value": "+",
+      "unit": null,
+      "source": "training knowledge of site technology; sister plants sell into tightness",
+      "source_time": null,
+      "knowable_from": "2026-03-12",
+      "confidence": "inferred",
+      "superseded_by": null
+    },
+    {
+      "id": "pos.r2.lyb.sign",
+      "holder_id": "holder.lyb",
+      "node": "us_propylene_oxide_supply",
+      "attribute": "sign_of_exposure",
+      "value": "both",
+      "unit": null,
+      "source": "holds destroyed and scarcity-capturing positions on the same node (self-hedged)",
+      "source_time": null,
+      "knowable_from": "2026-03-12",
+      "confidence": "inferred",
+      "superseded_by": null
+    },
+    {
+      "id": "pos.r2.dow.sign",
+      "holder_id": "holder.dow",
+      "node": "us_propylene_oxide_supply",
+      "attribute": "sign_of_exposure",
+      "value": "+",
+      "unit": null,
+      "source": "training knowledge of us po producer set",
+      "source_time": null,
+      "knowable_from": "2026-03-12",
+      "confidence": "inferred",
+      "superseded_by": null
+    },
+    {
+      "id": "pos.r2.hun.sign",
+      "holder_id": "holder.hun",
+      "node": "us_propylene_oxide_supply",
+      "attribute": "sign_of_exposure",
+      "value": "+",
+      "unit": null,
+      "source": "training knowledge of us po producer set",
+      "source_time": null,
+      "knowable_from": "2026-03-12",
+      "confidence": "inferred",
+      "superseded_by": null
+    },
+    {
+      "id": "pos.r2.foam.sign",
+      "holder_id": "holder.us_flex_foam",
+      "node": "us_propylene_oxide_supply",
+      "attribute": "sign_of_exposure",
+      "value": "-",
+      "unit": null,
+      "source": "mattress trade press: 15-20% foam input cost increases within days; allocation",
+      "source_time": "2026-03-20",
+      "knowable_from": "2026-03-20",
+      "confidence": "stated",
+      "superseded_by": null
+    },
+    {
+      "id": "pos.r2.foam.subst",
+      "holder_id": "holder.us_flex_foam",
+      "node": "us_propylene_oxide_supply",
+      "attribute": "substitutability",
+      "value": "low",
+      "unit": "weeks",
+      "source": "polyol grade requalification 8-12 weeks (sourcing guide)",
+      "source_time": null,
+      "knowable_from": "2026-04-01",
+      "confidence": "inferred",
+      "superseded_by": null
+    },
+    {
+      "id": "pos.r2.leg.sign",
+      "holder_id": "holder.leg",
+      "node": "us_propylene_oxide_supply",
+      "attribute": "sign_of_exposure",
+      "value": "-",
+      "unit": null,
+      "source": "foam is an input; share of cogs small",
+      "source_time": null,
+      "knowable_from": "2026-03-12",
+      "confidence": "inferred",
+      "superseded_by": null
+    },
+    {
+      "id": "pos.r2.tpx.sign",
+      "holder_id": "holder.tpx",
+      "node": "us_propylene_oxide_supply",
+      "attribute": "sign_of_exposure",
+      "value": "-",
+      "unit": null,
+      "source": "foam is an input; share of cogs small",
+      "source_time": null,
+      "knowable_from": "2026-03-12",
+      "confidence": "inferred",
+      "superseded_by": null
+    },
+    {
+      "id": "pos.r2.lea.sign",
+      "holder_id": "holder.lea",
+      "node": "us_propylene_oxide_supply",
+      "attribute": "sign_of_exposure",
+      "value": "-",
+      "unit": null,
+      "source": "foam is an input; share of cogs small",
+      "source_time": null,
+      "knowable_from": "2026-03-12",
+      "confidence": "inferred",
+      "superseded_by": null
+    },
+    {
+      "id": "pos.r2.adnt.sign",
+      "holder_id": "holder.adnt",
+      "node": "us_propylene_oxide_supply",
+      "attribute": "sign_of_exposure",
+      "value": "-",
+      "unit": null,
+      "source": "foam is an input; share of cogs small",
+      "source_time": null,
+      "knowable_from": "2026-03-12",
+      "confidence": "inferred",
+      "superseded_by": null
+    },
+    {
+      "id": "pos.r1.fro.sign",
+      "holder_id": "holder.fro",
+      "node": "strait_of_hormuz_tanker_transit",
+      "attribute": "sign_of_exposure",
+      "value": "+",
+      "unit": null,
+      "source": "scarcity of willing transit raises rates for vessels that trade",
+      "source_time": null,
+      "knowable_from": "2026-02-28",
+      "confidence": "inferred",
+      "superseded_by": null
+    },
+    {
+      "id": "pos.r1.dht.sign",
+      "holder_id": "holder.dht",
+      "node": "strait_of_hormuz_tanker_transit",
+      "attribute": "sign_of_exposure",
+      "value": "+",
+      "unit": null,
+      "source": "scarcity of willing transit raises rates for vessels that trade",
+      "source_time": null,
+      "knowable_from": "2026-02-28",
+      "confidence": "inferred",
+      "superseded_by": null
+    },
+    {
+      "id": "pos.r1.insw.sign",
+      "holder_id": "holder.insw",
+      "node": "strait_of_hormuz_tanker_transit",
+      "attribute": "sign_of_exposure",
+      "value": "+",
+      "unit": null,
+      "source": "scarcity of willing transit raises rates for vessels that trade",
+      "source_time": null,
+      "knowable_from": "2026-02-28",
+      "confidence": "inferred",
+      "superseded_by": null
+    },
+    {
+      "id": "pos.r1.airlines.sign",
+      "holder_id": "holder.airlines_agg",
+      "node": "strait_of_hormuz_tanker_transit",
+      "attribute": "sign_of_exposure",
+      "value": "-",
+      "unit": null,
+      "source": "airspace and fuel; unverified",
+      "source_time": null,
+      "knowable_from": "2026-02-28",
+      "confidence": "inferred",
+      "superseded_by": null
+    },
+    {
+      "id": "pos.r1.gulf.sign",
+      "holder_id": "holder.gulf_petchem_exporters",
+      "node": "gulf_methanol_urea_exports",
+      "attribute": "sign_of_exposure",
+      "value": "-",
+      "unit": null,
+      "source": "trade press: iranian plant outages and stranded cargoes, march 2026",
+      "source_time": "2026-03-20",
+      "knowable_from": "2026-03-20",
+      "confidence": "stated",
+      "superseded_by": null
+    },
+    {
+      "id": "pos.r1.meoh.sign",
+      "holder_id": "holder.meoh",
+      "node": "gulf_methanol_urea_exports",
+      "attribute": "sign_of_exposure",
+      "value": "+",
+      "unit": null,
+      "source": "non-gulf producers capture spread",
+      "source_time": null,
+      "knowable_from": "2026-02-28",
+      "confidence": "inferred",
+      "superseded_by": null
+    },
+    {
+      "id": "pos.r1.cf.sign",
+      "holder_id": "holder.cf",
+      "node": "gulf_methanol_urea_exports",
+      "attribute": "sign_of_exposure",
+      "value": "+",
+      "unit": null,
+      "source": "non-gulf producers capture spread",
+      "source_time": null,
+      "knowable_from": "2026-02-28",
+      "confidence": "inferred",
+      "superseded_by": null
+    },
+    {
+      "id": "pos.r1.ntr.sign",
+      "holder_id": "holder.ntr",
+      "node": "gulf_methanol_urea_exports",
+      "attribute": "sign_of_exposure",
+      "value": "+",
+      "unit": null,
+      "source": "non-gulf producers capture spread",
+      "source_time": null,
+      "knowable_from": "2026-02-28",
+      "confidence": "inferred",
+      "superseded_by": null
+    },
+    {
+      "id": "pos.r3.port.sign",
+      "holder_id": "holder.antwerp_port",
+      "node": "port_of_antwerp_seagoing_access",
+      "attribute": "sign_of_exposure",
+      "value": "-",
+      "unit": null,
+      "source": "port h1 report: ~85,000 teu lost to the spill",
+      "source_time": "2026-07-31",
+      "knowable_from": "2026-07-31",
+      "confidence": "stated",
+      "superseded_by": null
+    },
+    {
+      "id": "pos.r3.mpet.sign",
+      "holder_id": "holder.mpet",
+      "node": "port_of_antwerp_seagoing_access",
+      "attribute": "sign_of_exposure",
+      "value": "-",
+      "unit": null,
+      "source": "dock closed ~4 days per port notices",
+      "source_time": "2026-04-13",
+      "knowable_from": "2026-04-10",
+      "confidence": "stated",
+      "superseded_by": null
+    },
+    {
+      "id": "pos.r3.maersk.sign",
+      "holder_id": "holder.maersk",
+      "node": "port_of_antwerp_seagoing_access",
+      "attribute": "sign_of_exposure",
+      "value": "-",
+      "unit": null,
+      "source": "carrier advisory: omissions and backlog into following week",
+      "source_time": "2026-04-10",
+      "knowable_from": "2026-04-10",
+      "confidence": "stated",
+      "superseded_by": null
+    },
+    {
+      "id": "pos.r3.maersk.share",
+      "holder_id": "holder.maersk",
+      "node": "port_of_antwerp_seagoing_access",
+      "attribute": "share",
+      "value": "small",
+      "unit": null,
+      "source": "one port among many; below noise floor",
+      "source_time": null,
+      "knowable_from": "2026-04-10",
+      "confidence": "inferred",
+      "superseded_by": null
+    },
+    {
+      "id": "pos.r3.hlag.sign",
+      "holder_id": "holder.hlag",
+      "node": "port_of_antwerp_seagoing_access",
+      "attribute": "sign_of_exposure",
+      "value": "-",
+      "unit": null,
+      "source": "uses the port; below noise floor",
+      "source_time": null,
+      "knowable_from": "2026-04-10",
+      "confidence": "inferred",
+      "superseded_by": null
+    }
+  ],
+  "events": [
+    {
+      "id": "event.1",
+      "event_text": "Trump Warns of 'Much More to Follow' as U.S. Bombs Civilian Infrastructure in Iran",
+      "event_date": "2026-04-03",
+      "source": "human-selected headline",
+      "selection_rule": "learning round; not mechanically selected",
+      "rejected_before": 0,
+      "criteria_json": {
+        "Q1": "fail (observed post hoc: day ~34 of a running war)",
+        "Q2": "pass",
+        "Q3": "pass",
+        "Q4": "pass",
+        "Q5": "fail (global headline)",
+        "Q6": "pass",
+        "Q7": "pass",
+        "Q8": "pass",
+        "Q9": "unknown"
+      }
+    },
+    {
+      "id": "event.2",
+      "event_text": "A fire at a propylene oxide plant in Pasadena, Texas",
+      "event_date": "2026-03-12",
+      "source": "human-selected from trade press",
+      "selection_rule": "first qualifier under q1-q9; rejections not logged",
+      "rejected_before": 0,
+      "criteria_json": {
+        "Q1": "pass (event); backdrop contaminated by war — claims made relative",
+        "Q2": "pass",
+        "Q3": "pass",
+        "Q4": "pass",
+        "Q5": "pass",
+        "Q6": "pass",
+        "Q7": "pass",
+        "Q8": "pass",
+        "Q9": "unknown"
+      }
+    },
+    {
+      "id": "event.3",
+      "event_text": "A bunker spill at Deurganck Dock halted seagoing traffic at the Port of Antwerp-Bruges for much of the following day",
+      "event_date": "2026-04-09",
+      "source": "human-selected from port/shipping press",
+      "selection_rule": "first qualifier under q1-q9; rejections not logged",
+      "rejected_before": 0,
+      "criteria_json": {
+        "Q1": "pass at event; fail at node (strike in march, pilots june, leak july)",
+        "Q2": "pass",
+        "Q3": "pass",
+        "Q4": "pass",
+        "Q5": "material? questionable",
+        "Q6": "pass",
+        "Q7": "thin on listed parties by design",
+        "Q8": "mild leak: duration given",
+        "Q9": "unknown"
+      }
+    }
+  ],
+  "rounds": [
+    {
+      "id": "round.1",
+      "event_id": "event.1",
+      "operator": "claude (chat, cutoff 2026-01-31)",
+      "operator_cutoff": "2026-01-31",
+      "state": "scored",
+      "retro": true
+    },
+    {
+      "id": "round.2",
+      "event_id": "event.2",
+      "operator": "claude (chat, cutoff 2026-01-31)",
+      "operator_cutoff": "2026-01-31",
+      "state": "scored",
+      "retro": true
+    },
+    {
+      "id": "round.3",
+      "event_id": "event.3",
+      "operator": "claude (chat, cutoff 2026-01-31)",
+      "operator_cutoff": "2026-01-31",
+      "state": "scored",
+      "retro": true
+    }
+  ],
+  "predictions": [
+    {
+      "id": "call.r1.oil_fade",
+      "round_id": "round.1",
+      "call_type": "sign",
+      "target": "brent crude",
+      "claim": "crude up 5-12% immediately then round-trips within ~2 weeks unless hormuz transit is physically hit",
+      "sign": "-",
+      "magnitude_rank": null,
+      "lag_band": "weeks",
+      "carrier": "brent front-month vs april 2 close",
+      "falsifier": "brent sustained >10% above april 2 level for 4+ weeks without ceasefire news",
+      "mechanism_ids": [
+        "lib.supply_fear_fade",
+        "lib.escalation_words_cheap"
+      ],
+      "baseline_claim": "energy up and stays up",
+      "confidence_band": null,
+      "hypothesis_id": null
+    },
+    {
+      "id": "call.r1.tankers_sticky",
+      "round_id": "round.1",
+      "call_type": "magnitude_order",
+      "target": "vlcc spot rates vs crude",
+      "claim": "tanker rates up and stickier than crude over the following months",
+      "sign": "+",
+      "magnitude_rank": 1,
+      "lag_band": "months",
+      "carrier": "td3c assessments; war-risk premia as % hull",
+      "falsifier": "tanker rates round-trip faster than crude",
+      "mechanism_ids": [
+        "lib.chokepoint_premium",
+        "lib.route_closure"
+      ],
+      "baseline_claim": "shipping up with oil, down with oil",
+      "confidence_band": null,
+      "hypothesis_id": null
+    },
+    {
+      "id": "call.r1.methanol_urea",
+      "round_id": "round.1",
+      "call_type": "sign",
+      "target": "non-gulf methanol and urea producers",
+      "claim": "producers outside the region up over 2-3 weeks; channel not named by day-one journalists",
+      "sign": "+",
+      "magnitude_rank": null,
+      "lag_band": "weeks",
+      "carrier": "regional methanol and urea assessments; producer equities",
+      "falsifier": "methanol/urea already at highs before entry",
+      "mechanism_ids": [
+        "lib.dark_factory_chain",
+        "lib.substitutes_gift"
+      ],
+      "baseline_claim": "no view",
+      "confidence_band": "high (wrong)",
+      "hypothesis_id": null
+    },
+    {
+      "id": "call.r1.defense",
+      "round_id": "round.1",
+      "call_type": "sign",
+      "target": "us defense primes",
+      "claim": "no-mechanism: baseline leg by declaration; defense up",
+      "sign": "+",
+      "magnitude_rank": null,
+      "lag_band": "days",
+      "carrier": "defense equities",
+      "falsifier": "defense down on the day",
+      "mechanism_ids": [],
+      "baseline_claim": "defense up",
+      "confidence_band": null,
+      "hypothesis_id": null
+    },
+    {
+      "id": "call.r1.airlines",
+      "round_id": "round.1",
+      "call_type": "sign",
+      "target": "airlines with gulf routings",
+      "claim": "airlines down",
+      "sign": "-",
+      "magnitude_rank": null,
+      "lag_band": "days",
+      "carrier": "airline equities",
+      "falsifier": "airlines flat or up",
+      "mechanism_ids": [
+        "lib.route_closure"
+      ],
+      "baseline_claim": "airlines down",
+      "confidence_band": null,
+      "hypothesis_id": null
+    },
+    {
+      "id": "call.r1.gold_vol",
+      "round_id": "round.1",
+      "call_type": "sign",
+      "target": "gold and equity vol",
+      "claim": "gold and vol up, then vol fades absent a second strike",
+      "sign": "+",
+      "magnitude_rank": null,
+      "lag_band": "days",
+      "carrier": "gold spot; vix",
+      "falsifier": "vol stays elevated with no further strikes",
+      "mechanism_ids": [
+        "lib.escalation_words_cheap"
+      ],
+      "baseline_claim": "gold up",
+      "confidence_band": null,
+      "hypothesis_id": null
+    },
+    {
+      "id": "call.r2.owner",
+      "round_id": "round.2",
+      "call_type": "sign",
+      "target": "holder.lyb",
+      "claim": "operator equity dips 1-4% and recovers within ~6 weeks; conditional on no mass casualties",
+      "sign": "-",
+      "magnitude_rank": null,
+      "lag_band": "weeks",
+      "carrier": "owner equity vs sector",
+      "falsifier": "owner -10% or worse sustained 4+ weeks",
+      "mechanism_ids": [
+        "lib.visible_victim_overweight"
+      ],
+      "baseline_claim": "owner down and stays down",
+      "confidence_band": null,
+      "hypothesis_id": null
+    },
+    {
+      "id": "call.r2.fm",
+      "round_id": "round.2",
+      "call_type": "predicate",
+      "target": "force majeure declaration",
+      "claim": "operator declares force majeure on po and/or derivatives within 14 days if the outage is material",
+      "sign": null,
+      "magnitude_rank": null,
+      "lag_band": "days",
+      "carrier": "operator fm letters; trade press",
+      "falsifier": "no fm by march 26",
+      "mechanism_ids": [
+        "lib.force_majeure_fast_carrier"
+      ],
+      "baseline_claim": "no view",
+      "confidence_band": null,
+      "hypothesis_id": null
+    },
+    {
+      "id": "call.r2.po_spot",
+      "round_id": "round.2",
+      "call_type": "sign",
+      "target": "us propylene oxide spot",
+      "claim": "po assessments jump within days; +10-40% over the following month; demand slump may mute",
+      "sign": "+",
+      "magnitude_rank": null,
+      "lag_band": "days",
+      "carrier": "argus/icis us po contract and spot",
+      "falsifier": "po flat or down over the month",
+      "mechanism_ids": [
+        "lib.region_locked_concentration",
+        "lib.toll_booth_learns_first",
+        "lib.demand_slump_mute"
+      ],
+      "baseline_claim": "no view",
+      "confidence_band": null,
+      "hypothesis_id": null
+    },
+    {
+      "id": "call.r2.competitors",
+      "round_id": "round.2",
+      "call_type": "magnitude_order",
+      "target": "holder.dow and holder.hun vs holder.lyb",
+      "claim": "remaining us po producers outperform the owner by 2-6% over 6-8 weeks",
+      "sign": "+",
+      "magnitude_rank": 1,
+      "lag_band": "weeks",
+      "carrier": "relative equity performance",
+      "falsifier": "owner outperforms peers over the window",
+      "mechanism_ids": [
+        "lib.substitutes_gift"
+      ],
+      "baseline_claim": "peers unaffected",
+      "confidence_band": null,
+      "hypothesis_id": null
+    },
+    {
+      "id": "call.r2.coproduct",
+      "round_id": "round.2",
+      "call_type": "sign",
+      "target": "mtbe / octane blendstocks",
+      "claim": "co-product tightens 1-3 weeks after the fire as an incremental step; channel obscure to day-one coverage",
+      "sign": "+",
+      "magnitude_rank": null,
+      "lag_band": "weeks",
+      "carrier": "us mtbe assessments; gasoline blending premia",
+      "falsifier": "no fire-attributable step in mtbe within 3 weeks",
+      "mechanism_ids": [
+        "lib.coproduct_collateral"
+      ],
+      "baseline_claim": "no view",
+      "confidence_band": "medium",
+      "hypothesis_id": null
+    },
+    {
+      "id": "call.r2.chain",
+      "round_id": "round.2",
+      "call_type": "sign",
+      "target": "polyols and propylene glycol; listed foam-dependent names",
+      "claim": "derivative prices +5-20% over 4-6 weeks; foam-cost mentions on next earnings calls",
+      "sign": "+",
+      "magnitude_rank": null,
+      "lag_band": "weeks",
+      "carrier": "argus polyol/mpg contracts; earnings transcripts",
+      "falsifier": "derivatives flat through may",
+      "mechanism_ids": [
+        "lib.chain_lag",
+        "lib.dark_factory_chain",
+        "lib.largest_where_substitution_hardest"
+      ],
+      "baseline_claim": "no view",
+      "confidence_band": null,
+      "hypothesis_id": null
+    },
+    {
+      "id": "call.r2.propylene",
+      "round_id": "round.2",
+      "call_type": "sign",
+      "target": "us propylene",
+      "claim": "local propylene softens at the margin with the unit down",
+      "sign": "-",
+      "magnitude_rank": null,
+      "lag_band": "weeks",
+      "carrier": "propylene spot vs path",
+      "falsifier": "no-mechanism: logging leg only, likely unscoreable under war noise",
+      "mechanism_ids": [
+        "lib.feedstock_backwash"
+      ],
+      "baseline_claim": "no view",
+      "confidence_band": "low",
+      "hypothesis_id": null
+    },
+    {
+      "id": "call.r2.meta_lag",
+      "round_id": "round.2",
+      "call_type": "meta",
+      "target": "lag structure",
+      "claim": "chemical reprices in days, derivatives in weeks, equities late or never",
+      "sign": null,
+      "magnitude_rank": null,
+      "lag_band": null,
+      "carrier": "ordering of the above",
+      "falsifier": "equities move before derivatives",
+      "mechanism_ids": [
+        "lib.chain_lag",
+        "lib.toll_booth_learns_first"
+      ],
+      "baseline_claim": "everything moves on the day",
+      "confidence_band": null,
+      "hypothesis_id": null
+    },
+    {
+      "id": "call.r3.no_equity",
+      "round_id": "round.3",
+      "call_type": "null",
+      "target": "none",
+      "claim": "no attributable equity move anywhere",
+      "sign": null,
+      "magnitude_rank": null,
+      "lag_band": null,
+      "carrier": "press attribution to any listed party's day-after move",
+      "falsifier": "any listed party >2% day-after with press attribution",
+      "mechanism_ids": [
+        "lib.equity_visibility_ratio",
+        "lib.lag_without_pureplay_spectacle"
+      ],
+      "baseline_claim": "shipping stocks down",
+      "confidence_band": null,
+      "hypothesis_id": null
+    },
+    {
+      "id": "call.r3.no_rates",
+      "round_id": "round.3",
+      "call_type": "null",
+      "target": "none",
+      "claim": "no step in european container spot indices attributable to the closure within 2 weeks",
+      "sign": null,
+      "magnitude_rank": null,
+      "lag_band": null,
+      "carrier": "drewry/xeneta/freightos commentary",
+      "falsifier": "index commentary cites the closure as a rate driver",
+      "mechanism_ids": [
+        "lib.congestion_memory"
+      ],
+      "baseline_claim": "rates up on disruption",
+      "confidence_band": null,
+      "hypothesis_id": null
+    },
+    {
+      "id": "call.r3.ripple",
+      "round_id": "round.3",
+      "call_type": "lag_band",
+      "target": "antwerp operations",
+      "claim": "operational ripple 1-3 weeks: bunching, yard density, barge delays; longer if baseline congested",
+      "sign": null,
+      "magnitude_rank": null,
+      "lag_band": "weeks",
+      "carrier": "port notices; carrier advisories; trade press",
+      "falsifier": "operations normal within 48 hours",
+      "mechanism_ids": [
+        "lib.congestion_memory",
+        "lib.route_closure"
+      ],
+      "baseline_claim": "back to normal next day",
+      "confidence_band": null,
+      "hypothesis_id": null
+    },
+    {
+      "id": "call.r3.liability",
+      "round_id": "round.3",
+      "call_type": "sign",
+      "target": "responsible party",
+      "claim": "liability lands on a small party; no rule change within months",
+      "sign": "0",
+      "magnitude_rank": null,
+      "lag_band": "months",
+      "carrier": "port statements; incident reports",
+      "falsifier": "port announces new bunkering rules citing the incident",
+      "mechanism_ids": [
+        "lib.liability_periphery"
+      ],
+      "baseline_claim": "no view",
+      "confidence_band": null,
+      "hypothesis_id": null
+    },
+    {
+      "id": "call.r3.meta_null",
+      "round_id": "round.3",
+      "call_type": "null",
+      "target": "none",
+      "claim": "do nothing: event fails the tradability gate by construction",
+      "sign": null,
+      "magnitude_rank": null,
+      "lag_band": null,
+      "carrier": "positions on node: no listed holder above noise floor",
+      "falsifier": "a listed holder with concentrated exposure emerges",
+      "mechanism_ids": [
+        "lib.lag_without_pureplay_spectacle"
+      ],
+      "baseline_claim": "trade the disruption",
+      "confidence_band": null,
+      "hypothesis_id": null
+    }
+  ],
+  "evidence": [
+    {
+      "id": "evd.r1.oil",
+      "round_id": "round.1",
+      "url": "search:brent crude april 2026 iran ceasefire",
+      "title": "brent fell below $100 within weeks; ceasefire mou june 17",
+      "excerpt": "brief risk-off saw brent dip below $100 as us and iran discussed ending the war",
+      "source_time": "2026-04-21",
+      "knowable_from": null,
+      "note": "aggregated from timeline coverage"
+    },
+    {
+      "id": "evd.r1.tankers",
+      "round_id": "round.1",
+      "url": "search:vlcc rates april 2026 hormuz war risk premium",
+      "title": "td3c ~$474k/day april 17; ~$498k later; premia 3-10% hull into july",
+      "excerpt": "rates four times pre-war $117k; owners refused hormuz",
+      "source_time": "2026-04-17",
+      "knowable_from": null,
+      "note": null
+    },
+    {
+      "id": "evd.r1.methanol",
+      "round_id": "round.1",
+      "url": "search:methanol urea prices march 2026 iran",
+      "title": "se asia methanol +72% to record by march 20; urea to ~$780/t mid-april then -36%",
+      "excerpt": "800kt urea stranded; mainstream coverage by march 20-25",
+      "source_time": "2026-03-20",
+      "knowable_from": null,
+      "note": null
+    },
+    {
+      "id": "evd.r2.fire",
+      "round_id": "round.2",
+      "url": "search:pasadena texas propylene oxide plant fire march 12 2026",
+      "title": "fire at bayport choate; contained by morning; no injuries",
+      "excerpt": "world's largest po/tba facility; ~20,000 lbs process gas burned",
+      "source_time": "2026-03-13",
+      "knowable_from": null,
+      "note": null
+    },
+    {
+      "id": "evd.r2.fm",
+      "round_id": "round.2",
+      "url": "search:lyondellbasell force majeure propylene oxide march 2026",
+      "title": "pg fm effective march 13; po fm march 17; cfo confirmed constraint at conference",
+      "excerpt": "three po/tba trains, 620 kt po capacity; analyst raised mtbe link",
+      "source_time": "2026-03-17",
+      "knowable_from": null,
+      "note": null
+    },
+    {
+      "id": "evd.r2.prices",
+      "round_id": "round.2",
+      "url": "search:propylene oxide polyol price increase april 2026",
+      "title": "march po contract +8c to 69.5c/lb; april polyol +20c; mpg +31.5c",
+      "excerpt": "foam input costs +15-20% within days; allocation letters",
+      "source_time": "2026-04-15",
+      "knowable_from": null,
+      "note": null
+    },
+    {
+      "id": "evd.r2.mtbe",
+      "round_id": "round.2",
+      "url": "search:mtbe price april 2026",
+      "title": "global mtbe flat-to-down on chinese overcapacity; no fire-attributable step found",
+      "excerpt": "north america mtbe down ~10% in 2026; new 600kt+ plants",
+      "source_time": "2026-04-30",
+      "knowable_from": null,
+      "note": null
+    },
+    {
+      "id": "evd.r2.equity",
+      "round_id": "round.2",
+      "url": "search:lyondellbasell stock march 2026 bayport",
+      "title": "owner upgraded same day on war-driven sector trade; stock ran ~+30% in weeks; q2 outage cost ~$250m ebitda inside a $2.1b quarter; restart june",
+      "excerpt": "sector moved together; owner's other po plants and oxyfuels earned on the tightness",
+      "source_time": "2026-03-13",
+      "knowable_from": null,
+      "note": null
+    },
+    {
+      "id": "evd.r3.closure",
+      "round_id": "round.3",
+      "url": "search:deurganck dock bunker spill april 2026 antwerp",
+      "title": "hull crack on a container vessel during bunkering; scheldt reopened 13:30 april 10; dock and locks stayed shut",
+      "excerpt": "carrier advisory of omissions and backlog into following week",
+      "source_time": "2026-04-10",
+      "knowable_from": null,
+      "note": null
+    },
+    {
+      "id": "evd.r3.aftermath",
+      "round_id": "round.3",
+      "url": "search:antwerp deurganck reopens oil spill congestion backlog april 2026",
+      "title": "berths reopened from april 13; cleanup continuing april 14; port h1 report ~85,000 teu lost; backlogs gradually cleared",
+      "excerpt": "same report: four-day nautical-chain strike in march ~100,000 teu",
+      "source_time": "2026-07-31",
+      "knowable_from": null,
+      "note": null
+    }
+  ],
+  "resolutions": [
+    {
+      "prediction_id": "call.r1.oil_fade",
+      "outcome": "hit",
+      "mechanism_outcome": "wrong",
+      "baseline_outcome": "miss",
+      "evidence_ids": [
+        "evd.r1.oil"
+      ],
+      "scorer_note": "quarantined: fade came from de-escalation, not fear decay; the carve-out (hormuz hit) had already fired. right call, wrong relation.",
+      "quarantined": true,
+      "weight": 1.0
+    },
+    {
+      "prediction_id": "call.r1.tankers_sticky",
+      "outcome": "hit",
+      "mechanism_outcome": "right",
+      "baseline_outcome": "miss",
+      "evidence_ids": [
+        "evd.r1.tankers"
+      ],
+      "scorer_note": "relative claim validated; absolute 'up' was pre-priced since late february.",
+      "quarantined": false,
+      "weight": 1.0
+    },
+    {
+      "prediction_id": "call.r1.methanol_urea",
+      "outcome": "miss",
+      "mechanism_outcome": "right",
+      "baseline_outcome": "unverified",
+      "evidence_ids": [
+        "evd.r1.methanol"
+      ],
+      "scorer_note": "mechanism enormous but consumed weeks earlier; april 3 entry bought the top. miss as a trade.",
+      "quarantined": false,
+      "weight": 1.0
+    },
+    {
+      "prediction_id": "call.r1.defense",
+      "outcome": "hit",
+      "mechanism_outcome": "unknown",
+      "baseline_outcome": "hit",
+      "evidence_ids": [],
+      "scorer_note": "baseline leg; zero edge by declaration.",
+      "quarantined": false,
+      "weight": 1.0
+    },
+    {
+      "prediction_id": "call.r1.airlines",
+      "outcome": "unverified",
+      "mechanism_outcome": "unknown",
+      "baseline_outcome": "unverified",
+      "evidence_ids": [],
+      "scorer_note": "not checked.",
+      "quarantined": false,
+      "weight": 1.0
+    },
+    {
+      "prediction_id": "call.r1.gold_vol",
+      "outcome": "untestable",
+      "mechanism_outcome": "unknown",
+      "baseline_outcome": "hit",
+      "evidence_ids": [],
+      "scorer_note": "gold up (baseline hit); vol conditional untestable — strikes never stopped.",
+      "quarantined": false,
+      "weight": 1.0
+    },
+    {
+      "prediction_id": "call.r2.owner",
+      "outcome": "untestable",
+      "mechanism_outcome": "unknown",
+      "baseline_outcome": "miss",
+      "evidence_ids": [
+        "evd.r2.equity"
+      ],
+      "scorer_note": "swamped: event ÷ tide invisible; only a small day-after relative underperformance. baseline ('owner down') wrong.",
+      "quarantined": false,
+      "weight": 1.0
+    },
+    {
+      "prediction_id": "call.r2.fm",
+      "outcome": "hit",
+      "mechanism_outcome": "right",
+      "baseline_outcome": "unverified",
+      "evidence_ids": [
+        "evd.r2.fm"
+      ],
+      "scorer_note": "pg fm day 1, po fm day 5 — faster than the 14-day window.",
+      "quarantined": false,
+      "weight": 1.0
+    },
+    {
+      "prediction_id": "call.r2.po_spot",
+      "outcome": "hit",
+      "mechanism_outcome": "right",
+      "baseline_outcome": "unverified",
+      "evidence_ids": [
+        "evd.r2.prices"
+      ],
+      "scorer_note": "+13% march contract; sharper spot in early april; demand mute confirmed.",
+      "quarantined": false,
+      "weight": 1.0
+    },
+    {
+      "prediction_id": "call.r2.competitors",
+      "outcome": "miss",
+      "mechanism_outcome": "wrong",
+      "baseline_outcome": "hit",
+      "evidence_ids": [
+        "evd.r2.equity"
+      ],
+      "scorer_note": "self-hedge missed: owner holds sister plants; sector tide dominated. baseline ('peers unaffected') effectively right.",
+      "quarantined": false,
+      "weight": 1.0
+    },
+    {
+      "prediction_id": "call.r2.coproduct",
+      "outcome": "miss",
+      "mechanism_outcome": "wrong",
+      "baseline_outcome": "unverified",
+      "evidence_ids": [
+        "evd.r2.mtbe",
+        "evd.r2.fm"
+      ],
+      "scorer_note": "cut into a glut; and specialists named the channel in five days — not obscure.",
+      "quarantined": false,
+      "weight": 1.0
+    },
+    {
+      "prediction_id": "call.r2.chain",
+      "outcome": "hit",
+      "mechanism_outcome": "right",
+      "baseline_outcome": "unverified",
+      "evidence_ids": [
+        "evd.r2.prices"
+      ],
+      "scorer_note": "direction and speed right; magnitude timid (+28-34% vs +5-20% predicted). earnings-call mentions not verified.",
+      "quarantined": false,
+      "weight": 1.0
+    },
+    {
+      "prediction_id": "call.r2.propylene",
+      "outcome": "unverified",
+      "mechanism_outcome": "unknown",
+      "baseline_outcome": "unverified",
+      "evidence_ids": [],
+      "scorer_note": "logging leg.",
+      "quarantined": false,
+      "weight": 1.0
+    },
+    {
+      "prediction_id": "call.r2.meta_lag",
+      "outcome": "hit",
+      "mechanism_outcome": "right",
+      "baseline_outcome": "miss",
+      "evidence_ids": [
+        "evd.r2.fm",
+        "evd.r2.prices",
+        "evd.r2.equity"
+      ],
+      "scorer_note": "ordering held, compressed: fm day 1, contracts weeks, equities never.",
+      "quarantined": false,
+      "weight": 1.0
+    },
+    {
+      "prediction_id": "call.r3.no_equity",
+      "outcome": "hit",
+      "mechanism_outcome": "right",
+      "baseline_outcome": "miss",
+      "evidence_ids": [
+        "evd.r3.closure"
+      ],
+      "scorer_note": "null hit; weight 0.2. baseline ('shipping stocks down') had no evidence.",
+      "quarantined": false,
+      "weight": 0.2
+    },
+    {
+      "prediction_id": "call.r3.no_rates",
+      "outcome": "hit",
+      "mechanism_outcome": "right",
+      "baseline_outcome": "miss",
+      "evidence_ids": [
+        "evd.r3.closure"
+      ],
+      "scorer_note": "null hit; weight 0.2.",
+      "quarantined": false,
+      "weight": 0.2
+    },
+    {
+      "prediction_id": "call.r3.ripple",
+      "outcome": "hit",
+      "mechanism_outcome": "right",
+      "baseline_outcome": "miss",
+      "evidence_ids": [
+        "evd.r3.closure",
+        "evd.r3.aftermath"
+      ],
+      "scorer_note": "ripple confirmed; duration misplaced (dock 4 days vs river half a day); teu estimate >2x too low.",
+      "quarantined": false,
+      "weight": 1.0
+    },
+    {
+      "prediction_id": "call.r3.liability",
+      "outcome": "hit",
+      "mechanism_outcome": "unknown",
+      "baseline_outcome": "unverified",
+      "evidence_ids": [
+        "evd.r3.closure"
+      ],
+      "scorer_note": "partial: responsible vessel belonged to a large private carrier — 'small' wrong, 'untradeable' right; no rule change found.",
+      "quarantined": false,
+      "weight": 1.0
+    },
+    {
+      "prediction_id": "call.r3.meta_null",
+      "outcome": "hit",
+      "mechanism_outcome": "right",
+      "baseline_outcome": "miss",
+      "evidence_ids": [
+        "evd.r3.aftermath"
+      ],
+      "scorer_note": "correct non-shock; weight 0.2.",
+      "quarantined": false,
+      "weight": 0.2
+    }
+  ],
+  "predicate_checks": [
+    {
+      "round_id": "round.1",
+      "predicate_id": "pred.arm.first_traversal",
+      "claimed": "holds",
+      "observed": "fails",
+      "note": "event was day ~34 of a running war; channel already traversed"
+    },
+    {
+      "round_id": "round.1",
+      "predicate_id": "pred.arm.tradability_gate",
+      "claimed": "unknown",
+      "observed": "fails",
+      "note": "every touched channel already priced; no residual to trade"
+    },
+    {
+      "round_id": "round.2",
+      "predicate_id": "pred.arm.first_traversal",
+      "claimed": "holds",
+      "observed": "holds",
+      "note": "first traversal at event and node"
+    },
+    {
+      "round_id": "round.2",
+      "predicate_id": "pred.arm.slack_check",
+      "claimed": "unknown",
+      "observed": "fails",
+      "note": "co-product destination market in glut; not checked at lock"
+    },
+    {
+      "round_id": "round.2",
+      "predicate_id": "pred.arm.tradability_gate",
+      "claimed": "holds",
+      "observed": "fails",
+      "note": "single form: no listed name clears micro/macro. pair form: owner sits on both sides of the node (self-hedged), so no clean opposing listed pair"
+    },
+    {
+      "round_id": "round.2",
+      "predicate_id": "pred.arm.catalyst_class",
+      "claimed": "unknown",
+      "observed": "holds",
+      "note": "fm and restart guidance supplied dated statements"
+    },
+    {
+      "round_id": "round.3",
+      "predicate_id": "pred.arm.first_traversal",
+      "claimed": "unknown",
+      "observed": "fails",
+      "note": "holds at event; fails at node — recurring-disruption node"
+    },
+    {
+      "round_id": "round.3",
+      "predicate_id": "pred.arm.tradability_gate",
+      "claimed": "fails",
+      "observed": "fails",
+      "note": "single and pair forms both fail; no listed holder above noise floor"
+    }
+  ],
+  "hypotheses": [
+    {
+      "id": "hyp.tide_cancellation",
+      "text": "for shocks where two listed holders held opposing positions on the shocked node, the pair's relative move exceeds either leg's absolute attributable move",
+      "node": null,
+      "holder_ids": [],
+      "position_ids": [],
+      "mechanism_ids": [
+        "lib.equity_visibility_ratio",
+        "lib.wounded_owner_collects_premium"
+      ],
+      "arming_predicate_ids": [
+        "pred.arm.tradability_gate"
+      ],
+      "disarming_predicate_ids": [
+        "pred.disarm.falsifier"
+      ],
+      "falsifier": "across ten scored rounds with an opposing listed pair, the pair's relative move does not exceed the larger leg's absolute attributable move in a majority",
+      "granularity": "pair-level relative equity move over the round's scoring window",
+      "status": "open",
+      "opened_in_round": "round.3"
+    },
+    {
+      "id": "hyp.constraint_prices_ladder",
+      "text": "constraint prices on a chokepoint (war-risk premia, freight) return to pre-crisis levels later than the commodity they gate, and the order of return is premia last, freight second, spot first",
+      "node": "strait_of_hormuz_tanker_transit",
+      "holder_ids": [
+        "holder.fro",
+        "holder.dht",
+        "holder.insw"
+      ],
+      "position_ids": [
+        "pos.r1.fro.sign",
+        "pos.r1.dht.sign",
+        "pos.r1.insw.sign"
+      ],
+      "mechanism_ids": [
+        "lib.constraint_prices_deescalate_slowest",
+        "lib.toll_booth_learns_first"
+      ],
+      "arming_predicate_ids": [
+        "pred.arm.existence_floor",
+        "pred.arm.path_composition"
+      ],
+      "disarming_predicate_ids": [
+        "pred.disarm.falsifier",
+        "pred.disarm.staleness"
+      ],
+      "falsifier": "premia return to pre-crisis levels before spot crude does",
+      "granularity": "weekly assessments of premia, td3c, and brent through the crisis tail",
+      "status": "open",
+      "opened_in_round": "round.1"
+    },
+    {
+      "id": "hyp.fm_lead_time",
+      "text": "for a single-plant outage in a concentrated region-locked chemical, the operator's force majeure declaration precedes the first published contract-price reset by at least two weeks",
+      "node": "us_propylene_oxide_supply",
+      "holder_ids": [
+        "holder.lyb"
+      ],
+      "position_ids": [
+        "pos.r2.bayport.sign"
+      ],
+      "mechanism_ids": [
+        "lib.force_majeure_fast_carrier",
+        "lib.toll_booth_learns_first"
+      ],
+      "arming_predicate_ids": [
+        "pred.arm.first_traversal",
+        "pred.arm.slack_check"
+      ],
+      "disarming_predicate_ids": [
+        "pred.disarm.falsifier"
+      ],
+      "falsifier": "a contract reset is published before or within a week of the fm on the next qualifying outage",
+      "granularity": "days between fm date and first contract reset date",
+      "status": "open",
+      "opened_in_round": "round.2"
+    }
+  ],
+  "t0_candidates": [
+    {
+      "event_id": "event.1",
+      "window_label": "2026Q2-learning",
+      "criteria_pass": false,
+      "arming_pass_single": false,
+      "arming_pass_pair": false,
+      "listed_party": null,
+      "pair_holders": null,
+      "carrier": null,
+      "micro_macro_note": "all channels pre-priced; fails q1 and q5"
+    },
+    {
+      "event_id": "event.2",
+      "window_label": "2026Q1-learning",
+      "criteria_pass": true,
+      "arming_pass_single": false,
+      "arming_pass_pair": false,
+      "listed_party": "holder.lyb",
+      "pair_holders": [
+        "holder.dow",
+        "holder.lyb"
+      ],
+      "carrier": "us po contract price",
+      "micro_macro_note": "~$250m outage vs war-driven ebitda tripling; owner self-hedged; pair fails for the right reason"
+    },
+    {
+      "event_id": "event.3",
+      "window_label": "2026Q2-learning",
+      "criteria_pass": true,
+      "arming_pass_single": false,
+      "arming_pass_pair": false,
+      "listed_party": null,
+      "pair_holders": null,
+      "carrier": "port operational notices",
+      "micro_macro_note": "no listed holder above noise floor; recurring-disruption node"
+    }
+  ]
+}

@@ -34,7 +34,7 @@ PHASE = Path(os.environ.get("NOMAD16_PHASE_FILE") or ROOT / "state" / "phase.jso
 QUARANTINE = ["blindrun/", "blindrun2/", "firewall/fetched", "data/blindrun", "data/cache", "REPORT.md",
               "SUMMARY.md", "firewall/fetch_log.jsonl", "firewall/guard_log.jsonl", "firewall/guard16_log.jsonl",
               "config_log.jsonl", "methodology/", "tests_b3/", "firewall/hosts.backup", ".git/",
-              "state/nomad16.db"]
+              "state/nomad16.db", "v15/", "lookbacks/"]
 NET_TOOLS = re.compile(r"\b(curl|wget|httpie|nc|ncat|telnet|ssh|scp|rsync|lynx|w3m|links|aria2c|yt-dlp)\b")
 URL_RE = re.compile(r"https?://")
 CODE_NET = re.compile(r"\b(requests\.|urllib|urlopen|httpx|aiohttp|socket\.|fetch\(|axios)")
@@ -122,7 +122,11 @@ def main():
         cmd = ti.get("command", "") or ""
         parts = [x for x in re.split(r"&&|\|\||;|\||`|\$\(", cmd) if x.strip()]
         git_only = bool(parts) and all(GIT_OK.search(x) for x in parts)
-        q = None if git_only else quarantined(cmd)  # git add/commit/push read no content
+        if git_only:
+            # add/commit/push/status read no content and fetch nothing; a URL inside a commit
+            # message (the session trailer) is text, not egress
+            emit(True, "plain git add/commit/push/status", tool)
+        q = quarantined(cmd)
         if q:
             emit(False, f"round is '{st}': command touches quarantined {q}", tool, {"command": cmd[:300]})
         if not git_only and not HARNESS.search(cmd) and any(p in cmd for p in PROTECTED):

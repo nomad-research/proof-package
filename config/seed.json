@@ -1075,238 +1075,431 @@
  ],
  "transforms": [
   {
-   "relation": "ownership",
+   "relation": "offtake",
    "from": "volume",
    "to": "volume",
-   "value": 1.0
+   "value": 0.9,
+   "basis": "v15 TRANSFORM_SEED (ratified, \u00a733.1)"
+  },
+  {
+   "relation": "offtake",
+   "from": "volume",
+   "to": "cost",
+   "value": 0.8,
+   "basis": "v15 TRANSFORM_SEED (ratified, \u00a733.1)"
+  },
+  {
+   "relation": "offtake",
+   "from": "volume",
+   "to": "obligation",
+   "value": 0.0,
+   "basis": "v15 TRANSFORM_SEED (ratified, \u00a733.1)"
+  },
+  {
+   "relation": "offtake",
+   "from": "volume",
+   "to": "timing",
+   "value": 0.5,
+   "basis": "v15 TRANSFORM_SEED (ratified, \u00a733.1)"
+  },
+  {
+   "relation": "offtake",
+   "from": "cost",
+   "to": "cost",
+   "value": 0.8,
+   "basis": "v15 TRANSFORM_SEED (ratified, \u00a733.1)"
+  },
+  {
+   "relation": "offtake",
+   "from": "direction",
+   "to": "direction",
+   "value": 0.5,
+   "basis": "v15 TRANSFORM_SEED (ratified, \u00a733.1)"
+  },
+  {
+   "relation": "input_supply",
+   "from": "volume",
+   "to": "volume",
+   "value": 0.9,
+   "basis": "v15 TRANSFORM_SEED (ratified, \u00a733.1)"
+  },
+  {
+   "relation": "input_supply",
+   "from": "volume",
+   "to": "cost",
+   "value": 0.85,
+   "basis": "v15 TRANSFORM_SEED (ratified, \u00a733.1)"
+  },
+  {
+   "relation": "input_supply",
+   "from": "volume",
+   "to": "obligation",
+   "value": 0.6,
+   "basis": "v15 TRANSFORM_SEED (ratified, \u00a733.1)"
+  },
+  {
+   "relation": "input_supply",
+   "from": "cost",
+   "to": "cost",
+   "value": 0.8,
+   "basis": "v15 TRANSFORM_SEED (ratified, \u00a733.1)"
+  },
+  {
+   "relation": "input_cost",
+   "from": "cost",
+   "to": "cost",
+   "value": 0.85,
+   "basis": "v15 TRANSFORM_SEED (ratified, \u00a733.1)"
+  },
+  {
+   "relation": "input_cost",
+   "from": "cost",
+   "to": "direction",
+   "value": 0.5,
+   "basis": "v15 TRANSFORM_SEED (ratified, \u00a733.1)"
+  },
+  {
+   "relation": "input_cost",
+   "from": "cost",
+   "to": "obligation",
+   "value": 0.0,
+   "basis": "v15 TRANSFORM_SEED (ratified, \u00a733.1)"
+  },
+  {
+   "relation": "ownership",
+   "from": "direction",
+   "to": "direction",
+   "value": 0.9,
+   "basis": "v15 TRANSFORM_SEED (ratified, \u00a733.1)"
   },
   {
    "relation": "ownership",
    "from": "volume",
-   "to": "revenue",
-   "value": 1.0
-  },
-  {
-   "relation": "ownership",
-   "from": "revenue",
-   "to": "revenue",
-   "value": 1.0
+   "to": "direction",
+   "value": 0.7,
+   "basis": "v15 TRANSFORM_SEED (ratified, \u00a733.1)"
   },
   {
    "relation": "ownership",
    "from": "cost",
-   "to": "cost",
-   "value": 1.0
+   "to": "direction",
+   "value": 0.7,
+   "basis": "v15 TRANSFORM_SEED (ratified, \u00a733.1)"
   },
   {
    "relation": "ownership",
    "from": "obligation",
    "to": "obligation",
-   "value": 1.0
+   "value": 0.5,
+   "basis": "v15 TRANSFORM_SEED (ratified, \u00a733.1)"
+  },
+  {
+   "relation": "shared_facility",
+   "from": "volume",
+   "to": "volume",
+   "value": 0.8,
+   "basis": "v15 TRANSFORM_SEED (ratified, \u00a733.1)"
+  },
+  {
+   "relation": "shared_facility",
+   "from": "timing",
+   "to": "timing",
+   "value": 0.7,
+   "basis": "v15 TRANSFORM_SEED (ratified, \u00a733.1)"
+  },
+  {
+   "relation": "shared_facility",
+   "from": "volume",
+   "to": "obligation",
+   "value": 0.0,
+   "basis": "v15 TRANSFORM_SEED (ratified, \u00a733.1)"
+  },
+  {
+   "relation": "shared_infrastructure",
+   "from": "volume",
+   "to": "volume",
+   "value": 0.75,
+   "basis": "v15 TRANSFORM_SEED (ratified, \u00a733.1)"
+  },
+  {
+   "relation": "shared_infrastructure",
+   "from": "timing",
+   "to": "timing",
+   "value": 0.7,
+   "basis": "v15 TRANSFORM_SEED (ratified, \u00a733.1)"
+  },
+  {
+   "relation": "logistics",
+   "from": "timing",
+   "to": "timing",
+   "value": 0.8,
+   "basis": "v15 TRANSFORM_SEED (ratified, \u00a733.1)"
+  },
+  {
+   "relation": "logistics",
+   "from": "volume",
+   "to": "timing",
+   "value": 0.7,
+   "basis": "v15 TRANSFORM_SEED (ratified, \u00a733.1)"
+  },
+  {
+   "relation": "logistics",
+   "from": "volume",
+   "to": "volume",
+   "value": 0.6,
+   "basis": "v15 TRANSFORM_SEED (ratified, \u00a733.1)"
+  },
+  {
+   "relation": "regulatory_scope",
+   "from": "obligation",
+   "to": "obligation",
+   "value": 0.8,
+   "basis": "v15 TRANSFORM_SEED (ratified, \u00a733.1)"
+  },
+  {
+   "relation": "regulatory_scope",
+   "from": "timing",
+   "to": "timing",
+   "value": 0.6,
+   "basis": "v15 TRANSFORM_SEED (ratified, \u00a733.1)"
+  },
+  {
+   "relation": "regulatory_scope",
+   "from": "obligation",
+   "to": "cost",
+   "value": 0.5,
+   "basis": "v15 TRANSFORM_SEED (ratified, \u00a733.1)"
+  },
+  {
+   "relation": "ownership",
+   "from": "volume",
+   "to": "volume",
+   "value": 1.0,
+   "basis": "builder seed, provisional (not in v15)"
+  },
+  {
+   "relation": "ownership",
+   "from": "volume",
+   "to": "revenue",
+   "value": 1.0,
+   "basis": "builder seed, provisional (not in v15)"
+  },
+  {
+   "relation": "ownership",
+   "from": "revenue",
+   "to": "revenue",
+   "value": 1.0,
+   "basis": "builder seed, provisional (not in v15)"
+  },
+  {
+   "relation": "ownership",
+   "from": "cost",
+   "to": "cost",
+   "value": 1.0,
+   "basis": "builder seed, provisional (not in v15)"
   },
   {
    "relation": "ownership",
    "from": "availability",
    "to": "availability",
-   "value": 1.0
+   "value": 1.0,
+   "basis": "builder seed, provisional (not in v15)"
   },
   {
    "relation": "ownership",
    "from": "availability",
    "to": "revenue",
-   "value": 0.9
+   "value": 0.9,
+   "basis": "builder seed, provisional (not in v15)"
   },
   {
    "relation": "ownership",
    "from": "margin",
    "to": "margin",
-   "value": 1.0
+   "value": 1.0,
+   "basis": "builder seed, provisional (not in v15)"
   },
   {
    "relation": "ownership",
    "from": "credit",
    "to": "credit",
-   "value": 0.8
-  },
-  {
-   "relation": "input_supply",
-   "from": "volume",
-   "to": "volume",
-   "value": 0.6
-  },
-  {
-   "relation": "input_supply",
-   "from": "volume",
-   "to": "cost",
-   "value": 0.6
+   "value": 0.8,
+   "basis": "builder seed, provisional (not in v15)"
   },
   {
    "relation": "input_supply",
    "from": "price",
    "to": "cost",
-   "value": 0.8
+   "value": 0.8,
+   "basis": "builder seed, provisional (not in v15)"
   },
   {
    "relation": "input_supply",
    "from": "availability",
    "to": "volume",
-   "value": 0.6
-  },
-  {
-   "relation": "input_supply",
-   "from": "volume",
-   "to": "obligation",
-   "value": 0.6
+   "value": 0.6,
+   "basis": "builder seed, provisional (not in v15)"
   },
   {
    "relation": "input_supply",
    "from": "availability",
    "to": "obligation",
-   "value": 0.5
-  },
-  {
-   "relation": "offtake",
-   "from": "volume",
-   "to": "volume",
-   "value": 0.5
-  },
-  {
-   "relation": "offtake",
-   "from": "volume",
-   "to": "obligation",
-   "value": 0.0
+   "value": 0.5,
+   "basis": "builder seed, provisional (not in v15)"
   },
   {
    "relation": "offtake",
    "from": "price",
    "to": "cost",
-   "value": 0.8
+   "value": 0.8,
+   "basis": "builder seed, provisional (not in v15)"
   },
   {
    "relation": "offtake",
    "from": "availability",
    "to": "volume",
-   "value": 0.5
+   "value": 0.5,
+   "basis": "builder seed, provisional (not in v15)"
   },
   {
    "relation": "customer",
    "from": "volume",
    "to": "revenue",
-   "value": 0.7
+   "value": 0.7,
+   "basis": "builder seed, provisional (not in v15)"
   },
   {
    "relation": "customer",
    "from": "availability",
    "to": "revenue",
-   "value": 0.5
+   "value": 0.5,
+   "basis": "builder seed, provisional (not in v15)"
   },
   {
    "relation": "competitor",
    "from": "volume",
    "to": "price",
-   "value": 0.4
+   "value": 0.4,
+   "basis": "builder seed, provisional (not in v15)"
   },
   {
    "relation": "competitor",
    "from": "volume",
    "to": "volume",
-   "value": 0.3
+   "value": 0.3,
+   "basis": "builder seed, provisional (not in v15)"
   },
   {
    "relation": "competitor",
    "from": "availability",
    "to": "price",
-   "value": 0.4
+   "value": 0.4,
+   "basis": "builder seed, provisional (not in v15)"
   },
   {
    "relation": "competitor",
    "from": "availability",
    "to": "revenue",
-   "value": 0.4
+   "value": 0.4,
+   "basis": "builder seed, provisional (not in v15)"
   },
   {
    "relation": "substitute",
    "from": "availability",
    "to": "demand",
-   "value": 0.5
+   "value": 0.5,
+   "basis": "builder seed, provisional (not in v15)"
   },
   {
    "relation": "substitute",
    "from": "price",
    "to": "demand",
-   "value": 0.5
+   "value": 0.5,
+   "basis": "builder seed, provisional (not in v15)"
   },
   {
    "relation": "grid_neighbour",
    "from": "availability",
    "to": "price",
-   "value": 0.5
+   "value": 0.5,
+   "basis": "builder seed, provisional (not in v15)"
   },
   {
    "relation": "grid_neighbour",
    "from": "volume",
    "to": "price",
-   "value": 0.5
+   "value": 0.5,
+   "basis": "builder seed, provisional (not in v15)"
   },
   {
    "relation": "grid_neighbour",
    "from": "price",
    "to": "revenue",
-   "value": 0.6
+   "value": 0.6,
+   "basis": "builder seed, provisional (not in v15)"
   },
   {
    "relation": "grid_neighbour",
    "from": "price",
    "to": "cost",
-   "value": 0.6
+   "value": 0.6,
+   "basis": "builder seed, provisional (not in v15)"
   },
   {
    "relation": "lender",
    "from": "credit",
    "to": "credit",
-   "value": 0.5
+   "value": 0.5,
+   "basis": "builder seed, provisional (not in v15)"
   },
   {
    "relation": "lender",
    "from": "revenue",
    "to": "credit",
-   "value": 0.3
+   "value": 0.3,
+   "basis": "builder seed, provisional (not in v15)"
   },
   {
    "relation": "insurer",
    "from": "availability",
    "to": "cost",
-   "value": 0.4
+   "value": 0.4,
+   "basis": "builder seed, provisional (not in v15)"
   },
   {
    "relation": "regulator",
    "from": "availability",
    "to": "obligation",
-   "value": 0.8
+   "value": 0.8,
+   "basis": "builder seed, provisional (not in v15)"
   },
   {
    "relation": "regulator",
    "from": "obligation",
    "to": "obligation",
-   "value": 0.7
+   "value": 0.7,
+   "basis": "builder seed, provisional (not in v15)"
   },
   {
    "relation": "counterparty",
    "from": "obligation",
    "to": "revenue",
-   "value": 0.5
+   "value": 0.5,
+   "basis": "builder seed, provisional (not in v15)"
   },
   {
    "relation": "counterparty",
    "from": "obligation",
    "to": "cost",
-   "value": 0.5
+   "value": 0.5,
+   "basis": "builder seed, provisional (not in v15)"
   },
   {
    "relation": "counterparty",
    "from": "cost",
    "to": "obligation",
-   "value": 0.0
+   "value": 0.0,
+   "basis": "builder seed, provisional (not in v15)"
   }
  ],
  "tides": [

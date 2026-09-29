@@ -404,3 +404,27 @@ def test_paper_round_trip(db):
     assert abs((s["residual"] + s["narrowing"] + s["timing"] - s["costs"] - s["leaks"]) - ex["result"]) < 1e-6
     book = paper.paper_book(db, rid)
     assert book["baskets"][0]["closed"]
+
+
+def test_walk_hit_holds_the_frontier(db):
+    from nomad16 import pit
+    rid = base(db)
+    rounds.set_state(db, rid, "walking", "fixture")
+    db.append("notes", round_id=rid, segment_idx=0, subject="walk_hit", text="2026-07-12 | nrc_status | EV1")
+    db.append("notes", round_id=rid, segment_idx=0, subject="walk_read", text="2026-07-12 | x | read | auto")
+    with pytest.raises(Refused, match="unresolved"):
+        pit.bound(db, rid, "2026-07-13")
+    walk.walk_read(db, rid, "2026-07-12", "nrc_status", "not_delivering", ["EV1"])
+    assert pit.bound(db, rid, "2026-07-13") == "2026-07-13"
+
+
+def test_replay_pins_the_appetite_it_locked_with(db, tmp_path, monkeypatch):
+    rid, ack = _full_round(db)
+    lock.lock(db, rid)
+    doc = config.document()
+    doc["values"]["EDGE_MARGIN"]["value"] = 0.9  # Rob changes a value after the lock
+    p = tmp_path / "appetite_changed.json"
+    p.write_text(json.dumps(doc))
+    monkeypatch.setattr(config, "APPETITE_PATH", p)
+    rep = lock.replay(db, rid, 0)
+    assert rep["reproduces"] and "pinned" in rep["config"]

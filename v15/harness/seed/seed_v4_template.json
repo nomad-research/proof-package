@@ -1,0 +1,52 @@
+{
+  "_notes": [
+    "TEMPLATE. Fill from nomad_system_as_it_stands_v4.md, then: nomad-harness init --seed harness/seed/seed_v4_template.json",
+    "predicates: 7 arming (v4 §4.3) + 5 disarming (§4.4) + 1 exit + 1 catalyst (§4.5).",
+    "library_rules: every entry from v4 §3.4 as candidate; nouns go in provenance, never in rule_text.",
+    "retro_rounds: rounds 1-3 exactly as written in the session record, misses included. Each is played through submit -> lock -> open -> evidence -> score; scorer_note is prefixed retro=true automatically.",
+    "holders/positions: PO producers per plant where known, freight/insurance holders, port and terminal operators; confidence mostly inferred.",
+    "Keys (key / holder / mechanism_keys / parent) are local to this file and resolve to ids on load."
+  ],
+  "predicates": [
+    {"name": "", "kind": "arming", "source": "", "threshold": "", "date": null, "role_note": ""},
+    {"name": "", "kind": "disarming", "source": "", "threshold": "", "date": null, "role_note": ""},
+    {"name": "", "kind": "exit", "source": "", "threshold": "", "date": null, "role_note": ""},
+    {"name": "", "kind": "catalyst", "source": "", "threshold": "", "date": null, "role_note": ""}
+  ],
+  "library_rules": [
+    {"key": "", "rule_text": "", "forbids": "", "obscurity": 3, "layer": "sequence", "provenance": "", "composed_of": []}
+  ],
+  "holders": [
+    {"key": "", "canonical_name": "", "kind": "company", "listed": true, "ticker": null, "exchange": null, "parent": null,
+     "aliases": [{"alias": "", "alias_kind": "name", "source": "v4 §8", "knowable_from": null}]}
+  ],
+  "positions": [
+    {"holder": "", "node": "", "attribute": "sign_of_exposure", "value": "+", "unit": null, "source": "", "source_time": null,
+     "knowable_from": null, "confidence": "inferred"}
+  ],
+  "retro_rounds": [
+    {
+      "operator": "claude-fable-5-1",
+      "event": {"event_text": "", "event_date": "YYYY-MM-DD", "source": "", "selection_rule": "", "rejected_before": 0,
+                "criteria_json": {"Q1": "unknown", "Q2": "unknown", "Q3": "unknown", "Q4": "unknown", "Q5": "unknown",
+                                  "Q6": "unknown", "Q7": "unknown", "Q8": "unknown", "Q9": "unknown"}},
+      "predictions": [
+        {"call_type": "sign", "target": "", "claim": "", "sign": "+", "carrier": "", "falsifier": "",
+         "mechanism_keys": [], "baseline_claim": "", "lag_band": null, "magnitude_rank": null, "confidence_band": null}
+      ],
+      "evidence": [
+        {"url": "", "title": "", "excerpt": "", "source_time": null, "knowable_from": null, "note": null}
+      ],
+      "predicate_checks": [
+        {"predicate_id": "<predicate name>", "claimed": "holds", "observed": "holds", "note": ""}
+      ],
+      "resolutions": [
+        {"prediction_index": 0, "outcome": "hit", "mechanism_outcome": "right", "baseline_outcome": "miss",
+         "evidence_indexes": [0], "scorer_note": ""}
+      ]
+    }
+  ],
+  "hypotheses": [
+    {"text": "", "node": null, "holders": [], "mechanisms": [], "arming": [], "disarming": [], "falsifier": "", "granularity": ""}
+  ]
+}

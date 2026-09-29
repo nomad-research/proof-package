@@ -34,7 +34,7 @@ def seed(db: DB, path=None) -> dict:
         bound_add(db, b["id"], b["subject"], b["quantity"], b["value"], b["unit"], b["source_document"],
                   b["knowable_from"], authored_by="builder")
     for t in doc["transforms"]:
-        transform_add(db, t["relation"], t["from"], t["to"], t["value"], "builder seed (v15 TRANSFORM_SEED unavailable)")
+        transform_add(db, t["relation"], t["from"], t["to"], t["value"], t.get("basis", "builder seed"))
     for t in doc["tides"]:
         db.upsert("tides", t["id"], by=by, label=t["label"], declared_by="registry", from_date=None,
                   to_date=None, retro_declared=False, proxy=t["proxy"])
