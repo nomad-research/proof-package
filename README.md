@@ -1,3 +1,18 @@
+# Nomad
+
+Two lines of work live here.
+
+- **Nomad v16** (`nomad16/`, from 2026-09-29): the system specified in
+  [`docs/nomad_system_spec_v16_final.md`](docs/nomad_system_spec_v16_final.md), built fresh here
+  (spec §30.3) because the v15 harness it evolves isn't in this repository. **Read
+  [`STATE.md`](STATE.md) first**: what was built, what wasn't, and why every round it plays is
+  `learning` until the appetite values are ratified. Operators read [`docs/OPERATOR.md`](docs/OPERATOR.md).
+  Rounds live in `rounds/<id>/`; the hash-chained ledger is `state/nomad16.db`.
+  `python3 -m nomad16 help` lists the tools; `python3 -m pytest nomad16/tests -q` runs the smoke tests.
+- **The gate tests** (below, spec v2): the earlier forced-flow line, closed by its own stop rules.
+
+---
+
 # Nomad — Gate Tests
 
 Tests, ordered by cost-per-bit, of a single claim: that **enumerating which

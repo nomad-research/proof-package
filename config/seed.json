@@ -1,0 +1,1438 @@
+{
+ "_meta": {
+  "authored": "2026-09-29 builder, before any v16 event was enumerated; general knowledge and statute text only (no v15 rounds 1-7 available)"
+ },
+ "position_attributes": [
+  {
+   "attribute": "share",
+   "type": "numeric",
+   "unit": "fraction",
+   "description": "holder's share of the node or asset",
+   "allowed": []
+  },
+  {
+   "attribute": "tier",
+   "type": "enum",
+   "unit": null,
+   "description": "allocation tier",
+   "allowed": [
+    "1",
+    "2",
+    "3"
+   ]
+  },
+  {
+   "attribute": "priority",
+   "type": "enum",
+   "unit": null,
+   "description": "contractual priority",
+   "allowed": [
+    "senior",
+    "pari",
+    "junior"
+   ]
+  },
+  {
+   "attribute": "substitutability",
+   "type": "enum",
+   "unit": null,
+   "description": "how easily the holder substitutes the node",
+   "allowed": [
+    "low",
+    "medium",
+    "high"
+   ]
+  },
+  {
+   "attribute": "duration",
+   "type": "numeric",
+   "unit": "days",
+   "description": "remaining contract duration",
+   "allowed": []
+  },
+  {
+   "attribute": "role",
+   "type": "text",
+   "unit": null,
+   "description": "holder's role at the node",
+   "allowed": []
+  },
+  {
+   "attribute": "inventory_days",
+   "type": "numeric",
+   "unit": "days",
+   "description": "inventory cover",
+   "allowed": []
+  },
+  {
+   "attribute": "contract_type",
+   "type": "enum",
+   "unit": null,
+   "description": "contract with the node",
+   "allowed": [
+    "offtake",
+    "input_supply",
+    "ppa",
+    "tolling",
+    "capacity",
+    "insurance",
+    "loan",
+    "none"
+   ]
+  },
+  {
+   "attribute": "hedge_ratio",
+   "type": "numeric",
+   "unit": "fraction",
+   "description": "share of exposure hedged",
+   "allowed": []
+  },
+  {
+   "attribute": "input_share",
+   "type": "numeric",
+   "unit": "fraction",
+   "description": "share of the holder's input from the node",
+   "allowed": []
+  },
+  {
+   "attribute": "capacity",
+   "type": "numeric",
+   "unit": "MW or units/day",
+   "description": "asset capacity",
+   "allowed": []
+  },
+  {
+   "attribute": "substitute_lead_days",
+   "type": "numeric",
+   "unit": "days",
+   "description": "lead time to a substitute",
+   "allowed": []
+  },
+  {
+   "attribute": "licensed_facility",
+   "type": "bool",
+   "unit": null,
+   "description": "the asset operates under a licence with reporting obligations",
+   "allowed": []
+  },
+  {
+   "attribute": "reportable_event_notified",
+   "type": "bool",
+   "unit": null,
+   "description": "an immediate notification of a reportable event was made",
+   "allowed": []
+  },
+  {
+   "attribute": "regulatory_regime",
+   "type": "text",
+   "unit": null,
+   "description": "the reporting regime the asset is under",
+   "allowed": []
+  },
+  {
+   "attribute": "unit_status",
+   "type": "enum",
+   "unit": null,
+   "description": "operating status of a unit",
+   "allowed": [
+    "online",
+    "offline",
+    "reduced",
+    "refuelling"
+   ]
+  },
+  {
+   "attribute": "daily_status_published",
+   "type": "bool",
+   "unit": null,
+   "description": "a regulator publishes the unit's status daily",
+   "allowed": []
+  },
+  {
+   "attribute": "failed_component_class",
+   "type": "text",
+   "unit": null,
+   "description": "class of the component that failed, as named in the notice",
+   "allowed": []
+  },
+  {
+   "attribute": "repair_lead_days",
+   "type": "numeric",
+   "unit": "days",
+   "description": "documented repair or replacement lead time for the failed component",
+   "allowed": []
+  },
+  {
+   "attribute": "listed_domestic_filer",
+   "type": "bool",
+   "unit": null,
+   "description": "the holder files current reports with a securities regulator",
+   "allowed": []
+  },
+  {
+   "attribute": "event_impact_share",
+   "type": "numeric",
+   "unit": "fraction",
+   "description": "the event's impact as a share of the holder's revenue, output or earnings",
+   "allowed": []
+  },
+  {
+   "attribute": "capacity_lost_share",
+   "type": "numeric",
+   "unit": "fraction",
+   "description": "share of the supplier's capacity lost",
+   "allowed": []
+  },
+  {
+   "attribute": "contracted_buyers",
+   "type": "numeric",
+   "unit": "count",
+   "description": "number of contracted buyers",
+   "allowed": []
+  },
+  {
+   "attribute": "pending_application",
+   "type": "bool",
+   "unit": null,
+   "description": "an application is pending before a regulator",
+   "allowed": []
+  },
+  {
+   "attribute": "covers_node_transit",
+   "type": "bool",
+   "unit": null,
+   "description": "the insurer covers transits of the node",
+   "allowed": []
+  },
+  {
+   "attribute": "coupon_due_days",
+   "type": "numeric",
+   "unit": "days",
+   "description": "days to the next coupon",
+   "allowed": []
+  },
+  {
+   "attribute": "obligation_to_serve",
+   "type": "bool",
+   "unit": null,
+   "description": "the holder must serve a load or delivery obligation",
+   "allowed": []
+  },
+  {
+   "attribute": "uncommitted_capacity_share",
+   "type": "numeric",
+   "unit": "fraction",
+   "description": "owned capacity not committed elsewhere, as a share of the lost share",
+   "allowed": []
+  },
+  {
+   "attribute": "market_region",
+   "type": "text",
+   "unit": null,
+   "description": "market or grid region the asset sells into",
+   "allowed": []
+  },
+  {
+   "attribute": "merchant_share",
+   "type": "numeric",
+   "unit": "fraction",
+   "description": "share of output sold at market prices",
+   "allowed": []
+  },
+  {
+   "attribute": "exposure_sign",
+   "type": "enum",
+   "unit": "effect kind",
+   "description": "documented net sign of the holder's exposure to an effect kind (unit = effect kind)",
+   "allowed": [
+    "+1",
+    "-1"
+   ]
+  },
+  {
+   "attribute": "node_exposure",
+   "type": "numeric",
+   "unit": "fraction",
+   "description": "holder's exposure to a node, for constructed junction stories",
+   "allowed": []
+  },
+  {
+   "attribute": "owns_unit",
+   "type": "bool",
+   "unit": null,
+   "description": "the holder owns (part of) the unit",
+   "allowed": []
+  },
+  {
+   "attribute": "constituent_weight",
+   "type": "numeric",
+   "unit": "fraction",
+   "description": "weight of the node's holders in an index or fund",
+   "allowed": []
+  }
+ ],
+ "obligation_templates": [
+  {
+   "id": "obl.written_event_report",
+   "node_types": [
+    "power_reactor"
+   ],
+   "text": "A licensee that made an immediate notification of a reportable event, under a regime requiring a written follow-up, must file the written report within the statutory window.",
+   "roles": [
+    {
+     "role": "licensee",
+     "requires_attribute": "licensed_facility"
+    }
+   ],
+   "conditions": [
+    {
+     "role": "licensee",
+     "attribute": "licensed_facility",
+     "op": "==",
+     "value": "true"
+    },
+    {
+     "role": "licensee",
+     "attribute": "reportable_event_notified",
+     "op": "==",
+     "value": "true"
+    }
+   ],
+   "forces": "written_event_report",
+   "carrier_kinds": [
+    "regulator_docket"
+   ],
+   "window_rule": {
+    "kind": "statute",
+    "subject": "licensed_reactor_written_report",
+    "quantity": "statutory_report_days"
+   },
+   "forbids": "no written event report of this kind without a reportable-event notification by a licensee under the regime"
+  },
+  {
+   "id": "obl.unit_status_publication",
+   "node_types": [
+    "power_reactor",
+    "power_plant"
+   ],
+   "text": "A unit taken offline, under a regulator that publishes every unit's status daily, must appear either restarted or still down in each daily report; its return to service is published.",
+   "roles": [
+    {
+     "role": "operator",
+     "requires_attribute": "unit_status"
+    }
+   ],
+   "conditions": [
+    {
+     "role": "operator",
+     "attribute": "unit_status",
+     "op": "in",
+     "value": [
+      "offline",
+      "reduced"
+     ]
+    },
+    {
+     "role": "operator",
+     "attribute": "daily_status_published",
+     "op": "==",
+     "value": "true"
+    }
+   ],
+   "forces": "restart_status",
+   "carrier_kinds": [
+    "daily_unit_status"
+   ],
+   "window_rule": {
+    "kind": "none"
+   },
+   "forbids": "no published return to service without a unit that was offline or reduced"
+  },
+  {
+   "id": "obl.material_event_current_report",
+   "node_types": [
+    "power_reactor",
+    "power_plant",
+    "refinery",
+    "smelter",
+    "port",
+    "pipeline",
+    "lng_terminal",
+    "chemical_plant",
+    "mine",
+    "strait",
+    "data_centre",
+    "cloud_region"
+   ],
+   "text": "A listed issuer for which an event is material must file a current report within the statutory window.",
+   "roles": [
+    {
+     "role": "issuer",
+     "holder_classes": [
+      "listed_instrument"
+     ],
+     "requires_attribute": "listed_domestic_filer"
+    }
+   ],
+   "conditions": [
+    {
+     "role": "issuer",
+     "attribute": "listed_domestic_filer",
+     "op": "==",
+     "value": "true"
+    },
+    {
+     "role": "issuer",
+     "attribute": "event_impact_share",
+     "op": ">=",
+     "value": 0.05
+    }
+   ],
+   "forces": "current_report",
+   "carrier_kinds": [
+    "securities_filings"
+   ],
+   "window_rule": {
+    "kind": "statute",
+    "subject": "domestic_listed_issuer",
+    "quantity": "current_report_days"
+   },
+   "forbids": "no current report of this kind without an event material to the issuer"
+  },
+  {
+   "id": "obl.force_majeure_notice",
+   "node_types": [
+    "smelter",
+    "refinery",
+    "mine",
+    "lng_terminal",
+    "chemical_plant",
+    "power_plant",
+    "pipeline",
+    "port"
+   ],
+   "text": "A supplier that can't deliver contracted offtake, with no substitute inside the window and buyers' inventory below the window, must notify its counterparties.",
+   "roles": [
+    {
+     "role": "supplier",
+     "requires_attribute": "capacity_lost_share"
+    },
+    {
+     "role": "buyer",
+     "requires_attribute": "contract_type"
+    }
+   ],
+   "conditions": [
+    {
+     "role": "supplier",
+     "attribute": "capacity_lost_share",
+     "op": ">=",
+     "value": 0.5
+    },
+    {
+     "role": "buyer",
+     "attribute": "contract_type",
+     "op": "==",
+     "value": "offtake"
+    },
+    {
+     "role": "supplier",
+     "attribute": "substitute_lead_days",
+     "op": ">",
+     "value": {
+      "ref": "window_days"
+     }
+    },
+    {
+     "role": "buyer",
+     "attribute": "inventory_days",
+     "op": "<",
+     "value": {
+      "ref": "window_days"
+     }
+    }
+   ],
+   "forces": "force_majeure",
+   "carrier_kinds": [
+    "counterparty_notice",
+    "securities_filings"
+   ],
+   "window_rule": {
+    "kind": "none"
+   },
+   "forbids": "no force-majeure notice without a contracted offtake the supplier can't serve inside the window"
+  },
+  {
+   "id": "obl.allocation_notice",
+   "node_types": [
+    "smelter",
+    "refinery",
+    "mine",
+    "lng_terminal",
+    "chemical_plant",
+    "pipeline"
+   ],
+   "text": "A supplier short of contracted volume with several contracted buyers must allocate and notify the allocation.",
+   "roles": [
+    {
+     "role": "supplier",
+     "requires_attribute": "capacity_lost_share"
+    }
+   ],
+   "conditions": [
+    {
+     "role": "supplier",
+     "attribute": "capacity_lost_share",
+     "op": ">",
+     "value": 0.0
+    },
+    {
+     "role": "supplier",
+     "attribute": "contracted_buyers",
+     "op": ">=",
+     "value": 2
+    },
+    {
+     "role": "supplier",
+     "attribute": "inventory_days",
+     "op": "<",
+     "value": {
+      "ref": "window_days"
+     }
+    }
+   ],
+   "forces": "allocation_notice",
+   "carrier_kinds": [
+    "counterparty_notice"
+   ],
+   "window_rule": {
+    "kind": "none"
+   },
+   "forbids": "no allocation notice without a shortfall across several contracted buyers"
+  },
+  {
+   "id": "obl.regulator_decision",
+   "node_types": [
+    "power_reactor",
+    "power_plant",
+    "pipeline",
+    "port",
+    "lng_terminal",
+    "strait",
+    "sovereign_debt",
+    "central_bank_facility"
+   ],
+   "text": "A regulator with a pending application under a statutory decision window must answer inside it.",
+   "roles": [
+    {
+     "role": "applicant",
+     "requires_attribute": "pending_application"
+    }
+   ],
+   "conditions": [
+    {
+     "role": "applicant",
+     "attribute": "pending_application",
+     "op": "==",
+     "value": "true"
+    }
+   ],
+   "forces": "regulatory_decision",
+   "carrier_kinds": [
+    "regulator_docket"
+   ],
+   "window_rule": {
+    "kind": "none"
+   },
+   "forbids": "no regulatory decision of this kind without a pending application"
+  },
+  {
+   "id": "obl.war_risk_notice",
+   "node_types": [
+    "strait",
+    "port",
+    "shipping_lane"
+   ],
+   "text": "An insurer covering transits of a node that becomes a declared risk area must give notice of cancellation or re-rating within its policy notice period.",
+   "roles": [
+    {
+     "role": "insurer",
+     "requires_attribute": "covers_node_transit"
+    }
+   ],
+   "conditions": [
+    {
+     "role": "insurer",
+     "attribute": "covers_node_transit",
+     "op": "==",
+     "value": "true"
+    },
+    {
+     "fact": "constrained"
+    }
+   ],
+   "forces": "war_risk_notice",
+   "carrier_kinds": [
+    "market_notice"
+   ],
+   "window_rule": {
+    "kind": "statute",
+    "subject": "marine_war_risk_policy",
+    "quantity": "notice_period_days"
+   },
+   "forbids": "no war-risk notice without covered transits of a constrained node"
+  },
+  {
+   "id": "obl.sovereign_payment",
+   "node_types": [
+    "sovereign_debt"
+   ],
+   "text": "A sovereign with a coupon due inside the window must pay, pay in grace, or miss; the payment status is published.",
+   "roles": [
+    {
+     "role": "issuer",
+     "entity_kinds": [
+      "sovereign"
+     ],
+     "requires_attribute": "coupon_due_days"
+    }
+   ],
+   "conditions": [
+    {
+     "role": "issuer",
+     "attribute": "coupon_due_days",
+     "op": "<=",
+     "value": {
+      "ref": "window_days"
+     }
+    }
+   ],
+   "forces": "sovereign_payment",
+   "carrier_kinds": [
+    "paying_agent_notice"
+   ],
+   "window_rule": {
+    "kind": "none"
+   },
+   "forbids": "no payment status notice without a coupon falling due"
+  },
+  {
+   "id": "obl.replacement_procurement",
+   "node_types": [
+    "power_reactor",
+    "power_plant"
+   ],
+   "text": "An owner with an obligation to serve load, whose owned share of an offline unit exceeds its uncommitted capacity, must buy replacement energy or capacity for the outage.",
+   "roles": [
+    {
+     "role": "owner",
+     "requires_attribute": "owns_unit"
+    }
+   ],
+   "conditions": [
+    {
+     "role": "owner",
+     "attribute": "owns_unit",
+     "op": "==",
+     "value": "true"
+    },
+    {
+     "role": "owner",
+     "attribute": "obligation_to_serve",
+     "op": "==",
+     "value": "true"
+    },
+    {
+     "role": "owner",
+     "attribute": "uncommitted_capacity_share",
+     "op": "<",
+     "value": 1.0
+    }
+   ],
+   "forces": "replacement_cost_disclosure",
+   "carrier_kinds": [
+    "regulator_docket",
+    "securities_filings"
+   ],
+   "window_rule": {
+    "kind": "none"
+   },
+   "forbids": "no replacement-cost disclosure without an obligated owner short of uncommitted capacity"
+  }
+ ],
+ "outcome_vocabs": {
+  "written_event_report": [
+   {
+    "outcome_id": "cause_equipment",
+    "label": "cause attributed to equipment failure",
+    "needs": []
+   },
+   {
+    "outcome_id": "cause_human_or_procedure",
+    "label": "cause attributed to human performance or procedure",
+    "needs": []
+   },
+   {
+    "outcome_id": "cause_external",
+    "label": "cause attributed to an external or grid event",
+    "needs": []
+   },
+   {
+    "outcome_id": "report_retracted",
+    "label": "notification retracted, no written report",
+    "needs": []
+   }
+  ],
+  "restart_status": [
+   {
+    "outcome_id": "restart_lt_2w",
+    "label": "back at power within 2 weeks of the event",
+    "needs": [
+     {
+      "bound": {
+       "subject_from": {
+        "role": "operator",
+        "attribute": "failed_component_class"
+       },
+       "quantity": "repair_lead_days"
+      },
+      "op": "<",
+      "value": 14
+     }
+    ]
+   },
+   {
+    "outcome_id": "restart_2_6w",
+    "label": "back at power in 2-6 weeks",
+    "needs": [
+     {
+      "bound": {
+       "subject_from": {
+        "role": "operator",
+        "attribute": "failed_component_class"
+       },
+       "quantity": "repair_lead_days"
+      },
+      "op": "<",
+      "value": 42
+     }
+    ]
+   },
+   {
+    "outcome_id": "restart_gt_6w",
+    "label": "still down after 6 weeks",
+    "needs": []
+   }
+  ],
+  "current_report": [
+   {
+    "outcome_id": "quantified_impact",
+    "label": "current report quantifies the impact",
+    "needs": [
+     {
+      "role": "issuer",
+      "attribute": "event_impact_share",
+      "op": ">=",
+      "value": 0.05
+     }
+    ]
+   },
+   {
+    "outcome_id": "unquantified_disclosure",
+    "label": "current report without a figure",
+    "needs": []
+   },
+   {
+    "outcome_id": "no_report_in_window",
+    "label": "no current report by the window's end",
+    "needs": []
+   }
+  ],
+  "force_majeure": [
+   {
+    "outcome_id": "declared",
+    "label": "force majeure declared",
+    "needs": []
+   },
+   {
+    "outcome_id": "partial_allocation",
+    "label": "partial delivery or allocation, no FM",
+    "needs": []
+   },
+   {
+    "outcome_id": "not_declared",
+    "label": "no FM and full delivery by the window's end",
+    "needs": [
+     {
+      "role": "supplier",
+      "attribute": "substitute_lead_days",
+      "op": "<=",
+      "value": {
+       "ref": "window_days"
+      }
+     }
+    ]
+   }
+  ],
+  "allocation_notice": [
+   {
+    "outcome_id": "alloc_lt_50",
+    "label": "allocation below 50% of contract",
+    "needs": []
+   },
+   {
+    "outcome_id": "alloc_50_90",
+    "label": "allocation 50-90%",
+    "needs": []
+   },
+   {
+    "outcome_id": "alloc_ge_90",
+    "label": "allocation 90% or more",
+    "needs": []
+   }
+  ],
+  "regulatory_decision": [
+   {
+    "outcome_id": "approve",
+    "label": "approve",
+    "needs": []
+   },
+   {
+    "outcome_id": "reject",
+    "label": "reject",
+    "needs": []
+   },
+   {
+    "outcome_id": "extend",
+    "label": "extend the review",
+    "needs": []
+   },
+   {
+    "outcome_id": "nothing_by_deadline",
+    "label": "nothing by the deadline",
+    "needs": []
+   }
+  ],
+  "war_risk_notice": [
+   {
+    "outcome_id": "cancellation_issued",
+    "label": "notice of cancellation issued",
+    "needs": []
+   },
+   {
+    "outcome_id": "premium_raised",
+    "label": "additional premium re-rated upward",
+    "needs": []
+   },
+   {
+    "outcome_id": "no_change",
+    "label": "no notice in the period",
+    "needs": []
+   }
+  ],
+  "sovereign_payment": [
+   {
+    "outcome_id": "paid",
+    "label": "paid on the due date",
+    "needs": []
+   },
+   {
+    "outcome_id": "paid_in_grace",
+    "label": "paid within the grace period",
+    "needs": []
+   },
+   {
+    "outcome_id": "missed",
+    "label": "missed beyond grace",
+    "needs": []
+   }
+  ],
+  "replacement_cost_disclosure": [
+   {
+    "outcome_id": "cost_quantified",
+    "label": "replacement cost quantified in a filing",
+    "needs": []
+   },
+   {
+    "outcome_id": "cost_mentioned",
+    "label": "replacement mentioned without a figure",
+    "needs": []
+   },
+   {
+    "outcome_id": "not_disclosed",
+    "label": "nothing disclosed by the window's end",
+    "needs": []
+   }
+  ]
+ },
+ "bounds": [
+  {
+   "id": "b.reactor_written_report",
+   "subject": "licensed_reactor_written_report",
+   "quantity": "statutory_report_days",
+   "value": 60,
+   "unit": "days",
+   "source_document": "10 CFR 50.73(a)(1): a licensee event report is submitted within 60 days after discovery of the event",
+   "knowable_from": "2000-01-01"
+  },
+  {
+   "id": "b.current_report",
+   "subject": "domestic_listed_issuer",
+   "quantity": "current_report_days",
+   "value": 6,
+   "unit": "days",
+   "source_document": "Form 8-K General Instruction B.1: filed within four business days of the event (six calendar days used as the bound)",
+   "knowable_from": "2004-08-23"
+  },
+  {
+   "id": "b.war_risk_notice",
+   "subject": "marine_war_risk_policy",
+   "quantity": "notice_period_days",
+   "value": 7,
+   "unit": "days",
+   "source_document": "Institute War and Strikes Clauses (Hulls-Time), cancellation on 7 days' notice",
+   "knowable_from": "2000-01-01"
+  }
+ ],
+ "library_rules": [
+  {
+   "id": "lib.novelty_channels",
+   "text": "Novelty belongs to channels, not events",
+   "forbids": "novelty attributed to an event rather than its channel",
+   "layer": "sequence",
+   "carries": [
+    "ordering"
+   ]
+  },
+  {
+   "id": "lib.recurring_weather",
+   "text": "Recurring disruption is priced as weather",
+   "forbids": "a lag on a recurring disruption",
+   "layer": "sequence",
+   "carries": [
+    "absence",
+    "magnitude"
+   ]
+  },
+  {
+   "id": "lib.late_crisis_resolution",
+   "text": "Late in a crisis the neglected side is resolution",
+   "forbids": "late-crisis moves concentrated on escalation",
+   "layer": "sequence",
+   "carries": [
+    "ordering"
+   ]
+  },
+  {
+   "id": "lib.headline_names_reopened",
+   "text": "The headline names what reopened, not what stayed shut",
+   "forbids": "a reopening headline implying the whole node reopened",
+   "layer": "sequence",
+   "carries": [
+    "map"
+   ]
+  },
+  {
+   "id": "lib.repeat_filer_base_rate",
+   "text": "A repeat filer gets the base-rate procedure, not the form of its last filing",
+   "forbids": "predicting a filing's form from the filer's last one",
+   "layer": "sequence",
+   "carries": [
+    "map",
+    "occurrence"
+   ]
+  },
+  {
+   "id": "lib.cut_into_glut_silent",
+   "text": "A cut into a glut is silent",
+   "forbids": "a price response to a supply cut absorbed by slack",
+   "layer": "transmission",
+   "carries": [
+    "absence"
+   ]
+  },
+  {
+   "id": "lib.hardest_substitution",
+   "text": "The move is largest where substitution is hardest",
+   "forbids": "the largest move where substitutes are easy",
+   "layer": "transmission",
+   "carries": [
+    "magnitude",
+    "ordering"
+   ]
+  },
+  {
+   "id": "lib.toll_booth_first",
+   "text": "The toll booth learns before the cargo",
+   "forbids": "the cargo owner learning before the node operator",
+   "layer": "transmission",
+   "carries": [
+    "ordering"
+   ]
+  },
+  {
+   "id": "lib.constraint_prices_slowest",
+   "text": "Constraint prices de-escalate slowest",
+   "forbids": "constraint premia unwinding before flows",
+   "layer": "transmission",
+   "carries": [
+    "ordering",
+    "duration"
+   ]
+  },
+  {
+   "id": "lib.tide_prices_everything",
+   "text": "A tide sets the price of everything it touches; events under it are visible only in what the tide does not price",
+   "forbids": "attributing a tide move to an event",
+   "layer": "transmission",
+   "carries": [
+    "magnitude"
+   ]
+  },
+  {
+   "id": "lib.catalyst_not_node_is_tide",
+   "text": "A catalyst that does not concern the node is a tide",
+   "forbids": "counting a non-node catalyst as an ACK",
+   "layer": "transmission",
+   "carries": [
+    "occurrence"
+   ]
+  },
+  {
+   "id": "lib.toxic_release_shared_space",
+   "text": "A toxic release closes the shared space, not the failed asset",
+   "forbids": "a release closing only the failed asset",
+   "layer": "transmission",
+   "carries": [
+    "map"
+   ]
+  },
+  {
+   "id": "lib.availability_no_constraint_price",
+   "text": "An availability failure consumes nothing and leaves nothing short; it has no constraint price",
+   "forbids": "citing constraint-price, toll-booth or allocation rules on an event that withholds no consumable",
+   "layer": "transmission",
+   "carries": [
+    "absence"
+   ]
+  },
+  {
+   "id": "lib.wounded_owner_premium",
+   "text": "The wounded owner of the substitutes collects its own scarcity premium",
+   "forbids": "the owner of the failed asset losing when it owns the substitutes",
+   "layer": "ownership",
+   "carries": [
+    "magnitude"
+   ]
+  },
+  {
+   "id": "lib.equity_visibility",
+   "text": "Equity visibility = event size / ambient tide",
+   "forbids": "an equity reaction below the tide's noise",
+   "layer": "ownership",
+   "carries": [
+    "absence",
+    "magnitude"
+   ]
+  },
+  {
+   "id": "lib.no_pure_play_spectacle",
+   "text": "A lag without a listed pure-play is a spectacle, not an edge",
+   "forbids": "claiming an edge with no listed pure-play",
+   "layer": "ownership",
+   "carries": [
+    "occurrence"
+   ]
+  },
+  {
+   "id": "lib.larger_operator_prior",
+   "text": "When an event names a site with more than one operator, the larger operator is the prior",
+   "forbids": "attributing a multi-operator site event to the smaller operator by default",
+   "layer": "map",
+   "carries": [
+    "map"
+   ]
+  },
+  {
+   "id": "lib.account_precedes_the_rebate",
+   "text": "An operator of shared infrastructure under an availability commitment must publish an account of a multi-tenant failure, and the account precedes the money",
+   "forbids": "money moving before the account",
+   "layer": "candidate",
+   "carries": [
+    "ordering",
+    "occurrence"
+   ]
+  },
+  {
+   "id": "lib.junction_shared_node",
+   "text": "Unrelated stories correlate only where they share a constrained node",
+   "forbids": "a junction with no shared node behind it",
+   "layer": "candidate",
+   "carries": [
+    "ordering"
+   ]
+  }
+ ],
+ "transforms": [
+  {
+   "relation": "ownership",
+   "from": "volume",
+   "to": "volume",
+   "value": 1.0
+  },
+  {
+   "relation": "ownership",
+   "from": "volume",
+   "to": "revenue",
+   "value": 1.0
+  },
+  {
+   "relation": "ownership",
+   "from": "revenue",
+   "to": "revenue",
+   "value": 1.0
+  },
+  {
+   "relation": "ownership",
+   "from": "cost",
+   "to": "cost",
+   "value": 1.0
+  },
+  {
+   "relation": "ownership",
+   "from": "obligation",
+   "to": "obligation",
+   "value": 1.0
+  },
+  {
+   "relation": "ownership",
+   "from": "availability",
+   "to": "availability",
+   "value": 1.0
+  },
+  {
+   "relation": "ownership",
+   "from": "availability",
+   "to": "revenue",
+   "value": 0.9
+  },
+  {
+   "relation": "ownership",
+   "from": "margin",
+   "to": "margin",
+   "value": 1.0
+  },
+  {
+   "relation": "ownership",
+   "from": "credit",
+   "to": "credit",
+   "value": 0.8
+  },
+  {
+   "relation": "input_supply",
+   "from": "volume",
+   "to": "volume",
+   "value": 0.6
+  },
+  {
+   "relation": "input_supply",
+   "from": "volume",
+   "to": "cost",
+   "value": 0.6
+  },
+  {
+   "relation": "input_supply",
+   "from": "price",
+   "to": "cost",
+   "value": 0.8
+  },
+  {
+   "relation": "input_supply",
+   "from": "availability",
+   "to": "volume",
+   "value": 0.6
+  },
+  {
+   "relation": "input_supply",
+   "from": "volume",
+   "to": "obligation",
+   "value": 0.6
+  },
+  {
+   "relation": "input_supply",
+   "from": "availability",
+   "to": "obligation",
+   "value": 0.5
+  },
+  {
+   "relation": "offtake",
+   "from": "volume",
+   "to": "volume",
+   "value": 0.5
+  },
+  {
+   "relation": "offtake",
+   "from": "volume",
+   "to": "obligation",
+   "value": 0.0
+  },
+  {
+   "relation": "offtake",
+   "from": "price",
+   "to": "cost",
+   "value": 0.8
+  },
+  {
+   "relation": "offtake",
+   "from": "availability",
+   "to": "volume",
+   "value": 0.5
+  },
+  {
+   "relation": "customer",
+   "from": "volume",
+   "to": "revenue",
+   "value": 0.7
+  },
+  {
+   "relation": "customer",
+   "from": "availability",
+   "to": "revenue",
+   "value": 0.5
+  },
+  {
+   "relation": "competitor",
+   "from": "volume",
+   "to": "price",
+   "value": 0.4
+  },
+  {
+   "relation": "competitor",
+   "from": "volume",
+   "to": "volume",
+   "value": 0.3
+  },
+  {
+   "relation": "competitor",
+   "from": "availability",
+   "to": "price",
+   "value": 0.4
+  },
+  {
+   "relation": "competitor",
+   "from": "availability",
+   "to": "revenue",
+   "value": 0.4
+  },
+  {
+   "relation": "substitute",
+   "from": "availability",
+   "to": "demand",
+   "value": 0.5
+  },
+  {
+   "relation": "substitute",
+   "from": "price",
+   "to": "demand",
+   "value": 0.5
+  },
+  {
+   "relation": "grid_neighbour",
+   "from": "availability",
+   "to": "price",
+   "value": 0.5
+  },
+  {
+   "relation": "grid_neighbour",
+   "from": "volume",
+   "to": "price",
+   "value": 0.5
+  },
+  {
+   "relation": "grid_neighbour",
+   "from": "price",
+   "to": "revenue",
+   "value": 0.6
+  },
+  {
+   "relation": "grid_neighbour",
+   "from": "price",
+   "to": "cost",
+   "value": 0.6
+  },
+  {
+   "relation": "lender",
+   "from": "credit",
+   "to": "credit",
+   "value": 0.5
+  },
+  {
+   "relation": "lender",
+   "from": "revenue",
+   "to": "credit",
+   "value": 0.3
+  },
+  {
+   "relation": "insurer",
+   "from": "availability",
+   "to": "cost",
+   "value": 0.4
+  },
+  {
+   "relation": "regulator",
+   "from": "availability",
+   "to": "obligation",
+   "value": 0.8
+  },
+  {
+   "relation": "regulator",
+   "from": "obligation",
+   "to": "obligation",
+   "value": 0.7
+  },
+  {
+   "relation": "counterparty",
+   "from": "obligation",
+   "to": "revenue",
+   "value": 0.5
+  },
+  {
+   "relation": "counterparty",
+   "from": "obligation",
+   "to": "cost",
+   "value": 0.5
+  },
+  {
+   "relation": "counterparty",
+   "from": "cost",
+   "to": "obligation",
+   "value": 0.0
+  }
+ ],
+ "tides": [
+  {
+   "id": "us_equity_beta",
+   "label": "US equity beta",
+   "proxy": "SPY"
+  },
+  {
+   "id": "rates",
+   "label": "US rates",
+   "proxy": "TLT"
+  },
+  {
+   "id": "energy_complex",
+   "label": "Energy complex",
+   "proxy": "XLE"
+  },
+  {
+   "id": "ai_capex",
+   "label": "AI capex",
+   "proxy": "SMH"
+  },
+  {
+   "id": "utilities_power",
+   "label": "US power and utilities",
+   "proxy": "XLU"
+  },
+  {
+   "id": "geopolitical_conflict",
+   "label": "Geopolitical conflict premium",
+   "proxy": "XLE"
+  }
+ ],
+ "carriers": [
+  {
+   "id": "nrc_event_notification",
+   "kind": "regulator_docket",
+   "node_types": [
+    "power_reactor"
+   ],
+   "fetch_path": "python -m nomad16 pit_fetch source=nrc_en",
+   "read_in_full_rule": "every daily report from the event date through due_at"
+  },
+  {
+   "id": "nrc_power_reactor_status",
+   "kind": "daily_unit_status",
+   "node_types": [
+    "power_reactor"
+   ],
+   "fetch_path": "python -m nomad16 pit_fetch source=nrc_status",
+   "read_in_full_rule": "every daily status report from the event date through due_at"
+  },
+  {
+   "id": "edgar",
+   "kind": "securities_filings",
+   "node_types": [
+    "*"
+   ],
+   "fetch_path": "python -m nomad16 pit_fetch source=edgar_filings",
+   "read_in_full_rule": "the filer's filing list through due_at"
+  },
+  {
+   "id": "nrc_adams_ler",
+   "kind": "regulator_docket",
+   "node_types": [
+    "power_reactor"
+   ],
+   "fetch_path": "not built: licensee event reports are in ADAMS; use wayback or the licensee's filings",
+   "read_in_full_rule": "not_covered"
+  },
+  {
+   "id": "sentinel2",
+   "kind": "satellite_imagery",
+   "node_types": [
+    "*"
+   ],
+   "fetch_path": "python -m nomad16 alt_fetch source=s2_scenes / s2_image",
+   "read_in_full_rule": "every scene over the AOI through due_at"
+  },
+  {
+   "id": "portwatch",
+   "kind": "ais_counts",
+   "node_types": [
+    "strait",
+    "port",
+    "shipping_lane"
+   ],
+   "fetch_path": "python -m nomad16 alt_fetch source=portwatch_chokepoint / portwatch_port",
+   "read_in_full_rule": "every daily record through due_at"
+  },
+  {
+   "id": "gdelt",
+   "kind": "event_feed",
+   "node_types": [
+    "*"
+   ],
+   "fetch_path": "python -m nomad16 alt_fetch source=gdelt_events",
+   "read_in_full_rule": "every 15-minute export through due_at"
+  },
+  {
+   "id": "ioda",
+   "kind": "internet_outage",
+   "node_types": [
+    "*"
+   ],
+   "fetch_path": "python -m nomad16 alt_fetch source=ioda",
+   "read_in_full_rule": "signals through due_at"
+  },
+  {
+   "id": "usgs",
+   "kind": "hazard_catalogue",
+   "node_types": [
+    "*"
+   ],
+   "fetch_path": "python -m nomad16 alt_fetch source=usgs_quakes",
+   "read_in_full_rule": "catalogue through due_at"
+  },
+  {
+   "id": "firms",
+   "kind": "fire_detections",
+   "node_types": [
+    "*"
+   ],
+   "fetch_path": "python -m nomad16 alt_fetch source=firms (needs FIRMS_MAP_KEY)",
+   "read_in_full_rule": "detections through due_at"
+  }
+ ]
+}

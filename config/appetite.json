@@ -1,0 +1,504 @@
+{
+ "_meta": {
+  "written": "2026-09-29",
+  "by": "harness builder (Claude Code session), on the user's instruction to use provisional values",
+  "rule": "Any round that reads a provisional_unratified value is classed learning and never counts toward K9 or K13. Rob ratifies by changing status to 'ratified' (and the value if he wishes) in a dated commit.",
+  "not_set": "The T1/T2 values of \u00a733.2 (K1 bounds, promotion-gate margin, ECE ceiling, shadow_min_items, retrain cadence, wiring k and bottom slice, bimodality thresholds, daily flag budget, K6 X, K7 share, per-job recall floor) are deliberately NOT set: the decision-model and data-product tracks are not built here. The loader refuses them if anything reads them."
+ },
+ "values": {
+  "FRONTIER_BOUND": {
+   "value": 120,
+   "status": "ratified",
+   "basis": "\u00a733.1 ratified",
+   "section": "\u00a733.1"
+  },
+  "DUE_AT_MAX_DAYS": {
+   "value": 90,
+   "status": "carried",
+   "basis": "Event Requirements v3, live rounds",
+   "section": "\u00a733.1"
+  },
+  "INDEPENDENCE_DISCOUNT": {
+   "value": {
+    "root_split": 1.0,
+    "last_node_split": 0.15
+   },
+   "status": "ratified",
+   "basis": "\u00a77.8, \u00a733.1",
+   "section": "\u00a733.1"
+  },
+  "SUPPORT_THRESHOLD": {
+   "value": 0.3,
+   "status": "ratified",
+   "basis": "\u00a733.1",
+   "section": "\u00a733.1"
+  },
+  "INERT_STAKE_CEILING": {
+   "value": 0.25,
+   "status": "ratified",
+   "basis": "\u00a733.1",
+   "section": "\u00a733.1"
+  },
+  "CONVERGENCE_THRESHOLD": {
+   "value": 0.5,
+   "status": "ratified",
+   "basis": "\u00a733.1",
+   "section": "\u00a733.1"
+  },
+  "SYNTH_COMPONENT_DISCOUNT": {
+   "value": 0.85,
+   "status": "carried",
+   "basis": "\u00a733.1",
+   "section": "\u00a733.1"
+  },
+  "SYNTH_CROSS_NODE_DISCOUNT": {
+   "value": 0.85,
+   "status": "carried",
+   "basis": "\u00a733.1",
+   "section": "\u00a733.1"
+  },
+  "TURNOVER_FLOOR_USD": {
+   "value": 2000000,
+   "status": "carried",
+   "basis": "\u00a733.1 carried; re-ratify owed now that it floors stock instruments",
+   "section": "\u00a733.1"
+  },
+  "OPERATOR_PRIOR_N": {
+   "value": 4,
+   "status": "carried",
+   "basis": "\u00a733.1",
+   "section": "\u00a733.1"
+  },
+  "NARRATIVE_DUE_DAYS": {
+   "value": 5,
+   "status": "carried",
+   "basis": "\u00a733.1",
+   "section": "\u00a733.1"
+  },
+  "FADEABLE_IMPLIED_MIN": {
+   "value": 2.0,
+   "status": "carried",
+   "basis": "\u00a733.1",
+   "section": "\u00a733.1"
+  },
+  "RISK_APPETITE": {
+   "value": {
+    "stake": 1.0,
+    "structural": 0.6,
+    "pricedness": 0.5,
+    "operator": 0.4,
+    "expression": 0.5
+   },
+   "status": "carried",
+   "basis": "\u00a733.1, diagnostic only",
+   "section": "\u00a733.1"
+  },
+  "BASKET_STAKE_FLOOR": {
+   "value": 1.0,
+   "status": "carried",
+   "basis": "\u00a733.1, report only",
+   "section": "\u00a733.1"
+  },
+  "POSITION_SHARE_FLOOR": {
+   "value": 0.05,
+   "status": "carried",
+   "basis": "\u00a733.1, retired as a veto, report only",
+   "section": "\u00a733.1"
+  },
+  "TIDE_RATIO_MIN": {
+   "value": 1.0,
+   "status": "carried",
+   "basis": "\u00a733.1, retired as a veto, report only",
+   "section": "\u00a733.1"
+  },
+  "SURVIVING_MAGNITUDE_MIN": {
+   "value": 1.0,
+   "status": "carried",
+   "basis": "\u00a733.1, retired as a veto, report only",
+   "section": "\u00a733.1"
+  },
+  "HOP_DISCOUNT": {
+   "value": {
+    "input_supply": 0.6,
+    "offtake": 0.6,
+    "ownership": 0.9,
+    "customer": 0.5,
+    "competitor": 0.4,
+    "substitute": 0.5,
+    "lender": 0.5,
+    "insurer": 0.4,
+    "grid_neighbour": 0.5,
+    "regulator": 0.7,
+    "counterparty": 0.6
+   },
+   "status": "provisional_unratified",
+   "basis": "\u00a733.1 says 'as in the v15 config'; the v15 config is not in this repository (fresh build, \u00a730.3)",
+   "section": "\u00a733.1"
+  },
+  "DEFAULT_HOP_DISCOUNT": {
+   "value": 0.5,
+   "status": "provisional_unratified",
+   "basis": "\u00a733.1 'to ratify'; v15 value unavailable",
+   "section": "\u00a733.1"
+  },
+  "TRANSFORM_SEED_STATUS": {
+   "value": "authored_by_builder",
+   "status": "provisional_unratified",
+   "basis": "\u00a733.1 says 28 entries as in v15; unavailable, re-authored in config/seed_transforms.json",
+   "section": "\u00a733.1"
+  },
+  "OPERATOR_MIN_N": {
+   "value": 5,
+   "status": "provisional_unratified",
+   "basis": "builder proposal",
+   "section": "\u00a733.2"
+  },
+  "ATTENUATION_RULE": {
+   "value": {
+    "per_hop": "HOP_DISCOUNT[relation] else DEFAULT_HOP_DISCOUNT",
+    "stop_when_support_below": "SUPPORT_THRESHOLD"
+   },
+   "status": "provisional_unratified",
+   "basis": "stated as a rule, not a depth number, as \u00a733.2 requires",
+   "section": "\u00a733.2"
+  },
+  "TIDE_REGISTRY_RULE": {
+   "value": {
+    "declared_by": "operator at lock, from the registry; a new tide may be added with a label and a proxy",
+    "vocabulary": [
+     "us_equity_beta",
+     "rates",
+     "energy_complex",
+     "geopolitical_conflict",
+     "ai_capex",
+     "idiosyncratic"
+    ]
+   },
+   "status": "provisional_unratified",
+   "basis": "builder proposal",
+   "section": "\u00a733.2"
+  },
+  "TIDE_COUNT_MIN": {
+   "value": 2,
+   "status": "provisional_unratified",
+   "basis": "\u00a733.2 suggests 2",
+   "section": "\u00a733.2"
+  },
+  "BAND_RULE": {
+   "value": {
+    "form": "block_bootstrap_quantile_of_abs_horizon_residual",
+    "quantile": 0.9,
+    "history_sessions": 250,
+    "horizon": "ACK window in sessions, capped at 63"
+   },
+   "status": "provisional_unratified",
+   "basis": "builder proposal",
+   "section": "\u00a733.2"
+  },
+  "BOOTSTRAP_BLOCK": {
+   "value": 5,
+   "status": "provisional_unratified",
+   "basis": "builder proposal",
+   "section": "\u00a733.2"
+  },
+  "BOOTSTRAP_DRAWS": {
+   "value": 2000,
+   "status": "provisional_unratified",
+   "basis": "builder proposal; seed fixed at 16 for determinism",
+   "section": "\u00a733.2"
+  },
+  "MATERIALITY_BAND": {
+   "value": {
+    "listed_instrument": 0.01,
+    "unlisted_operating_asset": 0.05,
+    "aggregate": 0.05
+   },
+   "status": "provisional_unratified",
+   "basis": "reports only",
+   "section": "\u00a733.2"
+  },
+  "X8": {
+   "value": 0.5,
+   "status": "provisional_unratified",
+   "basis": "builder proposal; K8 cannot run in this build (no v15 record)",
+   "section": "\u00a733.3"
+  },
+  "X10": {
+   "value": 0.5,
+   "status": "provisional_unratified",
+   "basis": "builder proposal; K10 cannot run in this build (no v15 record)",
+   "section": "\u00a733.3"
+  },
+  "K11_K12_TEST": {
+   "value": {
+    "statistic": "one-sided Mann-Whitney U",
+    "alpha": 0.05
+   },
+   "status": "provisional_unratified",
+   "basis": "builder proposal",
+   "section": "\u00a733.3"
+  },
+  "DERIVATION_BINDINGS_MAX": {
+   "value": 500,
+   "status": "provisional_unratified",
+   "basis": "builder proposal",
+   "section": "\u00a733.3"
+  },
+  "LOADING_SESSIONS": {
+   "value": 120,
+   "status": "provisional_unratified",
+   "basis": "builder proposal",
+   "section": "\u00a733.3"
+  },
+  "ACTIVE_WINDOW": {
+   "value": 10,
+   "status": "provisional_unratified",
+   "basis": "sessions; builder proposal",
+   "section": "\u00a733.3"
+  },
+  "ANGLE_ORTH": {
+   "value": 60.0,
+   "status": "provisional_unratified",
+   "basis": "degrees; builder proposal",
+   "section": "\u00a733.3"
+  },
+  "SYNTH_EPS": {
+   "value": 0.1,
+   "status": "provisional_unratified",
+   "basis": "relative residual norm of the span projection; builder proposal",
+   "section": "\u00a733.3"
+  },
+  "JUNCTION_WINDOW": {
+   "value": 20,
+   "status": "provisional_unratified",
+   "basis": "sessions; builder proposal",
+   "section": "\u00a733.3"
+  },
+  "JUNCTION_DELTA": {
+   "value": 0.3,
+   "status": "provisional_unratified",
+   "basis": "correlation rise; builder proposal",
+   "section": "\u00a733.3"
+  },
+  "RHO_MIN": {
+   "value": 0.3,
+   "status": "provisional_unratified",
+   "basis": "builder proposal",
+   "section": "\u00a733.3"
+  },
+  "VIS_K": {
+   "value": 1.0,
+   "status": "provisional_unratified",
+   "basis": "builder proposal",
+   "section": "\u00a733.3"
+  },
+  "RHO_EXIT": {
+   "value": 0.1,
+   "status": "provisional_unratified",
+   "basis": "builder proposal",
+   "section": "\u00a733.3"
+  },
+  "RECOVERY_FRACTION": {
+   "value": 0.75,
+   "status": "provisional_unratified",
+   "basis": "builder proposal",
+   "section": "\u00a733.3"
+  },
+  "PREMIUM_MIN": {
+   "value": 1.25,
+   "status": "provisional_unratified",
+   "basis": "builder proposal",
+   "section": "\u00a733.3"
+  },
+  "TIDE_SHOCK": {
+   "value": 1.0,
+   "status": "provisional_unratified",
+   "basis": "in units of the tide proxy's horizon standard deviation; builder proposal",
+   "section": "\u00a733.3"
+  },
+  "ADOPT_MOVE": {
+   "value": 1.0,
+   "status": "provisional_unratified",
+   "basis": "in units of the story proxy's horizon standard deviation; builder proposal",
+   "section": "\u00a733.3"
+  },
+  "EXCLUDED_LOSS_FRAC": {
+   "value": 0.5,
+   "status": "provisional_unratified",
+   "basis": "builder proposal",
+   "section": "\u00a733.3"
+  },
+  "UNKNOWN_WIDEN": {
+   "value": 0.5,
+   "status": "provisional_unratified",
+   "basis": "band half-width multiplied by (1 + UNKNOWN_WIDEN) per unknown term; builder proposal",
+   "section": "\u00a733.3"
+  },
+  "HEDGE_EPS": {
+   "value": 0.002,
+   "status": "provisional_unratified",
+   "basis": "spec form |w.L_k| <= HEDGE_EPS * sum (w+ + w-) P_i with L_k in currency per one-sd daily story move; 0.002 means story exposure at most 0.2% of gross notional per sd, against ~2% for an unhedged stock; builder proposal",
+   "section": "\u00a733.3"
+  },
+  "LIQ_CAP": {
+   "value": 0.01,
+   "status": "provisional_unratified",
+   "basis": "fraction of average daily volume (units) per instrument; builder proposal",
+   "section": "\u00a733.3"
+  },
+  "EDGE_MARGIN": {
+   "value": 0.05,
+   "status": "provisional_unratified",
+   "basis": "fraction of B_basket; builder proposal",
+   "section": "\u00a733.3"
+  },
+  "TOLERANCE": {
+   "value": 0.05,
+   "status": "provisional_unratified",
+   "basis": "fraction of B_basket; builder proposal",
+   "section": "\u00a733.3"
+  },
+  "POS_SHARE_MIN": {
+   "value": 0.6,
+   "status": "provisional_unratified",
+   "basis": "builder proposal",
+   "section": "\u00a733.3"
+  },
+  "LOSS_BUDGET_PER_ROUND": {
+   "value": 10000,
+   "status": "provisional_unratified",
+   "basis": "USD, paper; builder proposal",
+   "section": "\u00a733.3"
+  },
+  "LOSS_CAP_PER_TIDE": {
+   "value": 20000,
+   "status": "provisional_unratified",
+   "basis": "USD, paper; builder proposal",
+   "section": "\u00a733.3"
+  },
+  "SWITCH_BUDGET_FRACTION": {
+   "value": 0.5,
+   "status": "provisional_unratified",
+   "basis": "builder proposal",
+   "section": "\u00a733.3"
+  },
+  "BAND_WIDTH_MAX": {
+   "value": 1.0,
+   "status": "provisional_unratified",
+   "basis": "band half-width over |centre|, degree > 1 only; builder proposal",
+   "section": "\u00a733.3"
+  },
+  "EXPIRY_QUANTILE": {
+   "value": 0.8,
+   "status": "provisional_unratified",
+   "basis": "builder proposal",
+   "section": "\u00a733.3"
+  },
+  "STRESS_QUANTILE": {
+   "value": 0.95,
+   "status": "provisional_unratified",
+   "basis": "quantile of adverse horizon move; the stop sits there; builder proposal",
+   "section": "\u00a733.3"
+  },
+  "STOP_RULE": {
+   "value": "stop at the STRESS_QUANTILE adverse move from entry, checked at each close; a gap through it is a leak",
+   "status": "provisional_unratified",
+   "basis": "builder proposal",
+   "section": "\u00a733.3"
+  },
+  "SPREAD_FALLBACK": {
+   "value": {
+    "stock": 0.001,
+    "etf": 0.0004,
+    "option": 0.05,
+    "event_contract": 0.02
+   },
+   "status": "provisional_unratified",
+   "basis": "full quoted spread as a fraction of price when no quote exists; builder proposal",
+   "section": "\u00a733.3"
+  },
+  "FEE_PER_UNIT": {
+   "value": {
+    "stock": 0.0,
+    "etf": 0.0,
+    "option": 0.65,
+    "event_contract": 0.0
+   },
+   "status": "provisional_unratified",
+   "basis": "USD; builder proposal",
+   "section": "\u00a733.3"
+  },
+  "BORROW_RATE": {
+   "value": 0.03,
+   "status": "provisional_unratified",
+   "basis": "annual; builder proposal",
+   "section": "\u00a733.3"
+  },
+  "SLIPPAGE_COEF": {
+   "value": 0.1,
+   "status": "provisional_unratified",
+   "basis": "slippage fraction = coef x qty / ADV; builder proposal",
+   "section": "\u00a733.3"
+  },
+  "OPTION_PRICING_MODEL": {
+   "value": {
+    "model": "black_scholes",
+    "vol": "realised vol of the underlying over LOADING_SESSIONS before T_seg",
+    "rate": 0.04
+   },
+   "status": "provisional_unratified",
+   "basis": "for modelled entries only; builder proposal",
+   "section": "\u00a733.3"
+  },
+  "MARK_SCHEDULE": {
+   "value": {
+    "every_sessions": 5
+   },
+   "status": "provisional_unratified",
+   "basis": "builder proposal",
+   "section": "\u00a733.3"
+  },
+  "ATTRIBUTION": {
+   "value": {
+    "order": [
+     "costs",
+     "leaks",
+     "narrowing",
+     "timing",
+     "residual"
+    ],
+    "narrowing": "zero where no distribution is quoted",
+    "timing": "zero where no option or contract is held",
+    "leaks": "sum over hedged stories and the tide of w.L x realised proxy move, plus pianos and stop gaps",
+    "residual": "remainder"
+   },
+   "status": "provisional_unratified",
+   "basis": "fixed before the first lock",
+   "section": "\u00a733.3"
+  },
+  "N13": {
+   "value": 10,
+   "status": "provisional_unratified",
+   "basis": "disjoint tides; builder proposal",
+   "section": "\u00a733.3"
+  },
+  "ALT_LATENCY": {
+   "value": {
+    "s2": 6,
+    "portwatch": 9,
+    "ioda": 1,
+    "usgs": 1,
+    "firms": 3
+   },
+   "status": "provisional_unratified",
+   "basis": "hours after processing (s2), days after record date (portwatch, weekly publication), hours after sample/origin/acquisition (ioda, usgs, firms). Sets knowable_from for alternative data; conservative by design; builder proposal",
+   "section": "\u00a79 (time wall), added for alternative data"
+  },
+  "OPERATOR_CUTOFF_DEFAULT_RULE": {
+   "value": "unknown training cutoff means public release date (\u00a79); the operator states its cutoff and basis in the manifest",
+   "status": "carried",
+   "basis": "\u00a79, \u00a723.3",
+   "section": "\u00a79"
+  }
+ }
+}

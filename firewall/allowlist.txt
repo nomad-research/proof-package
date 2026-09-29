@@ -50,3 +50,34 @@ alfred.stlouisfed.org
 finance.yahoo.com
 query1.finance.yahoo.com
 query2.finance.yahoo.com
+
+# --- v16 round 1, added 2026-09-29 by the harness builder (not the operator) ---
+# nrc.gov: the intake feed for v16 round 1 is the NRC Event Notification Report
+# registry (an incident registry, Event Requirements v3 selection step 1) and the
+# NRC daily Power Reactor Status Report (a carrier read in full, day by day).
+# Every NRC read by the operator goes through `python -m nomad16 pit_fetch`,
+# which refuses any report dated after the segment clock.
+nrc.gov
+www.nrc.gov
+# web.archive.org: the point-in-time fetcher (spec v16 §26, nomad_pit_fetch),
+# which refuses any snapshot whose capture timestamp is after as_of.
+web.archive.org
+archive.org
+
+# --- v16 alternative data, added 2026-09-29 by the harness builder at the user's request ---
+# Satellite and alternative data for geopolitical rounds. Every read goes through
+# `python -m nomad16 alt_fetch`, which refuses any record knowable after the segment
+# clock (acquisition time + the source's stated publication latency).
+earth-search.aws.element84.com
+planetarycomputer.microsoft.com
+firms.modaps.eosdis.nasa.gov
+services9.arcgis.com
+portwatch.imf.org
+api.gdeltproject.org
+data.gdeltproject.org
+api.ioda.inetintel.cc.gatech.edu
+earthquake.usgs.gov
+catalogue.dataspace.copernicus.eu
+opensky-network.org
+gateway.api.globalfishingwatch.org
+acleddata.com
