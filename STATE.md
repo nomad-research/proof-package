@@ -526,3 +526,9 @@ event class with an observed outcome, after a feasibility check that listed owne
 
 Rob: the hedge is constructed thesis-first: build the narrative that hedges the position basket (over its failure set), then build the hedging basket to fit that narrative; the narrative guides the basket in both cases. The five pooled price tests searched over baskets taken as given and so
 could not test this. The falsifiable claim: the constructed hedge beats the primary alone, a de-risking control, and a blind statistical hedge out of sample. Written into A1 §7.1; nothing built.
+
+## 2026-09-30 (later) — construct-then-hedge on FOMC days (first test of A1 §7.1)
+
+`lookbacks/scenarios/construct_hedge/` (feasibility: 67 statement dates, outcome = change in the 5-year yield; NRC events and Gulf hurricanes fail). A cold session, blind to prices, built the hedging thesis and the basket DHI, O, AMT, NEE for a long-banks primary.
+Result: beats de-risking in both halves (+0.26%, +0.42% on dovish days); does not beat a blind statistical hedge (level, then -0.72%); costs 0.23% to 0.32% of the upside on other days. A constructed long hedge works; narrative guidance adds nothing here.
+Hypothesis for next: narrative should matter where statistics cannot be estimated (rare event class, regime break, single-company outcome).
