@@ -73,3 +73,18 @@ Rob, relayed by the requester, before any reading: `K14_DOC_MIN` = 1 (provisiona
 census counts were seen first, and a DOC_MIN = 2 sensitivity (unreadable on the census, 5 of 11). The reader is the
 declared operator model `claude-opus-5-5` in fresh cold sessions. V3 to V5 follow K14 as pre-registered. One guard is
 unverified and the file says so: that the frozen templates were authored from rounds 1–4 (for rounds 5–7) and 1–7 (for the rest).
+
+## 2026-09-30 — what "holds" means for an alpha (`nomad16/dilution.py: holds`)
+
+Rob, relayed by the requester, before any data. A bucket's alpha **holds** if the later block of rounds has **at least 8
+observations of its own** (at fan-out above 1; `BUCKET_MIN_OBS`) **and its raw, unshrunk alpha is within 2 standard errors of
+the first block's raw alpha**. Read the rule literally: the standard error used is the **first block's**. That reading is
+the builder's, because the sentence does not say whose. It is strict: with a precisely measured first block, a later block
+of 8 to 12 noisy observations will often miss by chance even when the alpha has not changed. `holds` therefore also reports,
+for information only, the same gap against the two blocks' combined standard error (`would_hold_on_combined_se`). The decision
+uses the first block's standard error unless Rob amends this entry.
+
+## 2026-09-30 — PR #20: do not squash-merge
+
+Rob's instruction: do not squash-merge PR #20; tag or preserve `3090edf`. Tag pushes are refused in this environment (HTTP 403,
+issue #19), so the commit is preserved as a branch (see STATE.md). A merge commit or a rebase merge keeps the history.

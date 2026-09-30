@@ -432,3 +432,23 @@ does not build.
   `report_only` and refused by `refuse_as_support`. Tests check the no-write property and that no other module imports it.
   88 tests pass. The trigram grouping stays until real edge texts exist.
 - K14: values frozen, census re-run (unchanged), no reading run. Unverified: the template-authorship guard.
+
+## 2026-09-30 (K14 pilot) — one reading on a non-qualifying round
+
+Procedure frozen in `lookbacks/K14_prereg.md` §8 and `lookbacks/k14/` (`registry.py`/`registry.json`, `support.py`, `package.py`). Pilot on
+the 2025 re-run (round 13; rounds 12 and 14 have no documents). The round's one dated document is an encyclopaedia page with no
+revision before 2025-12-21, so the pilot corpus is four early-August-2025 news pages: not lock-time, counts for nothing.
+Reader `claude-opus-5-5` (cold subagent, open reading first), then a blind judge (same model, given the find without the
+reader's class or rationale). Files in `lookbacks/k14/pilot_r13/`.
+
+- **Result:** 1 open find, passed by the support script (one `binds` hop, support 0.72); the blind judge said `none` for (ii). 1 closed find.
+- **The mechanical check passed a hop that the judge's diagnostic says is not supported.** The script verifies the relation type, the
+  arithmetic and that the quoted span exists; it cannot tell that the quote (a company saying it made a filing) does not show a
+  `binds` relation, or that `binds` runs document-to-party and the find ran it the other way. The registry has no from/to kind constraints.
+- **Ambiguities the reader and the judge both hit:** relations have no stated direction; template role capabilities
+  (`listed_domestic_filer`, `licensed_facility`, ...) are not in the capability registry; no template covers a mining
+  regulator's restart decision; whether effect kinds must chain hop to hop; the closed reading's rule for unreviewed kinds.
+- **Expressibility is hard to show from news pages:** no document says a listed instrument references an entity. (ii) will
+  often fail for lack of an instrument map, not for lack of entities.
+- **Cost:** reader 71,410 tokens, judge 61,954 tokens (subagent totals; the input/output split is not reported). At $4 / $20 per
+  million (`claude-opus-5-5`): between about $0.5 (all input) and $2.7 (all output) for the pilot pair.
