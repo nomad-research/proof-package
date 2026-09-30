@@ -420,3 +420,15 @@ diamond is not double counted. That tests the machinery. It says nothing about w
 are no real observations yet: the v15 record holds 279 depth-1 effects and 2 at depth 2, with magnitude on one row. Real
 data needs the open graph (relations as rows, edge transmission and a band-unit magnitude on every edge), which this slice
 does not build.
+
+## 2026-09-30 (later) — Rob's values, the report-only profile mode, K14 values
+
+- Appetite (all provisional_unratified, set by Rob via the requester): `BUCKET_MIN_OBS` 8, `BUCKET_SHRINK_K` 10, `BEND_TOL` 0.5,
+  `BEND_MIN_NODES` 10, plus `PROFILE_DEPTH_MAX` 5 and `K14_DOC_MIN` 1. Ratification and removal rules are in
+  `docs/RATIFICATIONS.md`: ratified only if a bucket reaches 8 real observations and its alpha holds on a later block;
+  removed if none has 8 by 2027-03-31.
+- `dilution.profile_expand` (tool `profile_expand`): report-only, expands past `SUPPORT_THRESHOLD` to depth 5, bounded by
+  `ENTITY_MATERIALISE_MAX`, only edges that go strictly deeper, truncation reported, writes no row, output marked
+  `report_only` and refused by `refuse_as_support`. Tests check the no-write property and that no other module imports it.
+  88 tests pass. The trigram grouping stays until real edge texts exist.
+- K14: values frozen, census re-run (unchanged), no reading run. Unverified: the template-authorship guard.

@@ -292,3 +292,82 @@ def depth_profile(db: DB, roots: dict, edges: list[dict], version_id: str | None
         except config.MissingAppetite as e:
             out[f"bend_{name}"] = {"status": "refused", "reason": str(e)}
     return out
+
+
+# ------------------------------------------------------------- profile mode
+
+def refuse_as_support(obj: dict) -> None:
+    """A guard for anything that would consume a profile as support: a report-only object is refused."""
+    if isinstance(obj, dict) and obj.get("report_only"):
+        raise Refused("the dilution profile is report-only: it is never support for an ACK, call, basket, veto or lock")
+
+
+def profile_expand(db: DB, roots: dict, edges: list[dict], version_id: str | None = None,
+                   depth: int | None = None, budget: int | None = None) -> dict:
+    """Report-only. Expand the candidate edges from the roots to ``PROFILE_DEPTH_MAX`` hops, **past**
+    ``SUPPORT_THRESHOLD``, bounded by ``ENTITY_MATERIALISE_MAX``, and report impact, retention, where support
+    ran out and where the dilution bends. Reads only: it writes no row and its output is marked
+    ``report_only`` so ``refuse_as_support`` refuses it.
+
+    Only edges that go strictly deeper (by fewest hops from a root) are followed, so no chain is longer than the
+    depth limit; the number left out is reported. Over the budget, nodes are kept shallowest first, then by
+    impact, and the truncation is reported, never silent."""
+    depth = config.get("PROFILE_DEPTH_MAX") if depth is None else depth
+    budget = config.get("ENTITY_MATERIALISE_MAX") if budget is None else budget
+    thr = config.get("SUPPORT_THRESHOLD")
+    alphas: dict = {}
+    if version_id:
+        if not db.one("bucket_versions", "version_id=?", (version_id,)):
+            raise Refused(f"no bucket version {version_id}")
+        amap = {a["edge_key"]: a["bucket"] for a in db.rows("bucket_assignments", "version_id=?", (version_id,))}
+        edges = [{**e, "bucket": amap.get(e.get("key"), e.get("bucket"))} for e in edges]
+        alphas = latest_alphas(db, version_id)
+    out_edges = defaultdict(list)
+    for e in edges:
+        out_edges[e["from"]].append(e)
+    mind = {r: 0 for r in roots}
+    frontier = sorted(roots)
+    while frontier:
+        nxt = []
+        for u in frontier:
+            if mind[u] >= depth:
+                continue
+            for e in out_edges[u]:
+                if e["to"] not in mind:
+                    mind[e["to"]] = mind[u] + 1
+                    nxt.append(e["to"])
+        frontier = sorted(nxt)
+    kept = [e for e in edges if e["from"] in mind and e["to"] in mind and mind[e["to"]] > mind[e["from"]]]
+    left_out = sum(1 for e in edges if e["from"] in mind and e["to"] in mind) - len(kept)
+    nodes = set(roots) | {e["from"] for e in kept} | {e["to"] for e in kept}
+    truncated, dropped = False, []
+    if len(nodes) > budget:
+        full = propagate_interval(roots, kept, alphas)
+        rank = sorted((n for n in nodes if n not in roots),
+                      key=lambda n: (mind[n], -max(full["interval"][n]), n))
+        keep_n = set(rank[:max(budget - len(roots), 0)])
+        dropped = sorted(set(rank) - keep_n)
+        truncated = True
+        kept = [e for e in kept if (e["from"] in roots or e["from"] in keep_n) and (e["to"] in keep_n)]
+        nodes = set(roots) | {e["from"] for e in kept} | {e["to"] for e in kept}
+    r = propagate_interval(roots, kept, alphas)
+    amp = r["amplifier"]
+    levels = defaultdict(lambda: {"n": 0, "at_or_above_support": 0})
+    for n, d in amp.items():
+        if d["depth"]:
+            root = d["dominant_root"]
+            sup = abs(d["by_root"][root]) / abs(roots[root]) if roots[root] else 0.0
+            lv = levels[d["depth"]]
+            lv["n"] += 1
+            lv["at_or_above_support"] += int(sup >= thr)
+    horizon = max((k for k, v in levels.items() if v["at_or_above_support"]), default=0)
+    res = {"report_only": True, "supports": False, "depth_max": depth, "support_threshold": thr,
+           "budget": budget, "nodes": len(nodes), "truncated": truncated, "dropped": len(dropped),
+           "edges_followed": len(kept), "edges_not_followed_not_deeper": left_out,
+           "support_horizon": horizon, "by_depth": {k: dict(v) for k, v in sorted(levels.items())},
+           "beyond_support_nodes": sum(v["n"] - v["at_or_above_support"] for v in levels.values()),
+           "gap_edges": r["gap_edges"], "interval": r["interval"],
+           "profile_amplifier": profile(r["amplifier"]), "profile_pot": profile(r["pot"])}
+    for name in ("amplifier", "pot"):
+        res[f"bend_{name}"] = bend(res[f"profile_{name}"])
+    return res

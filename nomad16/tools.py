@@ -133,6 +133,7 @@ TOOLS = {
     # v17 V2 slice: dilution buckets and the chain profile
     "bucket_propose": dilution.bucket_propose, "bucket_partition_add": dilution.bucket_partition_add,
     "bucket_fit": dilution.bucket_fit, "depth_profile": dilution.depth_profile,
+    "profile_expand": dilution.profile_expand,
     # K7 census
     "census_add": census.census_add, "census": census.census,
     # reports

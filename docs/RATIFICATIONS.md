@@ -34,3 +34,42 @@ the next phase (V2), not a claim that they exist. Persons: the tool refuses to s
 needs a legal review and an erasable person store (§3.5); this record does not satisfy either.
 
 **Earlier rows (D1–D16) are not touched here.** They are issue #9.
+
+## 2026-09-30 — the dilution and bucket mechanism (V2 slice, `nomad16/dilution.py`)
+
+**Who and when.** Rob, on 2026-09-30, before any data. The requester in the build session relayed the instruction
+and stated it as Rob's; this entry stands as Rob's on that statement. A dated commit by Rob editing this file
+countersigns it if a countersignature is wanted.
+
+**What is set.**
+
+| Item | Value | Status |
+|---|---|---|
+| The mechanism: node impact in band units, same-root paths not summed, `t · n_out^-alpha` per edge, post-hoc buckets as a versioned partition, retention r, the bend | as built | **provisional and report-only** |
+| `BUCKET_MIN_OBS` | 8 | provisional_unratified |
+| `BUCKET_SHRINK_K` | 10 | provisional_unratified |
+| `BEND_TOL` | 0.5 | provisional_unratified |
+| `BEND_MIN_NODES` | 10 | provisional_unratified |
+| `PROFILE_DEPTH_MAX` | 5 | provisional_unratified (added by the requester with the profile mode; not in the four above) |
+
+**Report-only means** the profile expands past `SUPPORT_THRESHOLD` to depth 5, bounded by `ENTITY_MATERIALISE_MAX`,
+and its output is never used for support, for an ACK, a call, a basket, a veto or a lock. It writes nothing to any
+ledger table. The trigram grouping stays as the proposal step until the first real edge texts exist.
+
+**Rule for ratifying, set before any data.** The mechanism and the four values are ratified only if **at least one
+bucket reaches 8 real observations** and **its alpha holds on a later block of rounds**. Real means an edge observed in a
+round with its fan-out and its impact measured in band units; a planted or simulated observation does not count.
+
+**Rule for removing it.** If no bucket has 8 real observations by **2027-03-31**, the code path is removed:
+`nomad16/dilution.py`, its tests, its tools and the three `bucket_*` tables' use. The ledger rows already written stay,
+because the ledger is append-only.
+
+**Order.** V3 to V5 follow K14 as pre-registered (`lookbacks/K14_prereg.md`). This entry changes nothing about that
+gate. D18, D20, D24 and D25 remain V2 work that is not built beyond this slice.
+
+## 2026-09-30 — K14 values (`lookbacks/K14_prereg.md`)
+
+Rob, relayed by the requester, before any reading: `K14_DOC_MIN` = 1 (provisional_unratified), with the disclosure that the
+census counts were seen first, and a DOC_MIN = 2 sensitivity (unreadable on the census, 5 of 11). The reader is the
+declared operator model `claude-opus-5-5` in fresh cold sessions. V3 to V5 follow K14 as pre-registered. One guard is
+unverified and the file says so: that the frozen templates were authored from rounds 1–4 (for rounds 5–7) and 1–7 (for the rest).

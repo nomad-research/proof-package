@@ -1,6 +1,6 @@
-# K14 — open-entity reading: pre-registration (DRAFT, not frozen)
+# K14 — open-entity reading: pre-registration (values frozen, no reading run)
 
-Status: **DRAFT. No reading has been run.** Frozen only when the two blanks in §5 are ratified by the user and the freeze commit is recorded.
+Status: **FROZEN on its values (§5) but not yet read; no reading has been run.** The two blanks are set (provisional_unratified). The template-authorship guard is unverified (§5).
 
 ## 1. What K14 asks (spec §9.2, restated exactly)
 
@@ -52,12 +52,23 @@ Readable rounds by threshold on "usable lock-time documents per round" (the coun
 | ≥ 2 | 5 of 11 (5, 10, 11, 15, R16-001) |
 | ≥ 3 | 4 of 11 (5, 10, 15, R16-001) |
 
-## 5. Blanks (no default; K14 cannot freeze until set)
+## 5. Values set (Rob, 2026-09-30, relayed by the requester; before any reading)
 
-- **DOC_MIN** — how many retrievable lock-time documents make a round readable. **Unset.** Disclosure: these counts were
-  seen before this rule was written, so any value chosen after seeing §4 is not a blind choice. On the table above, K14
-  is readable only at DOC_MIN = 1 (7 of 11 ≥ 6); at DOC_MIN ≥ 2 it is unreadable (5 or 4 of 11). The user decides, with that on the record.
-- **Reader model** — a model whose training cutoff precedes the earliest qualifying event (2026-07-14). Unset.
+- **DOC_MIN = 1**: a round is readable if at least one lock-time document, dated at or before the event and still
+  retrievable, exists. Status provisional_unratified (appetite key `K14_DOC_MIN`).
+  **Disclosure (kept):** the §4 counts were seen before this value was set, so it is not a blind choice. It is the
+  only setting at which K14 is readable on the census (7 of 11 at DOC_MIN 1; 5 of 11 at DOC_MIN 2, which is below the 6 the spec requires).
+- **Sensitivity, DOC_MIN = 2**, reported beside the main result. On the census it is **unreadable** (5 of 11 < 6), so it
+  gets no pass or dead verdict. The count of rounds with a qualifying entity among the 5 is still reported, as information only.
+- **Reader:** the declared operator model, `claude-opus-5-5` (declared trained-through 2026-06-30, from the R16-001
+  operator manifest), in fresh cold sessions. Every qualifying event is dated 2026-07-14 or later, so each is after that cutoff.
+- **Census re-run 2026-09-30 before freezing:** unchanged (7 of 11 and 5 of 11; per-round counts as in §4).
+
+**Freeze.** Kinds, capabilities, relation seeds and templates are those in `config/seed.json`
+(sha256 `dfa404d0…b948b`) and `config/seed_v17.json` (sha256 `e5c702f9…7af2e`) at the commit that adds this section.
+**Not verified:** that the templates in those files were authored from rounds 1–4 only (for rounds 5–7) and from
+rounds 1–7 only (for the rest), as the spec's guard requires. The seed files carry no authorship record of that. Until
+someone can show it, K14 is read as *provisional on the template guard*, and the result says so.
 
 ## 6. Procedure once frozen
 

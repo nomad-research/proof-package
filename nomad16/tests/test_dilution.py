@@ -91,11 +91,19 @@ def test_the_bend_is_found_where_retention_starts_to_fall_and_not_on_a_constant_
     assert D.bend(chain([0.7, 0.4]), tol=0.1, min_nodes=1)["status"] == "insufficient"
 
 
-def test_verdict_governing_values_are_refused_until_set():
-    with pytest.raises(config.MissingAppetite):
-        D.fit_alpha([{"bucket": "a", "n": 2, "ratio": 0.5}])
-    with pytest.raises(config.MissingAppetite):
-        D.bend([{"depth": 1, "n": 5, "median_r": 1.0}])
+def test_verdict_governing_values_are_refused_when_absent():
+    doc = {"values": {}}                                       # an appetite document that does not carry them
+    with config.pinned(doc):
+        with pytest.raises(config.MissingAppetite):
+            D.fit_alpha([{"bucket": "a", "n": 2, "ratio": 0.5}])
+        with pytest.raises(config.MissingAppetite):
+            D.bend([{"depth": 1, "n": 5, "median_r": 1.0}])
+
+
+def test_the_values_the_requester_set_are_provisional_and_read_from_the_file():
+    for k, v in (("BUCKET_MIN_OBS", 8), ("BUCKET_SHRINK_K", 10), ("BEND_TOL", 0.5), ("BEND_MIN_NODES", 10),
+                 ("PROFILE_DEPTH_MAX", 5)):
+        assert config.get(k) == v and config.status(k) == "provisional_unratified"
 
 
 def test_partition_is_versioned_knowable_by_the_cutoff_and_feeds_the_profile(db):
@@ -118,3 +126,57 @@ def test_partition_is_versioned_knowable_by_the_cutoff_and_feeds_the_profile(db)
     assert D.latest_alphas(db, "P1")["own"] == pytest.approx(0.0, abs=1e-9)
     assert D.latest_alphas(db, "P1")["offtake"] is None
     assert db.verify_chain() == []
+
+
+def _wide(depth_levels, fan):
+    """A tree: one root, `fan` children per node, `depth_levels` deep; every edge passes 0.6."""
+    edges, level = [], ["r"]
+    for d in range(depth_levels):
+        nxt = []
+        for u in level:
+            for i in range(fan):
+                v = f"{u}.{i}"
+                edges.append(E(u, v, 0.6))
+                nxt.append(v)
+        level = nxt
+    return edges
+
+
+def test_profile_mode_goes_past_support_to_depth_five_and_is_report_only(db):
+    edges = _wide(7, 1)                                     # a chain seven hops long
+    rep = D.profile_expand(db, {"r": 1.0}, edges)
+    assert rep["report_only"] is True and rep["supports"] is False
+    assert max(rep["by_depth"]) == 5                         # depth 5, not 7
+    assert rep["support_horizon"] == 2                       # 0.6, 0.36 clear 0.3; 0.216 does not
+    assert rep["beyond_support_nodes"] == 3                  # depths 3, 4, 5 exist only in the profile
+    with pytest.raises(Refused):
+        D.refuse_as_support(rep)
+
+
+def test_profile_mode_is_bounded_by_the_budget_and_says_so(db):
+    edges = _wide(4, 3)                                      # 3 + 9 + 27 + 81 = 120 nodes
+    rep = D.profile_expand(db, {"r": 1.0}, edges, budget=20)
+    assert rep["truncated"] is True and rep["nodes"] <= 20 and rep["dropped"] > 0
+    assert 1 in rep["by_depth"] and rep["by_depth"][1]["n"] == 3     # shallowest nodes are kept first
+    assert D.profile_expand(db, {"r": 1.0}, edges, budget=500)["truncated"] is False
+
+
+def test_profile_mode_writes_nothing_and_nothing_else_imports_it(db):
+    from pathlib import Path
+    from nomad16 import db as dbmod
+    before = {t: len(db.rows(t)) for t, (k, _) in dbmod.TABLES.items()}
+    D.profile_expand(db, {"r": 1.0}, _wide(4, 2))
+    assert {t: len(db.rows(t)) for t in before} == before
+    src = Path(D.__file__).parent
+    for f in src.glob("*.py"):
+        if f.name not in {"dilution.py", "tools.py"}:
+            import re
+            assert not re.search(r"import[^\n]*\bdilution\b|from\s+\.dilution", f.read_text()), \
+                f"{f.name} must not consume the dilution profile"
+
+
+def test_a_chain_longer_than_the_depth_limit_cannot_arise_from_a_zigzag(db):
+    # x is one hop from the root, but is also reachable by a long route; the edge back into a shallower node is not followed
+    edges = [E("r", "a"), E("a", "b"), E("b", "c"), E("c", "x"), E("r", "x"), E("x", "y")]
+    rep = D.profile_expand(db, {"r": 1.0}, edges, depth=5, budget=100)
+    assert rep["edges_not_followed_not_deeper"] == 1        # c->x goes to a node already one hop from the root

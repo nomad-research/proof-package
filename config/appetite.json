@@ -572,6 +572,42 @@
    "status": "provisional_unratified",
    "basis": "a fixed rule, not a threshold (V2)",
    "section": "v17 \u00a714"
+  },
+  "BUCKET_MIN_OBS": {
+   "value": 8,
+   "status": "provisional_unratified",
+   "basis": "observations at fan-out > 1 a bucket needs before it has an alpha; below it the bucket is a typed gap and downstream impact is an interval (dilution.py). Set by Rob, 2026-09-29 to 30 (relayed by the requester in the build session)",
+   "section": "v17 V2 slice"
+  },
+  "BUCKET_SHRINK_K": {
+   "value": 10,
+   "status": "provisional_unratified",
+   "basis": "shrinkage of a bucket's alpha toward the pooled fit, in information units (sum of ln(n)^2) (dilution.py). Set by Rob, 2026-09-29 to 30 (relayed by the requester in the build session)",
+   "section": "v17 V2 slice"
+  },
+  "BEND_TOL": {
+   "value": 0.5,
+   "status": "provisional_unratified",
+   "basis": "a bend is the first depth whose median retention falls by more than this fraction against the depth before (dilution.py). Set by Rob, 2026-09-29 to 30 (relayed by the requester in the build session)",
+   "section": "v17 V2 slice"
+  },
+  "BEND_MIN_NODES": {
+   "value": 10,
+   "status": "provisional_unratified",
+   "basis": "nodes a depth needs before it counts in the bend test (dilution.py). Set by Rob, 2026-09-29 to 30 (relayed by the requester in the build session)",
+   "section": "v17 V2 slice"
+  },
+  "PROFILE_DEPTH_MAX": {
+   "value": 5,
+   "status": "provisional_unratified",
+   "basis": "report-only dilution profile expands to this depth, past SUPPORT_THRESHOLD, bounded by ENTITY_MATERIALISE_MAX; never used for support (dilution.profile_expand). Set by Rob, 2026-09-29 to 30 (relayed by the requester in the build session)",
+   "section": "v17 V2 slice"
+  },
+  "K14_DOC_MIN": {
+   "value": 1,
+   "status": "provisional_unratified",
+   "basis": "K14: retrievable lock-time documents a round needs to be readable. Chosen after the census counts were seen (disclosed in lookbacks/K14_prereg.md). Set by Rob, 2026-09-30 (relayed by the requester)",
+   "section": "v17 \u00a79.2"
   }
  }
 }
