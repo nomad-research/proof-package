@@ -497,3 +497,9 @@ reaction -2.8%, t -2.80; failed only the pair-gain probability, 0.73); T5 (homeb
 Not depth or sign. Two longs over the same underlying, through different company sets, whose effects along the narrative and ACK chain diverge progressively (other data enters) so
 one narrative covers the other's weak outcome; both stay long. Each thesis that wants it carries its own DAG with the thesis as the final node, receiving the positions that hedge its narrative, one-way.
 Term proposed: progressive decorrelation of the effect vectors across the thesis outcomes (ex ante, from documented positions). Depth tests v2 and v3 were a realised-correlation stand-in, not a test of it.
+
+## 2026-09-30 (later) — hedge DAG prototype and a worked example (Rob: DAG first, no cross-referencing, no cycles)
+
+`nomad16/hedgedag.py` (tool `hedge_dag`, report-only, 7 tests, 102 pass with the rest): one sink (the thesis), one-way edges, cycles and second theses refused, effect vectors from documented exposures times the thesis's
+channel shocks per outcome, implicit exposures are gaps unless allowed and then labelled switches, maximin worst case, alignment by depth. Worked example on real FY2024 10-Ks (OXY, MPC) in
+`lookbacks/scenarios/hedge_dag_example/`: the strict run refuses (each company documents only its own channel); the switch run runs and shows both long and cosine 0.89 but no hedge (MPC dominates). A directed cyclic graph is deferred.
