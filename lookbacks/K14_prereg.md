@@ -2,6 +2,8 @@
 
 Status: **FROZEN on its values (§5) but not yet read; no reading has been run.** The two blanks are set (provisional_unratified). The template-authorship guard is unverified (§5).
 
+**§8 (amendments of 2026-09-30) supersedes §2 to §6 wherever they differ.**
+
 ## 1. What K14 asks (spec §9.2, restated exactly)
 
 On the documents each qualifying round had at its lock, does an open-entity reading find, in at least **X14 = 25% of the
@@ -15,8 +17,9 @@ test through the readability gate (§3) and nowhere else.
 
 ## 2. Qualifying rounds (fixed before counting)
 
-v15 harness rounds seq 5, 6, 7, 8, 9, 10, 11, 15, 16, 17, plus R16-001 = **11**. Voided rounds 12 and 14 and the
-2025 re-run (13) are excluded.
+**Primary count: v15 harness rounds seq 5, 6, 7, 8, 9, 10, 11, 15, 16, 17 = 10 rounds.** R16-001 is **excluded from the
+primary count** and reported as a labelled sensitivity (11 rounds), because its template guard is uncleared (§8). Voided
+rounds 12 and 14 and the 2025 re-run (13) are excluded from both; they are the pilot pool.
 
 ## 3. Readability condition (spec)
 
@@ -88,3 +91,51 @@ someone can show it, K14 is read as *provisional on the template guard*, and the
 - Fetching v15 URLs now returns present-day pages; a page edited after the event is not lock-time evidence. Rounds
   where the page's own date cannot be verified as ≤ event date use the Wayback snapshot or are dropped.
 - The census can only fall from here as links rot; re-run before freeze.
+
+## 8. Amendments of 2026-09-30 (Rob, relayed by the requester), before any qualifying reading
+
+**Template provenance, as disclosed.**
+- **v16 seeds** (`config/seed.json`: attributes, obligation templates, transforms, carriers): recorded in `STATE.md`
+  2026-09-29. Authored by the builder from general knowledge and statute text, before enumeration, with no v15 record present.
+- **v17 kinds, capabilities and relation seeds** (`config/seed_v17.json` and spec §6.6): authored by Claude in the spec session
+  **after reading R16-001's stored round and the K8, K10, K11 and back-fill result files**. **R16-001 is guard-uncleared.**
+- **Unresolved, raised by the builder, not decided:** the K8, K10, K11 and back-fill result files are about v15 rounds 5 to 15
+  as well as R16-001. If the same reading is judged to leave rounds 5 to 15 uncleared too, no cleared round remains in the
+  primary count. Rob has said only that R16-001 is uncleared; this file treats rounds 5 to 15 as cleared on that instruction
+  and says so here.
+
+**Counts under the primary/sensitivity split** (census of 2026-09-30; needs at least 6 readable rounds):
+
+| Reading | DOC_MIN 1 | DOC_MIN 2 |
+|---|---|---|
+| **Primary** (10 rounds, no R16-001) | 6 of 10 readable (5, 6, 10, 11, 15, 16): **at the floor, so one lost link makes it unreadable**; X14 needs `ceil(0.25 × 6)` = 2 rounds | 4 of 10: unreadable |
+| Sensitivity, with R16-001 (11) | 7 of 11 readable; X14 needs 2 | 5 of 11: unreadable |
+
+**Procedure added.**
+1. **Pilot first.** One reading on a non-qualifying round (rounds 12 and 14 hold no documents; the 2025 re-run, 13, is the pilot),
+   with cost reported before any qualifying round. Nothing from the pilot counts toward K14. The pilot corpus is not lock-time:
+   the round's one dated document (an encyclopaedia entry) has no revision before 2025-12-21, so the pilot reads four
+   early-August-2025 news pages instead. It measures procedure and cost only.
+2. **Cost cap.** The full run is capped at **$100**. If the pilot projects higher, stop and report.
+3. **Each find lists its chain hop by hop** with registry relation types, an effect-kind pair, a document id and an exact
+   quoted span. `lookbacks/k14/support.py` recomputes support (transform value × hop discount, multiplied along the chain)
+   against `SUPPORT_THRESHOLD` 0.3, verifies every quote literally against the stored document, and checks the kind's review
+   status. Reach is decided by the script, not the reader.
+4. **A blind second session judges (ii)** (role, expressible, or one documented relation from something expressible). It sees
+   the find's entity, chain and expression leg but not the reader's claimed class, the script's result or the round's outcome.
+   A round shows a find only if the script passes (i) and the judge accepts (ii).
+
+**Operationalisations chosen by the builder, open to Rob's amendment before the first qualifying reading:**
+- *Transmitting* means a transform entry for the hop's effect pair with value above 0 and a hop discount above 0. Non-transmitting
+  relations (`references`, `member_of`, provenance, classificatory, analogical) can be the documented last relation of a one-hop
+  find and never a hop of the reach chain.
+- *A kind v16 could hold* = the `LEGACY_KIND` values in `nomad16/entities.py` (company, facility, sovereign, agency, central_bank,
+  fund, index, commodity_grade, currency, contract) and composite, plus every descendant of those in `seed_v17.json`. Listed by
+  `support.v16_holdable`. Unreviewed kinds propose and never support, so an unreviewed kind is not a find.
+- *Order:* the reader reads the open reading first on odd round numbers and the closed reading first on even ones.
+- A reader lists at most 8 finds per reading; persons are named by office and organisation only.
+- Relation registry: `lookbacks/k14/registry.json` (sha256 `1038032f…35f3d`), extracted mechanically by `lookbacks/k14/registry.py` from
+  `seed.json`, the appetite hop discounts and spec §6.6. The scripts (`registry.py`, `support.py`, `package.py`) are frozen at the
+  commit that carries this section.
+- Document sizes of the qualifying rounds' pre-event pages were measured (characters only, 13 pages, median 7,821) to project cost;
+  no content was read.

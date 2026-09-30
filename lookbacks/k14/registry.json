@@ -1,0 +1,291 @@
+{
+ "relations": {
+  "adjacent_to": {
+   "discount": 0.0,
+   "source": "classificatory; scope only",
+   "transforms": {}
+  },
+  "amends": {
+   "discount": 0.9,
+   "source": "v17 spec \u00a76.6 (provisional_unratified)",
+   "transforms": {
+    "state>state": 0.9
+   }
+  },
+  "analogy": {
+   "discount": 0.0,
+   "source": "analogical",
+   "transforms": {}
+  },
+  "binds": {
+   "discount": 0.8,
+   "source": "v17 spec \u00a76.6 (provisional_unratified)",
+   "transforms": {
+    "state>obligation": 0.9,
+    "state>availability": 0.6,
+    "state>cost": 0.5,
+    "state>revenue": 0.5
+   }
+  },
+  "classified_as": {
+   "discount": 0.0,
+   "source": "classificatory; proposes only",
+   "transforms": {}
+  },
+  "competitor": {
+   "discount": 0.4,
+   "source": "v16 seed.json transforms + appetite hop discount",
+   "transforms": {
+    "volume>price": 0.4,
+    "volume>volume": 0.3,
+    "availability>price": 0.4,
+    "availability>revenue": 0.4
+   }
+  },
+  "controls": {
+   "discount": 0.75,
+   "source": "v17 spec \u00a76.6 (provisional_unratified)",
+   "transforms": {
+    "control>direction": 0.6,
+    "control>obligation": 0.5,
+    "state>control": 0.7
+   }
+  },
+  "counterparty": {
+   "discount": 0.6,
+   "source": "v16 seed.json transforms + appetite hop discount",
+   "transforms": {
+    "obligation>revenue": 0.5,
+    "obligation>cost": 0.5,
+    "cost>obligation": 0.0
+   }
+  },
+  "coverage": {
+   "discount": 0.0,
+   "source": "attentional",
+   "transforms": {}
+  },
+  "customer": {
+   "discount": 0.5,
+   "source": "v16 seed.json transforms + appetite hop discount",
+   "transforms": {
+    "volume>revenue": 0.7,
+    "availability>revenue": 0.5
+   }
+  },
+  "evidences": {
+   "discount": 0.0,
+   "source": "provenance",
+   "transforms": {}
+  },
+  "governs": {
+   "discount": 0.6,
+   "source": "v17 spec \u00a76.6 (provisional_unratified)",
+   "transforms": {
+    "state>availability": 0.8,
+    "state>obligation": 0.7,
+    "state>cost": 0.5,
+    "state>timing": 0.5
+   }
+  },
+  "grid_neighbour": {
+   "discount": 0.5,
+   "source": "v16 seed.json transforms + appetite hop discount",
+   "transforms": {
+    "availability>price": 0.5,
+    "volume>price": 0.5,
+    "price>revenue": 0.6,
+    "price>cost": 0.6
+   }
+  },
+  "holds_office_at": {
+   "discount": 0.6,
+   "source": "v17 spec \u00a76.6 (provisional_unratified)",
+   "transforms": {
+    "state>control": 0.7
+   }
+  },
+  "index_membership": {
+   "discount": 0.0,
+   "source": "analogical",
+   "transforms": {}
+  },
+  "input_cost": {
+   "discount": 0.65,
+   "source": "v16 seed.json transforms + appetite hop discount",
+   "transforms": {
+    "cost>cost": 0.85,
+    "cost>direction": 0.5,
+    "cost>obligation": 0.0
+   }
+  },
+  "input_supply": {
+   "discount": 0.7,
+   "source": "v16 seed.json transforms + appetite hop discount",
+   "transforms": {
+    "volume>volume": 0.9,
+    "volume>cost": 0.85,
+    "volume>obligation": 0.6,
+    "cost>cost": 0.8,
+    "price>cost": 0.8,
+    "availability>volume": 0.6,
+    "availability>obligation": 0.5
+   }
+  },
+  "insurer": {
+   "discount": 0.4,
+   "source": "v16 seed.json transforms + appetite hop discount",
+   "transforms": {
+    "availability>cost": 0.4
+   }
+  },
+  "issued_by": {
+   "discount": 0.0,
+   "source": "provenance",
+   "transforms": {}
+  },
+  "lender": {
+   "discount": 0.5,
+   "source": "v16 seed.json transforms + appetite hop discount",
+   "transforms": {
+    "credit>credit": 0.5,
+    "revenue>credit": 0.3
+   }
+  },
+  "listing_venue": {
+   "discount": 0.0,
+   "source": "analogical",
+   "transforms": {}
+  },
+  "located_at": {
+   "discount": 0.6,
+   "source": "v17 spec \u00a76.6 (provisional_unratified)",
+   "transforms": {
+    "availability>availability": 0.6,
+    "timing>timing": 0.4
+   }
+  },
+  "logistics": {
+   "discount": 0.65,
+   "source": "v16 seed.json transforms + appetite hop discount",
+   "transforms": {
+    "timing>timing": 0.8,
+    "volume>timing": 0.7,
+    "volume>volume": 0.6
+   }
+  },
+  "member_of": {
+   "discount": 0.0,
+   "source": "computed by recomputation (\u00a74.3); no table entry",
+   "transforms": {}
+  },
+  "offtake": {
+   "discount": 0.7,
+   "source": "v16 seed.json transforms + appetite hop discount",
+   "transforms": {
+    "volume>volume": 0.9,
+    "volume>cost": 0.8,
+    "volume>obligation": 0.0,
+    "volume>timing": 0.5,
+    "cost>cost": 0.8,
+    "direction>direction": 0.5,
+    "price>cost": 0.8,
+    "availability>volume": 0.5
+   }
+  },
+  "ownership": {
+   "discount": 0.85,
+   "source": "v16 seed.json transforms + appetite hop discount",
+   "transforms": {
+    "direction>direction": 0.9,
+    "volume>direction": 0.7,
+    "cost>direction": 0.7,
+    "obligation>obligation": 0.5,
+    "volume>volume": 1.0,
+    "volume>revenue": 1.0,
+    "revenue>revenue": 1.0,
+    "cost>cost": 1.0,
+    "availability>availability": 1.0,
+    "availability>revenue": 0.9,
+    "margin>margin": 1.0,
+    "credit>credit": 0.8
+   }
+  },
+  "references": {
+   "discount": 0.0,
+   "source": "expression edge",
+   "transforms": {}
+  },
+  "regulator": {
+   "discount": 0.7,
+   "source": "v16 seed.json transforms + appetite hop discount",
+   "transforms": {
+    "availability>obligation": 0.8,
+    "obligation>obligation": 0.7
+   }
+  },
+  "regulatory_scope": {
+   "discount": 0.6,
+   "source": "v16 seed.json transforms + appetite hop discount",
+   "transforms": {
+    "obligation>obligation": 0.8,
+    "timing>timing": 0.6,
+    "obligation>cost": 0.5
+   }
+  },
+  "reporting_currency": {
+   "discount": 0.0,
+   "source": "analogical",
+   "transforms": {}
+  },
+  "reports_on": {
+   "discount": 0.0,
+   "source": "provenance",
+   "transforms": {}
+  },
+  "sector": {
+   "discount": 0.0,
+   "source": "analogical",
+   "transforms": {}
+  },
+  "shared_facility": {
+   "discount": 0.75,
+   "source": "v16 seed.json transforms + appetite hop discount",
+   "transforms": {
+    "volume>volume": 0.8,
+    "timing>timing": 0.7,
+    "volume>obligation": 0.0
+   }
+  },
+  "shared_infrastructure": {
+   "discount": 0.7,
+   "source": "v16 seed.json transforms + appetite hop discount",
+   "transforms": {
+    "volume>volume": 0.75,
+    "timing>timing": 0.7
+   }
+  },
+  "size_bucket": {
+   "discount": 0.0,
+   "source": "analogical",
+   "transforms": {}
+  },
+  "substitute": {
+   "discount": 0.5,
+   "source": "v16 seed.json transforms + appetite hop discount",
+   "transforms": {
+    "availability>demand": 0.5,
+    "price>demand": 0.5
+   }
+  },
+  "supersedes": {
+   "discount": 0.9,
+   "source": "v17 spec \u00a76.6 (provisional_unratified)",
+   "transforms": {
+    "state>state": 0.9
+   }
+  }
+ },
+ "support_threshold_key": "SUPPORT_THRESHOLD",
+ "support_rule": "factor(hop) = transforms[from_effect>to_effect] x discount; support = product over hops"
+}

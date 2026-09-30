@@ -180,3 +180,18 @@ def test_a_chain_longer_than_the_depth_limit_cannot_arise_from_a_zigzag(db):
     edges = [E("r", "a"), E("a", "b"), E("b", "c"), E("c", "x"), E("r", "x"), E("x", "y")]
     rep = D.profile_expand(db, {"r": 1.0}, edges, depth=5, budget=100)
     assert rep["edges_not_followed_not_deeper"] == 1        # c->x goes to a node already one hop from the root
+
+
+def _exact(alpha, n_obs):
+    return [{"n": n, "ratio": n ** -alpha} for n in (2, 3, 4, 5, 6, 7, 8, 9, 3, 4, 5, 6)[:n_obs]]
+
+
+def test_an_alpha_holds_only_with_eight_own_later_observations_within_two_se():
+    first = {"status": "measured", "alpha_raw": 0.5, "se": 0.05}
+    assert D.holds(first, _exact(0.55, 12), min_obs=8)["holds"] is True         # gap 0.05 <= 0.10
+    assert D.holds(first, _exact(0.70, 12), min_obs=8)["holds"] is False        # gap 0.20 > 0.10
+    assert D.holds(first, _exact(0.55, 7), min_obs=8)["holds"] is False         # seven is not eight
+    assert D.holds({"status": "gap"}, _exact(0.5, 12), min_obs=8)["holds"] is False
+    assert D.holds({"status": "measured", "alpha_raw": 0.5, "se": None}, _exact(0.5, 12), min_obs=8)["holds"] is False
+    r = D.holds(first, _exact(0.70, 12), min_obs=8)                              # the combined-se figure is reported beside it
+    assert "would_hold_on_combined_se" in r and r["se_basis"].startswith("first block")

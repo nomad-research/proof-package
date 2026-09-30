@@ -371,3 +371,29 @@ def profile_expand(db: DB, roots: dict, edges: list[dict], version_id: str | Non
     for name in ("amplifier", "pot"):
         res[f"bend_{name}"] = bend(res[f"profile_{name}"])
     return res
+
+
+def holds(first_fit: dict, later_obs: list[dict], min_obs: int | None = None) -> dict:
+    """The ratification test for a bucket's alpha (RATIFICATIONS.md, 2026-09-30). It holds if the later block has at least
+    ``min_obs`` observations of its own (at n > 1) and its raw, unshrunk alpha is within two standard errors of the first
+    block's raw alpha. ``first_fit`` is one bucket's entry from ``fit_alpha`` (``alpha_raw`` and ``se``); ``later_obs`` are
+    ``{n, ratio}`` for that bucket from a later block of rounds."""
+    min_obs = config.get("BUCKET_MIN_OBS") if min_obs is None else min_obs
+    if first_fit.get("status") != "measured" or first_fit.get("se") is None:
+        return {"holds": False, "reason": "the first block has no measured alpha with a standard error"}
+    pairs = [(math.log(o["n"]), math.log(o["ratio"])) for o in later_obs if o["n"] > 1]
+    if len(pairs) < min_obs:
+        return {"holds": False, "reason": f"the later block has {len(pairs)} observations of its own, fewer than {min_obs}",
+                "n_later": len(pairs)}
+    s = sum(x * x for x, _ in pairs)
+    a2 = -sum(x * y for x, y in pairs) / s
+    gap = abs(a2 - first_fit["alpha_raw"])
+    limit = 2 * first_fit["se"]
+    res = {"holds": gap <= limit, "alpha_first_raw": first_fit["alpha_raw"], "alpha_later_raw": a2, "gap": gap,
+           "limit_2se": limit, "se_basis": "first block's standard error (the literal reading of the rule)", "n_later": len(pairs)}
+    if len(pairs) > 1:   # information only: the same gap against the two blocks' combined standard error
+        res_l = sum((y + a2 * x) ** 2 for x, y in pairs)
+        se2 = math.sqrt(res_l / (len(pairs) - 1) / s)
+        res["limit_2se_combined"] = 2 * math.sqrt(first_fit["se"] ** 2 + se2 ** 2)
+        res["would_hold_on_combined_se"] = gap <= res["limit_2se_combined"]
+    return res
