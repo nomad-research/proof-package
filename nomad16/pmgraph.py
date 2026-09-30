@@ -52,11 +52,12 @@ def structure(e: dict) -> dict:
     T = [_toks(m.get("q") or "") for m in ms]
     common = collections.Counter(t[2] for t in T).most_common(1)
     same = [t for t in T if common and t[2] == common[0][0]]
-    thr = len({m.get("gthr") for m in ms if m.get("gthr") not in (None, "")}) >= 3
-    if thr or (len(same) >= 3 and len({t[1] for t in same}) >= 3):
+    # groupItemThreshold is only Polymarket's ordering index (0, 1, 2 ...), so it says nothing about nesting and is not used (a run-1 census rule that treated it as a
+    # threshold made every grouped event a 'ladder'; found 2026-09-30, V1_prereg.md A10). A ladder is nested by a numeric strike or by a date, read from the question text.
+    if len(same) >= 3 and len({t[1] for t in same}) >= 3:
         touch = sum(bool(TOUCH.search(m.get("q") or "")) for m in ms) > len(ms) / 2
         return {"class": "ladder", "kind": "touch" if touch else "terminal"}
-    if len(same) >= 3 and len({t[0] for t in same}) >= 3:
+    if len(same) >= 3 and len({t[0] for t in same}) >= 3 and re.search(r"\b(by|before|until|through)\b", (ms[0].get("q") or ""), re.I):
         return {"class": "date_ladder"}
     return {"class": "other"}
 

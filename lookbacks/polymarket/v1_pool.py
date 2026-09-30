@@ -12,7 +12,7 @@ H = {"User-Agent": "Mozilla/5.0 (research nomad)"}
 GAMMA = "https://gamma-api.polymarket.com/events"
 CUTOFF = "2026-06-30"            # after the operator model's declared training cutoff
 MIN_EVENT_VOL, MIN_MARKET_VOL, MIN_MARKETS = 100_000, 10_000, 3
-CLASSES = {"partition_exact", "partition_open", "ladder"}
+CLASSES = {"partition_exact", "partition_open", "ladder", "date_ladder"}
 EXCL = set("sports,games,esports,soccer,tennis,nfl,nba,nhl,mlb,hockey,ufc,boxing,golf,f1,cricket,rugby,league-of-legends,dota-2,counter-strike-2,valorant,pop-culture,entertainment,music,movies,celebrities,daily-temperature,highest-temperature,uefa-nations-league,unl-matchday".split(","))
 SEED, N_DRAW, MAX_CRYPTO, MIN_PARTITIONS = 20260930, 24, 8, 4
 

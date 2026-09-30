@@ -27,3 +27,6 @@ The candidate V1 class is therefore **partitions and ladders in geopolitics, pol
 
 ## Correction (2026-09-30, found building the V1 pool)
 The column "Closed after 2026-06-30" and the "203 usable" figure used the **scheduled `endDate`**, not the time the event actually resolved, so it counted events that resolved before the model's cutoff. The clean count, filtered on the actual `closedTime`, is **78 events** (see `V1_prereg.md` A9). The other counts (classes by status, groups, sensitivity to the liquidity floor) do not depend on it.
+
+## Second correction (2026-09-30, found in the V1 foundation checks)
+The "threshold ladder" class used "three or more distinct `groupItemThreshold`" as one test. That field is Polymarket's ordering index, so any grouped non-negRisk event counted as a ladder, including independent contracts and date ladders. The census's ladder counts are therefore overstated and mix numeric ladders, date ladders and independent groups. The partition counts (negRisk) are unaffected. The corrected classes are in `V1_prereg.md` A10 and `nomad16/pmgraph.py`; the census script is left as run (it is the record of what was counted).

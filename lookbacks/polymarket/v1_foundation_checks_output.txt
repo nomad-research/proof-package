@@ -1,0 +1,15 @@
+A. partitions: exactly one winner?
+   {('partition_exact', 1): 7, ('partition_open', 1): 16}
+B. terminal ladders: is the resolved YES set nested (at most one switch along the strikes)?
+   nested 10, not nested 0, skipped (unparseable) 1
+B2. date ladders: ordered by each market's own end date, is 'by <date>' nested in time (once YES, every later date YES; 'through/until' runs the other way)?
+   nested 25, not nested 1, unparseable 3
+   NOT NESTED: ('573701', 'Will Graham Platner drop out before the Midterms?', 'YYYnnYYYYYY')
+C. resolution timing: closedTime against the scheduled end (days early; negative = late)
+   n 73  q10 -1  median 94  q90 173  resolved >30 days before scheduled end: 46
+D. the draw: is there an eligible price (a point within 48 h before the lock) for each contract?
+   date_ladder: 29/61 contracts have an eligible lock price (48%)
+   ladder: 42/68 contracts have an eligible lock price (62%)
+   partition_open: 83/244 contracts have an eligible lock price (34%)
+   partition_exact: 15/15 contracts have an eligible lock price (100%)
+   events with every contract priced: 6/24; with at least half priced: 14/24; with none: 0
