@@ -51,3 +51,8 @@ This is the fourth direct look at the shape (the FOMC pair, the maps of stocks a
 
 ## Limits
 Daily returns; one |x| term; large caps that exist today; a single split; 800 tests at a stringent bar (a low bar might find candidates that are mostly noise).
+
+## Post hoc: what the map could detect (`power.py`, run 2026-09-30, after the verdict)
+For a typical stock the smallest up-side/down-side beta gap that reaches t = 3 on the train half: volatility 0.06, gas 0.10, rates 0.12, crude 0.13; for the dollar 1.14, gold 0.55, the market 0.44, copper 0.33 (too little power to say anything).
+So the absence of a zero-centred kink in rates, crude, gas and volatility is informative. Linear betas are stable in rank across halves (crude +0.88, rates +0.71, gold +0.75, volatility -0.33) but not in level (OXY 0.29 to 0.64, XOM 0.12 to 0.43, PSX 0.08 to 0.39): the exposure itself moves.
+Threshold kinks are untested, and a tail-only estimate needs a gap 3 to 4 times larger. This corrects the wording above: the map's null is mostly a real null for kinks at zero, not noise.
