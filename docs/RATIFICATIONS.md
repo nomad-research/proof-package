@@ -117,3 +117,6 @@ objective is needed. See `docs/nomad_v17_amendment_A1.md` §7 (proposed D31).
 
 ## 2026-09-30 — K14 full run paused; Polymarket census
 Rob (repo review): pause K14's full run; spend reads on V1. Not cancelled: values in `lookbacks/K14_prereg.md` stay frozen and the scripts stay in place; resume only on his word. V3–V5 remain gated on K14 as pre-registered. Census (`lookbacks/polymarket/`): a count, not a ratification. **D33 is ratified only after Rob confirms the V1 class** proposed in `CENSUS_RESULT.md`.
+
+## 2026-09-30 — V1 class confirmed (Rob)
+Rob: "yes partitions and ladders". V1 runs on partitions and ladders (`lookbacks/polymarket/CENSUS_RESULT.md`), geopolitics, politics, economy and finance, and technology, closed after 2025, with cross-event thesis baskets built by a session from the entity registry. Keys are condition and token ids, never question text (the recorder shows several markets sharing one question). **D33 itself is not ratified**; it waits for Rob's word. Recorder running on Rob's Ubuntu WSL from 2026-09-30 about 12:00 UTC (first heartbeat seen 12:18 UTC).
