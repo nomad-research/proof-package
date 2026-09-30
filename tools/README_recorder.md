@@ -31,3 +31,6 @@ About 12 MB for one metadata pass over 100 events; a few hundred MB a day at the
 
 ## Getting it back to me
 The raw record stays on your machine. Drive returns files into my context as base64, so it suits small files only. I write analysis scripts, you run them where the data is, and the small result files (JSON or markdown) go into the repo or Drive for me to read.
+
+## Universe sweep (added 2026-09-30)
+Once a day the recorder now lists **every open event** (union of ten API orderings; one ordering is capped near 2,100) into `universe/YYYY/MM/DD_HHMMSS.jsonl.gz`: tags, dates, negRisk, and per market the condition and token ids, thresholds, fee schedule and a hash of the rules text. Sports and gaming events are kept as header rows only. About 12,700 open events on the first test, roughly 190 seconds, and the file is small enough for daily use (a few MB to about 15 MB). The log line shows how many new ids each ordering added, so coverage can be judged. To use it, `git pull` and restart the recorder (Ctrl-C, then the same command; it resumes from `state.json`).

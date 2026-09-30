@@ -162,6 +162,52 @@ class Recorder:
         self.save_state()
         return watched
 
+    def sweep_universe(self):
+        """The whole open set, compactly, once a day: every active event with its structure (tags, dates, negRisk, markets with condition and token ids,
+        thresholds, fee schedule, a hash of the rules text). The API caps one ordering at about 2,100 events, so the union of ten orderings is taken; the
+        last orderings' new-id counts are logged so coverage can be judged. Nothing is dropped by tag here: scope is applied at analysis, so the graph stays whole."""
+        t = now(); rows, added = {}, []
+        for order in ("volume24hr", "volume", "liquidity", "endDate", "startDate"):
+            for asc in ("false", "true"):
+                before, offset = len(rows), 0
+                while offset < 2100 and not STOP:
+                    body = self.fetch(f"{GAMMA}/events?active=true&closed=false&limit=100&offset={offset}&order={order}&ascending={asc}", None)
+                    if not body:
+                        break
+                    page = json.loads(body)
+                    if not page:
+                        break
+                    for e in page:
+                        rows[str(e.get("id"))] = self._compact(e, header_only=bool({x.get("slug") for x in (e.get("tags") or [])} & self.exclude))
+                    offset += 100
+                added.append((order, asc, len(rows) - before))
+        if STOP:
+            return
+        path = os.path.join(self.out, f"universe/{t.strftime('%Y/%m/%d')}_{t.strftime('%H%M%S')}.jsonl.gz")
+        os.makedirs(os.path.dirname(path), exist_ok=True)
+        with gzip.open(path, "wt") as f:
+            for r in rows.values():
+                f.write(json.dumps(r, sort_keys=True) + "\n")
+        self.state["last"]["universe"] = t.timestamp(); self.state["universe_added"] = added; self.save_state()
+        return len(rows), added
+
+    @staticmethod
+    def _compact(e, header_only=False):
+        def toks(m):
+            try:
+                return json.loads(m.get("clobTokenIds") or "[]")
+            except Exception:
+                return []
+        if header_only:                       # out-of-scope events stay in the universe as a header, so counts are whole; their markets are not stored
+            return {"id": e.get("id"), "title": e.get("title"), "tags": [x.get("slug") for x in (e.get("tags") or [])], "start": e.get("startDate"), "end": e.get("endDate"),
+                    "volume": e.get("volume"), "n_markets": len(e.get("markets") or []), "header_only": True}
+        return {"id": e.get("id"), "slug": e.get("slug"), "title": e.get("title"), "tags": [x.get("slug") for x in (e.get("tags") or [])], "start": e.get("startDate"),
+                "end": e.get("endDate"), "negRisk": e.get("negRisk"), "volume": e.get("volume"), "liquidity": e.get("liquidity"),
+                "markets": [{"cid": m.get("conditionId"), "tokens": toks(m), "q": m.get("question"), "git": m.get("groupItemTitle"), "gthr": m.get("groupItemThreshold"),
+                             "nro": m.get("negRiskOther"), "vol24": m.get("volume24hr"), "vol": m.get("volumeNum") or m.get("volume"), "fee": m.get("feeType"),
+                             "feeSchedule": m.get("feeSchedule"), "tick": m.get("orderPriceMinTickSize"), "closed": m.get("closed"), "uma": m.get("umaResolutionStatus"),
+                             "rules_sha": hashlib.sha256((m.get("description") or "").encode()).hexdigest()[:16]} for m in (e.get("markets") or [])]}
+
     def snapshot_books(self, top: int):
         t = now(); d = t.strftime("%Y%m%d"); hms = t.strftime("%H%M%S")
         ranked = sorted(self.state["watched"].items(), key=lambda kv: -kv[1]["volume24hr"])[:top]
@@ -215,6 +261,7 @@ def main():
     ap.add_argument("--max-events", type=int, default=300, help="events swept per metadata pass")
     ap.add_argument("--meta-every", type=int, default=3600); ap.add_argument("--book-every", type=int, default=900)
     ap.add_argument("--spacing", type=float, default=0.25)
+    ap.add_argument("--universe-every", type=int, default=86400, help="seconds between whole-open-set sweeps")
     ap.add_argument("--exclude-tags", default=DEFAULT_EXCLUDE, help="comma-separated tag slugs to leave out")
     ap.add_argument("--include-tags", default="", help="if set, only events with one of these tag slugs are recorded")
     ap.add_argument("--raw-pages-every", type=int, default=21600, help="seconds between whole metadata pages being kept (the manifest still logs every page hash)")
@@ -226,6 +273,8 @@ def main():
         t = time.time(); L = r.state["last"]
         if t - L.get("metadata", 0) >= a.meta_every or not r.state["watched"]:
             w = r.sweep_metadata(a.max_events); print(f"{now().isoformat()} metadata: {len(w)} tokens watched", file=sys.stderr)
+        if t - L.get("universe", 0) >= a.universe_every:
+            u = r.sweep_universe(); print(f"{now().isoformat()} universe: {u[0] if u else 'stopped'} open events; new ids by ordering {u[1] if u else ''}", file=sys.stderr)
         if t - L.get("books", 0) >= a.book_every:
             r.snapshot_books(a.top); print(f"{now().isoformat()} books: top {a.top}", file=sys.stderr)
         if t - L.get("daily", 0) >= 86400:
