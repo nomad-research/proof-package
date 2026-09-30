@@ -509,3 +509,9 @@ channel shocks per outcome, implicit exposures are gaps unless allowed and then 
 `lookbacks/scenarios/hedge_dag_example/VALIDATION_*`, `exposures.json` (12 FY2024 10-Ks; every quote verified). 13 oil-spike events after Feb 2025, names OXY, EOG, XOM, MPC. Documented-exposure model vs realised
 divergence: rho +0.30 (met), beat the beta model by +0.03 (bar 0.10, failed), E&P-vs-refiner spread hit rate 62% and correlation +0.37 (bars 65% and 0.40, narrowly failed). Not supported. Coverage: 4 of 12 companies disclose an
 unhedged income sensitivity, 3 hedge-book only, 4 none. Underpowered; the extension would use each year's prior 10-K for the 2019 to 2024 events.
+
+## 2026-09-30 (later) — synthetic-exposure leg (isolating the mechanism)
+
+`lookbacks/scenarios/synthetic_leg_*`. Part A (a synthetic leg with the oil basket's crude loading, controlled residual correlation): worst-fade gain -3% at rho +0.9, +2% at rho 0, +14% at rho -0.5; about -0.95 needed for 30%. Part B (real non-energy equities, unlevered):
+achievable crude loading f = 0.32 (0.30 holdout), diluted in both windows; S_corr and S_unc gave the same downside gain. Reading: at fixed loading on the channel that fades, decorrelating the residual chain buys little; the gains in every earlier test came from lower loading.
+The hedge must differ in kind on the fade (a different channel or timing), for example crack against crude. Candidate next test: refiners (VLO, MPC, PSX, PBF) against the producers.
