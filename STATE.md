@@ -625,3 +625,6 @@ Indicative only: mean floor P -9.57, C -2.24, D -6.16; B1 in-set 0.88 (below the
 
 ## 2026-09-30 — Step 1 of 4 (structural hedges flagged)
 `V1_STRUCTURAL.md`, `v1_structural.py`, `v1_structural_dump.py`, `v1_structural_report.json`. Post-hoc and descriptive, no verdict changed. 6 of 17 scored rounds have a same-underlying (S) hedge leg and carry a mean floor lift of 5.5; the 11 cross-entity (X) rounds carry 50.9 and hold both claim violations, including the +205 outlier (674379). B1 among X rounds is 0.82.
+
+## 2026-09-30 — Steps 2 and 3 of 4 (variance check run; V0 written)
+Variance: `V1_VARIANCE.md` (declared first), `v1_variance.py`, `V1_VARIANCE_RESULT.md`, `v1_variance_report.json`, `variance/`. 7 of 8 valid (287395 void after a second validation failure). Where a hedge was found both times the choice overlapped 0.67 to 1.00 and lift was close; both re-run no-instrument rounds came back hedged, so "no instrument" is partly a willingness threshold. V0: `V0_SPEC.md`, `v0_audit.py`, `v0_result.json`, `V0_RESULT.md`: the venue is thin in commodity, FX and shipping contracts; 11 of 17 hedged rounds hedged within the primary's own domain; event volume median about $4M.

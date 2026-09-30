@@ -13,6 +13,11 @@ for f in ("v1_pool.json", "v1_pool_market_dates.json", "v1_resolutions.json.gz",
 sys.path.insert(0, REAL)
 import v1_run as V, v1_score as S
 V.HERE = VAR; S.HERE = VAR; V.PROMPT_DIR = "/tmp/claude-0/v1_prompts_var"
+_user_texts = V.user_texts
+CORRECTION_PREFIX = "Your answer was rejected by the validator"                   # the one registered return of an invalid answer; the frozen audit's instruction list has no slot for it
+def _user_texts_ex_correction(path):
+    return [t for t in _user_texts(path) if not t.startswith((CORRECTION_PREFIX, "[handback-send-enforce]"))]   # the second is the harness's own nudge to hand back
+V.user_texts = _user_texts_ex_correction
 SUBSET_HEDGED = ["155674", "287395", "606437", "655630", "680764", "850741"]     # every third of the 17 scored rounds, sorted by id, from index 0
 SUBSET_NOINSTR = ["125877", "624242"]                                            # first and fourth of the 7 no_instrument rounds, sorted by id
 SUBSET = SUBSET_HEDGED + SUBSET_NOINSTR
