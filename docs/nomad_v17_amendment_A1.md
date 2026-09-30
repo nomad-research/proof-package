@@ -96,3 +96,24 @@ rule for readable and for dies is the spec's, restated forward: at least 6 reada
 3. **Expressibility (§4).** Choose (a), (b) or (c), or say how you want it to work.
 4. **D30.** Look-backs become non-gating; K14 is read forward; V3 to V5 built dark: ratify, amend or reject. This changes what
    you set today ("V3 to V5 follow K14 as pre-registered"): it keeps K14 as the gate and moves the reading forward.
+
+## 7. The hedge is a parallel thesis; N baskets from the pool (proposed D31, from Rob, 2026-09-30)
+
+**Idea.** A narrative hedge is not a separate mechanism bolted on a basket. It is a **correlated parallel thesis** over the same event:
+when a thesis is constructed, so are the theses that hedge it, and N baskets are then built from the whole pool to fit whatever objective is needed.
+
+**What it implies for the design (proposed):**
+- A thesis record can carry a `parallel_of` link to a primary thesis. A parallel thesis is a full thesis: it narrows the reachable set,
+  cites documented positions and bounds for every exclusion, and an exclusion resting on an unknown is refused. It is not a free-standing story.
+- A parallel is *correlated* (same event, same outcome space) and *divergent* (its response across the outcomes has a different sign
+  pattern from the primary's, so the pair lifts the worst case). Both are properties of the payoff matrix, not of the holders, so they need the
+  payoff-matrix estimator (per outcome, per instrument) before they can be checked.
+- **N baskets** are built from the pool, each under an objective (maximin, minimum regret, a loss cap, a shape). The spec's rule stays: balancing
+  *within* a basket is construction, balancing *across* baskets is forbidden, because it nets away the divergence.
+
+**Guards I would attach, because the flexibility is the risk.** The number of parallel theses and of baskets multiplies the ways to fit the
+outcomes after the fact. So: (1) the list of objectives is declared at lock, not chosen after the payoff matrix is seen; (2) N has a budget
+(an unset appetite value, `BASKET_N_MAX`); (3) each basket is scored on its own declared objective, and the set is scored separately; (4) a parallel
+thesis has to pass the same anchor checks as the primary. Without (1), "N baskets to fit whatever we need" can always be made to fit.
+
+**Decision (Rob's).** D31: ratify, amend or reject, and set `BASKET_N_MAX` (or say to propose one).

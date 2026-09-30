@@ -101,3 +101,16 @@ is **retired as a gate**. Nothing waits on it. The unguarded figure already in `
 stays as a labelled note. The overlay run is not made. **Not yet set:** the replacement narrative-hedge measure, which is proposed
 (two or more listed instruments with the same exposure sign and different story loadings, giving a lower maximum loss across the thesis
 outcomes than either alone) and waits on Rob's definition. The stock-pair decision moves to that forward measure.
+
+## 2026-09-30 — the narrative-hedge measure (Rob: "Candidate is good, leaning on 2 where it's outcome based")
+
+Set on the requester's statement, before any data. A node **counts** as narrative-hedged if **two or more** listed instruments with the same
+exposure sign to the event have different story loadings, so that a basket holding them has a **lower maximum loss than any one of them alone,
+measured across the thesis outcomes** (outcome-based, not by side of the node). Status: provisional, forward-only (the v15 record has no thesis
+sets or loadings). The builder read "leaning on 2" as the two-or-more-instruments threshold and the outcome basis; that reading is not confirmed.
+It replaces K8 as the stock-pair decision (K8 retired as a gate, above). The scenario that motivated it is illustrative
+(`lookbacks/scenarios/narrative_hedge.py`), not evidence.
+
+**Design intent, stated by Rob (proposed, not built):** the hedge is itself a correlated parallel thesis. As a thesis is constructed, its
+narrative hedges are constructed as parallel theses over the same event, and N baskets are then constructed from that pool to fit whatever
+objective is needed. See `docs/nomad_v17_amendment_A1.md` §7 (proposed D31).
