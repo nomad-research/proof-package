@@ -6,8 +6,8 @@ import argparse, collections, datetime as dt, gzip, hashlib, json, os, random, s
 HERE = os.path.dirname(os.path.abspath(__file__)); V3 = os.path.join(HERE, "v3"); sys.path.insert(0, HERE); sys.path.insert(0, os.path.join(HERE, "..", ".."))
 import v1_pool as P, v1_packet as K
 from nomad16 import pmgraph as G
-SEED, N_DRAW, N_RESERVE, MAX_CRYPTO, MIN_PARTITIONS = 20261001, 30, 10, 8, 4
-HORIZON_MIN_D, HORIZON_MAX_D = 14, 75
+SEED, N_DRAW, N_RESERVE, MAX_CRYPTO, MIN_PARTITIONS = 20261001, 30, 20, 8, 4
+HORIZON_MIN_D, HORIZON_MAX_D = 14, 150
 def sha(o): return hashlib.sha256(json.dumps(o, sort_keys=True, separators=(",", ":")).encode()).hexdigest()
 def ts(t): return int(dt.datetime.fromisoformat(t.replace("Z", "+00:00")).timestamp())
 def crawl():
