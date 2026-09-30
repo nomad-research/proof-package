@@ -1,0 +1,35 @@
+You are one of several independent analysts. Work only from what is written below. Apart from reading the file that held this text, do not use any tool, do not look anything up, and do not use anything you
+know that happened after 2026-09-30: reason as of that date. You are shown no market prices, and you are not asked for any probability.
+
+EVENT: Which company's AI will first hit 1550 on Chatbot Arena in 2026?   (structure: partition open)
+RULES (as of 2026-09-30):
+This market will resolve according to the listed entity, which is the first to reach an Arena Score of 1550+ on the Chatbot Arena LLM Leaderboard (https://lmarena.ai/) by December 31, 2026, 11:59 PM ET. 
+
+Results from the "Text Arena" section on the leaderboard/text tab of https://lmarena.ai/ with the style control unchecked (https://arena.ai/leaderboard/text/overall-no-style-control) will be used to resolve this market.
+
+If no company's model reaches 1550+ Arena Score by the specified time, this market will resolve to "None in 2026".
+
+If the first model to reach a 1550+ Arena Score belongs to any company other than the listed ones, this market will be resolved to "Other".
+
+The resolution source for this market is the Chatbot Arena LLM Leaderboard found at https://lmarena.ai/. If this resolution source becomes unavailable, the market will remain open until it is accessible again. If it becomes permanently unavailable, resolution will be based on another credible source.
+
+CONTRACTS (each pays $1 if its statement is true when the event resolves, $0 otherwise; you may name YES or NO on any contract):
+  C1: Will no company have an AI model hit 1550 on Chatbot Arena in 2026?  [None in 2026]
+  C2: Will Anthropic be the first company to have an AI model hit 1550 on Chatbot Arena in 2026?  [Anthropic]
+  C3: Will Google be the first company to have an AI model hit 1550 on Chatbot Arena in 2026?  [Google]
+  C4: Will OpenAI be the first company to have an AI model hit 1550 on Chatbot Arena in 2026?  [OpenAI]
+  C5: Will xAI be the first company to have an AI model hit 1550 on Chatbot Arena in 2026?  [xAI]
+  C6: Will DeepSeek be the first company to have an AI model hit 1550 on Chatbot Arena in 2026?  [DeepSeek]
+  C7: Will Alibaba be the first company to have an AI model hit 1550 on Chatbot Arena in 2026?  [Alibaba]
+  C8: Will Z.ai be the first company to have an AI model hit 1550 on Chatbot Arena in 2026?  [Z.ai]
+  C9: Will Mistral be the first company to have an AI model hit 1550 on Chatbot Arena in 2026?  [Mistral]
+
+Task. Write your own view as documents-and-mechanism reasoning, not as odds.
+1. primary: a thesis about how this event resolves and a basket of at most 4 contracts from the list that expresses it (long only: a contract with YES or NO).
+2. failure_narrative: the specific way the thesis is wrong (what would have to happen for the basket to lose).
+3. hedge_thesis: a second narrative, about a DIFFERENT part of the world, that would tend to be true in exactly the worlds where the primary fails. Say why, in mechanism terms.
+4. search_terms: 3 to 8 words or names (entities, assets, places, institutions) that instruments for the hedge thesis would carry. Lower-case single words or short names.
+5. recalls_outcome: true if you already know, or think you know, how this event (or any part of it) actually turned out; otherwise false. Be honest: a true answer is not penalised, it only means this item is set aside.
+
+Answer with one JSON object and nothing else:
+{"primary": {"thesis": "...", "basket": [{"contract": "C1", "side": "YES", "reason": "..."}]}, "failure_narrative": "...", "hedge_thesis": "...", "search_terms": ["..."], "recalls_outcome": false}

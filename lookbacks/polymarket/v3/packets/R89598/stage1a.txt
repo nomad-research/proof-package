@@ -1,0 +1,35 @@
+You are one of several independent analysts. Work only from what is written below. Apart from reading the file that held this text, do not use any tool, do not look anything up, and do not use anything you
+know that happened after 2026-09-30: reason as of that date. You are shown no market prices, and you are not asked for any probability.
+
+EVENT: What price will Plasma hit in 2026?   (structure: touch ladder)
+RULES (as of 2026-09-30):
+This market will immediately resolve to “Yes” if any Binance 1-minute candle for XPL (XPL/USDT) between November 24, 2025, 17:35 and December 31, 2026, 23:59 in the ET timezone has a final “High” price equal to or greater than the price specified in the title. Otherwise, this market will resolve to “No.”
+
+The resolution source for this market is Binance, specifically the XPL/USDT “High” prices available at:
+https://www.binance.com/en/trade/XPL_USDT
+with the chart set to “1m” (one-minute candles) on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance XPL/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+
+CONTRACTS (each pays $1 if its statement is true when the event resolves, $0 otherwise; you may name YES or NO on any contract):
+  C1: Will Plasma reach $2.20 by December 31, 2026?  [↑ 2.20]
+  C2: Will Plasma reach $2.00 by December 31, 2026?  [↑ 2.00]
+  C3: Will Plasma reach $1.80 by December 31, 2026?  [↑ 1.80]
+  C4: Will Plasma reach $1.60 by December 31, 2026?  [↑ 1.60]
+  C5: Will Plasma reach $1.40 by December 31, 2026?  [↑ 1.40]
+  C6: Will Plasma reach $1.20 by December 31, 2026?  [↑ 1.20]
+  C7: Will Plasma reach $0.60 by December 31, 2026?  [↑ 0.60]
+  C8: Will Plasma reach $0.50 by December 31, 2026?  [↑ 0.50]
+  C9: Will Plasma reach $0.40 by December 31, 2026?  [↑ 0.40]
+  C10: Will Plasma reach $0.30 by December 31, 2026?  [↑ 0.30]
+  C11: Will Plasma reach $0.24 by December 31, 2026?  [↑ 0.24]
+
+Task. Write your own view as documents-and-mechanism reasoning, not as odds.
+1. primary: a thesis about how this event resolves and a basket of at most 4 contracts from the list that expresses it (long only: a contract with YES or NO).
+2. failure_narrative: the specific way the thesis is wrong (what would have to happen for the basket to lose).
+3. hedge_thesis: a second narrative, about a DIFFERENT part of the world, that would tend to be true in exactly the worlds where the primary fails. Say why, in mechanism terms.
+4. search_terms: 3 to 8 words or names (entities, assets, places, institutions) that instruments for the hedge thesis would carry. Lower-case single words or short names.
+5. recalls_outcome: true if you already know, or think you know, how this event (or any part of it) actually turned out; otherwise false. Be honest: a true answer is not penalised, it only means this item is set aside.
+
+Answer with one JSON object and nothing else:
+{"primary": {"thesis": "...", "basket": [{"contract": "C1", "side": "YES", "reason": "..."}]}, "failure_narrative": "...", "hedge_thesis": "...", "search_terms": ["..."], "recalls_outcome": false}

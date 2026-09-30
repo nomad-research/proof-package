@@ -1,0 +1,43 @@
+You are one of several independent analysts. Work only from what is written below. Apart from reading the file that held this text, do not use any tool, do not look anything up, and do not use anything you
+know that happened after 2026-09-30: reason as of that date. You are shown no market prices, and you are not asked for any probability.
+
+EVENT: Where will Trump and Putin meet next in 2026?   (structure: partition open)
+RULES (as of 2026-09-30):
+This market will resolve according to the location of the next meeting between Donald Trump and Vladimir Putin between market creation and December 31, 2026, 11:59 PM ET.
+
+This market will resolve to "No meeting by December 31" if no qualifying meeting occurs during this market's timeframe.
+
+A meeting is defined as any encounter where Putin and Trump are all present and interact with each other in person.
+
+An exchange of words, handshake, direct conversation, or other clear personal interaction between the named individuals will qualify as a meeting. Merely standing in proximity, making eye contact, or being present in the same room or event without direct interaction will not qualify.
+
+For this market, Gulf states are defined as the six members of the Gulf Cooperation Council (Bahrain, Kuwait, Oman, Qatar, Saudi Arabia, United Arab Emirates).
+
+The primary resolution source for this market will be a consensus of credible reporting.
+
+CONTRACTS (each pays $1 if its statement is true when the event resolves, $0 otherwise; you may name YES or NO on any contract):
+  C1: Will Trump and Putin meet next in Belarus?  [Belarus]
+  C2: Will Trump and Putin meet next in Turkey?  [Turkey]
+  C3: Will Trump and Putin meet next in Finland?  [Finland]
+  C4: Will Trump and Putin meet next in Switzerland?  [Switzerland]
+  C5: Will Trump and Putin meet next in Russia?  [Russia]
+  C6: Will Trump and Putin meet next in a Gulf country?  [Gulf country]
+  C7: Will Trump and Putin meet next in South Korea?  [South Korea]
+  C8: Will Trump and Putin meet next in Japan?  [Japan]
+  C9: Will Trump and Putin meet next in Australia?  [Australia]
+  C10: Will Trump and Putin meet next in United States?  [United States]
+  C11: Will Trump and Putin meet next in another EU country?  [Other EU country]
+  C12: Will Trump and Putin meet next in another country?  [Other]
+  C13: Will Trump and Putin not meet?  [No meeting by December 31]
+  C14: Will Trump and Putin meet next in China?  [China]
+  C15: Will Trump and Putin meet next in Ukraine?  [Ukraine]
+
+Task. Write your own view as documents-and-mechanism reasoning, not as odds.
+1. primary: a thesis about how this event resolves and a basket of at most 4 contracts from the list that expresses it (long only: a contract with YES or NO).
+2. failure_narrative: the specific way the thesis is wrong (what would have to happen for the basket to lose).
+3. hedge_thesis: a second narrative, about a DIFFERENT part of the world, that would tend to be true in exactly the worlds where the primary fails. Say why, in mechanism terms.
+4. search_terms: 3 to 8 words or names (entities, assets, places, institutions) that instruments for the hedge thesis would carry. Lower-case single words or short names.
+5. recalls_outcome: true if you already know, or think you know, how this event (or any part of it) actually turned out; otherwise false. Be honest: a true answer is not penalised, it only means this item is set aside.
+
+Answer with one JSON object and nothing else:
+{"primary": {"thesis": "...", "basket": [{"contract": "C1", "side": "YES", "reason": "..."}]}, "failure_narrative": "...", "hedge_thesis": "...", "search_terms": ["..."], "recalls_outcome": false}

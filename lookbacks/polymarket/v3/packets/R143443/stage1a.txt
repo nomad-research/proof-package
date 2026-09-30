@@ -1,0 +1,48 @@
+You are one of several independent analysts. Work only from what is written below. Apart from reading the file that held this text, do not use any tool, do not look anything up, and do not use anything you
+know that happened after 2026-09-30: reason as of that date. You are shown no market prices, and you are not asked for any probability.
+
+EVENT: Venezuela leader end of 2026?   (structure: partition open)
+RULES (as of 2026-09-30):
+This market will resolve to the individual who officially holds the position of the head of state of Venezuela on Dec 31, 2026 at 12 PM ET.
+
+For the purposes of this market, "officially holds" refers to the individual that was formally appointed, confirmed (if confirmation is required), and sworn in as the head of state of Venezuela or otherwise confirmed by official government information as being the head of state of Venezuela. 
+
+If the Venezuelan government does not clearly state who is the head of state, the market will resolve to the individual who is listed as the Head of State by the UN (see: https://www.un.org/dgacm/en/content/protocol/hshgnfa).  
+
+In the event that more than one official head of state is listed by the Venezuelan  government, this market will resolve to the individual who is listed as having primary status. If no distinction is made, the market will resolve to the individual who first assumed the position. 
+
+If no individual holds the position this market will resolve to “No Head of State”. 
+
+The following do NOT constitute "officially holding" the role: nominated, announced, or designated as the head of state of Venezuela but appointment not yet effective; appointed with an effective date after Dec 31, 2026; previously served as the head of state of Venezuela but term has expired, resigned, or been terminated before Dec 31, 2026; serving as the head of state of Venezuela in a consultant, contractor, or unofficial capacity; named as successor or heir apparent to the head of state of Venezuela but not yet appointed; or holding a different role with oversight of the head of state of Venezuela but not the specified position itself.
+
+The primary resolution source will be official information from the UN recognized government of Venezuela. If the Government of Venezuela does not clearly state who is the head of state, information from the UN and a consensus of credible reporting may be used. 
+
+Note: this market is mutually exclusive.
+
+CONTRACTS (each pays $1 if its statement is true when the event resolves, $0 otherwise; you may name YES or NO on any contract):
+  C1: Will Edmundo González be the leader of Venezuela end of 2026?  [Edmundo González]
+  C2: Will María Corina Machado be the leader of Venezuela end of 2026?  [María Corina Machado]
+  C3: Will Delcy Rodríguez be the leader of Venezuela end of 2026?  [Delcy Rodríguez]
+  C4: Will Diosdado Cabello Rondón be the leader of Venezuela end of 2026?  [Diosdado Cabello Rondón]
+  C5: Will Nicolás Maduro be the leader of Venezuela end of 2026?  [Nicolás Maduro]
+  C6: Will Dinorah Figuera be the leader of Venezuela end of 2026?  [Dinorah Figuera]
+  C7: Will Donald Trump be the leader of Venezuela end of 2026?  [Donald Trump]
+  C8: Will Vladimir Padrino López be the leader of Venezuela end of 2026?  [Vladimir Padrino López]
+  C9: Will Marco Rubio be the leader of Venezuela end of 2026?  [Marco Rubio]
+  C10: Will Jorge Rodríguez be the leader of Venezuela end of 2026?  [Jorge Rodríguez]
+  C11: Will Pete Hegseth be the leader of Venezuela end of 2026?  [Pete Hegseth]
+  C12: Will Evan Pettus be the leader of Venezuela end of 2026?  [Evan Pettus]
+  C13: Will Frank Donovan be the leader of Venezuela end of 2026?  [Frank Donovan]
+  C14: Will Dan Caine be the leader of Venezuela end of 2026?  [Dan Caine]
+  C15: Will Richard Grenell be the leader of Venezuela end of 2026?  [Richard Grenell]
+  C16: Will there be no head of state of Venezuela end of 2026?  [No Head of State]
+
+Task. Write your own view as documents-and-mechanism reasoning, not as odds.
+1. primary: a thesis about how this event resolves and a basket of at most 4 contracts from the list that expresses it (long only: a contract with YES or NO).
+2. failure_narrative: the specific way the thesis is wrong (what would have to happen for the basket to lose).
+3. hedge_thesis: a second narrative, about a DIFFERENT part of the world, that would tend to be true in exactly the worlds where the primary fails. Say why, in mechanism terms.
+4. search_terms: 3 to 8 words or names (entities, assets, places, institutions) that instruments for the hedge thesis would carry. Lower-case single words or short names.
+5. recalls_outcome: true if you already know, or think you know, how this event (or any part of it) actually turned out; otherwise false. Be honest: a true answer is not penalised, it only means this item is set aside.
+
+Answer with one JSON object and nothing else:
+{"primary": {"thesis": "...", "basket": [{"contract": "C1", "side": "YES", "reason": "..."}]}, "failure_narrative": "...", "hedge_thesis": "...", "search_terms": ["..."], "recalls_outcome": false}

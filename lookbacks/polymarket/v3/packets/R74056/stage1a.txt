@@ -1,0 +1,38 @@
+You are one of several independent analysts. Work only from what is written below. Apart from reading the file that held this text, do not use any tool, do not look anything up, and do not use anything you
+know that happened after 2026-09-30: reason as of that date. You are shown no market prices, and you are not asked for any probability.
+
+EVENT: Where will Zelenskyy and Putin meet next before 2027?   (structure: partition open)
+RULES (as of 2026-09-30):
+This market will resolve according to the location of the next meeting between Volodymyr Zelenskyy and Vladimir Putin by December 31, 2026, 11:59 PM ET. If no meeting takes place by December 31 ET, this market will resolve to "No meeting before 2027".
+
+A meeting is defined as any encounter where Zelenskyy and Putin are both present and interact with each other in person.
+
+For the purpose of this market, a meeting held on Ukrainian territory under the de facto control of Russia (e.g., Crimea) will be considered part of Russia.
+
+The primary resolution source for this market will be a consensus of credible reporting.
+
+CONTRACTS (each pays $1 if its statement is true when the event resolves, $0 otherwise; you may name YES or NO on any contract):
+  C1: Will Zelenskyy and Putin meet next in Turkey before 2027?  [Turkey]
+  C2: Will Zelenskyy and Putin meet next in Russia before 2027?  [Russia]
+  C3: Will Zelenskyy and Putin meet next in Italy / Vatican before 2027?  [Italy / Vatican]
+  C4: Will Zelenskyy and Putin meet next in Ukraine before 2027?  [Ukraine]
+  C5: Will Zelenskyy and Putin meet next in China before 2027?  [China]
+  C6: Will Zelenskyy and Putin meet next in Qatar / UAE before 2027?  [Qatar / UAE]
+  C7: Will Zelenskyy and Putin meet next in Saudi Arabia before 2027?  [Saudi Arabia]
+  C8: Will Zelenskyy and Putin meet next in US before 2027?  [US]
+  C9: Will Zelenskyy and Putin meet next in Hungary before 2027?  [Hungary]
+  C10: Will Zelenskyy  and Putin meet next in Belarus before 2027?  [Belarus]
+  C11: Will Zelenskyy and Putin not meet before 2027?  [No meeting before 2027]
+  C12: Will Zelenskyy and Putin meet next in Switzerland before 2027?  [Switzerland]
+  C13: Will Zelenskyy and Putin meet next in India before 2027?  [India]
+  C14: Will Zelenskyy and Putin meet next in Kazakhstan before 2027?  [Kazakhstan]
+
+Task. Write your own view as documents-and-mechanism reasoning, not as odds.
+1. primary: a thesis about how this event resolves and a basket of at most 4 contracts from the list that expresses it (long only: a contract with YES or NO).
+2. failure_narrative: the specific way the thesis is wrong (what would have to happen for the basket to lose).
+3. hedge_thesis: a second narrative, about a DIFFERENT part of the world, that would tend to be true in exactly the worlds where the primary fails. Say why, in mechanism terms.
+4. search_terms: 3 to 8 words or names (entities, assets, places, institutions) that instruments for the hedge thesis would carry. Lower-case single words or short names.
+5. recalls_outcome: true if you already know, or think you know, how this event (or any part of it) actually turned out; otherwise false. Be honest: a true answer is not penalised, it only means this item is set aside.
+
+Answer with one JSON object and nothing else:
+{"primary": {"thesis": "...", "basket": [{"contract": "C1", "side": "YES", "reason": "..."}]}, "failure_narrative": "...", "hedge_thesis": "...", "search_terms": ["..."], "recalls_outcome": false}
