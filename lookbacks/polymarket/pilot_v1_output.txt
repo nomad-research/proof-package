@@ -1,0 +1,21 @@
+Fed YES prices at lock: {'50+ bps decrease': 0.0035, '25 bps decrease': 0.0065, 'No change': 0.9845, '25+ bps increase': 0.0065} | sum 1.001
+dip lock YES prices: [('↓ 75,000', None), ('↓ 70,000', None), ('↓ 65,000', 0.425), ('↓ 60,000', 0.175), ('↓ 55,000', 0.075), ('↓ 50,000', 0.033), ('↓ 45,000', 0.017), ('↓ 40,000', 0.013), ('↓ 35,000', 0.007), ('↓ 30,000', 0.005), ('↓ 25,000', 0.004), ('↓ 20,000', 0.004)]
+  price ages (hours before lock): [('↓ 75,000', None), ('↓ 70,000', None), ('↓ 65,000', 1.0), ('↓ 60,000', 3.0), ('↓ 55,000', 3.0), ('↓ 50,000', 1.0), ('↓ 45,000', 1.0), ('↓ 40,000', 3.0), ('↓ 35,000', 1.0), ('↓ 30,000', 3.0), ('↓ 25,000', 1.0), ('↓ 20,000', 1.0)]
+  adjacent pairs that break monotonicity: [(0.0035, 0.0045)]
+  monotone (each strike no likelier than the shallower one): False
+reach lock YES prices: [('↑ 70,000', 1.0), ('↑ 75,000', 0.645), ('↑ 80,000', 0.225), ('↑ 82,500', None), ('↑ 85,000', 0.082), ('↑ 90,000', 0.032), ('↑ 95,000', 0.015), ('↑ 100,000', 0.007), ('↑ 105,000', 0.005), ('↑ 110,000', 0.004), ('↑ 150,000', 0.004)]
+  price ages (hours before lock): [('↑ 70,000', 48.0), ('↑ 75,000', 3.0), ('↑ 80,000', 1.0), ('↑ 82,500', None), ('↑ 85,000', 1.0), ('↑ 90,000', 3.0), ('↑ 95,000', 3.0), ('↑ 100,000', 3.0), ('↑ 105,000', 1.0), ('↑ 110,000', 1.0), ('↑ 150,000', 3.0)]
+  adjacent pairs that break monotonicity: []
+  monotone (each strike no likelier than the shallower one): True
+median dip strike at lock: ↓ 65,000 price 0.425
+states 624, reachable 396
+hedge menu contracts with a lock price: 40 of 46
+
+P alone ($100): floor -100.0 on reachable states; P shares 5776.5 at cost 0.0173
+C (60 on P, 40 on hedge): floor over reachable -11.54 (unconstrained N -11.54); hedge basket:
+      88.5 sh  dip ↓ 65,000 YES  p 0.425 cost/sh 0.452
+D (P scaled to equal floor): outlay 11.54, floor -11.54
+
+REALISED (Fed held; scored from resolved outcomes):
+  P  -100.00   C  -100.00   D   -11.54   R median   -60.00 (5th-95th -100.00 to -60.00); C above R in 0% of draws
+  realised state: ('No change', 2, 1) inside declared reachable set: False

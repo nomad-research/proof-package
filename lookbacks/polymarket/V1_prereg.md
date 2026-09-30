@@ -54,3 +54,12 @@ Frozen at the commit that carries this file, plus the pool hash (`v1_pool.json`,
 
 ## 10. Pilot
 One end-to-end run on a single closed event **not in the pool** (ended before 2026-06-30), authored by the builder, not a blind session. It tests the arithmetic and the data path only. Nothing from it counts (`PILOT_V1.md`).
+
+## 11. Amendments after the pilot (2026-09-30, before any round is authored)
+**Fixed by the builder (provisional_unratified, open to Rob's amendment until the first round is authored):**
+- **A1 (weights).** In arm C the primary keeps a fixed **60%** of the $100 ($60); the LP allocates the other **$40** across the hedge basket to maximise the floor over the reachable set, tie-break lowest cost. Without this the LP would shrink the primary to nothing. D and the retention test (B4) are read against this split.
+- **A2 (eligibility).** A contract is eligible only if it has a price point **no more than 48 hours before the lock**, at any fidelity. Ineligible contracts are dropped from the menu and counted. (Pilot: 6 of 46 had none; one was 48 hours old.)
+- **A3 (menu size).** A round needs at least **10 events** in its menu. Fewer: the round is not drawn (counted).
+- **A4 (out-of-set outcome).** When the realised state is outside the declared reachable set, the round is scored as realised and counted as a B1 violation. (The pilot's C lost 100 where D lost 11.54.)
+
+**Open for Rob (D-V1-1): may the packet carry the underlying's level at the lock?** A session cannot turn "Bitcoin falls" into a strike without knowing where Bitcoin is. The rule "price stays out until the gate" is about the **contract's own price** (anchoring on the market's probability); an independent reference level (spot of the underlying, a rate, an index) is not that. Builder's recommendation: allow the underlying's reference level at the lock, from a named independent source, and never any Polymarket price, volume or order book. Until Rob decides, the default is **withheld**, and no round is authored.
