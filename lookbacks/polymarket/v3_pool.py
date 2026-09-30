@@ -41,11 +41,13 @@ def build():
         st = G.structure(c); cls = st["class"]
         if cls not in K.CLS: tally[f"class_{cls}"] += 1; continue
         mend = {m.get("conditionId"): m.get("endDate") for m in (e.get("markets") or [])}
-        row = K._row(c, cls, {})                                                    # mclosed None: still open
+        mcl = {m.get("conditionId"): (m.get("closedTime") or m.get("endDate")) for m in (e.get("markets") or []) if m.get("closed")}
+        row = K._row(c, cls, mcl)                                                   # a market already closed carries its close time, so it is not offered
         for m in row["markets"]: m["end"] = mend.get(m["cid"])
         index.append(row); tally["in_index"] += 1
         ends = [ts(x) for x in mend.values() if x]
         if not ends: continue
+        if sum(1 for m in (e.get("markets") or []) if not m.get("closed")) < 3: tally["fewer_than_3_open_markets"] += 1; continue
         H = max(ends)
         if not (lock + HORIZON_MIN_D * 86400 <= H <= lock + HORIZON_MAX_D * 86400): tally["horizon_out_of_window"] += 1; continue
         c["class"] = cls; c["ladder_kind"] = st.get("kind"); c["group"] = P.group(c); c["horizon"] = H
