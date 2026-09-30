@@ -479,3 +479,9 @@ with an anchor excluding one outcome, the money comes from being short the exclu
 legs by causal depth. Verdict under the pre-registered rule: not supported for Tier 2 (-7% downside gain) or Tier 3 (+17%, a near miss of 20%). Correlation
 with the first leg falls with depth (0.91, 0.83, 0.57; 0.44 for SPY) and so does the retained reaction; depth did not beat an unrelated asset (+29%).
 Small sample; equal weights; the "R kept" measure is weak. A better test needs deeper legs chosen by the chain, maximin weights, and forward events.
+
+## 2026-09-30 (later) — depth-hedge v2 on equity baskets, with a holdout
+
+Rob: no funds; baskets of equities. `lookbacks/scenarios/depth_hedge_v2_*`. Main run (35 events, 2019 to 2025): T3 supported (+35% downside, own reaction share 0.57),
+T2 not (+6%): against the builder's expectation. Holdout 2026 (9 events, rule registered first): T3 diluted (+74% downside, share 0.33 below the 0.50 bar), T2 not supported.
+Not confirmed. Correlation falls with depth in both windows; the response thins with it. Tankers and defence were exploratory only.
