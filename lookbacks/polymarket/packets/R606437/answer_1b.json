@@ -1,0 +1,54 @@
+{
+ "hedges": [
+  {
+   "contract": "E10.3",
+   "side": "NO",
+   "reason": "The primary basket loses mainly if the Fed cuts in September, because C3 and C4 both need a September cut. That same decision makes 'No change in September' resolve NO. This contract states the failure path directly, and it pays on either a 25 bp or a 50 bp emergency-style cut forced by weakening labor data."
+  },
+  {
+   "event": "E21",
+   "direction": "by_date",
+   "tier": "mild",
+   "reason": "This covers the second way the basket loses, 'Other', which needs a hike. The contract list offers only paths that start with a July pause, which implies July was already a hold. So with a September or October cut still counting as C2, C3 or C4, 'Other' can only come from a hike in September or October. The October-meeting rung of the hike ladder catches that."
+  }
+ ],
+ "claims": [
+  {
+   "if": {
+    "contract": "C3",
+    "resolves": "YES"
+   },
+   "then": {
+    "contract": "E10.3",
+    "resolves": "NO"
+   },
+   "reason": "Pause-Cut-Pause needs a cut at the September meeting, which means the upper bound changed. The same FOMC statement then resolves 'No change in September' as NO."
+  },
+  {
+   "if": {
+    "contract": "C4",
+    "resolves": "YES"
+   },
+   "then": {
+    "contract": "E10.3",
+    "resolves": "NO"
+   },
+   "reason": "Pause-Cut-Cut also needs a September cut. The same September statement therefore rules out 'No change'."
+  },
+  {
+   "if": {
+    "contract": "C5",
+    "resolves": "YES"
+   },
+   "then": {
+    "event": "E21",
+    "direction": "by_date",
+    "tier": "mild",
+    "resolves": "YES"
+   },
+   "reason": "The rules say any hike goes to 'Other'. July was a pause, as the contract list implies, and every mix of pauses and cuts in September and October is already a listed contract. So 'Other' can resolve only if the Fed hikes by the October meeting, and that same hike resolves the hike-by-October contract YES."
+  }
+ ],
+ "no_instrument": false,
+ "recalls_outcome": false
+}

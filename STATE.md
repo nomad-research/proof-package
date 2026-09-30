@@ -608,3 +608,6 @@ Rob: add the claim line, batches of 6. Claim line added and validated; price che
 
 ## 2026-09-30 (later still) — V1 batch 1 authored (6 of 24 rounds)
 Rounds 655630, 125877, 155674, 199763, 230191, 25036. All ingested from the sessions' own transcripts; 0 invalid, 0 recall flags, 12 of 12 session turns passed the audit (declared model, one read per prompt file, content and instructions verified). Two rounds ended "no instrument" (125877, 25036), four hold hedges. About 0.49M tokens for the batch (44k to 53k for stage 1a; 77k to 98k per round in total). Nothing has been scored: all 24 rounds are authored and frozen by hash first (A16). Batch 2 not started.
+
+## 2026-09-30 (later still) — V1 batch 2 authored (12 of 24)
+Rounds 287395, 333025, 410410, 481717, 680764, 606437: all ingested from transcripts, 0 invalid, 0 recall flags, audits passed. One "no instrument" (410410). About 0.41M tokens. Pattern to report at scoring: several hedges are structural (the same Fed meeting expressed as a multi-meeting path, or a by-date contract on the same underlying), so their floor lift is arithmetic.
