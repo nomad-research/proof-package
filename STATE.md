@@ -472,3 +472,10 @@ result holds in 100/95/84% of draws at payoff-estimation error sd 0.15/0.30/0.50
 with an anchor excluding one outcome, the money comes from being short the excluded outcome, not from the hedge (worst in the thesis set
 +0.08 with a short-w3 leg and a 0.25 cap in w3, against -0.10 without it). Rob's position: no structural count; K8 retired as a gate
 (not yet recorded in RATIFICATIONS.md; awaiting his yes).
+
+## 2026-09-30 (later) — depth-hedge test on real prices (pre-registered, run)
+
+`lookbacks/scenarios/depth_hedge_prereg.md` (commit 363e7d9, before any number), `depth_hedge.py`, `depth_hedge_result.md`. 29 USO up-shock events 2019 to 2025,
+legs by causal depth. Verdict under the pre-registered rule: not supported for Tier 2 (-7% downside gain) or Tier 3 (+17%, a near miss of 20%). Correlation
+with the first leg falls with depth (0.91, 0.83, 0.57; 0.44 for SPY) and so does the retained reaction; depth did not beat an unrelated asset (+29%).
+Small sample; equal weights; the "R kept" measure is weak. A better test needs deeper legs chosen by the chain, maximin weights, and forward events.
