@@ -17,7 +17,7 @@ Spec: `V0_SPEC.md`. Script `v0_audit.py`, output `v0_result.json`. The domain ta
 | crypto price | 5 | 5 |
 | Middle East, UK politics, Europe politics, AI, Russia, US politics | 1 to 4 each | all |
 
-Rounds that ended hedged had supply for 84% of the domains they asked for; rounds that ended no-instrument, 64%. Eleven of 17 hedged rounds hedged entirely inside the primary's own domain (crypto with crypto, Fed with Fed), which is the structural pattern already flagged in V1_STRUCTURAL.md. The things the sessions most wanted as independent hedges (commodities, equities and FX, shipping and weather) are what Polymarket offers least of, in usable volume terms.
+Rounds that ended hedged had supply for 84% of the domains they asked for; rounds that ended no-instrument, 64%. Eleven of 17 hedged rounds hedged entirely inside the primary's own domain (crypto with crypto, Fed with Fed), same domain is broader than the same-underlying (S) label in V1_STRUCTURAL.md: Tread with other token launches, UK ministerial offices with each other and BTC with ETH count here but are X there. The things the sessions most wanted as independent hedges (commodities, equities and FX, shipping and weather) are what Polymarket offers least of, in usable volume terms.
 
 **4. Liquidity at event level only.** Median event volume is about $4M for both the menu sample (150 events) and the 30 events the sessions hedged with; none under $100k. That says the events are real markets, not that the contracts have depth at a given price: order books, spreads and fee-adjusted cost need recorder data, which is not in this container.
 
