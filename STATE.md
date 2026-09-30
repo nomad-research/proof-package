@@ -463,3 +463,12 @@ direction, participants fill roles, one-sided relations allowed, direction is a 
 D30 forward-first gating (look-backs non-gating, K14 read forward, V3 to V5 built dark). Rob: do not merge PR #20 until it is clear what
 we are working with. The K8 expectations Rob says he wrote earlier are not in the repo, issue #11, or this session's transcript;
 `lookbacks/K8_rerun_expectations.md` is still blank and K8 has not been re-run.
+
+## 2026-09-30 (later) — narrative-hedge scenarios (illustrative, not data)
+
+`lookbacks/scenarios/narrative_hedge.py`. Assumed payoffs for a mine-outage event, fair pricing, capped-loss legs. Two long legs on diverging
+theses lift the worst case from -1.0 to -0.10 and cap the best case (2.0 to 0.5); two legs on the same thesis lift nothing; the
+result holds in 100/95/84% of draws at payoff-estimation error sd 0.15/0.30/0.50 but a wrong response sign on one leg drops the floor to -0.60;
+with an anchor excluding one outcome, the money comes from being short the excluded outcome, not from the hedge (worst in the thesis set
++0.08 with a short-w3 leg and a 0.25 cap in w3, against -0.10 without it). Rob's position: no structural count; K8 retired as a gate
+(not yet recorded in RATIFICATIONS.md; awaiting his yes).
