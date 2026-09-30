@@ -1,0 +1,51 @@
+{
+ "hedges": [
+  {
+   "contract": "E46.3",
+   "side": "NO",
+   "reason": "The Fed moves at its October 2026 meeting, which falls in the same week as the ECB's. If a global demand, disinflation or energy shock is big enough to push an ECB that sees itself at neutral off its hold, the same shock hits US activity, inflation and financial conditions, and the FOMC is likely to move too. Holding 'Fed does not stay on hold' pays in either direction of move, which matches the primary's two failure paths (a cut, or less likely a hike)."
+  },
+  {
+   "contract": "E24.3",
+   "side": "NO",
+   "reason": "The Bank of Canada moves on 28 October, the same week as the ECB. It is also a small-open-economy central bank sitting near neutral after its easing cycle, and it responds to the same global growth, commodity and US-spillover impulse. A shock large enough to move the ECB should also move the BoC."
+  }
+ ],
+ "claims": [
+  {
+   "if": {
+    "contract": "C3",
+    "resolves": "NO"
+   },
+   "then": {
+    "contract": "E46.3",
+    "resolves": "NO"
+   },
+   "reason": "The ECB is anchored at a rate it calls neutral, so it leaves its hold at a non-projection October meeting only after a large common shock: a global demand collapse, disinflation, or an energy and price surge. The Fed's reaction function responds to the same global impulse and to US financial conditions, so an ECB move in late October should come with a Fed move at the same week's FOMC."
+  },
+  {
+   "if": {
+    "contract": "C3",
+    "resolves": "NO"
+   },
+   "then": {
+    "contract": "E24.3",
+    "resolves": "NO"
+   },
+   "reason": "The Bank of Canada is highly exposed to US demand and to commodity prices, and it decides on 28 October. The global shock that would drive an ECB move hits Canada at least as hard through trade and oil. So a Council move away from hold should come with a BoC move the same week."
+  },
+  {
+   "if": {
+    "contract": "C1",
+    "resolves": "YES"
+   },
+   "then": {
+    "contract": "E46.3",
+    "resolves": "NO"
+   },
+   "reason": "An ECB cut of 50 bps or more is a crisis-scale response, such as a systemic financial or demand collapse. An event like that would not leave the Fed on hold at its October meeting."
+  }
+ ],
+ "no_instrument": false,
+ "recalls_outcome": false
+}

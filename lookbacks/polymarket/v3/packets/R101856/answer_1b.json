@@ -1,0 +1,56 @@
+{
+ "hedges": [
+  {
+   "contract": "E22.1",
+   "side": "YES",
+   "reason": "The enhanced ACA premium tax credits were not extended within calendar 2025; they lapsed at year end. That means this contract works almost entirely as a bet that Democrats win the House. The low-side failure of the primary, Republicans at 23 or fewer governors, needs the same national anti-incumbent wave that flips the House. So this pays in exactly those worlds."
+  },
+  {
+   "contract": "E42.1",
+   "side": "YES",
+   "reason": "A Democratic sweep of both chambers is the federal-ballot version of a wave big enough to push Republican governorships below 24. The same national environment that flips GA, NV, IA, AK and NH at the state level also flips Senate seats such as NC, ME, OH, IA and AK."
+  },
+  {
+   "contract": "E49.5",
+   "side": "YES",
+   "reason": "Schumer becomes Majority Leader only if Democrats take the Senate. That happens in wave worlds where the gubernatorial basket misses on the low side. This leg is weaker because Schumer could also face a leadership challenge."
+  }
+ ],
+ "claims": [
+  {
+   "if": {
+    "contract": "C1",
+    "resolves": "YES"
+   },
+   "then": {
+    "contract": "E22.1",
+    "resolves": "YES"
+   },
+   "reason": "Republicans below 22 governorships means a net loss of 5 or more seats, including red-leaning open seats, under a Republican president. A swing that large in statewide races implies a national Democratic House margin far above what is needed to flip the narrow Republican House majority. Since the ACA leg already resolved 'not extended', the combined contract resolves YES."
+  },
+  {
+   "if": {
+    "contract": "C2",
+    "resolves": "YES"
+   },
+   "then": {
+    "contract": "E22.1",
+    "resolves": "YES"
+   },
+   "reason": "Republicans at 22-23 means a net loss of 3-4 governorships, losing seats like GA, NV, IA and AK/NH while holding none of the Democratic targets. That requires a clearly Democratic midterm environment. In such an environment the Republicans' few-seat House majority cannot survive, so Democrats win the House."
+  },
+  {
+   "if": {
+    "contract": "C1",
+    "resolves": "YES"
+   },
+   "then": {
+    "contract": "E42.1",
+    "resolves": "YES"
+   },
+   "reason": "A result below 22 is an extreme wave, reaching into Ohio, Iowa, Alaska and similar states. The same voters decide Senate races in OH, IA, AK, NC and ME on the same ballot. A statewide swing that large carries enough of those Senate seats to give Democrats both chambers."
+  }
+ ],
+ "no_instrument": false,
+ "recalls_outcome": false
+}
