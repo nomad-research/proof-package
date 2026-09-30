@@ -145,9 +145,10 @@ Task. Write your own view as documents-and-mechanism reasoning, not as odds.
 2. failure_narrative: the specific way the thesis is wrong (what would have to happen for the basket to lose).
 3. hedge_thesis: a second narrative, about a DIFFERENT part of the world, that would tend to be true in exactly the worlds where the primary fails. Say why, in mechanism terms.
 4. search_terms: 3 to 8 words or names (entities, assets, places, institutions) that instruments for the hedge thesis would carry. Lower-case single words or short names.
+5. recalls_outcome: true if you already know, or think you know, how this event (or any part of it) actually turned out; otherwise false. Be honest: a true answer is not penalised, it only means this item is set aside.
 
 Answer with one JSON object and nothing else:
-{{"primary": {{"thesis": "...", "basket": [{{"contract": "C1", "side": "YES", "reason": "..."}}]}}, "failure_narrative": "...", "hedge_thesis": "...", "search_terms": ["..."]}}
+{{"primary": {{"thesis": "...", "basket": [{{"contract": "C1", "side": "YES", "reason": "..."}}]}}, "failure_narrative": "...", "hedge_thesis": "...", "search_terms": ["..."], "recalls_outcome": false}}
 """
 
 
@@ -160,6 +161,8 @@ def prompt_1a(packet):
 def validate_1a(obj, packet):
     labels = {c["label"] for c in packet["event"]["contracts"]}
     errs = []
+    if not isinstance(obj.get("recalls_outcome"), bool):
+        errs.append("recalls_outcome must be true or false")
     for k in ("primary", "failure_narrative", "hedge_thesis", "search_terms"):
         if k not in obj:
             errs.append(f"missing {k}")
@@ -244,10 +247,11 @@ Task. From the candidates only:
 2. claims: for each way your hedge thesis says the worlds are linked, one claim of the form "if this primary contract resolves NO (or YES), then this hedge condition holds", each with a reason
    in mechanism terms. A claim says which combinations cannot both happen; it is tested against what actually happened, so make only the claims you would stand behind.
 3. If nothing in the list can express your hedge thesis, say so: return no hedges (that is an acceptable answer and is recorded as 'no instrument').
+4. recalls_outcome: true if you already know, or think you know, how any candidate you are considering actually turned out; otherwise false. A true answer is not penalised; it only means this item is set aside.
 
 Answer with one JSON object and nothing else:
 {{"hedges": [{{"contract": "E3.2", "side": "YES", "reason": "..."}}, {{"event": "E5", "direction": "below", "tier": "moderate", "reason": "..."}}],
-  "claims": [{{"if": {{"contract": "C2", "resolves": "NO"}}, "then": {{"contract": "E3.2", "resolves": "YES"}}, "reason": "..."}}], "no_instrument": false}}
+  "claims": [{{"if": {{"contract": "C2", "resolves": "NO"}}, "then": {{"contract": "E3.2", "resolves": "YES"}}, "reason": "..."}}], "no_instrument": false, "recalls_outcome": false}}
 """
 
 
@@ -265,8 +269,10 @@ def validate_1b(obj, packet_1a, packet_1b):
     k_labels = {k["label"] for c in packet_1b["candidates"] for k in c["contracts"]}
     ladder_labels = {k["label"] for c in packet_1b["candidates"] if c["kind"].endswith("ladder") for k in c["contracts"]}       # a rung is chosen by tier at expression (A5, A6), never named
     errs = []
+    if not isinstance(obj.get("recalls_outcome"), bool):
+        errs.append("recalls_outcome must be true or false")
     if obj.get("no_instrument"):
-        return errs if not obj.get("hedges") else ["no_instrument is true but hedges are listed"]
+        return errs if not obj.get("hedges") else errs + ["no_instrument is true but hedges are listed"]
     hs = obj.get("hedges") or []
     if not 1 <= len(hs) <= 4:
         errs.append("hedges must hold 1 to 4 entries (or set no_instrument)")

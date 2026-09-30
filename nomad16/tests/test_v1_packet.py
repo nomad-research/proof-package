@@ -67,7 +67,7 @@ def test_leak_scan_flags_past_tense_resolution_language_and_not_the_normal_rules
 
 
 GOOD_1A = {"primary": {"thesis": "hold", "basket": [{"contract": "C2", "side": "YES", "reason": "inflation sticky"}]}, "failure_narrative": "labour market cracks",
-           "hedge_thesis": "a labour shock hits risk assets", "search_terms": ["bitcoin", "crypto", "nasdaq"]}
+           "hedge_thesis": "a labour shock hits risk assets", "search_terms": ["bitcoin", "crypto", "nasdaq"], "recalls_outcome": False}
 
 
 def test_stage1a_answer_validation():
@@ -80,6 +80,8 @@ def test_stage1a_answer_validation():
     bad = json.loads(json.dumps(GOOD_1A)); bad["hedge_thesis"] = "BTC is 70% likely to fall"
     assert any("probability" in e for e in K.validate_1a(bad, pk))
     assert K.validate_1a({"primary": {}}, pk)
+    no = {k: v for k, v in GOOD_1A.items() if k != "recalls_outcome"}
+    assert any("recalls_outcome" in e for e in K.validate_1a(no, pk))
 
 
 def index():
@@ -122,12 +124,13 @@ def test_stage1b_answer_validation():
     coin = next(c for c in pk["candidates"] if c["title"].startswith("Best performing"))
     assert eth["kind"] == "touch ladder" and btc["kind"] == "price ladder" and coin["kind"] == "partition exact"
     ok = {"hedges": [{"contract": coin["contracts"][0]["label"], "side": "YES", "reason": "risk-off"}, {"event": btc["label"], "direction": "below", "tier": "moderate", "reason": "x"}],
-          "claims": [{"if": {"contract": "C1", "resolves": "NO"}, "then": {"contract": coin["contracts"][0]["label"], "resolves": "YES"}, "reason": "y"}]}
+          "claims": [{"if": {"contract": "C1", "resolves": "NO"}, "then": {"contract": coin["contracts"][0]["label"], "resolves": "YES"}, "reason": "y"}], "recalls_outcome": False}
     assert K.validate_1b(ok, pk1, pk) == []
-    assert K.validate_1b({"hedges": [], "no_instrument": True}, pk1, pk) == []
-    assert K.validate_1b({"hedges": [{"contract": "E1.1", "side": "YES"}], "no_instrument": True}, pk1, pk)
+    assert any("recalls_outcome" in e for e in K.validate_1b({k: v for k, v in ok.items() if k != "recalls_outcome"}, pk1, pk))
+    assert K.validate_1b({"hedges": [], "no_instrument": True, "recalls_outcome": False}, pk1, pk) == []
+    assert K.validate_1b({"hedges": [{"contract": "E1.1", "side": "YES"}], "no_instrument": True, "recalls_outcome": False}, pk1, pk)
     assert K.validate_1b({"hedges": [{"event": eth["label"], "direction": "below", "tier": "moderate"}]}, pk1, pk)     # a touch ladder takes reach or dip, not 'below'
-    assert K.validate_1b({"hedges": [{"event": eth["label"], "direction": "dip", "tier": "moderate"}]}, pk1, pk) == []
+    assert K.validate_1b({"hedges": [{"event": eth["label"], "direction": "dip", "tier": "moderate"}], "recalls_outcome": False}, pk1, pk) == []
     assert K.validate_1b({"hedges": [{"contract": eth["contracts"][0]["label"], "side": "YES"}]}, pk1, pk)             # naming a rung on a ladder is refused
     assert K.validate_1b({"hedges": [{"event": coin["label"], "direction": "below", "tier": "mild"}]}, pk1, pk)        # a partition takes a contract, not a tier
     assert K.validate_1b({"hedges": [{"event": btc["label"], "direction": "sideways", "tier": "moderate"}]}, pk1, pk)
