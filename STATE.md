@@ -503,3 +503,9 @@ Term proposed: progressive decorrelation of the effect vectors across the thesis
 `nomad16/hedgedag.py` (tool `hedge_dag`, report-only, 7 tests, 102 pass with the rest): one sink (the thesis), one-way edges, cycles and second theses refused, effect vectors from documented exposures times the thesis's
 channel shocks per outcome, implicit exposures are gaps unless allowed and then labelled switches, maximin worst case, alignment by depth. Worked example on real FY2024 10-Ks (OXY, MPC) in
 `lookbacks/scenarios/hedge_dag_example/`: the strict run refuses (each company documents only its own channel); the switch run runs and shows both long and cosine 0.89 but no hedge (MPC dominates). A directed cyclic graph is deferred.
+
+## 2026-09-30 (later) — hedge-DAG validation on realised payoffs (pre-registered, run)
+
+`lookbacks/scenarios/hedge_dag_example/VALIDATION_*`, `exposures.json` (12 FY2024 10-Ks; every quote verified). 13 oil-spike events after Feb 2025, names OXY, EOG, XOM, MPC. Documented-exposure model vs realised
+divergence: rho +0.30 (met), beat the beta model by +0.03 (bar 0.10, failed), E&P-vs-refiner spread hit rate 62% and correlation +0.37 (bars 65% and 0.40, narrowly failed). Not supported. Coverage: 4 of 12 companies disclose an
+unhedged income sensitivity, 3 hedge-book only, 4 none. Underpowered; the extension would use each year's prior 10-K for the 2019 to 2024 events.
