@@ -396,3 +396,27 @@ at least 1 / 2 / 3 usable documents: 7 / 5 / 4 of 11 (R16-001 included). K14 is 
 DOC_MIN and the reader model are left unset for the user; the counts were seen before the rule was written and the file
 says so. An earlier query over `node_facts` returned zero everywhere because those rows are keyed to global nodes, not rounds; it was
 the wrong source and is not used. No reading has been run.
+
+## 2026-09-30 — chain impact, count dilution and post-hoc buckets (a first V2 slice)
+
+`nomad16/dilution.py`, `nomad16/tests/test_dilution.py` (9 tests; 83 pass). Tools: `bucket_propose`, `bucket_partition_add`,
+`bucket_fit`, `depth_profile`. Three new ledger tables (`bucket_versions`, `bucket_assignments`, `bucket_fits`); no existing
+table gains a column, R16-001's chain and replay are unchanged.
+
+**The model, as the user set it.** Impact is a node quantity in noise-band units. Paths from one root are one signal by
+several routes (the strongest counts); independent roots add. An edge passes `t * n_out ** -alpha`: alpha 0 is an amplifier
+that a fan-out does not dilute, alpha 1 is a fixed pot shared out, and anything between is allowed. Nothing pre-assigns which
+edges are which: buckets are a versioned, post-hoc partition proposed from text knowable at the lock (an embedding or an
+LLM does the grouping; `bucket_propose` is a deterministic stand-in), and only a behavioural fit of alpha supports one. A
+bucket with too few observations has no alpha (a typed gap) and everything downstream is an interval between the amplifier
+run and the pot run; nothing is defaulted. Retention r is a node's impact over the impact of the parent that supplies most
+of it; r above 1 is a convergence concentrating. The bend is the first depth at which median r falls by more than `BEND_TOL`.
+
+**Not set, on purpose** (absent from the appetite file, as `K7_SHARE` is; each function refuses until set):
+`BUCKET_MIN_OBS`, `BUCKET_SHRINK_K`, `BEND_TOL`, `BEND_MIN_NODES`.
+
+**What this does and does not show.** The tests plant alphas and a bend and check they are recovered, and that a same-root
+diamond is not double counted. That tests the machinery. It says nothing about whether the world dilutes this way. There
+are no real observations yet: the v15 record holds 279 depth-1 effects and 2 at depth 2, with magnitude on one row. Real
+data needs the open graph (relations as rows, edge transmission and a band-unit magnitude on every edge), which this slice
+does not build.

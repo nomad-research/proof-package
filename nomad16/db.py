@@ -151,6 +151,12 @@ TABLES: dict[str, tuple[str, list[str]]] = {
     "evidence_entities": (LEDGER, ["evidence_id", "entity_key", "content_hash"]),
     "statement_links": (LEDGER, ["statement_id", "evidence_entity", "role", "span", "span_verified",
                                  "published_at", "note"]),
+    # --- v17 V2 slice: count-dilution buckets, a versioned post-hoc partition of edges (new tables only) -------------
+    "bucket_versions": (LEDGER, ["version_id", "method", "embedder", "embedder_trained_through", "features_hash",
+                                 "knowable_cutoff", "status", "note"]),
+    "bucket_assignments": (LEDGER, ["version_id", "edge_key", "bucket", "label", "text_hash", "text_knowable_from"]),
+    "bucket_fits": (LEDGER, ["version_id", "bucket", "status", "alpha", "alpha_raw", "se", "n_obs", "information",
+                             "shrink_k", "min_obs", "fitted_on"]),
     # --- library ------------------------------------------------------------------
     "library_history": (LEDGER, ["rule_id", "weight", "weight_state", "trials_as_carried",
                                  "computed_from_resolutions", "valid_from", "tide_count"]),

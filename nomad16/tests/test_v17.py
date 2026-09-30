@@ -39,7 +39,7 @@ def test_A18_no_ledger_table_gains_a_column():
     for t, cols in frozen.items():
         assert TABLES[t][1] == cols, f"ledger table {t} changed its columns (would break every row hash)"
     new = [t for t, (k, _) in TABLES.items() if k == LEDGER and t not in frozen]
-    assert set(new) == {"entity_events", "evidence_entities", "statement_links"}
+    assert set(new) == {"entity_events", "evidence_entities", "statement_links", "bucket_versions", "bucket_assignments", "bucket_fits"}
 
 
 HEADS = Path(__file__).resolve().parent / "fixtures" / "r16_001_v16_heads.json"

@@ -10,7 +10,7 @@ import inspect
 import json
 import sys
 
-from . import (altdata, calls, census, documents, entities, config, construct, derive, effects, instruments, intake, lock, paper, pit,
+from . import (altdata, calls, census, dilution, documents, entities, config, construct, derive, effects, instruments, intake, lock, paper, pit,
                positions, prices, reach, report, rounds, seed, stories, walk)
 from .db import DB, Refused
 from .rounds import current_segment, state
@@ -130,6 +130,9 @@ TOOLS = {
     "document_from_evidence": documents.document_from_evidence, "admission_record": documents.admission_record,
     "statement_add": documents.statement_add, "document_state_set": documents.document_state_set,
     "dating_report": documents.dating_report,
+    # v17 V2 slice: dilution buckets and the chain profile
+    "bucket_propose": dilution.bucket_propose, "bucket_partition_add": dilution.bucket_partition_add,
+    "bucket_fit": dilution.bucket_fit, "depth_profile": dilution.depth_profile,
     # K7 census
     "census_add": census.census_add, "census": census.census,
     # reports
