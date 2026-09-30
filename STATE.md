@@ -628,3 +628,6 @@ Indicative only: mean floor P -9.57, C -2.24, D -6.16; B1 in-set 0.88 (below the
 
 ## 2026-09-30 — Steps 2 and 3 of 4 (variance check run; V0 written)
 Variance: `V1_VARIANCE.md` (declared first), `v1_variance.py`, `V1_VARIANCE_RESULT.md`, `v1_variance_report.json`, `variance/`. 7 of 8 valid (287395 void after a second validation failure). Where a hedge was found both times the choice overlapped 0.67 to 1.00 and lift was close; both re-run no-instrument rounds came back hedged, so "no instrument" is partly a willingness threshold. V0: `V0_SPEC.md`, `v0_audit.py`, `v0_result.json`, `V0_RESULT.md`: the venue is thin in commodity, FX and shipping contracts; 11 of 17 hedged rounds hedged within the primary's own domain; event volume median about $4M.
+
+## 2026-09-30 — V3 authored and frozen
+30 forward rounds authored (26 hedged, 4 no instrument), 6 reserve replacements, answers frozen by hash (`v3/v1_answers_manifest.json`, see V3_prereg.md A4). Horizons 2026-10-15 to 2027-01-10. `v3_status.py` tracks resolution. Open: write the V3 scorer (re-fetch finals at scoring time), study the structural (S/X) split on V3 too, and run it once contracts resolve.
