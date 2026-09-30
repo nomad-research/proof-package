@@ -23,7 +23,7 @@ def hist(tok, lock):
 
 def blind(eid):
     R, d = S.load_round(eid); lock = R["lock"]
-    res_p = os.path.join(HERE, "results", f"R{eid}.json"); C = json.load(open(res_p)) if os.path.exists(res_p) else None
+    res_p = os.path.join(S.HERE, "results", f"R{eid}.json"); C = json.load(open(res_p)) if os.path.exists(res_p) else None
     k = len(C["hedge"]) if C and C.get("status") == "scored" else 3
     basket = R["ans1a"]["primary"]["basket"]
     legs = [(R["primary"]["contracts"][b["contract"]], b["side"]) for b in basket]
@@ -81,7 +81,11 @@ def blind(eid):
     return out
 
 if __name__ == "__main__":
-    rounds = json.load(open(os.path.join(HERE, "v1_rounds_live.json")))["rounds"]; rows = []
+    BASE = os.environ.get("BLIND_BASE", HERE)                     # v1b: BLIND_BASE=<HERE>/v1b (same frozen scorer, other packets)
+    if BASE != HERE:
+        S.HERE = BASE
+    rf = os.path.join(BASE, "v1_rounds_live.json") if os.path.exists(os.path.join(BASE, "v1_rounds_live.json")) else os.path.join(BASE, "v1_rounds.json")
+    rounds = json.load(open(rf))["rounds"]; rows = []
     for eid in rounds:
         try: r = blind(eid)
         except Exception as ex: r = {"round": eid, "status": "error", "why": repr(ex)[:200]}
@@ -93,5 +97,5 @@ if __name__ == "__main__":
         rep["paired_on_scored_rounds"] = {"n": len(both), "mean_B": float(B.mean()), "mean_C": float(C.mean()), "mean_D": float(D.mean()),
             "mean_C_minus_B": float((C - B).mean()), "ci90_C_minus_B": S.boot_ci(C - B), "mean_B_minus_D": float((B - D).mean()), "ci90_B_minus_D": S.boot_ci(B - D),
             "C_beats_B_rounds": int((C > B).sum())}
-    json.dump(rep, open(os.path.join(HERE, "v1_blind_report.json"), "w"), indent=1, default=str)
+    json.dump(rep, open(os.path.join(HERE, "v1b_blind_report.json" if BASE != HERE else "v1_blind_report.json"), "w"), indent=1, default=str)
     print(json.dumps({k: v for k, v in rep.items() if k != "rows"}, indent=1, default=str))
