@@ -614,3 +614,7 @@ Rounds 287395, 333025, 410410, 481717, 680764, 606437: all ingested from transcr
 
 ## 2026-09-30 (later still) — V1 batch 3 authored (18 of 24)
 Rounds 655631, 624096, 624242, 627355, 630845, 674379: all ingested from transcripts, 0 invalid, 0 recall flags, audits passed. Two "no instrument" (624242, 630845). About 0.40M tokens. Running total about 1.3M tokens; "no instrument" so far 5 of 18.
+
+## 2026-09-30 — V1 batch 4 authored; all 24 rounds authored and answers frozen
+Batch 4 (707496, 731779, 833597, 850741, 90434, 674586) ran two-stage, all audits ok. 765707 was voided at 1a (recalls_outcome true) and replaced by reserve 674586. Reserve left: 8.
+Stage-1b outcomes over the 24 rounds: 17 with hedges, 7 `no_instrument` (125877, 25036, 410410, 624242, 630845, 674586, 833597). Per A14/A15 those are not replaced and count as unscored, so at most 17 scored rounds: below the registered gate of 20, so V1 can only be inconclusive unless Rob amends. Nothing amended. Answers frozen by hash in `v1_answers_manifest.json` before any scoring.
