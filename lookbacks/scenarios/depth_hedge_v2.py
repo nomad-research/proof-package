@@ -1,6 +1,7 @@
 """Depth-hedge test v2, equity baskets. Pre-registered in depth_hedge_v2_prereg.md before this ran.  python lookbacks/scenarios/depth_hedge_v2.py"""
 import datetime as dt
 import json
+import os
 import urllib.request
 
 import numpy as np
@@ -11,7 +12,10 @@ B = {k: v.split() for k, v in B.items()}
 PAIRS = {"T1a+T1b": "T1b", "T1a+T2": "T2", "T1a+T3": "T3", "T1a+control": "control", "T1a+tankers*": "tankers", "T1a+defence*": "defence"}
 
 
-def bars(sym, start="2018-12-01", end="2026-01-05"):
+WIN = os.environ.get("DH_WINDOW", "2019-01-02,2025-12-30").split(",")
+
+
+def bars(sym, start="2018-12-01", end="2026-10-01"):
     p1, p2 = (int(dt.datetime.fromisoformat(x).timestamp()) for x in (start, end))
     u = f"https://query1.finance.yahoo.com/v8/finance/chart/{sym}?period1={p1}&period2={p2}&interval=1d&events=div%2Csplit"
     r = json.loads(urllib.request.urlopen(urllib.request.Request(u, headers={"User-Agent": "Mozilla/5.0"}), timeout=60).read())["chart"]["result"][0]
@@ -37,7 +41,7 @@ di = {d: i for i, d in enumerate(dates)}
 cl = px["CL=F"]; cd = sorted(cl)
 events, skip = [], ""
 for a, b in zip(cd, cd[1:]):
-    if not ("2019-01-02" <= b <= "2025-12-30") or ("2020-03-01" <= b <= "2020-07-31") or b <= skip or b not in di:
+    if not (WIN[0] <= b <= WIN[1]) or ("2020-03-01" <= b <= "2020-07-31") or b <= skip or b not in di:
         continue
     if cl[b] / cl[a] - 1 >= 0.04 and di[b] + 20 < len(dates):
         events.append(di[b])

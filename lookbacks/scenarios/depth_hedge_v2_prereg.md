@@ -43,3 +43,8 @@ before the run if he gives one.
 ## Limits
 About 30 events; equal weights; the tier assignment is a causal-chain judgement; raw returns include the market's direction, which only the control partly handles; survivorship is
 limited by choosing names that traded throughout; the builder knows the broad history, so the rule and the names are fixed above before any computation.
+
+## Addendum, written after the 2019 to 2025 run and before any 2026 number (2026-09-30)
+The 2019 to 2025 run was executed (result file `depth_hedge_v2_result.md`). A **holdout** on the same rule, baskets, windows and thresholds, unchanged, over
+**2026-01-02 to 2026-09-29** (events need 20 trading days after them, so the last few weeks drop out): it is read only if it has **at least 8 events**; below that it is reported as
+too few and carries no verdict. The 2026 prices are ones the builder has not seen. The script takes the window from the environment variable `DH_WINDOW`.
