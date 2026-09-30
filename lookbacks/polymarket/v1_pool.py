@@ -139,7 +139,7 @@ def draw_reserve(pool, survivors, chosen):
 
 
 if __name__ == "__main__":
-    ap = argparse.ArgumentParser(); ap.add_argument("--crawl", action="store_true"); ap.add_argument("--draw", action="store_true"); ap.add_argument("--reserve", action="store_true")
+    ap = argparse.ArgumentParser(); ap.add_argument("--crawl", action="store_true"); ap.add_argument("--draw", action="store_true"); ap.add_argument("--reserve", action="store_true"); ap.add_argument("--rounds", action="store_true")
     a = ap.parse_args(); here = __file__.rsplit("/", 1)[0]
     if a.crawl:
         pool, tally = build_pool()
@@ -162,3 +162,25 @@ if __name__ == "__main__":
         res = draw_reserve(pool, surv, chosen)
         json.dump({"non_survivors_in_draw": non, "reserve_in_order": [{"id": e["id"], "title": e["title"], "class": e["class"], "group": e["group"]} for e in res]}, open(f"{here}/v1_reserve.json", "w"), indent=1)
         print("non-survivors in the draw:", non, "| reserve:", len(res), dict(collections.Counter(e["class"] for e in res)), dict(collections.Counter(e["group"] for e in res)))
+    if a.rounds:
+        # the final round list by rule (V1_prereg.md A12 to A14): a drawn event is replaced, in reserve order, if it shows fewer than 3 contracts at its lock or has fewer than 10 live templates
+        sys.path.insert(0, here); import v1_packet as K
+        pool = {e["id"]: e for e in json.load(open(f"{here}/v1_pool.json"))}; d = [x["id"] for x in json.load(open(f"{here}/v1_draw.json"))]
+        res = [x["id"] for x in json.load(open(f"{here}/v1_reserve.json"))["reserve_in_order"]]; rc = {r["id"]: r for r in json.load(open(f"{here}/v1_survivors_recount.json"))}
+        idx = K.load_index(); spans = [(K.ts(r["start"]), K.ts(r["closed_time"]), r["id"], K.G.template(r["title"])) for r in idx]
+        def why(eid):
+            e = pool[eid]; lk = K.lock_of(e); tpl = K.G.template(e["title"])
+            live = len({t for (s_, c, i, t) in spans if s_ <= lk <= c and i != eid and t != tpl})
+            return [f"shows {rc[eid]['shown']} contracts (<3)"] * (rc[eid]["shown"] < 3) + [f"{live} live templates (<10)"] * (live < 10)
+        final, log, reserve = [], [], list(res)
+        for eid in d:
+            w = why(eid)
+            if not w:
+                final.append(eid); continue
+            while reserve:
+                r = reserve.pop(0)
+                if not why(r):
+                    final.append(r); log.append({"replaced": eid, "reason": w, "by": r}); break
+                log.append({"skipped_reserve": r, "reason": why(r)})
+        json.dump({"rounds": final, "replacements": log, "reserve_left": reserve}, open(f"{here}/v1_rounds.json", "w"), indent=1)
+        print(len(final), "rounds;", len(log), "log entries;", len(reserve), "reserve left"); [print(" ", x) for x in log]

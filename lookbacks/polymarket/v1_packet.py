@@ -5,7 +5,7 @@ condition id, resolution status, closing time or outcome. Contracts are shown on
 not already closed); that reveals that a recent trade exists and nothing about its level (disclosed, A13). Sessions refer to contracts by opaque labels; the label map
 stays in a private file the session never sees.
 
-    python lookbacks/polymarket/v1_packet.py --build-index <universe.jsonl.gz>     # once; writes v1_live_index.json.gz (frozen by hash)
+    python lookbacks/polymarket/v1_packet.py --build-index                          # once; writes v1_live_index.json.gz and v1_resolutions.json.gz (frozen by hash)
     python lookbacks/polymarket/v1_packet.py --stage1a <event_id>                   # writes packets/R<id>/stage1a.txt (+ private map)
     python lookbacks/polymarket/v1_packet.py --stage1b <event_id> <terms_json>      # retrieval from the stage-1a hedge terms; writes stage1b.txt
 """
@@ -195,6 +195,7 @@ def stage1b(index, terms, lock, exclude_template, round_id, price_fn, exclude_id
     at most 60, in a seeded shuffle (rank carries no information). Returns (packet, private, stats)."""
     rows = [r for r in live_rows(index, lock) if r["id"] != exclude_id]
     g = G.Graph(rows, generic_share=0.05)
+    live_templates = len({g.template[i] for i in g.events} - {exclude_template})
     hits = [h for h in g.search(terms, cap=400, classes=CLS) if g.template[h["event_id"]] != exclude_template]
     cands, tried = [], 0
     for h in hits:
@@ -216,7 +217,8 @@ def stage1b(index, terms, lock, exclude_template, round_id, price_fn, exclude_id
             private[cl] = {"cid": m["cid"], "token_yes": m["tokens"][0], "token_no": m["tokens"][1] if len(m["tokens"]) > 1 else None, "event_id": r["id"], "q": m.get("q")}
         entries.append({"label": lab, "title": r["title"], "kind": kind_label(r["class"], g.struct[r["id"]].get("kind")), "similar_events": h["n_in_template"], "rules": desc[:RULES_CHARS], "contracts": cs})
         private[lab] = {"event_id": r["id"], "class": r["class"]}
-    stats = {"terms": terms, "templates_found": len(hits), "candidates_with_priced_contracts": len(cands), "checked": tried, "empty_menu": len(entries) < MIN_MENU_TEMPLATES}
+    stats = {"terms": terms, "live_templates": live_templates, "coverage_ok": live_templates >= MIN_MENU_TEMPLATES, "templates_found": len(hits), "candidates_with_priced_contracts": len(cands),
+             "checked": tried, "empty_menu": len(entries) == 0, "thin_menu": len(entries) < MIN_MENU_TEMPLATES}
     return {"round_id": round_id, "as_of": as_of(lock), "candidates": entries}, private, stats
 
 
@@ -285,31 +287,26 @@ def validate_1b(obj, packet_1a, packet_1b):
 
 
 # ---------------------------------------------------------------- index
-def build_index(universe_path, out_path):
-    rows = []
+def build_index(out_path):
+    """The retrieval universe: **closed, cleanly resolved** usable exact-structure events only (V1_prereg.md A14). An event still open cannot be scored, so it is not a candidate.
+    Outcomes and fee schedules go to a separate resolutions file that the packet builder never reads."""
+    rows, res = [], {}
     for eid, e in P.crawl_closed().items():
         if {t.get("slug") for t in (e.get("tags") or [])} & P.EXCL or not e.get("startDate") or not e.get("closedTime"):
             continue
         c = P.compact(e); cls = G.structure(c)["class"]
-        if cls not in CLS or c["volume"] < 100_000:
+        if cls not in CLS or c["volume"] < 100_000 or P.resolved_cleanly(c):
             continue
         rows.append(_row(c, cls, {m.get("conditionId"): m.get("closedTime") for m in (e.get("markets") or [])}))
-    for u in G.load_universe(universe_path):
-        if u.get("header_only") or not u.get("start") or float(u.get("volume") or 0) < 100_000 or set(u.get("tags") or []) & P.EXCL:
-            continue
-        cls = G.structure(u)["class"]
-        if cls not in CLS:
-            continue
-        full = P.page(f"{P.GAMMA}/{u['id']}")
-        if not full:
-            continue
-        c = P.compact(full); c["closed_time"] = None
-        rows.append(_row(c, cls, {}))
+        for m in e.get("markets") or []:
+            res[m.get("conditionId")] = {"final": m.get("outcomePrices"), "uma": m.get("umaResolutionStatus"), "feeSchedule": m.get("feeSchedule"),
+                                          "tick": m.get("orderPriceMinTickSize"), "end": m.get("endDate"), "closed": m.get("closedTime")}
     rows.sort(key=lambda r: r["id"])
-    blob = json.dumps(rows, sort_keys=True, separators=(",", ":")).encode()
-    with gzip.open(out_path, "wb") as f:
-        f.write(blob)
-    print(len(rows), "events in the live index; sha256 of the uncompressed json:", hashlib.sha256(blob).hexdigest())
+    for path, obj in ((out_path, rows), (out_path.replace("v1_live_index", "v1_resolutions"), res)):
+        blob = json.dumps(obj, sort_keys=True, separators=(",", ":")).encode()
+        with gzip.open(path, "wb") as f:
+            f.write(blob)
+        print(os.path.basename(path), len(obj), "entries; sha256 of the uncompressed json:", hashlib.sha256(blob).hexdigest())
 
 
 def _row(c, cls, mclosed):
@@ -330,10 +327,10 @@ def sha(obj):
 
 
 if __name__ == "__main__":
-    ap = argparse.ArgumentParser(); ap.add_argument("--build-index"); ap.add_argument("--stage1a"); ap.add_argument("--stage1b", nargs=2)
+    ap = argparse.ArgumentParser(); ap.add_argument("--build-index", action="store_true"); ap.add_argument("--stage1a"); ap.add_argument("--stage1b", nargs=2)
     a = ap.parse_args()
     if a.build_index:
-        build_index(a.build_index, os.path.join(HERE, "v1_live_index.json.gz"))
+        build_index(os.path.join(HERE, "v1_live_index.json.gz"))
     pool = {e["id"]: e for e in json.load(open(os.path.join(HERE, "v1_pool.json")))}
     mkt = json.load(open(os.path.join(HERE, "v1_pool_market_dates.json")))
     if a.stage1a:

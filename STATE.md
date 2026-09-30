@@ -596,3 +596,6 @@ Rob: keep 24 rounds with a reserve of 12. `v1_reserve.json` drawn (second seed, 
 
 ## 2026-09-30 (later still) — packet script
 `lookbacks/polymarket/v1_packet.py` + `tests/test_v1_packet.py` (136 tests pass): stage-1a packet, thesis-first retrieval for stage 1b, answer validators, leak scan, seeded shuffle, live index (1,167 events, hashed). Dry run on a mock answer (`packets_dryrun/`). Recount under the packet's real eligibility: 59/73 pool, 22/24 drawn; 536290 and 623235 replaced by reserve #1 and #2. `V1_prereg.md` A13. Not built: scoring script, session harness.
+
+## 2026-09-30 (later still) — scoring script
+`lookbacks/polymarket/v1_score.py` + `tests/test_v1_score.py` (144 tests pass): tier to rung, exact coarsened state spaces (typed gap only for true open slots), arms P C D R (M in the study), B1 from resolutions, study verdict per the bar. Reproduces the pilot's -11.54 floor through the pipeline. Found while building it: the retrieval index must hold only closed, cleanly resolved events (open events cannot be scored), and that cut the live menu to a median of 45 templates per lock (A13's 289 to 640 was wrong); menu rule now a coverage floor plus "no instrument" for an empty search. Final round list by rule in `v1_rounds.json` (three replacements; 9 reserve left). `V1_prereg.md` A14. Not built: the session harness.

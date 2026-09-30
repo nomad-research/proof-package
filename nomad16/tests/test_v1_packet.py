@@ -111,7 +111,7 @@ def test_retrieval_is_deterministic_seeded_by_round_and_carries_no_ids():
     blob = json.dumps(a).lower()
     assert not (set(keys_of(a)) & BANNED_KEYS) and "0xcond" not in blob and "tokyes" not in blob
     small = K.stage1b(index(), ["ethereum"], LOCK, "x", "R1", lambda t, l: True)[2]
-    assert small["empty_menu"]                                                                  # fewer than 10 templates: recorded as an empty menu
+    assert small["thin_menu"] and not small["empty_menu"] and small["live_templates"] >= 3      # a thin menu is a result, not a reason to replace the round; zero candidates is 'no instrument'
 
 
 def test_stage1b_answer_validation():
