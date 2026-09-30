@@ -2,12 +2,16 @@
 
 Status: **DRAFT. No reading has been run.** Frozen only when the two blanks in §5 are ratified by the user and the freeze commit is recorded.
 
-## 1. What K14 asks
+## 1. What K14 asks (spec §9.2, restated exactly)
 
-Spec `nomad_v17_open_entity.md` §K14: on the qualifying rounds, does reading each round's lock-time documents with the
-open entity (kinds/capabilities/relations registry, documents as entities) surface holders and exposures that the closed
-reading (v16 typed holders only) missed, at a rate of at least **X14 = 25%** of the closed reading's holder set? Killed if
-below X14.
+On the documents each qualifying round had at its lock, does an open-entity reading find, in at least **X14 = 25% of the
+readable qualifying rounds** (rounded up; 3 of 11 if all are readable), an entity of a kind v16 could not hold that
+(i) is **within reach** of the round's node (documented, reviewed, transmitting relations at or above SUPPORT_THRESHOLD,
+seeds of spec §6.6), and (ii) fills a role in a forced or switch derivation, or is `expressible`, or is one documented
+relation from an entity that is? Dies if fewer rounds show one; then V3–V5 stop and the schema stays open.
+
+The unit of count is an **entity found**, per round. Documents are only the material the reader reads; they enter the
+test through the readability gate (§3) and nowhere else.
 
 ## 2. Qualifying rounds (fixed before counting)
 
@@ -60,8 +64,13 @@ Readable rounds by threshold on "usable lock-time documents per round" (the coun
 1. Freeze kinds, capabilities, relation seeds and templates (`config/seed_v17.json`) at the freeze commit. Templates for
    rounds 5–7 come from rounds 1–4 only; for later rounds, from rounds 1–7 only.
 2. Each readable round is read twice by a cold reader, closed then open, alternating which comes first by round parity.
-3. Count holders/exposures found by the open reading not present in the closed reading, divided by the closed set size.
-4. Verdict: unreadable if readable rounds < 6; else kill if pooled ratio < X14; else pass.
+3. Per round, record whether the open reading found at least one entity meeting (i) and (ii). Persons are counted as
+   roles from documents; none is stored (PERSON_INGEST is off).
+4. The closed reading finds zero entities of a kind v16 cannot hold by construction, so it is not a baseline. It controls
+   for reader effort: report its finds of kinds v16 could hold beside the open run's. If a second look alone finds as much
+   as the open look, effort and not vocabulary is the variable and the result is read that way.
+5. Verdict: unreadable if readable rounds < 6; else dead if rounds with a qualifying entity < ceil(0.25 × readable rounds);
+   else not dead.
 
 ## 7. Notes
 
