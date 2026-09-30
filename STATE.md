@@ -515,3 +515,9 @@ unhedged income sensitivity, 3 hedge-book only, 4 none. Underpowered; the extens
 `lookbacks/scenarios/synthetic_leg_*`. Part A (a synthetic leg with the oil basket's crude loading, controlled residual correlation): worst-fade gain -3% at rho +0.9, +2% at rho 0, +14% at rho -0.5; about -0.95 needed for 30%. Part B (real non-energy equities, unlevered):
 achievable crude loading f = 0.32 (0.30 holdout), diluted in both windows; S_corr and S_unc gave the same downside gain. Reading: at fixed loading on the channel that fades, decorrelating the residual chain buys little; the gains in every earlier test came from lower loading.
 The hedge must differ in kind on the fade (a different channel or timing), for example crack against crude. Candidate next test: refiners (VLO, MPC, PSX, PBF) against the producers.
+
+## 2026-09-30 (later) — refiners against producers
+
+`lookbacks/scenarios/refiners_*`. Main window: no hedge (corr +0.72 with producers, gain -5%, the loading-matched control +22%; the crack fell with crude over the fade, corr +0.37). Holdout: +33% and +26 points beyond de-risking, channel test failed.
+Not supported. Five pooled oil-spike tests now (depth, equity depth, synthetic short, synthetic leg, refiners): the correlation gradient is real, gains came from lower loading. Pooled spike days may be the wrong instrument (mixed causes); next would be a homogeneous
+event class with an observed outcome, after a feasibility check that listed owners respond beyond noise; or derivatives for payoffs that differ in kind.
