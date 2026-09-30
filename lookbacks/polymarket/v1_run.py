@@ -18,7 +18,21 @@ import v1_pool as P
 from nomad16 import pmgraph as G
 
 DECLARED_MODEL = "claude-opus-5-5"
+PROMPT_DIR = os.environ.get("V1_PROMPT_DIR", "/tmp/claude-0/v1_prompts")      # outside the repository, so the only file a session is pointed at holds nothing but its prompt
+INSTRUCTION = "Your task is in the file {path}. Read that file (it is the only tool call you may make), then answer exactly as it instructs."
 IGNORED_TOOLS = {"SubagentHandback"}            # how a spawned session hands its final answer back; not a tool the session used
+
+
+def prompt_path(eid, stage, rehearsal=False):
+    return os.path.join(PROMPT_DIR, f"{'rh_' if rehearsal else ''}R{eid}_{stage}.txt")
+
+
+def publish_prompt(eid, stage, rehearsal=False):
+    """Copy a prepared prompt to the neutral directory and return (path, the instruction to send). The session is sent the instruction, never the prompt text."""
+    os.makedirs(PROMPT_DIR, exist_ok=True)
+    src = open(os.path.join(rdir(eid, rehearsal), f"stage{stage}.txt")).read(); dst = prompt_path(eid, stage, rehearsal)
+    open(dst, "w").write(src)
+    return dst, INSTRUCTION.format(path=dst)
 
 
 def rdir(eid, rehearsal=False):
@@ -43,7 +57,71 @@ def extract_json(text):
     return json.loads(t[i:j + 1])
 
 
-def audit_transcript(path, declared=DECLARED_MODEL):
+def first_user_text(path):
+    """The first user message of a transcript, as text: the prompt the session actually received."""
+    for line in open(path, encoding="utf-8"):
+        try:
+            o = json.loads(line)
+        except ValueError:
+            continue
+        m = o.get("message") or {}
+        if m.get("role") == "user":
+            c = m.get("content")
+            if isinstance(c, str):
+                return c
+            if isinstance(c, list):
+                return "".join(b.get("text", "") for b in c if isinstance(b, dict) and b.get("type") == "text")
+    return None
+
+
+def user_texts(path):
+    """The user-role messages that carry text (a tool result is not one): the instructions the session was actually sent."""
+    out = []
+    for line in open(path, encoding="utf-8"):
+        try:
+            o = json.loads(line)
+        except ValueError:
+            continue
+        m = o.get("message") or {}
+        if m.get("role") != "user":
+            continue
+        c = m.get("content")
+        if isinstance(c, str):
+            out.append(c)
+        elif isinstance(c, list):
+            t = "".join(b.get("text", "") for b in c if isinstance(b, dict) and b.get("type") == "text")
+            if t:
+                out.append(t)
+    return out
+
+
+def read_results(path):
+    """{tool_use_id: (file_path, text returned)} for every Read the session made; line-number prefixes of the Read tool are stripped."""
+    calls, out = {}, {}
+    for line in open(path, encoding="utf-8"):
+        try:
+            o = json.loads(line)
+        except ValueError:
+            continue
+        c = (o.get("message") or {}).get("content")
+        if not isinstance(c, list):
+            continue
+        for b in c:
+            if not isinstance(b, dict):
+                continue
+            if b.get("type") == "tool_use" and b.get("name") == "Read":
+                calls[b["id"]] = (b.get("input") or {}).get("file_path")
+            elif b.get("type") == "tool_result" and b.get("tool_use_id") in calls:
+                t = b.get("content")
+                t = t if isinstance(t, str) else "".join(x.get("text", "") for x in t if isinstance(x, dict))
+                out[b["tool_use_id"]] = (calls[b["tool_use_id"]], "\n".join(re.sub(r"^\s*\d+[\t→]", "", ln) for ln in t.splitlines()))
+    return out
+
+
+def audit_transcript(path, declared=DECLARED_MODEL, expect_prompt=None, allowed_reads=None, expect_instructions=None):
+    """Blindness audit. Allowed: the hand-back, and (if ``allowed_reads`` maps a path to its prompt text) one Read of each of those paths whose returned text equals that
+    prompt. Any other tool call fails the audit. Every assistant turn must be on the declared model. ``expect_instructions``: the exact user messages the session was sent."""
+    allowed_reads = allowed_reads or {}
     """Zero tool calls (the hand-back excepted) and every assistant turn on the declared model. Also counts tokens, for sizing."""
     tools, models, tok_in, tok_out, n = {}, {}, 0, 0, 0
     raw = open(path, "rb").read()
@@ -64,9 +142,22 @@ def audit_transcript(path, declared=DECLARED_MODEL):
         if isinstance(c, list):
             for b in c:
                 if isinstance(b, dict) and b.get("type") == "tool_use" and b.get("name") not in IGNORED_TOOLS:
+                    if b.get("name") == "Read" and (b.get("input") or {}).get("file_path") in allowed_reads:
+                        continue                                  # the one permitted read; its content is checked below
                     tools[b["name"]] = tools.get(b["name"], 0) + 1
-    ok = not tools and set(models) == {declared}
-    return {"ok": ok, "tool_calls": tools, "models": models, "assistant_turns": n, "input_tokens": tok_in, "output_tokens": tok_out, "transcript_sha256": hashlib.sha256(raw).hexdigest()}
+    got = first_user_text(path)
+    prompt_ok = True if expect_prompt is None else (got is not None and got.strip() == expect_prompt.strip())
+    reads = read_results(path); reads_ok = True; seen = {}
+    for tid, (fp, text) in reads.items():
+        if fp in allowed_reads:
+            seen[fp] = seen.get(fp, 0) + 1
+            if text.strip() != allowed_reads[fp].strip() or seen[fp] > 1:
+                reads_ok = False
+    instr_ok = True
+    if expect_instructions is not None:
+        ut = user_texts(path); instr_ok = [t.strip() for t in ut[:len(expect_instructions)]] == [t.strip() for t in expect_instructions]
+    ok = not tools and set(models) == {declared} and prompt_ok and reads_ok and instr_ok
+    return {"ok": ok, "prompt_matches_file": prompt_ok, "read_content_matches": reads_ok, "instructions_match": instr_ok, "reads": {k: v for k, v in seen.items()}, "tool_calls": tools, "models": models, "assistant_turns": n, "input_tokens": tok_in, "output_tokens": tok_out, "transcript_sha256": hashlib.sha256(raw).hexdigest()}
 
 
 def find_transcript(agent_id):
@@ -126,6 +217,7 @@ def prepare1a(eid, rehearsal=False):
     if not meta["ok"]:
         meta["replace_reason"] = [r for r, bad in (("shows fewer than 3 contracts", len(pk["event"]["contracts"]) < 3), ("leak flag", bool(flags)), ("fewer than 10 live templates", live < K.MIN_MENU_TEMPLATES)) if bad]
     json.dump(meta, open(f"{d}/meta_1a.json", "w"), indent=1)
+    meta["instruction"] = publish_prompt(eid, "1a", rehearsal)[1]
     return meta
 
 
@@ -148,11 +240,14 @@ def prepare1b(eid, rehearsal=False):
         json.dump({"hedges": [], "no_instrument": True, "recalls_outcome": False, "auto": "empty menu"}, open(f"{d}/answer_1b.json", "w"), indent=1)
         return dict(st, auto_no_instrument=True)
     open(f"{d}/stage1b.txt", "w").write(K.prompt_1b(pk1, ans, pk))
-    return st
+    return dict(st, instruction=publish_prompt(eid, "1b", rehearsal)[1])
 
 
 def audit(eid, stage, agent_id, rehearsal=False):
-    a = audit_transcript(find_transcript(agent_id)); a["agent_id"] = agent_id
+    d = rdir(eid, rehearsal); stages = ["1a"] if stage == "1a" else ["1a", "1b"]
+    allowed = {prompt_path(eid, st, rehearsal): open(os.path.join(d, f"stage{st}.txt")).read() for st in stages}
+    instr = [INSTRUCTION.format(path=prompt_path(eid, st, rehearsal)) for st in stages]
+    a = audit_transcript(find_transcript(agent_id), allowed_reads=allowed, expect_instructions=instr); a["agent_id_sha256"] = hashlib.sha256(agent_id.encode()).hexdigest()[:16]
     json.dump(a, open(os.path.join(rdir(eid, rehearsal), f"audit_{stage}.json"), "w"), indent=1)
     return a
 

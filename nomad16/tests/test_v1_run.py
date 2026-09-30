@@ -50,4 +50,45 @@ def test_answer_checks_ok_recall_and_invalid():
     assert V.check_1a("I think the Fed holds", pk)[1] == "invalid"
     bad = dict(GOOD_1A, search_terms=["only"])
     assert V.check_1a(json.dumps(bad), pk)[1] == "invalid"
-    assert V.check_1a(json.dumps(dict(GOOD_1A, hedge_thesis="70% chance of a fall")), pk)[1] == "invalid"
+    assert V.check_1a(json.dumps(dict(GOOD_1A, hedge_thesis="a 70% chance of a fall")), pk)[1] == "invalid"
+
+
+def test_audit_checks_that_the_session_received_exactly_the_prepared_prompt(tmp_path):
+    f = tmp_path / "t.jsonl"
+    f.write_text("\n".join([json.dumps({"type": "user", "message": {"role": "user", "content": "PROMPT TEXT\n"}}), line("assistant", "claude-opus-5-5")]))
+    assert V.first_user_text(str(f)) == "PROMPT TEXT\n"
+    assert V.audit_transcript(str(f), expect_prompt="PROMPT TEXT")["ok"]
+    a = V.audit_transcript(str(f), expect_prompt="PROMPT TEXT, abbreviated by hand")
+    assert not a["ok"] and a["prompt_matches_file"] is False
+    g = tmp_path / "u.jsonl"
+    g.write_text("\n".join([json.dumps({"type": "user", "message": {"role": "user", "content": [{"type": "text", "text": "A"}, {"type": "text", "text": "B"}]}}), line("assistant", "claude-opus-5-5")]))
+    assert V.first_user_text(str(g)) == "AB"
+
+
+def _read_transcript(tmp_path, path_read, returned, extra_tool=None, second_read=False):
+    f = tmp_path / "r.jsonl"
+    L = [json.dumps({"type": "user", "message": {"role": "user", "content": "Your task is in the file /p/x.txt. Read it."}}),
+         json.dumps({"type": "assistant", "message": {"role": "assistant", "model": "claude-opus-5-5", "content": [{"type": "tool_use", "id": "t1", "name": "Read", "input": {"file_path": path_read}}]}}),
+         json.dumps({"type": "user", "message": {"role": "user", "content": [{"type": "tool_result", "tool_use_id": "t1", "content": returned}]}})]
+    if second_read:
+        L += [json.dumps({"type": "assistant", "message": {"role": "assistant", "model": "claude-opus-5-5", "content": [{"type": "tool_use", "id": "t2", "name": "Read", "input": {"file_path": path_read}}]}}),
+              json.dumps({"type": "user", "message": {"role": "user", "content": [{"type": "tool_result", "tool_use_id": "t2", "content": returned}]}})]
+    if extra_tool:
+        L.append(json.dumps({"type": "assistant", "message": {"role": "assistant", "model": "claude-opus-5-5", "content": [{"type": "tool_use", "id": "t3", "name": extra_tool, "input": {}}]}}))
+    L.append(line("assistant", "claude-opus-5-5"))
+    f.write_text("\n".join(L))
+    return str(f)
+
+
+def test_audit_allows_exactly_one_read_of_the_prompt_file_and_checks_what_it_returned(tmp_path):
+    prompt = "LINE ONE\nLINE TWO\n"
+    ret = "     1\tLINE ONE\n     2\tLINE TWO\n"                                       # the Read tool's numbered format
+    instr = ["Your task is in the file /p/x.txt. Read it."]
+    ok = V.audit_transcript(_read_transcript(tmp_path, "/p/x.txt", ret), allowed_reads={"/p/x.txt": prompt}, expect_instructions=instr)
+    assert ok["ok"] and ok["reads"] == {"/p/x.txt": 1} and ok["tool_calls"] == {}
+    assert not V.audit_transcript(_read_transcript(tmp_path, "/repo/v1_pool.json", ret), allowed_reads={"/p/x.txt": prompt}, expect_instructions=instr)["ok"]     # any other file
+    assert not V.audit_transcript(_read_transcript(tmp_path, "/p/x.txt", ret, extra_tool="Grep"), allowed_reads={"/p/x.txt": prompt})["ok"]                     # any other tool
+    assert not V.audit_transcript(_read_transcript(tmp_path, "/p/x.txt", ret, second_read=True), allowed_reads={"/p/x.txt": prompt})["ok"]                      # a second read
+    assert not V.audit_transcript(_read_transcript(tmp_path, "/p/x.txt", "     1\tSOMETHING ELSE\n"), allowed_reads={"/p/x.txt": prompt})["ok"]               # the file did not hold the prompt
+    bad = V.audit_transcript(_read_transcript(tmp_path, "/p/x.txt", ret), allowed_reads={"/p/x.txt": prompt}, expect_instructions=["a different instruction"])
+    assert not bad["ok"] and bad["instructions_match"] is False

@@ -19,9 +19,13 @@ from nomad16 import pmgraph as G
 SEED = 20260930
 CLS = {"partition_exact", "partition_open", "ladder", "date_ladder"}
 MAX_AGE_S = 48 * 3600
-CAP_CANDIDATES, MAX_CONTRACTS_PER_EVENT, MIN_MENU_TEMPLATES = 60, 12, 10
-RULES_CHARS = 1400
+CAP_CANDIDATES, MAX_CONTRACTS_PER_EVENT, MIN_MENU_TEMPLATES = 80, 12, 10
+RULES_CHARS = 1400          # a contract's own extra rules in the primary packet
+CAND_RULES_CHARS = 500      # a hedge candidate's rules in the stage-1b menu (80 candidates: the bulk of the prompt)
 TIERS = ("mild", "moderate", "severe")
+# probability language in an answer would anchor stage 2 and is not asked for; numbers taken from the rules (strikes, rates, levels, percentages) are ordinary content and are allowed
+PROB = re.compile(r"(\b\d{1,3}(\.\d+)?\s?%\s*(chance|likel|probab|odds|prob\b)|\b(chance|probability|likelihood|odds)\s+(of|is|are|at)\s+(about\s+|around\s+|roughly\s+)?\d|\b(probabilit\w*|chance|likelihood)\b[^.;]{0,50}?\b(is|are|at|around|near|of)\s+~?\d|"
+                  r"\bmarket (price|pricing|thinks|expects|implies)\b|\bpriced[- ]in\b|\bimplied (probabilit|odds|chance))", re.I)
 # past-tense resolution language and dated updates in rules text: a possible leak of the outcome. Forward-looking 'will resolve to' is normal and not flagged.
 LEAK = re.compile(r"(\bresolved (to|as|yes|no)\b|\bhas (now |already )?resolved\b|\bwas resolved\b|\bhas been resolved\b|\bfinal(ly)? (result|outcome)\b|\bupdate[d]?\s*[:\-]|\bthe outcome (was|is)\b|\bnow resolved\b)", re.I)
 
@@ -130,7 +134,7 @@ def stage1a(e, lock, price_fn, mkt_info):
     return packet, private, sorted(set(flags))
 
 
-PROMPT_1A = """You are one of several independent analysts. Work only from what is written below. Do not use any tool, do not look anything up, and do not use anything you
+PROMPT_1A = """You are one of several independent analysts. Work only from what is written below. Apart from reading the file that held this text, do not use any tool, do not look anything up, and do not use anything you
 know that happened after {as_of}: reason as of that date. You are shown no market prices, and you are not asked for any probability.
 
 EVENT: {title}   (structure: {kind})
@@ -178,8 +182,8 @@ def validate_1a(obj, packet):
     if not isinstance(terms, list) or not 3 <= len(terms) <= 8 or not all(isinstance(t, str) and t.strip() for t in terms):
         errs.append("search_terms must be 3 to 8 non-empty strings")
     txt = json.dumps(obj)
-    if re.search(r"\b\d{1,3}\s?%|\bprobabilit|\bodds\b|\bpriced?\b|\$\s?\d", txt, re.I):
-        errs.append("the answer contains a probability, a price or a percentage: not asked for, and it would anchor stage 2")
+    if PROB.search(txt):
+        errs.append("the answer contains probability language (a chance, odds, an implied or market-based view): not asked for, and it would anchor stage 2")
     return errs
 
 
@@ -194,38 +198,39 @@ def live_rows(index, lock):
 
 
 def stage1b(index, terms, lock, exclude_template, round_id, price_fn, exclude_id=None):
-    """Retrieval for the hedge thesis: search the events open at the lock, exact structures only, one candidate per template, contracts that could be traded at the lock,
-    at most 60, in a seeded shuffle (rank carries no information). Returns (packet, private, stats)."""
+    """The menu for the hedge thesis (A15): the session has already written its thesis in words (stage 1a), so the narrative comes first; it is now shown **every**
+    live exact-structure event of the index at the lock, one candidate per template, contracts that could be traded at the lock (at least 2 per candidate, at most 12), at most 80,
+    in a seeded shuffle (rank carries no information). Its own search terms are not used to cut the list (a term-matched list was 1 to 3 candidates in the rehearsal); they are
+    kept, and the count of candidates they would have matched is reported. Returns (packet, private, stats)."""
     rows = [r for r in live_rows(index, lock) if r["id"] != exclude_id]
     g = G.Graph(rows, generic_share=0.05)
     live_templates = len({g.template[i] for i in g.events} - {exclude_template})
-    hits = [h for h in g.search(terms, cap=400, classes=CLS) if g.template[h["event_id"]] != exclude_template]
-    cands, tried = [], 0
-    for h in hits:
-        if len(cands) >= CAP_CANDIDATES * 2:
-            break
-        r = g.events[h["event_id"]]; tried += 1
-        keep = eligible(r["markets"], lock, price_fn, limit=MAX_CONTRACTS_PER_EVENT)
-        if len(keep) >= 2:
-            cands.append((h, r, keep))
-    cands = cands[:CAP_CANDIDATES]
+    everything = [{"event_id": i, "score": 0.0, "hops": 0, "via": None, "tags": [], "entities": []} for i in sorted(g.events)]
+    hits = [h for h in g._collapse(everything, 10 ** 6, CLS) if g.template[h["event_id"]] != exclude_template]
+    matched = {h["event_id"] for h in g.search(terms, cap=10 ** 6, classes=CLS)} if terms else set()
+    from concurrent.futures import ThreadPoolExecutor
+    with ThreadPoolExecutor(max_workers=12) as ex:               # the price checks are network-bound; map keeps the order, so the result is deterministic
+        kept = list(ex.map(lambda h: eligible(g.events[h["event_id"]]["markets"], lock, price_fn, limit=MAX_CONTRACTS_PER_EVENT), hits))
+    tried = len(hits)
+    cands = [(h, g.events[h["event_id"]], k) for h, k in zip(hits, kept) if len(k) >= 2]
     random.Random(f"{SEED}:{round_id}").shuffle(cands)
+    cands = cands[:CAP_CANDIDATES]
     entries, private = [], {}
     for i, (h, r, keep) in enumerate(cands, 1):
-        lab = f"E{i}"; desc = shared_rules(r, keep)[:RULES_CHARS]
+        lab = f"E{i}"; desc = shared_rules(r, keep)[:CAND_RULES_CHARS]
         cs = []
         for j, m in enumerate(keep, 1):
             cl = f"{lab}.{j}"
             cs.append({"label": cl, "question": m.get("q"), "group_item": m.get("git")})
             private[cl] = {"cid": m["cid"], "token_yes": m["tokens"][0], "token_no": m["tokens"][1] if len(m["tokens"]) > 1 else None, "event_id": r["id"], "q": m.get("q")}
-        entries.append({"label": lab, "title": r["title"], "kind": kind_label(r["class"], g.struct[r["id"]].get("kind")), "similar_events": h["n_in_template"], "rules": desc[:RULES_CHARS], "contracts": cs})
-        private[lab] = {"event_id": r["id"], "class": r["class"]}
+        entries.append({"label": lab, "title": r["title"], "kind": kind_label(r["class"], g.struct[r["id"]].get("kind")), "similar_events": h["n_in_template"], "rules": desc, "contracts": cs})
+        private[lab] = {"event_id": r["id"], "class": r["class"], "matches_terms": r["id"] in matched}
     stats = {"terms": terms, "live_templates": live_templates, "coverage_ok": live_templates >= MIN_MENU_TEMPLATES, "templates_found": len(hits), "candidates_with_priced_contracts": len(cands),
-             "checked": tried, "empty_menu": len(entries) == 0, "thin_menu": len(entries) < MIN_MENU_TEMPLATES}
+             "candidates_matching_terms": sum(1 for v in private.values() if isinstance(v, dict) and v.get("matches_terms")), "checked": tried, "empty_menu": len(entries) == 0, "thin_menu": len(entries) < MIN_MENU_TEMPLATES}
     return {"round_id": round_id, "as_of": as_of(lock), "candidates": entries}, private, stats
 
 
-PROMPT_1B = """Continue as the same analyst, under the same rules (no tools, nothing after {as_of}, no prices, no probabilities).
+PROMPT_1B = """Continue as the same analyst, under the same rules (no tools beyond reading the file that held this text, nothing after {as_of}, no prices, no probabilities).
 
 THE PRIMARY EVENT: {p_title}   (structure: {p_kind})
 ITS CONTRACTS:
@@ -235,7 +240,7 @@ YOUR HEDGE THESIS: {hedge_thesis}
 YOUR PRIMARY BASKET: {basket}
 YOUR FAILURE NARRATIVE: {failure}
 
-Below are the instruments open at {as_of} that match the words you gave. Each candidate is a group of contracts on one question; 'similar events' says how many near-identical
+Below is every instrument of the kinds we can score that was open at {as_of}. You wrote your hedge thesis before seeing this list; now find what expresses it. Each candidate is a group of contracts on one question; 'similar events' says how many near-identical
 events were folded into it. The list is in random order and its order means nothing.
 
 {cands}
@@ -293,8 +298,8 @@ def validate_1b(obj, packet_1a, packet_1b):
             errs.append(f"bad claim antecedent {i}")
         if t.get("contract") in ladder_labels or not (t.get("contract") in k_labels or t.get("event") in cand) or (t.get("resolves") not in ("YES", "NO") and "tier" not in t):
             errs.append(f"bad claim consequent {t}")
-    if re.search(r"\b\d{1,3}\s?%|\bprobabilit|\bodds\b|\bpriced?\b|\$\s?\d", json.dumps(obj), re.I):
-        errs.append("the answer contains a probability, a price or a percentage")
+    if PROB.search(json.dumps(obj)):
+        errs.append("the answer contains probability language")
     return errs
 
 

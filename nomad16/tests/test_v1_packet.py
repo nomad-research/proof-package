@@ -79,6 +79,11 @@ def test_stage1a_answer_validation():
     assert K.validate_1a(bad, pk)
     bad = json.loads(json.dumps(GOOD_1A)); bad["hedge_thesis"] = "BTC is 70% likely to fall"
     assert any("probability" in e for e in K.validate_1a(bad, pk))
+    for phrase in ("a 30% chance of a cut", "the probability of a cut is 0.3", "the chance of 30 percent", "the market implies a cut", "already priced in", "an implied probability of a cut"):
+        b = json.loads(json.dumps(GOOD_1A)); b["failure_narrative"] = phrase
+        assert K.validate_1a(b, pk), phrase
+    fine = json.loads(json.dumps(GOOD_1A)); fine["primary"]["thesis"] = "The range is 3.50-3.75% and BTC reaches $80,000 or falls to $55K; unemployment near 4.7%; recession-probability instruments would rise; the odds favour a pause"
+    assert K.validate_1a(fine, pk) == []                                                          # numbers from the rules are ordinary content
     assert K.validate_1a({"primary": {}}, pk)
     no = {k: v for k, v in GOOD_1A.items() if k != "recalls_outcome"}
     assert any("recalls_outcome" in e for e in K.validate_1a(no, pk))
@@ -137,8 +142,17 @@ def test_stage1b_answer_validation():
     assert K.validate_1b({"hedges": [{"contract": "E99.1", "side": "YES"}]}, pk1, pk)
     bad = json.loads(json.dumps(ok)); bad["claims"][0]["if"]["contract"] = "C9"
     assert K.validate_1b(bad, pk1, pk)
-    bad = json.loads(json.dumps(ok)); bad["hedges"][0]["reason"] = "likely 80% to fall"
+    bad = json.loads(json.dumps(ok)); bad["hedges"][0]["reason"] = "an 80% chance to fall"
     assert K.validate_1b(bad, pk1, pk)
     text = K.prompt_1b(pk1, GOOD_1A, pk)
     assert "0xcond" not in text and "tokyes" not in text
     assert "Will the Fed hold?" in text and "C2:" in text                                       # a fresh stage-1b session can read what its primary labels mean
+
+
+def test_the_menu_is_the_whole_live_set_and_the_terms_only_report_what_they_would_have_matched():
+    pk, pv, st = K.stage1b(index(), ["ethereum"], LOCK, "x", "R1", lambda t, l: True)
+    titles = {c["title"] for c in pk["candidates"]}
+    assert {"What price will Ethereum hit?", "Best performing coin this week?"} <= titles and any(t.startswith("Bitcoin above") for t in titles)     # not cut to the terms
+    assert st["candidates_matching_terms"] == 1 and st["templates_found"] >= 4
+    assert sum(1 for v in pv.values() if isinstance(v, dict) and v.get("matches_terms")) == 1                     # the private map records which ones matched
+    assert "matches_terms" not in json.dumps(pk)                                                                    # the session is never told
