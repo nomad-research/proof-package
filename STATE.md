@@ -387,3 +387,12 @@ K14, K15 and K16 have not been run.
 - `MATERIALITY_BAND`'s new `notional` key (V4) and the V2/V3 appetite values are added to the appetite file (all
   provisional) but nothing reads them yet.
 - K14 needs a cold reader over 11 rounds' lock-time documents; it hasn't been started.
+
+## 2026-09-30 — K14 readability census (draft pre-registration)
+
+`lookbacks/K14_prereg.md` (DRAFT). Counted lock-time documents per qualifying round from the v15 `evidence` table
+(http URL, `knowable_from` ≤ event date) and probed each with one GET. Two v15 rounds (7, 17) have none. Rounds with
+at least 1 / 2 / 3 usable documents: 7 / 5 / 4 of 11 (R16-001 included). K14 is readable (≥ 6 of 11) only at DOC_MIN = 1.
+DOC_MIN and the reader model are left unset for the user; the counts were seen before the rule was written and the file
+says so. An earlier query over `node_facts` returned zero everywhere because those rows are keyed to global nodes, not rounds; it was
+the wrong source and is not used. No reading has been run.
