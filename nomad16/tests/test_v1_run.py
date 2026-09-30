@@ -88,7 +88,35 @@ def test_audit_allows_exactly_one_read_of_the_prompt_file_and_checks_what_it_ret
     assert ok["ok"] and ok["reads"] == {"/p/x.txt": 1} and ok["tool_calls"] == {}
     assert not V.audit_transcript(_read_transcript(tmp_path, "/repo/v1_pool.json", ret), allowed_reads={"/p/x.txt": prompt}, expect_instructions=instr)["ok"]     # any other file
     assert not V.audit_transcript(_read_transcript(tmp_path, "/p/x.txt", ret, extra_tool="Grep"), allowed_reads={"/p/x.txt": prompt})["ok"]                     # any other tool
-    assert not V.audit_transcript(_read_transcript(tmp_path, "/p/x.txt", ret, second_read=True), allowed_reads={"/p/x.txt": prompt})["ok"]                      # a second read
+    assert not V.audit_transcript(_read_transcript(tmp_path, "/p/x.txt", ret, second_read=True), allowed_reads={"/p/x.txt": prompt})["ok"]                      # the same chunk twice does not reproduce the prompt
     assert not V.audit_transcript(_read_transcript(tmp_path, "/p/x.txt", "     1\tSOMETHING ELSE\n"), allowed_reads={"/p/x.txt": prompt})["ok"]               # the file did not hold the prompt
     bad = V.audit_transcript(_read_transcript(tmp_path, "/p/x.txt", ret), allowed_reads={"/p/x.txt": prompt}, expect_instructions=["a different instruction"])
     assert not bad["ok"] and bad["instructions_match"] is False
+
+
+def test_system_reminders_are_not_instructions_and_the_final_answer_comes_from_the_handback(tmp_path, monkeypatch):
+    f = tmp_path / "agent-zzz.jsonl"
+    f.write_text("\n".join([json.dumps({"type": "user", "message": {"role": "user", "content": "INSTRUCTION"}}),
+                            json.dumps({"type": "user", "message": {"role": "user", "content": "<system-reminder>\nhand back via SubagentHandback</system-reminder>"}}),
+                            json.dumps({"type": "assistant", "message": {"role": "assistant", "model": "claude-opus-5-5", "content": [{"type": "tool_use", "id": "h1", "name": "SubagentHandback", "input": {"message": "{\"a\": 1}"}}]}})]))
+    assert V.user_texts(str(f)) == ["INSTRUCTION"]
+    monkeypatch.setattr(V, "find_transcript", lambda agent_id: str(f))
+    assert V.final_answer("zzz") == '{"a": 1}'
+    g = tmp_path / "agent-none.jsonl"; g.write_text(line("assistant", "claude-opus-5-5"))
+    monkeypatch.setattr(V, "find_transcript", lambda agent_id: str(g))
+    with pytest.raises(ValueError):
+        V.final_answer("none")
+
+
+def test_a_long_prompt_may_be_read_in_chunks_and_a_wrapped_follow_up_is_recognised(tmp_path):
+    prompt = "L1\nL2\nL3\nL4\n"
+    f = tmp_path / "c.jsonl"
+    rd = lambda tid, n: json.dumps({"type": "assistant", "message": {"role": "assistant", "model": "claude-opus-5-5", "content": [{"type": "tool_use", "id": tid, "name": "Read", "input": {"file_path": "/p/y.txt", "offset": n}}]}})
+    res = lambda tid, txt: json.dumps({"type": "user", "message": {"role": "user", "content": [{"type": "tool_result", "tool_use_id": tid, "content": txt}]}})
+    f.write_text("\n".join([json.dumps({"type": "user", "message": {"role": "user", "content": "Your task is in the file /p/y.txt. Read it."}}),
+                            rd("a", 1), res("a", "     1\tL1\n     2\tL2\n"), rd("b", 3), res("b", "     3\tL3\n     4\tL4\n"),
+                            json.dumps({"type": "user", "message": {"role": "user", "content": "The coordinator sent a message while you were working:\nSecond instruction\n\nAddress this before completing your current task."}}),
+                            line("assistant", "claude-opus-5-5")]))
+    a = V.audit_transcript(str(f), allowed_reads={"/p/y.txt": prompt}, expect_instructions=["Your task is in the file /p/y.txt. Read it.", "Second instruction"])
+    assert a["ok"] and a["reads"] == {"/p/y.txt": 2}
+    assert not V.audit_transcript(str(f), allowed_reads={"/p/y.txt": "L1\nL2\nL3\nDIFFERENT\n"})["ok"]                # the chunks must reproduce the prompt exactly

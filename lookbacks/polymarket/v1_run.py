@@ -5,6 +5,7 @@ prepares each prompt, ingests and validates each answer, audits each session's t
     python lookbacks/polymarket/v1_run.py ingest1a  <event_id> <answer_text_file> [--rehearsal]
     python lookbacks/polymarket/v1_run.py prepare1b <event_id> [--rehearsal]
     python lookbacks/polymarket/v1_run.py ingest1b  <event_id> <answer_text_file> [--rehearsal]
+    python lookbacks/polymarket/v1_run.py ingest-agent <event_id> <1a|1b> <agent_id> [--rehearsal]     # takes the answer from the session's own transcript
     python lookbacks/polymarket/v1_run.py audit     <event_id> <stage 1a|1b> <agent_id> [--rehearsal]
     python lookbacks/polymarket/v1_run.py manifest  [--partial] [--rehearsal]
 A rehearsal uses events outside the pool (contaminated by design) and never counts toward V1.
@@ -20,7 +21,8 @@ from nomad16 import pmgraph as G
 DECLARED_MODEL = "claude-opus-5-5"
 PROMPT_DIR = os.environ.get("V1_PROMPT_DIR", "/tmp/claude-0/v1_prompts")      # outside the repository, so the only file a session is pointed at holds nothing but its prompt
 INSTRUCTION = "Your task is in the file {path}. Read that file (it is the only tool call you may make), then answer exactly as it instructs."
-IGNORED_TOOLS = {"SubagentHandback"}            # how a spawned session hands its final answer back; not a tool the session used
+IGNORED_TOOLS = {"SubagentHandback"}
+MAX_CHUNKS = 4                                    # reads of one prompt file allowed (a long prompt is read in pieces)            # how a spawned session hands its final answer back; not a tool the session used
 
 
 def prompt_path(eid, stage, rehearsal=False):
@@ -86,13 +88,29 @@ def user_texts(path):
         if m.get("role") != "user":
             continue
         c = m.get("content")
-        if isinstance(c, str):
-            out.append(c)
-        elif isinstance(c, list):
-            t = "".join(b.get("text", "") for b in c if isinstance(b, dict) and b.get("type") == "text")
-            if t:
-                out.append(t)
+        t = c if isinstance(c, str) else ("".join(b.get("text", "") for b in c if isinstance(b, dict) and b.get("type") == "text") if isinstance(c, list) else "")
+        if t and not t.lstrip().startswith("<system-reminder>"):           # the harness injects reminders as user turns; they are not instructions we sent
+            t = re.sub(r"^The coordinator sent a message while you were working:\s*", "", t)                   # and wraps a follow-up message in a notice
+            out.append(re.sub(r"\s*Address this before completing your current task\.\s*$", "", t))
     return out
+
+
+def final_answer(agent_id):
+    """The session's final report, exactly as handed back: the message of its last hand-back call. No copying by hand."""
+    last = None
+    for line in open(find_transcript(agent_id), encoding="utf-8"):
+        try:
+            o = json.loads(line)
+        except ValueError:
+            continue
+        c = (o.get("message") or {}).get("content")
+        if isinstance(c, list):
+            for b in c:
+                if isinstance(b, dict) and b.get("type") == "tool_use" and b.get("name") == "SubagentHandback":
+                    last = (b.get("input") or {}).get("message")
+    if last is None:
+        raise ValueError("the session handed back nothing")
+    return last
 
 
 def read_results(path):
@@ -147,12 +165,17 @@ def audit_transcript(path, declared=DECLARED_MODEL, expect_prompt=None, allowed_
                     tools[b["name"]] = tools.get(b["name"], 0) + 1
     got = first_user_text(path)
     prompt_ok = True if expect_prompt is None else (got is not None and got.strip() == expect_prompt.strip())
-    reads = read_results(path); reads_ok = True; seen = {}
+    # a long prompt is read in chunks: every Read of an allowed path is counted, and the chunks together must reproduce the prompt exactly
+    reads = read_results(path); reads_ok = True; seen, chunks = {}, {}
     for tid, (fp, text) in reads.items():
         if fp in allowed_reads:
             seen[fp] = seen.get(fp, 0) + 1
-            if text.strip() != allowed_reads[fp].strip() or seen[fp] > 1:
-                reads_ok = False
+            chunks.setdefault(fp, []).append(text)
+    for fp, want in allowed_reads.items():
+        if seen.get(fp, 0) and "\n".join(chunks[fp]).strip() != want.strip():
+            reads_ok = False
+        if seen.get(fp, 0) > MAX_CHUNKS:
+            reads_ok = False
     instr_ok = True
     if expect_instructions is not None:
         ut = user_texts(path); instr_ok = [t.strip() for t in ut[:len(expect_instructions)]] == [t.strip() for t in expect_instructions]
@@ -280,6 +303,10 @@ if __name__ == "__main__":
         print(json.dumps(prepare1a(a.args[0], r), indent=1))
     elif a.cmd in ("ingest1a", "ingest1b"):
         print(json.dumps(ingest(a.args[0], a.cmd[-2:], open(a.args[1]).read(), r), indent=1))
+    elif a.cmd == "ingest-agent":          # ingest-agent <event_id> <1a|1b> <agent_id>
+        eid, stage, agent = a.args
+        txt = final_answer(agent); open(os.path.join(rdir(eid, r), f"reply_{stage}.txt"), "w").write(txt)
+        print(json.dumps(ingest(eid, stage, txt, r), indent=1))
     elif a.cmd == "prepare1b":
         print(json.dumps(prepare1b(a.args[0], r), indent=1))
     elif a.cmd == "audit":

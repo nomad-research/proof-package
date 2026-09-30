@@ -133,3 +133,15 @@ def test_study_verdicts():
     worse = [rr(i, C=-50, D=-20, P=-100 if i % 2 == 0 else 60) for i in range(24)]
     assert S.study(worse)["verdict"] == "dead" and "B2" in S.study(worse)["why"]
     assert S.study([{"round_id": "R1", "status": "unscored", "reason": "no_instrument"}])["verdict"] == "inconclusive"
+
+
+def test_strike_parsing_does_not_read_the_b_of_by_as_a_billion_and_duplicate_rungs_are_not_mapped_to():
+    assert S.strike("Will Gold (GC) hit (LOW) $3,400 by end of June?") == 3400
+    assert S.strike("Will X reach $2.5m?") == 2_500_000 and S.strike("Will X reach $150k in February?") == 150_000 and S.strike("Will X hit $4 billion by May?") == 4e9
+    lad = [con("E9.r1", "Will Gold hit (HIGH) $5,000 by end of June?", False), con("E9.r2", "Will Gold hit (HIGH) $5,000 by end of June?", True),
+           con("E9.r3", "Will Gold hit (HIGH) $5,500 by end of June?", False), con("E9.r4", "Will Gold hit (LOW) $4,000 by end of June?", False)]
+    uniq, dup = S.unique_rungs(lad, "touch ladder")
+    assert [c["label"] for c in uniq] == ["E9.r3", "E9.r4"] and dup == 1                       # both $5,000 contracts are ambiguous; a LOW and a HIGH at different strikes are not
+    price = {"tokE9.r1": 0.5, "tokE9.r2": 0.5, "tokE9.r3": 0.2, "tokE9.r4": 0.3}
+    c, side, q = S.map_tier(lad, "touch ladder", "reach", "mild", lambda t: (price[t], 1))
+    assert c["label"] == "E9.r3"                                                                # the nearer-to-0.5 duplicate is skipped as ambiguous

@@ -31,17 +31,36 @@ def orient(q):
 
 def strike(q):
     q = re.sub(rf"\b{MON}\s+\d{{1,2}}(,?\s*20\d\d)?", "", q or "", flags=re.I)
-    m = re.search(r"\$\s?([\d,]*\.?\d+)\s?(k|m|b|million|billion|t|trillion)?", q, re.I) or re.search(r"\b(\d[\d,]*\.?\d*)\s?(k|m|b|%)?\b", q)
+    m = re.search(r"\$\s?([\d,]*\.?\d+)(?:\s?(k|m|b|million|billion|t|trillion)\b)?", q, re.I) or re.search(r"\b(\d[\d,]*\.?\d*)(?:\s?(k|m|b|%)\b)?", q)      # a unit must end at a word boundary: the 'b' of "by" is not a billion
     if not m:
         return None
     return float(m.group(1).replace(",", "")) * {"k": 1e3, "m": 1e6, "million": 1e6, "b": 1e9, "billion": 1e9, "t": 1e12, "trillion": 1e12}.get((m.group(2) or "").lower(), 1)
 
 
 # ------------------------------------------------------------------ expression: tier -> rung
+def date_key(c):
+    """A date rung: the market's own end date if stored, else the date written in its question."""
+    if c.get("end"):
+        return c["end"]
+    m = re.search(rf"\b{MON}\s+\d{{1,2}}(,?\s*20\d\d)?", c.get("q") or "", re.I)
+    return m.group(0).lower() if m else ""
+
+
+def unique_rungs(contracts, kind):
+    """Contracts whose rung (strike, or end date for a date ladder) is held by no other contract of the same orientation. Polymarket relists contracts with identical text and different
+    rules or outcomes, and a chain cannot represent two contracts at one rung, so a duplicated rung is ambiguous: it is not mapped to and it is reported."""
+    key = date_key if kind == "date ladder" else (lambda c: (orient(c["q"]), strike(c["q"])))
+    n = {}
+    for c in contracts:
+        n[key(c)] = n.get(key(c), 0) + 1
+    return [c for c in contracts if n[key(c)] == 1], sum(1 for v in n.values() if v > 1)
+
+
 def map_tier(contracts, kind, direction, tier, price_of):
     """The rung a tier names, by lock-time YES price (A6). Returns (contract, side, q) or None. ``q`` is the probability of the wanted condition at the lock."""
     tgt = TIER_TARGET[tier]
     best = None
+    contracts, _ = unique_rungs(contracts, kind)
     for c in contracts:
         p, _ = price_of(c["tok_yes"])
         if p is None:
@@ -91,10 +110,10 @@ def component(key, kind, cs, full, hidden=False):
                 preds[c["cid"]] = (f"{key}:{side}", lambda v, i=idx[strike(c["q"])]: v >= i)
         return comps, preds
     if kind == "date ladder":
-        ds = sorted({c["end"] or "" for c in cs}); idx = {d: i + 1 for i, d in enumerate(ds)}
+        ds = sorted({date_key(c) for c in cs}); idx = {d: i + 1 for i, d in enumerate(ds)}
         comps[key] = X.count_states(len(ds))                       # k = number of referenced dates that resolve NO; date i is YES iff i > k
         for c in cs:
-            preds[c["cid"]] = (key, lambda v, i=idx[c["end"] or ""]: i > v)
+            preds[c["cid"]] = (key, lambda v, i=idx[date_key(c)]: i > v)
         return comps, preds
     raise ValueError(f"no state model for {kind}")
 
@@ -114,7 +133,7 @@ def structure_ok(kind, cs):
                 return "not nested"
         return None
     if kind == "date ladder":
-        pts = sorted(((c["end"] or "", yes[c["cid"]]) for c in cs))
+        pts = sorted(((date_key(c), yes[c["cid"]]) for c in cs))
         return None if all(not (a and not b) for (_, a), (_, b) in zip(pts, pts[1:])) else "not nested"
     return None
 
@@ -192,7 +211,12 @@ def score_round(R, price_of, rng_seed=SEED):
             return dict(out, status="unscored", reason=f"unparseable_ladder:{key}")
         cm, pr = component(key, e["kind"], cs, full=(e["shown"] == e["total"] and len(cs) == e["shown"]), hidden=e["shown"] < e["total"])
         comps.update(cm); preds.update(pr)
-        prob = structure_ok(e["kind"], list(P0["contracts"].values()) if key == "P" else R["menu"][key]["contracts"])       # every shown contract, not only the referenced ones
+        allc = list(P0["contracts"].values()) if key == "P" else R["menu"][key]["contracts"]        # every shown contract, not only the referenced ones
+        if e["kind"].endswith("ladder"):
+            allc, dup = unique_rungs(allc, e["kind"])
+            if dup:
+                out["flags"].append(f"duplicate_rungs:{key}:{dup}")
+        prob = structure_ok(e["kind"], allc)
         if prob:
             out["flags"].append(f"structure_violation:{key}:{prob}")
     n_states = int(np.prod([len(v) for v in comps.values()]))
@@ -300,10 +324,14 @@ def contract_of(label, priv, final, fee, tick, end, q=None):
     return {"label": label, "cid": priv["cid"], "tok_yes": priv["token_yes"], "q": q or priv.get("q"), "fee": fee, "tick": tick, "end": end, "yes_won": json.loads(final)[0] == "1"}
 
 
-def load_round(eid):
-    d = os.path.join(HERE, "packets", f"R{eid}")
-    pool = {e["id"]: e for e in json.load(open(os.path.join(HERE, "v1_pool.json")))}; e = pool[eid]
-    mk = {m["cid"]: m for m in e["markets"]}; dates = json.load(open(os.path.join(HERE, "v1_pool_market_dates.json")))
+def load_round(eid, rehearsal=False):
+    d = os.path.join(HERE, "packets_rehearsal" if rehearsal else "packets", f"R{eid}")
+    if rehearsal:                                                   # an event outside the pool: mechanics only, never counted
+        e = json.load(open(os.path.join(HERE, "packets_rehearsal", "rows.json")))[eid]; dates = {}
+    else:
+        pool = {e["id"]: e for e in json.load(open(os.path.join(HERE, "v1_pool.json")))}; e = pool[eid]
+        dates = json.load(open(os.path.join(HERE, "v1_pool_market_dates.json")))
+    mk = {m["cid"]: m for m in e["markets"]}
     priv1, priv2 = json.load(open(f"{d}/private_1a.json")), json.load(open(f"{d}/private_1b.json")) if os.path.exists(f"{d}/private_1b.json") else {}
     pk1 = json.load(open(f"{d}/stage1a.json")); pk2 = json.load(open(f"{d}/stage1b.json")) if os.path.exists(f"{d}/stage1b.json") else {"candidates": []}
     res = _res(os.path.join(HERE, "v1_resolutions.json.gz")); idx = {r["id"]: r for r in K.load_index()}
@@ -313,9 +341,17 @@ def load_round(eid):
          "menu": {}}
     for c in pk2["candidates"]:
         ev_id = priv2[c["label"]]["event_id"]; cs = []
-        for k in c["contracts"]:
-            v = priv2[k["label"]]; r = res[v["cid"]]
-            cs.append(contract_of(k["label"], v, r["final"], r["feeSchedule"], r["tick"], r["end"], v.get("q")))
+        if c["kind"].endswith("ladder"):
+            # a tier is mapped over EVERY rung of the ladder that was open at the lock (the menu shows at most 12 of them, by display index; the mapping must not be limited to those)
+            for k, m in enumerate(idx[ev_id]["markets"]):
+                if not m.get("tokens") or not K.open_at(m, R["lock"]):
+                    continue
+                r = res[m["cid"]]
+                cs.append(contract_of(f"{c['label']}.r{k}", {"cid": m["cid"], "token_yes": m["tokens"][0]}, r["final"], r["feeSchedule"], r["tick"], r["end"], m.get("q")))
+        else:
+            for k in c["contracts"]:
+                v = priv2[k["label"]]; r = res[v["cid"]]
+                cs.append(contract_of(k["label"], v, r["final"], r["feeSchedule"], r["tick"], r["end"], v.get("q")))
         R["menu"][c["label"]] = {"kind": c["kind"], "contracts": cs, "total": len(idx[ev_id]["markets"])}
     return R, d
 
@@ -345,10 +381,10 @@ def live_price_of(R, d):
 
 
 if __name__ == "__main__":
-    ap = argparse.ArgumentParser(); ap.add_argument("--round"); ap.add_argument("--study", action="store_true")
-    a = ap.parse_args(); rd = os.path.join(HERE, "results"); os.makedirs(rd, exist_ok=True)
+    ap = argparse.ArgumentParser(); ap.add_argument("--round"); ap.add_argument("--study", action="store_true"); ap.add_argument("--rehearsal", action="store_true")
+    a = ap.parse_args(); rd = os.path.join(HERE, "results_rehearsal" if a.rehearsal else "results"); os.makedirs(rd, exist_ok=True)
     if a.round:
-        R, d = load_round(a.round); out = score_round(R, live_price_of(R, d))
+        R, d = load_round(a.round, a.rehearsal); out = score_round(R, live_price_of(R, d))
         json.dump(out, open(f"{rd}/R{a.round}.json", "w"), indent=1, default=str); print(json.dumps(out, indent=1, default=str)[:1800])
     if a.study:
         rs = [json.load(open(f"{rd}/{f}")) for f in sorted(os.listdir(rd)) if f.startswith("R") and f.endswith(".json")]
