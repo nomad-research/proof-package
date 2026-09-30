@@ -565,3 +565,9 @@ Rule R13 in `config/system_model.json` now follows the phenomenon a source measu
 Rob: Ohmni is a separate, more ambitious project (it should generate Nomad-like frameworks over time); keep them separate; Nomad stays Nomad; adopt ideas freely. Withdrawn: the adapter and the contract-version questions. The crosswalk became `docs/nomad_v17_adopted_from_ohmni.md`.
 Built: `nomad16/declarations.py` (every adapter and look-back source declares its phenomenon, truth role, measured or modeled, as-of or snapshot, survivorship, access, needs, known biases; unverified; tool `source_declarations`, `source_may_support`; rule R13 as code),
 `nomad16/tests/test_declarations.py`. 113 tests pass. The model file no longer depends on the Ohmni clone.
+
+## 2026-09-30 (later) — the Polymarket frame
+
+Rob: get the model right and validate before paying for data; this is for Polymarket now; Jev or Laya over the modified PredictionProphet angle. `docs/nomad_polymarket_frame.md` (proposed D33): an event contract's payoff is exact (1 or 0, loss capped at the price), so the hedge-existence condition and the maximin are exact and validation is cleaner than in equities;
+necessary-condition decomposition and its Fréchet bound supply the probabilities; price kept out until the gate; sessions author proposals only. Validation order V1 (hedge mechanism on resolved related contracts), V2 (the bound, clean only after the model's cutoff), V3 (forward recorder), each with a null control and a declared bar.
+Free Polymarket public APIs are reachable (market metadata and resolutions; price history thin for closed markets). The equity look-backs explored the mechanism where the payoff had to be estimated; the data-layer patch plan is paused behind this validation.
