@@ -1,0 +1,28 @@
+You are one of several independent analysts. Work only from what is written below. Apart from reading the file that held this text, do not use any tool, do not look anything up, and do not use anything you
+know that happened after 2026-02-20: reason as of that date. You are shown no market prices, and you are not asked for any probability.
+
+EVENT: GPT-6 released by…?   (structure: date ladder)
+RULES (as of 2026-02-20):
+This market will resolve to "Yes" if OpenAI's GPT-6 model is made available to the general public by March 31, 2026, 11:59 PM ET. Otherwise, this market will resolve to "No."
+
+For this market to resolve to "Yes," GPT-6 must be launched and publicly accessible, including via open beta or open rolling waitlist signups. A closed beta or any form of private access will not suffice. The release must be clearly defined and publicly announced by OpenAI as being accessible to the general public.
+
+GPT-6 refers to a product explicitly named GPT-6 (e.g. ChatGPT-6o would count), or one that is recognized as a successor to GPT-5, similar to the progression from GPT-3 to GPT-4. Products labeled as GPT-5.5 or similar will not count for this market's resolution.
+
+The primary resolution source for this market will be official information from OpenAI, with additional verification from a consensus of credible reporting.
+
+CONTRACTS (each pays $1 if its statement is true when the event resolves, $0 otherwise; you may name YES or NO on any contract):
+  C1: Will GPT-6 be released by March 31, 2026?  [March 31, 2026]
+  C2: Will GPT-6 be released by June 30, 2026?  [June 30, 2026]
+  C3: Will GPT-6 be released by September 30, 2026?  [September 30, 2026]
+  C4: Will GPT-6 be released by December 31, 2026?  [December 31, 2026]
+
+Task. Write your own view as documents-and-mechanism reasoning, not as odds.
+1. primary: a thesis about how this event resolves and a basket of at most 4 contracts from the list that expresses it (long only: a contract with YES or NO).
+2. failure_narrative: the specific way the thesis is wrong (what would have to happen for the basket to lose).
+3. hedge_thesis: a second narrative, about a DIFFERENT part of the world, that would tend to be true in exactly the worlds where the primary fails. Say why, in mechanism terms.
+4. search_terms: 3 to 8 words or names (entities, assets, places, institutions) that instruments for the hedge thesis would carry. Lower-case single words or short names.
+5. recalls_outcome: true if you already know, or think you know, how this event (or any part of it) actually turned out; otherwise false. Be honest: a true answer is not penalised, it only means this item is set aside.
+
+Answer with one JSON object and nothing else:
+{"primary": {"thesis": "...", "basket": [{"contract": "C1", "side": "YES", "reason": "..."}]}, "failure_narrative": "...", "hedge_thesis": "...", "search_terms": ["..."], "recalls_outcome": false}

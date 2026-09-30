@@ -1,0 +1,39 @@
+You are one of several independent analysts. Work only from what is written below. Apart from reading the file that held this text, do not use any tool, do not look anything up, and do not use anything you
+know that happened after 2026-07-03: reason as of that date. You are shown no market prices, and you are not asked for any probability.
+
+EVENT: Which company has best AI model end of July?   (structure: partition open)
+RULES (as of 2026-07-03):
+This market will resolve according to the company which owns the model which has the highest arena rank based off the Chatbot Arena LLM Leaderboard (https://lmarena.ai/) when the table under the "Leaderboard" tab is checked on July 31, 2026, 12:00 PM ET.
+
+Results from the "Rank" section on the Leaderboard tab of https://lmarena.ai/leaderboard/text with the style control off will be used to resolve this market.
+
+Models will be ordered primarily by their leaderboard rank at the market’s check time. If two or more models are tied on rank, they will be ordered by their Arena score, including any underlying, unrounded, granular values reflected in the data below the leaderboard. If a tie remains, alphabetical order of company names as listed in this market group will be used as a final tiebreaker (e.g., if the two models are tied by exact arena score, “Google” would be ranked ahead of “xAI”). This market will resolve based on the company that occupies first place under this ranking system.
+
+The resolution source for this market is the Chatbot Arena LLM Leaderboard found at https://lmarena.ai/. If this resolution source is unavailable at check time, this market will remain open until the leaderboard comes back online and resolve based on the first check after it becomes available. If it becomes permanently unavailable, this market will resolve based on another resolution source.
+
+CONTRACTS (each pays $1 if its statement is true when the event resolves, $0 otherwise; you may name YES or NO on any contract):
+  C1: Will Google have the best AI model at the end of July 2026?  [Google]
+  C2: Will Anthropic have the best AI model at the end of July 2026?  [Anthropic]
+  C3: Will OpenAI have the best AI model at the end of July 2026?  [OpenAI]
+  C4: Will Alibaba have the best AI model at the end of July 2026?  [Alibaba]
+  C5: Will Z.ai have the best AI model at the end of July 2026?  [Z.ai]
+  C6: Will xAI have the best AI model at the end of July 2026?  [xAI]
+  C7: Will DeepSeek have the best AI model at the end of July 2026?  [DeepSeek]
+  C8: Will Moonshot have the best AI model at the end of July 2026?  [Moonshot]
+  C9: Will Mistral have the best AI model at the end of July 2026?  [Mistral]
+  C10: Will Meituan have the best AI model at the end of July 2026?  [Meituan]
+  C11: Will Microsoft have the best AI model at the end of July 2026?  [Microsoft]
+  C12: Will Meta have the best AI model at the end of July 2026?  [Meta]
+  C13: Will Amazon have the best AI model at the end of July 2026?  [Amazon]
+  C14: Will Baidu have the best AI model at the end of July 2026?  [Baidu]
+  C15: Will ByteDance have the best AI model at the end of July 2026?  [ByteDance]
+
+Task. Write your own view as documents-and-mechanism reasoning, not as odds.
+1. primary: a thesis about how this event resolves and a basket of at most 4 contracts from the list that expresses it (long only: a contract with YES or NO).
+2. failure_narrative: the specific way the thesis is wrong (what would have to happen for the basket to lose).
+3. hedge_thesis: a second narrative, about a DIFFERENT part of the world, that would tend to be true in exactly the worlds where the primary fails. Say why, in mechanism terms.
+4. search_terms: 3 to 8 words or names (entities, assets, places, institutions) that instruments for the hedge thesis would carry. Lower-case single words or short names.
+5. recalls_outcome: true if you already know, or think you know, how this event (or any part of it) actually turned out; otherwise false. Be honest: a true answer is not penalised, it only means this item is set aside.
+
+Answer with one JSON object and nothing else:
+{"primary": {"thesis": "...", "basket": [{"contract": "C1", "side": "YES", "reason": "..."}]}, "failure_narrative": "...", "hedge_thesis": "...", "search_terms": ["..."], "recalls_outcome": false}

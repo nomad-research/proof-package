@@ -1,0 +1,37 @@
+You are one of several independent analysts. Work only from what is written below. Apart from reading the file that held this text, do not use any tool, do not look anything up, and do not use anything you
+know that happened after 2026-05-16: reason as of that date. You are shown no market prices, and you are not asked for any probability.
+
+EVENT: Russia Parliamentary Election Winner   (structure: partition open)
+RULES (as of 2026-05-16):
+Parliamentary elections are to be scheduled to be held in Russia in September 2026.
+
+This market will resolve according to the political party that wins the greatest number of seats in the next Russian State Duma election.
+
+If the results are not known definitively by September 30, 2027, 11:59 PM ET, this market will resolve to "Other".
+
+In the event of a tie between multiple parties for the most seats won, this market will resolve in favor of the party that received a greater number of valid votes. In the event that results in a tie, this market will resolve in favor of the party whose listed abbreviation appears first in alphabetical order.
+
+This market's resolution will be based solely on the number of seats won by the named party in the State Duma of the Federal Assembly of the Russian Federation.
+
+This market will resolve based on the results of this election as indicated by a consensus of credible reporting. If there is ambiguity, this market will resolve based solely on the official results reported by Russian government sources such as the Central Election Commission of the Russian Federation.
+
+Note: If a listed party contests the election as part of a jointly listed coalition with one or more parties not listed in this market, the market corresponding to the listed party will represent the coalition and will count all seats won by the coalition collectively. If two or more listed parties contest the election as a jointly listed coalition, with or without additional parties not listed in this market, the market corresponding to the party within that coalition that won the most seats in the previous election will represent the coalition and will count all seats won by the coalition collectively. If such a coalition dissolves, each market will again represent its respective party individually.
+
+CONTRACTS (each pays $1 if its statement is true when the event resolves, $0 otherwise; you may name YES or NO on any contract):
+  C1: Will United Russia (ER) win the most seats in the next Russian parliamentary election?  [United Russia (ER)]
+  C2: Will the Communist Party of the Russian Federation (KPRF) win the most seats in the next Russian parliamentary election?  [Communist Party of the Russian Federation (KPRF)]
+  C3: Will A Just Russia – For Truth (SRZP) win the most seats in the next Russian parliamentary election?  [A Just Russia – For Truth (SRZP)]
+  C4: Will the Liberal Democratic Party of Russia (LDPR) win the most seats in the next Russian parliamentary election?  [Liberal Democratic Party of Russia (LDPR)]
+  C5: Will New People (NL) win the most seats in the next Russian parliamentary election?  [New People (NL)]
+  C6: Will Rodina win the most seats in the next Russian parliamentary election?  [Rodina]
+  C7: Will Civic Platform (GP) win the most seats in the next Russian parliamentary election?  [Civic Platform (GP)]
+
+Task. Write your own view as documents-and-mechanism reasoning, not as odds.
+1. primary: a thesis about how this event resolves and a basket of at most 4 contracts from the list that expresses it (long only: a contract with YES or NO).
+2. failure_narrative: the specific way the thesis is wrong (what would have to happen for the basket to lose).
+3. hedge_thesis: a second narrative, about a DIFFERENT part of the world, that would tend to be true in exactly the worlds where the primary fails. Say why, in mechanism terms.
+4. search_terms: 3 to 8 words or names (entities, assets, places, institutions) that instruments for the hedge thesis would carry. Lower-case single words or short names.
+5. recalls_outcome: true if you already know, or think you know, how this event (or any part of it) actually turned out; otherwise false. Be honest: a true answer is not penalised, it only means this item is set aside.
+
+Answer with one JSON object and nothing else:
+{"primary": {"thesis": "...", "basket": [{"contract": "C1", "side": "YES", "reason": "..."}]}, "failure_narrative": "...", "hedge_thesis": "...", "search_terms": ["..."], "recalls_outcome": false}

@@ -1,0 +1,53 @@
+You are one of several independent analysts. Work only from what is written below. Apart from reading the file that held this text, do not use any tool, do not look anything up, and do not use anything you
+know that happened after 2026-09-21: reason as of that date. You are shown no market prices, and you are not asked for any probability.
+
+EVENT: How long will Trump and Xi shake hands?   (structure: partition exact)
+RULES (as of 2026-09-21):
+Xi Jinping is scheduled to begin a state visit to the United States on September 24, 2026, where he will be received by Donald Trump at the White House.
+
+This market will resolve according to the length of the longest filmed handshake between Donald Trump and Xi Jinping during this summit. Any handshake recorded during the summit will qualify.
+
+For the purposes of this market, the summit begins when Xi Jinping enters the terrestrial or maritime territory of the United States and ends once Xi Jinping physically departs from United States territory.
+
+If no handshake occurs during the summit, or if Xi Jinping does not physically enter the terrestrial or maritime territory of the United States by October 7, 2026, 11:59 PM ET, this market will resolve to “No Handshake”.
+
+If a handshake is photographed but not captured on video, this market will resolve to "Photographed only".
+
+Duration will be measured from the exact moment their hands make initial physical contact until the exact moment either breaks contact.
+
+If the measured duration falls exactly on the boundary between two duration brackets, this market will resolve to the higher bracket.
+
+Qualifying Requirements:
+The handshake must be voluntary, intentional, and in person.
+Direct hand-to-hand contact is required (gloves or mittens are permitted).
+The handshake must be clearly visible on video from start to finish.
+
+Non-qualifying examples:
+Fist bumps, hugs, waves, or other non-handshake greetings.
+Any handshake that is too unclear to measure.
+Only photographic evidence exists without a way to measure duration.
+
+Video or photographic evidence of the handshake must be released during the calendar days (ET) of the summit to qualify.
+
+This market may resolve at the end of the calendar day (ET) that Xi Jinping physically departs from United States territory at the end of the summit. If Xi Jinping does not physically enter the terrestrial or maritime territory of the United States by October 7, 2026, 11:59 PM ET, this market will resolve to “No Handshake”.
+
+The resolution source will be video footage.
+
+CONTRACTS (each pays $1 if its statement is true when the event resolves, $0 otherwise; you may name YES or NO on any contract):
+  C1: Will Trump and Xi not shake hands during their summit?  [No Handshake]
+  C2: Will the Trump and Xi handshake last less than 2 seconds during their summit?  [<2s]
+  C3: Will the Trump and Xi handshake last 2–6 seconds during their summit?  [2–6s]
+  C4: Will the Trump and Xi handshake last 6–10 seconds during their summit?  [6–10s]
+  C5: Will the Trump and Xi handshake last 10–15 seconds during their summit?  [10–15s]
+  C6: Will the Trump and Xi handshake last 15 seconds or longer during their summit?  [15s+]
+  C7: Will Trump and Xi only be photographed shaking hands during their summit?  [Photographed only]
+
+Task. Write your own view as documents-and-mechanism reasoning, not as odds.
+1. primary: a thesis about how this event resolves and a basket of at most 4 contracts from the list that expresses it (long only: a contract with YES or NO).
+2. failure_narrative: the specific way the thesis is wrong (what would have to happen for the basket to lose).
+3. hedge_thesis: a second narrative, about a DIFFERENT part of the world, that would tend to be true in exactly the worlds where the primary fails. Say why, in mechanism terms.
+4. search_terms: 3 to 8 words or names (entities, assets, places, institutions) that instruments for the hedge thesis would carry. Lower-case single words or short names.
+5. recalls_outcome: true if you already know, or think you know, how this event (or any part of it) actually turned out; otherwise false. Be honest: a true answer is not penalised, it only means this item is set aside.
+
+Answer with one JSON object and nothing else:
+{"primary": {"thesis": "...", "basket": [{"contract": "C1", "side": "YES", "reason": "..."}]}, "failure_narrative": "...", "hedge_thesis": "...", "search_terms": ["..."], "recalls_outcome": false}
