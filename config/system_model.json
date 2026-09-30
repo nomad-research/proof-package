@@ -49,7 +49,10 @@
    ],
    "note": "prices: may confirm, never propose; expression layer only",
    "evidence_mode": "attentional",
-   "adapter": "prices.py (Yahoo) into the vintage store"
+   "adapter": "prices.py (Yahoo) into the vintage store",
+   "phenomenon": "exchange_activity",
+   "truth_role": "constitutive",
+   "measurement_type": "measured"
   },
   {
    "kind": "outcome_vocab",
@@ -235,7 +238,10 @@
    "capabilities": [],
    "evidence_mode": "regulatory",
    "note": "a notice, docket or event report from an agency (NRC event notifications, dockets, Fed statements)",
-   "adapter": "pit_fetch: nrc_en; enumeration feed (NRC); Fed pages read in the look-backs"
+   "adapter": "pit_fetch: nrc_en; enumeration feed (NRC); Fed pages read in the look-backs",
+   "phenomenon": "regulatory_action",
+   "truth_role": "constitutive",
+   "measurement_type": "measured"
   },
   {
    "kind": "legal_filing",
@@ -243,7 +249,10 @@
    "capabilities": [],
    "evidence_mode": "accounting",
    "note": "a filing on the public record (10-K, 10-Q, 8-K, ownership forms), text and index",
-   "adapter": "pit_fetch: edgar_filings, edgar_doc"
+   "adapter": "pit_fetch: edgar_filings, edgar_doc",
+   "phenomenon": "corporate_disclosure",
+   "truth_role": "constitutive",
+   "measurement_type": "measured"
   },
   {
    "kind": "fundamental",
@@ -251,7 +260,10 @@
    "capabilities": [],
    "evidence_mode": "accounting",
    "note": "a structured or stated figure from a filing (a quarterly line item, a disclosed sensitivity)",
-   "adapter": "SEC structured facts (used in the look-backs); no harness adapter yet"
+   "adapter": "SEC structured facts (used in the look-backs); no harness adapter yet",
+   "phenomenon": "corporate_disclosure",
+   "truth_role": "constitutive",
+   "measurement_type": "measured"
   },
   {
    "kind": "state_observation",
@@ -259,7 +271,10 @@
    "capabilities": [],
    "evidence_mode": "physical",
    "note": "a measurement of the state of a thing by a recording authority (reactor power levels, an earthquake catalogue, port and chokepoint vessel counts, an internet-outage signal, a fire detection)",
-   "adapter": "pit_fetch: nrc_status; alt_fetch: portwatch_chokepoint, portwatch_port, ioda, usgs, firms (key needed)"
+   "adapter": "pit_fetch: nrc_status; alt_fetch: portwatch_chokepoint, portwatch_port, ioda, usgs, firms (key needed)",
+   "phenomenon": "physical_state",
+   "truth_role": "observed",
+   "measurement_type": "measured"
   },
   {
    "kind": "remote_sensing",
@@ -267,7 +282,10 @@
    "capabilities": [],
    "evidence_mode": "analogical",
    "note": "a model reading of an image (scene brightness counts): proposes until validated against a state_observation",
-   "adapter": "alt_fetch: s2_scenes, s2_image"
+   "adapter": "alt_fetch: s2_scenes, s2_image",
+   "phenomenon": "physical_state",
+   "truth_role": "observed",
+   "measurement_type": "modeled"
   },
   {
    "kind": "media_event",
@@ -275,7 +293,10 @@
    "capabilities": [],
    "evidence_mode": "attentional",
    "note": "coded news events and tallies: what is being said, not what is so",
-   "adapter": "alt_fetch: gdelt_events; acled needs a key"
+   "adapter": "alt_fetch: gdelt_events; acled needs a key",
+   "phenomenon": "editorial_publication",
+   "truth_role": "observed",
+   "measurement_type": "measured"
   },
   {
    "kind": "calendar_fact",
@@ -283,7 +304,10 @@
    "capabilities": [],
    "evidence_mode": "scheduled",
    "note": "an agency or exchange calendar entry: a date the system did not choose",
-   "adapter": "not in the harness; read from the data product's scheduled_fact"
+   "adapter": "not in the harness; read from the data product's scheduled_fact",
+   "phenomenon": "schedule",
+   "truth_role": "attested",
+   "measurement_type": "measured"
   },
   {
    "kind": "ownership_edge",
@@ -291,7 +315,10 @@
    "capabilities": [],
    "evidence_mode": "accounting",
    "note": "an ownership or control edge with a share and a source filing",
-   "adapter": "data product: ownership_edge; the K7 census by hand"
+   "adapter": "data product: ownership_edge; the K7 census by hand",
+   "phenomenon": "corporate_disclosure",
+   "truth_role": "attested",
+   "measurement_type": "measured"
   },
   {
    "kind": "instrument_map",
@@ -299,7 +326,10 @@
    "capabilities": [],
    "evidence_mode": "accounting",
    "note": "which listed instrument references which entity",
-   "adapter": "data product: instrument_map; the K7 census by hand"
+   "adapter": "data product: instrument_map; the K7 census by hand",
+   "phenomenon": "corporate_disclosure",
+   "truth_role": "attested",
+   "measurement_type": "measured"
   },
   {
    "kind": "quote",
@@ -307,7 +337,43 @@
    "capabilities": [],
    "evidence_mode": "attentional",
    "note": "a prediction-market or event-contract quote",
-   "adapter": "data product: quote"
+   "adapter": "data product: quote",
+   "phenomenon": "aggregated_belief",
+   "truth_role": "constitutive",
+   "measurement_type": "measured"
+  },
+  {
+   "kind": "short_volume",
+   "parent": "dataset",
+   "capabilities": [],
+   "evidence_mode": "attentional",
+   "phenomenon": "off_exchange_routing",
+   "truth_role": "attested",
+   "measurement_type": "measured",
+   "note": "FINRA daily short sale volume: where volume executed",
+   "adapter": "ohmni: data_layer/adapters/finra.py"
+  },
+  {
+   "kind": "pageviews",
+   "parent": "dataset",
+   "capabilities": [],
+   "evidence_mode": "attentional",
+   "phenomenon": "information_seeking",
+   "truth_role": "observed",
+   "measurement_type": "measured",
+   "note": "Wikimedia pageviews: retail information-seeking",
+   "adapter": "ohmni: data_layer/adapters/wikimedia.py"
+  },
+  {
+   "kind": "community_post",
+   "parent": "dataset",
+   "capabilities": [],
+   "evidence_mode": "attentional",
+   "phenomenon": "retail_discourse",
+   "truth_role": "constitutive",
+   "measurement_type": "measured",
+   "note": "Hacker News submissions: a person deciding something is worth a community's attention",
+   "adapter": "ohmni: data_layer/adapters/hackernews.py"
   }
  ],
  "relation_types": [
@@ -846,6 +912,34 @@
   "R10 Objectives and the number of baskets are declared at lock. Each basket is scored on its own objective and the set is scored separately.",
   "R11 A parameter is an entity with a status and provenance; a ratification is a decision entity by a person with a date.",
   "R12 A test is an entity: its pre-registration entity carries a knowable_from that precedes every result entity it produces.",
-  "R13 A dataset's evidence mode says what it may do. physical, accounting, regulatory and scheduled evidence may support a statement; attentional and analogical evidence may propose and never support. The mode follows what the dataset measures (the state of a thing, a record, a date, or attention), not the channel it arrived by: a recorded reactor power level is physical, a tally of news events is attentional, a model's reading of an image is analogical until it is validated against a state observation."
- ]
+  "R13 A dataset supports a statement about X only if its phenomenon is the one X consists of (a disclosure for a company's disclosed exposure, a regulatory action for a decision, a physical state for the state of a thing) and its truth role is constitutive, attested or observed. A dataset of a different phenomenon about X (attention, belief, exchange activity, editorial publication) proposes only; it may still support statements about its own phenomenon. A modeled measurement is analogical until validated against a measured one. The phenomenon, truth role and measurement type are those of Ohmni's contract (docs/nomad_v17_ohmni_crosswalk.md); physical_state and schedule are Nomad's proposed additions."
+ ],
+ "ohmni_enums": {
+  "phenomenon": [
+   "corporate_disclosure",
+   "exchange_activity",
+   "off_exchange_routing",
+   "information_seeking",
+   "editorial_publication",
+   "retail_discourse",
+   "regulatory_action",
+   "aggregated_belief"
+  ],
+  "truth_role": [
+   "constitutive",
+   "attested",
+   "observed",
+   "reported",
+   "echoed",
+   "derived"
+  ],
+  "measurement_type": [
+   "measured",
+   "modeled"
+  ],
+  "nomad_additions": [
+   "physical_state",
+   "schedule"
+  ]
+ }
 }

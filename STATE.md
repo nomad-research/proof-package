@@ -553,3 +553,9 @@ A global |x| term looks for a kink at zero; documented kinks sit at thresholds (
 
 `docs/nomad_v17_entity_model.md`, `config/system_model.json` (37 system kinds, 29 relation types with roles, 12 rules, every one of the 69 tables read as an entity kind, relation, statement or event), `nomad16/tests/test_system_model.py`
 (covers every table; constraints consistent; price is attentional and excluded as evidence). Rob: the atom is an entity, the base type is a kind; a quarterly fundamental, a filing, a decision are entities of kinds. Nothing migrated; views first. The price-free effect-space test is to be pre-registered under this view.
+
+## 2026-09-30 (later) — Ohmni cloned; the data layer crosswalk
+
+Rob added `standard-reference/ohmni` (the data layer) and it was cloned into the session (commit cadfb95, contract 0.1.0; read only). Its spec §18 is "artifact + kind registry": the same pattern as the entity-and-kind model. `docs/nomad_v17_ohmni_crosswalk.md` maps Record, Status, Lineage, Revision,
+SourceDeclaration, Phenomenon, TruthRole and MeasurementType onto the model, corrects the earlier statement that the data layer was not reachable, and lists the gaps: six technology entities, prototype-grade prices, no filing text, regulatory notices, ownership edges, scheduled facts, quotes or event spine, contract 0.1.0 against Nomad's pinned >= 0.2.
+Rule R13 in `config/system_model.json` now follows the phenomenon a source measures. Correction to my own earlier note: the oil, bank and rate filings were fetched by Nomad's adapters, not served by Ohmni.
