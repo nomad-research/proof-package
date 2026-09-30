@@ -1,4 +1,4 @@
-# Depth-hedge test — pre-registration (written before any number was computed)
+# Depth-hedge test (ETF legs) — pre-registration — SUPERSEDED by depth_hedge_v2_prereg.md (Rob: no funds)
 
 *2026-09-30. Rob's claim: two long legs on the same underlying scenario can hedge each other, not by opposite sign but because the second
 leg sits further down the chain, on a node less correlated with the first, so it covers the downside; "divergent on its own effect and
