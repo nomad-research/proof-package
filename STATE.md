@@ -452,3 +452,6 @@ reader's class or rationale). Files in `lookbacks/k14/pilot_r13/`.
   often fail for lack of an instrument map, not for lack of entities.
 - **Cost:** reader 71,410 tokens, judge 61,954 tokens (subagent totals; the input/output split is not reported). At $4 / $20 per
   million (`claude-opus-5-5`): between about $0.5 (all input) and $2.7 (all output) for the pilot pair.
+
+**PR #20 preservation (Rob, 2026-09-30):** do not squash-merge. `3090edf` is preserved as the branch `preserve/pr20-3090edf` (tag pushes are
+refused, issue #19). A comment on PR #20 records the constraint. Nothing has been merged.
