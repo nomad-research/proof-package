@@ -605,3 +605,6 @@ Rob: keep 24 rounds with a reserve of 12. `v1_reserve.json` drawn (second seed, 
 
 ## 2026-09-30 (later still) — the freeze (A16)
 Rob: add the claim line, batches of 6. Claim line added and validated; price checks retried; replacement tooling. All hashes recorded in `V1_prereg.md` A16. First batch: 655630, 125877, 155674, 199763, 230191, 25036. No round authored before this commit.
+
+## 2026-09-30 (later still) — V1 batch 1 authored (6 of 24 rounds)
+Rounds 655630, 125877, 155674, 199763, 230191, 25036. All ingested from the sessions' own transcripts; 0 invalid, 0 recall flags, 12 of 12 session turns passed the audit (declared model, one read per prompt file, content and instructions verified). Two rounds ended "no instrument" (125877, 25036), four hold hedges. About 0.49M tokens for the batch (44k to 53k for stage 1a; 77k to 98k per round in total). Nothing has been scored: all 24 rounds are authored and frozen by hash first (A16). Batch 2 not started.
