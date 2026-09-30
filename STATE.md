@@ -543,3 +543,8 @@ quantities (payoff on the failure set, trailing data). Proposed step 8 of the im
 
 Rob: two long but different narratives over one underlying, however built, equal a downside-capped, upside-uncapped hedge, that is, a convex composite. Direct check on the FOMC pair (banks + DHI, O, AMT, NEE): both legs are linear in the yield move with opposite slopes, so the sum is near-linear
 (c +0.00009, 10th percentile below 0); not supported here. The shape needs two one-sided (kinked) legs, not two opposite-sloped linear ones. Next: a convexity map across stocks and state variables (domain-free), and whether the kinks are stable out of sample.
+
+## 2026-09-30 (later) — convexity map (100 stocks x 8 state variables), pre-registered
+
+`lookbacks/scenarios/convexity_map/`. Not supported in general: c is uncorrelated across halves (+0.037), no pair reached train t >= 3 (about 1 expected by chance), one composite (market) passed and is read as noise. At the daily horizon no large-cap equity shows a stable convex, one-sided response.
+A global |x| term looks for a kink at zero; documented kinks sit at thresholds (strikes, floors, contracts). Next: threshold-aware tail asymmetry per stock, and whether a narrative that names documented floors and caps in advance picks kinks the data cannot.

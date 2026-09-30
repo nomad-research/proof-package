@@ -95,7 +95,7 @@ print(f"Part 1 {'HOLDS' if p1 else 'FAILS'}")
 def block_boot(y, x, n=2000, blk=20):
     L = len(y); out = []
     for _ in range(n):
-        idx = np.concatenate([np.arange(s, min(s + blk, L)) for s in rng.integers(0, L, size=L // blk + 1)])[:L]
+        idx = np.concatenate([np.arange(s, s + blk) for s in rng.integers(0, L - blk + 1, size=L // blk + 1)])[:L]     # blocks never run off the end
         D = np.column_stack([np.ones(L), x[idx], np.abs(x[idx])])
         out.append(np.linalg.lstsq(D, y[idx], rcond=None)[0][2])
     return np.array(out)
@@ -125,3 +125,15 @@ for k in VARS:
 n_sup = sum(sup.values())
 print(f"\nvariables supported: {n_sup} of 8 (need 3), Part 1 {'holds' if p1 else 'fails'}")
 print("verdict (pre-registered):", "SHAPE SUPPORTED IN GENERAL" if (p1 and n_sup >= 3) else "NOT SUPPORTED IN GENERAL")
+
+# Descriptive addition (after the verdict; not part of it): how many train-convex pairs there were, and what happened to them in the test half.
+print("\nDESCRIPTIVE (post hoc, not the verdict): pairs with train t(c) >= 3, and their test-half t(c)")
+tot = 0
+for k in VARS:
+    idx = np.where(ttr[k] >= 3.0)[0]
+    tot += len(idx)
+    if len(idx):
+        print(f"  {k:<8} train t>=3: {len(idx):>2}   test t: mean {tte[k][idx].mean():+.2f}, share positive {np.mean(tte[k][idx] > 0):.0%}, share >= 1.65 {np.mean(tte[k][idx] >= 1.65):.0%}")
+    else:
+        print(f"  {k:<8} train t>=3:  0")
+print(f"  total train-convex pairs {tot} of {len(STK) * len(VARS)}; under no structure about {0.0013 * len(STK) * len(VARS):.1f} would be expected at t >= 3 (one-sided normal)")
