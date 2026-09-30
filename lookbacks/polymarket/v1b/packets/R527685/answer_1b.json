@@ -1,0 +1,62 @@
+{
+ "hedges": [
+  {
+   "event": "E4",
+   "direction": "below",
+   "tier": "moderate",
+   "reason": "GRVT is a perp DEX token that was still waiting to launch, the closest peer to Tread among the candidates. It depends on the same things: appetite for new perp and trading-infrastructure listings, points-farmer selling, and altcoin liquidity. If that market is weak, GRVT either launches at a low FDV or delays, and any rung above the threshold resolves NO."
+  },
+  {
+   "event": "E13",
+   "direction": "below",
+   "tier": "moderate",
+   "reason": "Squid is a cross-chain DeFi infrastructure token launching into the same altcoin market. When altcoin liquidity dries up, projects delay their TGEs and the launches that do happen price low. A delay or a low launch both resolve its above-threshold rungs NO."
+  },
+  {
+   "event": "E10",
+   "direction": "below",
+   "tier": "moderate",
+   "reason": "Aligned Layer is another infrastructure token with an unknown launch date, and it would suffer from the same cooling of listing appetite and new-token demand. It gives a third read on the new-token cycle, so the hedge does not depend on one project's own quirks."
+  }
+ ],
+ "claims": [
+  {
+   "if": {
+    "contract": "C3",
+    "resolves": "NO"
+   },
+   "then": {
+    "event": "E4",
+    "direction": "below",
+    "tier": "moderate"
+   },
+   "reason": "Tread missing $40M, whether by no launch or a weak one, most likely comes from a cold market for new perp and trading-platform tokens. That same market keeps GRVT, the closest peer, from a strong day-one FDV or from launching at all."
+  },
+  {
+   "if": {
+    "contract": "C3",
+    "resolves": "NO"
+   },
+   "then": {
+    "event": "E13",
+    "direction": "below",
+    "tier": "moderate"
+   },
+   "reason": "Squid would launch into the same weak altcoin market, with thin new-listing liquidity and heavy airdrop selling. That market caps its day-one FDV or delays its launch, and a delay also resolves the above-threshold rungs NO."
+  },
+  {
+   "if": {
+    "contract": "C2",
+    "resolves": "NO"
+   },
+   "then": {
+    "event": "E10",
+    "direction": "below",
+    "tier": "moderate"
+   },
+   "reason": "Tread falling under $20M, or not launching, signals a deep freeze in appetite for new tokens. In that world Aligned is also very unlikely to launch and clear a moderate FDV threshold on day one."
+  }
+ ],
+ "no_instrument": false,
+ "recalls_outcome": false
+}
