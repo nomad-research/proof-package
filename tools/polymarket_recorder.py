@@ -8,7 +8,9 @@ What it writes under --out (all raw response bytes, gzip is lossless and applied
   gamma/events/<YYYY>/<MM>/<DD>/<HHMMSS>_<offset>.json.gz    market metadata pages, every sweep
   gamma/event_snapshots/<event_id>/<sha256>.json.gz           one file per distinct version of an event (resolution rules and prices change; an edit is a new version)
   clob/book/<token_id>/<YYYYMMDD>/<HHMMSS>.json.gz            order book snapshots for the top markets by volume
-  clob/history/<token_id>/<YYYYMMDD>.json.gz                  the price-history endpoint, once a day per watched token
+  clob/history/<token_id>/<YYYYMMDD>_1d_f1.json.gz            the last day at 1-minute bars, every day (1-minute bars age out after about 7 days);
+                                                              _1w_f5 the last week at 5-minute bars, every day; _max_f30 the whole range at 30-minute fidelity, weekly
+  (events that leave the active list keep being fetched until closed and every market shows umaResolutionStatus resolved, so proposals, disputes and final prices are kept)
   data/trades/<condition_id>.jsonl                            trades, appended, de-duplicated on transactionHash
   manifest.jsonl                                              one line per request: url, retrieved_at (UTC), status, bytes, sha256 of the raw body, path
   state.json                                                  what is being watched and when each thing was last fetched
@@ -33,6 +35,10 @@ GAMMA = "https://gamma-api.polymarket.com"
 CLOB = "https://clob.polymarket.com"
 DATA = "https://data-api.polymarket.com"
 UA = {"User-Agent": "nomad-research-recorder/0.1 (public data, read only)"}
+# Scope (Rob, 2026-09-30): geopolitical and anything adjacent (finance, STEM, business, manufacturing and so on). Everything is in scope except these tags, which are
+# sport, gaming and entertainment, and the recurring daily-temperature ladders. The list is a default, not a rule: every tag seen is counted in state.json so it can be tuned.
+DEFAULT_EXCLUDE = ("sports,games,esports,soccer,tennis,nfl,nba,nhl,mlb,hockey,ufc,boxing,golf,f1,cricket,rugby,league-of-legends,dota-2,counter-strike-2,valorant,"
+                   "pop-culture,entertainment,music,movies,celebrities,daily-temperature,highest-temperature,uefa-nations-league,unl-matchday")
 STOP = False
 
 
@@ -46,8 +52,9 @@ def now() -> dt.datetime:
 
 
 class Recorder:
-    def __init__(self, out: str, spacing: float, raw_pages_every: int = 21600):
+    def __init__(self, out: str, spacing: float, raw_pages_every: int = 21600, exclude: str = DEFAULT_EXCLUDE, include: str = ""):
         self.out, self.spacing, self.raw_pages_every = out, spacing, raw_pages_every
+        self.exclude = {x for x in exclude.split(",") if x}; self.include = {x for x in include.split(",") if x}
         os.makedirs(out, exist_ok=True)
         self.manifest = open(os.path.join(out, "manifest.jsonl"), "a", buffering=1)
         self.state_path = os.path.join(out, "state.json")
@@ -88,6 +95,15 @@ class Recorder:
         return body
 
     # ------------------------------------------------------------------ passes
+    def in_scope(self, e: dict) -> bool:
+        slugs = {(t.get("slug") or "") for t in (e.get("tags") or [])}
+        for sl in slugs:
+            self.state.setdefault("tags_seen", {})
+            self.state["tags_seen"][sl] = self.state["tags_seen"].get(sl, 0) + 1
+        if self.include and not (slugs & self.include):
+            return False
+        return not (slugs & self.exclude)
+
     def sweep_metadata(self, max_events: int):
         t = now(); day = t.strftime("%Y/%m/%d"); hms = t.strftime("%H%M%S")
         events, offset = [], 0
@@ -105,6 +121,8 @@ class Recorder:
             events += page; offset += 100
         watched = {}
         for e in events:
+            if not self.in_scope(e):
+                continue
             eid = str(e.get("id"))
             raw = json.dumps(e, sort_keys=True).encode()
             h = hashlib.sha256(raw).hexdigest()
@@ -123,6 +141,23 @@ class Recorder:
                 for tk in toks:
                     watched[tk] = {"condition_id": m.get("conditionId"), "event_id": eid, "question": m.get("question"), "volume24hr": vol}
         self.state["watched"] = watched
+        active_ids = {str(e.get("id")) for e in events}
+        gone = [eid for eid in list(self.state["seen_versions"]) if eid not in active_ids and eid not in self.state.setdefault("finalised", {})]
+        for eid in gone[:60]:                                          # events no longer active: keep every version until closed and resolved (UMA proposal, challenge, dispute, final prices)
+            if STOP:
+                break
+            body = self.fetch(f"{GAMMA}/events/{eid}")
+            if not body:
+                continue
+            e = json.loads(body); raw = json.dumps(e, sort_keys=True).encode(); h = hashlib.sha256(raw).hexdigest()
+            if self.state["seen_versions"].get(eid) != h:
+                self.state["seen_versions"][eid] = h
+                p = os.path.join(self.out, f"gamma/event_snapshots/{eid}/{h}.json.gz"); os.makedirs(os.path.dirname(p), exist_ok=True)
+                with gzip.open(p, "wb") as f:
+                    f.write(raw)
+            ms = e.get("markets", [])
+            if e.get("closed") and ms and all(str(m.get("umaResolutionStatus")) == "resolved" for m in ms):
+                self.state["finalised"][eid] = now().isoformat()
         self.state["last"]["metadata"] = t.timestamp()
         self.save_state()
         return watched
@@ -139,10 +174,19 @@ class Recorder:
     def daily_history_and_trades(self, top: int):
         t = now(); d = t.strftime("%Y%m%d")
         ranked = sorted(self.state["watched"].items(), key=lambda kv: -kv[1]["volume24hr"])[:top]
+        weekly = t.timestamp() - self.state["last"].get("history_max", 0) >= 7 * 86400
         for tk, info in ranked:
             if STOP:
                 break
-            self.fetch(f"{CLOB}/prices-history?market={tk}&interval=max&fidelity=60", f"clob/history/{tk}/{d}.json.gz")
+            # Polymarket keeps 1-minute bars about 7 days, 5-minute about 60 days, 30-minute about 90 days; older comes back only in 12-hour buckets.
+            # So the finest bars are taken every day before they age out, and the whole range at 30-minute fidelity once a week.
+            # (the endpoint refuses 1w at fidelity 1 with a 400; 1d at fidelity 1 returns about 1,440 one-minute bars, 1w at fidelity 5 about 2,000 five-minute bars)
+            self.fetch(f"{CLOB}/prices-history?market={tk}&interval=1d&fidelity=1", f"clob/history/{tk}/{d}_1d_f1.json.gz")
+            self.fetch(f"{CLOB}/prices-history?market={tk}&interval=1w&fidelity=5", f"clob/history/{tk}/{d}_1w_f5.json.gz")
+            if weekly:
+                self.fetch(f"{CLOB}/prices-history?market={tk}&interval=max&fidelity=30", f"clob/history/{tk}/{d}_max_f30.json.gz")
+        if weekly:
+            self.state["last"]["history_max"] = t.timestamp()
         seen_cids = set()
         for tk, info in ranked:
             cid = info["condition_id"]
@@ -171,10 +215,12 @@ def main():
     ap.add_argument("--max-events", type=int, default=300, help="events swept per metadata pass")
     ap.add_argument("--meta-every", type=int, default=3600); ap.add_argument("--book-every", type=int, default=900)
     ap.add_argument("--spacing", type=float, default=0.25)
+    ap.add_argument("--exclude-tags", default=DEFAULT_EXCLUDE, help="comma-separated tag slugs to leave out")
+    ap.add_argument("--include-tags", default="", help="if set, only events with one of these tag slugs are recorded")
     ap.add_argument("--raw-pages-every", type=int, default=21600, help="seconds between whole metadata pages being kept (the manifest still logs every page hash)")
     a = ap.parse_args()
     signal.signal(signal.SIGINT, _stop); signal.signal(signal.SIGTERM, _stop)
-    r = Recorder(a.out, a.spacing, a.raw_pages_every)
+    r = Recorder(a.out, a.spacing, a.raw_pages_every, a.exclude_tags, a.include_tags)
     print(f"recording to {a.out} (Ctrl-C to stop)", file=sys.stderr)
     while not STOP:
         t = time.time(); L = r.state["last"]
