@@ -611,3 +611,6 @@ Rounds 655630, 125877, 155674, 199763, 230191, 25036. All ingested from the sess
 
 ## 2026-09-30 (later still) — V1 batch 2 authored (12 of 24)
 Rounds 287395, 333025, 410410, 481717, 680764, 606437: all ingested from transcripts, 0 invalid, 0 recall flags, audits passed. One "no instrument" (410410). About 0.41M tokens. Pattern to report at scoring: several hedges are structural (the same Fed meeting expressed as a multi-meeting path, or a by-date contract on the same underlying), so their floor lift is arithmetic.
+
+## 2026-09-30 (later still) — V1 batch 3 authored (18 of 24)
+Rounds 655631, 624096, 624242, 627355, 630845, 674379: all ingested from transcripts, 0 invalid, 0 recall flags, audits passed. Two "no instrument" (624242, 630845). About 0.40M tokens. Running total about 1.3M tokens; "no instrument" so far 5 of 18.

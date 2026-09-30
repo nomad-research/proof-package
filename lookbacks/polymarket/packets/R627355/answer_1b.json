@@ -1,0 +1,43 @@
+{
+ "hedges": [
+  {
+   "contract": "E20.3",
+   "side": "NO",
+   "reason": "This is the closest expression of the hedge thesis: OpenAI does not hold the top text-arena rank with style control off. The primary fails at the low end in two ways: OpenAI ships only a weak or small GPT model, or ships no GPT model at all. In both cases the top slot belongs to a Google or Anthropic model, not an OpenAI one. Taking OpenAI NO covers both Google and Anthropic at once, so I do not have to guess which of them leads."
+  },
+  {
+   "event": "E32",
+   "direction": "by_date",
+   "tier": "mild",
+   "reason": "This covers the high-end failure of NO on C5 and C6. The most plausible route to a debut at 1500 or above, and especially 1520 or above, is a generational OpenAI release that it would brand GPT-6. A public GPT-6 release by year end is the world in which the high rungs pay out."
+  }
+ ],
+ "claims": [
+  {
+   "if": {
+    "contract": "C1",
+    "resolves": "NO"
+   },
+   "then": {
+    "contract": "E20.3",
+    "resolves": "NO"
+   },
+   "reason": "C1 resolves NO only if the first GPT-named OpenAI model to be listed scores below 1450, or if none is listed by December 31. In either case OpenAI has no new frontier-level text model in 2026. The July 31 top rank would then rest on an older OpenAI model, and as of mid-2026 I do not think that model leads the leaderboard ahead of Gemini or Claude. So OpenAI would not be ranked first."
+  },
+  {
+   "if": {
+    "contract": "C6",
+    "resolves": "YES"
+   },
+   "then": {
+    "event": "E32",
+    "direction": "by_date",
+    "tier": "mild",
+    "resolves": "YES"
+   },
+   "reason": "A debut at 1520 or above would be a first-day jump of roughly 20 or more points over an already crowded frontier. Past incremental GPT-5.x releases have not produced gaps that large. A jump of that size fits a generational model, which OpenAI would release and brand as GPT-6 within the 2026 window."
+  }
+ ],
+ "no_instrument": false,
+ "recalls_outcome": false
+}

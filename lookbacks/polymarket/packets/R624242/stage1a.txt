@@ -1,0 +1,63 @@
+You are one of several independent analysts. Work only from what is written below. Apart from reading the file that held this text, do not use any tool, do not look anything up, and do not use anything you
+know that happened after 2026-08-08: reason as of that date. You are shown no market prices, and you are not asked for any probability.
+
+EVENT: Where will the next next round of US-Iran peace talks be...?   (structure: partition open)
+RULES (as of 2026-08-08):
+On June 22, the first round of U.S.-Iran diplomatic talks in Switzerland concluded, with mediators reporting progress toward a roadmap for a final deal and follow-on technical talks expected to continue (see: https://www.aljazeera.com/news/2026/6/22/us-iran-agree-on-roadmap-towards-final-deal-in-switzerland-talks).
+
+This market will resolve according to the country in which the next formal senior-level round of peace talks between representatives of the United States and Iran begins by September 30, 2026, 11:59 PM ET.
+
+A qualifying round must be a deliberate in-person diplomatic meeting or negotiating round concerning US-Iran relations, involving senior representatives of both the United States and Iran who are acting in an official capacity and are authorized to conduct or materially direct diplomacy on behalf of their governments.
+
+Indirect in-person diplomacy through designated mediators, facilitators, or interlocutors will qualify, provided senior representatives of both the United States and Iran are participating in the same formal diplomatic process with the knowledge and authorization of their respective governments. The representatives need not be in the same room at the same time.
+
+Follow-on technical talks from the June 22 Switzerland round will not qualify by themselves. Technical, staff-level, working-group, implementation, monitoring, preparatory, or deconfliction meetings will not qualify unless they occur as part of a new formally convened senior-level U.S.-Iran peace-talks round.
+
+Brief greetings, chance encounters, photo opportunities, ceremonial appearances, or talks not deliberately aimed at diplomacy or negotiation will not count.
+
+The meeting must be in-person (including indirect in-person meetings) and must be publicly acknowledged by either government or reported by a consensus of credible media. Remote meetings, phone calls, or other meetings where the relevant parties are not present will not count.
+
+If a qualifying round occurs in more than one country, resolution will be based on the country where the first qualifying senior-level diplomatic session begins.
+
+If the next qualifying round begins in any country in the Middle East or North Africa other than the listed options, this market will resolve to “Other - Middle East/North Africa.”
+
+If the next qualifying round begins in any country in Europe other than the listed options, this market will resolve to “Other - Europe.”
+
+For purposes of this market, countries’ regions will be determined based on the U.S. State Department’s regional classifications in the “Countries and Areas List” (https://www.state.gov/countries-and-areas-list). Any country classified as part of “Europe and Eurasia” will be considered to be in Europe. Any country classified as part of “Near East (Middle East and North Africa)” will be considered to be in the Middle East/North Africa.
+
+If the next qualifying round begins in any unlisted country that is not classified in either specified region, this market will resolve to “Other.”
+
+If no qualifying round begins by September 30, 2026, 11:59 PM ET, this market will resolve to “No Meeting by September 30.”
+
+The resolution sources for this market will be official information from the governments of the United States and Iran, and a consensus of credible reporting.
+
+CONTRACTS (each pays $1 if its statement is true when the event resolves, $0 otherwise; you may name YES or NO on any contract):
+  C1: Will no qualifying diplomatic US-Iran meeting occur by September 30, 2026?  [No Meeting by September 30]
+  C2: Will the next diplomatic US-Iran meeting be in Oman by September 30, 2026?  [Oman]
+  C3: Will the next diplomatic US-Iran meeting be in the UAE by September 30, 2026?  [UAE]
+  C4: Will the next diplomatic US-Iran meeting be in Saudi Arabia by September 30, 2026?  [Saudi Arabia]
+  C5: Will the next diplomatic US-Iran meeting be in Qatar by September 30, 2026?  [Qatar]
+  C6: Will the next diplomatic US-Iran meeting be in Switzerland by September 30, 2026?  [Switzerland]
+  C7: Will the next diplomatic US-Iran meeting be in Austria by September 30, 2026?  [Austria]
+  C8: Will the next diplomatic US-Iran meeting be in Turkey by September 30, 2026?  [Turkey]
+  C9: Will the next diplomatic US-Iran meeting be in Iran by September 30, 2026?  [Iran]
+  C10: Will the next diplomatic US-Iran meeting be in the United States by September 30, 2026?  [USA]
+  C11: Will the next diplomatic US-Iran meeting be in Egypt by September 30, 2026?  [Egypt]
+  C12: Will the next diplomatic US-Iran meeting be in Italy by September 30, 2026?  [Italy]
+  C13: Will the next diplomatic US-Iran meeting be in Iraq by September 30, 2026?  [Iraq]
+  C14: Will the next diplomatic US-Iran meeting be in Kazakhstan by September 30, 2026?  [Kazakhstan]
+  C15: Will the next diplomatic US-Iran meeting be in Pakistan by September 30, 2026?  [Pakistan]
+  C16: Will the next diplomatic US-Iran meeting be in Russia by September 30, 2026?  [Russia]
+  C17: Will the next diplomatic US-Iran meeting be in another Middle East/North Africa country by September 30, 2026?  [Other - Middle East/North Africa]
+  C18: Will the next diplomatic US-Iran meeting be in another European country by September 30, 2026?  [Other - Europe]
+  C19: Will the next diplomatic US-Iran meeting be in another country by September 30, 2026?  [Other]
+
+Task. Write your own view as documents-and-mechanism reasoning, not as odds.
+1. primary: a thesis about how this event resolves and a basket of at most 4 contracts from the list that expresses it (long only: a contract with YES or NO).
+2. failure_narrative: the specific way the thesis is wrong (what would have to happen for the basket to lose).
+3. hedge_thesis: a second narrative, about a DIFFERENT part of the world, that would tend to be true in exactly the worlds where the primary fails. Say why, in mechanism terms.
+4. search_terms: 3 to 8 words or names (entities, assets, places, institutions) that instruments for the hedge thesis would carry. Lower-case single words or short names.
+5. recalls_outcome: true if you already know, or think you know, how this event (or any part of it) actually turned out; otherwise false. Be honest: a true answer is not penalised, it only means this item is set aside.
+
+Answer with one JSON object and nothing else:
+{"primary": {"thesis": "...", "basket": [{"contract": "C1", "side": "YES", "reason": "..."}]}, "failure_narrative": "...", "hedge_thesis": "...", "search_terms": ["..."], "recalls_outcome": false}
