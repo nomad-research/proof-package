@@ -88,3 +88,16 @@ uses the first block's standard error unless Rob amends this entry.
 
 Rob's instruction: do not squash-merge PR #20; tag or preserve `3090edf`. Tag pushes are refused in this environment (HTTP 403,
 issue #19), so the commit is preserved as a branch (see STATE.md). A merge commit or a rebase merge keeps the history.
+
+**Rename, 2026-09-30 (Rob: "I'm still seeing the word document instead of entity").** `K14_DOC_MIN` is now `K14_SOURCE_MIN`
+(value 1, unchanged); "DOC_MIN" in `lookbacks/K14_prereg.md` reads `SOURCE_MIN`, and the prereg says *source entities* where it said
+documents. A document is an entity (a kind: filing, report, notice, and so on), so the readability gate counts source entities. Dated entries above
+keep the old name, as written at the time.
+
+## 2026-09-30 — K8 (Rob: "No structural count at all, caps gains and isn't necessary")
+
+Recorded on the requester's statement: **no structural count**, so K8 as pre-registered (listed holders on both sides of a node, or options)
+is **retired as a gate**. Nothing waits on it. The unguarded figure already in `lookbacks/K8_result.md` (9 of 11 nodes with a listed hedge, mostly options)
+stays as a labelled note. The overlay run is not made. **Not yet set:** the replacement narrative-hedge measure, which is proposed
+(two or more listed instruments with the same exposure sign and different story loadings, giving a lower maximum loss across the thesis
+outcomes than either alone) and waits on Rob's definition. The stock-pair decision moves to that forward measure.
