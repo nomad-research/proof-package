@@ -1,0 +1,37 @@
+You are one of several independent analysts. Work only from what is written below. Apart from reading the file that held this text, do not use any tool, do not look anything up, and do not use anything you
+know that happened after 2026-09-30: reason as of that date. You are shown no market prices, and you are not asked for any probability.
+
+EVENT: How many Republican Governors after the 2026 midterm elections?   (structure: partition exact)
+RULES (as of 2026-09-30):
+The 2026 midterm elections are scheduled to be held on November 3, 2026.
+
+This market will resolve according to the number of United States governor’s seats that will be held by the Republican Party as a result of the 2026 midterm elections.
+
+This market will resolve based on the results of all gubernatorial elections, including special elections, that are scheduled to occur in November 2026 as of October 31, 2026. If a required runoff for any such election could change the market’s outcome, the market will remain open until that runoff is conclusively called by this market’s resolution sources.
+
+For governor seats contested in the specified election, seats are attributed to the party under which the governor was elected. If a governor-elect changes party affiliation, or vacates their seat, after election day, the seat is attributed to the party under which the individual was elected. 
+
+For seats not contested in the specified election, seats are attributed to the party that holds the seat as of the date of the election. If a current governor who is not up for election changes party affiliation or vacates their seat after the date of the election, the seat is attributed to the party under which the governor was affiliated at the time of the election.
+
+If a governorship is vacant but a corresponding election will not be held in November 2026, that seat will be considered held by the party of the seat's most recent incumbent.
+
+The resolution sources for this market will be official information from relevant state electoral authorities, and a consensus of credible reporting.
+
+CONTRACTS (each pays $1 if its statement is true when the event resolves, $0 otherwise; you may name YES or NO on any contract):
+  C1: Will the Republican Party hold fewer than 22 governorships after the 2026 midterm elections?  [<22]
+  C2: Will the Republican Party hold exactly 22 or 23 governorships after the 2026 midterm elections?  [22–23]
+  C3: Will the Republican Party hold exactly 24 or 25 governorships after the 2026 midterm elections?  [24–25]
+  C4: Will the Republican Party hold exactly 26 or 27 governorships after the 2026 midterm elections?  [26–27]
+  C5: Will the Republican Party hold exactly 28 or 29 governorships after the 2026 midterm elections?  [28–29]
+  C6: Will the Republican Party hold exactly 30 or 31 governorships after the 2026 midterm elections?  [30–31]
+  C7: Will the Republican Party hold 32 or more governorships after the 2026 midterm elections?  [32+]
+
+Task. Write your own view as documents-and-mechanism reasoning, not as odds.
+1. primary: a thesis about how this event resolves and a basket of at most 4 contracts from the list that expresses it (long only: a contract with YES or NO).
+2. failure_narrative: the specific way the thesis is wrong (what would have to happen for the basket to lose).
+3. hedge_thesis: a second narrative, about a DIFFERENT part of the world, that would tend to be true in exactly the worlds where the primary fails. Say why, in mechanism terms.
+4. search_terms: 3 to 8 words or names (entities, assets, places, institutions) that instruments for the hedge thesis would carry. Lower-case single words or short names.
+5. recalls_outcome: true if you already know, or think you know, how this event (or any part of it) actually turned out; otherwise false. Be honest: a true answer is not penalised, it only means this item is set aside.
+
+Answer with one JSON object and nothing else:
+{"primary": {"thesis": "...", "basket": [{"contract": "C1", "side": "YES", "reason": "..."}]}, "failure_narrative": "...", "hedge_thesis": "...", "search_terms": ["..."], "recalls_outcome": false}
