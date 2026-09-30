@@ -1,6 +1,6 @@
 # K14 — open-entity reading: pre-registration (values frozen, no reading run)
 
-Status: **FROZEN on its values (§5) but not yet read; no reading has been run.** The two blanks are set (provisional_unratified). The template-authorship guard is unverified (§5).
+Status: **PAUSED 2026-09-30 (Rob, on the repo review): the full run does not start; no reading has been run.** Frozen on its values (§5). Pilot cost was projected at $0.5–2.7; reads go to V1 first. The two blanks are set (provisional_unratified). The template-authorship guard is unverified (§5).
 
 **§8 (amendments of 2026-09-30) supersedes §2 to §6 wherever they differ.**
 

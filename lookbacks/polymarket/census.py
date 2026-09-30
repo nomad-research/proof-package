@@ -39,16 +39,18 @@ def vol(m):
     return float(m.get("volumeNum") or m.get("volume") or 0)
 
 
-NUM = re.compile(r"(\$\s?\d|\d+\s?%|\b(above|below|at least|over|under|more than|less than|fewer than|exceed)\b|\b\d[\d,\.]*\s?(k|m|b)?\b)", re.I)
-DATE = re.compile(r"\b(by|before|on or before)\b.*\b(jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec|q[1-4]|20\d\d)", re.I)
+MON = r"(jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]*"
+DATE_TOK = re.compile(rf"\b{MON}\s+\d{{1,2}}(,?\s*20\d\d)?\b|\b{MON}\s+20\d\d\b|\bq[1-4]\b|\b20\d\d\b|\b{MON}\b", re.I)
+NUM_TOK = re.compile(r"\$\s?[\d,\.]+\s?(k|m|b|million|billion)?|\b\d[\d,\.]*\s?(%|k|m|b)\b|\b\d[\d,\.]*\b", re.I)
 COND = re.compile(r"\b(if|conditional on|given that|assuming)\b", re.I)
 
 
-def strip_var(q):
-    q = re.sub(r"\$\s?[\d,\.]+\s?(k|m|b|million|billion)?", "#", q, flags=re.I)
-    q = re.sub(r"\b\d[\d,\.]*\s?(%|k|m|b)?\b", "#", q, flags=re.I)
-    q = re.sub(r"\b(jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]*\s+\d{0,2},?\s*\d{0,4}", "@", q, flags=re.I)
-    return re.sub(r"\s+", " ", q).strip().lower()
+def toks(q):
+    d = [m.group(0).lower() for m in DATE_TOK.finditer(q)]
+    rest = DATE_TOK.sub("@", q)
+    n = [m.group(0).lower() for m in NUM_TOK.finditer(rest)]
+    stem = re.sub(r"\s+", " ", NUM_TOK.sub("#", rest)).strip().lower()
+    return tuple(d), tuple(n), stem
 
 
 def classify(e):
@@ -59,11 +61,13 @@ def classify(e):
     slots = any(m.get("negRiskOther") or (m.get("groupItemTitle") or "").strip().lower() in ("other", "someone else") or re.match(r"person [a-z]$", (m.get("groupItemTitle") or "").strip().lower()) for m in ms)
     if e.get("negRisk"):
         return "partition with an open slot" if slots else "partition, exact"
-    stems = collections.Counter(strip_var(m.get("question") or "") for m in ms)
+    T = [toks(m.get("question") or "") for m in ms]
+    common = collections.Counter(t[2] for t in T).most_common(1)
+    same = [t for t in T if common and t[2] == common[0][0]]
     thr = len({m.get("groupItemThreshold") for m in ms if m.get("groupItemThreshold") not in (None, "")}) >= 3
-    if thr or (stems and stems.most_common(1)[0][1] >= 3 and any(NUM.search(m.get("question") or "") for m in ms) and not all(DATE.search(m.get("question") or "") for m in ms)):
+    if thr or (len(same) >= 3 and len({t[1] for t in same}) >= 3):
         return "threshold ladder"
-    if sum(bool(DATE.search(m.get("question") or "")) for m in ms) >= 3:
+    if len(same) >= 3 and len({t[0] for t in same}) >= 3:
         return "date ladder"
     if any(COND.search(m.get("question") or "") for m in ms):
         return "conditional chain (low confidence)"
@@ -84,11 +88,17 @@ def usable(e, mv=10000, ev=100000):
 
 
 print("crawling ...")
-active = crawl("active=true&closed=false")
+active = {}
+for order in ("volume24hr", "volume", "liquidity", "endDate", "startDate"):
+    for asc in ("false", "true"):
+        for e in crawl(f"active=true&closed=false&order={order}&ascending={asc}"):
+            active[e["id"]] = e
+active = list(active.values())
 closed = {}
-for order in ("volume", "endDate"):
-    for e in crawl(f"closed=true&order={order}&ascending=false"):
-        closed[e["id"]] = e
+for order in ("volume", "endDate", "liquidity", "startDate"):
+    for asc in ("false", "true"):
+        for e in crawl(f"closed=true&order={order}&ascending={asc}"):
+            closed[e["id"]] = e
 print(f"active events {len(active)}; closed events {len(closed)}")
 rows = []
 dropped = 0
@@ -127,3 +137,4 @@ for r in rows:
 pairs = sum(1 for g, L in byg.items() for i in range(len(L)) for j in range(i + 1, len(L)) if len(L[i] & L[j]) >= 2)
 print("cross-event candidate pairs among usable events (same group, two shared title words; unmeasured beyond this):", pairs)
 json.dump(rows, open("census_rows.json", "w"))
+print("NOTE: each ordering is capped near 2,100 events by the API; coverage is the union of orderings, not the whole catalogue.")

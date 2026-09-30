@@ -18,3 +18,9 @@
 **Groups** (by tag, first match in this order): geopolitics (geopolitics, world, war, iran, israel, russia, ukraine, china, taiwan, middle-east, ceasefire, nato, strait-of-hormuz); politics and elections (politics, elections, global-elections, us-presidential-election, midterms, trump, congress); economy and finance (fed, fed-rates, economy, finance, stocks, equities, oil, commodities, inflation, earnings, earn-4, ipo, tariffs, trade); crypto (crypto, bitcoin, ethereum, crypto-prices); technology and science (tech, ai, big-tech, openai, ai-releases, science, space, health, climate, energy, spacex); business and manufacturing (business, manufacturing, companies, ipo); other.
 
 **Reported:** events, markets and total volume by class and group; the share of usable structures; the count of closed events whose end date is after **2026-06-30** (the model cutoff, so clean for a round); the number of exact partitions and date ladders among them; and a first count of **cross-event candidates** (events in the same group sharing at least two title words), unmeasured beyond that.
+
+## Amendments of 2026-09-30, after run 1 and before any conclusion is drawn (coverage and classifier bugs, not threshold changes)
+Run 1 output is kept as `census_run1_output.txt` and `census_run1_rows.json`.
+1. **Coverage.** Run 1 stopped at the API's offset cap (2,100 for active; two orderings for closed), so "paged to the end" was not true. Run 2 unions five orderings, ascending and descending, for active, and four for closed. It is still not the whole catalogue; the output says so.
+2. **Classifier bug.** Run 1 counted a year or a day-of-month as a number, so date ladders ("Trump meets Putin by...?") were labelled threshold ladders. Run 2 removes dates before looking for numbers. The class definitions above are unchanged.
+3. No liquidity threshold, group list or class order was changed.

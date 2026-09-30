@@ -114,3 +114,6 @@ It replaces K8 as the stock-pair decision (K8 retired as a gate, above). The sce
 **Design intent, stated by Rob (proposed, not built):** the hedge is itself a correlated parallel thesis. As a thesis is constructed, its
 narrative hedges are constructed as parallel theses over the same event, and N baskets are then constructed from that pool to fit whatever
 objective is needed. See `docs/nomad_v17_amendment_A1.md` §7 (proposed D31).
+
+## 2026-09-30 — K14 full run paused; Polymarket census
+Rob (repo review): pause K14's full run; spend reads on V1. Not cancelled: values in `lookbacks/K14_prereg.md` stay frozen and the scripts stay in place; resume only on his word. V3–V5 remain gated on K14 as pre-registered. Census (`lookbacks/polymarket/`): a count, not a ratification. **D33 is ratified only after Rob confirms the V1 class** proposed in `CENSUS_RESULT.md`.
