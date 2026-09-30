@@ -24,3 +24,6 @@ Usable closed structures by group: crypto 268, politics and elections 185, geopo
 ## What decides V1
 Rob's note (2026-09-30): once the modified PredictionProphet is live, all classes become viable, because the necessary-condition decomposition builds the structure inside a single contract. So the census does not limit the product's scope (singles and pairs are in scope; 520 closed single or pair events have volume ≥ $100k). It only limits **V1**, which needs several already-resolved related contracts with exact payoffs.
 The candidate V1 class is therefore **partitions and ladders in geopolitics, politics, economy and finance, and technology, closed after 2025**, with cross-event thesis baskets built by a session from the entity registry, not by title words. Proposed for Rob's confirmation, not ratified. D33 stays proposed until he confirms.
+
+## Correction (2026-09-30, found building the V1 pool)
+The column "Closed after 2026-06-30" and the "203 usable" figure used the **scheduled `endDate`**, not the time the event actually resolved, so it counted events that resolved before the model's cutoff. The clean count, filtered on the actual `closedTime`, is **78 events** (see `V1_prereg.md` A9). The other counts (classes by status, groups, sensitivity to the liquidity floor) do not depend on it.

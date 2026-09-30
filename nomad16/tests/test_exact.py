@@ -132,3 +132,38 @@ def test_build_exact_returns_the_build_record_shape_and_flags_open_slots():
     m2 = op.mask([lambda s: s["R"] != "A" and s["X"] == "nx"])
     r2 = construct.build_exact({"key": "ack2"}, ["B"], Po, [Ho], op, m2, 100.0)
     assert "open_slot_reachable" in r2["flags"] and r2["detail"]["open_slots_reachable"] == ["R"]
+
+
+class _View:
+    manifest = None
+
+    def __init__(self, db):
+        self.db = db
+
+    def led(self, table, where="", params=()):
+        return self.db.rows(table, where, params)
+
+
+def test_polymarket_vintage_truncates_at_the_lock_verifies_records_drift_and_applies_the_age_rule(tmp_path, monkeypatch):
+    import json as _json
+    from nomad16 import prices
+    from nomad16.db import DB
+    db = DB(str(tmp_path / "p.db")); view = _View(db)
+    body = {"history": [{"t": 1000, "p": 0.40}, {"t": 2000, "p": 0.42}, {"t": 3000, "p": 0.45}, {"t": 4000, "p": 0.50}]}
+    monkeypatch.setattr(prices, "curl", lambda url: _json.dumps(body))
+    r = prices.fetch_polymarket(db, "tok1", 0, 5000, ceiling_ts=3000)
+    assert r["n_points"] == 2 and r["last"] == 2000                     # points at or after the lock never reach the store
+    assert prices.pm_points(view, "tok1") == [(1000, 0.40), (2000, 0.42)]
+    assert prices.pm_price_at(view, "tok1", 2500) == (0.42, pytest.approx(500 / 3600))
+    assert prices.pm_price_at(view, "tok1", 2000 + 49 * 3600) == (None, None)   # stale beyond 48 hours: no eligible price
+    assert prices.pm_price_at(view, "tok1", 500) == (None, None)
+    body["history"][1]["p"] = 0.44                                        # a refetch that disagrees is stored with drift_of set, never substituted silently
+    r2 = prices.fetch_polymarket(db, "tok1", 0, 5000, ceiling_ts=3000)
+    assert r2["drift_of"] == r["vintage_id"] and r2["drift_times"] == [2000]
+    for bad in ([{"t": 2, "p": 0.5}, {"t": 1, "p": 0.5}], [{"t": 1, "p": 1.5}], [{"t": 1}]):
+        monkeypatch.setattr(prices, "curl", lambda url, b=bad: _json.dumps({"history": b}))
+        with pytest.raises(Refused):
+            prices.fetch_polymarket(db, "tok2", 0, 5000, None)
+    monkeypatch.setattr(prices, "curl", lambda url: "not json")
+    with pytest.raises(Refused):
+        prices.fetch_polymarket(db, "tok3", 0, 5000, None)
