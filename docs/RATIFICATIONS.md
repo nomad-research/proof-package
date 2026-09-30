@@ -120,3 +120,6 @@ Rob (repo review): pause K14's full run; spend reads on V1. Not cancelled: value
 
 ## 2026-09-30 — V1 class confirmed (Rob)
 Rob: "yes partitions and ladders". V1 runs on partitions and ladders (`lookbacks/polymarket/CENSUS_RESULT.md`), geopolitics, politics, economy and finance, and technology, closed after 2025, with cross-event thesis baskets built by a session from the entity registry. Keys are condition and token ids, never question text (the recorder shows several markets sharing one question). **D33 itself is not ratified**; it waits for Rob's word. Recorder running on Rob's Ubuntu WSL from 2026-09-30 about 12:00 UTC (first heartbeat seen 12:18 UTC).
+
+## 2026-09-30 — price is not foundational evidence, and stays in the system (Rob; resolves D-V1-1)
+Rob: "price stays out as a foundational data point, not out of the system." Read as entity-model rule R6: price is attentional, never evidence for a thesis, an exposure, an outcome or a probability; it enters at expression (construction, sizing, costs, paper marks, scoring). V1 applies it as two stages (`lookbacks/polymarket/V1_prereg.md` §11 A5 to A7): the session writes the thesis in effect terms with no price; the harness expresses it with prices. Severity-tier mapping values (0.50, 0.25, 0.10) are the builder's, provisional_unratified.
