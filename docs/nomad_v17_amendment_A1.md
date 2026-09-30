@@ -140,3 +140,18 @@ The hedge is **constructed thesis-first**, not found. The narrative and thus the
 
 **The falsifiable claim, then:** for a primary basket and its failure set, the constructed hedge (thesis, then basket) gives a **lower worst case across realised outcomes, out of sample**, than (i) the primary alone, (ii) a de-risking control at the same cost, and (iii) a hedge built **without narrative guidance** (a purely statistical one: minimum correlation or minimum variance fitted to the same universe).
 If the narrative-guided hedge does no better than the blind statistical one, the narrative is decoration. The generative freedom is the risk (a narrative can be built to fit anything), which is why the anchor rule, the declared objectives and the cap on N are conditions of the test and not extras.
+
+### 7.2 The general form (Rob, 2026-09-30: designing specific scenarios where it can work means it is not yet understood)
+
+The mechanism must not need a scenario. Stated with no domain in it:
+
+- A position has a payoff vector **p** over an outcome space **Omega** (typed outcomes, as an ACK's vocabulary). Its **failure set** is A, the outcomes where p is lowest.
+- The universe supplies instruments with payoff vectors s_j over Omega (with gaps where unknown). All are long-only.
+- **A hedge exists (at the margin) exactly when some non-negative combination of instruments pays on every outcome in A** (Ville's theorem): either such a combination exists, or there is a distribution q over A under which every instrument has non-positive expected payoff. That second case is the whole content of "no hedge in this universe". It depends only on the payoff matrix, never on the domain.
+- **Cost is the price of the hedge**, not a special case: a fairly priced instrument that pays on A must pay less elsewhere, so a hedge always gives up upside (the trade the maximin makes).
+- **The narrative's general role is a prior over the payoff matrix's sign structure**: which instruments pay in which outcomes, supplied from anchored mechanism chains. It is worth most where the matrix cannot be estimated from data (rare or new event classes, regime breaks) and least where it can (a stable single factor with long history, as the FOMC test showed). So the narrative's advantage over a blind statistical hedge is a function of estimation difficulty, not of the domain.
+
+**What follows for implementation and for testing generality.**
+1. The engine takes an outcome space, a position payoff vector, an instrument payoff matrix (with typed gaps) and constraints. It contains no event class. Domains enter only through adapters that supply exposures and outcomes.
+2. Do not pick the events. Run the same procedure on **every** round the intake yields, with the shadow comparator (a blind statistical pair) always on, and let the record decide.
+3. Generality is shown when success and the narrative's advantage are **predicted by two domain-free quantities** across all classes: whether instruments pay on the failure set (the condition above), and how much data the blind fit had (the number of trailing observations). A test that only works in chosen scenarios is a test of the scenarios.

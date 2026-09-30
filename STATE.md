@@ -532,3 +532,9 @@ could not test this. The falsifiable claim: the constructed hedge beats the prim
 `lookbacks/scenarios/construct_hedge/` (feasibility: 67 statement dates, outcome = change in the 5-year yield; NRC events and Gulf hurricanes fail). A cold session, blind to prices, built the hedging thesis and the basket DHI, O, AMT, NEE for a long-banks primary.
 Result: beats de-risking in both halves (+0.26%, +0.42% on dovish days); does not beat a blind statistical hedge (level, then -0.72%); costs 0.23% to 0.32% of the upside on other days. A constructed long hedge works; narrative guidance adds nothing here.
 Hypothesis for next: narrative should matter where statistics cannot be estimated (rare event class, regime break, single-company outcome).
+
+## 2026-09-30 (later) — the general form (A1 §7.2)
+
+Rob: as soon as we design specific scenarios where it can work, it is ungeneralized. Stated without a domain: a hedge exists at the margin iff some non-negative combination of instruments pays on every failure outcome (Ville's theorem);
+the narrative is a prior over the payoff matrix's sign structure, worth most where data cannot estimate it; the engine holds no event class; every round runs with a blind shadow comparator; generality is predicted success against two domain-free
+quantities (payoff on the failure set, trailing data). Proposed step 8 of the implementation list (Fed days as the first live class) withdrawn.
