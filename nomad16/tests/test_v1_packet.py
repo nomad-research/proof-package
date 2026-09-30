@@ -138,3 +138,4 @@ def test_stage1b_answer_validation():
     assert K.validate_1b(bad, pk1, pk)
     text = K.prompt_1b(pk1, GOOD_1A, pk)
     assert "0xcond" not in text and "tokyes" not in text
+    assert "Will the Fed hold?" in text and "C2:" in text                                       # a fresh stage-1b session can read what its primary labels mean

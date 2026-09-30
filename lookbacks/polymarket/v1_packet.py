@@ -224,6 +224,10 @@ def stage1b(index, terms, lock, exclude_template, round_id, price_fn, exclude_id
 
 PROMPT_1B = """Continue as the same analyst, under the same rules (no tools, nothing after {as_of}, no prices, no probabilities).
 
+THE PRIMARY EVENT: {p_title}   (structure: {p_kind})
+ITS CONTRACTS:
+{p_contracts}
+
 YOUR HEDGE THESIS: {hedge_thesis}
 YOUR PRIMARY BASKET: {basket}
 YOUR FAILURE NARRATIVE: {failure}
@@ -249,8 +253,10 @@ Answer with one JSON object and nothing else:
 
 def prompt_1b(packet_1a, answer_1a, packet_1b):
     basket = "; ".join(f"{x['contract']} {x['side']}" for x in answer_1a["primary"]["basket"])
+    ev = packet_1a["event"]
+    p_contracts = "\n".join(f"  {c['label']}: {c['question']}" + (f"  [{c['group_item']}]" if c["group_item"] else "") for c in ev["contracts"])
     cands = "\n\n".join(f"{c['label']}  {c['title']}  (structure: {c['kind']}; similar events: {c['similar_events']})\n  rules: {c['rules']}\n" + "\n".join(f"    {k['label']}: {k['question']}" + (f"  [{k['group_item']}]" if k['group_item'] else "") for k in c["contracts"]) for c in packet_1b["candidates"])
-    return PROMPT_1B.format(as_of=packet_1b["as_of"], hedge_thesis=answer_1a["hedge_thesis"], basket=basket, failure=answer_1a["failure_narrative"], cands=cands)
+    return PROMPT_1B.format(p_title=ev["title"], p_kind=ev["kind"], p_contracts=p_contracts, as_of=packet_1b["as_of"], hedge_thesis=answer_1a["hedge_thesis"], basket=basket, failure=answer_1a["failure_narrative"], cands=cands)
 
 
 def validate_1b(obj, packet_1a, packet_1b):
