@@ -36,3 +36,13 @@ def test_price_is_attentional_and_cannot_be_evidence_for_exposures():
     for name in ("states", "component", "exposed_to"):                   # R6: price is never the evidence for a statement, an exposure or an effect
         assert "price_series" in rel[name]["constraints"]["excludes_source_kinds"], name
     assert any(r.startswith("R6") for r in M["rules"])
+
+
+def test_every_dataset_kind_has_an_evidence_mode_and_attention_never_supports():
+    ds = [k for k in M["kinds"] if k["parent"] == "dataset"]
+    assert {k["kind"] for k in ds} >= {"fundamental", "state_observation", "regulatory_record", "legal_filing", "media_event", "price_series", "quote", "calendar_fact"}
+    for k in ds:
+        assert k["evidence_mode"] in {"physical", "accounting", "regulatory", "scheduled", "attentional", "analogical", "structural"}, k["kind"]
+    modes = {k["kind"]: k["evidence_mode"] for k in ds}
+    assert modes["price_series"] == modes["media_event"] == modes["quote"] == "attentional" and modes["remote_sensing"] == "analogical"
+    assert any(r.startswith("R13") for r in M["rules"])

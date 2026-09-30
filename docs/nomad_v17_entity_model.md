@@ -187,7 +187,33 @@ The tables stay as projections during migration (views first; a ledger table nev
 6. Objectives and the cap on baskets are `parameter` entities declared at lock.
 7. **Price** appears only in step 2's payoff estimates and in paper marks, as `price_series` datasets: attentional, confirming and never proposing. Exposures, outcomes and effects are evidenced by documents and datasets of other kinds.
 
-## 6. What this changes, and the order
+## 6. The data layer, as entities (added after Rob: "fundamentals are just one aspect")
+
+Under the view every source is a **dataset or document entity of some kind**, and each kind has an **evidence mode** that says what it may do (R13). The mode follows what the source *measures*, not how it arrived. This replaces the older blanket rule that all
+alternative data may only propose: a recorded reactor power level or an earthquake catalogue is a measurement of the state of a thing by a recording authority; a tally of news events is attention; a model's reading of an image is an analogy until it is validated.
+
+| Dataset kind | Evidence mode | Evidences | What is wired in the repo today | Note |
+|---|---|---|---|---|
+| `price_series` | attentional | prices | prices.py (Yahoo) into the vintage store | |
+| `regulatory_record` | regulatory | a notice, docket or event report from an agency (NRC event notificatio | pit_fetch: nrc_en; enumeration feed (NRC); Fed pages read in the look-backs | |
+| `legal_filing` | accounting | a filing on the public record (10-K, 10-Q, 8-K, ownership forms), text | pit_fetch: edgar_filings, edgar_doc | |
+| `fundamental` | accounting | a structured or stated figure from a filing (a quarterly line item, a  | SEC structured facts (used in the look-backs); no harness adapter yet | |
+| `state_observation` | physical | a measurement of the state of a thing by a recording authority (reacto | pit_fetch: nrc_status; alt_fetch: portwatch_chokepoint, portwatch_port, ioda, usgs, firms (key needed) | |
+| `remote_sensing` | analogical | a model reading of an image (scene brightness counts) | alt_fetch: s2_scenes, s2_image | |
+| `media_event` | attentional | coded news events and tallies | alt_fetch: gdelt_events; acled needs a key | |
+| `calendar_fact` | scheduled | an agency or exchange calendar entry | not in the harness; read from the data product's scheduled_fact | |
+| `ownership_edge` | accounting | an ownership or control edge with a share and a source filing | data product: ownership_edge; the K7 census by hand | |
+| `instrument_map` | accounting | which listed instrument references which entity | data product: instrument_map; the K7 census by hand | |
+| `quote` | attentional | a prediction-market or event-contract quote | data product: quote | |
+
+**So no, it is not only fundamentals.** Wired in this repo: the NRC event notifications and reactor status, the SEC filing index and documents, the Wayback snapshots, Sentinel-2 scenes, the IMF PortWatch port and chokepoint counts, the GDELT event exports, IODA internet-outage signals, the USGS earthquake catalogue, Yahoo prices (into the vintage store), and the hand-run K7 census.
+Keyed and not yet usable: NASA FIRMS fire detections (needs a map key), Global Fishing Watch vessel presence, ACLED conflict events, NASA Black Marble night lights (issue #15).
+**Not reachable from this session:** the `dataprod` layer the spec describes (recorded feeds, `filing_item`, `announcement`, `regulatory_notice`, `ownership_edge`, `instrument_map`, `customer_disclosure`, `scheduled_fact`, `quote`, the event spine). Its records are what would document exposures and outcomes far more broadly than the ten oil filings did (four of twelve companies disclosed a usable sensitivity).
+The look-backs used only prices, filings, structured share counts, HURDAT2 and the Fed pages because that is what could be reached.
+
+**Why diversity matters for the mechanism.** Exposures, outcomes and effects can each be evidenced by different kinds, and independent lineages triangulate one another (the spec's rule that cross-membership needs independent derivations). An effect confirmed by a filing, a state observation and a regulator's record is stronger than any one of them, and a channel undisclosed in filings may still be documented by a physical observation or an ownership edge.
+
+## 7. What this changes, and the order
 
 - **Views first.** `entities`, `entity_kinds`, `capabilities`, `key_map`, `entity_events`, `statement_links` exist (V0, V1). Each table above becomes a view over entities, relations and statements with no ledger column added, one family at a time (positions and evidence are done; effects, ACKs and theses next).
 - **The registry carries the constraints.** Roles, acyclicity, single-sink and the price exclusion are checked from `config/system_model.json`, not from private lists in the code. Extending the system means adding a kind or a relation type as data.

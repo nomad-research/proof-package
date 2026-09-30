@@ -38,7 +38,8 @@
    "kind": "snapshot",
    "parent": "dataset",
    "capabilities": [],
-   "note": "content-addressed copy of a mutable store"
+   "note": "content-addressed copy of a mutable store",
+   "evidence_mode": "structural"
   },
   {
    "kind": "price_series",
@@ -46,13 +47,9 @@
    "capabilities": [
     "attentional"
    ],
-   "note": "prices: may confirm, never propose; expression layer only"
-  },
-  {
-   "kind": "fundamental",
-   "parent": "dataset",
-   "capabilities": [],
-   "note": "a quarterly figure from a filing, structured or stated"
+   "note": "prices: may confirm, never propose; expression layer only",
+   "evidence_mode": "attentional",
+   "adapter": "prices.py (Yahoo) into the vintage store"
   },
   {
    "kind": "outcome_vocab",
@@ -231,6 +228,86 @@
    "parent": null,
    "capabilities": [],
    "note": "a pre-registered look-back or kill test: its prereg entity precedes its result"
+  },
+  {
+   "kind": "regulatory_record",
+   "parent": "dataset",
+   "capabilities": [],
+   "evidence_mode": "regulatory",
+   "note": "a notice, docket or event report from an agency (NRC event notifications, dockets, Fed statements)",
+   "adapter": "pit_fetch: nrc_en; enumeration feed (NRC); Fed pages read in the look-backs"
+  },
+  {
+   "kind": "legal_filing",
+   "parent": "dataset",
+   "capabilities": [],
+   "evidence_mode": "accounting",
+   "note": "a filing on the public record (10-K, 10-Q, 8-K, ownership forms), text and index",
+   "adapter": "pit_fetch: edgar_filings, edgar_doc"
+  },
+  {
+   "kind": "fundamental",
+   "parent": "dataset",
+   "capabilities": [],
+   "evidence_mode": "accounting",
+   "note": "a structured or stated figure from a filing (a quarterly line item, a disclosed sensitivity)",
+   "adapter": "SEC structured facts (used in the look-backs); no harness adapter yet"
+  },
+  {
+   "kind": "state_observation",
+   "parent": "dataset",
+   "capabilities": [],
+   "evidence_mode": "physical",
+   "note": "a measurement of the state of a thing by a recording authority (reactor power levels, an earthquake catalogue, port and chokepoint vessel counts, an internet-outage signal, a fire detection)",
+   "adapter": "pit_fetch: nrc_status; alt_fetch: portwatch_chokepoint, portwatch_port, ioda, usgs, firms (key needed)"
+  },
+  {
+   "kind": "remote_sensing",
+   "parent": "dataset",
+   "capabilities": [],
+   "evidence_mode": "analogical",
+   "note": "a model reading of an image (scene brightness counts): proposes until validated against a state_observation",
+   "adapter": "alt_fetch: s2_scenes, s2_image"
+  },
+  {
+   "kind": "media_event",
+   "parent": "dataset",
+   "capabilities": [],
+   "evidence_mode": "attentional",
+   "note": "coded news events and tallies: what is being said, not what is so",
+   "adapter": "alt_fetch: gdelt_events; acled needs a key"
+  },
+  {
+   "kind": "calendar_fact",
+   "parent": "dataset",
+   "capabilities": [],
+   "evidence_mode": "scheduled",
+   "note": "an agency or exchange calendar entry: a date the system did not choose",
+   "adapter": "not in the harness; read from the data product's scheduled_fact"
+  },
+  {
+   "kind": "ownership_edge",
+   "parent": "dataset",
+   "capabilities": [],
+   "evidence_mode": "accounting",
+   "note": "an ownership or control edge with a share and a source filing",
+   "adapter": "data product: ownership_edge; the K7 census by hand"
+  },
+  {
+   "kind": "instrument_map",
+   "parent": "dataset",
+   "capabilities": [],
+   "evidence_mode": "accounting",
+   "note": "which listed instrument references which entity",
+   "adapter": "data product: instrument_map; the K7 census by hand"
+  },
+  {
+   "kind": "quote",
+   "parent": "dataset",
+   "capabilities": [],
+   "evidence_mode": "attentional",
+   "note": "a prediction-market or event-contract quote",
+   "adapter": "data product: quote"
   }
  ],
  "relation_types": [
@@ -768,6 +845,7 @@
   "R9 A hedge is constructed thesis-first: a primary thesis, its failure set (computed from pays_under, never authored), a hedge thesis that covers it, then a basket constructed for that thesis. The hedge relation is one-way, acyclic and single-sink; hedge baskets are long-only; a shadow basket is never traded.",
   "R10 Objectives and the number of baskets are declared at lock. Each basket is scored on its own objective and the set is scored separately.",
   "R11 A parameter is an entity with a status and provenance; a ratification is a decision entity by a person with a date.",
-  "R12 A test is an entity: its pre-registration entity carries a knowable_from that precedes every result entity it produces."
+  "R12 A test is an entity: its pre-registration entity carries a knowable_from that precedes every result entity it produces.",
+  "R13 A dataset's evidence mode says what it may do. physical, accounting, regulatory and scheduled evidence may support a statement; attentional and analogical evidence may propose and never support. The mode follows what the dataset measures (the state of a thing, a record, a date, or attention), not the channel it arrived by: a recorded reactor power level is physical, a tally of news events is attentional, a model's reading of an image is analogical until it is validated against a state observation."
  ]
 }
