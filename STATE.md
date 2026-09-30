@@ -602,3 +602,6 @@ Rob: keep 24 rounds with a reserve of 12. `v1_reserve.json` drawn (second seed, 
 
 ## 2026-09-30 (later still) — run harness and dress rehearsal
 `lookbacks/polymarket/v1_run.py` (prompt prep, file-based prompts, ingest from the session transcript, strict audit, freeze manifest) + tests; stage 1b now shows every live candidate; dress rehearsal on two out-of-pool events (`REHEARSAL.md`, `packets_rehearsal/`): mechanics work end to end; measured about 85k tokens per round. Found and fixed: hand-abbreviated prompt (caught by audit), over-strict answer validator, thin term-matched menu, tier mapping limited to displayed rungs, duplicate rungs, a strike-parser bug; recall canary is noisy; ladder strikes leak the level at the lock. 153 tests pass. `V1_prereg.md` A15. Open for Rob: the claim-consistency sentence; batching. Not done: the final freeze (A16), any real round.
+
+## 2026-09-30 (later still) — the freeze (A16)
+Rob: add the claim line, batches of 6. Claim line added and validated; price checks retried; replacement tooling. All hashes recorded in `V1_prereg.md` A16. First batch: 655630, 125877, 155674, 199763, 230191, 25036. No round authored before this commit.

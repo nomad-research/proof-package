@@ -275,11 +275,43 @@ def audit(eid, stage, agent_id, rehearsal=False):
     return a
 
 
+LIVE = os.path.join(HERE, "v1_rounds_live.json")
+
+
+def live_state():
+    """The rounds as they stand: the frozen list, with every replacement from the reserve applied in order and logged. The frozen v1_rounds.json is never edited."""
+    if not os.path.exists(LIVE):
+        base = json.load(open(os.path.join(HERE, "v1_rounds.json")))
+        json.dump({"rounds": list(base["rounds"]), "reserve": list(base["reserve_left"]), "log": []}, open(LIVE, "w"), indent=1)
+    return json.load(open(LIVE))
+
+
+def replace(eid, reason):
+    """Replace a round by the next reserve event, in listed order (V1_prereg.md A12 to A15). Returns the replacement."""
+    st = live_state()
+    if eid not in st["rounds"]:
+        raise SystemExit(f"{eid} is not a current round")
+    if not st["reserve"]:
+        raise SystemExit("the reserve is exhausted")
+    new = st["reserve"].pop(0)
+    st["rounds"][st["rounds"].index(eid)] = new
+    import datetime
+    st["log"].append({"replaced": eid, "by": new, "reason": reason, "at": datetime.datetime.now(datetime.timezone.utc).isoformat(timespec="seconds")})
+    json.dump(st, open(LIVE, "w"), indent=1)
+    return new
+
+
+def next_batch(n):
+    """The next n current rounds that have no final answer yet."""
+    st = live_state()
+    return [r for r in st["rounds"] if not os.path.exists(os.path.join(rdir(r), "answer_1b.json"))][:n]
+
+
 def manifest(partial=False, rehearsal=False):
     base = os.path.join(HERE, "packets_rehearsal" if rehearsal else "packets")
     ids = [d[1:] for d in sorted(os.listdir(base)) if d.startswith("R")] if os.path.isdir(base) else []
     if not rehearsal and not partial:
-        want = json.load(open(os.path.join(HERE, "v1_rounds.json")))["rounds"]
+        want = live_state()["rounds"]
         missing = [w for w in want if w not in ids or not os.path.exists(os.path.join(rdir(w), "answer_1b.json"))]
         if missing:
             raise SystemExit(f"rounds without a final answer: {missing}; use --partial to freeze what exists")
@@ -311,5 +343,11 @@ if __name__ == "__main__":
         print(json.dumps(prepare1b(a.args[0], r), indent=1))
     elif a.cmd == "audit":
         print(json.dumps(audit(a.args[0], a.args[1], a.args[2], r), indent=1))
+    elif a.cmd == "replace":               # replace <event_id> <reason...>
+        print(replace(a.args[0], " ".join(a.args[1:])))
+    elif a.cmd == "batch":                 # batch <n>
+        print(json.dumps(next_batch(int(a.args[0]))))
+    elif a.cmd == "status":
+        st = live_state(); print(json.dumps({"rounds": len(st["rounds"]), "reserve_left": len(st["reserve"]), "replacements": st["log"]}, indent=1))
     elif a.cmd == "manifest":
         print(json.dumps(manifest(a.partial, r), indent=1))

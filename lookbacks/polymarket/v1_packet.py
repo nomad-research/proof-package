@@ -54,10 +54,27 @@ def leak_flags(text):
     return sorted({m.group(0).lower() for m in LEAK.finditer(text or "")})
 
 
+def _history(url, tries=5):
+    """The parsed JSON of a price-history request. A rate limit, a server error or a timeout is retried with backoff and, if it persists, raised: it is never read as 'no price'
+    (an empty history is a real answer; a failed request is not)."""
+    import time, urllib.error, urllib.request
+    for k in range(tries):
+        try:
+            return json.loads(urllib.request.urlopen(urllib.request.Request(url, headers=P.H), timeout=60).read())
+        except urllib.error.HTTPError as e:
+            if e.code in (400, 404, 422):                     # the API's own answer for a token with no history in the window
+                return {"history": []}
+            err = e
+        except Exception as e:
+            err = e
+        time.sleep(1.5 * (2 ** k))
+    raise RuntimeError(f"price history unavailable after {tries} tries: {err}")
+
+
 def price_fn_live(token, lock):
-    """True if the token has a price point within 48 hours before the lock (60-minute fidelity, then 12-hour). Network."""
+    """True if the token has a price point within 48 hours before the lock (60-minute fidelity, then 12-hour). Network, retried."""
     for fid in (60, 720):
-        h = P.page(f"https://clob.polymarket.com/prices-history?market={token}&startTs={lock - MAX_AGE_S}&endTs={lock}&fidelity={fid}")
+        h = _history(f"https://clob.polymarket.com/prices-history?market={token}&startTs={lock - MAX_AGE_S}&endTs={lock}&fidelity={fid}")
         if any(x["t"] <= lock and lock - x["t"] <= MAX_AGE_S for x in (h or {}).get("history", [])):
             return True
     return False
@@ -251,6 +268,7 @@ Task. From the candidates only:
    For any other structure name the contract.
 2. claims: for each way your hedge thesis says the worlds are linked, one claim of the form "if this primary contract resolves NO (or YES), then this hedge condition holds", each with a reason
    in mechanism terms. A claim says which combinations cannot both happen; it is tested against what actually happened, so make only the claims you would stand behind.
+   Make each claim about the same condition as one of your hedges (the same event, direction and tier, or the same contract), since a claim about something you do not hold has no effect.
 3. If nothing in the list can express your hedge thesis, say so: return no hedges (that is an acceptable answer and is recorded as 'no instrument').
 4. recalls_outcome: true if you already know, or think you know, how any candidate you are considering actually turned out; otherwise false. A true answer is not penalised; it only means this item is set aside.
 
@@ -292,8 +310,12 @@ def validate_1b(obj, packet_1a, packet_1b):
                 errs.append(f"bad ladder hedge {h}")
         else:
             errs.append(f"bad hedge {h}")
+    held = {("c", h["contract"]) for h in hs if "contract" in h} | {("t", h["event"], h["direction"], h["tier"]) for h in hs if "event" in h}
     for cl in obj.get("claims") or []:
         i, t = cl.get("if") or {}, cl.get("then") or {}
+        tk = ("c", t["contract"]) if "contract" in t else ("t", t.get("event"), t.get("direction"), t.get("tier"))
+        if tk not in held:
+            errs.append(f"claim consequent {t} is not one of your hedges (the same event, direction and tier, or the same contract)")
         if i.get("contract") not in c_labels or i.get("resolves") not in ("YES", "NO"):
             errs.append(f"bad claim antecedent {i}")
         if t.get("contract") in ladder_labels or not (t.get("contract") in k_labels or t.get("event") in cand) or (t.get("resolves") not in ("YES", "NO") and "tier" not in t):

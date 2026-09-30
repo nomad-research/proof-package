@@ -144,7 +144,14 @@ def test_stage1b_answer_validation():
     assert K.validate_1b(bad, pk1, pk)
     bad = json.loads(json.dumps(ok)); bad["hedges"][0]["reason"] = "an 80% chance to fall"
     assert K.validate_1b(bad, pk1, pk)
+    bad = json.loads(json.dumps(ok)); bad["claims"][0]["then"] = {"contract": coin["contracts"][1]["label"], "resolves": "YES"}          # a claim about a contract that is not held
+    assert any("not one of your hedges" in e for e in K.validate_1b(bad, pk1, pk))
+    bad = json.loads(json.dumps(ok)); bad["claims"][0]["then"] = {"event": btc["label"], "direction": "below", "tier": "mild", "resolves": "YES"}                     # right event, wrong tier
+    assert any("not one of your hedges" in e for e in K.validate_1b(bad, pk1, pk))
+    good = json.loads(json.dumps(ok)); good["claims"].append({"if": {"contract": "C1", "resolves": "NO"}, "then": {"event": btc["label"], "direction": "below", "tier": "moderate", "resolves": "YES"}, "reason": "z"})
+    assert K.validate_1b(good, pk1, pk) == []
     text = K.prompt_1b(pk1, GOOD_1A, pk)
+    assert "the same event, direction and tier" in text
     assert "0xcond" not in text and "tokyes" not in text
     assert "Will the Fed hold?" in text and "C2:" in text                                       # a fresh stage-1b session can read what its primary labels mean
 
@@ -156,3 +163,23 @@ def test_the_menu_is_the_whole_live_set_and_the_terms_only_report_what_they_woul
     assert st["candidates_matching_terms"] == 1 and st["templates_found"] >= 4
     assert sum(1 for v in pv.values() if isinstance(v, dict) and v.get("matches_terms")) == 1                     # the private map records which ones matched
     assert "matches_terms" not in json.dumps(pk)                                                                    # the session is never told
+
+
+def test_a_failed_request_is_retried_and_never_read_as_no_price(monkeypatch):
+    import urllib.error
+    calls = {"n": 0}
+    class R:
+        def read(self): return b'{"history": [{"t": 100, "p": 0.4}]}'
+    def fake(req, timeout=0):
+        calls["n"] += 1
+        if calls["n"] < 3: raise urllib.error.HTTPError("u", 429, "rate", {}, None)
+        return R()
+    monkeypatch.setattr("urllib.request.urlopen", fake); monkeypatch.setattr("time.sleep", lambda s: None)
+    assert K._history("http://x") == {"history": [{"t": 100, "p": 0.4}]} and calls["n"] == 3
+    def down(req, timeout=0): raise urllib.error.HTTPError("u", 503, "down", {}, None)
+    monkeypatch.setattr("urllib.request.urlopen", down)
+    with pytest.raises(RuntimeError):
+        K._history("http://x", tries=2)
+    def none(req, timeout=0): raise urllib.error.HTTPError("u", 400, "bad", {}, None)
+    monkeypatch.setattr("urllib.request.urlopen", none)
+    assert K._history("http://x") == {"history": []}
