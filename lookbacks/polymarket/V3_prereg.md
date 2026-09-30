@@ -17,3 +17,10 @@
 **Declared limits.** Hedge events have only one resolution each: for a ladder, resolution at H means "by date" rungs resolve at their dates. Same-underlying (structural) hedges are flagged with the V1_STRUCTURAL.md rule and reported as a separate row, not removed. The menu needs a priced contract on each leg at the lock, not depth: order books are not audited here (V0 follow-up). Forward prices may be checked later against the recorder's universe files for the same date as an independent record of the lock state.
 
 **Cost.** About 85k tokens a round, so about 2.6M for 30 rounds plus replacements; the variance check is not repeated.
+
+
+## Addendum A1 (2026-09-30, after the crawl and draw, before any session)
+Lock 1790790067 (2026-09-30); 11798 open events crawled (raw sha256 of the uncompressed json `460147b30c5580126dd4c93f5948ea55d9d48c324c2c671efdab76880c400542`). Pool 44 events with a horizon 14 to 75 days out (of 399 usable open exact-structure events in the menu index; the window removes 352), draw 30 (13 open partitions, 10 date ladders, 7 exact partitions, 0 crypto: no crypto event has a horizon in the window), reserve 10. Upper-bound menu (events with at least 2 contracts ending between the lock and the horizon, before any price check) is 54 to 114 templates per drawn round, so no round is expected to be thin.
+File sha256 (bytes): `v3_pool.json` `04e1a48e034c1022163ca9085b7813555840ff2b0fd255dad879bfb7540c1524`; `v3_market_dates.json` `feb1fb51085d08400e18f5fdec8136cca7fa0077c4aa2d9b4219e69082cdf3e3`; `v3_draw.json` `32d4e0647edf4058f0715f929e8ff31802c9a2f28df9eb7086f36c1eb6b086db`; `v3_reserve.json` `14c29be2396713ce8b69fce0532ba1f15df96bfde2ba62aba7930aee557140fc`; `v3_index.json.gz (gzip bytes)` `955b664035bae693288ef3fca721998d4772f0e7142008271580e55aa10af9d8`; `v3_open_raw.json.gz (gzip bytes)` `ea6a2a1877b69fafecb19c395a6b723c173d6a0d221eba693a2d46be4626159b`
+
+The raw crawl (68 MB) is not committed (it is in `.gitignore`); its hash is above, and `v3_pool.json`, `v3_index.json.gz`, `v3_market_dates.json` are the derived inputs that are committed. A copy is kept outside the repository for rebuilding.
