@@ -105,9 +105,19 @@ when a thesis is constructed, so are the theses that hedge it, and N baskets are
 **What it implies for the design (proposed):**
 - A thesis record can carry a `parallel_of` link to a primary thesis. A parallel thesis is a full thesis: it narrows the reachable set,
   cites documented positions and bounds for every exclusion, and an exclusion resting on an unknown is refused. It is not a free-standing story.
-- A parallel is *correlated* (same event, same outcome space) and *divergent* (its response across the outcomes has a different sign
-  pattern from the primary's, so the pair lifts the worst case). Both are properties of the payoff matrix, not of the holders, so they need the
-  payoff-matrix estimator (per outcome, per instrument) before they can be checked.
+- A parallel is *correlated* (same scenario, same ACK chain) and *decorrelating* (Rob, 2026-09-30, correcting the first wording): both stay
+  **long**, and neither is a short. What separates them is that, as the chains run downstream from the shared root, other data (each company's
+  contracts, hedge book, geography, capital structure, refining or fee share) makes their effects on the companies progressively less aligned. Across the thesis outcomes the
+  effect vectors of the two company sets diverge in *magnitude and degree*, not in sign, so one narrative covers the other's weak outcome.
+  The measure is the alignment (the cosine, the machinery already behind angle classes and junctions) of the two effect vectors across the thesis outcomes, and how
+  it decays with depth. It is ex ante, derived from documented positions along the chain, not read off realised price correlation.
+- **The hedge DAG (Rob's structure, proposed).** A thesis that wants a hedge carries **its own DAG whose final node is the thesis**. Every position or effect that
+  hedges its narrative feeds into that sink by a cross-reference. The hedging is **one-way**: the thesis is hedged by the others, and the others are not
+  thereby hedged by it. A different thesis has a different DAG and may share nodes with it. The graph is acyclic by construction (the thesis is the sink),
+  which is what a mesh of mutual references is not.
+- **What the depth tests were and were not.** `lookbacks/scenarios/depth_hedge_v2` and `v3` used realised return correlation by depth as a stand-in. They showed
+  the correlation gradient and that the sign at depth depends on the cause of the move; they did not test this mechanism, which needs the ex-ante effect vectors.
+  The test of the mechanism is whether the *derived* divergence of effect vectors across outcomes predicts the *realised* divergence of payoffs, outcome by outcome (validation of the payoff-matrix estimator).
 - **N baskets** are built from the pool, each under an objective (maximin, minimum regret, a loss cap, a shape). The spec's rule stays: balancing
   *within* a basket is construction, balancing *across* baskets is forbidden, because it nets away the divergence.
 

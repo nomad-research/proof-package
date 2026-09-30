@@ -491,3 +491,9 @@ Not confirmed. Correlation falls with depth in both windows; the response thins 
 `lookbacks/scenarios/depth_hedge_v3_*`. Not confirmed: T4 (airlines, cruise) failed the main window (2019 to 2025) and met 3 of 4 in the 2026 holdout (fade correlation -0.76,
 reaction -2.8%, t -2.80; failed only the pair-gain probability, 0.73); T5 (homebuilders, retail) not reliably negative. Post hoc: T4's sign flips with the kind of spike
 (+3.3% in 2019 to 2021, -1.7% in 2022 to 2025). Deep nodes are scenario-specific; a pooled mechanical rule mixes them. A cause-classified, pre-registered forward test is the follow-up.
+
+## 2026-09-30 (later) — the mechanism, in Rob's words (A1 §7 amended)
+
+Not depth or sign. Two longs over the same underlying, through different company sets, whose effects along the narrative and ACK chain diverge progressively (other data enters) so
+one narrative covers the other's weak outcome; both stay long. Each thesis that wants it carries its own DAG with the thesis as the final node, receiving the positions that hedge its narrative, one-way.
+Term proposed: progressive decorrelation of the effect vectors across the thesis outcomes (ex ante, from documented positions). Depth tests v2 and v3 were a realised-correlation stand-in, not a test of it.
