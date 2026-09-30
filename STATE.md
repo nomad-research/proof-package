@@ -455,3 +455,11 @@ reader's class or rationale). Files in `lookbacks/k14/pilot_r13/`.
 
 **PR #20 preservation (Rob, 2026-09-30):** do not squash-merge. `3090edf` is preserved as the branch `preserve/pr20-3090edf` (tag pushes are
 refused, issue #19). A comment on PR #20 records the constraint. Nothing has been merged.
+
+## 2026-09-30 (later) — amendment A1 drafted; K8 expectations not found
+
+`docs/nomad_v17_amendment_A1.md` (proposed, nothing built or ratified): D29 one registry mechanism; D18 amended (relations have no
+direction, participants fill roles, one-sided relations allowed, direction is a perspective); expressibility left open with options;
+D30 forward-first gating (look-backs non-gating, K14 read forward, V3 to V5 built dark). Rob: do not merge PR #20 until it is clear what
+we are working with. The K8 expectations Rob says he wrote earlier are not in the repo, issue #11, or this session's transcript;
+`lookbacks/K8_rerun_expectations.md` is still blank and K8 has not been re-run.
