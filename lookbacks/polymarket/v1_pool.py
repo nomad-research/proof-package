@@ -120,8 +120,26 @@ def draw(pool):
     return sorted(chosen, key=lambda e: e["id"])
 
 
+N_RESERVE, MAX_CRYPTO_RESERVE, RESERVE_SEED = 12, 4, SEED + 1
+
+
+def draw_reserve(pool, survivors, chosen):
+    """Reserve (V1_prereg.md A12): survivors not already drawn, second seed, at most 4 crypto, in order. Replaces a drawn non-survivor at once and any voided round later."""
+    taken = {e["id"] for e in chosen}
+    cand = sorted((e for e in pool if e["id"] in survivors and e["id"] not in taken), key=lambda e: e["id"])
+    rng = random.Random(RESERVE_SEED); rng.shuffle(cand)
+    out = []
+    for e in cand:
+        if len(out) >= N_RESERVE:
+            break
+        if e["group"] == "crypto" and sum(x["group"] == "crypto" for x in out) >= MAX_CRYPTO_RESERVE:
+            continue
+        out.append(e)
+    return out
+
+
 if __name__ == "__main__":
-    ap = argparse.ArgumentParser(); ap.add_argument("--crawl", action="store_true"); ap.add_argument("--draw", action="store_true")
+    ap = argparse.ArgumentParser(); ap.add_argument("--crawl", action="store_true"); ap.add_argument("--draw", action="store_true"); ap.add_argument("--reserve", action="store_true")
     a = ap.parse_args(); here = __file__.rsplit("/", 1)[0]
     if a.crawl:
         pool, tally = build_pool()
@@ -136,3 +154,11 @@ if __name__ == "__main__":
         d = draw(pool)
         json.dump([{"id": e["id"], "title": e["title"], "class": e["class"], "group": e["group"]} for e in d], open(f"{here}/v1_draw.json", "w"), indent=1)
         print(len(d), "drawn:", dict(collections.Counter(e["class"] for e in d)), dict(collections.Counter(e["group"] for e in d)))
+    if a.reserve:
+        pool = json.load(open(f"{here}/v1_pool.json")); d = json.load(open(f"{here}/v1_draw.json")); sv = json.load(open(f"{here}/v1_survivors.json"))
+        surv = {r["id"] for r in sv if r["priced"] >= 3 and r["menu_templates"] >= 10}
+        chosen = [e for e in pool if e["id"] in {x["id"] for x in d}]
+        non = [e["id"] for e in chosen if e["id"] not in surv]
+        res = draw_reserve(pool, surv, chosen)
+        json.dump({"non_survivors_in_draw": non, "reserve_in_order": [{"id": e["id"], "title": e["title"], "class": e["class"], "group": e["group"]} for e in res]}, open(f"{here}/v1_reserve.json", "w"), indent=1)
+        print("non-survivors in the draw:", non, "| reserve:", len(res), dict(collections.Counter(e["class"] for e in res)), dict(collections.Counter(e["group"] for e in res)))

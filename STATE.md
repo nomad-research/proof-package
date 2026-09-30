@@ -590,3 +590,6 @@ Recorder (`tools/polymarket_recorder.py`, `polymarket_ws_recorder.py`, commit 15
 
 ## 2026-09-30 (later still) — survivor count
 `v1_survivors.py`, definition declared first (`V1_prereg.md` A11): 61 of 73 pool events survive (at least 3 contracts priced within 48 h of the lock, and a live menu of at least 10 templates); 23 of the 24 drawn. The menu condition is not binding (289 to 640 candidate templates live at each lock; hedge-side prices unchecked). Decision left to Rob: keep 24 rounds with a reserve, or draw more of the 61.
+
+## 2026-09-30 (later still) — reserve
+Rob: keep 24 rounds with a reserve of 12. `v1_reserve.json` drawn (second seed, at most 4 crypto); event 536290 (a non-survivor in the draw) replaced by the first reserve event. `V1_prereg.md` A12.
