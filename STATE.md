@@ -622,3 +622,6 @@ Stage-1b outcomes over the 24 rounds: 17 with hedges, 7 `no_instrument` (125877,
 ## 2026-09-30 — V1 scored (17 of 17 hedged rounds)
 `v1_score.py --study`: verdict **inconclusive** (gates: scored 17 < 20; primary-loss rounds 7 < 10). Not amended.
 Indicative only: mean floor P -9.57, C -2.24, D -6.16; B1 in-set 0.88 (below the 0.90 bar); B2 mean C-D +3.92, 90% CI [-2.66, +10.75]; B3 M null ok, C above R in 71%; B4 0.78 on 4 rounds. Three rounds (287395, 481717, 606437) scored 0 lift, and two of those had a hedge or claim drop for "no rung".
+
+## 2026-09-30 — Step 1 of 4 (structural hedges flagged)
+`V1_STRUCTURAL.md`, `v1_structural.py`, `v1_structural_dump.py`, `v1_structural_report.json`. Post-hoc and descriptive, no verdict changed. 6 of 17 scored rounds have a same-underlying (S) hedge leg and carry a mean floor lift of 5.5; the 11 cross-entity (X) rounds carry 50.9 and hold both claim violations, including the +205 outlier (674379). B1 among X rounds is 0.82.
