@@ -187,6 +187,8 @@ TABLES: dict[str, tuple[str, list[str]]] = {
     "instruments": (MUTABLE, ["holder_id", "ack_id", "yes_outcomes", "kind", "symbol",
                               "venue", "listed_from", "cap_class", "expiry", "strikes",
                               "multiplier", "cost_model_id", "quote_source", "underlying"]),
+    "event_contract_meta": (MUTABLE, ["condition_id", "token_id", "side", "event_id", "neg_risk", "tick_size", "min_size",
+                                      "fee_schedule", "slot_kind"]),
     "cost_models": (MUTABLE, ["kind", "spread_rule", "fee", "borrow", "slippage_rule",
                               "pricing_rule"]),
     "tides": (MUTABLE, ["label", "declared_by", "from_date", "to_date", "retro_declared",

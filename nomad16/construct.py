@@ -286,3 +286,50 @@ def build(ctx, ack: dict, reach_rows: list, thesis: list[str], svecs: dict, shp:
     rec.update(status="built", reason=None, weights=weights, max_loss=sum(w["max_loss_contribution"] for w in weights),
                scenarios=scen, flags=flags, upside_if_adopted=upside)
     return rec
+
+
+def build_exact(ack: dict, thesis: list[str], primary: dict, cands: list[dict], space, mask, B: float, p_frac: float = 0.6, ncap: int = 6) -> dict:
+    """The exact-payoff branch (Polymarket frame; V1 pre-registration): a basket of event contracts whose payoff in every state is arithmetic.
+
+    ``primary`` and each of ``cands`` carry ``instrument_id``, ``vec`` (payoff per joint state of ``space``) and ``cost`` (all-in per share, from
+    ``exact.share_cost``). The primary keeps ``p_frac`` of the basket budget ``B``; the rest is allocated to maximise the worst payoff over the reachable
+    states ``mask`` (a thesis's declared claims that some combinations cannot occur). Long only: a NO position is a separate instrument. Returns the same record
+    shape as ``build``; ``z_star`` is the floor over the reachable set, and the floor is only as honest as the claim that produced ``mask`` (V1 tests that).
+    An open slot (a winner that is none of the named contracts) that is reachable and unheld is a typed gap and is flagged, never a zero.
+    """
+    from . import exact as X
+    rec = {"ack_id": ack["key"], "shape": "exact", "horizon": None, "b_basket": B, "thesis": thesis, "excluded": [], "is_switch": False, "flags": [],
+           "detail": {}, "weights": [], "z_star": None, "max_loss": 0.0, "scenarios": []}
+    if B <= 0:
+        rec.update(status="unbuildable", reason="budget_exhausted")
+        return rec
+    if not cands:
+        rec.update(status="unbuildable", reason="no_instrument")
+        return rec
+    r = X.maximin(primary["vec"], primary["cost"], B * p_frac, cands, B * (1.0 - p_frac), mask, ncap=ncap)
+    gaps = sorted({c for c in space.components if X.GAP in space.components[c] and any(m and st[c] == X.GAP for m, st in zip(mask, space.states))})
+    rec["detail"].update(floor_primary_alone=r["floor_primary_alone"], lift=r["lift"], reachable_states=int(mask.sum()), states=len(space.states), open_slots_reachable=gaps)
+    if gaps:
+        rec["flags"].append("open_slot_reachable")
+    rec["z_star"] = r["floor"]
+    if r["lift"] <= 1e-9:
+        rec.update(status="unbuildable", reason="no_lift")          # the claim removes no state in which the primary and every hedge lose together
+        return rec
+    ids = {c["instrument_id"]: c for c in cands}
+    weights = [{"instrument_id": primary["instrument_id"], "side": 1, "qty": r["primary_shares"], "w_long": r["primary_shares"], "w_short": 0.0,
+                "max_loss_contribution": r["primary_shares"] * primary["cost"], "cap": "hard", "kind": "event_contract", "modelled": False,
+                "unit_cost": primary["cost"], "entry_price_model": None, "loadings": {}, "role": "primary"}]
+    for w in r["weights"]:
+        weights.append({"instrument_id": w["instrument_id"], "side": 1, "qty": w["shares"], "w_long": w["shares"], "w_short": 0.0,
+                        "max_loss_contribution": w["shares"] * w["cost"], "cap": "hard", "kind": "event_contract", "modelled": False,
+                        "unit_cost": w["cost"], "entry_price_model": None, "loadings": {}, "role": "hedge"})
+    n = np.zeros(len(space.states))
+    for w in weights:
+        vec = primary["vec"] if w["role"] == "primary" else ids[w["instrument_id"]]["vec"]
+        n += w["qty"] * vec
+    spent = sum(w["qty"] * w["unit_cost"] for w in weights)
+    net = n - spent
+    scen = [{"scenario_id": "|".join(f"{k}={v}" for k, v in st.items()), "outcome_id": "|".join(str(v) for v in st.values()), "in_thesis": True, "tide_state": None,
+             "payoffs": {}, "payoff_worst": float(net[i])} for i, st in enumerate(space.states) if mask[i]]
+    rec.update(status="built", reason=None, weights=weights, max_loss=float(sum(w["max_loss_contribution"] for w in weights)), scenarios=scen, upside_if_adopted={})
+    return rec
