@@ -127,3 +127,16 @@ outcomes after the fact. So: (1) the list of objectives is declared at lock, not
 thesis has to pass the same anchor checks as the primary. Without (1), "N baskets to fit whatever we need" can always be made to fit.
 
 **Decision (Rob's).** D31: ratify, amend or reject, and set `BASKET_N_MAX` (or say to propose one).
+
+### 7.1 Construction, not search (Rob, 2026-09-30; proposed, not built)
+
+The hedge is **constructed thesis-first**, not found. The narrative and thus the thesis come before the basket and guide it, in both cases:
+1. **The position basket** carries its own thesis over the outcome space, and so its **failure set**: the outcomes where its payoff is lowest (the reachable outcomes its thesis excludes, and the thesis outcomes with the weakest payoff).
+2. **Construct the hedging thesis** against that failure set: a claim over the same outcomes whose thesis set covers it. It is a full thesis: every exclusion is anchored to documented positions or bounds, and an unknown never eliminates an outcome.
+3. **Then construct the hedging basket to fit that thesis:** choose instruments (equities first) whose documented downstream effects, per outcome, fit the hedging thesis. The search happens *inside* the constructed narrative, over baskets. It is not a search over narratives.
+4. The pair is scored on its own declared objectives (D31 guards: objectives declared at lock, N capped, each basket scored on its own objective).
+
+**What the depth and price tests did instead:** they took baskets as given (by depth, by sector) and asked afterwards whether any of them hedged. That is a search, so it could not test a procedure that constructs.
+
+**The falsifiable claim, then:** for a primary basket and its failure set, the constructed hedge (thesis, then basket) gives a **lower worst case across realised outcomes, out of sample**, than (i) the primary alone, (ii) a de-risking control at the same cost, and (iii) a hedge built **without narrative guidance** (a purely statistical one: minimum correlation or minimum variance fitted to the same universe).
+If the narrative-guided hedge does no better than the blind statistical one, the narrative is decoration. The generative freedom is the risk (a narrative can be built to fit anything), which is why the anchor rule, the declared objectives and the cap on N are conditions of the test and not extras.

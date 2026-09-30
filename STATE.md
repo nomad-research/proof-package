@@ -521,3 +521,8 @@ The hedge must differ in kind on the fade (a different channel or timing), for e
 `lookbacks/scenarios/refiners_*`. Main window: no hedge (corr +0.72 with producers, gain -5%, the loading-matched control +22%; the crack fell with crude over the fade, corr +0.37). Holdout: +33% and +26 points beyond de-risking, channel test failed.
 Not supported. Five pooled oil-spike tests now (depth, equity depth, synthetic short, synthetic leg, refiners): the correlation gradient is real, gains came from lower loading. Pooled spike days may be the wrong instrument (mixed causes); next would be a homogeneous
 event class with an observed outcome, after a feasibility check that listed owners respond beyond noise; or derivatives for payoffs that differ in kind.
+
+## 2026-09-30 (later) — construction, not search (A1 §7.1)
+
+Rob: the hedge is constructed thesis-first: build the narrative that hedges the position basket (over its failure set), then build the hedging basket to fit that narrative; the narrative guides the basket in both cases. The five pooled price tests searched over baskets taken as given and so
+could not test this. The falsifiable claim: the constructed hedge beats the primary alone, a de-risking control, and a blind statistical hedge out of sample. Written into A1 §7.1; nothing built.
