@@ -485,3 +485,9 @@ Small sample; equal weights; the "R kept" measure is weak. A better test needs d
 Rob: no funds; baskets of equities. `lookbacks/scenarios/depth_hedge_v2_*`. Main run (35 events, 2019 to 2025): T3 supported (+35% downside, own reaction share 0.57),
 T2 not (+6%): against the builder's expectation. Holdout 2026 (9 events, rule registered first): T3 diluted (+74% downside, share 0.33 below the 0.50 bar), T2 not supported.
 Not confirmed. Correlation falls with depth in both windows; the response thins with it. Tankers and defence were exploratory only.
+
+## 2026-09-30 (later) — depth-hedge v3: a long at depth as a synthetic short
+
+`lookbacks/scenarios/depth_hedge_v3_*`. Not confirmed: T4 (airlines, cruise) failed the main window (2019 to 2025) and met 3 of 4 in the 2026 holdout (fade correlation -0.76,
+reaction -2.8%, t -2.80; failed only the pair-gain probability, 0.73); T5 (homebuilders, retail) not reliably negative. Post hoc: T4's sign flips with the kind of spike
+(+3.3% in 2019 to 2021, -1.7% in 2022 to 2025). Deep nodes are scenario-specific; a pooled mechanical rule mixes them. A cause-classified, pre-registered forward test is the follow-up.
