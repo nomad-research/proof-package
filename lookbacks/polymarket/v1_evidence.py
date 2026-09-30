@@ -11,6 +11,7 @@ def claims_of(base, eid):
     S.HERE = base; R, d = S.load_round(eid); price_of = S.live_price_of(R, d)
     menu_by_label = {c["label"]: (ev, c) for ev, v in R["menu"].items() for c in v["contracts"]}
     out = []
+    if not any(True for _ in (R["ans1b"].get("claims") or [])): return out
     for cl in R["ans1b"].get("claims") or []:
         i, t = cl["if"], cl["then"]
         ca = R["primary"]["contracts"].get(i["contract"]);
@@ -30,9 +31,10 @@ def claims_of(base, eid):
         ante = ca["yes_won"] == ya; cons = cb["yes_won"] == yb
         # placebo: every other priced menu contract of the same round (both sides), same antecedent; excess over lock price
         plac = []
+        shown = {v["cid"] for k, v in json.load(open(os.path.join(d, "private_1b.json"))).items() if "." in k}
         for ev, v in R["menu"].items():
             for c in v["contracts"]:
-                if c["cid"] == cb["cid"]: continue
+                if c["cid"] == cb["cid"] or c["cid"] not in shown: continue
                 pc, _ = price_of(c["tok_yes"])
                 if pc is None: continue
                 for yes in (True, False):

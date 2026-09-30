@@ -69,8 +69,11 @@ def blind(eid):
     by = np.diff([bval[days.index(t)] for t in common]) * (S.P_BUDGET / unit_cost)
     hx = [np.diff([(z[4][t] if z[1] == "YES" else 1 - z[4][t]) for t in common]) / z[2] for z in hp]
     best = None
-    for w in itertools.product(range(11), repeat=len(hp)):
-        if sum(w) != 10: continue
+    def splits(n, k):                                  # every way to split 10 tenths over k legs (stars and bars), not 11**k candidates
+        if k == 1: yield (n,); return
+        for i in range(n + 1):
+            for rest in splits(n - i, k - 1): yield (i,) + rest
+    for w in splits(10, len(hp)):
         v = by + sum((wi / 10) * S.H_BUDGET * xi for wi, xi in zip(w, hx)); var = float(np.var(v))
         if best is None or var < best[0]: best = (var, w)
     w = [wi / 10 for wi in best[1]]
