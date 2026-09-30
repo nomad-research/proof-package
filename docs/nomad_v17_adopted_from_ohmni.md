@@ -1,6 +1,6 @@
-# Ohmni's data layer and Nomad's entity model: a crosswalk (A2 addendum, 2026-09-30)
+# Ideas Nomad adopts from Ohmni (A2 addendum, 2026-09-30)
 
-*Source read: `standard-reference/ohmni`, cloned into the session at commit `cadfb95` (contract 0.1.0). Nothing in that repository was changed. Rob: "you can also see that we landed on kinds previously."*
+*Source read: `standard-reference/ohmni` at commit `cadfb95` (contract 0.1.0), cloned into the session; nothing there was changed. **Ohmni is a separate project, a more ambitious one that is meant to generate Nomad-like frameworks over time. Nomad stays Nomad and has no dependency on it; ideas are adopted, not integrated** (Rob, 2026-09-30). Rob: "we landed on kinds previously."*
 
 ## 1. The same pattern
 Ohmni's spec §18 is titled **"Core pattern: artifact + kind registry"**: a small frozen core (`id`, `kind`, `schema_version`, `attributes`) and an open, registered kind that declares the shape and behaviour of everything else,
@@ -29,30 +29,14 @@ each kind validated on registration, each with its own typed registry. That is t
 `retail_discourse` (Hacker News, constitutive), `exchange_activity` (prices, constitutive). Rule R13 in the model says a dataset supports a statement about X only if its phenomenon is the one X consists of; attention, belief and trading activity about a company propose and never support a statement about the company.
 Nomad's additions for the physical world and schedules, `physical_state` (a reactor's recorded power level, a port count, an earthquake catalogue) and `schedule` (an agency calendar), are proposals for Ohmni's registry, not declared there yet.
 
-## 3. What Ohmni supplies, and what Nomad needs
-| Nomad needs (spec §26) | In Ohmni today | Gap |
-|---|---|---|
-| Fundamentals with revision chains | EDGAR XBRL, point-in-time, multiple facts per period kept | 6 entities only (semiconductors, hardware, software, automotive) |
-| Filing text and items (`filing_item`, `announcement`) | facts only | no filing text |
-| Regulatory notices | none | the NRC records are read by Nomad's own adapters |
-| `ownership_edge`, `instrument_map`, `customer_disclosure` | a small instrument map for the six names | not built |
-| `scheduled_fact` | none | not built |
-| Prices | Yahoo daily, **prototype grade**: currently-listed names only, so runs are marked contaminated | no survivorship |
-| `quote` (prediction markets) | none | not built |
-| Attention sources | Wikimedia, GDELT bulk, Hacker News, FINRA short volume | present |
-| Physical-state sources | none | Nomad's adapters (NRC, PortWatch, IODA, USGS, FIRMS keyed) |
-| Event spine / cross reference | absent (`cluster_version` is None; `CROSS_REFERENCE` is not declared) | not built |
-| Contract version | **0.1.0** | Nomad's spec pins `contract >= 0.2, < 0.3`: a mismatch to resolve |
+## 3. What Nomad adopted, and where it lives in Nomad
+- **Source self-declaration** (Ohmni §7): `nomad16/declarations.py`. Every adapter Nomad has, and every source the look-backs used, declares what it measures (phenomenon), the truth role of its records, measured or modeled, `as_of` or `snapshot`, survivorship, historical access, backfill,
+  needs and known biases. An undeclared source is refused. The declarations are the builder's and are marked unverified until checked against each source's own documentation.
+- **Evidence follows what a source measures** (Ohmni's phenomenon and truth role): rule R13, implemented as `may_support`. A price supports a claim about exchange activity and only proposes about a company's exposure; a recorded reactor power level supports a claim about state; a modeled image reading is analogical until validated.
+- **A snapshot with unrecoverable deletions has no honest history** (Ohmni §7): `check_historical` refuses it.
+- **Typed statuses, never null** (Ohmni's Status): Nomad already had typed gaps; `not_disclosed`, `not_covered`, `not_applicable` and `not_representable` are the vocabulary the exposure work needs, since an undisclosed sensitivity is the case that kept recurring.
+- **The discipline:** declare the bar before the run; no default on a verdict-governing number; report negative results; and **run a null control** (Ohmni's report 004: one epoch promoted 0 and another 39 on null data). The convexity map used a permutation null; the earlier oil and Fed-day tests did not, and each look-back from now on carries one.
 
-**Nomad's own oil and rate names are not in it** (its universe is six technology names), so the oil, bank and rate filings I read were fetched by Nomad's adapters, not served by this layer.
-
-## 4. What I would change, on each side
-- **Nomad:** a thin `ohmni` adapter that reads `Record`s and writes source entities and statements with `knowable_from` from `knowable_at`, typed gaps from `status`, relations from `lineage`, and the evidence mode from the declared phenomenon and truth role. Bring Nomad's own sources (NRC, PortWatch, IODA, USGS) into the same declaration shape so they are one layer to the model.
-- **Ohmni:** register the physical-state and schedule phenomena and the missing sources through its plugin loader, so the conformance suite runs on them; widen the entity set beyond six; reconcile the contract version.
-- **Both:** Ohmni's own discipline is stricter than Nomad's look-backs have been: declare the bar before the run, no default on a verdict-governing number, report negative results, **and run the whole protocol over null markets** (its report 004 found one epoch promoted 0 and another 39 on null data). The convexity map used a permutation null; the earlier oil and FOMC tests did not. Each look-back should carry a null control.
-
-## 5. Decisions (Rob's)
-1. Are Nomad's physical-state and schedule sources to become plugins in Ohmni's layer, or stay Nomad-side adapters that declare themselves in Ohmni's shape?
-2. Which universe does the shared layer cover first (the oil, bank and rate names used so far, or another)?
-3. Contract 0.1.0 against Nomad's `>= 0.2`: which side moves?
-4. R13 as stated: evidence supports only claims about its own phenomenon.
+## 4. What Nomad does not take
+The contract, the `Record` class, the plugin loader, the harness and the six-entity universe. Nomad's spec §26 describes a data-product boundary of its own; in this repository Nomad's data layer is its own adapters (`pit.py`, `altdata.py`, `prices.py`) plus what the look-backs read directly (structured filing facts, the Fed statements, HURDAT2),
+declared in `nomad16/declarations.py`. Where Nomad needs a source it lacks (filing text and items, ownership edges, scheduled facts, prediction-market quotes, an event spine), it builds or connects it itself.

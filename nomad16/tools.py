@@ -10,7 +10,7 @@ import inspect
 import json
 import sys
 
-from . import (altdata, calls, census, dilution, documents, hedgedag, entities, config, construct, derive, effects, instruments, intake, lock, paper, pit,
+from . import (altdata, calls, census, declarations, dilution, documents, hedgedag, entities, config, construct, derive, effects, instruments, intake, lock, paper, pit,
                positions, prices, reach, report, rounds, seed, stories, walk)
 from .db import DB, Refused
 from .rounds import current_segment, state
@@ -134,6 +134,7 @@ TOOLS = {
     "bucket_propose": dilution.bucket_propose, "bucket_partition_add": dilution.bucket_partition_add,
     "bucket_fit": dilution.bucket_fit, "depth_profile": dilution.depth_profile,
     "profile_expand": dilution.profile_expand, "hedge_dag": hedgedag.evaluate,
+    "source_declarations": declarations.source_declarations, "source_may_support": declarations.may_support,
     # K7 census
     "census_add": census.census_add, "census": census.census,
     # reports

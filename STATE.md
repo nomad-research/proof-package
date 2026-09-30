@@ -559,3 +559,9 @@ A global |x| term looks for a kink at zero; documented kinks sit at thresholds (
 Rob added `standard-reference/ohmni` (the data layer) and it was cloned into the session (commit cadfb95, contract 0.1.0; read only). Its spec §18 is "artifact + kind registry": the same pattern as the entity-and-kind model. `docs/nomad_v17_ohmni_crosswalk.md` maps Record, Status, Lineage, Revision,
 SourceDeclaration, Phenomenon, TruthRole and MeasurementType onto the model, corrects the earlier statement that the data layer was not reachable, and lists the gaps: six technology entities, prototype-grade prices, no filing text, regulatory notices, ownership edges, scheduled facts, quotes or event spine, contract 0.1.0 against Nomad's pinned >= 0.2.
 Rule R13 in `config/system_model.json` now follows the phenomenon a source measures. Correction to my own earlier note: the oil, bank and rate filings were fetched by Nomad's adapters, not served by Ohmni.
+
+## 2026-09-30 (later) — Ohmni stays separate; source declarations built for Nomad
+
+Rob: Ohmni is a separate, more ambitious project (it should generate Nomad-like frameworks over time); keep them separate; Nomad stays Nomad; adopt ideas freely. Withdrawn: the adapter and the contract-version questions. The crosswalk became `docs/nomad_v17_adopted_from_ohmni.md`.
+Built: `nomad16/declarations.py` (every adapter and look-back source declares its phenomenon, truth role, measured or modeled, as-of or snapshot, survivorship, access, needs, known biases; unverified; tool `source_declarations`, `source_may_support`; rule R13 as code),
+`nomad16/tests/test_declarations.py`. 113 tests pass. The model file no longer depends on the Ohmni clone.

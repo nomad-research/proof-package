@@ -49,7 +49,7 @@ def test_every_dataset_kind_has_an_evidence_mode_and_attention_never_supports():
 
 
 def test_dataset_kinds_carry_ohmni_phenomenon_truth_role_and_measurement_type():
-    e = M["ohmni_enums"]
+    e = M["source_declaration_enums"]
     allowed_ph = set(e["phenomenon"]) | set(e["nomad_additions"])
     ds = [k for k in M["kinds"] if k["parent"] == "dataset" and k.get("evidence_mode") != "structural"]
     for k in ds:
@@ -60,13 +60,3 @@ def test_dataset_kinds_carry_ohmni_phenomenon_truth_role_and_measurement_type():
             assert k["evidence_mode"] == "attentional", k["kind"]
         if k["measurement_type"] == "modeled":
             assert k["evidence_mode"] == "analogical", k["kind"]
-
-
-def test_the_enums_match_the_ohmni_clone_when_it_is_present():
-    import pytest
-    p = Path("/home/user/ohmni/contract/declaration.py")
-    if not p.exists():
-        pytest.skip("ohmni clone not present")
-    src = p.read_text()
-    for name in M["ohmni_enums"]["phenomenon"] + M["ohmni_enums"]["truth_role"] + M["ohmni_enums"]["measurement_type"]:
-        assert f'"{name}"' in src, name

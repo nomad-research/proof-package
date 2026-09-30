@@ -912,9 +912,9 @@
   "R10 Objectives and the number of baskets are declared at lock. Each basket is scored on its own objective and the set is scored separately.",
   "R11 A parameter is an entity with a status and provenance; a ratification is a decision entity by a person with a date.",
   "R12 A test is an entity: its pre-registration entity carries a knowable_from that precedes every result entity it produces.",
-  "R13 A dataset supports a statement about X only if its phenomenon is the one X consists of (a disclosure for a company's disclosed exposure, a regulatory action for a decision, a physical state for the state of a thing) and its truth role is constitutive, attested or observed. A dataset of a different phenomenon about X (attention, belief, exchange activity, editorial publication) proposes only; it may still support statements about its own phenomenon. A modeled measurement is analogical until validated against a measured one. The phenomenon, truth role and measurement type are those of Ohmni's contract (docs/nomad_v17_ohmni_crosswalk.md); physical_state and schedule are Nomad's proposed additions."
+  "R13 A dataset supports a statement about X only if its phenomenon is the one X consists of and its truth role is constitutive, attested or observed; a modeled measurement is analogical until validated against a measured one; a dataset of a different phenomenon about X proposes only, and may still support statements about its own phenomenon. Each source declares this about itself (nomad16/declarations.py); an undeclared source is not read."
  ],
- "ohmni_enums": {
+ "source_declaration_enums": {
   "phenomenon": [
    "corporate_disclosure",
    "exchange_activity",
@@ -940,6 +940,7 @@
   "nomad_additions": [
    "physical_state",
    "schedule"
-  ]
+  ],
+  "note": "phenomenon, truth role and measurement type adopted from Ohmni's contract 0.1.0 as an idea; Nomad's own; physical_state and schedule are Nomad's additions"
  }
 }
