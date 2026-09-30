@@ -593,3 +593,6 @@ Recorder (`tools/polymarket_recorder.py`, `polymarket_ws_recorder.py`, commit 15
 
 ## 2026-09-30 (later still) — reserve
 Rob: keep 24 rounds with a reserve of 12. `v1_reserve.json` drawn (second seed, at most 4 crypto); event 536290 (a non-survivor in the draw) replaced by the first reserve event. `V1_prereg.md` A12.
+
+## 2026-09-30 (later still) — packet script
+`lookbacks/polymarket/v1_packet.py` + `tests/test_v1_packet.py` (136 tests pass): stage-1a packet, thesis-first retrieval for stage 1b, answer validators, leak scan, seeded shuffle, live index (1,167 events, hashed). Dry run on a mock answer (`packets_dryrun/`). Recount under the packet's real eligibility: 59/73 pool, 22/24 drawn; 536290 and 623235 replaced by reserve #1 and #2. `V1_prereg.md` A13. Not built: scoring script, session harness.
