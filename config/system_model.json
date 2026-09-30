@@ -1,0 +1,773 @@
+{
+ "status": "proposed; nothing migrated",
+ "written": "2026-09-30",
+ "kinds": [
+  {
+   "kind": "session",
+   "parent": null,
+   "capabilities": [
+    "authors"
+   ],
+   "note": "a cold operator, reader or judge: model, trained_through, cold, hook_verified"
+  },
+  {
+   "kind": "run",
+   "parent": "event",
+   "capabilities": [],
+   "note": "an enumeration or fetch run"
+  },
+  {
+   "kind": "event",
+   "parent": null,
+   "capabilities": [],
+   "note": "a dated state change of an entity (spec v17 D26)"
+  },
+  {
+   "kind": "decision",
+   "parent": "event",
+   "capabilities": [],
+   "note": "an agency or a person deciding: a Fed statement, a ratification"
+  },
+  {
+   "kind": "firing",
+   "parent": "event",
+   "capabilities": [],
+   "note": "an ACK delivering an outcome"
+  },
+  {
+   "kind": "snapshot",
+   "parent": "dataset",
+   "capabilities": [],
+   "note": "content-addressed copy of a mutable store"
+  },
+  {
+   "kind": "price_series",
+   "parent": "dataset",
+   "capabilities": [
+    "attentional"
+   ],
+   "note": "prices: may confirm, never propose; expression layer only"
+  },
+  {
+   "kind": "fundamental",
+   "parent": "dataset",
+   "capabilities": [],
+   "note": "a quarterly figure from a filing, structured or stated"
+  },
+  {
+   "kind": "outcome_vocab",
+   "parent": null,
+   "capabilities": [],
+   "note": "a typed set of outcomes for a notice kind"
+  },
+  {
+   "kind": "outcome",
+   "parent": null,
+   "capabilities": [],
+   "note": "one member of a vocabulary; other is outside the closed world"
+  },
+  {
+   "kind": "piano",
+   "parent": "outcome",
+   "capabilities": [],
+   "note": "an outcome outside the closed world, booked when it happens"
+  },
+  {
+   "kind": "obligation_template",
+   "parent": null,
+   "capabilities": [
+    "requires_capability_roles"
+   ],
+   "note": "library object: roles by capability, conditions, forces, window rule"
+  },
+  {
+   "kind": "obligation",
+   "parent": null,
+   "capabilities": [],
+   "note": "a template instantiated on entities"
+  },
+  {
+   "kind": "ack",
+   "parent": null,
+   "capabilities": [],
+   "note": "a named source, threshold and date: forced, switch or calendar"
+  },
+  {
+   "kind": "thesis",
+   "parent": null,
+   "capabilities": [],
+   "note": "a claim over an outcome space: thesis set, anchored exclusions; role primary or hedge"
+  },
+  {
+   "kind": "effect",
+   "parent": null,
+   "capabilities": [],
+   "note": "a documented consequence of an outcome on an entity, by channel, with degree and transmission"
+  },
+  {
+   "kind": "call",
+   "parent": null,
+   "capabilities": [],
+   "note": "a falsifiable prediction about a carrier, with a due date"
+  },
+  {
+   "kind": "resolution",
+   "parent": null,
+   "capabilities": [],
+   "note": "what the carrier said, scored against a call"
+  },
+  {
+   "kind": "basket",
+   "parent": null,
+   "capabilities": [
+    "expressible"
+   ],
+   "note": "a composite of instruments constructed for a thesis"
+  },
+  {
+   "kind": "paper_position",
+   "parent": null,
+   "capabilities": [],
+   "note": "a booked position of a basket's leg"
+  },
+  {
+   "kind": "story",
+   "parent": null,
+   "capabilities": [],
+   "note": "a factor the market tells; a proxy series names it (attentional)"
+  },
+  {
+   "kind": "junction",
+   "parent": null,
+   "capabilities": [],
+   "note": "two stories that move together, flagged for treatment"
+  },
+  {
+   "kind": "segment",
+   "parent": null,
+   "capabilities": [],
+   "note": "a period of a round between clocks"
+  },
+  {
+   "kind": "round",
+   "parent": null,
+   "capabilities": [],
+   "note": "a play of the procedure on one event, with lifecycle states"
+  },
+  {
+   "kind": "manifest",
+   "parent": null,
+   "capabilities": [],
+   "note": "the frozen list of what a lock read"
+  },
+  {
+   "kind": "lock",
+   "parent": null,
+   "capabilities": [],
+   "note": "the act of freezing a segment: hash of its objects"
+  },
+  {
+   "kind": "tide",
+   "parent": null,
+   "capabilities": [],
+   "note": "the market factor a round declares"
+  },
+  {
+   "kind": "cost_model",
+   "parent": null,
+   "capabilities": [],
+   "note": "spread, slippage and fee rules for an instrument kind"
+  },
+  {
+   "kind": "library_rule",
+   "parent": null,
+   "capabilities": [],
+   "note": "a mechanism stated as a verb that forbids something"
+  },
+  {
+   "kind": "procedural_model",
+   "parent": null,
+   "capabilities": [],
+   "note": "a chain of procedural actors and their windows"
+  },
+  {
+   "kind": "attribute",
+   "parent": null,
+   "capabilities": [],
+   "note": "a registered position attribute: type, unit, allowed values"
+  },
+  {
+   "kind": "transform",
+   "parent": null,
+   "capabilities": [],
+   "note": "a relation type by effect pair by value"
+  },
+  {
+   "kind": "partition",
+   "parent": null,
+   "capabilities": [],
+   "note": "a versioned post-hoc grouping of relation instances (buckets)"
+  },
+  {
+   "kind": "bucket",
+   "parent": null,
+   "capabilities": [],
+   "note": "one group in a partition, with a fitted dilution exponent or a gap"
+  },
+  {
+   "kind": "parameter",
+   "parent": null,
+   "capabilities": [],
+   "note": "an appetite value: ratified, carried, provisional or unset, with provenance"
+  },
+  {
+   "kind": "note",
+   "parent": null,
+   "capabilities": [],
+   "note": "operator commentary on any entity"
+  },
+  {
+   "kind": "test",
+   "parent": null,
+   "capabilities": [],
+   "note": "a pre-registered look-back or kill test: its prereg entity precedes its result"
+  }
+ ],
+ "relation_types": [
+  {
+   "type": "states",
+   "roles": [
+    {
+     "role": "source",
+     "filter": "document|dataset"
+    },
+    {
+     "role": "claim",
+     "filter": "statement"
+    }
+   ],
+   "mode": "provenance",
+   "note": "span verified; a numeric claim's span carries the value",
+   "constraints": {
+    "excludes_source_kinds": [
+     "price_series"
+    ]
+   }
+  },
+  {
+   "type": "component",
+   "roles": [
+    {
+     "role": "source",
+     "filter": "document|dataset"
+    },
+    {
+     "role": "claim",
+     "filter": "statement"
+    }
+   ],
+   "mode": "provenance",
+   "note": "the default link; the later of the components dates the claim",
+   "constraints": {
+    "excludes_source_kinds": [
+     "price_series"
+    ]
+   }
+  },
+  {
+   "type": "exposed_to",
+   "roles": [
+    {
+     "role": "holder",
+     "filter": "organisation|facility|composite"
+    },
+    {
+     "role": "channel",
+     "filter": "story|commodity_grade|index|currency|market|factor"
+    }
+   ],
+   "mode": "documented",
+   "note": "attributes: sensitivity, unit, metric, basis; an undisclosed channel is a gap, an inferred one is implicit",
+   "constraints": {
+    "excludes_source_kinds": [
+     "price_series"
+    ]
+   }
+  },
+  {
+   "type": "lands_on",
+   "roles": [
+    {
+     "role": "effect",
+     "filter": "effect"
+    },
+    {
+     "role": "subject",
+     "filter": "*"
+    }
+   ],
+   "mode": "structural"
+  },
+  {
+   "type": "under",
+   "roles": [
+    {
+     "role": "effect",
+     "filter": "effect"
+    },
+    {
+     "role": "outcome",
+     "filter": "outcome"
+    }
+   ],
+   "mode": "structural"
+  },
+  {
+   "type": "derived_from",
+   "roles": [
+    {
+     "role": "child",
+     "filter": "effect|ack|thesis|obligation"
+    },
+    {
+     "role": "parent",
+     "filter": "effect|ack|obligation_template|statement"
+    }
+   ],
+   "mode": "structural",
+   "constraints": {
+    "acyclic": true
+   },
+   "note": "carries transmission; support is the product along the chain"
+  },
+  {
+   "type": "outcome_of",
+   "roles": [
+    {
+     "role": "outcome",
+     "filter": "outcome"
+    },
+    {
+     "role": "vocabulary",
+     "filter": "outcome_vocab|ack"
+    }
+   ],
+   "mode": "structural"
+  },
+  {
+   "type": "covers",
+   "roles": [
+    {
+     "role": "thesis",
+     "filter": "thesis"
+    },
+    {
+     "role": "outcome",
+     "filter": "outcome"
+    }
+   ],
+   "mode": "structural"
+  },
+  {
+   "type": "hedges",
+   "roles": [
+    {
+     "role": "hedge",
+     "filter": "thesis"
+    },
+    {
+     "role": "primary",
+     "filter": "thesis"
+    }
+   ],
+   "mode": "structural",
+   "constraints": {
+    "acyclic": true,
+    "single_sink": true,
+    "no_cross_thesis": true,
+    "long_only": true
+   },
+   "note": "one-way: a thesis is hedged by others and does not hedge them back; the DAG's sink is the primary thesis"
+  },
+  {
+   "type": "constructed_for",
+   "roles": [
+    {
+     "role": "basket",
+     "filter": "basket"
+    },
+    {
+     "role": "thesis",
+     "filter": "thesis"
+    }
+   ],
+   "mode": "structural"
+  },
+  {
+   "type": "member_of",
+   "roles": [
+    {
+     "role": "member",
+     "filter": "*"
+    },
+    {
+     "role": "whole",
+     "filter": "composite|basket"
+    }
+   ],
+   "mode": "accounting",
+   "note": "attributes: weight, side; a derived composite counts once"
+  },
+  {
+   "type": "references",
+   "roles": [
+    {
+     "role": "instrument",
+     "filter": "instrument"
+    },
+    {
+     "role": "underlying",
+     "filter": "*"
+    }
+   ],
+   "mode": "expression",
+   "note": "an expression edge, not a transmitting one"
+  },
+  {
+   "type": "pays_under",
+   "roles": [
+    {
+     "role": "subject",
+     "filter": "basket|instrument"
+    },
+    {
+     "role": "outcome",
+     "filter": "outcome"
+    }
+   ],
+   "mode": "estimate",
+   "note": "attribute payoff with basis documented, estimated or gap; the payoff matrix"
+  },
+  {
+   "type": "fails_under",
+   "roles": [
+    {
+     "role": "subject",
+     "filter": "basket|thesis"
+    },
+    {
+     "role": "outcome",
+     "filter": "outcome"
+    }
+   ],
+   "mode": "computed",
+   "note": "computed from pays_under against FAILURE_LOSS_PCT; never authored"
+  },
+  {
+   "type": "shadows",
+   "roles": [
+    {
+     "role": "shadow",
+     "filter": "basket"
+    },
+    {
+     "role": "shadowed",
+     "filter": "basket"
+    }
+   ],
+   "mode": "structural",
+   "constraints": {
+    "never_traded": true
+   },
+   "note": "a blind statistical comparator paper-filled beside a constructed basket"
+  },
+  {
+   "type": "fires",
+   "roles": [
+    {
+     "role": "firing",
+     "filter": "firing"
+    },
+    {
+     "role": "ack",
+     "filter": "ack"
+    }
+   ],
+   "mode": "structural"
+  },
+  {
+   "type": "delivers",
+   "roles": [
+    {
+     "role": "firing",
+     "filter": "firing"
+    },
+    {
+     "role": "outcome",
+     "filter": "outcome"
+    }
+   ],
+   "mode": "structural"
+  },
+  {
+   "type": "forces",
+   "roles": [
+    {
+     "role": "template",
+     "filter": "obligation_template"
+    },
+    {
+     "role": "ack",
+     "filter": "ack"
+    }
+   ],
+   "mode": "structural"
+  },
+  {
+   "type": "reports_on",
+   "roles": [
+    {
+     "role": "carrier",
+     "filter": "document_series"
+    },
+    {
+     "role": "subject",
+     "filter": "*"
+    }
+   ],
+   "mode": "provenance"
+  },
+  {
+   "type": "carried_by",
+   "roles": [
+    {
+     "role": "claim",
+     "filter": "call|ack"
+    },
+    {
+     "role": "carrier",
+     "filter": "document_series"
+    }
+   ],
+   "mode": "structural"
+  },
+  {
+   "type": "resolves",
+   "roles": [
+    {
+     "role": "resolution",
+     "filter": "resolution"
+    },
+    {
+     "role": "call",
+     "filter": "call"
+    }
+   ],
+   "mode": "structural"
+  },
+  {
+   "type": "observed_in",
+   "roles": [
+    {
+     "role": "resolution|observation",
+     "filter": "resolution|fundamental"
+    },
+    {
+     "role": "source",
+     "filter": "document|dataset"
+    }
+   ],
+   "mode": "provenance",
+   "constraints": {
+    "excludes_source_kinds": [
+     "price_series"
+    ]
+   }
+  },
+  {
+   "type": "authored_by",
+   "roles": [
+    {
+     "role": "work",
+     "filter": "*"
+    },
+    {
+     "role": "author",
+     "filter": "session|person"
+    }
+   ],
+   "mode": "provenance"
+  },
+  {
+   "type": "supersedes",
+   "roles": [
+    {
+     "role": "new",
+     "filter": "*"
+    },
+    {
+     "role": "old",
+     "filter": "*"
+    }
+   ],
+   "mode": "identity"
+  },
+  {
+   "type": "pins",
+   "roles": [
+    {
+     "role": "manifest",
+     "filter": "manifest"
+    },
+    {
+     "role": "snapshot",
+     "filter": "snapshot"
+    }
+   ],
+   "mode": "structural"
+  },
+  {
+   "type": "part_of",
+   "roles": [
+    {
+     "role": "part",
+     "filter": "segment|paper_position|firing"
+    },
+    {
+     "role": "whole",
+     "filter": "round|basket"
+    }
+   ],
+   "mode": "structural"
+  },
+  {
+   "type": "loads_on",
+   "roles": [
+    {
+     "role": "subject",
+     "filter": "instrument|basket"
+    },
+    {
+     "role": "story",
+     "filter": "story"
+    }
+   ],
+   "mode": "estimate",
+   "note": "attribute loading; attentional: proposes and never supports"
+  },
+  {
+   "type": "joins",
+   "roles": [
+    {
+     "role": "junction",
+     "filter": "junction"
+    },
+    {
+     "role": "story",
+     "filter": "story"
+    }
+   ],
+   "mode": "structural"
+  },
+  {
+   "type": "assigned_to",
+   "roles": [
+    {
+     "role": "instance",
+     "filter": "*"
+    },
+    {
+     "role": "bucket",
+     "filter": "bucket"
+    }
+   ],
+   "mode": "estimate",
+   "note": "post hoc; a partition version records who assigned and on what text"
+  }
+ ],
+ "table_map": {
+  "rounds": "entity kind round; its fields are statements",
+  "round_meta": "statements on the round (supersedes chain)",
+  "round_tags": "statements on the round",
+  "round_state": "lifecycle events of the round (entity_events)",
+  "operator_manifests": "entity kind manifest, authored_by a session; cold and hook_verified are statements",
+  "notes": "entity kind note about any entity",
+  "enumeration_runs": "entity kind run",
+  "intake_candidates": "entities kind event (candidates) with decision statements",
+  "evidence": "source entities of kind document or dataset (projection of evidence_entities)",
+  "pit_fetches": "events on source entities (a fetch), with status statements",
+  "positions": "statements on entities, evidence-linked (V1)",
+  "node_facts": "statements with evidence links",
+  "effects": "entities kind effect; relations lands_on, under, derived_from",
+  "surviving_risk": "statements on effect (terms, vetoes, typed gaps)",
+  "ack_status": "lifecycle events of the ack",
+  "ack_derivations": "relations derived_from (ack from template and positions) with the trace as statements",
+  "ack_outcomes": "entities kind outcome; relation outcome_of",
+  "thesis_sets": "entity kind thesis; relations covers; anchored exclusions as statements",
+  "ack_firings": "entity kind firing; relations fires and delivers",
+  "segments": "entity kind segment; part_of round; clock as statement",
+  "predictions": "entity kind call; carried_by a carrier",
+  "resolutions": "entity kind resolution; resolves a call; observed_in a source",
+  "story_classes": "statements on story per segment",
+  "story_loadings": "relation loads_on with a loading attribute",
+  "junctions": "entity kind junction; relation joins",
+  "s_perp": "statements on thesis and story (rho, s_perp_norm)",
+  "price_vintages": "entity kind price_series (a vintage)",
+  "store_snapshots": "entity kind snapshot",
+  "lock_manifests": "entity kind manifest; relation pins to snapshots",
+  "locks": "entity kind lock; hash as statement",
+  "constructed_baskets": "entity kind basket; relation constructed_for a thesis",
+  "basket_weights": "relation member_of with weight and side",
+  "scenarios": "relation pays_under (the payoff matrix)",
+  "basket_status": "lifecycle events of the basket (built, unbuildable, why)",
+  "paper_positions": "entity kind paper_position; part_of a basket",
+  "paper_fills": "events on paper_position",
+  "paper_marks": "statements on paper_position, from price_series (expression layer)",
+  "paper_exits": "events on paper_position",
+  "pianos": "entity kind piano (an outcome outside the closed world)",
+  "census_rows": "statements and relations on company entities (owns, references, concentration)",
+  "entity_events": "the event log itself: every change to an entity, relation or statement",
+  "evidence_entities": "the link from an evidence row to its document entity (merged into entities)",
+  "statement_links": "relations states and component",
+  "bucket_versions": "entity kind partition, authored_by a session",
+  "bucket_assignments": "relation assigned_to",
+  "bucket_fits": "statements on bucket (alpha, se, n_obs, gap)",
+  "library_history": "statements on library_rule (weight history)",
+  "store_changes": "events (audit of changes to mutable stores)",
+  "holders": "entities (kinds company, agency, and so on): legacy view",
+  "nodes": "entities (facility, place, and so on): legacy view",
+  "node_types": "registry kinds",
+  "position_attributes": "registry entries of kind attribute",
+  "bounds": "statements with an attribute bound, evidence-linked and dated",
+  "library_rules": "entities kind library_rule",
+  "obligation_templates": "entities kind obligation_template with role relations to capabilities",
+  "outcome_vocabs": "entities kind outcome_vocab with outcome_of members",
+  "ack_nodes": "entities kind ack",
+  "transforms": "registry entries kind transform (relation type by effect pair)",
+  "stories": "entities kind story",
+  "instruments": "entities kind instrument (V4); references an underlying",
+  "cost_models": "entities kind cost_model",
+  "tides": "entities kind tide (a story with a proxy)",
+  "carriers": "entities kind document_series; reports_on",
+  "procedural_models": "entities kind procedural_model",
+  "entities": "the entity table (canonical)",
+  "entity_kinds": "the kind registry (canonical)",
+  "capabilities": "the capability registry (canonical)",
+  "key_map": "identity mapping (identity events)",
+  "attribute_scope": "registry constraint: which attributes a kind may carry"
+ },
+ "rules": [
+  "R1 The atom is an entity; its base type is a kind. Kinds live in one registry (a tree, with review state and capabilities). There are four primitives and no others: entity, relation, statement, event.",
+  "R2 A relation is one fact with unordered participants that fill roles. The type says what may fill each role. Direction is a perspective, chosen by a traversal. A relation with an open slot is valid and the slot is a typed gap.",
+  "R3 A statement is a dated claim about an entity with evidence links. Its knowable_from is derived from the evidence, never typed. Evidence is an entity of kind document or dataset, and a structured quarterly figure is one.",
+  "R4 Unknown never eliminates and never supports. A missing exposure is a typed gap; an inferred one is implicit and makes any result a switch to check.",
+  "R5 A kind, relation type or capability that is unreviewed proposes and never supports.",
+  "R6 Price is a dataset of kind price_series with the capability attentional: it may confirm and may never propose. It is not evidence for an exposure, an outcome or an effect. It enters only at expression (construction sizing, paper marks, costs).",
+  "R7 The ledger is append-only. Every change is an event. A correction supersedes and never overwrites. Mutable stores are current-state views, pinned by a snapshot at each lock.",
+  "R8 Procedures are parameterised by kinds and capabilities, never by an event class or a domain. Domains enter through adapters that supply source entities.",
+  "R9 A hedge is constructed thesis-first: a primary thesis, its failure set (computed from pays_under, never authored), a hedge thesis that covers it, then a basket constructed for that thesis. The hedge relation is one-way, acyclic and single-sink; hedge baskets are long-only; a shadow basket is never traded.",
+  "R10 Objectives and the number of baskets are declared at lock. Each basket is scored on its own objective and the set is scored separately.",
+  "R11 A parameter is an entity with a status and provenance; a ratification is a decision entity by a person with a date.",
+  "R12 A test is an entity: its pre-registration entity carries a knowable_from that precedes every result entity it produces."
+ ]
+}

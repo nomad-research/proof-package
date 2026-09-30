@@ -548,3 +548,8 @@ Rob: two long but different narratives over one underlying, however built, equal
 
 `lookbacks/scenarios/convexity_map/`. Not supported in general: c is uncorrelated across halves (+0.037), no pair reached train t >= 3 (about 1 expected by chance), one composite (market) passed and is read as noise. At the daily horizon no large-cap equity shows a stable convex, one-sided response.
 A global |x| term looks for a kink at zero; documented kinks sit at thresholds (strikes, floors, contracts). Next: threshold-aware tail asymmetry per stock, and whether a narrative that names documented floors and caps in advance picks kinks the data cannot.
+
+## 2026-09-30 (later) — the whole system as entities and kinds (A2, proposed D32)
+
+`docs/nomad_v17_entity_model.md`, `config/system_model.json` (37 system kinds, 29 relation types with roles, 12 rules, every one of the 69 tables read as an entity kind, relation, statement or event), `nomad16/tests/test_system_model.py`
+(covers every table; constraints consistent; price is attentional and excluded as evidence). Rob: the atom is an entity, the base type is a kind; a quarterly fundamental, a filing, a decision are entities of kinds. Nothing migrated; views first. The price-free effect-space test is to be pre-registered under this view.
