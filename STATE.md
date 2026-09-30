@@ -538,3 +538,8 @@ Hypothesis for next: narrative should matter where statistics cannot be estimate
 Rob: as soon as we design specific scenarios where it can work, it is ungeneralized. Stated without a domain: a hedge exists at the margin iff some non-negative combination of instruments pays on every failure outcome (Ville's theorem);
 the narrative is a prior over the payoff matrix's sign structure, worth most where data cannot estimate it; the engine holds no event class; every round runs with a blind shadow comparator; generality is predicted success against two domain-free
 quantities (payoff on the failure set, trailing data). Proposed step 8 of the implementation list (Fed days as the first live class) withdrawn.
+
+## 2026-09-30 (later) — convexity of the FOMC pair (exploratory, pre-registered)
+
+Rob: two long but different narratives over one underlying, however built, equal a downside-capped, upside-uncapped hedge, that is, a convex composite. Direct check on the FOMC pair (banks + DHI, O, AMT, NEE): both legs are linear in the yield move with opposite slopes, so the sum is near-linear
+(c +0.00009, 10th percentile below 0); not supported here. The shape needs two one-sided (kinked) legs, not two opposite-sloped linear ones. Next: a convexity map across stocks and state variables (domain-free), and whether the kinks are stable out of sample.
