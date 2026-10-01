@@ -28,6 +28,7 @@ DATA_DATE = A.ts("2026-09-30T23:59:59Z")
 LOCK_HOUR = 12
 STEP_D, HORIZON_D, MIN_OPEN = 7, 75, 3                      # BT_LOCK_STEP, T2_HORIZON_DAYS, T2_MIN_OPEN_MARKETS
 PER_STRATUM, PER_SESSION = 90, 6                            # addendum A1; SWEEP_BATCH
+ONLY, EXCLUDE, PREFIX = None, set(), "bt2"                  # later passes (BT_T2_pass2_prereg.md): one stratum, earlier events excluded, own prompt names
 SLIP, MATCH_BAND = 0.01, 0.05
 CHANCES = (10, 25, 50, 75, 90)
 DEADLINE = re.compile(rf"\b(by|before)\s+(the\s+end\s+of\s+)?({S.MON}|\d)", re.I)
@@ -93,6 +94,10 @@ def cmd_frame(a):
     crawl = A.jload(os.path.join(HERE, "bt", CRAWL)); grid = lock_grid(a.start)
     tally = collections.Counter(); cands = collections.defaultdict(list)
     for e in crawl:
+        if e["id"] in EXCLUDE:
+            tally["drawn_in_an_earlier_pass"] += 1; continue
+        if ONLY and ("binary" if len(e["markets"]) == 1 else "multi") != ONLY:
+            tally[f"not_{ONLY}"] += 1; continue
         if A.MAKER.search(A.text_of(e) + " " + " ".join(e["tags"])):
             tally["maker_excluded"] += 1; continue
         r = A.clean(e)
@@ -203,7 +208,7 @@ def cmd_sessions(a):
 
 
 def cmd_publish(a):
-    os.makedirs(A.PROMPT_DIR, exist_ok=True); dst = os.path.join(A.PROMPT_DIR, f"bt2_{a.sid}.txt")
+    os.makedirs(A.PROMPT_DIR, exist_ok=True); dst = os.path.join(A.PROMPT_DIR, f"{PREFIX}_{a.sid}.txt")
     shutil.copyfile(os.path.join(D, "sessions", f"{a.sid}.txt"), dst); print(INSTRUCTION.format(path=dst))
 
 
@@ -279,7 +284,7 @@ def validate(obj, labels):
 
 def cmd_ingest(a):
     meta = A.jload(os.path.join(D, "sessions", f"{a.sid}.json")); prompt = open(os.path.join(D, "sessions", f"{a.sid}.txt"), encoding="utf-8").read()
-    path = V.find_transcript(a.agent_id); dst = os.path.join(A.PROMPT_DIR, f"bt2_{a.sid}.txt")
+    path = V.find_transcript(a.agent_id); dst = os.path.join(A.PROMPT_DIR, f"{PREFIX}_{a.sid}.txt")
     au = V.audit_transcript(path, declared=A.DECLARED_MODEL, allowed_reads={dst: prompt}, expect_instructions=[INSTRUCTION.format(path=dst)])
     errs, ans = [], None
     try:
@@ -491,6 +496,7 @@ def cmd_score(a):
             c["yes"] = A.yes_won(mk[c["cid"]])
     # the matched base: every drawn contract, both sides, by event class (addendum A1)
     base = [(ev["id"], ev["kind"], cost(c, yes), float(c["yes"] == yes)) for ev in frame.values() for c in ev["contracts"] for yes in (True, False)]
+    base_side = [(ev["id"], ev["kind"], yes, cost(c, yes), float(c["yes"] == yes)) for ev in frame.values() for c in ev["contracts"] for yes in (True, False)]  # pass 2: E1's same-side base
     rng = np.random.default_rng(SEED); pos, mags, calib, logs, base_t0, voided = [], [], collections.defaultdict(list), [], [], collections.Counter()
     for sid, row in man["sessions"].items():
         if row["status"] != "ok":
@@ -511,8 +517,17 @@ def cmd_score(a):
                     if want > cc:
                         hit = float(c["yes"] == yes)
                         bm = [h - k for (eid, kd, k, h) in base if eid != ev["id"] and kd == ev["kind"] and abs(k - cc) <= MATCH_BAND]
+                        bs = [h - k for (eid, kd, s, k, h) in base_side if eid != ev["id"] and kd == ev["kind"] and s == yes and abs(k - cc) <= MATCH_BAND]
+                        mid_, q_ = (lo + hi) / 2, c["price_yes"]
+                        kind_of_gap = ("opposite side of 50%" if (mid_ - 0.5) * (q_ - 0.5) < 0 else
+                                       ("less sure than market" if abs(mid_ - 0.5) < abs(q_ - 0.5) else "surer than market"))
+                        t = (ev.get("title") or "").lower()
+                        group = ("mention" if re.search(r"\bsay\b|\bmention", t) else
+                                 "bucket or count" if re.search(r"price on|# |posts|how many|cpi|inflation|rate|temperature|earthquake|close[sd]? |gdp|tweets", t) else "other")
                         pos.append({"event": ev["id"], "stratum": ev["stratum"], "kind": ev["kind"], "strict": ev["strict"], "money": hit - cc,
-                                    "skill": (hit - cc) - (float(np.mean(bm)) if bm else 0.0), "n_base": len(bm), "cost": cc})
+                                    "skill": (hit - cc) - (float(np.mean(bm)) if bm else 0.0), "n_base": len(bm), "cost": cc,
+                                    "side": "YES" if yes else "NO", "skill_side": (hit - cc) - (float(np.mean(bs)) if bs else 0.0), "n_base_side": len(bs),
+                                    "gap_type": kind_of_gap, "gap": abs(mid_ - q_), "group": group})
                 mid = (lo + hi) / 2; p_side = mid if c["yes"] else 1 - mid; q_side = c["price_yes"] if c["yes"] else 1 - c["price_yes"]
                 logs.append({"event": ev["id"], "v": math.log(max(p_side, 1e-9) / max(q_side, A.Q_FLOOR)), "bounded": lo != hi})
                 if ev["kind"] in ("partition", "percent"):
@@ -566,18 +581,40 @@ def cmd_score(a):
            "by_kind": {k: {"S1_skill": read(pos, "skill", lambda r, k=k: r["kind"] == k), "S2": read(mags, "v", lambda r, k=k: r["kind"] == k)}
                        for k in sorted({p["kind"] for p in pos} | {m["kind"] for m in mags})},
            "magnitude_counts": dict(collections.Counter({1.0: "session closer", -1.0: "market closer", 0.0: "tie"}[m["v"]] for m in mags))}
+    # pass 2's registered main statistic (BT_T2_pass2_prereg.md §2) and its secondary breakdowns (§3)
+    no = lambda r: r["side"] == "NO"
+    out["E1_no_skill_same_side"] = read(pos, "skill_side", no)
+    out["E1_secondary"] = {
+        "no_money": read(pos, "money", no), "yes_skill_same_side": read(pos, "skill_side", lambda r: r["side"] == "YES"),
+        "no_surer_than_market": read(pos, "skill_side", lambda r: no(r) and r["gap_type"] == "surer than market"),
+        "no_by_group": {g: read(pos, "skill_side", lambda r, g=g: no(r) and r["group"] == g) for g in ("mention", "bucket or count", "other")},
+        "no_by_kind": {k: read(pos, "skill_side", lambda r, k=k: no(r) and r["kind"] == k) for k in sorted({p["kind"] for p in pos})},
+        "no_by_gap": {f"{lo}-{hi}": read(pos, "skill_side", lambda r, lo=lo, hi=hi: no(r) and lo <= r["gap"] < hi) for lo, hi in ((0, .1), (.1, .2), (.2, .4), (.4, 1.01))}}
     A.jdump(dict(out, rows={"positions": pos, "magnitude": mags}), os.path.join(D, "result.json"))
     print(json.dumps(out, indent=1))
 
 
 def main():
-    ap = argparse.ArgumentParser(); sp = ap.add_subparsers(dest="cmd", required=True)
+    global D, SEED, PER_STRATUM, ONLY, EXCLUDE, PREFIX
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--pass-dir", help="output folder under bt/ for a later pass (BT_T2_pass2_prereg.md): e.g. t2_pass2")
+    ap.add_argument("--seed", type=int); ap.add_argument("--per-stratum", type=int); ap.add_argument("--only-stratum", choices=("multi", "binary"))
+    ap.add_argument("--exclude", action="append", default=[], help="a previous pass's frame.json whose events are not drawn again")
+    sp = ap.add_subparsers(dest="cmd", required=True)
     p = sp.add_parser("frame"); p.add_argument("--start", required=True); p.add_argument("--strict-start")
     sp.add_parser("sessions")
     p = sp.add_parser("publish"); p.add_argument("sid")
     p = sp.add_parser("ingest"); p.add_argument("sid"); p.add_argument("agent_id")
     sp.add_parser("freeze"); sp.add_parser("score")
     a = ap.parse_args()
+    if a.pass_dir:
+        D = os.path.join(HERE, "bt", a.pass_dir); PREFIX = "bt2" + a.pass_dir.replace("t2_", "").replace("pass", "p")
+    if a.seed:
+        SEED = a.seed
+    if a.per_stratum:
+        PER_STRATUM = a.per_stratum
+    ONLY = a.only_stratum
+    EXCLUDE = {e["id"] for f in a.exclude for e in A.jload(f)["events"]}
     {"frame": cmd_frame, "sessions": cmd_sessions, "publish": cmd_publish, "ingest": cmd_ingest, "freeze": cmd_freeze, "score": cmd_score}[a.cmd](a)
 
 
