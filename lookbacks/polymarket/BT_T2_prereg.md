@@ -129,3 +129,17 @@ Found while writing the script. No data had been read.
 ## Addendum A2 (2026-10-01, after a first frame build, before any session or outcome)
 
 The first frame build admitted markets whose scheduled end had already passed at the lock but which had not yet closed, because resolution was pending. An example is "… by June 30?" at a 1 July lock. Their outcome was already fixed at the lock, at the model's cutoff. A market is now open at the lock only if it has not closed **and** its scheduled end is after the lock. The frame was rebuilt; the first build is discarded. No outcome was read in either build.
+
+## Addendum A3 (2026-10-01, after the freeze and the first score): two scorer bugs, fixed
+
+The first score is kept in `bt/t2/result_first_run_key_bug.json`. The answers were frozen and unchanged throughout; only the scorer's reading of them changed.
+
+1. **The key-type bug.** The frozen answers store the five chances as JSON string keys ("10", "25", …), and the scorer looked them up as integers. Every levels, high, low and dates answer therefore read as empty:
+   - terminal ladders took no position;
+   - every session "median" fell back to a placeholder, so the market was "closer" on all 23 terminal events;
+   - touch and date ladders bought NO almost everywhere, on the empty view's default bound.
+
+   Fix: `intkeys` converts the keys on load.
+2. **Touching intervals on dates.** "After d" and "by d" touched at the instant d, so the distance between them was zero and every deadline binary tied in S2. Dates are whole seconds, so "after d" now starts one second past d (`AFTER`), in the outcome interval, in the market's "beyond the last rung" and in the session's "not within the horizon".
+
+First run, for the record: S1 skill +0.031 (95% −0.007 to +0.068), direction only; S2 −1.0 on terminal ladders and 0 on deadline binaries, both artefacts. The fixed scorer's result is in `BT_T2_RESULT.md`.

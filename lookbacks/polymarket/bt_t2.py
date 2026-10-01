@@ -302,6 +302,21 @@ def cmd_freeze(a):
 
 
 # ---------------------------------------------------------------- scoring helpers (§4, §5)
+AFTER = 1                                                     # dates are whole seconds: 'after d' starts one second past d (addendum A3)
+
+
+def intkeys(answers):
+    """Answers come back from JSON with the five chances as string keys ('10' ...); the scorer reads them as integers (addendum A3)."""
+    out = {}
+    for lab, rec in (answers or {}).items():
+        r = dict(rec)
+        for k in ("levels", "high", "low", "dates"):
+            if isinstance(r.get(k), dict):
+                r[k] = {int(c): v for c, v in r[k].items()}
+        out[lab] = r
+    return out
+
+
 def chance_from_five(five, x, rising):
     """(lo, hi) chance that the variable is at or beyond x, from five (value at chance c) points.
     rising=False: P(V >= x) falls as x rises (levels written 10 highest); rising=True: P(event by x) rises with x (dates, low-side levels)."""
@@ -389,7 +404,7 @@ def median_set(points, increasing):
         if y1 == 0.5:
             return (x1, x1)
     if (ys[0] > 0.5) == (not increasing):                    # chance still above 0.5 at the top (falling curve) or below 0.5 at the top (rising curve)
-        return (xs[-1], math.inf)
+        return (xs[-1] + (AFTER if increasing else 0), math.inf)   # dates: past the last rung means after it
     return (-math.inf, xs[0])
 
 
@@ -409,7 +424,7 @@ def outcome_interval(ev, kind, side=None):
         return None
     if kind in ("dates", "dates1"):
         yes = [rung_value(c, kind) for c in cs if c["yes"]]; no = [rung_value(c, kind) for c in cs if not c["yes"]]
-        return (max(no) if no else ev["lock"], min(yes) if yes else math.inf)
+        return ((max(no) + AFTER) if no else ev["lock"], min(yes) if yes else math.inf)   # NO on a 'by d' rung means after d
     if kind == "terminal" or side == "up":                    # V >= k for YES on up rungs; V < k for YES on down rungs (terminal)
         ge = [rung_value(c, kind) for c in cs if (c["yes"] if S.orient(c["q"]) == "up" else not c["yes"])]
         lt = [rung_value(c, kind) for c in cs if (not c["yes"] if S.orient(c["q"]) == "up" else c["yes"])]
@@ -446,7 +461,7 @@ def session_median(five, ev):
     v = five.get(50)
     if v is None:                                             # dates: the 50% chance is not reached by the last date the contracts cover
         last = max((A.ts(c["end"]) for c in ev["contracts"] if c.get("end")), default=ev["lock"])
-        return (last, math.inf)
+        return (last + AFTER, math.inf)
     return (v, v)
 
 
@@ -480,7 +495,7 @@ def cmd_score(a):
     for sid, row in man["sessions"].items():
         if row["status"] != "ok":
             voided[row["status"]] += 1; continue
-        ans = A.jload(os.path.join(D, "answers", f"{sid}.json"))["answers"]; labels = A.jload(os.path.join(D, "sessions", f"{sid}.json"))["labels"]
+        ans = intkeys(A.jload(os.path.join(D, "answers", f"{sid}.json"))["answers"]); labels = A.jload(os.path.join(D, "sessions", f"{sid}.json"))["labels"]
         for lab, L in labels.items():
             ev = frame[L["event_id"]]
             if ans[lab]["recognised"]:
