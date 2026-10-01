@@ -85,3 +85,61 @@ Registers C3 and C5. Settles the form left open in decision 3.
   - Against a kind-and-price matched base, the nine tier claims whose "if" happened still beat it by +30 points (+13 to +48).
   - The tier claims bought at the lock beat it by only +4 points (−7 to +17).
   - So decisions 2 to 4 stand as measurement choices. What T0 supports is that sessions name linked events, not that they time events better than the market. A timing edge has to be shown on events chosen by schedule.
+
+## 5. The backtest gate: loose first, confirmed by further passes (2026-10-01)
+
+Components register Part 2 (`BT_AUDIT_GATE`, the one integrity value that goes to Rob).
+
+- **Decision.**
+  - BT-A's first reading uses a loose gate of **0.5**. A month is clean if it is more likely than not that the model knows it less than half as well as it knows the positive control (January to March). So the point estimate decides.
+  - The same audit also reports the window under v18's starting value of **0.2**.
+  - An edge found on the loose window is a first pass. It counts as confirmed only when it holds on the strict window and on forward data.
+- **Rob's words.** "Looser first and we will do multiple passes to confirm the edge for now."
+- **Basis for the numbers.** 0.5 is the point at which the month is more likely clean than not, so it is the loosest gate that still takes a side. 0.2 is v18's starting value (§7), kept as the confirming pass.
+- **What it costs.** If the model knows some outcomes after its declared cutoff, a loose window can show edge that is not there; v18 calls that its main threat (§13). The confirming passes are the guard.
+- **Still open.** Nothing for BT-A. The value is set before any BT-A answer exists, and is recorded in `BT_A_prereg.md` addendum A1.
+
+## 6. The session format, accepted tentatively, with magnitude scored apart from calibration (2026-10-01)
+
+Registers C3 and C5. Settles questions 3 and 4 of topic 1 for now, and sets the chances left open in decision 4.
+
+- **Decision (tentative).** What a session writes in BT-T2 and T3:
+  - **Scaled events** (price levels, "reaches", counts): the values it gives a 10%, 25%, 50%, 75% and 90% chance of being reached.
+  - **Yes/no events with a deadline:** time is the scale. The dates by which it gives the event a 10%, 25%, 50%, 75% and 90% chance of having happened, or "not within the horizon".
+  - **Yes/no events with no time dimension:** a whole percent.
+  - **Partitions:** a whole percent per outcome.
+  - **Claims:** B written as above twice, if A and if not A (addendum B1 §5).
+- **Rob's words.** "2 accepted tentatively but I don't want to affect magnitude scoring, calibration can be fixed."
+- **How scoring honours that. Magnitude and calibration are scored separately, and neither feeds the other.**
+  - **Magnitude** is scored on where the session puts its values relative to the market's own implied values for the same event: which side of the market it sits and how far, and whether the outcome lands on the session's side. It does not depend on whether the session's chance labels are right, so a badly calibrated session can still show magnitude skill.
+  - **Calibration** is the separate count (do the 1-in-10 values come true about 1 time in 10?). It is fixed by relabelling: each stated chance is mapped to the rate at which such values were reached on events that resolved earlier (prequential).
+  - **The money score** (hit minus cost where the session's chance at a rung beats its price) is computed on the relabelled chances, so it does not penalise a fixable calibration error.
+  - **T0's method** (direction only, rung picked by price) is computed from the same answers as a baseline.
+- **Basis for the chances.** 50, 25 and 10 are V1's tier targets, which keeps comparability with T0. 75 and 90 mirror them, so the session never has to choose a direction in order to write a view.
+- **Still open.**
+  - **Tentative**, so it can change after BT-T2's first read; any change before T3's authoring costs nothing.
+  - **The rule that turns the market's rungs into implied values** (interpolation between rungs, and the tails beyond the outermost rung). It is set in the BT-T2 registration before data.
+  - **The departure from v18.** Graded views replace v18's narrative coverage sets (R19) as the main measure.
+
+## 7. Edge is declared at conventional statistical significance; the aim is a standing graph, not a finish line (2026-10-01)
+
+Register C6.
+
+- **Decision.**
+  - **Edge shown:** a test shows edge when the 95% interval of its pre-registered main statistic (skill against the market) lies above zero. That is the conventional two-sided 5% level.
+  - **Edge shown absent:** when the 95% interval lies below zero, the test shows the reading loses to the market.
+  - **Between the two**, the result is reported as direction (effect, interval, probability positive) and the test keeps running.
+  - **Breakdowns** (a domain, a class) stay hypotheses for the next pass, as v18 §6.0 already says.
+  - Under decision 5, an edge on backtests also needs the confirming passes.
+- **Rob's words.** "Just set 3 at whatever is statistically significant for now, optimally there is no finish line and we have an evolving graph of events that feed eachother."
+- **Basis.** The conventional 5% significance level. `DIRECTION_PUSH` (0.80) stays a steering value only, for where to put more sessions; it declares nothing.
+- **What it implies.**
+  - At today's backtest size (about 22 liquid events a month of window), only a large edge reaches significance quickly.
+  - Forward data arrives from 15 October and grows from there.
+  - Testing several statistics or breakdowns at 5% will produce some false positives, which is why only the registered main statistic declares anything.
+- **The aim, in Rob's words, is an evolving graph of events that feed each other.** So there is no end state. Tests become standing passes:
+  - a weekly walk-forward backtest on the newly resolved week;
+  - forward scoring as contracts resolve;
+  - claims kept as calibrated edges between events.
+  - Each pass updates the record, and significance marks when a direction has been shown, not when work stops.
+- **Still open.** The machinery for the standing graph (v18 §5.1's world graph, the weekly batches, the learning store) is not built.
