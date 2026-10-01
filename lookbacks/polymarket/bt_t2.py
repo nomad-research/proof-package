@@ -41,9 +41,13 @@ def iso_day(t):
     return dt.datetime.fromtimestamp(t, dt.timezone.utc).strftime("%Y-%m-%d")
 
 
+LOCK_END = None                                               # E3 pass 2: the last lock date (inclusive), else the data date
+
+
 def lock_grid(start):
     t = A.ts(f"{start}T{LOCK_HOUR:02d}:00:00Z"); out = []
-    while t <= DATA_DATE:
+    stop = A.ts(f"{LOCK_END}T23:59:59Z") if LOCK_END else DATA_DATE
+    while t <= stop:
         out.append(t); t += STEP_D * 86400
     return out
 
@@ -614,13 +618,14 @@ def cmd_score(a):
 
 
 def main():
-    global D, SEED, PER_STRATUM, ONLY, EXCLUDE, PREFIX, TITLE_RE, KINDS, STEP_D
+    global D, SEED, PER_STRATUM, ONLY, EXCLUDE, PREFIX, TITLE_RE, KINDS, STEP_D, LOCK_END
     ap = argparse.ArgumentParser()
     ap.add_argument("--pass-dir", help="output folder under bt/ for a later pass (BT_T2_pass2_prereg.md): e.g. t2_pass2")
     ap.add_argument("--seed", type=int); ap.add_argument("--per-stratum", type=int); ap.add_argument("--only-stratum", choices=("multi", "binary"))
     ap.add_argument("--exclude", action="append", default=[], help="a previous pass's frame.json whose events are not drawn again")
     ap.add_argument("--title-re", help="draw only events whose title matches (case-insensitive)"); ap.add_argument("--kinds", help="comma-separated session formats to keep")
     ap.add_argument("--step-days", type=int, help="lock grid step in days (default 7)"); ap.add_argument("--prefix", help="prompt file prefix")
+    ap.add_argument("--lock-end", help="last lock date YYYY-MM-DD (E3 pass 2)")
     sp = ap.add_subparsers(dest="cmd", required=True)
     p = sp.add_parser("frame"); p.add_argument("--start", required=True); p.add_argument("--strict-start")
     sp.add_parser("sessions")
@@ -643,6 +648,8 @@ def main():
         STEP_D = a.step_days
     if a.prefix:
         PREFIX = a.prefix
+    if a.lock_end:
+        LOCK_END = a.lock_end
     EXCLUDE = {e["id"] for f in a.exclude for e in A.jload(f)["events"]}
     {"frame": cmd_frame, "sessions": cmd_sessions, "publish": cmd_publish, "ingest": cmd_ingest, "freeze": cmd_freeze, "score": cmd_score}[a.cmd](a)
 
