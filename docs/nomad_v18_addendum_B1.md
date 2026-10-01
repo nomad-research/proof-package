@@ -74,3 +74,42 @@ Rob: "the basket is the set of positions that comprise the subgraph, it is each 
 - **Sizing is not decided.** It has not been discussed with Rob. v18 §5.5 (Kelly, `KELLY_FRACTION`, the event and cluster caps) and every sizing value in §7 are suspended as proposals, not built, until that discussion. No test depends on sizing.
 
 **Open, for Rob:** whether two baskets may hold the same contract (the 2026-09-30 intent of a hedge as a parallel thesis suggests yes; "independent subgraphs" suggests no).
+
+## 7. Position risk and global risk are separate (Rob, 2026-10-01)
+
+Rob agreed: "this sounds good to me." Each basket's stake = its position weight × one global scale.
+
+**Position risk (one basket on its own)**
+- **What it covers:**
+  - what the basket can lose (its worst case across its own scenarios);
+  - its payoff shape: the multiple it returns on that risk if right, and how likely a total loss is;
+  - the weighting that sets its size relative to other baskets.
+- **What it needs:** only prices and the subgraph's scenarios, never the bankroll.
+- **Status:** the weighting is not chosen. Until it is, tests report three price-only weightings side by side (equal shares, equal variance, equal stake), which need no new values (T0 post-hoc: `lookbacks/polymarket/T0_RESULT.md`).
+
+**Global risk (the whole book)**
+- **What it covers:**
+  - the share of the bankroll deployed;
+  - dependence between baskets (baskets sharing a driver are counted together);
+  - capital locked until resolution;
+  - drawdown.
+- **What it needs:** only each basket's worst case and which baskets share drivers, never what a thesis says.
+- **Four numbers.** They are risk appetite, Rob's to set, and are left blank; no builder default:
+  1. the most of the bankroll deployed at once;
+  2. the most on any one basket;
+  3. the most on any group sharing a driver;
+  4. the drawdown at which the book stops.
+- **Planning note:** under far-rung weighting most baskets lose, so number 4 has to allow for that.
+
+**Retired or mapped:**
+- `KELLY_FRACTION` is retired: it mixed position confidence with global scale.
+- `MAX_EVENT_SHARE` becomes global number 2, and `MAX_CLUSTER_SHARE` becomes global number 3; both are blank until Rob sets them.
+
+**Magnitude.** Rob: "sizing should most directly be related to magnitude." Whether magnitude is authored (how far, how many, how soon, in world units) or derived from risk (the multiple a basket returns on its risk) is open: `docs/COMPONENTS_REGISTER.md` C3.
+
+## 8. Unratified values are missing components (Rob, 2026-10-01)
+
+Rob: use the list as "the system is missing a defined component that needs discussion" rather than thresholds for assumptions based on an unsure direction.
+- **From now on,** a value without a basis is not set by the builder to let a test run. It is logged as a gap in a named component and discussed.
+- **Test design values** stay in each pre-registration, set before data, as now.
+- **The register** is `docs/COMPONENTS_REGISTER.md`. It removes the values that do not apply to the event-contract system and groups the rest into components.

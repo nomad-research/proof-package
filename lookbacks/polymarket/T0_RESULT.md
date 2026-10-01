@@ -66,3 +66,18 @@ When the "if" did not happen, magnitude claims held 19% against 24% priced (36 c
 
 - **Reading.** The claims' edge sits in the magnitude claims. The named-contract claims include both wrong-direction failures.
 - **Caveat.** The tier was mapped to a rung by lock price with the builder's provisional values (0.50, 0.25, 0.10). So "magnitude" here is partly defined through price, and the sessions gave only one of three words.
+
+## Post-hoc (2026-10-01): every claim's "then" bet at the lock, under three price-only weightings
+
+Not registered; R20 hypothesis only. Script `t0_weightings.py`, data `t0_weightings.json`. Each claim's "then" is bought at the lock whether or not its "if" later happened. Figures are return on total money staked, 90% interval resampled by round. Claims carry no fees or slippage; picks use the all-in cost.
+
+| Set | n (rounds) | Equal shares | Equal variance | Equal stake |
+|---|---|---|---|---|
+| Magnitude (tier) claims | 47 (26) | +27% (−16 to +76), P 0.83 | +37% (−13 to +100), P 0.88 | +69% (−19 to +183), P 0.88 |
+| Named-contract claims | 22 (15) | −6%, P 0.28 | −2%, P 0.26 | −36% (−65 to −11), P 0.01 |
+| Picks | 143 (41) | 0%, P 0.47 | +1%, P 0.71 | −4%, P 0.28 |
+
+**Reading.**
+- The tier claims are positive under every weighting, so the direction does not depend on the weighting.
+- Equal stake is carried by three long shots priced 0.08 to 0.09 (two of them are the same contract in round 871083). Without those three it is −1%.
+- All intervals for the tier claims span zero.

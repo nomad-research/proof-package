@@ -634,3 +634,13 @@ Variance: `V1_VARIANCE.md` (declared first), `v1_variance.py`, `V1_VARIANCE_RESU
 
 ## 2026-10-01 — Evaluation written (lookbacks/polymarket/EVALUATION.md)
 V1b registered, authored (33 events: 24 hedged, 5 no instrument, 4 void), frozen and scored: inconclusive (8 primary losses < 10; B2 interval spans 0; B4 0.33). Pooled V1+V1b (post-hoc, 41 scored, 15 losses): C−D +2.7 (−2.0, +7.5); −2.6 in rounds where the primary lost, +5.7 where it held; cross-entity +0.9 (−4.4, +6.0). Hedges pay more when the primary loses (+9.1, p 0.063); triggered claims beat lock prices (+28 pp, CI +10..+45, n 16); session hedge beats the blind statistical hedge (12 of 15, +14.9). Registered M control found degenerate. Verdict: not supported as an edge over de-risking; V3 is the confirmatory test.
+
+## 2026-10-01 — v18 received; decisions under delegation (addendum B1)
+Rob's v18 spec copied to `docs/nomad_v18_updates.md`. Builder decisions under Rob's delegation in `docs/nomad_v18_addendum_B1.md` (D33–D43; D40 coherence trades diagnostic only; 18.1 deferred; claims added as 18.0c). Feasibility from this container: GDELT, EDGAR, Gamma and CLOB answer; Wayback and Wikipedia revisions are blocked or rate-limited (bundle fetching to run on Rob's machine); cloud sessions see the date and model name.
+
+## 2026-10-01 — T0 run (claims and picks priced)
+`T0_prereg.md` (before the script), `t0_picks_and_claims.py`, `t0_report.json`, `T0_RESULT.md`. Triggered claims beat lock price (+24 points, P 0.98) and a matched placebo (+22, P 0.96); the trigger trade does not capture it (+3, P 0.65, 6 tradable). Picks: no edge (skill −2.3, P 0.19). Post-hoc: the claims' edge is in magnitude (tier) claims, 8 of 9 held against 0.43 priced; bet at the lock they are positive under all three price-only weightings (`t0_weightings.py`, intervals span zero).
+
+## 2026-10-01 — design conversation with Rob (addendum B1 §6–8)
+Each thesis subgraph is one basket; a basket is which positions, not sizing; links are never traded alone; claims are calibrated edges inside subgraphs (18.0c folded in). Sizing suspended (never discussed). Position risk and global risk separated; four global numbers Rob's, blank; `KELLY_FRACTION` retired; magnitude to drive sizing (open how). Unratified values reframed as missing components: `docs/COMPONENTS_REGISTER.md` (C1 global risk, C2 position risk, C3 magnitude, C4 subgraph and basket, C5 belief, C6 reading evidence, C7 execution, C8 exit). Briefing for a chat discussion: `docs/BRIEFING_2026-10-01.md`.
+**Next:** Rob discusses C3+C5 (what T3 sessions author; deadline 14 October), then C2, C1, C4. Build resumes after: shared packet, projection and scorer; BT-A; T3; V3 scoring from 15 October.
