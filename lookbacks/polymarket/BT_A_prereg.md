@@ -72,3 +72,13 @@ Rob set the gate (`docs/DECISIONS_2026-10.md`, decision 5): "Looser first and we
 - A backtest edge found on the loose window counts as confirmed only if it also holds on the strict window and on forward data (decision 7: the 95% interval above zero).
 
 `score` takes no gate argument now; both values are fixed in `bt_audit.GATES`.
+
+## Addendum A2 (2026-10-01, after the sessions ran, before the freeze and before any outcome is read): the read check
+
+V1's audit requires the chunks of a prompt read in pieces to join back into the prompt exactly. The Read tool cuts a long prompt off at a size limit.
+- S39's prompt (667 lines) was cut at line 556. Its session, and then a fresh session given the same prompt, resumed at line 556, so that one line was read twice. The joined chunks therefore did not equal the file, and V1's check voided both sessions. Neither made any other tool call.
+- `bt_audit.reads_by_line` now rebuilds the prompt from the Read tool's own line numbers across every read of the prompt file. Every numbered line must equal the prompt's line, every prompt line must be covered, and nothing else may be read.
+- A session that fails V1's check passes only if this check holds and every other audit condition holds (no other tool call, declared model, instructions as sent).
+- The check was tested to fail on an altered prompt and on another session's prompt.
+
+**Count of re-authorings:** S01 once (a 0 where 1 to 99 is required) and S39 once (the read check above, cleared by this addendum on the second session's transcript).

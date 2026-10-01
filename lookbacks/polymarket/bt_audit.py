@@ -264,10 +264,43 @@ def validate(obj, labels):
     return out, errs
 
 
+def reads_by_line(path, allowed_path, prompt):
+    """Addendum A2: rebuild the prompt from the Read tool's own line numbers across every Read of the allowed path. Chunks may overlap (a session that resumes at
+    the line where the tool cut off reads that line twice); every numbered line must equal the prompt's line, and every prompt line must be covered."""
+    calls, got = set(), {}
+    for line in open(path, encoding="utf-8"):
+        try:
+            o = json.loads(line)
+        except ValueError:
+            continue
+        c = (o.get("message") or {}).get("content")
+        if not isinstance(c, list):
+            continue
+        for b in c:
+            if not isinstance(b, dict):
+                continue
+            if b.get("type") == "tool_use" and b.get("name") == "Read" and (b.get("input") or {}).get("file_path") == allowed_path:
+                calls.add(b["id"])
+            elif b.get("type") == "tool_result" and b.get("tool_use_id") in calls:
+                t = b.get("content"); t = t if isinstance(t, str) else "".join(x.get("text", "") for x in t if isinstance(x, dict))
+                for ln in t.splitlines():
+                    m = re.match(r"^\s*(\d+)[\t→](.*)$", ln)
+                    if m:
+                        n, txt = int(m.group(1)), m.group(2)
+                        if n in got and got[n] != txt:
+                            return False
+                        got[n] = txt
+    want = prompt.splitlines()
+    return bool(got) and all(got.get(i + 1) == w for i, w in enumerate(want)) and max(got) <= len(want) + 1
+
+
 def cmd_ingest(a):
     meta = jload(os.path.join(D, "sessions", f"{a.sid}.json")); prompt = open(os.path.join(D, "sessions", f"{a.sid}.txt"), encoding="utf-8").read()
     path = V.find_transcript(a.agent_id); dst = os.path.join(PROMPT_DIR, f"bta_{a.sid}.txt")
     au = V.audit_transcript(path, declared=DECLARED_MODEL, allowed_reads={dst: prompt}, expect_instructions=[INSTRUCTION.format(path=dst)])
+    if not au["ok"] and not au["read_content_matches"] and au["prompt_matches_file"] and au["instructions_match"] and not au["tool_calls"] \
+            and set(au["models"]) == {DECLARED_MODEL} and reads_by_line(path, dst, prompt):
+        au["ok"], au["read_content_matches"], au["read_check"] = True, True, "line-number reconstruction (addendum A2)"
     status, errs, ans = "invalid", [], None
     try:
         obj = V.extract_json(V.final_answer(a.agent_id))
