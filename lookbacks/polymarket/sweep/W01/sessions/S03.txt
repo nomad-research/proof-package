@@ -1,0 +1,200 @@
+You will be shown 6 questions from a prediction market. Each has one or more contracts that resolve YES or NO under the rules shown. Each question gives the date your view is "as of": answer as you would on that date.
+
+Use only what you already know. Do not search for or look up anything: reading this file is the only tool call you may make. There are no prices in this file and you should not try to estimate what any market thinks; give your own view.
+
+Each question says what to write for it. Whole percents run from 1 to 99. Levels are plain numbers in the units the contracts use (for example 95000 for $95,000, 3.25 for 3.25%). Dates are YYYY-MM-DD.
+
+For each question also say whether you recognise how it actually turned out ("recognised": true only if you believe you remember the real outcome; otherwise false).
+
+Reply with one JSON object and nothing else:
+{"events": [{"label": "E1", "recognised": false, ...the fields that question asks for...}]}
+
+=== E1 (as of 2026-10-01): Bahia Governor Election Winner
+Rules:
+The Bahia gubernatorial election is scheduled to take place in Brazil on October 4, 2026, with a runoff on October 25, 2026, if no candidate receives a majority of the valid votes in the first round.
+
+This market will resolve according to the candidate who wins this election.
+
+Temporary, interim, or placeholder governors appointed by any means before the specified election will not be considered.
+
+If the result of this election isn't known by June 30, 2027, 11:59 PM ET, the market will resolve to "Other".
+
+This market will resolve based on the result of the election, as indicated by a consensus of credible reporting. If there is ambiguity, this market will resolve based solely on the official results as reported by the Brazilian government, specifically the Superior Electoral Court (Tribunal Superior Eleitoral, TSE) (e.g., www.tse.jus.br/eleicoes/resultados-eleicoes).
+Contracts:
+  E1.C1: Will Jerônimo Rodrigues win the 2026 Bahia gubernatorial election?
+  E1.C2: Will ACM Neto win the 2026 Bahia gubernatorial election?
+  E1.C3: Will João Roma win the 2026 Bahia gubernatorial election?
+  E1.C4: Will José Carlos Aleluia win the 2026 Bahia gubernatorial election?
+  E1.C5: Will Kleber Rosa win the 2026 Bahia gubernatorial election?
+  E1.C6: Will Rui Costa win the 2026 Bahia gubernatorial election?
+  E1.C7: Will Bruno Soares Reis win the 2026 Bahia gubernatorial election?
+  E1.C8: Will someone else win the 2026 Bahia gubernatorial election?
+  E1.C9: Will Placeholder 1 win the 2026 Bahia gubernatorial election?
+  E1.C10: Will Placeholder 2 win the 2026 Bahia gubernatorial election?
+  E1.C11: Will Placeholder 3 win the 2026 Bahia gubernatorial election?
+  E1.C12: Will Placeholder 4 win the 2026 Bahia gubernatorial election?
+  E1.C13: Will Placeholder 5 win the 2026 Bahia gubernatorial election?
+  E1.C14: Will Placeholder 6 win the 2026 Bahia gubernatorial election?
+  E1.C15: Will Placeholder 7 win the 2026 Bahia gubernatorial election?
+  E1.C16: Will Placeholder 8 win the 2026 Bahia gubernatorial election?
+  E1.C17: Will Placeholder 9 win the 2026 Bahia gubernatorial election?
+  E1.C18: Will Placeholder 10 win the 2026 Bahia gubernatorial election?
+  E1.C19: Will Placeholder 11 win the 2026 Bahia gubernatorial election?
+  E1.C20: Will Placeholder 12 win the 2026 Bahia gubernatorial election?
+  E1.C21: Will Placeholder 13 win the 2026 Bahia gubernatorial election?
+  E1.C22: Will Placeholder 14 win the 2026 Bahia gubernatorial election?
+  E1.C23: Will Placeholder 15 win the 2026 Bahia gubernatorial election?
+  E1.C24: Will Placeholder 16 win the 2026 Bahia gubernatorial election?
+  E1.C25: Will Placeholder 17 win the 2026 Bahia gubernatorial election?
+  E1.C26: Will Placeholder 18 win the 2026 Bahia gubernatorial election?
+  E1.C27: Will Placeholder 19 win the 2026 Bahia gubernatorial election?
+  E1.C28: Will Placeholder 20 win the 2026 Bahia gubernatorial election?
+What to write for E1:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E2 (as of 2026-10-01): Brazil Presidential Election First Round: Augusto Cury Vote Share?
+Rules:
+A presidential election is scheduled to take place in Brazil on October 4, 2026.
+
+This market will resolve according to the percentage of valid votes received by Augusto Cury in the first round of this election.
+
+The percentage of valid votes received by the specified candidate will be determined by dividing the total number of valid votes the candidate receives in the first round by the sum of all valid votes cast in the first round.
+
+If the reported value falls exactly between two brackets, then this market will resolve to the higher range bracket.
+
+If the specified candidate does not appear on the ballot in the first round, or otherwise receives no valid votes, this market will resolve to the lowest range bracket.
+
+This market will resolve based on the official vote count.
+
+If a recount is initiated before the vote total has been made official, the market will remain open until the recount is completed and the vote is made official.
+
+If the result of this election isn't known definitively by June 30, 2027, 11:59 PM ET, this market will resolve to the lowest range bracket.
+
+This market will resolve based on the result of the election, as indicated by a consensus of credible reporting. If there is ambiguity, this market will resolve based solely on the official results as reported by the Brazilian government, including the Superior Electoral Court (Tribunal Superior Eleitoral, TSE) (e.g., https://dadosabertos.tse.jus.br/).
+Contracts:
+  E2.C1: Will Augusto Cury win less than 1% of the valid vote in the first round of the 2026 Brazilian presidential election?
+  E2.C2: Will Augusto Cury win between 1% and 2% of the valid vote in the first round of the 2026 Brazilian presidential election?
+  E2.C3: Will Augusto Cury win between 2% and 4% of the valid vote in the first round of the 2026 Brazilian presidential election?
+  E2.C4: Will Augusto Cury win between 4% and 6% of the valid vote in the first round of the 2026 Brazilian presidential election?
+  E2.C5: Will Augusto Cury win 6% or more of the valid vote in the first round of the 2026 Brazilian presidential election?
+What to write for E2:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E3 (as of 2026-10-01): Next Bosniak President of Bosnia and Herzegovina?
+Rules:
+The Presidency of Bosnia and Herzegovina is a three-member collective head of state, consisting of one Bosniak member, one Croat member, and one Serb member. The Bosniak and Croat members are elected from the Federation of Bosnia and Herzegovina, while the Serb member is elected from Republika Srpska. General elections in Bosnia and Herzegovina are scheduled to be held on October 4, 2026. 
+
+This market will resolve according to the listed individual elected to serve as the Bosniak member of the Presidency of Bosnia and Herzegovina as a result of this election.
+
+Interim, temporary, or caretaker Presidency members will not count.
+
+If no such Presidency member has been elected by March 31, 2027, 11:59 PM ET, this market will resolve to "Other".
+
+The primary resolution source for this market will be official information from the Central Election Commission of Bosnia and Herzegovina (izbori.ba); however, a consensus of credible reporting may also be used.
+Contracts:
+  E3.C1: Will Denis Bećirović be the Bosniak Presidency Member of Bosnia and Herzegovina following the 2026 general election?
+  E3.C2: Will Semir Efendić be the Bosniak Presidency Member of Bosnia and Herzegovina following the 2026 general election?
+  E3.C3: Will another candidate be the Bosniak Presidency Member of Bosnia and Herzegovina following the 2026 general election?
+  E3.C4: Will Bakir Izetbegović be the Bosniak Presidency Member of Bosnia and Herzegovina following the 2026 general election?
+  E3.C5: Will Candidate B be the Bosniak Presidency Member of Bosnia and Herzegovina following the 2026 general election?
+  E3.C6: Will Candidate C be the Bosniak Presidency Member of Bosnia and Herzegovina following the 2026 general election?
+  E3.C7: Will Candidate D be the Bosniak Presidency Member of Bosnia and Herzegovina following the 2026 general election?
+  E3.C8: Will Candidate E be the Bosniak Presidency Member of Bosnia and Herzegovina following the 2026 general election?
+  E3.C9: Will Candidate F be the Bosniak Presidency Member of Bosnia and Herzegovina following the 2026 general election?
+  E3.C10: Will Candidate G be the Bosniak Presidency Member of Bosnia and Herzegovina following the 2026 general election?
+  E3.C11: Will Candidate H be the Bosniak Presidency Member of Bosnia and Herzegovina following the 2026 general election?
+  E3.C12: Will Candidate I be the Bosniak Presidency Member of Bosnia and Herzegovina following the 2026 general election?
+  E3.C13: Will Candidate J be the Bosniak Presidency Member of Bosnia and Herzegovina following the 2026 general election?
+  E3.C14: Will Candidate K be the Bosniak Presidency Member of Bosnia and Herzegovina following the 2026 general election?
+  E3.C15: Will Candidate L be the Bosniak Presidency Member of Bosnia and Herzegovina following the 2026 general election?
+  E3.C16: Will Candidate M be the Bosniak Presidency Member of Bosnia and Herzegovina following the 2026 general election?
+  E3.C17: Will Candidate N be the Bosniak Presidency Member of Bosnia and Herzegovina following the 2026 general election?
+  E3.C18: Will Candidate O be the Bosniak Presidency Member of Bosnia and Herzegovina following the 2026 general election?
+  E3.C19: Will Candidate P be the Bosniak Presidency Member of Bosnia and Herzegovina following the 2026 general election?
+  E3.C20: Will Candidate Q be the Bosniak Presidency Member of Bosnia and Herzegovina following the 2026 general election?
+  E3.C21: Will Candidate R be the Bosniak Presidency Member of Bosnia and Herzegovina following the 2026 general election?
+  E3.C22: Will Candidate S be the Bosniak Presidency Member of Bosnia and Herzegovina following the 2026 general election?
+  E3.C23: Will Candidate T be the Bosniak Presidency Member of Bosnia and Herzegovina following the 2026 general election?
+  E3.C24: Will Candidate U be the Bosniak Presidency Member of Bosnia and Herzegovina following the 2026 general election?
+  E3.C25: Will Candidate V be the Bosniak Presidency Member of Bosnia and Herzegovina following the 2026 general election?
+  E3.C26: Will Candidate W be the Bosniak Presidency Member of Bosnia and Herzegovina following the 2026 general election?
+  E3.C27: Will Candidate X be the Bosniak Presidency Member of Bosnia and Herzegovina following the 2026 general election?
+  E3.C28: Will Candidate Y be the Bosniak Presidency Member of Bosnia and Herzegovina following the 2026 general election?
+  E3.C29: Will Candidate Z be the Bosniak Presidency Member of Bosnia and Herzegovina following the 2026 general election?
+What to write for E3:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E4 (as of 2026-10-01): Bitcoin above ___ on October 5?
+Rules:
+This market will resolve to "Yes" if the Binance 1 minute candle for BTC/USDT 12:00 in the ET timezone (noon) on the date specified in the title has a final "Close" price higher than the price specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the BTC/USDT "Close" prices currently available at https://www.binance.com/en/trade/BTC_USDT with "1m" and "Candles" selected on the top bar.
+
+Please note that this market is about the price according to Binance BTC/USDT, not according to other exchanges or trading pairs.
+
+Price precision is determined by the number of decimal places in the source.
+Contracts:
+  E4.C1: Will the price of Bitcoin be above $74,000 on October 5?
+  E4.C2: Will the price of Bitcoin be above $76,000 on October 5?
+  E4.C3: Will the price of Bitcoin be above $78,000 on October 5?
+  E4.C4: Will the price of Bitcoin be above $80,000 on October 5?
+  E4.C5: Will the price of Bitcoin be above $82,000 on October 5?
+  E4.C6: Will the price of Bitcoin be above $84,000 on October 5?
+  E4.C7: Will the price of Bitcoin be above $86,000 on October 5?
+  E4.C8: Will the price of Bitcoin be above $88,000 on October 5?
+  E4.C9: Will the price of Bitcoin be above $90,000 on October 5?
+  E4.C10: Will the price of Bitcoin be above $92,000 on October 5?
+  E4.C11: Will the price of Bitcoin be above $94,000 on October 5?
+What to write for E4:
+  Write "levels": for each chance 10, 25, 50, 75 and 90, the level you give that chance of the measured quantity being at or above when it resolves. The 10 level is the highest and the 90 level the lowest. Example: {"10": 120, "25": 110, "50": 100, "75": 92, "90": 85}.
+
+=== E5 (as of 2026-10-01): ISM Services PMI - September 2026
+Rules:
+This is a market about the ISM Services Purchasing Managers' Index (PMI) for September 2026, as reported by the Institute for Supply Management (ISM). A reading above 50 indicates expansion in the services sector relative to the previous month; a reading below 50 indicates contraction.
+
+This market will resolve to the bracket containing the ISM Services PMI for September 2026 according to the monthly ISM Services PMI Report On Business.
+
+The resolution source for this market will be the ISM Services PMI Report On Business released for September 2026 (https://www.ismworld.org/supply-management-news-and-reports/reports/ism-report-on-business/), currently scheduled to be released on October 5, 2026, at 10:00 AM ET. Resolution of this market will take place upon release of the aforementioned data.
+
+Note: although ISM describes the PMI reading using the term "percent" in its official release (e.g., "The Services PMI registered 53.6 percent"), the PMI is a diffusion index, not a true percentage. For the purposes of this market, the PMI reading will be treated as a plain numerical value, consistent with how the index is universally quoted in financial markets.
+
+Note: The ISM Services PMI is reported to one decimal point. Thus, this is the level of precision that will be used when resolving this market.
+
+If ISM does not release the relevant figures on the scheduled date, this market may remain open until the scheduled release time of the next ISM Services PMI report (https://www.ismworld.org/supply-management-news-and-reports/reports/rob-report-calendar/). If the information is not released by that time, this market will resolve according to the figures of the most recent previous month with available data.
+Contracts:
+  E5.C1: Will ISM Services PMI be below 51.0 in September?
+  E5.C2: Will ISM Services PMI be between 51.0 and 51.9 in September?
+  E5.C3: Will ISM Services PMI be between 52.0 and 52.9 in September?
+  E5.C4: Will ISM Services PMI be between 53.0 and 53.9 in September?
+  E5.C5: Will ISM Services PMI be between 54.0 and 54.9 in September?
+  E5.C6: Will ISM Services PMI be between 55.0 and 55.9 in September?
+  E5.C7: Will ISM Services PMI be between 56.0 and 56.9 in September?
+  E5.C8: Will ISM Services PMI be between 57.0 and 57.9 in September?
+  E5.C9: Will ISM Services PMI be between 58.0 and 58.9 in September?
+  E5.C10: Will ISM Services PMI be at least 59.0 in September?
+What to write for E5:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E6 (as of 2026-10-01): Bitcoin above ___ on October 2?
+Rules:
+This market will resolve to "Yes" if the Binance 1 minute candle for BTC/USDT 12:00 in the ET timezone (noon) on the date specified in the title has a final "Close" price higher than the price specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the BTC/USDT "Close" prices currently available at https://www.binance.com/en/trade/BTC_USDT with "1m" and "Candles" selected on the top bar.
+
+Please note that this market is about the price according to Binance BTC/USDT, not according to other exchanges or trading pairs.
+
+Price precision is determined by the number of decimal places in the source.
+Contracts:
+  E6.C1: Will the price of Bitcoin be above $74,000 on October 2?
+  E6.C2: Will the price of Bitcoin be above $76,000 on October 2?
+  E6.C3: Will the price of Bitcoin be above $78,000 on October 2?
+  E6.C4: Will the price of Bitcoin be above $80,000 on October 2?
+  E6.C5: Will the price of Bitcoin be above $82,000 on October 2?
+  E6.C6: Will the price of Bitcoin be above $84,000 on October 2?
+  E6.C7: Will the price of Bitcoin be above $86,000 on October 2?
+  E6.C8: Will the price of Bitcoin be above $88,000 on October 2?
+  E6.C9: Will the price of Bitcoin be above $90,000 on October 2?
+  E6.C10: Will the price of Bitcoin be above $92,000 on October 2?
+  E6.C11: Will the price of Bitcoin be above $94,000 on October 2?
+What to write for E6:
+  Write "levels": for each chance 10, 25, 50, 75 and 90, the level you give that chance of the measured quantity being at or above when it resolves. The 10 level is the highest and the 90 level the lowest. Example: {"10": 120, "25": 110, "50": 100, "75": 92, "90": 85}.

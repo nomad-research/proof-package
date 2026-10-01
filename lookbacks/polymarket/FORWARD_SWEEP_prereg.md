@@ -62,3 +62,24 @@ Decision 7 asks for confirmation forward before any design leans on either. This
 - **Model and harness.** Sessions are cold `claude-opus-5-5` subagents, as in BT-T2. The runtime shows them the date and the model name, which is harmless forward.
 - **Staleness.** Forward, the model is about four months past its training cutoff, against one to three months in the backtests. If E1 rests on base rates it should survive this. If it rested on recent knowledge, it will fade, and that is part of what the sweep tests.
 - **Budget.** About 17 sessions a week at about 80,000 tokens each.
+
+## Addendum A1 (2026-10-01, after W01's first snapshot and frame, before any session runs or any outcome exists)
+
+**The problem.**
+- W01's first snapshot (`sweep/W01/open_20261001T153918Z.json.gz`, 241 events) held **one** mention event.
+- The $10,000 volume prefilter is applied to volume *so far*. In the backtest crawl it was lifetime volume *at close*.
+- Mention markets open a few days before the speech and reach their volume late. At the snapshot almost none has reached $10,000, though the backtest's did by close.
+
+**The change.**
+- The snapshot also crawls open mention events with **no volume prefilter**, and every one goes into the draw as before. Other events keep the $10,000 rule.
+- **An event counts in E1's and E3's registered statistics if its lifetime volume is $10,000 or more at the snapshot or at resolution.** This matches the backtest's population, which was chosen by volume at close.
+- Mention events that stay under $10,000 are scored as a secondary.
+- The first frame (1 mention event, 102 events, frame sha `ad02d593…`) is replaced before any session runs. Its snapshot file is kept.
+
+## Addendum A2 (2026-10-01, before any session runs)
+
+- **Finding mention events.** Under A1 the low-volume mention events are found through Gamma's `mention-markets` tag, within the same 14-day window. A date-window crawl with no volume floor reaches the API's offset cap on sports events, and the second W01 frame found only 2 mention events.
+- **E3's definitions are unchanged:**
+  - the title rule;
+  - the scope list as in the backtest crawl. So "pop-culture"-tagged speech events and sports-announcer markets stay out, as they did in the backtest.
+- **What this means for pace.** On 2026-10-01 the tag lists 12 open mention events ending within 14 days. Four pass the scope list and two of those the title rule. **E3's looks (50 and 130 mention events) may take months at this rate.** Reaching them sooner would mean widening the population, which would need its own registration.

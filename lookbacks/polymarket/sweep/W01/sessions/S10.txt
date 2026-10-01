@@ -1,0 +1,321 @@
+You will be shown 6 questions from a prediction market. Each has one or more contracts that resolve YES or NO under the rules shown. Each question gives the date your view is "as of": answer as you would on that date.
+
+Use only what you already know. Do not search for or look up anything: reading this file is the only tool call you may make. There are no prices in this file and you should not try to estimate what any market thinks; give your own view.
+
+Each question says what to write for it. Whole percents run from 1 to 99. Levels are plain numbers in the units the contracts use (for example 95000 for $95,000, 3.25 for 3.25%). Dates are YYYY-MM-DD.
+
+For each question also say whether you recognise how it actually turned out ("recognised": true only if you believe you remember the real outcome; otherwise false).
+
+Reply with one JSON object and nothing else:
+{"events": [{"label": "E1", "recognised": false, ...the fields that question asks for...}]}
+
+=== E1 (as of 2026-10-01): Tocantins Senate Election: 2nd Place
+Rules:
+The Brazilian Federal Senate election for Tocantins is scheduled to take place on October 4, 2026.
+
+This market will resolve according to the candidate who wins the second-most valid votes of any candidate at the specified election.
+
+Candidates will be primarily ranked by order of valid votes won. If two or more candidates are tied for any position, ties will be broken by alphabetical order of the candidates’ listed full names as they appear in this market. This market will resolve to the candidate that occupies the second-highest finishing position after applying this ranking.
+
+If the result of this election isn't definitively known by June 30, 2027, 11:59 PM ET, the market will resolve to "Other".
+
+This market will resolve based on the result of the election, as indicated by a consensus of credible reporting. If there is ambiguity, this market will resolve based solely on the official results as reported by the Brazilian government, specifically the Superior Electoral Court (Tribunal Superior Eleitoral, TSE) (e.g., www.tse.jus.br/eleicoes/resultados-eleicoes).
+Contracts:
+  E1.C1: Will Alexandre Guimarães win the second-most votes in the 2026 Tocantins Senate election?
+  E1.C2: Will Apóstolo Flavio Braga win the second-most votes in the 2026 Tocantins Senate election?
+  E1.C3: Will Eduardo Gomes win the second-most votes in the 2026 Tocantins Senate election?
+  E1.C4: Will Eli Borges win the second-most votes in the 2026 Tocantins Senate election?
+  E1.C5: Will Fábio Ribeiro win the second-most votes in the 2026 Tocantins Senate election?
+  E1.C6: Will Gaguim win the second-most votes in the 2026 Tocantins Senate election?
+  E1.C7: Will Helio Rodrigues Bolsonaro win the second-most votes in the 2026 Tocantins Senate election?
+  E1.C8: Will Nilton Santos win the second-most votes in the 2026 Tocantins Senate election?
+  E1.C9: Will Osvany Luz win the second-most votes in the 2026 Tocantins Senate election?
+  E1.C10: Will Paulo Mourão win the second-most votes in the 2026 Tocantins Senate election?
+  E1.C11: Will Professor Osvaldo win the second-most votes in the 2026 Tocantins Senate election?
+  E1.C12: Will Ronaldo Dimas win the second-most votes in the 2026 Tocantins Senate election?
+  E1.C13: Will Vanderlei Luxemburgo win the second-most votes in the 2026 Tocantins Senate election?
+  E1.C14: Will Candidate A win the second-most votes in the 2026 Tocantins Senate election?
+  E1.C15: Will Candidate B win the second-most votes in the 2026 Tocantins Senate election?
+  E1.C16: Will Candidate C win the second-most votes in the 2026 Tocantins Senate election?
+  E1.C17: Will Candidate D win the second-most votes in the 2026 Tocantins Senate election?
+  E1.C18: Will Candidate E win the second-most votes in the 2026 Tocantins Senate election?
+  E1.C19: Will Candidate F win the second-most votes in the 2026 Tocantins Senate election?
+  E1.C20: Will Candidate G win the second-most votes in the 2026 Tocantins Senate election?
+  E1.C21: Will Candidate H win the second-most votes in the 2026 Tocantins Senate election?
+  E1.C22: Will Candidate I win the second-most votes in the 2026 Tocantins Senate election?
+  E1.C23: Will Candidate J win the second-most votes in the 2026 Tocantins Senate election?
+  E1.C24: Will Candidate K win the second-most votes in the 2026 Tocantins Senate election?
+  E1.C25: Will Candidate L win the second-most votes in the 2026 Tocantins Senate election?
+  E1.C26: Will Candidate M win the second-most votes in the 2026 Tocantins Senate election?
+  E1.C27: Will Candidate N win the second-most votes in the 2026 Tocantins Senate election?
+  E1.C28: Will Candidate O win the second-most votes in the 2026 Tocantins Senate election?
+  E1.C29: Will Candidate P win the second-most votes in the 2026 Tocantins Senate election?
+  E1.C30: Will Candidate Q win the second-most votes in the 2026 Tocantins Senate election?
+  E1.C31: Will Candidate R win the second-most votes in the 2026 Tocantins Senate election?
+  E1.C32: Will Candidate S win the second-most votes in the 2026 Tocantins Senate election?
+  E1.C33: Will Candidate T win the second-most votes in the 2026 Tocantins Senate election?
+  E1.C34: Will Candidate U win the second-most votes in the 2026 Tocantins Senate election?
+  E1.C35: Will Candidate V win the second-most votes in the 2026 Tocantins Senate election?
+  E1.C36: Will Candidate W win the second-most votes in the 2026 Tocantins Senate election?
+  E1.C37: Will Candidate X win the second-most votes in the 2026 Tocantins Senate election?
+  E1.C38: Will Candidate Y win the second-most votes in the 2026 Tocantins Senate election?
+  E1.C39: Will Candidate Z win the second-most votes in the 2026 Tocantins Senate election?
+  E1.C40: Will someone else win the second-most votes in the 2026 Tocantins Senate election?
+What to write for E1:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E2 (as of 2026-10-01): Amapá Senate Election: 2nd Place
+Rules:
+The Brazilian Federal Senate election for Amapá is scheduled to take place on October 4, 2026.
+
+This market will resolve according to the candidate who wins the second-most valid votes of any candidate at the specified election.
+
+Candidates will be primarily ranked by order of valid votes won. If two or more candidates are tied for any position, ties will be broken by alphabetical order of the candidates’ listed full names as they appear in this market. This market will resolve to the candidate that occupies the second-highest finishing position after applying this ranking.
+
+If the result of this election isn't definitively known by June 30, 2027, 11:59 PM ET, the market will resolve to "Other".
+
+This market will resolve based on the result of the election, as indicated by a consensus of credible reporting. If there is ambiguity, this market will resolve based solely on the official results as reported by the Brazilian government, specifically the Superior Electoral Court (Tribunal Superior Eleitoral, TSE) (e.g., www.tse.jus.br/eleicoes/resultados-eleicoes).
+Contracts:
+  E2.C1: Will Acácio Favacho win the second-most votes in the 2026 Amapá Senate election?
+  E2.C2: Will Alliny Serrão win the second-most votes in the 2026 Amapá Senate election?
+  E2.C3: Will Capi win the second-most votes in the 2026 Amapá Senate election?
+  E2.C4: Will Helio Silva win the second-most votes in the 2026 Amapá Senate election?
+  E2.C5: Will Juíza Jô win the second-most votes in the 2026 Amapá Senate election?
+  E2.C6: Will Lucas Barreto win the second-most votes in the 2026 Amapá Senate election?
+  E2.C7: Will Professor Uzian Pinto win the second-most votes in the 2026 Amapá Senate election?
+  E2.C8: Will Randolfe win the second-most votes in the 2026 Amapá Senate election?
+  E2.C9: Will Rayssa Furlan win the second-most votes in the 2026 Amapá Senate election?
+  E2.C10: Will Candidate A win the second-most votes in the 2026 Amapá Senate election?
+  E2.C11: Will Candidate B win the second-most votes in the 2026 Amapá Senate election?
+  E2.C12: Will Candidate C win the second-most votes in the 2026 Amapá Senate election?
+  E2.C13: Will Candidate D win the second-most votes in the 2026 Amapá Senate election?
+  E2.C14: Will Candidate E win the second-most votes in the 2026 Amapá Senate election?
+  E2.C15: Will Candidate F win the second-most votes in the 2026 Amapá Senate election?
+  E2.C16: Will Candidate G win the second-most votes in the 2026 Amapá Senate election?
+  E2.C17: Will Candidate H win the second-most votes in the 2026 Amapá Senate election?
+  E2.C18: Will Candidate I win the second-most votes in the 2026 Amapá Senate election?
+  E2.C19: Will Candidate J win the second-most votes in the 2026 Amapá Senate election?
+  E2.C20: Will Candidate K win the second-most votes in the 2026 Amapá Senate election?
+  E2.C21: Will Candidate L win the second-most votes in the 2026 Amapá Senate election?
+  E2.C22: Will Candidate M win the second-most votes in the 2026 Amapá Senate election?
+  E2.C23: Will Candidate N win the second-most votes in the 2026 Amapá Senate election?
+  E2.C24: Will Candidate O win the second-most votes in the 2026 Amapá Senate election?
+  E2.C25: Will Candidate P win the second-most votes in the 2026 Amapá Senate election?
+  E2.C26: Will Candidate Q win the second-most votes in the 2026 Amapá Senate election?
+  E2.C27: Will Candidate R win the second-most votes in the 2026 Amapá Senate election?
+  E2.C28: Will Candidate S win the second-most votes in the 2026 Amapá Senate election?
+  E2.C29: Will Candidate T win the second-most votes in the 2026 Amapá Senate election?
+  E2.C30: Will Candidate U win the second-most votes in the 2026 Amapá Senate election?
+  E2.C31: Will Candidate V win the second-most votes in the 2026 Amapá Senate election?
+  E2.C32: Will Candidate W win the second-most votes in the 2026 Amapá Senate election?
+  E2.C33: Will Candidate X win the second-most votes in the 2026 Amapá Senate election?
+  E2.C34: Will Candidate Y win the second-most votes in the 2026 Amapá Senate election?
+  E2.C35: Will Candidate Z win the second-most votes in the 2026 Amapá Senate election?
+  E2.C36: Will someone else win the second-most votes in the 2026 Amapá Senate election?
+What to write for E2:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E3 (as of 2026-10-01): Rio Grande do Sul Senate Election: 1st Place
+Rules:
+The Brazilian Federal Senate election for Rio Grande do Sul is scheduled to take place on October 4, 2026.
+
+This market will resolve according to the candidate who wins the most valid votes of any candidate at the specified election.
+
+Candidates will be primarily ranked by order of valid votes won. If two or more candidates are tied for any position, ties will be broken by alphabetical order of the candidates’ listed full names as they appear in this market. This market will resolve to the candidate that occupies the highest finishing position after applying this ranking.
+
+If the result of this election isn't definitively known by June 30, 2027, 11:59 PM ET, the market will resolve to "Other".
+
+This market will resolve based on the result of the election, as indicated by a consensus of credible reporting. If there is ambiguity, this market will resolve based solely on the official results as reported by the Brazilian government, specifically the Superior Electoral Court (Tribunal Superior Eleitoral, TSE) (e.g., www.tse.jus.br/eleicoes/resultados-eleicoes).
+Contracts:
+  E3.C1: Will Daniela Mulheres Socialistas win the most votes in the 2026 Rio Grande do Sul Senate election?
+  E3.C2: Will Frederico Antunes win the most votes in the 2026 Rio Grande do Sul Senate election?
+  E3.C3: Will Luciano do MLB win the most votes in the 2026 Rio Grande do Sul Senate election?
+  E3.C4: Will Manuela D'Ávila win the most votes in the 2026 Rio Grande do Sul Senate election?
+  E3.C5: Will Marcel Van Hattem win the most votes in the 2026 Rio Grande do Sul Senate election?
+  E3.C6: Will Milton Cardoso win the most votes in the 2026 Rio Grande do Sul Senate election?
+  E3.C7: Will Pimenta win the most votes in the 2026 Rio Grande do Sul Senate election?
+  E3.C8: Will Regis Ethur win the most votes in the 2026 Rio Grande do Sul Senate election?
+  E3.C9: Will Renato Jaguarão win the most votes in the 2026 Rio Grande do Sul Senate election?
+  E3.C10: Will Ric Jones win the most votes in the 2026 Rio Grande do Sul Senate election?
+  E3.C11: Will Rigotto win the most votes in the 2026 Rio Grande do Sul Senate election?
+  E3.C12: Will Sanderson win the most votes in the 2026 Rio Grande do Sul Senate election?
+  E3.C13: Will Tania Peres win the most votes in the 2026 Rio Grande do Sul Senate election?
+  E3.C14: Will Candidate A win the most votes in the 2026 Rio Grande do Sul Senate election?
+  E3.C15: Will Candidate B win the most votes in the 2026 Rio Grande do Sul Senate election?
+  E3.C16: Will Candidate C win the most votes in the 2026 Rio Grande do Sul Senate election?
+  E3.C17: Will Candidate D win the most votes in the 2026 Rio Grande do Sul Senate election?
+  E3.C18: Will Candidate E win the most votes in the 2026 Rio Grande do Sul Senate election?
+  E3.C19: Will Candidate F win the most votes in the 2026 Rio Grande do Sul Senate election?
+  E3.C20: Will Candidate G win the most votes in the 2026 Rio Grande do Sul Senate election?
+  E3.C21: Will Candidate H win the most votes in the 2026 Rio Grande do Sul Senate election?
+  E3.C22: Will Candidate I win the most votes in the 2026 Rio Grande do Sul Senate election?
+  E3.C23: Will Candidate J win the most votes in the 2026 Rio Grande do Sul Senate election?
+  E3.C24: Will Candidate K win the most votes in the 2026 Rio Grande do Sul Senate election?
+  E3.C25: Will Candidate L win the most votes in the 2026 Rio Grande do Sul Senate election?
+  E3.C26: Will Candidate M win the most votes in the 2026 Rio Grande do Sul Senate election?
+  E3.C27: Will Candidate N win the most votes in the 2026 Rio Grande do Sul Senate election?
+  E3.C28: Will Candidate O win the most votes in the 2026 Rio Grande do Sul Senate election?
+  E3.C29: Will Candidate P win the most votes in the 2026 Rio Grande do Sul Senate election?
+  E3.C30: Will Candidate Q win the most votes in the 2026 Rio Grande do Sul Senate election?
+  E3.C31: Will Candidate R win the most votes in the 2026 Rio Grande do Sul Senate election?
+  E3.C32: Will Candidate S win the most votes in the 2026 Rio Grande do Sul Senate election?
+  E3.C33: Will Candidate T win the most votes in the 2026 Rio Grande do Sul Senate election?
+  E3.C34: Will Candidate U win the most votes in the 2026 Rio Grande do Sul Senate election?
+  E3.C35: Will Candidate V win the most votes in the 2026 Rio Grande do Sul Senate election?
+  E3.C36: Will Candidate W win the most votes in the 2026 Rio Grande do Sul Senate election?
+  E3.C37: Will Candidate X win the most votes in the 2026 Rio Grande do Sul Senate election?
+  E3.C38: Will Candidate Y win the most votes in the 2026 Rio Grande do Sul Senate election?
+  E3.C39: Will Candidate Z win the most votes in the 2026 Rio Grande do Sul Senate election?
+  E3.C40: Will someone else win the most votes in the 2026 Rio Grande do Sul Senate election?
+What to write for E3:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E4 (as of 2026-10-01): Maskinongé Quebec National Assembly Election Winner
+Rules:
+Parliamentary elections to elect all 127 seats of the National Assembly of Quebec are scheduled to take place in Quebec on October 5, 2026.
+
+This market will resolve according to the candidate who wins the next Maskinongé Quebec National Assembly election for a full term beginning in October 2026 or thereafter.
+
+If the election results are not known definitively by March 31, 2027, 11:59 PM ET, this market will resolve to "Other".
+
+The resolution source for this market will be a consensus of credible reporting. In case of ambiguity, this market will resolve solely based on official election results as published by Elections Quebec (https://www.electionsquebec.qc.ca/).
+Contracts:
+  E4.C1: Will Isabelle Blais win the next Maskinongé Quebec National Assembly election?
+  E4.C2: Will Simon Allaire win the next Maskinongé Quebec National Assembly election?
+  E4.C3: Will Nancy Mignault win the next Maskinongé Quebec National Assembly election?
+  E4.C4: Will Simon Piotte win the next Maskinongé Quebec National Assembly election?
+  E4.C5: Will Marc-André Cloutier win the next Maskinongé Quebec National Assembly election?
+  E4.C6: Will Person A win the next Maskinongé Quebec National Assembly election?
+  E4.C7: Will Person B win the next Maskinongé Quebec National Assembly election?
+  E4.C8: Will Person C win the next Maskinongé Quebec National Assembly election?
+  E4.C9: Will Person D win the next Maskinongé Quebec National Assembly election?
+  E4.C10: Will Person E win the next Maskinongé Quebec National Assembly election?
+  E4.C11: Will Person F win the next Maskinongé Quebec National Assembly election?
+  E4.C12: Will Person G win the next Maskinongé Quebec National Assembly election?
+  E4.C13: Will Person H win the next Maskinongé Quebec National Assembly election?
+  E4.C14: Will Person I win the next Maskinongé Quebec National Assembly election?
+  E4.C15: Will Person J win the next Maskinongé Quebec National Assembly election?
+  E4.C16: Will Person K win the next Maskinongé Quebec National Assembly election?
+  E4.C17: Will Person L win the next Maskinongé Quebec National Assembly election?
+  E4.C18: Will Person M win the next Maskinongé Quebec National Assembly election?
+  E4.C19: Will Person N win the next Maskinongé Quebec National Assembly election?
+  E4.C20: Will Person O win the next Maskinongé Quebec National Assembly election?
+  E4.C21: Will Person P win the next Maskinongé Quebec National Assembly election?
+  E4.C22: Will Person Q win the next Maskinongé Quebec National Assembly election?
+  E4.C23: Will Person R win the next Maskinongé Quebec National Assembly election?
+  E4.C24: Will Person S win the next Maskinongé Quebec National Assembly election?
+  E4.C25: Will Person T win the next Maskinongé Quebec National Assembly election?
+  E4.C26: Will Person U win the next Maskinongé Quebec National Assembly election?
+  E4.C27: Will Person V win the next Maskinongé Quebec National Assembly election?
+  E4.C28: Will Person W win the next Maskinongé Quebec National Assembly election?
+  E4.C29: Will Person X win the next Maskinongé Quebec National Assembly election?
+  E4.C30: Will Person Y win the next Maskinongé Quebec National Assembly election?
+  E4.C31: Will Person Z win the next Maskinongé Quebec National Assembly election?
+  E4.C32: Will another candidate win the next Maskinongé Quebec National Assembly election?
+What to write for E4:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E5 (as of 2026-10-01): Next Serb Presidency Member of Bosnia and Herzegovina?
+Rules:
+The Presidency of Bosnia and Herzegovina is a three-member collective head of state, consisting of one Bosniak member, one Croat member, and one Serb member. The Bosniak and Croat members are elected from the Federation of Bosnia and Herzegovina, while the Serb member is elected from Republika Srpska. General elections in Bosnia and Herzegovina are scheduled to be held on October 4, 2026. 
+
+This market will resolve according to the listed individual elected to serve as the Serb member of the Presidency of Bosnia and Herzegovina as a result of this election.
+
+Interim, temporary, or caretaker Presidency members will not count.
+
+If no such Presidency member has been elected by March 31, 2027, 11:59 PM ET, this market will resolve to "Other".
+
+The primary resolution source for this market will be official information from the Central Election Commission of Bosnia and Herzegovina (izbori.ba); however, a consensus of credible reporting may also be used.
+Contracts:
+  E5.C1: Will Nebojša Vukanović be the Serb Presidency Member of Bosnia and Herzegovina following the 2026 general election?
+  E5.C2: Will Željka Cvijanović be the Serb Presidency Member of Bosnia and Herzegovina following the 2026 general election?
+  E5.C3: Will Branko Blanuša be the Serb Presidency Member of Bosnia and Herzegovina following the 2026 general election?
+  E5.C4: Will Draško Stanivuković be the Serb Presidency Member of Bosnia and Herzegovina following the 2026 general election?
+  E5.C5: Will Siniša Karan be the Serb Presidency Member of Bosnia and Herzegovina following the 2026 general election?
+  E5.C6: Will Marinko Božović be the Serb Presidency Member of Bosnia and Herzegovina following the 2026 general election?
+  E5.C7: Will another candidate be the Serb Presidency Member of Bosnia and Herzegovina following the 2026 general election?
+  E5.C8: Will Candidate B be the Serb Presidency Member of Bosnia and Herzegovina following the 2026 general election?
+  E5.C9: Will Candidate C be the Serb Presidency Member of Bosnia and Herzegovina following the 2026 general election?
+  E5.C10: Will Candidate D be the Serb Presidency Member of Bosnia and Herzegovina following the 2026 general election?
+  E5.C11: Will Candidate E be the Serb Presidency Member of Bosnia and Herzegovina following the 2026 general election?
+  E5.C12: Will Candidate F be the Serb Presidency Member of Bosnia and Herzegovina following the 2026 general election?
+  E5.C13: Will Candidate G be the Serb Presidency Member of Bosnia and Herzegovina following the 2026 general election?
+  E5.C14: Will Candidate H be the Serb Presidency Member of Bosnia and Herzegovina following the 2026 general election?
+  E5.C15: Will Candidate I be the Serb Presidency Member of Bosnia and Herzegovina following the 2026 general election?
+  E5.C16: Will Candidate J be the Serb Presidency Member of Bosnia and Herzegovina following the 2026 general election?
+  E5.C17: Will Candidate K be the Serb Presidency Member of Bosnia and Herzegovina following the 2026 general election?
+  E5.C18: Will Candidate L be the Serb Presidency Member of Bosnia and Herzegovina following the 2026 general election?
+  E5.C19: Will Candidate M be the Serb Presidency Member of Bosnia and Herzegovina following the 2026 general election?
+  E5.C20: Will Candidate N be the Serb Presidency Member of Bosnia and Herzegovina following the 2026 general election?
+  E5.C21: Will Candidate O be the Serb Presidency Member of Bosnia and Herzegovina following the 2026 general election?
+  E5.C22: Will Candidate P be the Serb Presidency Member of Bosnia and Herzegovina following the 2026 general election?
+  E5.C23: Will Candidate Q be the Serb Presidency Member of Bosnia and Herzegovina following the 2026 general election?
+  E5.C24: Will Candidate R be the Serb Presidency Member of Bosnia and Herzegovina following the 2026 general election?
+  E5.C25: Will Candidate S be the Serb Presidency Member of Bosnia and Herzegovina following the 2026 general election?
+  E5.C26: Will Candidate T be the Serb Presidency Member of Bosnia and Herzegovina following the 2026 general election?
+  E5.C27: Will Candidate U be the Serb Presidency Member of Bosnia and Herzegovina following the 2026 general election?
+  E5.C28: Will Candidate V be the Serb Presidency Member of Bosnia and Herzegovina following the 2026 general election?
+  E5.C29: Will Candidate W be the Serb Presidency Member of Bosnia and Herzegovina following the 2026 general election?
+  E5.C30: Will Candidate X be the Serb Presidency Member of Bosnia and Herzegovina following the 2026 general election?
+  E5.C31: Will Candidate Y be the Serb Presidency Member of Bosnia and Herzegovina following the 2026 general election?
+  E5.C32: Will Candidate Z be the Serb Presidency Member of Bosnia and Herzegovina following the 2026 general election?
+What to write for E5:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E6 (as of 2026-10-01): Rio de Janeiro Senate Election: 1st Place
+Rules:
+The Brazilian Federal Senate election for Rio de Janeiro is scheduled to take place on October 4, 2026.
+
+This market will resolve according to the candidate who wins the most valid votes of any candidate at the specified election.
+
+Candidates will be primarily ranked by order of valid votes won. If two or more candidates are tied for any position, ties will be broken by alphabetical order of the candidates’ listed full names as they appear in this market. This market will resolve to the candidate that occupies the highest finishing position after applying this ranking.
+
+If the result of this election isn't definitively known by June 30, 2027, 11:59 PM ET, the market will resolve to "Other".
+
+This market will resolve based on the result of the election, as indicated by a consensus of credible reporting. If there is ambiguity, this market will resolve based solely on the official results as reported by the Brazilian government, specifically the Superior Electoral Court (Tribunal Superior Eleitoral, TSE) (e.g., www.tse.jus.br/eleicoes/resultados-eleicoes).
+Contracts:
+  E6.C1: Will André Monteiro win the most votes in the 2026 Rio de Janeiro Senate election?
+  E6.C2: Will Benedita da Silva win the most votes in the 2026 Rio de Janeiro Senate election?
+  E6.C3: Will Carlos Jordy win the most votes in the 2026 Rio de Janeiro Senate election?
+  E6.C4: Will Carlos Portinho win the most votes in the 2026 Rio de Janeiro Senate election?
+  E6.C5: Will Helio Secco win the most votes in the 2026 Rio de Janeiro Senate election?
+  E6.C6: Will Luciano Mattos win the most votes in the 2026 Rio de Janeiro Senate election?
+  E6.C7: Will Luiz Eugenio win the most votes in the 2026 Rio de Janeiro Senate election?
+  E6.C8: Will Marcelo Crivella win the most votes in the 2026 Rio de Janeiro Senate election?
+  E6.C9: Will Marcos Dias win the most votes in the 2026 Rio de Janeiro Senate election?
+  E6.C10: Will Michelly Xavier win the most votes in the 2026 Rio de Janeiro Senate election?
+  E6.C11: Will Monica Benicio win the most votes in the 2026 Rio de Janeiro Senate election?
+  E6.C12: Will Ó Clemente win the most votes in the 2026 Rio de Janeiro Senate election?
+  E6.C13: Will Paula Falcão win the most votes in the 2026 Rio de Janeiro Senate election?
+  E6.C14: Will Pedro Paulo win the most votes in the 2026 Rio de Janeiro Senate election?
+  E6.C15: Will Vinicius Benevides win the most votes in the 2026 Rio de Janeiro Senate election?
+  E6.C16: Will Waguinho win the most votes in the 2026 Rio de Janeiro Senate election?
+  E6.C17: Will Candidate A win the most votes in the 2026 Rio de Janeiro Senate election?
+  E6.C18: Will Candidate B win the most votes in the 2026 Rio de Janeiro Senate election?
+  E6.C19: Will Candidate C win the most votes in the 2026 Rio de Janeiro Senate election?
+  E6.C20: Will Candidate D win the most votes in the 2026 Rio de Janeiro Senate election?
+  E6.C21: Will Candidate E win the most votes in the 2026 Rio de Janeiro Senate election?
+  E6.C22: Will Candidate F win the most votes in the 2026 Rio de Janeiro Senate election?
+  E6.C23: Will Candidate G win the most votes in the 2026 Rio de Janeiro Senate election?
+  E6.C24: Will Candidate H win the most votes in the 2026 Rio de Janeiro Senate election?
+  E6.C25: Will Candidate I win the most votes in the 2026 Rio de Janeiro Senate election?
+  E6.C26: Will Candidate J win the most votes in the 2026 Rio de Janeiro Senate election?
+  E6.C27: Will Candidate K win the most votes in the 2026 Rio de Janeiro Senate election?
+  E6.C28: Will Candidate L win the most votes in the 2026 Rio de Janeiro Senate election?
+  E6.C29: Will Candidate M win the most votes in the 2026 Rio de Janeiro Senate election?
+  E6.C30: Will Candidate N win the most votes in the 2026 Rio de Janeiro Senate election?
+  E6.C31: Will Candidate O win the most votes in the 2026 Rio de Janeiro Senate election?
+  E6.C32: Will Candidate P win the most votes in the 2026 Rio de Janeiro Senate election?
+  E6.C33: Will Candidate Q win the most votes in the 2026 Rio de Janeiro Senate election?
+  E6.C34: Will Candidate R win the most votes in the 2026 Rio de Janeiro Senate election?
+  E6.C35: Will Candidate S win the most votes in the 2026 Rio de Janeiro Senate election?
+  E6.C36: Will Candidate T win the most votes in the 2026 Rio de Janeiro Senate election?
+  E6.C37: Will Candidate U win the most votes in the 2026 Rio de Janeiro Senate election?
+  E6.C38: Will Candidate V win the most votes in the 2026 Rio de Janeiro Senate election?
+  E6.C39: Will Candidate W win the most votes in the 2026 Rio de Janeiro Senate election?
+  E6.C40: Will Candidate X win the most votes in the 2026 Rio de Janeiro Senate election?
+  E6.C41: Will Candidate Y win the most votes in the 2026 Rio de Janeiro Senate election?
+  E6.C42: Will Candidate Z win the most votes in the 2026 Rio de Janeiro Senate election?
+  E6.C43: Will someone else win the most votes in the 2026 Rio de Janeiro Senate election?
+What to write for E6:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).

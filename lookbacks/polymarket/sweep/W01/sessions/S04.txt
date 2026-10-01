@@ -1,0 +1,463 @@
+You will be shown 6 questions from a prediction market. Each has one or more contracts that resolve YES or NO under the rules shown. Each question gives the date your view is "as of": answer as you would on that date.
+
+Use only what you already know. Do not search for or look up anything: reading this file is the only tool call you may make. There are no prices in this file and you should not try to estimate what any market thinks; give your own view.
+
+Each question says what to write for it. Whole percents run from 1 to 99. Levels are plain numbers in the units the contracts use (for example 95000 for $95,000, 3.25 for 3.25%). Dates are YYYY-MM-DD.
+
+For each question also say whether you recognise how it actually turned out ("recognised": true only if you believe you remember the real outcome; otherwise false).
+
+Reply with one JSON object and nothing else:
+{"events": [{"label": "E1", "recognised": false, ...the fields that question asks for...}]}
+
+=== E1 (as of 2026-10-01): Quebec General Election: PQ Wins a Majority?
+Rules:
+Parliamentary elections to elect all 127 seats of the National Assembly of Quebec are scheduled to take place in Quebec on October 5, 2026.
+
+This market will resolve to "Yes" if the Parti Québécois (PQ) wins at least 64 of the 127 seats in the National Assembly of Quebec as a result of this election. Otherwise, this market will resolve to "No".
+
+This market's resolution will be based solely on the number of seats won by candidates whose political affiliation is listed as the specified party in the official election results, not any coalition or parliamentary group of which the party may be part. Seats won by candidates listed under any other affiliation will not be counted, regardless of any endorsement or association with the specified party. Any post-election change in seat ownership or party affiliation, including floor crossings, resignations, or by-elections, will not be considered.
+
+If the results of this election are not known definitively by March 31, 2027, 11:59 PM ET, this market will resolve to "No".
+
+This market will resolve based on the result of the election as indicated by a consensus of credible reporting. If there is ambiguity, this market will resolve based solely on the official results as reported by Élections Québec (https://www.electionsquebec.qc.ca).
+Contracts:
+  E1.C1: Quebec General Election: PQ Wins a Majority?
+What to write for E1:
+  Write "p": a whole percent for every contract label, your chance that it resolves YES.
+
+=== E2 (as of 2026-10-01): Pará Senate Election: 2nd Place
+Rules:
+The Brazilian Federal Senate election for Pará is scheduled to take place on October 4, 2026.
+
+This market will resolve according to the candidate who wins the second-most valid votes of any candidate at the specified election.
+
+Candidates will be primarily ranked by order of valid votes won. If two or more candidates are tied for any position, ties will be broken by alphabetical order of the candidates’ listed full names as they appear in this market. This market will resolve to the candidate that occupies the second-highest finishing position after applying this ranking.
+
+If the result of this election isn't definitively known by June 30, 2027, 11:59 PM ET, the market will resolve to "Other".
+
+This market will resolve based on the result of the election, as indicated by a consensus of credible reporting. If there is ambiguity, this market will resolve based solely on the official results as reported by the Brazilian government, specifically the Superior Electoral Court (Tribunal Superior Eleitoral, TSE) (e.g., www.tse.jus.br/eleicoes/resultados-eleicoes).
+Contracts:
+  E2.C1: Will Breno Guimarães win the second-most votes in the 2026 Pará Senate election?
+  E2.C2: Will Celso Sabino win the second-most votes in the 2026 Pará Senate election?
+  E2.C3: Will Chicão win the second-most votes in the 2026 Pará Senate election?
+  E2.C4: Will Conti win the second-most votes in the 2026 Pará Senate election?
+  E2.C5: Will Delegado Éder Mauro win the second-most votes in the 2026 Pará Senate election?
+  E2.C6: Will Edlaine Rodrigues win the second-most votes in the 2026 Pará Senate election?
+  E2.C7: Will Fernanda Lopes win the second-most votes in the 2026 Pará Senate election?
+  E2.C8: Will Gizelle Freitas win the second-most votes in the 2026 Pará Senate election?
+  E2.C9: Will Helder win the second-most votes in the 2026 Pará Senate election?
+  E2.C10: Will Willem da Silva win the second-most votes in the 2026 Pará Senate election?
+  E2.C11: Will Zequinha Marinho win the second-most votes in the 2026 Pará Senate election?
+  E2.C12: Will Candidate A win the second-most votes in the 2026 Pará Senate election?
+  E2.C13: Will Candidate B win the second-most votes in the 2026 Pará Senate election?
+  E2.C14: Will Candidate C win the second-most votes in the 2026 Pará Senate election?
+  E2.C15: Will Candidate D win the second-most votes in the 2026 Pará Senate election?
+  E2.C16: Will Candidate E win the second-most votes in the 2026 Pará Senate election?
+  E2.C17: Will Candidate F win the second-most votes in the 2026 Pará Senate election?
+  E2.C18: Will Candidate G win the second-most votes in the 2026 Pará Senate election?
+  E2.C19: Will Candidate H win the second-most votes in the 2026 Pará Senate election?
+  E2.C20: Will Candidate I win the second-most votes in the 2026 Pará Senate election?
+  E2.C21: Will Candidate J win the second-most votes in the 2026 Pará Senate election?
+  E2.C22: Will Candidate K win the second-most votes in the 2026 Pará Senate election?
+  E2.C23: Will Candidate L win the second-most votes in the 2026 Pará Senate election?
+  E2.C24: Will Candidate M win the second-most votes in the 2026 Pará Senate election?
+  E2.C25: Will Candidate N win the second-most votes in the 2026 Pará Senate election?
+  E2.C26: Will Candidate O win the second-most votes in the 2026 Pará Senate election?
+  E2.C27: Will Candidate P win the second-most votes in the 2026 Pará Senate election?
+  E2.C28: Will Candidate Q win the second-most votes in the 2026 Pará Senate election?
+  E2.C29: Will Candidate R win the second-most votes in the 2026 Pará Senate election?
+  E2.C30: Will Candidate S win the second-most votes in the 2026 Pará Senate election?
+  E2.C31: Will Candidate T win the second-most votes in the 2026 Pará Senate election?
+  E2.C32: Will Candidate U win the second-most votes in the 2026 Pará Senate election?
+  E2.C33: Will Candidate V win the second-most votes in the 2026 Pará Senate election?
+  E2.C34: Will Candidate W win the second-most votes in the 2026 Pará Senate election?
+  E2.C35: Will Candidate X win the second-most votes in the 2026 Pará Senate election?
+  E2.C36: Will Candidate Y win the second-most votes in the 2026 Pará Senate election?
+  E2.C37: Will Candidate Z win the second-most votes in the 2026 Pará Senate election?
+  E2.C38: Will someone else win the second-most votes in the 2026 Pará Senate election?
+What to write for E2:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E3 (as of 2026-10-01): Will there be a power grid emergency before October 1?
+Rules:
+This event tracks whether each listed U.S. regional grid operator declares a NERC Energy Emergency Alert at Level 2 (EEA-2) or Level 3 (EEA-3) from this event's creation through that market's deadline of 11:59 PM local time on September 30, 2026. Each regional market resolves independently to "Yes" or "No" under its own operator, sources, and rules shown on that market, and more than one market may resolve "Yes".
+
+Each market is confirmed by any official communication from the relevant grid operator — its newsroom or press releases (linked in that market's rules), market or grid notices, or real-time system-status postings — or by credible national news reporting. A lower EEA-1 declaration does not qualify in any market. A declaration qualifies as long as it happened before the deadline, even if it is only documented or reported afterward. A DOE Section 202(c) emergency order is not a NERC EEA declaration and does not qualify in any market. Because Energy Emergency Alerts are federally reportable, a qualifying declaration is also verifiable through mandatory NERC or U.S. Department of Energy records (DOE Form OE-417, published at https://www.oe.netl.doe.gov/oe417.aspx) even if no other source captures it.
+Contracts:
+  E3.C1: Will there be a power grid emergency in California before October 1?
+    Contract rules: This market resolves "Yes" if the California Independent System Operator (CAISO), which operates the electric grid serving most of California, declares a NERC Energy Emergency Alert at Level 2 (EEA-2) or Level 3 (EEA-3) at any point from this market's creation through 11:59 PM PT on September 30, 2026. 
+
+A lower EEA-1 declaration does not qualify. A declaration qualifies as long as it happened before the deadline, even if it is only documented or reported afterward. A DOE Section 202(c) emergency order is not a NERC EEA declaration and does not qualify. Because Energy Emergency Alerts are federally reportable, a qualifying declaration is also verifiable through mandatory NERC or U.S. Department of Energy records (DOE Form OE-417, published at https://www.oe.netl.doe.gov/oe417.aspx) even if no other source captures it.
+
+The declaration will be confirmed by any official CAISO communication — its newsroom (https://www.caiso.com/about/news), market notices, or real-time system-condition (Today's Outlook) postings — or by credible national news reporting. It qualifies as long as the declaration itself happened before the deadline, even if it is only documented or reported afterward.
+
+Otherwise, this market resolves "No".
+  E3.C2: Will there be a power grid emergency in New York before October 1?
+    Contract rules: This market resolves "Yes" if the New York Independent System Operator (NYISO) declares a NERC Energy Emergency Alert at Level 2 (EEA-2) or Level 3 (EEA-3) at any point from this market's creation through 11:59 PM ET on September 30, 2026. 
+
+A lower EEA-1 declaration does not qualify. A declaration qualifies as long as it happened before the deadline, even if it is only documented or reported afterward. A DOE Section 202(c) emergency order is not a NERC EEA declaration and does not qualify. Because Energy Emergency Alerts are federally reportable, a qualifying declaration is also verifiable through mandatory NERC or U.S. Department of Energy records (DOE Form OE-417, published at https://www.oe.netl.doe.gov/oe417.aspx) even if no other source captures it.
+
+The declaration will be confirmed by any official NYISO communication — its News & Media page (https://www.nyiso.com/news-and-media), market notices, or real-time system-conditions postings — or by credible national news reporting. It qualifies as long as the declaration itself happened before the deadline, even if it is only documented or reported afterward.
+
+Otherwise, this market resolves "No".
+What to write for E3:
+  Write "p": a whole percent for every contract label, your chance that it resolves YES.
+
+=== E4 (as of 2026-10-01): What will Gold (XAUUSD) hit Week of September 28 2026?
+Rules:
+What will Gold (XAUUSD) hit Week of September 28 2026?
+Contracts:
+  E4.C1: Will Gold (XAUUSD) hit (HIGH) $4,600 Week of September 28 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during a trading session of the week of September 28 2026, any 1-minute candle for Gold (XAUUSD) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during an applicable trading session of the specified timeframe's business days will be considered. The trading session for a given business day typically begins at 6:00 PM ET on the prior calendar date. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If Gold (XAUUSD) does not trade at all during the listed time frame, this market will resolve to "No".
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Gold (XAUUSD) "High" and "Low" prices available at https://pythdata.app/explore/Metal.XAU%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published for the relevant CME COMEX futures contract for the underlying metal—COMEX Gold Futures (GC)—may be used to determine whether the listed price was reached during the applicable trading session.
+  E4.C2: Will Gold (XAUUSD) hit (HIGH) $4,550 Week of September 28 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during a trading session of the week of September 28 2026, any 1-minute candle for Gold (XAUUSD) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during an applicable trading session of the specified timeframe's business days will be considered. The trading session for a given business day typically begins at 6:00 PM ET on the prior calendar date. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If Gold (XAUUSD) does not trade at all during the listed time frame, this market will resolve to "No".
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Gold (XAUUSD) "High" and "Low" prices available at https://pythdata.app/explore/Metal.XAU%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published for the relevant CME COMEX futures contract for the underlying metal—COMEX Gold Futures (GC)—may be used to determine whether the listed price was reached during the applicable trading session.
+  E4.C3: Will Gold (XAUUSD) hit (HIGH) $4,500 Week of September 28 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during a trading session of the week of September 28 2026, any 1-minute candle for Gold (XAUUSD) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during an applicable trading session of the specified timeframe's business days will be considered. The trading session for a given business day typically begins at 6:00 PM ET on the prior calendar date. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If Gold (XAUUSD) does not trade at all during the listed time frame, this market will resolve to "No".
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Gold (XAUUSD) "High" and "Low" prices available at https://pythdata.app/explore/Metal.XAU%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published for the relevant CME COMEX futures contract for the underlying metal—COMEX Gold Futures (GC)—may be used to determine whether the listed price was reached during the applicable trading session.
+  E4.C4: Will Gold (XAUUSD) hit (HIGH) $4,450 Week of September 28 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during a trading session of the week of September 28 2026, any 1-minute candle for Gold (XAUUSD) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during an applicable trading session of the specified timeframe's business days will be considered. The trading session for a given business day typically begins at 6:00 PM ET on the prior calendar date. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If Gold (XAUUSD) does not trade at all during the listed time frame, this market will resolve to "No".
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Gold (XAUUSD) "High" and "Low" prices available at https://pythdata.app/explore/Metal.XAU%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published for the relevant CME COMEX futures contract for the underlying metal—COMEX Gold Futures (GC)—may be used to determine whether the listed price was reached during the applicable trading session.
+  E4.C5: Will Gold (XAUUSD) hit (HIGH) $4,400 Week of September 28 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during a trading session of the week of September 28 2026, any 1-minute candle for Gold (XAUUSD) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during an applicable trading session of the specified timeframe's business days will be considered. The trading session for a given business day typically begins at 6:00 PM ET on the prior calendar date. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If Gold (XAUUSD) does not trade at all during the listed time frame, this market will resolve to "No".
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Gold (XAUUSD) "High" and "Low" prices available at https://pythdata.app/explore/Metal.XAU%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published for the relevant CME COMEX futures contract for the underlying metal—COMEX Gold Futures (GC)—may be used to determine whether the listed price was reached during the applicable trading session.
+  E4.C6: Will Gold (XAUUSD) hit (HIGH) $4,350 Week of September 28 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during a trading session of the week of September 28 2026, any 1-minute candle for Gold (XAUUSD) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during an applicable trading session of the specified timeframe's business days will be considered. The trading session for a given business day typically begins at 6:00 PM ET on the prior calendar date. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If Gold (XAUUSD) does not trade at all during the listed time frame, this market will resolve to "No".
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Gold (XAUUSD) "High" and "Low" prices available at https://pythdata.app/explore/Metal.XAU%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published for the relevant CME COMEX futures contract for the underlying metal—COMEX Gold Futures (GC)—may be used to determine whether the listed price was reached during the applicable trading session.
+  E4.C7: Will Gold (XAUUSD) hit (HIGH) $4,300 Week of September 28 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during a trading session of the week of September 28 2026, any 1-minute candle for Gold (XAUUSD) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during an applicable trading session of the specified timeframe's business days will be considered. The trading session for a given business day typically begins at 6:00 PM ET on the prior calendar date. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If Gold (XAUUSD) does not trade at all during the listed time frame, this market will resolve to "No".
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Gold (XAUUSD) "High" and "Low" prices available at https://pythdata.app/explore/Metal.XAU%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published for the relevant CME COMEX futures contract for the underlying metal—COMEX Gold Futures (GC)—may be used to determine whether the listed price was reached during the applicable trading session.
+  E4.C8: Will Gold (XAUUSD) hit (HIGH) $4,250 Week of September 28 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during a trading session of the week of September 28 2026, any 1-minute candle for Gold (XAUUSD) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during an applicable trading session of the specified timeframe's business days will be considered. The trading session for a given business day typically begins at 6:00 PM ET on the prior calendar date. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If Gold (XAUUSD) does not trade at all during the listed time frame, this market will resolve to "No".
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Gold (XAUUSD) "High" and "Low" prices available at https://pythdata.app/explore/Metal.XAU%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published for the relevant CME COMEX futures contract for the underlying metal—COMEX Gold Futures (GC)—may be used to determine whether the listed price was reached during the applicable trading session.
+  E4.C9: Will Gold (XAUUSD) hit (HIGH) $4,200 Week of September 28 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during a trading session of the week of September 28 2026, any 1-minute candle for Gold (XAUUSD) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during an applicable trading session of the specified timeframe's business days will be considered. The trading session for a given business day typically begins at 6:00 PM ET on the prior calendar date. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If Gold (XAUUSD) does not trade at all during the listed time frame, this market will resolve to "No".
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Gold (XAUUSD) "High" and "Low" prices available at https://pythdata.app/explore/Metal.XAU%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published for the relevant CME COMEX futures contract for the underlying metal—COMEX Gold Futures (GC)—may be used to determine whether the listed price was reached during the applicable trading session.
+  E4.C10: Will Gold (XAUUSD) hit (LOW) $4,100 Week of September 28 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during a trading session of the week of September 28 2026, any 1-minute candle for Gold (XAUUSD) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during an applicable trading session of the specified timeframe's business days will be considered. The trading session for a given business day typically begins at 6:00 PM ET on the prior calendar date. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If Gold (XAUUSD) does not trade at all during the listed time frame, this market will resolve to "No".
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Gold (XAUUSD) "High" and "Low" prices available at https://pythdata.app/explore/Metal.XAU%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published for the relevant CME COMEX futures contract for the underlying metal—COMEX Gold Futures (GC)—may be used to determine whether the listed price was reached during the applicable trading session.
+  E4.C11: Will Gold (XAUUSD) hit (LOW) $4,050 Week of September 28 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during a trading session of the week of September 28 2026, any 1-minute candle for Gold (XAUUSD) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during an applicable trading session of the specified timeframe's business days will be considered. The trading session for a given business day typically begins at 6:00 PM ET on the prior calendar date. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If Gold (XAUUSD) does not trade at all during the listed time frame, this market will resolve to "No".
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Gold (XAUUSD) "High" and "Low" prices available at https://pythdata.app/explore/Metal.XAU%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published for the relevant CME COMEX futures contract for the underlying metal—COMEX Gold Futures (GC)—may be used to determine whether the listed price was reached during the applicable trading session.
+  E4.C12: Will Gold (XAUUSD) hit (LOW) $4,000 Week of September 28 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during a trading session of the week of September 28 2026, any 1-minute candle for Gold (XAUUSD) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during an applicable trading session of the specified timeframe's business days will be considered. The trading session for a given business day typically begins at 6:00 PM ET on the prior calendar date. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If Gold (XAUUSD) does not trade at all during the listed time frame, this market will resolve to "No".
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Gold (XAUUSD) "High" and "Low" prices available at https://pythdata.app/explore/Metal.XAU%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published for the relevant CME COMEX futures contract for the underlying metal—COMEX Gold Futures (GC)—may be used to determine whether the listed price was reached during the applicable trading session.
+  E4.C13: Will Gold (XAUUSD) hit (LOW) $3,950 Week of September 28 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during a trading session of the week of September 28 2026, any 1-minute candle for Gold (XAUUSD) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during an applicable trading session of the specified timeframe's business days will be considered. The trading session for a given business day typically begins at 6:00 PM ET on the prior calendar date. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If Gold (XAUUSD) does not trade at all during the listed time frame, this market will resolve to "No".
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Gold (XAUUSD) "High" and "Low" prices available at https://pythdata.app/explore/Metal.XAU%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published for the relevant CME COMEX futures contract for the underlying metal—COMEX Gold Futures (GC)—may be used to determine whether the listed price was reached during the applicable trading session.
+  E4.C14: Will Gold (XAUUSD) hit (LOW) $3,900 Week of September 28 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during a trading session of the week of September 28 2026, any 1-minute candle for Gold (XAUUSD) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during an applicable trading session of the specified timeframe's business days will be considered. The trading session for a given business day typically begins at 6:00 PM ET on the prior calendar date. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If Gold (XAUUSD) does not trade at all during the listed time frame, this market will resolve to "No".
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Gold (XAUUSD) "High" and "Low" prices available at https://pythdata.app/explore/Metal.XAU%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published for the relevant CME COMEX futures contract for the underlying metal—COMEX Gold Futures (GC)—may be used to determine whether the listed price was reached during the applicable trading session.
+  E4.C15: Will Gold (XAUUSD) hit (LOW) $3,850 Week of September 28 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during a trading session of the week of September 28 2026, any 1-minute candle for Gold (XAUUSD) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during an applicable trading session of the specified timeframe's business days will be considered. The trading session for a given business day typically begins at 6:00 PM ET on the prior calendar date. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If Gold (XAUUSD) does not trade at all during the listed time frame, this market will resolve to "No".
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Gold (XAUUSD) "High" and "Low" prices available at https://pythdata.app/explore/Metal.XAU%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published for the relevant CME COMEX futures contract for the underlying metal—COMEX Gold Futures (GC)—may be used to determine whether the listed price was reached during the applicable trading session.
+What to write for E4:
+  Write "high": for each chance 10, 25, 50, 75 and 90, the level you give that chance of being reached (at or above) within the period. The 10 level is the highest.
+  Write "low": for each chance 10, 25, 50, 75 and 90, the level you give that chance of being reached (at or below) within the period. The 10 level is the lowest.
+
+=== E5 (as of 2026-10-01): Rio Grande do Norte Senate Election: 1st Place
+Rules:
+The Brazilian Federal Senate election for Rio Grande do Norte is scheduled to take place on October 4, 2026.
+
+This market will resolve according to the candidate who wins the most valid votes of any candidate at the specified election.
+
+Candidates will be primarily ranked by order of valid votes won. If two or more candidates are tied for any position, ties will be broken by alphabetical order of the candidates’ listed full names as they appear in this market. This market will resolve to the candidate that occupies the highest finishing position after applying this ranking.
+
+If the result of this election isn't definitively known by June 30, 2027, 11:59 PM ET, the market will resolve to "Other".
+
+This market will resolve based on the result of the election, as indicated by a consensus of credible reporting. If there is ambiguity, this market will resolve based solely on the official results as reported by the Brazilian government, specifically the Superior Electoral Court (Tribunal Superior Eleitoral, TSE) (e.g., www.tse.jus.br/eleicoes/resultados-eleicoes).
+Contracts:
+  E5.C1: Will Clóvis Costa do Coletivo Nós win the most votes in the 2026 Rio Grande do Norte Senate election?
+  E5.C2: Will Coronel Hélio win the most votes in the 2026 Rio Grande do Norte Senate election?
+  E5.C3: Will Gari Wendell Batista win the most votes in the 2026 Rio Grande do Norte Senate election?
+  E5.C4: Will Linhares Jiboia win the most votes in the 2026 Rio Grande do Norte Senate election?
+  E5.C5: Will Luciana Mandu win the most votes in the 2026 Rio Grande do Norte Senate election?
+  E5.C6: Will Professor Guilherme win the most votes in the 2026 Rio Grande do Norte Senate election?
+  E5.C7: Will Rafael Motta win the most votes in the 2026 Rio Grande do Norte Senate election?
+  E5.C8: Will Rosália Fernandes win the most votes in the 2026 Rio Grande do Norte Senate election?
+  E5.C9: Will Samanda de Lula win the most votes in the 2026 Rio Grande do Norte Senate election?
+  E5.C10: Will Sandro Pimentel win the most votes in the 2026 Rio Grande do Norte Senate election?
+  E5.C11: Will Sonia Godeiro win the most votes in the 2026 Rio Grande do Norte Senate election?
+  E5.C12: Will Styvenson Valentim win the most votes in the 2026 Rio Grande do Norte Senate election?
+  E5.C13: Will Tércio Tinôco win the most votes in the 2026 Rio Grande do Norte Senate election?
+  E5.C14: Will Zenaide Maia win the most votes in the 2026 Rio Grande do Norte Senate election?
+  E5.C15: Will Candidate A win the most votes in the 2026 Rio Grande do Norte Senate election?
+  E5.C16: Will Candidate B win the most votes in the 2026 Rio Grande do Norte Senate election?
+  E5.C17: Will Candidate C win the most votes in the 2026 Rio Grande do Norte Senate election?
+  E5.C18: Will Candidate D win the most votes in the 2026 Rio Grande do Norte Senate election?
+  E5.C19: Will Candidate E win the most votes in the 2026 Rio Grande do Norte Senate election?
+  E5.C20: Will Candidate F win the most votes in the 2026 Rio Grande do Norte Senate election?
+  E5.C21: Will Candidate G win the most votes in the 2026 Rio Grande do Norte Senate election?
+  E5.C22: Will Candidate H win the most votes in the 2026 Rio Grande do Norte Senate election?
+  E5.C23: Will Candidate I win the most votes in the 2026 Rio Grande do Norte Senate election?
+  E5.C24: Will Candidate J win the most votes in the 2026 Rio Grande do Norte Senate election?
+  E5.C25: Will Candidate K win the most votes in the 2026 Rio Grande do Norte Senate election?
+  E5.C26: Will Candidate L win the most votes in the 2026 Rio Grande do Norte Senate election?
+  E5.C27: Will Candidate M win the most votes in the 2026 Rio Grande do Norte Senate election?
+  E5.C28: Will Candidate N win the most votes in the 2026 Rio Grande do Norte Senate election?
+  E5.C29: Will Candidate O win the most votes in the 2026 Rio Grande do Norte Senate election?
+  E5.C30: Will Candidate P win the most votes in the 2026 Rio Grande do Norte Senate election?
+  E5.C31: Will Candidate Q win the most votes in the 2026 Rio Grande do Norte Senate election?
+  E5.C32: Will Candidate R win the most votes in the 2026 Rio Grande do Norte Senate election?
+  E5.C33: Will Candidate S win the most votes in the 2026 Rio Grande do Norte Senate election?
+  E5.C34: Will Candidate T win the most votes in the 2026 Rio Grande do Norte Senate election?
+  E5.C35: Will Candidate U win the most votes in the 2026 Rio Grande do Norte Senate election?
+  E5.C36: Will Candidate V win the most votes in the 2026 Rio Grande do Norte Senate election?
+  E5.C37: Will Candidate W win the most votes in the 2026 Rio Grande do Norte Senate election?
+  E5.C38: Will Candidate X win the most votes in the 2026 Rio Grande do Norte Senate election?
+  E5.C39: Will Candidate Y win the most votes in the 2026 Rio Grande do Norte Senate election?
+  E5.C40: Will Candidate Z win the most votes in the 2026 Rio Grande do Norte Senate election?
+  E5.C41: Will someone else win the most votes in the 2026 Rio Grande do Norte Senate election?
+What to write for E5:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E6 (as of 2026-10-01): Brazil Presidential Election First Round: 1st Place in Ceará
+Rules:
+A presidential election is scheduled to take place in Ceará, Brazil on October 4, 2026.
+
+This market will resolve according to the listed candidate who receives the most valid votes in the first round of this election from Ceará.
+
+Candidates will be primarily ranked by order of valid votes won in Ceará. If two or more candidates are tied for any position, ties will be broken by alphabetical order of the candidates’ listed full names as they appear in this market. This market will resolve to the candidate that occupies the highest finishing position after applying this ranking.
+
+If the result of this election isn't known definitively by June 30, 2027, 11:59 PM ET, the market will resolve to "Other".
+
+This market will resolve based on the result of the election, as indicated by a consensus of credible reporting. If there is ambiguity, this market will resolve based solely on the official results as reported by the Brazilian government, specifically the Superior Electoral Court (Tribunal Superior Eleitoral, TSE) (e.g., https://dadosabertos.tse.jus.br/).
+Contracts:
+  E6.C1: Will Clariana Barao win the most votes in the next Brazil presidential election from Ceará?
+  E6.C2: Will Edmilson Costa win the most votes in the next Brazil presidential election from Ceará?
+  E6.C3: Will Escritor Augusto Cury win the most votes in the next Brazil presidential election from Ceará?
+  E6.C4: Will Flavio Bolsonaro win the most votes in the next Brazil presidential election from Ceará?
+  E6.C5: Will Hertz Dias win the most votes in the next Brazil presidential election from Ceará?
+  E6.C6: Will Lula win the most votes in the next Brazil presidential election from Ceará?
+  E6.C7: Will Pablo Marçal win the most votes in the next Brazil presidential election from Ceará?
+  E6.C8: Will Renan Santos win the most votes in the next Brazil presidential election from Ceará?
+  E6.C9: Will Ronaldo Caiado win the most votes in the next Brazil presidential election from Ceará?
+  E6.C10: Will Rui Costa Pimenta win the most votes in the next Brazil presidential election from Ceará?
+  E6.C11: Will Samara win the most votes in the next Brazil presidential election from Ceará?
+  E6.C12: Will Veterinário Wilson Grassi win the most votes in the next Brazil presidential election from Ceará?
+  E6.C13: Will Zema win the most votes in the next Brazil presidential election from Ceará?
+  E6.C14: Will Candidate A win the most votes in the next Brazil presidential election from Ceará?
+  E6.C15: Will Candidate B win the most votes in the next Brazil presidential election from Ceará?
+  E6.C16: Will Candidate C win the most votes in the next Brazil presidential election from Ceará?
+  E6.C17: Will Candidate D win the most votes in the next Brazil presidential election from Ceará?
+  E6.C18: Will Candidate E win the most votes in the next Brazil presidential election from Ceará?
+  E6.C19: Will Candidate F win the most votes in the next Brazil presidential election from Ceará?
+  E6.C20: Will Candidate G win the most votes in the next Brazil presidential election from Ceará?
+  E6.C21: Will Candidate H win the most votes in the next Brazil presidential election from Ceará?
+  E6.C22: Will Candidate I win the most votes in the next Brazil presidential election from Ceará?
+  E6.C23: Will Candidate J win the most votes in the next Brazil presidential election from Ceará?
+  E6.C24: Will Candidate K win the most votes in the next Brazil presidential election from Ceará?
+  E6.C25: Will Candidate L win the most votes in the next Brazil presidential election from Ceará?
+  E6.C26: Will Candidate M win the most votes in the next Brazil presidential election from Ceará?
+  E6.C27: Will Candidate N win the most votes in the next Brazil presidential election from Ceará?
+  E6.C28: Will Candidate O win the most votes in the next Brazil presidential election from Ceará?
+  E6.C29: Will Candidate P win the most votes in the next Brazil presidential election from Ceará?
+  E6.C30: Will Candidate Q win the most votes in the next Brazil presidential election from Ceará?
+  E6.C31: Will Candidate R win the most votes in the next Brazil presidential election from Ceará?
+  E6.C32: Will Candidate S win the most votes in the next Brazil presidential election from Ceará?
+  E6.C33: Will Candidate T win the most votes in the next Brazil presidential election from Ceará?
+  E6.C34: Will Candidate U win the most votes in the next Brazil presidential election from Ceará?
+  E6.C35: Will Candidate V win the most votes in the next Brazil presidential election from Ceará?
+  E6.C36: Will Candidate W win the most votes in the next Brazil presidential election from Ceará?
+  E6.C37: Will Candidate X win the most votes in the next Brazil presidential election from Ceará?
+  E6.C38: Will Candidate Y win the most votes in the next Brazil presidential election from Ceará?
+  E6.C39: Will Candidate Z win the most votes in the next Brazil presidential election from Ceará?
+  E6.C40: Will someone else win the most votes in the next Brazil presidential election from Ceará?
+What to write for E6:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
