@@ -233,3 +233,47 @@ Register C3. Refines decisions 4 and 6.
     - fills;
     - E2's way to money.
   - **Rob to confirm** that `fwd_sweep.py score` has not been run on his machine before this commit.
+
+## 13. Which rules bind: edge rules wait for evidence, risk rules bind at real money (2026-10-01)
+
+Settles the first open item of decision 12, and amends the starting point's §5 and §3 principle 2.
+
+- **Decision.**
+  - **A2 alone binds the armed book now.** The armed book is on paper.
+  - **Edge rules (A3, A4, A6): labels only.**
+    - They are recorded on every shadow-book position.
+    - Each binds only once the record shows that what it blocks does worse than what it lets through.
+  - **Risk rules (A1, A5 and the shared-driver group caps): labels while on paper.**
+    - They bind from the moment real money starts, whatever the shadow book shows.
+    - A5 also needs a position size from C2 before it can be computed.
+  - **D2 (each position's falsifier)** is a field recorded on every position from day one.
+  - **D1 (the news disarm) is narrowed, and is label-only forward until the record shows what it would have blocked.**
+    - It now covers only dated official facts that change the mechanics: a date set, a rule amended, the outcome already happened.
+    - A topic announced as the subject, coverage, or anything else that is salience does not count.
+  - **D3 (staleness)** was not discussed and stays a label, under "the rest start as labels".
+  - **Principle 2 ("arm strictly, disarm freely") carries a caveat.** Here a false disarm can cost the edge itself, not just one trade. So a disarm rule is tested like an edge rule before it binds.
+  - **The A2 registration gets addendum A1** (`lookbacks/polymarket/V19_A2_prereg.md`):
+    - it is declared on non-mention events;
+    - 40 events is a direction read and 80 the confirmation;
+    - the bars are on skill only;
+    - it is reported by week as well as by event;
+    - the mention secondary is never pooled with E3 or E3b.
+- **Rob's words.**
+  - "Edge rules (A3, A4, A6): labels only is right. Binding them untested is the v15 mistake."
+  - "A risk rule exists for rare, clustered losses, and a few weeks of paper won't show them. A1 would look useless right up to the day a cascade flips a dozen NOs. So A1 stays a label while on paper, but it and the group caps should bind the moment real money starts, whatever the shadow book says. D2 is just a field, so record it on every position from day one."
+  - "'A topic announced as the subject' is salience, which is exactly what E1 gets paid for. I'd narrow D1 to dated official facts that change the mechanics (a date set, a rule amended, the outcome already happened) and keep it label-only forward until we see what it would have blocked."
+  - On the registration: "Make sure the 40 and 80 bars are on skill, not the +23¢ money figure." "State now that 40 events is a direction read and 80 is the confirmation." "Report by week as well as by event, because two weeks is two tides, not 40 independent events." "Keep it separate from E3's registered statistic so it isn't counted twice."
+- **Evidence.**
+  - **The v15 lesson.** Its AND over eight untested rules armed nothing in 15 rounds (the starting point, §3 principle 8).
+  - **How the backtest's armed losses cluster** (BT-T2 passes 1 to 3, after the fact): 245 armed positions, 36 losses on 33 events.
+    - **Inside an event, losses rarely come together.** Of 51 events with two or more armed positions, 2 lost more than one: Amazon's August price ladder (3) and Microsoft's end-of-July close (2).
+    - **Across events, they came together once.** In lock weeks 30 to 32 (late July to early August), 25% to 33% of armed positions lost, against 15% overall.
+      - The losses crossed events and entities: post-count markets on five different accounts (Khamenei, NYC's mayor, the White House, Ted Cruz, CZ), and big-tech earnings and price markets (Amazon, Microsoft, Apple).
+      - That is one visible cluster in 27 lock weeks. Rob's point holds: a few weeks of paper would most likely not contain one.
+      - A group cap counted by event alone would not have caught it.
+  - **Non-mention basis for the registration.** Armed non-mention NOs read +12.3¢ (+6.5 to +17.3) on 103 events; +8.7¢ without the top five, +5.2¢ without the top ten.
+- **Still open.**
+  - **What counts as a shared driver** for the group caps. They now bind at real money, so this needs a written definition before then. Next question.
+  - **A written procedural-against-cascade rule for A1,** for the same reason.
+  - **Rob's four numbers** (C1).
+  - **Rob to confirm** that `fwd_sweep.py score` has not been run on his machine. On Windows, the sign would be a file `lookbacks\polymarket\sweep\result.json`, which that command writes.

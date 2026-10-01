@@ -4,7 +4,7 @@ Reads the sweep's files and writes only v19/a2_result.json; the sweep's own file
     python lookbacks/polymarket/v19_a2.py score       # network: resolutions re-read from Gamma, as fwd_sweep.py score
     python lookbacks/polymarket/v19_a2.py backtest    # no network: the same rule on BT-T2 passes 1-3 and E3 passes 1-2 (the starting point's §6)
 """
-import argparse, collections, json, os, re, sys
+import argparse, collections, datetime as dt, json, os, re, sys
 HERE = os.path.dirname(os.path.abspath(__file__)); sys.path.insert(0, HERE)
 import numpy as np
 import bt_audit as A
@@ -12,7 +12,7 @@ import bt_t2 as T
 import fwd_sweep as F
 
 ARM_COST, ARM_GAP = 0.50, 0.20                     # A2: NO costs 50c or more, the reader at least 20 points surer (starting point §5, basis §6)
-LOOKS = (40, 80)                                   # resolved events with an armed NO position (registration §3)
+LOOKS = (40, 80)                                   # resolved non-mention events with an armed NO position: a direction read, then the confirmation (addendum A1)
 BANDS = (0.10, 0.15, 0.20, 0.25, 0.30, 0.40)
 SEED = 20261001
 OUT = os.path.join(HERE, "v19")
@@ -64,7 +64,7 @@ def forward_rows(outcomes=F.outcomes):
                         if want > k:
                             rows.append({"batch": b, "event": ev["id"], "kind": ev["kind"], "mention": ev["mention"], "side": "YES" if yes else "NO",
                                          "counts": counts, "cost": k, "hit": float(won == yes), "money": float(won == yes) - k, "usd_2c": sa.get("usd_2c"),
-                                         "m": m, "q": q, "gap": gap_of(yes, m, q)})
+                                         "m": m, "q": q, "gap": gap_of(yes, m, q), "closed": res[cid][1]})
     for r in rows:
         same = lambda x: x["counts"] and x["event"] != r["event"] and x["kind"] == r["kind"] and x["yes"] == (r["side"] == "YES") and abs(x["cost"] - r["cost"]) <= F.MATCH_BAND
         bs = [x["hit"] - x["cost"] for x in contracts if same(x)]
@@ -80,43 +80,67 @@ def armed(r, any_cost=False):
     return r["gap"] is not None and r["gap"] >= ARM_GAP and (any_cost or r["cost"] >= ARM_COST)
 
 
-def read(rs, key, level, rng):
+def read(rs, key, level, rng, unit="event"):
+    """Mean, interval and the share of resamples above zero, resampling by event (or by batch, or by week of resolution)."""
     rs = [r for r in rs if r.get(key) is not None]
     if not rs:
         return None
-    byev = collections.defaultdict(list)
+    byu = collections.defaultdict(list)
     for r in rs:
-        byev[r["event"]].append(r[key])
-    keys = list(byev); ms = []
+        byu[r[unit]].append(r[key])
+    keys = list(byu); ms = []
     for _ in range(4000):
-        s = rng.choice(len(keys), len(keys)); ms.append(np.mean(np.concatenate([byev[keys[i]] for i in s])))
+        s = rng.choice(len(keys), len(keys)); ms.append(np.mean(np.concatenate([byu[keys[i]] for i in s])))
     lo, hi = np.percentile(ms, [(100 - level) / 2, 100 - (100 - level) / 2])
-    return {"n": len(rs), "events": len(keys), "mean": float(np.mean([r[key] for r in rs])), f"ci{level}": [float(lo), float(hi)]}
+    return {"n": len(rs), "events": len({r["event"] for r in rs}), "units": len(keys), "mean": float(np.mean([r[key] for r in rs])),
+            f"ci{level}": [float(lo), float(hi)], "p_positive": float(np.mean(np.array(ms) > 0))}
+
+
+def week_of(r):
+    return dt.datetime.fromtimestamp(r["closed"], dt.timezone.utc).strftime("%G-W%V") if r.get("closed") else f"batch {r['batch']}"
 
 
 def summarise(rows):
     rng = np.random.default_rng(SEED)
+    for r in rows:
+        r["week"] = week_of(r)
     no = [r for r in rows if r["side"] == "NO" and r["counts"]]
-    arm = [r for r in no if armed(r)]; blocked = [r for r in no if not armed(r)]
+    arm_all = [r for r in no if armed(r)]
+    arm = [r for r in arm_all if not r["mention"]]                         # addendum A1: declared on the E1 book, non-mention events
+    blocked = [r for r in no if not r["mention"] and not armed(r)]
     n_ev = len({r["event"] for r in arm}); look = 2 if n_ev >= LOOKS[1] else 1 if n_ev >= LOOKS[0] else 0
-    res = read(arm, "skill", 97.5, rng); verdict = None
+    res = read(arm, "skill", 97.5, rng); verdict = "not yet at a look"
     if look and res:
-        verdict = "confirmed" if res["ci97.5"][0] > 0 else "killed" if res["ci97.5"][1] < 0 else "carried"
+        if res["ci97.5"][1] < 0:
+            verdict = "killed"
+        elif look == 1:
+            verdict = "direction only (the first look confirms nothing)"
+        else:
+            verdict = "confirmed" if res["ci97.5"][0] > 0 else "carried"
+    weeks = sorted({r["week"] for r in arm})
+    best = max(weeks, key=lambda w: sum(r["skill"] for r in arm if r["week"] == w)) if weeks else None
     men = [r for r in rows if r["mention"] and r["counts"]]
     return {
-        "A2": {"events_resolved": n_ev, "look_reached": look, "looks_at": list(LOOKS), "statistic": res, "reading": verdict or "not yet at a look"},
+        "A2": {"events_resolved": n_ev, "look_reached": look, "looks_at": list(LOOKS), "statistic": res, "reading": verdict},
         "secondary": {
-            "a2_without_mention_events": read([r for r in arm if not r["mention"]], "skill", 95, rng),
+            "a2_by_resolution_week": {w: read([r for r in arm if r["week"] == w], "skill", 95, rng) for w in weeks},
+            "a2_resampled_by_week": read(arm, "skill", 95, rng, unit="week"),
+            "a2_without_its_best_week": {"week": best, "read": read([r for r in arm if r["week"] != best], "skill", 95, rng)} if best else None,
+            "a2_by_batch": {b: read([r for r in arm if r["batch"] == b], "skill", 95, rng) for b in sorted({r["batch"] for r in arm})},
+            "a2_including_mention_events": read(arm_all, "skill", 95, rng),
             "blocked_no_positions": read(blocked, "skill", 95, rng),
             "a2_money": read(arm, "money", 95, rng),
             "a2_hit_rate_and_mean_cost": {"hit": float(np.mean([r["hit"] for r in arm])), "cost": float(np.mean([r["cost"] for r in arm]))} if arm else None,
             "a2_money_at_150_capped_by_depth": read(arm, "money_150", 95, rng),
-            "no_cost_50_up_by_gap": {f"{g:.2f}": read([r for r in no if r["cost"] >= ARM_COST and r["gap"] is not None and r["gap"] >= g], "skill", 95, rng) for g in BANDS},
-            "a2_by_batch": {b: read([r for r in arm if r["batch"] == b], "skill", 95, rng) for b in sorted({r["batch"] for r in arm})},
+            "near_the_line": {"armed_cost_50_to_55": read([r for r in arm if r["cost"] < 0.55], "skill", 95, rng),
+                              "gap_20_cost_45_to_50_not_armed": read([r for r in no if not r["mention"] and r["gap"] is not None and r["gap"] >= ARM_GAP
+                                                                       and 0.45 <= r["cost"] < ARM_COST], "skill", 95, rng)},
+            "no_cost_50_up_by_gap": {f"{g:.2f}": read([r for r in no if not r["mention"] and r["cost"] >= ARM_COST and r["gap"] is not None and r["gap"] >= g], "skill", 95, rng) for g in BANDS},
             "no_positions_without_both_asks": sum(1 for r in no if r["q"] is None),
-            "mention_either_side_cost_50_up": read([r for r in men if armed(r)], "skill_mention_both", 95, rng),
-            "mention_either_side_any_cost": read([r for r in men if armed(r, any_cost=True)], "skill_mention_both", 95, rng),
-            "mention_not_armed_any_cost": read([r for r in men if not armed(r, any_cost=True)], "skill_mention_both", 95, rng),
+            "mention_never_pooled_with_e3": {
+                "either_side_cost_50_up": read([r for r in men if armed(r)], "skill_mention_both", 95, rng),
+                "either_side_any_cost": read([r for r in men if armed(r, any_cost=True)], "skill_mention_both", 95, rng),
+                "not_armed_any_cost": read([r for r in men if not armed(r, any_cost=True)], "skill_mention_both", 95, rng)},
         }}
 
 

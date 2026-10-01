@@ -2,7 +2,7 @@
 
 *2026-10-01. Agreed as the starting point for designing a new system from the edges found, before any build. Rob asked for the choices to be made ("You choose and we'll take that as our new starting point"); every choice below is the builder's under that instruction and stays open to Rob's change. Evidence comes from branch `claude/v18-run`, head `e9ce901` (`docs/EDGE_LEDGER.md`, the BT-T2 and E3 results, and a new check run for this file, §6). All money figures are backtests priced at the last trade plus 1¢. Nothing has been filled, and nothing places an order.*
 
-*Kept as Rob gave it. What was settled about it, and what is open, is in `docs/DECISIONS_2026-10.md` decision 12. §6 is reproduced by `lookbacks/polymarket/v19_a2.py backtest`.*
+*Kept as Rob gave it. What was settled about it, and what is open, is in `docs/DECISIONS_2026-10.md` decisions 12 and 13. §6 is reproduced by `lookbacks/polymarket/v19_a2.py backtest`. **Amended by decision 13:** only A2 binds; A3, A4 and A6 are labels; A1, A5 and the group caps bind when real money starts; D2 is recorded on every position; D1 is narrowed and label-only; principle 2 carries a caveat.*
 
 ---
 

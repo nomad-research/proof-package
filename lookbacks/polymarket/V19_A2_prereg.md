@@ -78,3 +78,48 @@ An A2 confirmation is read with that in mind. The design does not lean on it unt
 - T3, V1, V1b, V3 and T0.
 
 Each keeps its own registration and reading.
+
+## Addendum A1 (2026-10-01, decision 13, before any sweep outcome is read)
+
+Rob's checks on the registration. Where this addendum and §1 to §5 differ, this addendum holds. `v19_a2.py` implements it.
+
+**1. Declared on the E1 book: non-mention events only.**
+- **The change.** The declared statistic now counts armed NO positions on non-mention events only. Mention events are E3's population (decision 12).
+- **Why.** From W02 the sweep draws every mention event, about 5 to 10 a batch. On the E3 backtests about 3 armed NOs per mention event (180 on 56 events) read +16.6¢. So mention events could be about a quarter of A2's armed events, and their positions would count in both A2's and E3's declared statistics.
+- **What it costs.** On the BT-T2 passes, armed NOs on non-mention events read:
+
+  | | Skill |
+  |---|---|
+  | All | +12.3¢ (+6.5 to +17.3), 103 events |
+  | Without the top five events | +8.7¢ |
+  | Without the top ten events | +5.2¢ (−1.1 to +11.2) |
+
+  At 80 events the lower bound of a 97.5% interval clears zero if the forward mean is about 7.0¢ or more (about 28¢ per event). That sits between the two cuts, so a confirmation is less certain than §3 suggested.
+- A2 including mention events (the starting point's §6 definition) is reported as a secondary.
+
+**2. Two looks, with different jobs.**
+- **At 40 events: a direction read.** It reports the effect, its 97.5% interval and the share of resamples above zero. **It confirms nothing.**
+- **At 80 events: the confirmation.** Confirmed if the 97.5% interval is above zero, killed if below, carried otherwise.
+- **A kill can be read at either look,** if the 97.5% interval lies wholly below zero. Stopping a losing rule early adds no chance of a false confirmation.
+- The second look is the only one that can confirm, so it is not a second chance at the first.
+- The 97.5% level is kept for the confirmation. Moving to 95% now that only one look confirms would loosen a threshold (the starting point, §3 principle 7).
+
+**3. The bars are on skill only.**
+- **Money is secondary.** Forward, cost is the actual ask plus the fee, and the market's price is the ask midpoint. In the backtest both came from the last trade plus 1¢.
+  - Forward money will read lower for that reason alone.
+  - The backtest's +23.1¢ is not a forward benchmark for anything.
+- **The armed set near the 50¢ line may shift** under the new price definition. Two secondaries show it:
+  - armed positions costing 50¢ to 55¢;
+  - non-mention NOs with a 20-point disagreement costing 45¢ to 50¢, which the line leaves out.
+
+**4. Weeks, not only events.** About 20 armed events a week share one week's shocks, so two weeks are two tides, not 40 independent events. Reported beside the declared statistic, declaring nothing:
+- the statistic by week of resolution (the calendar week the contract resolved; the batch where that is missing) and by batch;
+- the statistic resampled by week instead of by event;
+- the statistic without its best week.
+
+A confirmation that does not survive losing its best week is read as one tide's result. The design does not lean on it until the next batch agrees (§4).
+
+**5. The mention secondary stays apart from E3.**
+- It declares nothing.
+- It is never pooled with E3's or E3b's registered statistics. A forward E3 or E3b result is never cited for the floor question, nor this secondary for E3 or E3b.
+- Its no-floor version was found by looking at backtests, so it is a hypothesis.

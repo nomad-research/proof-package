@@ -717,3 +717,14 @@ Each thesis subgraph is one basket; a basket is which positions, not sizing; lin
   - W01 holds about 20 armed events.
   - The sweep's files and statistics are untouched.
 - **Next design question:** which arming rules bind the armed book from the start (decision 12, still open).
+- **Decision 13** (same night).
+  - A2 alone binds.
+  - A3, A4 and A6 are labels.
+  - A1, A5 and the group caps bind at real money.
+  - D2 is recorded on every position.
+  - D1 is narrowed to dated official facts that change the mechanics, label-only.
+- **A2 registration addendum A1,** before any outcome:
+  - declared on non-mention events;
+  - 40 is a direction read and 80 the confirmation;
+  - skill only;
+  - reported by week.
