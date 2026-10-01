@@ -338,14 +338,139 @@ def cmd_freeze(a):
     A.jdump(man, os.path.join(D, "manifest.json")); print(json.dumps({"sessions": len(rows), "manifest_sha256": man["manifest_sha256"]}))
 
 
+# ---------------------------------------------------------------- forward scoring (T3_prereg.md §5 and §8; written before any T3 outcome is read)
+from nomad16 import exact as X
+
+
+def outcomes(eid):
+    """{cid: (yes_won, closed_ts)} for markets that resolved cleanly, re-read from Gamma now."""
+    try:
+        e = BC.compact(BC.get(f"{BC.GAMMA}/{eid}"))
+    except Exception:
+        return {}
+    out = {}
+    for m in e["markets"]:
+        w = A.yes_won(m)
+        if m.get("uma") == "resolved" and w is not None and "disputed" not in json.dumps(m.get("uma_all") or "").lower():
+            out[m["cid"]] = (w, A.ts(m.get("closed_time")))
+    return out
+
+
+def ask_cost(c, side):
+    return X.share_cost(side["ask"], c.get("fee"), 0.0, float(c["tick"]) if c.get("tick") else None)
+
+
+def cmd_score(a):
+    man = A.jload(os.path.join(D, "manifest.json")); rng = np.random.default_rng(SEED)
+    pos, claim_pos, base, mags, pending, cache = [], [], [], [], collections.Counter(), {}
+    for sid, row in sorted(man["sessions"].items()):
+        rec = A.jload(os.path.join(D, "answers", f"{sid}.json"))
+        if A.sha(rec["answers"]) != row["answers_sha256"] or A.sha(rec["lock_prices"]) != row["lock_prices_sha256"]:
+            raise SystemExit(f"{sid} changed after the freeze")
+        if row["status"] != "ok":
+            pending[f"session_{row['status']}"] += 1; continue
+        meta = A.jload(os.path.join(D, "sessions", f"{sid}.json")); ans = rec["answers"]; lock = rec["lock"]
+        views = T.intkeys(ans["views"]); evs = {r["id"]: dict(r, lock=lock) for r in meta["events"]}
+        lab_ev = {lab: evs[L["event_id"]] for lab, L in meta["labels"].items()}
+        res = {}
+        for lab, ev in lab_ev.items():
+            if ev["id"] not in cache:
+                cache[ev["id"]] = outcomes(ev["id"])
+            res[lab] = cache[ev["id"]]
+
+        def resolved(lab, cid):
+            r = res[lab].get(cid)
+            return r if r and not (r[1] and r[1] <= lock) else None      # closed before the lock: never scored (§4)
+
+        def take(rows, lab, cl, cid, ch, extra):
+            ev = lab_ev[lab]; c = next(x for x in ev["contracts"] if x["cid"] == cid); lp = rec["lock_prices"].get(cid) or {}; r = resolved(lab, cid)
+            if r is None or ch is None:
+                return
+            lo, hi = ch
+            for yes, want in ((True, lo), (False, 1 - hi)):
+                sd = lp.get("ask_yes" if yes else "ask_no")
+                if sd and want > ask_cost(c, sd):
+                    k = ask_cost(c, sd); hit = float(r[0] == yes)
+                    rows.append(dict(extra, cluster=sid, event=ev["id"], kind=ev["kind"], side="YES" if yes else "NO", cost=k, hit=hit, money=hit - k,
+                                     usd_2c=sd.get("usd_2c")))
+
+        for lab, L in meta["labels"].items():
+            ev = lab_ev[lab]; byc = {c["cid"]: c for c in ev["contracts"]}
+            for cl, cid in L["contracts"].items():
+                r = resolved(lab, cid); lp = rec["lock_prices"].get(cid) or {}
+                if r is None:
+                    pending["contract_unresolved_or_closed_before_lock"] += 1; continue
+                for yes in (True, False):
+                    sd = lp.get("ask_yes" if yes else "ask_no")
+                    if sd:
+                        base.append({"cluster": sid, "event": ev["id"], "kind": ev["kind"], "yes": yes, "cost": ask_cost(byc[cid], sd), "hit": float(r[0] == yes)})
+                if lab in ans["drop"] or lab not in views:
+                    continue
+                take(pos, lab, cl, cid, T.contract_chance(ev, views, lab, cl, byc[cid]), {})
+            # S2, location (as BT-T2), once every contract of the event has resolved; the market's price is the midpoint of the two lock asks
+            if lab in views and all(resolved(lab, cid) for cid in L["contracts"].values()):
+                cs = []
+                for cl, cid in L["contracts"].items():
+                    lp = rec["lock_prices"].get(cid) or {}
+                    if lp.get("ask_yes") and lp.get("ask_no"):
+                        cs.append(dict(byc[cid], yes=resolved(lab, cid)[0], price_yes=(lp["ask_yes"]["ask"] + 1 - lp["ask_no"]["ask"]) / 2))
+                evm = dict(ev, contracts=cs)
+                for key, side, rising in T.scaled_vars(evm):
+                    five = views[lab].get(key); oi = T.outcome_interval(evm, evm["kind"], side) if cs else None
+                    if oi is None or five is None:
+                        continue
+                    mm = T.median_set(T.market_points(evm, side), increasing=rising); sm = T.session_median(five, evm)
+                    mags.append({"cluster": sid, "event": ev["id"], "v": float(np.sign(T.gap(mm, oi) - T.gap(sm, oi)))})
+        # S3: the bettable claim. B's combined view is P(A)*view(B | A) + (1 - P(A))*view(B | not A), contract by contract
+        for i, c in enumerate(ans["claims"]):
+            la = c["if"]["contract"].split(".")[0]; lb = c["then_event"]
+            if la not in views or lb not in views or not c.get("if_true") or not c.get("if_false"):
+                continue
+            eva, evb = lab_ev[la], lab_ev[lb]; ca = meta["labels"][la]["contracts"][c["if"]["contract"]]
+            cha = T.contract_chance(eva, views, la, c["if"]["contract"], next(x for x in eva["contracts"] if x["cid"] == ca))
+            if cha is None:
+                continue
+            pa = (cha[0] + cha[1]) / 2; pa = pa if c["if"]["resolves"] == "YES" else 1 - pa
+            vt, vf = T.intkeys({lb: c["if_true"]}), T.intkeys({lb: c["if_false"]})
+            for cl, cid in meta["labels"][lb]["contracts"].items():
+                cb = next(x for x in evb["contracts"] if x["cid"] == cid)
+                t_, f_ = T.contract_chance(evb, vt, lb, cl, cb), T.contract_chance(evb, vf, lb, cl, cb)
+                if t_ is None or f_ is None:
+                    continue
+                take(claim_pos, lb, cl, cid, (pa * t_[0] + (1 - pa) * f_[0], pa * t_[1] + (1 - pa) * f_[1]), {"claim": f"{sid}:{i}"})
+
+    def skill(rows, same_side):
+        for r in rows:
+            m = [b["hit"] - b["cost"] for b in base if b["event"] != r["event"] and b["kind"] == r["kind"] and abs(b["cost"] - r["cost"]) <= T.MATCH_BAND
+                 and (not same_side or b["yes"] == (r["side"] == "YES"))]
+            r["skill_side" if same_side else "skill"] = r["money"] - (float(np.mean(m)) if m else 0.0)
+
+    for rows in (pos, claim_pos):
+        skill(rows, False); skill(rows, True)
+
+    def read(rows, key, filt=lambda r: True):
+        rs = [r for r in rows if filt(r)]
+        return T.boot([r[key] for r in rs], rng, by=[r["cluster"] for r in rs]) if rs else None
+
+    no = lambda r: r["side"] == "NO"
+    out = {"pending": dict(pending), "resolved_contract_sides": len(base), "clusters_scored": len({r["cluster"] for r in pos}),
+           "S1_skill": read(pos, "skill"), "S1_money": read(pos, "money"), "S2_location": read(mags, "v"),
+           "S3_claims_skill": read(claim_pos, "skill"), "S3_claims_money": read(claim_pos, "money"),
+           "E1_forward_no_same_side": read(pos, "skill_side", no), "yes_same_side": read(pos, "skill_side", lambda r: not no(r)),
+           "no_money": read(pos, "money", no), "magnitude_counts": dict(collections.Counter(m["v"] for m in mags)),
+           "note": "Declared: S1, S2, S3 (decision 7, clusters resampled). Scale of scale is not scored here; it needs its own registration first."}
+    A.jdump(dict(out, rows={"positions": pos, "claims": claim_pos, "magnitude": mags}), os.path.join(D, "result.json"))
+    print(json.dumps(out, indent=1))
+
+
 def main():
     ap = argparse.ArgumentParser(); sp = ap.add_subparsers(dest="cmd", required=True)
-    for n in ("snapshot", "clusters", "sessions", "freeze"):
+    for n in ("snapshot", "clusters", "sessions", "freeze", "score"):
         sp.add_parser(n)
     p = sp.add_parser("publish"); p.add_argument("sid")
     p = sp.add_parser("ingest"); p.add_argument("sid"); p.add_argument("agent_id")
     a = ap.parse_args()
-    {"snapshot": cmd_snapshot, "clusters": cmd_clusters, "sessions": cmd_sessions, "publish": cmd_publish, "ingest": cmd_ingest, "freeze": cmd_freeze}[a.cmd](a)
+    {"snapshot": cmd_snapshot, "clusters": cmd_clusters, "sessions": cmd_sessions, "publish": cmd_publish, "ingest": cmd_ingest, "freeze": cmd_freeze, "score": cmd_score}[a.cmd](a)
 
 
 if __name__ == "__main__":
