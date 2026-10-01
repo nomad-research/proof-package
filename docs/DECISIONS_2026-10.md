@@ -80,3 +80,8 @@ Registers C3 and C5. Settles the form left open in decision 3.
   - Yes/no nodes with no scale (question 3).
   - How magnitude is scored as magnitude (question 4).
   - **The quick test for new directions (Rob).** Not yet designed. v18's backtests (§6.7) are the nearest existing design: locks inside the window after the model's cutoff, eligibility by schedule rather than outcome, results in days.
+- **Result of the check (same day, `lookbacks/polymarket/T0_BASE_RATE.md`).**
+  - In the V1/V1b pool, date-ladder rungs bought at the lock beat their price by +13 points with no claim at all, and by +18 in the band where the tiers landed. Partitions and touch ladders show nothing similar.
+  - Against a kind-and-price matched base, the nine tier claims whose "if" happened still beat it by +30 points (+13 to +48).
+  - The tier claims bought at the lock beat it by only +4 points (−7 to +17).
+  - So decisions 2 to 4 stand as measurement choices. What T0 supports is that sessions name linked events, not that they time events better than the market. A timing edge has to be shown on events chosen by schedule.
