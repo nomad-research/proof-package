@@ -1,0 +1,165 @@
+You are reading a group of prediction-market questions that may affect each other. Your view is as of 2026-10-01.
+
+You may search the web and fetch public pages to inform your view (load the WebSearch and WebFetch tools if needed). Rules for that:
+- Every web search must pass blocked_domains = ["polymarket.com", "kalshi.com", "predictit.org", "manifold.markets", "metaculus.com", "betfair.com", "smarkets.com", "oddschecker.com", "electionbettingodds.com", "polymarketanalytics.com", "gjopen.com", "goodjudgment.com", "insightprediction.com", "limitless.exchange", "myriad.markets", "betmgm.com", "draftkings.com", "fanduel.com", "williamhill.com", "paddypower.com", "bet365.com", "ladbrokes.com", "polymarket.co"].
+- Never open a prediction-market, betting or odds site, and never use or mention what any market, bookmaker or trader thinks. Give your own view from the evidence.
+- No other tools: only reading this file, searching and fetching.
+
+First decide which questions belong together. For any you judge unrelated to the rest, put its label in "drop" with a one-line reason; write nothing else for it.
+
+For every question you keep, write what it asks for. Whole percents run from 1 to 99. Levels are plain numbers in the units the contracts use. Dates are YYYY-MM-DD.
+
+CLAIMS. Where you believe one event's outcome changes the chances of another in this group, write a claim:
+  {"if": {"contract": "E1.C2", "resolves": "YES"}, "then_event": "E3", "if_true": <what you would write for E3 if that happens>, "if_false": <what you would write for E3 if it does not>}
+"if_true" and "if_false" use exactly the fields E3 asks for (the same "p", "levels", "high", "low" or "dates" object). Write as many claims as you believe in, including none.
+
+SCALE. For every question you keep that measures a quantity, a count, a price, a size or a date, also write "scale": the kind of thing this is and where you expect this instance to land among instances of that kind.
+  "scale": {"class": "<the reference class, e.g. monthly US core CPI prints since 2010>", "percentile": <0 to 100: where your middle view of this instance sits among instances of that class; 50 is an ordinary one>}
+Write "scale": null for a question with no scale (a plain yes/no about whether something happens).
+
+Also list the pages you relied on in "sources" (URLs).
+
+Reply with one JSON object and nothing else:
+{"drop": {"E5": "reason"}, "events": [{"label": "E1", ...the fields it asks for..., "scale": {"class": "...", "percentile": 50}}], "claims": [...], "sources": ["https://..."]}
+
+=== E1 (as of 2026-10-01): Will any Category 4 hurricane make landfall in the US in before 2027?
+Rules:
+For the purposes of this market, a Category 4 hurricane is a hurricane with maximum sustained winds of 130-156 mph, as described at https://www.nhc.noaa.gov/aboutsshws.php, and a hurricane landfall is said to occur when the hurricane's surface center intersects with the coastline, as described at https://www.nhc.noaa.gov/aboutgloss.shtml#LANDFALL. 
+
+This market will resolve to "Yes" if any storm makes landfall in the conterminous United States as a Category 4 hurricane, as reported in official National Hurricane Center advisories (https://www.nhc.noaa.gov/archive/2023/IDALIA.shtml?) between market creation and December 31, 2026, 11:59 PM ET. Otherwise, this market will resolve to “No”.
+
+This market may resolve based on the initial advisory released by the NHC for whether any storm has made landfall in the conterminous United States at Category 4 strength, regardless of any later retraction or analysis that may contradict the initial qualifying announcement. However, subsequent corrections or updates will be considered if they indicate a qualifying incident.
+Contracts:
+  E1.C1: Will any Category 4 hurricane make landfall in the US in before 2027?
+What to write for E1:
+  Write "dates": for each chance 10, 25, 50, 75 and 90, the date by which you give it that chance of having happened, or null if you do not give it that chance by the last date the contracts cover. Dates must not go earlier as the chance rises.
+
+=== E2 (as of 2026-10-01): 10.0 or above earthquake before 2027?
+Rules:
+This market will resolve to “Yes” if 1 or more earthquakes with a magnitude of 10.0 or higher occur anywhere on Earth between December 8, 2025 12:00 PM ET, and December 31, 2026, 11:59PM ET. Otherwise, this market will resolve to “No”.
+
+The resolution source for this market is the United States Geological Survey (USGS) Earthquake Hazards Program (https://earthquake.usgs.gov/earthquakes/browse/significant.php#sigdef).
+
+If an earthquake of substantial size has occurred within this market's timeframe but not yet appeared on the resolution source, this market may remain open until January 31, 2027, 11:59 PM ET, or until the earthquake in question otherwise appears on the resolution source. If such an earthquake has not appeared on the resolution source by that date, another credible resolution source will be used. 
+
+After a qualifying earthquake is registered, this market will remain open for 24 hours to account for any revisions to its recorded magnitude. After 24 hours, this market will resolve according to the latest provided data.
+Contracts:
+  E2.C1: 10.0 or above earthquake before 2027?
+What to write for E2:
+  Write "dates": for each chance 10, 25, 50, 75 and 90, the date by which you give it that chance of having happened, or null if you do not give it that chance by the last date the contracts cover. Dates must not go earlier as the chance rises.
+
+=== E3 (as of 2026-10-01): 9.0 or above earthquake before 2027?
+Rules:
+This market will resolve to “Yes” if 1 or more earthquakes with a magnitude of 9.0 or higher occur anywhere on Earth between December 8, 2025 12:00 PM ET, and December 31, 2026, 11:59PM ET. Otherwise, this market will resolve to “No”.
+
+The resolution source for this market is the United States Geological Survey (USGS) Earthquake Hazards Program (https://earthquake.usgs.gov/earthquakes/browse/significant.php#sigdef).
+
+If an earthquake of substantial size has occurred within this market's timeframe but not yet appeared on the resolution source, this market may remain open until January 31, 2027, 11:59 PM ET, or until the earthquake in question otherwise appears on the resolution source. If such an earthquake has not appeared on the resolution source by that date, another credible resolution source will be used. 
+
+After a qualifying earthquake is registered, this market will remain open for 24 hours to account for any revisions to its recorded magnitude. After 24 hours, this market will resolve according to the latest provided data.
+Contracts:
+  E3.C1: 9.0 or above earthquake before 2027?
+What to write for E3:
+  Write "dates": for each chance 10, 25, 50, 75 and 90, the date by which you give it that chance of having happened, or null if you do not give it that chance by the last date the contracts cover. Dates must not go earlier as the chance rises.
+
+=== E4 (as of 2026-10-01): When will the Danube River return to normal levels?
+Rules:
+This market resolves based on when the water level at the Budapest gauge (station HU442027) first reaches or exceeds 93 centimeters, as reported by the International Commission for the Protection of the Danube River (ICPDR) via DanubeHIS. A reading of 93 centimeters or higher is the Danube Commission's official Low Water Level (LDC) threshold for Budapest, the minimum acceptable navigation level, and defines "normal levels" for this market.  
+
+"Does not return by November 1, 2026" resolves "Yes" if no reading at or above 93 centimeters is recorded at the Budapest gauge at any time on or before October 31, 2026 11:59 PM UTC. Readings after this cutoff are not considered, and any return to normal levels occurring on or after November 1, 2026 does not affect resolution.
+
+The resolution is triggered by the first reading at or above 93 centimeters recorded on or after the market's start, representing a rise back to the threshold. A single reading at or above 93 centimeters is sufficient to trigger resolution; transient spikes count, and the water level does not need to be sustained at or above 93 centimeters for any period.
+
+The bracket containing the timestamp of the first reading at or above 93 centimeters resolves "Yes"; all other brackets resolve "No".
+
+The primary resolution source for this market will be DanubeHIS (https://www.danubehis.org/results/HU442027_HYDRO). If DanubeHIS is unavailable, this market may resolve based on a consensus of credible reporting.
+Contracts:
+  E4.C1: Will the Danube River return to normal levels between October 1 and October 31, 2026?
+  E4.C2: Will the Danube River fail to return to normal levels by November 1, 2026?
+What to write for E4:
+  Write "p": a whole percent for every contract label, your chance that it resolves YES.
+
+=== E5 (as of 2026-10-01): When will the Rhine River return to normal levels?
+Rules:
+This market will resolve according to the date (Berlin time) when the water level at the Kaub gauge (station 25700100) on the Rhine River first reaches or exceeds 77 centimeters, as reported by the German Federal Waterways and Shipping Administration (WSV) via PegelOnline.
+
+A reading of 77 centimeters or higher is the equivalent water level (Gleichwertiger Wasserstand, GlW) for Kaub, the low-water reference mark below which shipping becomes structurally disrupted, and defines "normal levels" for this market.
+
+The resolution is triggered by the first reading at or above 77 centimeters recorded on or after the market's start, representing a rise back to the threshold. A single reading at or above 77 centimeters is sufficient to trigger resolution; transient spikes count, and the water level does not need to be sustained at or above 77 centimeters for any period.
+
+If readings for timestamps on or after November 1, 2026 (Berlin time) are available on the resolution source, and no reading at or above 77 centimeters has been recorded for a timestamp before November 1, 2026 (Berlin time), this market will resolve to "No return before November 1, 2026." If readings for timestamps on or after November 1, 2026 (Berlin time) have not been recorded on the resolution source by November 2, 2026, 11:59 PM Berlin time, and no reading at or above 77 centimeters has been recorded for a timestamp before November 1, 2026 (Berlin time), this market will resolve to "No return before November 1, 2026."
+
+The resolution source for this market will be PegelOnline (https://www.pegelonline.wsv.de/gast/stammdaten?pegelnr=25700100).
+Contracts:
+  E5.C1: Will the Rhine River return to normal levels between October 1 and October 31, 2026?
+  E5.C2: Will the Rhine River fail to return to normal levels before November 1, 2026?
+What to write for E5:
+  Write "p": a whole percent for every contract label, your chance that it resolves YES.
+
+=== E6 (as of 2026-10-01): How many 7.0 or above earthquakes in 2026?
+Rules:
+This market will resolve according to the total number of earthquakes with a magnitude of 7.0 or higher that occur anywhere on Earth between January 1 and December 31, 2026, 11:59 PM ET.
+
+The resolution source for this market is the United States Geological Survey (USGS) Earthquake Hazards Program (https://earthquake.usgs.gov/earthquakes/browse/significant.php#sigdef).
+
+If an earthquake of substantial size has occurred within this market's timeframe but not yet appeared on the resolution source, this market may remain open until January 7, 2027, 11:59 PM ET, or until the earthquake in question otherwise appears on the resolution source. If such an earthquake has not appeared on the resolution source by that date, another credible resolution source will be used.
+Contracts:
+  E6.C1: Will there be between 11 and 13 earthquakes of magnitude 7.0 or higher worldwide in 2026?
+  E6.C2: Will there be between 14 and 16 earthquakes of magnitude 7.0 or higher worldwide in 2026?
+  E6.C3: Will there be between 17 and 19 earthquakes of magnitude 7.0 or higher worldwide in 2026?
+  E6.C4: Will there be 20 or more earthquakes of magnitude 7.0 or higher worldwide in 2026?
+What to write for E6:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E7 (as of 2026-10-01): Lowest Mississippi level at St. Louis by November 30?
+Rules:
+This market will resolve according to the lowest gage height (river level), in feet, recorded at the Mississippi River at St. Louis, MO streamgage (USGS site 07010000) between market creation and November 30, 2026, as published by the United States Geological Survey (USGS) for parameter code 00065 under statistic code 30800. Exactly one outcome in this market will resolve to "Yes".
+
+The lowest daily reading in the window decides this market; the level does not need to be sustained. If USGS does not publish a reading for one or more days, this market will resolve according to the lowest reading among the days that are published.
+
+Values will be used exactly as published by USGS, without rounding. USGS reports gage height at this gage to 2 decimal places. Each range includes both of its stated bounds and consecutive ranges are contiguous, so every reading falls in exactly one range: a lowest reading of exactly -1.00 ft resolves the range beginning at -1.00 ft to "Yes" and every other range to "No".
+
+This market will resolve on the values published at the time of resolution, whether flagged provisional ("P") or approved ("A"); revisions published afterward will not be considered, except where the correction provision below applies.
+
+If any data remains unpublished or unfinalized, this market will remain open for up to 2 calendar days (ET) after November 30, 2026; it will then resolve based on the finalized data published up to that point.
+
+In case of obvious data integrity issues (i.e., erroneous data), the market may remain open until the end of the third calendar day (ET) after such data is first released to allow for corrections; this applies only to clerical or similar errors, not to USGS differing from other sources.
+
+If the source is unavailable, this market may be extended to December 15, 2026, 11:59 PM ET. If no data for the window is available by then, this market will resolve to "Below -3.00 ft".
+
+The primary resolution source for this market will be the USGS Daily Values service for site 07010000; however, a consensus of credible reporting may also be used. The service is available here: https://waterservices.usgs.gov/nwis/dv/?sites=07010000&parameterCd=00065&statCd=30800&startDT=2026-09-21&endDT=2026-11-30&format=rdb
+Contracts:
+  E7.C1: Will the lowest St. Louis river level be below -3.00 ft by November 30?
+  E7.C2: Will the lowest St. Louis river level be -3.00 to -1.01 ft by November 30?
+  E7.C3: Will the lowest St. Louis river level be -1.00 to 0.99 ft by November 30?
+  E7.C4: Will the lowest St. Louis river level be 1.00 to 2.99 ft by November 30?
+  E7.C5: Will the lowest St. Louis river level be 3.00 ft or more by November 30?
+What to write for E7:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E8 (as of 2026-10-01): How many Tornadoes in the US in 2026?
+Rules:
+This market will resolve according to the number of tornadoes recorded in the United States in 2026, based on the monthly counts published on the National Centers for Environmental Information U.S. Tornadoes Time Series page (see: https://www.ncei.noaa.gov/access/monitoring/tornadoes/time-series).
+
+Only tornadoes appearing in the final NCEI dataset for all months of 2026 will count.
+
+As of market creation, the December report is not yet scheduled, however the release schedule can be found here: https://www.ncei.noaa.gov/access/monitoring/dyk/monthly-releases. The market will resolve based on the first relevant tornado count published on the NCEI tornado time-series page after this scheduled release time.
+
+If the value published after this scheduled release time is labeled preliminary, it will still determine resolution, and the market will resolve independently of any subsequent revisions, corrections, or retroactive adjustments. 
+
+The market will not resolve based on any preliminary values published before the scheduled release time.
+
+In the case that the Resolution Source publishes data, sufficient to settle a Market, that is clearly erroneous and the result of technical or operational error, or of unauthorized interference with the Resolution Source or its data, the Market may remain open for a period of up to seven (7) calendar days (ET) from the time of the original release, in anticipation of a correction by the Resolution Source. If the Resolution Source publishes a corrected value within that period, that value will be eligible for resolution. If no corrected value is published within that period, Polymarket will issue a Clarification to determine whether the originally published value may be eligible for resolution, or whether other action is required to preserve the orderly functioning of the Market.
+
+If no data is published by the scheduled release time, or if the NCEI website is temporarily unavailable, this market will remain open until that data is made available. If the relevant data is not made available by the date of the next scheduled publication ET, this market will resolve based on available data for the most recent prior month. If the NCEI website becomes permanently unavailable, this market will resolve using another credible source.
+Contracts:
+  E8.C1: Will fewer than 950 tornadoes occur in the United States in 2026?
+  E8.C2: Will 950 to 999 tornadoes occur in the United States in 2026?
+  E8.C3: Will 1000 to 1049 tornadoes occur in the United States in 2026?
+  E8.C4: Will 1050 to 1099 tornadoes occur in the United States in 2026?
+  E8.C5: Will 1100 to 1149 tornadoes occur in the United States in 2026?
+  E8.C6: Will 1150 to 1199 tornadoes occur in the United States in 2026?
+  E8.C7: Will 1200 to 1249 tornadoes occur in the United States in 2026?
+  E8.C8: Will 1250 or more tornadoes occur in the United States in 2026?
+What to write for E8:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).

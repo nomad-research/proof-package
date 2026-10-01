@@ -1,0 +1,222 @@
+You are reading a group of prediction-market questions that may affect each other. Your view is as of 2026-10-01.
+
+You may search the web and fetch public pages to inform your view (load the WebSearch and WebFetch tools if needed). Rules for that:
+- Every web search must pass blocked_domains = ["polymarket.com", "kalshi.com", "predictit.org", "manifold.markets", "metaculus.com", "betfair.com", "smarkets.com", "oddschecker.com", "electionbettingodds.com", "polymarketanalytics.com", "gjopen.com", "goodjudgment.com", "insightprediction.com", "limitless.exchange", "myriad.markets", "betmgm.com", "draftkings.com", "fanduel.com", "williamhill.com", "paddypower.com", "bet365.com", "ladbrokes.com", "polymarket.co"].
+- Never open a prediction-market, betting or odds site, and never use or mention what any market, bookmaker or trader thinks. Give your own view from the evidence.
+- No other tools: only reading this file, searching and fetching.
+
+First decide which questions belong together. For any you judge unrelated to the rest, put its label in "drop" with a one-line reason; write nothing else for it.
+
+For every question you keep, write what it asks for. Whole percents run from 1 to 99. Levels are plain numbers in the units the contracts use. Dates are YYYY-MM-DD.
+
+CLAIMS. Where you believe one event's outcome changes the chances of another in this group, write a claim:
+  {"if": {"contract": "E1.C2", "resolves": "YES"}, "then_event": "E3", "if_true": <what you would write for E3 if that happens>, "if_false": <what you would write for E3 if it does not>}
+"if_true" and "if_false" use exactly the fields E3 asks for (the same "p", "levels", "high", "low" or "dates" object). Write as many claims as you believe in, including none.
+
+SCALE. For every question you keep that measures a quantity, a count, a price, a size or a date, also write "scale": the kind of thing this is and where you expect this instance to land among instances of that kind.
+  "scale": {"class": "<the reference class, e.g. monthly US core CPI prints since 2010>", "percentile": <0 to 100: where your middle view of this instance sits among instances of that class; 50 is an ordinary one>}
+Write "scale": null for a question with no scale (a plain yes/no about whether something happens).
+
+Also list the pages you relied on in "sources" (URLs).
+
+Reply with one JSON object and nothing else:
+{"drop": {"E5": "reason"}, "events": [{"label": "E1", ...the fields it asks for..., "scale": {"class": "...", "percentile": 50}}], "claims": [...], "sources": ["https://..."]}
+
+=== E1 (as of 2026-10-01): New Taipei Mayor Election Winner
+Rules:
+Taiwanese local elections are scheduled to be held on November 28, 2026.
+
+This market will resolve according to the candidate who becomes the next Mayor of New Taipei as a result of this election.
+
+Temporary, interim, or placeholder Mayors appointed before the election will not be considered.
+
+If the result of this election isn't known, or no candidate has been elected, by June 30, 2027, 11:59 PM ET, the market will resolve to "Other".
+
+This market will resolve based on the results of the elections as indicated by a consensus of credible reporting. If there is ambiguity, this market will resolve based solely on the official results as reported by the Taiwanese government, specifically the Central Election Commission (https://db.cec.gov.tw/).
+Contracts:
+  E1.C1: Will Lee Shu-chuan win the next New Taipei Mayor election?
+  E1.C2: Will Su Chiao-hui win the next New Taipei Mayor election?
+  E1.C3: Will Huang Kuo-chang win the next New Taipei Mayor election?
+  E1.C4: Will Candidate A win the next New Taipei Mayor election?
+  E1.C5: Will Candidate B win the next New Taipei Mayor election?
+  E1.C6: Will Candidate C win the next New Taipei Mayor election?
+  E1.C7: Will Candidate D win the next New Taipei Mayor election?
+  E1.C8: Will Candidate E win the next New Taipei Mayor election?
+  E1.C9: Will Candidate F win the next New Taipei Mayor election?
+  E1.C10: Will Candidate G win the next New Taipei Mayor election?
+  E1.C11: Will Candidate H win the next New Taipei Mayor election?
+  E1.C12: Will Candidate I win the next New Taipei Mayor election?
+  E1.C13: Will Candidate J win the next New Taipei Mayor election?
+  E1.C14: Will Candidate K win the next New Taipei Mayor election?
+  E1.C15: Will Candidate L win the next New Taipei Mayor election?
+  E1.C16: Will Candidate M win the next New Taipei Mayor election?
+  E1.C17: Will Candidate N win the next New Taipei Mayor election?
+  E1.C18: Will Candidate O win the next New Taipei Mayor election?
+  E1.C19: Will Candidate P win the next New Taipei Mayor election?
+  E1.C20: Will Candidate Q win the next New Taipei Mayor election?
+  E1.C21: Will Candidate R win the next New Taipei Mayor election?
+  E1.C22: Will Candidate S win the next New Taipei Mayor election?
+  E1.C23: Will Candidate T win the next New Taipei Mayor election?
+  E1.C24: Will Candidate U win the next New Taipei Mayor election?
+  E1.C25: Will Candidate V win the next New Taipei Mayor election?
+  E1.C26: Will Candidate W win the next New Taipei Mayor election?
+  E1.C27: Will Candidate X win the next New Taipei Mayor election?
+  E1.C28: Will Candidate Y win the next New Taipei Mayor election?
+  E1.C29: Will Candidate Z win the next New Taipei Mayor election?
+  E1.C30: Will another candidate win the next New Taipei Mayor election?
+What to write for E1:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E2 (as of 2026-10-01): Taiwanese Premier Cho Jung-tai out by...?
+Rules:
+This market will resolve to “Yes” if Cho Jung-tai ceases to be Premier of Taiwan for any period of time between market creation and the specified date (ET). Otherwise, this market will resolve to “No”.
+
+An announcement of Cho Jung-tai's resignation/removal before this market's end date will immediately resolve this market to "Yes", regardless of when the announced resignation/removal goes into effect.
+
+If the specified individual is detained, effectively removed from the specified position, or otherwise permanently prevented from fulfilling the duties of the specified position within this market’s timeframe, it will qualify for a “Yes” resolution.
+
+The resolution source for this market will be official information from Cho Jung-tai and the government of Taiwan; however, a consensus of credible reporting may also be used.
+Contracts:
+  E2.C1: Taiwanese Premier Cho Jung-tai out by December 31, 2026?
+What to write for E2:
+  Write "dates": for each chance 10, 25, 50, 75 and 90, the date by which you give it that chance of having happened, or null if you do not give it that chance by the last date the contracts cover. Dates must not go earlier as the chance rises.
+
+=== E3 (as of 2026-10-01): Lai Ching-te out as President of Taiwan by December 31, 2026?
+Rules:
+This market will resolve to “Yes” if Lai Ching-te ceases to be President of Taiwan for any period of time between market creation and the specified date (ET). Otherwise, this market will resolve to “No”.
+
+An announcement of Lai Ching-te's resignation/removal before this market's end date will immediately resolve this market to "Yes", regardless of when the announced resignation/removal goes into effect.
+
+If the specified individual is detained, effectively removed from the specified position, or otherwise permanently prevented from fulfilling the duties of the specified position within this market’s timeframe, it will qualify for a “Yes” resolution.
+
+The resolution source for this market will be official information from Lai Ching-te and the government of Taiwan; however, a consensus of credible reporting may also be used.
+Contracts:
+  E3.C1: Lai Ching-te out as President of Taiwan by December 31, 2026?
+What to write for E3:
+  Write "dates": for each chance 10, 25, 50, 75 and 90, the date by which you give it that chance of having happened, or null if you do not give it that chance by the last date the contracts cover. Dates must not go earlier as the chance rises.
+
+=== E4 (as of 2026-10-01): Will China blockade Taiwan in 2026?
+Rules:
+This market will resolve to "Yes" if China (People's Republic of China) announces it has established or otherwise de facto establishes an aerial or naval blockade for the territory of Taiwan (Republic of China) by December 31, 2026, 11:59 PM ET. Otherwise, this market will resolve to "No".
+
+A qualifying blockade is:
+- Prevents the normal ingress or egress of foreign commercial traffic to or from Taiwan Island’s main ports or airports by threat or use of force for ≥ 24 hours.
+- Covers part or whole of the main island of Taiwan (Formosa).
+- Is declared and enforced, de facto (e.g., it is established that China is blocking a significant portion of foreign commercial traffic, as described above, by a wide consensus of credible reporting regardless of whether China has issued a statement or not), or China-issued navigation/airspace prohibitions covering Taiwan's main island's approach lanes that are actively enforced so that most foreign commercial access is denied.
+
+A qualifying blockade is not:
+- Military or naval exercises or drills (established with warning areas or NOTAMs that do not actively stop third-country ships/aircraft and do not materially deny access).
+- Purely economic or coercive measures (e.g., sanctions, customs delays, fishing bans, cyber/GPS jamming) without physical interdiction or enforced closure).
+- Weather/accident-related closures or voluntary rerouting by operators absent PRC enforcement.
+- Islet-only incidents that do not involve the main island of Taiwan.
+- Seizure or inspection of a single vessel/aircraft by itself, unless part of an enforced pattern that denies access as defined above.
+
+The resolution source for this market will be a broad consensus of credible reporting.
+Contracts:
+  E4.C1: Will China blockade Taiwan in 2026?
+What to write for E4:
+  Write "p": a whole percent for every contract label, your chance that it resolves YES.
+
+=== E5 (as of 2026-10-01): China x Taiwan military clash before 2027?
+Rules:
+This market will resolve to "Yes" if there is a military encounter between the military forces of China (People's Republic of China) and Taiwan (Republic of China) between November 11, 2025, and December 31, 2026, 11:59 PM ET. Otherwise, this market will resolve to "No".
+
+A "military encounter" is defined as any incident involving the use of force such as missile strikes, artillery fire, exchange of gunfire, or other forms of direct military engagement between Chinese and Taiwanese military forces. Non-violent actions, such as warning shots, artillery fire into uninhabited areas, or missile launches that land in territorial waters or pass through airspace, will not qualify for a "Yes" resolution. Intentional ship ramming that results in significant damage to (e.g., a hole in the hull) or the sinking of a military ship by another will count toward a "Yes" resolution, however minor damage (scrapes, dents) will not.
+
+Note: the China Coast Guard (CCG) is part of the military, however Taiwan's Coast Guard Administration (CGA) is not.
+
+The resolution source for this market will be a consensus of credible reporting.
+Contracts:
+  E5.C1: China x Taiwan military clash before 2027?
+What to write for E5:
+  Write "dates": for each chance 10, 25, 50, 75 and 90, the date by which you give it that chance of having happened, or null if you do not give it that chance by the last date the contracts cover. Dates must not go earlier as the chance rises.
+
+=== E6 (as of 2026-10-01): Taipei Mayor Election Winner
+Rules:
+Taiwanese local elections are scheduled to be held on November 28, 2026.
+
+This market will resolve according to the candidate who becomes the next Mayor of Taipei as a result of this election.
+
+Temporary, interim, or placeholder Mayors appointed before the election will not be considered.
+
+If the result of this election isn't known, or no candidate has been elected, by June 30, 2027, 11:59 PM ET, the market will resolve to "Other".
+
+This market will resolve based on the results of the elections as indicated by a consensus of credible reporting. If there is ambiguity, this market will resolve based solely on the official results as reported by the Taiwanese government, specifically the Central Election Commission (https://db.cec.gov.tw/).
+Contracts:
+  E6.C1: Will Chiang Wan-an win the next Taipei Mayor election?
+  E6.C2: Will Puma Shen win the next Taipei Mayor election?
+  E6.C3: Will Kuo Hsi win the next Taipei Mayor election?
+  E6.C4: Will Candidate A win the next Taipei Mayor election?
+  E6.C5: Will Candidate B win the next Taipei Mayor election?
+  E6.C6: Will Candidate C win the next Taipei Mayor election?
+  E6.C7: Will Candidate D win the next Taipei Mayor election?
+  E6.C8: Will Candidate E win the next Taipei Mayor election?
+  E6.C9: Will Candidate F win the next Taipei Mayor election?
+  E6.C10: Will Candidate G win the next Taipei Mayor election?
+  E6.C11: Will Candidate H win the next Taipei Mayor election?
+  E6.C12: Will Candidate I win the next Taipei Mayor election?
+  E6.C13: Will Candidate J win the next Taipei Mayor election?
+  E6.C14: Will Candidate K win the next Taipei Mayor election?
+  E6.C15: Will Candidate L win the next Taipei Mayor election?
+  E6.C16: Will Candidate M win the next Taipei Mayor election?
+  E6.C17: Will Candidate N win the next Taipei Mayor election?
+  E6.C18: Will Candidate O win the next Taipei Mayor election?
+  E6.C19: Will Candidate P win the next Taipei Mayor election?
+  E6.C20: Will Candidate Q win the next Taipei Mayor election?
+  E6.C21: Will Candidate R win the next Taipei Mayor election?
+  E6.C22: Will Candidate S win the next Taipei Mayor election?
+  E6.C23: Will Candidate T win the next Taipei Mayor election?
+  E6.C24: Will Candidate U win the next Taipei Mayor election?
+  E6.C25: Will Candidate V win the next Taipei Mayor election?
+  E6.C26: Will Candidate W win the next Taipei Mayor election?
+  E6.C27: Will Candidate X win the next Taipei Mayor election?
+  E6.C28: Will Candidate Y win the next Taipei Mayor election?
+  E6.C29: Will Candidate Z win the next Taipei Mayor election?
+  E6.C30: Will another candidate win the next Taipei Mayor election?
+What to write for E6:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E7 (as of 2026-10-01): 2026 Taiwanese Local Elections: Party Winner
+Rules:
+Taiwanese local elections are scheduled to be held on November 28, 2026. 
+
+This market will resolve according to the party whose official candidates win the most head of local government (mayor or magistrate) elections for Taiwan’s major special municipalities, counties, and cities during these elections.
+
+A candidate will be considered an official candidate of a party if they are officially nominated by that party and are registered for the relevant election in affiliation with that party. Independent candidates will not count for any party.
+
+Taiwan’s local governments include the following cities, special municipalities, and counties:
+
+Cities/special municipalities (mayoral elections): Taipei City, New Taipei City, Taoyuan City, Taichung City, Tainan City, Kaohsiung City, Keelung City, Hsinchu City, Chiayi City
+
+Counties (magistrate elections): Yilan County, Hsinchu County, Miaoli County, Changhua County, Nantou County, Yunlin County, Chiayi County, Pingtung County, Taitung County, Hualien County, Penghu County, Lienchiang County, Kinmen County
+
+Only elections for the listed cities, special municipalities or counties will be counted for this market. A party will have won as soon as it becomes mathematically impossible for any other party to equal or surpass its number of wins in these elections.
+
+In the case of a tie between two or more parties for the greatest number of relevant head of local government elections won, this market will resolve in favor of the party whose English name comes first in alphabetical order, as listed in this market group.
+
+Resolution of this market will be based on the results of the relevant elections, once those results are official. This market will remain open until a party has won or until the results of all of the relevant elections are made official. If the results of any of the relevant 2026 Taiwanese local elections aren’t known by June 30, 2027 11:59 PM ET, the winning party will be determined based on the available results up to that point. If none of the results of the relevant 2026 Taiwanese local elections are known by that time, this market will resolve to “Other”.
+
+This market will resolve based on the results of the elections as indicated by a consensus of credible reporting. If there is ambiguity, this market will resolve based solely on the official results as reported by the Taiwanese government, specifically the Central Election Commission (https://db.cec.gov.tw/).
+Contracts:
+  E7.C1: Will Kuomintang (KMT) win the most head of local government elections in the 2026 Taiwan local elections?
+  E7.C2: Will the Democratic Progressive Party (DPP) win the most head of local government elections in the 2026 Taiwan local elections?
+  E7.C3: Will the Taiwan People’s Party (TPP) win the most head of local government elections in the 2026 Taiwan local elections?
+What to write for E7:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E8 (as of 2026-10-01): Lai Ching-te impeached by...?
+Rules:
+This market will resolve to "Yes" if the President of Taiwan, Lai Ching-te, is formally impeached by the Legislative Yuan by June 30, 2026, 11:59 PM ET. Otherwise, this market will resolve to "No."
+
+For this market to resolve to "Yes" it is only necessary that the Legislative Yuan propose and approve a motion of impeachment against Lai Ching-te, regardless of whether the Constitutional Court later upholds the impeachment.
+
+The primary resolution source for this market is official information from the Taiwanese government, however a consensus of credible reporting may be used.
+Contracts:
+  E8.C1: Lai Ching-te impeached by December 31?
+    Contract rules: This market will resolve to "Yes" if the President of Taiwan, Lai Ching-te, is formally impeached by the Legislative Yuan by December 31, 2026, 11:59 PM ET. Otherwise, this market will resolve to "No."
+
+For this market to resolve to "Yes" it is only necessary that the Legislative Yuan propose and approve a motion of impeachment against Lai Ching-te, regardless of whether the Constitutional Court later upholds the impeachment.
+
+The primary resolution source for this market is official information from the Taiwanese government, however a consensus of credible reporting may be used.
+What to write for E8:
+  Write "dates": for each chance 10, 25, 50, 75 and 90, the date by which you give it that chance of having happened, or null if you do not give it that chance by the last date the contracts cover. Dates must not go earlier as the chance rises.

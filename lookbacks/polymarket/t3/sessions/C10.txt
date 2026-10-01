@@ -1,0 +1,216 @@
+You are reading a group of prediction-market questions that may affect each other. Your view is as of 2026-10-01.
+
+You may search the web and fetch public pages to inform your view (load the WebSearch and WebFetch tools if needed). Rules for that:
+- Every web search must pass blocked_domains = ["polymarket.com", "kalshi.com", "predictit.org", "manifold.markets", "metaculus.com", "betfair.com", "smarkets.com", "oddschecker.com", "electionbettingodds.com", "polymarketanalytics.com", "gjopen.com", "goodjudgment.com", "insightprediction.com", "limitless.exchange", "myriad.markets", "betmgm.com", "draftkings.com", "fanduel.com", "williamhill.com", "paddypower.com", "bet365.com", "ladbrokes.com", "polymarket.co"].
+- Never open a prediction-market, betting or odds site, and never use or mention what any market, bookmaker or trader thinks. Give your own view from the evidence.
+- No other tools: only reading this file, searching and fetching.
+
+First decide which questions belong together. For any you judge unrelated to the rest, put its label in "drop" with a one-line reason; write nothing else for it.
+
+For every question you keep, write what it asks for. Whole percents run from 1 to 99. Levels are plain numbers in the units the contracts use. Dates are YYYY-MM-DD.
+
+CLAIMS. Where you believe one event's outcome changes the chances of another in this group, write a claim:
+  {"if": {"contract": "E1.C2", "resolves": "YES"}, "then_event": "E3", "if_true": <what you would write for E3 if that happens>, "if_false": <what you would write for E3 if it does not>}
+"if_true" and "if_false" use exactly the fields E3 asks for (the same "p", "levels", "high", "low" or "dates" object). Write as many claims as you believe in, including none.
+
+SCALE. For every question you keep that measures a quantity, a count, a price, a size or a date, also write "scale": the kind of thing this is and where you expect this instance to land among instances of that kind.
+  "scale": {"class": "<the reference class, e.g. monthly US core CPI prints since 2010>", "percentile": <0 to 100: where your middle view of this instance sits among instances of that class; 50 is an ordinary one>}
+Write "scale": null for a question with no scale (a plain yes/no about whether something happens).
+
+Also list the pages you relied on in "sources" (URLs).
+
+Reply with one JSON object and nothing else:
+{"drop": {"E5": "reason"}, "events": [{"label": "E1", ...the fields it asks for..., "scale": {"class": "...", "percentile": 50}}], "claims": [...], "sources": ["https://..."]}
+
+=== E1 (as of 2026-10-01): Will Zelenskyy talk to Putin by...?
+Rules:
+This market will resolve to "Yes" if Volodymyr Zelenskyy and Vladimir Putin talk by November 30, 2025, 11:59 PM ET. Otherwise, it will resolve to "No".
+
+A talk is defined as any interaction between Volodymyr Zelenskyy and Vladimir Putin, occurring either in person or through verbal communication by phone or video call.
+
+Events that occurred prior to the start of this market will not qualify toward its resolution.
+
+The resolution source will be a consensus of credible reporting.
+Contracts:
+  E1.C1: Will Zelenskyy talk to Putin by December 31?
+    Contract rules: This market will resolve to "Yes" if Volodymyr Zelenskyy and Vladimir Putin talk by December 31, 2026, 11:59 PM ET. Otherwise, it will resolve to "No".
+
+A talk is defined as any interaction between Volodymyr Zelenskyy and Vladimir Putin, occurring either in person or through verbal communication by phone or video call.
+
+Events that occurred prior to the start of this market will not qualify toward its resolution.
+
+The resolution source will be a consensus of credible reporting.
+What to write for E1:
+  Write "dates": for each chance 10, 25, 50, 75 and 90, the date by which you give it that chance of having happened, or null if you do not give it that chance by the last date the contracts cover. Dates must not go earlier as the chance rises.
+
+=== E2 (as of 2026-10-01): Ukraine coup attempt by...?
+Rules:
+This market will resolve to "Yes" if there is a widely reported coup attempt in Ukraine at any point between market creation and June 30, 2026, 11:59 PM ET. Otherwise, this market will resolve to "No."
+
+A coup attempt is defined as a coordinated and deliberate effort by military, security forces, or other state actors (or factions thereof) to overthrow or unlawfully seize control of the Ukrainian government or its leadership. Revolutionary actions by non-state forces, isolated protests, or general unrest will not alone qualify.
+
+Claims by the Ukrainian government that a coup attempt was foiled—such as through arrests or disruption of a planned operation—will only count toward a "Yes" resolution if credible independent sources widely report and explicitly characterize the event as a coup attempt. Foiled plots or arrests that occur without any attempted execution of the coup will not qualify.
+
+The resolution source will be a consensus of credible reporting.
+Contracts:
+  E2.C1: Ukraine coup attempt by December 31?
+    Contract rules: This market will resolve to "Yes" if there is a widely reported coup attempt in Ukraine at any point between market creation and December 31, 2026, 11:59 PM ET. Otherwise, this market will resolve to "No."
+
+A coup attempt is defined as a coordinated and deliberate effort by military, security forces, or other state actors (or factions thereof) to overthrow or unlawfully seize control of the Ukrainian government or its leadership. Revolutionary actions by non-state forces, isolated protests, or general unrest will not alone qualify.
+
+Claims by the Ukrainian government that a coup attempt was foiled—such as through arrests or disruption of a planned operation—will only count toward a "Yes" resolution if credible independent sources widely report and explicitly characterize the event as a coup attempt. Foiled plots or arrests that occur without any attempted execution of the coup will not qualify.
+
+The resolution source will be a consensus of credible reporting.
+What to write for E2:
+  Write "dates": for each chance 10, 25, 50, 75 and 90, the date by which you give it that chance of having happened, or null if you do not give it that chance by the last date the contracts cover. Dates must not go earlier as the chance rises.
+
+=== E3 (as of 2026-10-01): Where will Trump and Putin meet next in 2026?
+Rules:
+This market will resolve according to the location of the next meeting between Donald Trump and Vladimir Putin between market creation and December 31, 2026, 11:59 PM ET.
+
+This market will resolve to "No meeting by December 31" if no qualifying meeting occurs during this market's timeframe.
+
+A meeting is defined as any encounter where Putin and Trump are all present and interact with each other in person.
+
+An exchange of words, handshake, direct conversation, or other clear personal interaction between the named individuals will qualify as a meeting. Merely standing in proximity, making eye contact, or being present in the same room or event without direct interaction will not qualify.
+
+For this market, Gulf states are defined as the six members of the Gulf Cooperation Council (Bahrain, Kuwait, Oman, Qatar, Saudi Arabia, United Arab Emirates).
+
+The primary resolution source for this market will be a consensus of credible reporting.
+Contracts:
+  E3.C1: Will Trump and Putin meet next in Belarus?
+  E3.C2: Will Trump and Putin meet next in Turkey?
+  E3.C3: Will Trump and Putin meet next in Finland?
+  E3.C4: Will Trump and Putin meet next in Switzerland?
+  E3.C5: Will Trump and Putin meet next in Russia?
+  E3.C6: Will Trump and Putin meet next in a Gulf country?
+  E3.C7: Will Trump and Putin meet next in South Korea?
+  E3.C8: Will Trump and Putin meet next in Japan?
+  E3.C9: Will Trump and Putin meet next in Australia?
+  E3.C10: Will Trump and Putin meet next in United States?
+  E3.C11: Will Trump and Putin meet next in another EU country?
+  E3.C12: Will Trump and Putin meet next in another country?
+  E3.C13: Will Trump and Putin not meet?
+  E3.C14: Will Trump and Putin meet next in China?
+  E3.C15: Will Trump and Putin meet next in Ukraine?
+What to write for E3:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E4 (as of 2026-10-01): Ukraine peace referendum passed before 2027?
+Rules:
+This market will resolve to “Yes” if a peace referendum on the Russo-Ukrainian war is officially passed in Ukraine by December 31, 2026, 11:59 PM ET. Otherwise, this market will resolve to “No”. 
+
+A peace referendum for the Russo-Ukrainian war refers to any nationwide vote relating to peace in the Russo-Ukrainian war or over a peace deal to end the war.
+
+A qualifying referendum will be considered to be passed if a majority of valid votes cast nationwide support the proposal. Subsequent legal challenges or other challenges to the legitimacy of the referendum will not affect the resolution of this market.
+
+The primary resolution source for this market will be official information from the government of Ukraine; however, a consensus of credible reporting may also be used.
+Contracts:
+  E4.C1: Ukraine peace referendum passed before 2027?
+What to write for E4:
+  Write "dates": for each chance 10, 25, 50, 75 and 90, the date by which you give it that chance of having happened, or null if you do not give it that chance by the last date the contracts cover. Dates must not go earlier as the chance rises.
+
+=== E5 (as of 2026-10-01): NATO x Russia military clash by...?
+Rules:
+This market will resolve to "Yes" if there is a military encounter between the military forces of a NATO country and Russia between September 23 and December 31, 2025, 11:59 PM ET. Otherwise, this market will resolve to "No".
+
+A "military encounter" is defined as any incident involving the use of force such as missile strikes, artillery fire, exchange of gunfire, or other forms of direct military engagement between NATO and Russian military forces. Non-violent actions, such as airspace violations, firing of warning shots (such as the June, 2021 Black Sea Confrontations between Russian forces and HMS Defender), or cyberattacks will not qualify.
+
+Interception of missiles or other one-way attack or loitering munitions (e.g. Shahed drones) which are targeting a 3rd party other than the listed countries or their respective forces will not alone qualify. Shooting down UAVs which are not munitions (e.g. MQ-9, Orlan 10, Orion, Bayraktar TB2, etc.) will qualify.
+
+Intentional physical collisions, including aerial interceptions and naval ramming without the direct use of weaponry, such as the 2023 Black Sea incident—where a Russian Su-27 damaged a U.S. MQ-9 Reaper drone's propeller, leading to its crash— will not qualify regardless of damage.
+
+Military contractors will qualify only if confirmed to be operating under the direct command or coordination of the respective state’s armed forces (e.g. the Battle of Khasham would not qualify).
+
+The resolution source for this market will be a consensus of credible reporting.
+Contracts:
+  E5.C1: NATO x Russia military clash by October 31, 2026?
+    Contract rules: This market will resolve to "Yes" if there is a military encounter between the military forces of a NATO country and Russia between market creation and October 31, 2026, 11:59 PM ET. Otherwise, this market will resolve to "No".
+
+A "military encounter" is defined as any incident involving the use of force such as missile strikes, artillery fire, exchange of gunfire, or other forms of direct military engagement between NATO and Russian military forces. Non-violent actions, such as airspace violations, firing of warning shots (such as the June, 2021 Black Sea Confrontations between Russian forces and HMS Defender), or cyberattacks will not qualify.
+
+Interception of missiles or other one-way attack or loitering munitions (e.g. Shahed drones) which are targeting a 3rd party other than the listed countries or their respective forces will not alone qualify. Shooting down UAVs which are not munitions (e.g. MQ-9, Orlan 10, Orion, Bayraktar TB2, etc.) will qualify.
+
+Intentional physical collisions, including aerial interceptions and naval ramming without the direct use of weaponry, such as the 2023 Black Sea incident—where a Russian Su-27 damaged a U.S. MQ-9 Reaper drone's propeller, leading to its crash— will not qualify regardless of damage.
+
+Military contractors will qualify only if confirmed to be operating under the direct command or coordination of the respective state’s armed forces (e.g. the Battle of Khasham would not qualify).
+
+The resolution source for this market will be a consensus of credible reporting.
+  E5.C2: NATO x Russia military clash by December 31, 2026?
+    Contract rules: This market will resolve to "Yes" if there is a military encounter between the military forces of a NATO country and Russia between January 2, and December 31, 2026, 11:59 PM ET. Otherwise, this market will resolve to "No".
+
+A "military encounter" is defined as any incident involving the use of force such as missile strikes, artillery fire, exchange of gunfire, or other forms of direct military engagement between NATO and Russian military forces. Non-violent actions, such as airspace violations, firing of warning shots (such as the June, 2021 Black Sea Confrontations between Russian forces and HMS Defender), or cyberattacks will not qualify.
+
+Interception of missiles or other one-way attack or loitering munitions (e.g. Shahed drones) which are targeting a 3rd party other than the listed countries or their respective forces will not alone qualify. Shooting down UAVs which are not munitions (e.g. MQ-9, Orlan 10, Orion, Bayraktar TB2, etc.) will qualify.
+
+Intentional physical collisions, including aerial interceptions and naval ramming without the direct use of weaponry, such as the 2023 Black Sea incident—where a Russian Su-27 damaged a U.S. MQ-9 Reaper drone's propeller, leading to its crash— will not qualify regardless of damage.
+
+Military contractors will qualify only if confirmed to be operating under the direct command or coordination of the respective state’s armed forces (e.g. the Battle of Khasham would not qualify).
+
+The resolution source for this market will be a consensus of credible reporting.
+What to write for E5:
+  Write "p": a whole percent for every contract label, your chance that it resolves YES.
+
+=== E6 (as of 2026-10-01): Putin and Zelenskyy shake hands by...?
+Rules:
+This market will resolve to "Yes" if Vladimir Putin and Volodymyr Zelenskyy shake hands by June 30, 2026, 11:59 PM ET. Otherwise, this market will resolve to "No".
+
+For the handshake to qualify toward a "Yes" resolution, there must be video or photographic evidence.
+
+The resolution source for this market will be photographic or digital evidence verified by a consensus of credible reporting.
+Contracts:
+  E6.C1: Putin and Zelenskyy shake hands by December 31?
+    Contract rules: This market will resolve to "Yes" if Vladimir Putin and Volodymyr Zelenskyy shake hands by December 31, 2026, 11:59 PM ET. Otherwise, this market will resolve to "No".
+
+For the handshake to qualify toward a "Yes" resolution, there must be video or photographic evidence.
+
+The resolution source for this market will be photographic or digital evidence verified by a consensus of credible reporting.
+What to write for E6:
+  Write "dates": for each chance 10, 25, 50, 75 and 90, the date by which you give it that chance of having happened, or null if you do not give it that chance by the last date the contracts cover. Dates must not go earlier as the chance rises.
+
+=== E7 (as of 2026-10-01): Ukraine peace referendum scheduled by...?
+Rules:
+This market will resolve to “Yes” if a peace referendum on the Russo-Ukrainian war is officially scheduled in Ukraine by January 31, 2026, 11:59 PM ET. Otherwise, this market will resolve to “No”. 
+
+A peace referendum for the Russo-Ukrainian war refers to any nationwide vote relating to peace in the Russo-Ukrainian war or over a peace deal to end the war.
+
+A qualifying referendum will be considered to be scheduled once a date for the referendum to take place has been officially scheduled and publicly announced by a relevant Ukrainian government authority with the legal jurisdiction to do so. 
+
+Once a qualifying referendum has been scheduled, this market will resolve to “Yes.” Subsequent legal challenges or other challenges to the legitimacy of the referendum will not affect resolution of this market.
+
+The primary resolution source for this market will be official information from the government of Ukraine; however, a consensus of credible reporting may also be used.
+Contracts:
+  E7.C1: Ukraine peace referendum scheduled by December 31?
+    Contract rules: This market will resolve to “Yes” if a peace referendum on the Russo-Ukrainian war is officially scheduled in Ukraine by December 31, 2026, 11:59 PM ET. Otherwise, this market will resolve to “No”. 
+
+A peace referendum for the Russo-Ukrainian war refers to any nationwide vote relating to peace in the Russo-Ukrainian war or over a peace deal to end the war.
+
+A qualifying referendum will be considered to be scheduled once a date for the referendum to take place has been officially scheduled and publicly announced by a relevant Ukrainian government authority with the legal jurisdiction to do so. 
+
+Once a qualifying referendum has been scheduled, this market will resolve to “Yes.” Subsequent legal challenges or other challenges to the legitimacy of the referendum will not affect resolution of this market.
+
+The primary resolution source for this market will be official information from the government of Ukraine; however, a consensus of credible reporting may also be used.
+What to write for E7:
+  Write "dates": for each chance 10, 25, 50, 75 and 90, the date by which you give it that chance of having happened, or null if you do not give it that chance by the last date the contracts cover. Dates must not go earlier as the chance rises.
+
+=== E8 (as of 2026-10-01): Ukraine recognizes Russian sovereignty over its territory by...?
+Rules:
+This market will resolve to "Yes" if a deal in which Ukraine agrees to formally recognize Russian sovereignty over any UN-recognized Ukrainian territory is reached between the Russian Federation and Ukraine by December 31, 2025, 11:59 PM ET. Otherwise, this market will resolve to “No”.
+
+The deal must be a publicly announced mutual agreement. 
+
+If such an agreement is officially reached before the resolution date, this market will resolve to "Yes", regardless of if/when the agreement goes into effect.
+
+An agreement by Ukraine formally recognizing Russian sovereignty over any UN-recognized Ukrainian territory for any amount of time will count.
+
+An agreement by Ukraine formally recognizing Russian sovereignty over any UN-recognized Ukrainian territory as a precondition of a more comprehensive peace process or deal will qualify, even if the agreement is not finalized or part of a formalized peace deal. The September 8, 1995, “Agreed Basic Principles” between Bosnia and Yugoslavia, which recognized the borders and sovereignty of Bosnia and Herzegovina, and was later formalized through the Dayton Peace Agreement, is an example of a qualifying agreement.
+
+An official unilateral pledge by Ukraine formally recognizing Russian sovereignty over any UN-recognized Ukrainian territory will qualify for a “Yes” resolution even if not part of an agreement with Russia.
+
+The April 19, 2013, Brussels Agreement between Serbia and Kosovo, in which Serbia recognized Kosovo’s de facto administration but did not formally grant de jure recognition, would not be considered a qualifying agreement under this market, as this market requires formal recognition of sovereignty rather than acknowledgment of administrative control.
+
+The primary resolution source for this market will be an official announcement by Ukraine and/or the Russian Federation, however, an overwhelming consensus of credible reporting confirming an agreement has been reached will also qualify.
+Contracts:
+  E8.C1: Ukraine recognizes Russian sovereignty over its territory by December 31, 2026?
+What to write for E8:
+  Write "dates": for each chance 10, 25, 50, 75 and 90, the date by which you give it that chance of having happened, or null if you do not give it that chance by the last date the contracts cover. Dates must not go earlier as the chance rises.

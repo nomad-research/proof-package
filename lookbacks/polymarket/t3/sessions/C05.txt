@@ -1,0 +1,284 @@
+You are reading a group of prediction-market questions that may affect each other. Your view is as of 2026-10-01.
+
+You may search the web and fetch public pages to inform your view (load the WebSearch and WebFetch tools if needed). Rules for that:
+- Every web search must pass blocked_domains = ["polymarket.com", "kalshi.com", "predictit.org", "manifold.markets", "metaculus.com", "betfair.com", "smarkets.com", "oddschecker.com", "electionbettingodds.com", "polymarketanalytics.com", "gjopen.com", "goodjudgment.com", "insightprediction.com", "limitless.exchange", "myriad.markets", "betmgm.com", "draftkings.com", "fanduel.com", "williamhill.com", "paddypower.com", "bet365.com", "ladbrokes.com", "polymarket.co"].
+- Never open a prediction-market, betting or odds site, and never use or mention what any market, bookmaker or trader thinks. Give your own view from the evidence.
+- No other tools: only reading this file, searching and fetching.
+
+First decide which questions belong together. For any you judge unrelated to the rest, put its label in "drop" with a one-line reason; write nothing else for it.
+
+For every question you keep, write what it asks for. Whole percents run from 1 to 99. Levels are plain numbers in the units the contracts use. Dates are YYYY-MM-DD.
+
+CLAIMS. Where you believe one event's outcome changes the chances of another in this group, write a claim:
+  {"if": {"contract": "E1.C2", "resolves": "YES"}, "then_event": "E3", "if_true": <what you would write for E3 if that happens>, "if_false": <what you would write for E3 if it does not>}
+"if_true" and "if_false" use exactly the fields E3 asks for (the same "p", "levels", "high", "low" or "dates" object). Write as many claims as you believe in, including none.
+
+SCALE. For every question you keep that measures a quantity, a count, a price, a size or a date, also write "scale": the kind of thing this is and where you expect this instance to land among instances of that kind.
+  "scale": {"class": "<the reference class, e.g. monthly US core CPI prints since 2010>", "percentile": <0 to 100: where your middle view of this instance sits among instances of that class; 50 is an ordinary one>}
+Write "scale": null for a question with no scale (a plain yes/no about whether something happens).
+
+Also list the pages you relied on in "sources" (URLs).
+
+Reply with one JSON object and nothing else:
+{"drop": {"E5": "reason"}, "events": [{"label": "E1", ...the fields it asks for..., "scale": {"class": "...", "percentile": 50}}], "claims": [...], "sources": ["https://..."]}
+
+=== E1 (as of 2026-10-01): China Annual Inflation 2026
+Rules:
+This is a market about the variation of consumer prices in China over the 12-month period ending December 2026, as reported by the National Bureau of Statistics (NBS) of China.
+
+This market will resolve according to the percentage change in the Consumer Price Index (CPI) during the 12-month period ending December 2026 according to the monthly NBS report.
+
+The resolution source for this market will be the NBS Consumer Price Index monthly report released for December 2026 (https://www.stats.gov.cn/english/PressRelease/), currently expected to be released in January 2027. Resolution of this market will take place upon release of the aforementioned data. If no data for the specified month is released by the date the next month's data is scheduled to be released, this market will resolve based on data from the last available month.
+
+You can find the relevant figure by locating the report for December 2026 on the Press Releases page (see: https://www.stats.gov.cn/english/PressRelease/), locating the table named "Consumer Price Indexes in December 2026", and finding the consumer price index figure in the column labeled "Growth Rate Y/Y (%)".
+
+Note: the resolution source for this market will be the official monthly NBS CPI news release which reports inflation during 12-month periods to only one decimal point (e.g. 1.9%). Thus, this is the level of precision that will be used when resolving the market. For the full release schedule, see: https://www.stats.gov.cn/english/PressRelease/ReleaseCalendar/
+Contracts:
+  E1.C1: Will China's annual inflation in 2026 be less than -1.0%?
+  E1.C2: Will China's annual inflation in 2026 be between -0.9% and -0.5%?
+  E1.C3: Will China's annual inflation in 2026 be between -0.4% and 0.0%?
+  E1.C4: Will China's annual inflation in 2026 be between 0.1% and 0.5%?
+  E1.C5: Will China's annual inflation in 2026 be between 0.6% and 1.0%?
+  E1.C6: Will China's annual inflation in 2026 be between 1.1% and 1.5%?
+  E1.C7: Will China's annual inflation in 2026 be between 1.6% and 2.0%?
+  E1.C8: Will China's annual inflation in 2026 be between 2.0% and 2.4%?
+  E1.C9: Will China's annual inflation in 2026 be at least 2.5%?
+What to write for E1:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E2 (as of 2026-10-01): Argentina Annual Inflation 2026
+Rules:
+This is a market about Argentinian inflation over the 12-month period ending December 2026, before seasonal adjustment, as reported by the National Institute of Statistics and Census (INDEC) of Argentina.
+
+This market will resolve according to the percentage change in the Consumer Price Index (CPI / IPC) over the 12-month period ending in December 2026 (Variación % interanual Total nacional) according to the monthly INDEC report.
+
+The resolution source for this market will be the INDEC Consumer Price Index report released for December 2026 (https://www.indec.gob.ar/), expected to be released in January 2027. Resolution of this market will take place upon release of the aforementioned data. If no data for the specified month is released by the date the next month's data is scheduled to be released, this market will resolve based on data from the last available month.
+
+You can find this report by clicking on the “Precios al consumidor” option on the home page of https://www.indec.gob.ar/, and searching the pdf for the figure under “Variación % interanual Total nacional”.
+
+Note: the resolution source for this market will be the official monthly INDEC CPI (IPC) news release which reports inflation over 12 month periods to only one decimal point (e.g. 33.6%). Thus, this is the level of precision that will be used when resolving the market.
+Contracts:
+  E2.C1: Will Argentina’s annual inflation be less than 20%?
+  E2.C2: Will Argentina’s annual inflation in 2026 be between 20% and 24.9%?
+  E2.C3: Will Argentina’s annual inflation in 2026 be between 25% and 29.9%?
+  E2.C4: Will Argentina’s annual inflation in 2026 be between 30% and 34.9%?
+  E2.C5: Will Argentina’s annual inflation in 2026 be between 35% and 39.9%?
+  E2.C6: Will Argentina’s annual inflation in 2026 be between 40% and 44.9%?
+  E2.C7: Will Argentina’s annual inflation in 2026 be at least 45%?
+What to write for E2:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E3 (as of 2026-10-01): U.K. Annual Inflation 2026
+Rules:
+This is a market about the variation of consumer prices in the U.K. over the 12-month period ending December 2026, before seasonal adjustment, as reported by the Office for National Statistics (ONS).
+
+This market will resolve according to the percentage change in the Consumer Price Index (CPI) over the 12-month period ending December 2026, according to the monthly ONS report.
+
+The resolution source for this market will be the ONS Consumer Price Index monthly report released for December 2026 (https://www.ons.gov.uk/economy/inflationandpriceindices/bulletins/consumerpriceinflation/previousreleases), currently scheduled to be released on January 20, 2027. Resolution of this market will take place upon release of the aforementioned data. If no data for the specified month is released by the date the next month's data is scheduled to be released, this market will resolve based on data from the last available month.
+
+You can find this report by choosing the report for the relevant month from the previous releases page for price indices on the ONS website (https://www.ons.gov.uk/economy/inflationandpriceindices/bulletins/consumerpriceinflation/previousreleases). The relevant figure can be found in the "Consumer price inflation rates" table under the column labeled "CPI 12-month rate (%)" for the relevant month.
+
+Note: the resolution source for this market will be the official monthly ONS CPI news release which reports inflation change over 12-month periods to only one decimal point (e.g. 1.9%). Thus, this is the level of precision that will be used when resolving the market. For the full release schedule, see: https://www.ons.gov.uk/releasecalendar
+Contracts:
+  E3.C1: Will the UK’s 2026 inflation be less than 1.0%?
+  E3.C2: Will the UK’s 2026 inflation be between 1.0% and 1.4%?
+  E3.C3: Will the UK’s 2026 inflation be between 1.5% and 1.9%?
+  E3.C4: Will the UK’s 2026 inflation be between 2.0% and 2.4%?
+  E3.C5: Will the UK’s 2026 inflation be between 2.5% and 2.9%?
+  E3.C6: Will the UK’s 2026 inflation be between 3.0% and 3.4%?
+  E3.C7: Will the UK’s 2026 inflation be between 3.5% and 3.9%?
+  E3.C8: Will the UK’s 2026 inflation be between 4.0% and 4.4%?
+  E3.C9: Will the UK’s 2026 inflation be at least 4.5%?
+What to write for E3:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E4 (as of 2026-10-01): South Africa Annual Inflation 2026
+Rules:
+This is a market about the variation of consumer prices in South Africa over the 12-month period ending December 2026 (Y/Y, % change), as reported by Statistics South Africa.
+
+This market will resolve according to the percentage change in the Consumer Price Index (CPI) during the 12-month period ending December 2026 according to the monthly Statistics South Africa report.
+
+The resolution source for this market will be the Statistics South Africa Consumer Price Index monthly report released for December 2026, currently scheduled to be released on January 20, 2027. Resolution of this market will take place upon release of the aforementioned data. If no data for the specified month is released by the date the next month's data is scheduled to be released, this market will resolve based on data from the last available month.
+
+You can find the relevant figure by locating the report for December 2026 on the Publications page (https://www.statssa.gov.za/?page_id=1859), selecting the report, and selecting “Key Findings (Summary)". The relevant figure will be the figure for annual consumer price inflation (Y/Y, %) in the relevant month. Changes in Statistics South Africa’s reporting format will not disqualify a published relevant figure from counting.
+
+Note: the resolution source for this market will be the official monthly Statistics South Africa Consumer Price Index report which reports inflation during 12-month periods to one decimal point (e.g. 3.6%). Thus, this is the level of precision that will be used when resolving the market. For the full release schedule, see: https://www.statssa.gov.za/?page_id=1874
+Contracts:
+  E4.C1: Will South African inflation be less than 2.6% in 2026?
+  E4.C2: Will South African inflation be between 2.6% and 2.9% in 2026?
+  E4.C3: Will South African inflation be between 2.9% and 3.2% in 2026?
+  E4.C4: Will South African inflation be between 3.2% and 3.5% in 2026?
+  E4.C5: Will South African inflation be between 3.5% and 3.8% in 2026?
+  E4.C6: Will South African inflation be between 3.8% and 4.1% in 2026?
+  E4.C7: Will South African inflation be between 4.1% and 4.4% in 2026?
+  E4.C8: Will South African inflation be between 4.4% and 4.7% in 2026?
+  E4.C9: Will South African inflation be between 4.7% and 5.0% in 2026?
+  E4.C10: Will South African inflation be greater than 5.0% in 2026?
+What to write for E4:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E5 (as of 2026-10-01): Canada Annual Inflation 2026
+Rules:
+This is a market about the variation of consumer prices over the 12-month period ending December 2026 in Canada, before seasonal adjustment, as reported by Statistics Canada.
+
+This market will resolve according to the percentage change in the Consumer Price Index (CPI) over the 12-month period ending December 2026, according to the monthly Statistics Canada report.
+
+The resolution source for this market will be the Statistics Canada Consumer Price Index monthly report released for December 2026 (https://www.statcan.gc.ca/en/start), currently scheduled to be released on January 18, 2027. Resolution of this market will take place upon release of the aforementioned data. If no data for the specified month is released by the date the next month's data is scheduled to be released, this market will resolve based on data from the last available month.
+
+Once available, you can find this report by clicking on the "Major Economic Indicators" heading on the home page of https://www.statcan.gc.ca/en/start and selecting the “Consumer Price Index” report for the relevant month. The relevant figure can be found in “Table 1” under the "% change" column for the relevant month and year compared to the same month of the previous year.
+
+Note: the resolution source for this market will be the official monthly Statistics Canada CPI news release, which reports inflation change over 12-month periods to only one decimal point (e.g., 1.9%). Thus, this is the level of precision that will be used when resolving the market. For the full release schedule, see: https://www150.statcan.gc.ca/n1/dai-quo/cal1-eng.htm?sk=3665
+Contracts:
+  E5.C1: Will Canada’s 2026 inflation be less than 1.0%?
+    Contract rules: This is a market about the variation of consumer prices over the 12-month period ending December 2026 in Canada, before seasonal adjustment, as reported by Statistics Canada.
+
+This market will resolve according to the percentage change in the Consumer Price Index (CPI) over the 12-month period ending December 2026 according to the monthly Statistics Canada report.
+
+The resolution source for this market will be the Statistics Canada Consumer Price Index monthly report released for December 2026 (https://www.statcan.gc.ca/en/start), currently scheduled to be released on January 18, 2027. Resolution of this market will take place upon release of the aforementioned data. If no data for the specified month is released by the date the next month's data is scheduled to be released, this market will resolve based on data from the last available month.
+
+Once available, you can find this report by clicking on the "Major Economic Indicators" heading on the home page of https://www.statcan.gc.ca/en/start and selecting the “Consumer Price Index” report for the relevant month. The relevant figure can be found in “Table 1” under the "% change" column for the relevant month and year compared to the same month of the previous year.
+
+Note: the resolution source for this market will be the official monthly Statistics Canada CPI news release which reports inflation change over 12-month periods to only one decimal point (e.g. 1.9%). Thus, this is the level of precision that will be used when resolving the market. For the full release schedule, see: https://www150.statcan.gc.ca/n1/dai-quo/cal1-eng.htm?sk=3665
+  E5.C2: Will Canada’s 2026 inflation be between 1.0% and 1.4%?
+    Contract rules: This is a market about the variation of consumer prices over the 12-month period ending December 2026 in Canada, before seasonal adjustment, as reported by Statistics Canada.
+
+This market will resolve according to the percentage change in the Consumer Price Index (CPI) over the 12-month period ending December 2026 according to the monthly Statistics Canada report.
+
+The resolution source for this market will be the Statistics Canada Consumer Price Index monthly report released for December 2026 (https://www.statcan.gc.ca/en/start), currently scheduled to be released on January 18, 2027. Resolution of this market will take place upon release of the aforementioned data. If no data for the specified month is released by the date the next month's data is scheduled to be released, this market will resolve based on data from the last available month.
+
+Once available, you can find this report by clicking on the "Major Economic Indicators" heading on the home page of https://www.statcan.gc.ca/en/start and selecting the “Consumer Price Index” report for the relevant month. The relevant figure can be found in “Table 1” under the "% change" column for the relevant month and year compared to the same month of the previous year.
+
+Note: the resolution source for this market will be the official monthly Statistics Canada CPI news release which reports inflation change over 12-month periods to only one decimal point (e.g. 1.9%). Thus, this is the level of precision that will be used when resolving the market. For the full release schedule, see: https://www150.statcan.gc.ca/n1/dai-quo/cal1-eng.htm?sk=3665
+  E5.C3: Will Canada’s 2026 inflation be between 1.5% and 1.9%?
+    Contract rules: This is a market about the variation of consumer prices over the 12-month period ending December 2026 in Canada, before seasonal adjustment, as reported by Statistics Canada.
+
+This market will resolve according to the percentage change in the Consumer Price Index (CPI) over the 12-month period ending December 2026 according to the monthly Statistics Canada report.
+
+The resolution source for this market will be the Statistics Canada Consumer Price Index monthly report released for December 2026 (https://www.statcan.gc.ca/en/start), currently scheduled to be released on January 18, 2027. Resolution of this market will take place upon release of the aforementioned data. If no data for the specified month is released by the date the next month's data is scheduled to be released, this market will resolve based on data from the last available month.
+
+Once available, you can find this report by clicking on the "Major Economic Indicators" heading on the home page of https://www.statcan.gc.ca/en/start and selecting the “Consumer Price Index” report for the relevant month. The relevant figure can be found in “Table 1” under the "% change" column for the relevant month and year compared to the same month of the previous year.
+
+Note: the resolution source for this market will be the official monthly Statistics Canada CPI news release which reports inflation change over 12-month periods to only one decimal point (e.g. 1.9%). Thus, this is the level of precision that will be used when resolving the market. For the full release schedule, see: https://www150.statcan.gc.ca/n1/dai-quo/cal1-eng.htm?sk=3665
+  E5.C4: Will Canada’s 2026 inflation be between 2.0% and 2.4%?
+    Contract rules: This is a market about the variation of consumer prices over the 12-month period ending December 2026 in Canada, before seasonal adjustment, as reported by Statistics Canada.
+
+This market will resolve according to the percentage change in the Consumer Price Index (CPI) over the 12-month period ending December 2026 according to the monthly Statistics Canada report.
+
+The resolution source for this market will be the Statistics Canada Consumer Price Index monthly report released for December 2026 (https://www.statcan.gc.ca/en/start), currently scheduled to be released on January 18, 2027. Resolution of this market will take place upon release of the aforementioned data. If no data for the specified month is released by the date the next month's data is scheduled to be released, this market will resolve based on data from the last available month.
+
+Once available, you can find this report by clicking on the "Major Economic Indicators" heading on the home page of https://www.statcan.gc.ca/en/start and selecting the “Consumer Price Index” report for the relevant month. The relevant figure can be found in “Table 1” under the "% change" column for the relevant month and year compared to the same month of the previous year.
+
+Note: the resolution source for this market will be the official monthly Statistics Canada CPI news release which reports inflation change over 12-month periods to only one decimal point (e.g. 1.9%). Thus, this is the level of precision that will be used when resolving the market. For the full release schedule, see: https://www150.statcan.gc.ca/n1/dai-quo/cal1-eng.htm?sk=3665
+  E5.C5: Will Canada’s 2026 inflation be between 2.5% and 2.9%?
+    Contract rules: This is a market about the variation of consumer prices over the 12-month period ending December 2026 in Canada, before seasonal adjustment, as reported by Statistics Canada.
+
+This market will resolve according to the percentage change in the Consumer Price Index (CPI) over the 12-month period ending December 2026 according to the monthly Statistics Canada report.
+
+The resolution source for this market will be the Statistics Canada Consumer Price Index monthly report released for December 2026 (https://www.statcan.gc.ca/en/start), currently scheduled to be released on January 18, 2027. Resolution of this market will take place upon release of the aforementioned data. If no data for the specified month is released by the date the next month's data is scheduled to be released, this market will resolve based on data from the last available month.
+
+Once available, you can find this report by clicking on the "Major Economic Indicators" heading on the home page of https://www.statcan.gc.ca/en/start and selecting the “Consumer Price Index” report for the relevant month. The relevant figure can be found in “Table 1” under the "% change" column for the relevant month and year compared to the same month of the previous year.
+
+Note: the resolution source for this market will be the official monthly Statistics Canada CPI news release which reports inflation change over 12-month periods to only one decimal point (e.g. 1.9%). Thus, this is the level of precision that will be used when resolving the market. For the full release schedule, see: https://www150.statcan.gc.ca/n1/dai-quo/cal1-eng.htm?sk=3665
+  E5.C6: Will Canada’s 2026 inflation be between 3.0% and 3.4%?
+    Contract rules: This is a market about the variation of consumer prices over the 12-month period ending December 2026 in Canada, before seasonal adjustment, as reported by Statistics Canada.
+
+This market will resolve according to the percentage change in the Consumer Price Index (CPI) over the 12-month period ending December 2026 according to the monthly Statistics Canada report.
+
+The resolution source for this market will be the Statistics Canada Consumer Price Index monthly report released for December 2026 (https://www.statcan.gc.ca/en/start), currently scheduled to be released on January 18, 2027. Resolution of this market will take place upon release of the aforementioned data. If no data for the specified month is released by the date the next month's data is scheduled to be released, this market will resolve based on data from the last available month.
+
+Once available, you can find this report by clicking on the "Major Economic Indicators" heading on the home page of https://www.statcan.gc.ca/en/start and selecting the “Consumer Price Index” report for the relevant month. The relevant figure can be found in “Table 1” under the "% change" column for the relevant month and year compared to the same month of the previous year.
+
+Note: the resolution source for this market will be the official monthly Statistics Canada CPI news release which reports inflation change over 12-month periods to only one decimal point (e.g. 1.9%). Thus, this is the level of precision that will be used when resolving the market. For the full release schedule, see: https://www150.statcan.gc.ca/n1/dai-quo/cal1-eng.htm?sk=3665
+  E5.C7: Will Canada’s 2026 inflation be between 3.5% and 3.9%?
+    Contract rules: This is a market about the variation of consumer prices over the 12-month period ending December 2026 in Canada, before seasonal adjustment, as reported by Statistics Canada.
+
+This market will resolve according to the percentage change in the Consumer Price Index (CPI) over the 12-month period ending December 2026 according to the monthly Statistics Canada report.
+
+The resolution source for this market will be the Statistics Canada Consumer Price Index monthly report released for December 2026 (https://www.statcan.gc.ca/en/start), currently scheduled to be released on January 18, 2027. Resolution of this market will take place upon release of the aforementioned data. If no data for the specified month is released by the date the next month's data is scheduled to be released, this market will resolve based on data from the last available month.
+
+Once available, you can find this report by clicking on the "Major Economic Indicators" heading on the home page of https://www.statcan.gc.ca/en/start and selecting the “Consumer Price Index” report for the relevant month. The relevant figure can be found in “Table 1” under the "% change" column for the relevant month and year compared to the same month of the previous year.
+
+Note: the resolution source for this market will be the official monthly Statistics Canada CPI news release which reports inflation change over 12-month periods to only one decimal point (e.g. 1.9%). Thus, this is the level of precision that will be used when resolving the market. For the full release schedule, see: https://www150.statcan.gc.ca/n1/dai-quo/cal1-eng.htm?sk=3665
+  E5.C8: Will Canada’s 2026 inflation be at least 4.0%?
+    Contract rules: This is a market about the variation of consumer prices over the 12-month period ending December 2026 in Canada, before seasonal adjustment, as reported by Statistics Canada.
+
+This market will resolve according to the percentage change in the Consumer Price Index (CPI) over the 12-month period ending December 2026 according to the monthly Statistics Canada report.
+
+The resolution source for this market will be the Statistics Canada Consumer Price Index monthly report released for December 2026 (https://www.statcan.gc.ca/en/start), currently scheduled to be released on January 18, 2027. Resolution of this market will take place upon release of the aforementioned data. If no data for the specified month is released by the date the next month's data is scheduled to be released, this market will resolve based on data from the last available month.
+
+Once available, you can find this report by clicking on the "Major Economic Indicators" heading on the home page of https://www.statcan.gc.ca/en/start and selecting the “Consumer Price Index” report for the relevant month. The relevant figure can be found in “Table 1” under the "% change" column for the relevant month and year compared to the same month of the previous year.
+
+Note: the resolution source for this market will be the official monthly Statistics Canada CPI news release which reports inflation change over 12-month periods to only one decimal point (e.g. 1.9%). Thus, this is the level of precision that will be used when resolving the market. For the full release schedule, see: https://www150.statcan.gc.ca/n1/dai-quo/cal1-eng.htm?sk=3665
+What to write for E5:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E6 (as of 2026-10-01): September Inflation China - Annual
+Rules:
+This is a market about the variation of consumer prices in China over a 12-month period ending September 2026 as reported by the National Bureau of Statistics (NBS) of China.
+
+This market will resolve according to the number the Consumer Price Index (CPI) increased by during the 12-month period ending September 2026 (% change from the same month in the previous year) according to the monthly NBS report.
+
+The resolution source for this market will be the NBS Consumer Price Index monthly report released for September 2026 (https://www.stats.gov.cn/english/PressRelease/), currently scheduled to be released in October 2026. Resolution of this market will take place upon release of the aforementioned data. If no data for the specified month is released by the date the next month's data is scheduled to be released, this market will resolve based on data from the last available month.
+
+You can find the relevant figure by locating the report for September 2026 on the Press Releases page (see: https://www.stats.gov.cn/english/PressRelease/), locating the table named "Consumer Price Index in September 2026", and finding the consumer price index figure in the column labeled "Growth Rate Y/Y (%)".
+
+Note: the resolution source for this market will be the official monthly NBS CPI news release which reports inflation during 12-month periods to only one decimal point (e.g. 1.9%). Thus, this is the level of precision that will be used when resolving the market. For the full release schedule, see: https://www.stats.gov.cn/english/PressRelease/ReleaseCalendar/
+Contracts:
+  E6.C1: Will China’s CPI increase by ≤0.4% over the 12 month period ending in September 2026?
+  E6.C2: Will China’s CPI increase by between 0.5% and 0.6% over the 12 month period ending in September 2026?
+  E6.C3: Will China’s CPI increase by between 0.7% and 0.8% over the 12 month period ending in September 2026?
+  E6.C4: Will China’s CPI increase by between 0.9% and 1.0% over the 12 month period ending in September 2026?
+  E6.C5: Will China’s CPI increase by at least 1.1% over the 12 month period ending in September 2026?
+What to write for E6:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E7 (as of 2026-10-01): Eurozone Annual Inflation 2026
+Rules:
+This is a market about the variation of consumer prices in the Eurozone over the 12-month period ending December 2026 as reported by Eurostat.
+
+This market will resolve according to the percentage change in the Harmonised Index of Consumer Prices (HICP) over the 12-month period ending December 2026, according to the monthly Eurostat report.
+
+The resolution source for this market will be the Eurostat Harmonised Index of Consumer Prices monthly report released for December 2026, currently scheduled to be released on January 19, 2027. Resolution of this market will take place upon release of the aforementioned data. If no data for the specified month is released by the date the next month's data is scheduled to be released, this market will resolve based on data from the last available month.
+
+You can find this report on the Eurostat website (https://ec.europa.eu/eurostat/en/) by selecting the "Database" option from the "Data" dropdown, opening the "Data navigation tree" folder, then the "Economy and finance" folder, then the "Prices (prc)" folder, then the "Harmonised index of consumer prices (HICP) (prc_hicp)" folder, and opening the file named "HICP - monthly data (annual rate of change) (prc_hicp_manr)". The relevant figure can be found in the column for the relevant month in the row marked "Euro area - 20 countries (from 2023)".
+
+Note: the resolution source for this market will be the official monthly Eurostat HICP news release which reports inflation change over 12-month periods to only one decimal point (e.g. 1.9%). Thus, this is the level of precision that will be used when resolving the market. For the full release schedule, see: https://ec.europa.eu/eurostat/web/main/news/release-calendar or https://www.ecb.europa.eu/press/calendars/statscal/ges/html/sthicp.en.html
+Contracts:
+  E7.C1: Will the Eurozone's 2026 Annual Inflation be less than 1.0%?
+  E7.C2: Will the Eurozone's 2026 Annual Inflation be between 1.0% and 1.2%?
+  E7.C3: Will the Eurozone's 2026 Annual Inflation be between 1.3% and 1.5%?
+  E7.C4: Will the Eurozone's 2026 Annual Inflation be between 1.6% and 1.8%?
+  E7.C5: Will the Eurozone's 2026 Annual Inflation be between 1.9% and 2.1%?
+  E7.C6: Will the Eurozone's 2026 Annual Inflation be between 2.2% and 2.4%?
+  E7.C7: Will the Eurozone's 2026 Annual Inflation be between 2.5% and 2.7%?
+  E7.C8: Will the Eurozone's 2026 Annual Inflation be between 2.8% and 3.0%?
+  E7.C9: Will the Eurozone's 2026 Annual Inflation be at least 3.1%?
+What to write for E7:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E8 (as of 2026-10-01): September Inflation US - Annual
+Rules:
+This is a market about inflation over the 12-month period ending September 2026, before seasonal adjustment, as reported by the Bureau of Labor Statistics.
+
+This market will resolve to the percentage change in the Consumer Price Index (CPI) over the 12-month period ending in September 2026 according to the monthly Bureau of Labor Statistics (BLS) report.
+
+The resolution source for this market will be the BLS Consumer Price Index report released for September 2026 (https://www.bls.gov/bls/news-release/cpi.htm), currently scheduled to be released on October 14, 2026, at 8:30 AM ET. Resolution of this market will take place upon release of the aforementioned data.
+
+Note: the resolution source for this market will be the official monthly BLS CPI news release, which reports inflation over 12-month periods to only one decimal point (e.g., 2.9%). Thus, this is the level of precision that will be used when resolving the market.
+
+If the BLS does not release the relevant figures on the scheduled date, this market may remain open up until the scheduled release time of the next CPI report (https://www.bls.gov/schedule). If the information is not released by that time, this market will resolve according to the figures of the most recent previous month with available data.
+Contracts:
+  E8.C1: Will annual inflation be 2.9% or less in September?
+  E8.C2: Will annual inflation be 3.0% in September?
+  E8.C3: Will annual inflation be 3.1% in September?
+  E8.C4: Will annual inflation be 3.2% in September?
+  E8.C5: Will annual inflation be 3.3% in September?
+  E8.C6: Will annual inflation be 3.4% in September?
+  E8.C7: Will annual inflation be 3.5% in September?
+  E8.C8: Will annual inflation be 3.6% in September?
+  E8.C9: Will annual inflation be 3.7% in September?
+  E8.C10: Will annual inflation be 3.8% in September?
+  E8.C11: Will annual inflation be 3.9% in September?
+  E8.C12: Will annual inflation be 4.0% or more in September?
+What to write for E8:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).

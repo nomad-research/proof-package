@@ -1,0 +1,292 @@
+You are reading a group of prediction-market questions that may affect each other. Your view is as of 2026-10-01.
+
+You may search the web and fetch public pages to inform your view (load the WebSearch and WebFetch tools if needed). Rules for that:
+- Every web search must pass blocked_domains = ["polymarket.com", "kalshi.com", "predictit.org", "manifold.markets", "metaculus.com", "betfair.com", "smarkets.com", "oddschecker.com", "electionbettingodds.com", "polymarketanalytics.com", "gjopen.com", "goodjudgment.com", "insightprediction.com", "limitless.exchange", "myriad.markets", "betmgm.com", "draftkings.com", "fanduel.com", "williamhill.com", "paddypower.com", "bet365.com", "ladbrokes.com", "polymarket.co"].
+- Never open a prediction-market, betting or odds site, and never use or mention what any market, bookmaker or trader thinks. Give your own view from the evidence.
+- No other tools: only reading this file, searching and fetching.
+
+First decide which questions belong together. For any you judge unrelated to the rest, put its label in "drop" with a one-line reason; write nothing else for it.
+
+For every question you keep, write what it asks for. Whole percents run from 1 to 99. Levels are plain numbers in the units the contracts use. Dates are YYYY-MM-DD.
+
+CLAIMS. Where you believe one event's outcome changes the chances of another in this group, write a claim:
+  {"if": {"contract": "E1.C2", "resolves": "YES"}, "then_event": "E3", "if_true": <what you would write for E3 if that happens>, "if_false": <what you would write for E3 if it does not>}
+"if_true" and "if_false" use exactly the fields E3 asks for (the same "p", "levels", "high", "low" or "dates" object). Write as many claims as you believe in, including none.
+
+SCALE. For every question you keep that measures a quantity, a count, a price, a size or a date, also write "scale": the kind of thing this is and where you expect this instance to land among instances of that kind.
+  "scale": {"class": "<the reference class, e.g. monthly US core CPI prints since 2010>", "percentile": <0 to 100: where your middle view of this instance sits among instances of that class; 50 is an ordinary one>}
+Write "scale": null for a question with no scale (a plain yes/no about whether something happens).
+
+Also list the pages you relied on in "sources" (URLs).
+
+Reply with one JSON object and nothing else:
+{"drop": {"E5": "reason"}, "events": [{"label": "E1", ...the fields it asks for..., "scale": {"class": "...", "percentile": 50}}], "claims": [...], "sources": ["https://..."]}
+
+=== E1 (as of 2026-10-01): Will Russia capture all of Donetsk Oblast by...?
+Rules:
+This market will resolve to “Yes” if, according to the ISW map, Russia militarily captures the entirety of Donetsk Oblast between market creation and the specified date, 11:59 PM ET.
+
+Donetsk Oblast will be considered captured when the entirety of the below-specified municipalities is simultaneously shaded under a below specified layer on the ISW map (https://storymaps.arcgis.com/stories/36a7f6a6f5a9448496de641cf64bd375) by the resolution date. Otherwise, the market will resolve to “No”.
+
+The relevant municipalities in Donetsk Oblast that must be simultaneously captured in their entirety are: Kramatorsk, Sloviansk, Kostiantynivka, Druzhkivka, Pokrovsk, Dobropillia, Oleksandrivka, Cherkaske, and Sviatohirsk.
+
+The boundaries of each municipality are those shown under the “Ukrainian Settlements” layer on the ISW map. If all area within a municipality is shaded under a qualifying layer, however, the shading does not precisely match up with the border such that there is a tiny amount of unshaded area along the border of the municipality, this may still qualify.
+
+For any change on the ISW map to qualify for this market’s resolution, the relevant shading must persist through the next full ISW daily update cycle. If ISW skips a day, shading must persist until the next finalized ISW update is published, regardless of the date.
+
+Any continuous shading under the following layers will qualify:
+- Assessed Russian-Controlled Terrain
+- Assessed Russian Advances
+
+Shading under the following layers will not qualify:
+- Assessed Russian Infiltration Areas
+- Claimed Russian Territory
+
+Once a qualifying condition is met, any subsequent loss of control will not be considered towards the resolution of this market.
+
+If Russia comes into control of the specified territory as a result of a negotiated settlement, this will not qualify, regardless of whether it is shaded under a qualifying layer on the ISW map. Similarly, an announcement of a negotiated settlement that gives Russia de jure control will not qualify. Control must be established through military conquest.
+
+The primary resolution source for this market will be the ISW Ukraine map. If the ISW map is rendered unavailable, information from DeepStateMap (https://deepstatemap.live/) may be used. If information from both the ISW and DeepStateMap are rendered permanently unavailable, a consensus of credible reporting may be used.
+
+Note: Any temporary glitches or errors in the map will not be considered.
+Contracts:
+  E1.C1: Will Russia capture all of Donetsk Oblast by December 31, 2026?
+What to write for E1:
+  Write "dates": for each chance 10, 25, 50, 75 and 90, the date by which you give it that chance of having happened, or null if you do not give it that chance by the last date the contracts cover. Dates must not go earlier as the chance rises.
+
+=== E2 (as of 2026-10-01): Will Russia capture Bilytske by...?
+Rules:
+This market will resolve to “Yes” if, according to the ISW map, Russia captures the building located at 48.40731° N, 37.17956° E in Bilytske, Donetsk Oblast, between market creation and the specified date, 11:59 PM ET.
+
+The building will be considered captured if any part of the building is shaded under a below specified layer on the ISW map (https://storymaps.arcgis.com/stories/36a7f6a6f5a9448496de641cf64bd375) by the resolution date. Otherwise, the market will resolve to “No”.
+
+For any change on the ISW map to qualify for this market’s resolution, the relevant shading must persist through the next full ISW daily update cycle. If ISW skips a day, shading must persist until the next finalized ISW update is published, regardless of the date.
+
+Any continuous shading under the following layers will qualify:
+- Assessed Russian-Controlled Terrain
+- Assessed Russian Advances
+
+Shading under the following layers will not qualify:
+- Assessed Russian Infiltration Areas
+- Claimed Russian Territory
+
+Once a qualifying condition is met, any subsequent loss of control will not be considered towards the resolution of this market.
+
+If Russia comes into control of the specified territory as a result of a negotiated settlement, this will qualify for a 'Yes' resolution, regardless of whether it is shaded under a qualifying layer on the ISW map. However, an announcement of a negotiated settlement that gives Russia de jure control will not qualify. Actual control must be established.
+
+Building Location: https://polymarket-upload.s3.us-east-2.amazonaws.com/BP1.png
+
+Building Location in Bilytske: https://polymarket-upload.s3.us-east-2.amazonaws.com/BP2.png
+
+Bilytske Location: https://polymarket-upload.s3.us-east-2.amazonaws.com/BP3.png
+
+Location on Google Maps: https://maps.app.goo.gl/J8DsAv3gKWbD4DSD9
+
+The primary resolution source for this market will be the ISW Ukraine map. If the ISW map is rendered unavailable, information from DeepStateMap (https://deepstatemap.live/) may be used. If information from both the ISW and DeepStateMap are rendered permanently unavailable, a consensus of credible reporting may be used.
+
+Note: Any temporary glitches or errors in the map will not be considered.
+Contracts:
+  E2.C1: Will Russia capture Bilytske by October 31, 2026?
+  E2.C2: Will Russia capture Bilytske by December 31, 2026?
+What to write for E2:
+  Write "p": a whole percent for every contract label, your chance that it resolves YES.
+
+=== E3 (as of 2026-10-01): Will Russia capture all of Stepnohirsk by...?
+Rules:
+This market will resolve to “Yes” if, according to the ISW map, Russia captures the entirety of Stepnohirsk, Zaporizhzhia Oblast, (47.586997° N, 35.362200° E) between market creation and the specified date, 11:59 PM ET.
+
+Stepnohirsk will be considered captured if the entirety of the municipality is shaded under a below specified layer on the ISW map (https://storymaps.arcgis.com/stories/36a7f6a6f5a9448496de641cf64bd375) by the resolution date. Otherwise, the market will resolve to “No”.
+
+The boundaries of the municipality are those shown under the “Ukrainian Settlements” layer on the ISW map. If all area within the municipality is shaded under a qualifying layer, however, the shading does not precisely match up with the border such that there is a tiny amount of unshaded area along the border of the municipality, this will still qualify for a "Yes" resolution.
+
+For any change on the ISW map to qualify for this market’s resolution, the relevant shading must persist through the next full ISW daily update cycle. If ISW skips a day, shading must persist until the next finalized ISW update is published, regardless of the date.
+
+Any continuous shading under the following layers will qualify:
+- Assessed Russian-Controlled Terrain
+- Assessed Russian Advances
+
+Shading under the following layers will not qualify:
+- Assessed Russian Infiltration Areas
+- Claimed Russian Territory
+
+Once a qualifying condition is met, any subsequent loss of control will not be considered towards the resolution of this market.
+
+If Russia comes into control of the specified territory as a result of a negotiated settlement, this will qualify for a 'Yes' resolution, regardless of whether it is shaded under a qualifying layer on the ISW map. However, an announcement of a negotiated settlement that gives Russia de jure control will not qualify. Actual control must be established.
+
+The primary resolution source for this market will be the ISW Ukraine map. If the ISW map is rendered unavailable, information from DeepStateMap (https://deepstatemap.live/) may be used. If information from both the ISW and DeepStateMap are rendered permanently unavailable, a consensus of credible reporting may be used.
+
+Note: Any temporary glitches or errors in the map will not be considered.
+Contracts:
+  E3.C1: Will Russia capture all of Stepnohirsk by December 31, 2026?
+What to write for E3:
+  Write "dates": for each chance 10, 25, 50, 75 and 90, the date by which you give it that chance of having happened, or null if you do not give it that chance by the last date the contracts cover. Dates must not go earlier as the chance rises.
+
+=== E4 (as of 2026-10-01): Will Russia capture the Royal Café Alex in Kostyantynivka by...?
+Rules:
+This market will resolve to “Yes” if, according to the ISW map, Russia captures the building at 48.538085° N, 37.688345° E in Kostyantynivka, Donetsk Oblast, between market creation and the specified date, 11:59 PM ET.
+
+The building will be considered captured if any part of the buildings grey area is shaded under a below specified layer on the ISW map (https://storymaps.arcgis.com/stories/36a7f6a6f5a9448496de641cf64bd375) by the resolution date. Otherwise, the market will resolve to “No”.
+
+For any change on the ISW map to qualify for this market’s resolution, the relevant shading must persist through the next full ISW daily update cycle. If ISW skips a day, shading must persist until the next finalized ISW update is published, regardless of the date.
+
+Any continuous shading under the following layers will qualify:
+- Assessed Russian-Controlled Terrain
+- Assessed Russian Advances
+
+Shading under the following layers will not qualify:
+- Assessed Russian Infiltration Areas
+- Claimed Russian Territory
+
+Once a qualifying condition is met, any subsequent loss of control will not be considered towards the resolution of this market.
+
+If Russia comes into control of the specified territory as a result of a negotiated settlement, this will qualify for a 'Yes' resolution, regardless of whether it is shaded under a qualifying layer on the ISW map. However, an announcement of a negotiated settlement that gives Russia de jure control will not qualify. Actual control must be established.
+
+Building Location: https://polymarket-upload.s3.us-east-2.amazonaws.com/Kostyantynivka%201-7700edce03.png
+
+Building Location in Kostyantynivka: https://polymarket-upload.s3.us-east-2.amazonaws.com/Kostyantynivka%202-5ef8bae4d5.png
+
+Kostyantynivka Location: https://polymarket-upload.s3.us-east-2.amazonaws.com/Kostyantynivka%203-e95b097bca.png
+
+Location on Google Maps: https://maps.app.goo.gl/Wzwm9D9ZTk6gkw1U9
+
+The primary resolution source for this market will be the ISW Ukraine map. If the ISW map is rendered unavailable, information from DeepStateMap (https://deepstatemap.live/) may be used. If information from both the ISW and DeepStateMap are rendered permanently unavailable, a consensus of credible reporting may be used.
+
+Note: Any temporary glitches or errors in the map will not be considered.
+Contracts:
+  E4.C1: Will Russia capture the Royal Café Alex in Kostyantynivka by October 31, 2026?
+  E4.C2: Will Russia capture the Royal Café Alex in Kostyantynivka by December 31, 2026?
+What to write for E4:
+  Write "p": a whole percent for every contract label, your chance that it resolves YES.
+
+=== E5 (as of 2026-10-01): Will Russia capture all of Prymorske by...?
+Rules:
+This market will resolve to “Yes” if, according to the ISW map, Russia captures the entirety of Prymorske, Zaporizhzhia Oblast, (47.623814° N, 35.288073° E) between market creation and the specified date, 11:59 PM ET.
+
+Prymorske will be considered captured if the entirety of the municipality is shaded under a below specified layer on the ISW map (https://storymaps.arcgis.com/stories/36a7f6a6f5a9448496de641cf64bd375) by the resolution date. Otherwise, the market will resolve to “No”.
+
+The boundaries of the municipality are those shown under the “Ukrainian Settlements” layer on the ISW map. If all area within the municipality is shaded under a qualifying layer, however, the shading does not precisely match up with the border such that there is a tiny amount of unshaded area along the border of the municipality, this will still qualify for a "Yes" resolution.
+
+For any change on the ISW map to qualify for this market’s resolution, the relevant shading must persist through the next full ISW daily update cycle. If ISW skips a day, shading must persist until the next finalized ISW update is published, regardless of the date.
+
+Any continuous shading under the following layers will qualify:
+- Assessed Russian-Controlled Terrain
+- Assessed Russian Advances
+
+Shading under the following layers will not qualify:
+- Assessed Russian Infiltration Areas
+- Claimed Russian Territory
+
+Once a qualifying condition is met, any subsequent loss of control will not be considered towards the resolution of this market.
+
+If Russia comes into control of the specified territory as a result of a negotiated settlement, this will qualify for a 'Yes' resolution, regardless of whether it is shaded under a qualifying layer on the ISW map. However, an announcement of a negotiated settlement that gives Russia de jure control will not qualify. Actual control must be established.
+
+The primary resolution source for this market will be the ISW Ukraine map. If the ISW map is rendered unavailable, information from DeepStateMap (https://deepstatemap.live/) may be used. If information from both the ISW and DeepStateMap are rendered permanently unavailable, a consensus of credible reporting may be used.
+
+Note: Any temporary glitches or errors in the map will not be considered.
+Contracts:
+  E5.C1: Will Russia capture all of Prymorske by December 31, 2026?
+What to write for E5:
+  Write "dates": for each chance 10, 25, 50, 75 and 90, the date by which you give it that chance of having happened, or null if you do not give it that chance by the last date the contracts cover. Dates must not go earlier as the chance rises.
+
+=== E6 (as of 2026-10-01): Will Russia capture Kupiansk-Vuzlovyi by...?
+Rules:
+This market will resolve to “Yes” if, according to the ISW map, Russia captures the Kupyansjk-Vuzlovij railroad station located between Zaliznychna Vulytsia and Zaliznychnykiv Ploshcha (49.654359° N, 37.644326° E) between market creation and the specified date, 11:59 PM ET.
+
+The railroad station will be considered captured if any part of the train station icon is shaded under a below specified layer on the ISW map (https://storymaps.arcgis.com/stories/36a7f6a6f5a9448496de641cf64bd375) by the resolution date. Otherwise, the market will resolve to “No”.
+
+For any change on the ISW map to qualify for this market’s resolution, the relevant shading must persist through the next full ISW daily update cycle. If ISW skips a day, shading must persist until the next finalized ISW update is published, regardless of the date.
+
+Any continuous shading under the following layers will qualify:
+- Assessed Russian-Controlled Terrain
+- Assessed Russian Advances
+
+Shading under the following layers will not qualify:
+- Assessed Russian Infiltration Areas
+- Claimed Russian Territory
+
+Once a qualifying condition is met, any subsequent loss of control will not be considered towards the resolution of this market.
+
+If Russia comes into control of the specified territory as a result of a negotiated settlement, this will qualify for a 'Yes' resolution, regardless of whether it is shaded under a qualifying layer on the ISW map. However, an announcement of a negotiated settlement that gives Russia de jure control will not qualify. Actual control must be established.
+
+Train Station Location: https://polymarket-upload.s3.us-east-2.amazonaws.com/Kupiansk-Vuzlovyi+1.png
+
+Train Station Location in Kupiansk-Vuzlovyi: https://polymarket-upload.s3.us-east-2.amazonaws.com/Kupiansk-Vuzlovyi+2.png
+
+Kupiansk-Vuzlovyi Location: https://polymarket-upload.s3.us-east-2.amazonaws.com/Kupiansk-Vuzlovyi+3.png
+
+Location on Google Maps: https://maps.app.goo.gl/2DWkLwtmD3dTUGbc8
+
+The primary resolution source for this market will be the ISW Ukraine map. If the ISW map is rendered unavailable, information from DeepStateMap (https://deepstatemap.live/) may be used. If information from both the ISW and DeepStateMap are rendered permanently unavailable, a consensus of credible reporting may be used.
+
+Note: Any temporary glitches or errors in the map will not be considered.
+Contracts:
+  E6.C1: Will Russia capture Kupiansk-Vuzlovyi by December 31?
+What to write for E6:
+  Write "dates": for each chance 10, 25, 50, 75 and 90, the date by which you give it that chance of having happened, or null if you do not give it that chance by the last date the contracts cover. Dates must not go earlier as the chance rises.
+
+=== E7 (as of 2026-10-01): Will Russia capture all of Kostyantynivka by...?
+Rules:
+This market will resolve to “Yes” if, according to the ISW map, Russia captures the entirety of Kostyantynivka, Donetsk Oblast, (48.528896° N, 37.702514° E) between market creation and the specified date, 11:59 PM ET.
+
+Kostyantynivka will be considered captured if the entirety of the municipality is shaded under a below specified layer on the ISW map (https://storymaps.arcgis.com/stories/36a7f6a6f5a9448496de641cf64bd375) by the resolution date. Otherwise, the market will resolve to “No”.
+
+The boundaries of the municipality are those shown under the “Ukrainian Settlements” layer on the ISW map. If all area within the municipality is shaded under a qualifying layer, however, the shading does not precisely match up with the border such that there is a tiny amount of unshaded area along the border of the municipality, this will still qualify for a "Yes" resolution.
+
+For any change on the ISW map to qualify for this market’s resolution, the relevant shading must persist through the next full ISW daily update cycle. If ISW skips a day, shading must persist until the next finalized ISW update is published, regardless of the date.
+
+Any continuous shading under the following layers will qualify:
+- Assessed Russian-Controlled Terrain
+- Assessed Russian Advances
+
+Shading under the following layers will not qualify:
+- Assessed Russian Infiltration Areas
+- Claimed Russian Territory
+
+Once a qualifying condition is met, any subsequent loss of control will not be considered towards the resolution of this market.
+
+If Russia comes into control of the specified territory as a result of a negotiated settlement, this will qualify for a 'Yes' resolution, regardless of whether it is shaded under a qualifying layer on the ISW map. However, an announcement of a negotiated settlement that gives Russia de jure control will not qualify. Actual control must be established.
+
+The primary resolution source for this market will be the ISW Ukraine map. If the ISW map is rendered unavailable, information from DeepStateMap (https://deepstatemap.live/) may be used. If information from both the ISW and DeepStateMap are rendered permanently unavailable, a consensus of credible reporting may be used.
+
+Note: Any temporary glitches or errors in the map will not be considered.
+Contracts:
+  E7.C1: Will Russia capture all of Kostyantynivka by October 31, 2026?
+  E7.C2: Will Russia capture all of Kostyantynivka by December 31, 2026?
+What to write for E7:
+  Write "p": a whole percent for every contract label, your chance that it resolves YES.
+
+=== E8 (as of 2026-10-01): Will Russia capture Havrylivka by...?
+Rules:
+This market will resolve to “Yes” if, according to the ISW map, Russia captures the intersection at 48.072806° N, 36.523854° E in Havrylivka between market creation and the specified date, 11:59 PM ET.
+
+The intersection will be considered captured if any part of the intersection is shaded under a below specified layer on the ISW map (https://storymaps.arcgis.com/stories/36a7f6a6f5a9448496de641cf64bd375) by the resolution date. Otherwise, the market will resolve to “No”.
+
+For any change on the ISW map to qualify for this market’s resolution, the relevant shading must persist through the next full ISW daily update cycle. If ISW skips a day, shading must persist until the next finalized ISW update is published, regardless of the date.
+
+Any continuous shading under the following layers will qualify:
+- Assessed Russian-Controlled Terrain
+- Assessed Russian Advances
+
+Shading under the following layers will not qualify:
+- Assessed Russian Infiltration Areas
+- Claimed Russian Territory
+
+Once a qualifying condition is met, any subsequent loss of control will not be considered towards the resolution of this market.
+
+If Russia comes into control of the specified territory as a result of a negotiated settlement, this will qualify for a 'Yes' resolution, regardless of whether it is shaded under a qualifying layer on the ISW map. However, an announcement of a negotiated settlement that gives Russia de jure control will not qualify. Actual control must be established.
+
+Intersection Location: https://polymarket-upload.s3.us-east-2.amazonaws.com/Havrylivka+1.png
+
+Intersection Location in Havrylivka: https://polymarket-upload.s3.us-east-2.amazonaws.com/Havrylivka+2.png
+
+Havrylivka Location: https://polymarket-upload.s3.us-east-2.amazonaws.com/Havrylivka+3.png
+
+Location on Google Maps: https://maps.app.goo.gl/bpdGhKirAxb1ZT3k9
+
+The primary resolution source for this market will be the ISW Ukraine map. If the ISW map is rendered unavailable, information from DeepStateMap (https://deepstatemap.live/) may be used. If information from both the ISW and DeepStateMap are rendered permanently unavailable, a consensus of credible reporting may be used.
+
+Note: Any temporary glitches or errors in the map will not be considered.
+Contracts:
+  E8.C1: Will Russia capture Havrylivka by December 31, 2026?
+What to write for E8:
+  Write "dates": for each chance 10, 25, 50, 75 and 90, the date by which you give it that chance of having happened, or null if you do not give it that chance by the last date the contracts cover. Dates must not go earlier as the chance rises.

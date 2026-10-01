@@ -1,0 +1,201 @@
+You are reading a group of prediction-market questions that may affect each other. Your view is as of 2026-10-01.
+
+You may search the web and fetch public pages to inform your view (load the WebSearch and WebFetch tools if needed). Rules for that:
+- Every web search must pass blocked_domains = ["polymarket.com", "kalshi.com", "predictit.org", "manifold.markets", "metaculus.com", "betfair.com", "smarkets.com", "oddschecker.com", "electionbettingodds.com", "polymarketanalytics.com", "gjopen.com", "goodjudgment.com", "insightprediction.com", "limitless.exchange", "myriad.markets", "betmgm.com", "draftkings.com", "fanduel.com", "williamhill.com", "paddypower.com", "bet365.com", "ladbrokes.com", "polymarket.co"].
+- Never open a prediction-market, betting or odds site, and never use or mention what any market, bookmaker or trader thinks. Give your own view from the evidence.
+- No other tools: only reading this file, searching and fetching.
+
+First decide which questions belong together. For any you judge unrelated to the rest, put its label in "drop" with a one-line reason; write nothing else for it.
+
+For every question you keep, write what it asks for. Whole percents run from 1 to 99. Levels are plain numbers in the units the contracts use. Dates are YYYY-MM-DD.
+
+CLAIMS. Where you believe one event's outcome changes the chances of another in this group, write a claim:
+  {"if": {"contract": "E1.C2", "resolves": "YES"}, "then_event": "E3", "if_true": <what you would write for E3 if that happens>, "if_false": <what you would write for E3 if it does not>}
+"if_true" and "if_false" use exactly the fields E3 asks for (the same "p", "levels", "high", "low" or "dates" object). Write as many claims as you believe in, including none.
+
+SCALE. For every question you keep that measures a quantity, a count, a price, a size or a date, also write "scale": the kind of thing this is and where you expect this instance to land among instances of that kind.
+  "scale": {"class": "<the reference class, e.g. monthly US core CPI prints since 2010>", "percentile": <0 to 100: where your middle view of this instance sits among instances of that class; 50 is an ordinary one>}
+Write "scale": null for a question with no scale (a plain yes/no about whether something happens).
+
+Also list the pages you relied on in "sources" (URLs).
+
+Reply with one JSON object and nothing else:
+{"drop": {"E5": "reason"}, "events": [{"label": "E1", ...the fields it asks for..., "scale": {"class": "...", "percentile": 50}}], "claims": [...], "sources": ["https://..."]}
+
+=== E1 (as of 2026-10-01): Bab el-Mandeb Strait effectively closed by...?
+Rules:
+This market will resolve to “Yes” if IMF PortWatch publishes a 7-day moving average of transit calls (“Arrivals of Ships”) for the Bab el-Mandeb Strait less than or equal to 10 for any date between market creation and the listed date. Otherwise, this market will resolve to “No”.
+
+This market will resolve as soon as IMF PortWatch publishes a 7-day moving average of transit calls for the Bab el-Mandeb Strait equal to or below 10, or once data has been published for the listed date and no such value has been published.
+
+If no data has been published for the listed date within 14 calendar days (ET) after that date, this market will resolve based on the data published up to that point. 
+
+Revisions to previously published data points made before data has been published for the listed date will be considered; however, they will not disqualify a previously published data point from qualifying. Revisions made after data has been published for the listed date will not be considered.
+
+The resolution source for this market will be IMF PortWatch, specifically the “Arrivals of Ships” data published for the Bab el-Mandeb Strait at https://portwatch.imf.org/pages/cb5856222a5b4105adc6ee7e880a1730
+, including both the chart and downloadable files.
+Contracts:
+  E1.C1: Bab el-Mandeb Strait effectively closed by October 31?
+    Contract rules: This market will resolve to “Yes” if IMF PortWatch publishes a 7-day moving average of transit calls (“Arrivals of Ships”) for the Bab el-Mandeb Strait less than or equal to 10 for any date between market creation and the listed date. Otherwise, this market will resolve to “No”.
+
+This market will resolve as soon as IMF PortWatch publishes a 7-day moving average of transit calls for the Bab el-Mandeb Strait equal to or below 10, or once data has been published for the listed date and no such value has been published.
+
+If no data has been published for the listed date within 14 calendar days (ET) after that date, this market will resolve based on the data published up to that point.
+
+Revisions to previously published data points made before data has been published for the listed date will be considered; however, they will not disqualify a previously published data point from qualifying. Revisions made after data has been published for the listed date will not be considered.
+
+The resolution source for this market will be IMF PortWatch, specifically the “Arrivals of Ships” data published for the Bab el-Mandeb Strait at https://portwatch.imf.org/pages/6b1814d64903461b98144a6cc25eb79c.
+  E1.C2: Bab el-Mandeb Strait effectively closed by December 31?
+    Contract rules: This market will resolve to “Yes” if IMF PortWatch publishes a 7-day moving average of transit calls (“Arrivals of Ships”) for the Bab el-Mandeb Strait less than or equal to 10 for any date between market creation and the listed date. Otherwise, this market will resolve to “No”.
+
+This market will resolve as soon as IMF PortWatch publishes a 7-day moving average of transit calls for the Bab el-Mandeb Strait equal to or below 10, or once data has been published for the listed date and no such value has been published.
+
+If no data has been published for the listed date within 14 calendar days (ET) after that date, this market will resolve based on the data published up to that point.
+
+Revisions to previously published data points made before data has been published for the listed date will be considered; however, they will not disqualify a previously published data point from qualifying. Revisions made after data has been published for the listed date will not be considered.
+
+The resolution source for this market will be IMF PortWatch, specifically the “Arrivals of Ships” data published for the Bab el-Mandeb Strait at https://portwatch.imf.org/pages/6b1814d64903461b98144a6cc25eb79c.
+What to write for E1:
+  Write "p": a whole percent for every contract label, your chance that it resolves YES.
+
+=== E2 (as of 2026-10-01): Houthis seize an oil tanker by...?
+Rules:
+This market will resolve to "Yes" if Houthi forces seize control of an oil tanker or a commercial vessel transporting oil as cargo between market creation and the specified date, 11:59 PM ET. Otherwise, this market will resolve to "No".
+
+"Houthi forces" refers to the military forces of the Houthi movement (Ansar Allah), including any armed force operating under its direction or on its behalf.
+
+Seize control refers to Houthi forces taking custody of or asserting operational control over a commercial ship, including boarding and taking control of the ship, holding or detaining it for an indefinite period, or forcefully rerouting it to a location selected or controlled by the perpetrators. Attacks on military vessels will not be considered. Once a qualifying seizure has occured, any subsequent abandonment, release, rescue, recapture, or other loss of control will not affect the resolution of this market.
+
+Missile/drone strikes or any other form of kinetic attack not resulting in the seizure of the targeted ship will not be considered, regardless of any damage that occurs.
+
+A qualifying seizure must be attributed to Houthi forces.
+
+The primary resolution source for this market will be a consensus of credible reporting.
+
+The occurrence, attribution, and timing of a qualifying seizure will be primarily determined based on a consensus of information available from the resolution sources. Where multiple sources conflict regarding the occurrence of the incident, whether the incident qualifies as a seizure, whether the ship was an oil tanker or commercial vessel transporting oil as cargo, or the attribution of the seizure to Houthi forces, this market will remain open until the earlier of: i) the confirmation of the occurrence, attribution, and timing of the seizure, and of the ship's status as an oil tanker or commercial vessel transporting oil as cargo, based on a consensus of information available from the resolution sources or ii) 3 full calendar days (ET) from the date of the first credibly reported evidence of the seizure. If this period would extend past the end date, this market will remain open to allow for 3 full calendar days to pass. If, at the end of the third calendar day, conflicting reports remain as to the occurrence, attribution, or timing of the seizure, or as to the ship's status, the incident will be judged based on the totality of information available from the resolution sources at that time. No single statement, denial, or presentation of evidence will govern where it is contradicted by the totality of information.
+Contracts:
+  E2.C1: Houthis seize an oil tanker by October 31, 2026?
+What to write for E2:
+  Write "dates": for each chance 10, 25, 50, 75 and 90, the date by which you give it that chance of having happened, or null if you do not give it that chance by the last date the contracts cover. Dates must not go earlier as the chance rises.
+
+=== E3 (as of 2026-10-01): How many ships transit Bab el-Mandeb Strait week of September 28?
+Rules:
+This market will resolve according to the total number of transit calls that IMF Portwatch reports for the Bab el-Mandeb Strait for all days from September 28, 2026, through October 4, 2026, inclusive.
+
+Transit calls include container, dry bulk, roll-on/roll-off, general cargo, and tanker ships. Ships not reported by IMF Portwatch will not be considered.
+
+This market will resolve as soon as all relevant data has been published. If the relevant data is not published within 14 calendar days of the specified date, this market will resolve based on the most recent data published up to that point.
+
+In case of obvious data integrity issues (i.e., erroneous data), the market may remain open until the end of the third calendar day (ET) after the date on which such data is first released to allow for corrections. Data integrity issues refer only to clerical or other similar errors in the underlying data, and do not include cases where IMF Portwatch differs from alternative sources.
+
+Only revisions to previously published data points made before all relevant data has been published will be considered.
+
+The resolution source for this market will be IMF PortWatch, specifically the “Arrivals of Ships” data published for the Bab el-Mandeb Strait at https://portwatch.imf.org/pages/6b1814d64903461b98144a6cc25eb79c.
+Contracts:
+  E3.C1: Will fewer than 170 ships transit the Bab el-Mandeb Strait between September 28-October 4?
+  E3.C2: Will 170-189 ships transit the Bab el-Mandeb Strait between September 28-October 4?
+  E3.C3: Will 190-209 ships transit the Bab el-Mandeb Strait between September 28-October 4?
+  E3.C4: Will 210-229 ships transit the Bab el-Mandeb Strait between September 28-October 4?
+  E3.C5: Will 230 or more ships transit the Bab el-Mandeb Strait between September 28-October 4?
+What to write for E3:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E4 (as of 2026-10-01): 0 ships transit Bab el-Mandeb on any date by..?
+Rules:
+This market will resolve to “Yes” if IMF PortWatch publishes a daily number of transit calls (“Arrivals of Ships”) for the Bab el-Mandeb Strait equal to 0 for any date between market creation and the specified date, 2026. Otherwise, this market will resolve to “No.”
+
+Transit calls include container, dry bulk, roll-on/roll-off, general cargo, and tanker ships. Ships not reported by IMF PortWatch will not be considered.
+
+This market will resolve as soon as IMF PortWatch publishes a daily number of transit calls equal to 0, or once complete data has been published for the specified period without such a publication. If complete data for the specified period has not been published within 28 calendar days of the end of the specified period, this market will resolve based on data published up to that point.
+
+In case of obvious data integrity issues (i.e., erroneous data), the market may remain open until the end of the third calendar day (ET) after the date on which such data is first released to allow for corrections. Data integrity issues refer only to clerical or other similar errors in the underlying data, and do not include cases where IMF PortWatch differs from alternative sources. Revisions to previously published data points made within this market’s timeframe will be considered. However, they will not disqualify a previously published data point from qualifying except in the case of data integrity issues.
+
+The resolution source for this market will be IMF PortWatch, specifically the transit calls data published for the Bab el-Mandeb Strait at https://portwatch.imf.org/pages/6b1814d64903461b98144a6cc25eb79c, both in the chart and through downloadable files.
+Contracts:
+  E4.C1: 0 ships transit Bab el-Mandeb on any date by December 31?
+What to write for E4:
+  Write "dates": for each chance 10, 25, 50, 75 and 90, the date by which you give it that chance of having happened, or null if you do not give it that chance by the last date the contracts cover. Dates must not go earlier as the chance rises.
+
+=== E5 (as of 2026-10-01): Saudi Oil Pipeline (East-West) restarts by...?
+Rules:
+On September 11, 2026, Saudi Arabia's Ministry of Energy announced that the East-West oil pipeline has been shut down.
+
+This market will resolve to “Yes” if the government of Saudi Arabia announces that the East-West oil pipeline is operational or no longer shut down between market creation and the specified date, 11:59 PM ET. Otherwise, this market will resolve to “No”.
+
+A qualifying announcement must express that the pipeline is presently operating; operation at partial or reduced capacity qualifies.
+
+Announcements that attribute such a claim to third parties, state that the pipeline will or may operate in the future, describe work underway to restore operation, or frame resumption as expected, planned, or conditional, will not qualify.
+
+Once a qualifying announcement is made, this market will resolve to “Yes,” regardless of any subsequent contradictory statements, or alternative information from other sources.
+
+The resolution source for this market will be official information from the government of Saudi Arabia.
+Contracts:
+  E5.C1: Saudi Oil Pipeline (East-West) restarts by October 15?
+  E5.C2: Saudi Oil Pipeline (East-West) restarts by October 31?
+What to write for E5:
+  Write "p": a whole percent for every contract label, your chance that it resolves YES.
+
+=== E6 (as of 2026-10-01): Houthis enter Aden by...?
+Rules:
+This market will resolve to "Yes" if Houthi military forces enter any part of Aden, Yemen by the specified date, 11:59 PM ET. Otherwise, this market will resolve to "No".
+
+"Houthi military forces" refers to the military forces of the Houthi movement (Ansar Allah), including any armed force operating under its direction or on its behalf.
+
+"Aden" refers to the following districts of Aden Governorate, Yemen: Craiter (Sirah), At Tawahi, Al Mualla, Khur Maksar, Ash Shaikh Outhman, Dar Sad, and Al Mansura. Al Buraiqeh district (Little Aden) is excluded and entry into Al Buraiqeh alone will not qualify.
+
+"Enter" means that the Houthi military forces, even temporarily, deliberately operate within any part of Aden, other than as prisoners of war or as emissaries as described below. Bombardment, sabotage, naval presence offshore, or temporary disruption of activity will not qualify on their own. An announcement, threat, or claim of Houthi entry will not qualify without actual entry being established.
+
+The entrance of Houthi emissaries for the purpose of negotiating an agreement or other diplomatic or commercial endeavors will not alone qualify.
+
+In the event of genuine ambiguity, this market may remain open for three days after the specified date. If Houthi entry into Aden is not established by the end of the third calendar day, 11:59 PM ET, this market will resolve to "No".
+
+The resolution source for this market will be a consensus of credible reporting.
+Contracts:
+  E6.C1: Houthis enter Aden by October 31, 2026?
+  E6.C2: Houthis enter Aden by December 31, 2026?
+What to write for E6:
+  Write "p": a whole percent for every contract label, your chance that it resolves YES.
+
+=== E7 (as of 2026-10-01): Perim Island no longer under Houthi control by...?
+Rules:
+This market will resolve to "Yes" if Perim Island is no longer under Houthi control by the specified date, 11:59 PM ET. Otherwise, this market will resolve to "No".
+
+“The Houthis” refers to the Houthi movement (Ansar Allah), including its governing institutions and any armed force operating under its direction or on its behalf. “Perim Island” refers to Perim (Mayyun) Island in the Bab el-Mandeb Strait, Yemen.
+
+“No longer under the control of the Houthis” means that the Houthis no longer exercise primary military control over Perim Island, and another state, occupying force, the internationally recognized government of Yemen, or an internationally backed authority has established control over the island.
+
+Temporary raids, isolated landings, special operations, bombardment, sabotage, naval presence offshore, or temporary disruption of Houthi activity will not qualify on their own.
+
+An announcement, threat, or claim that the Houthis have lost control will not qualify without actual control being established.
+
+If control changes pursuant to a negotiated settlement, ceasefire term, surrender, or transfer agreement, this will qualify only once actual control has been established on the island.
+
+If control over Perim Island is contested, unclear, disputed, or not sufficiently established by the resolution date, this will not qualify, and the market will resolve to “No”.
+
+The primary resolution source will be official statements from the relevant governments and militaries, along with a consensus of credible reporting.
+Contracts:
+  E7.C1: Perim Island no longer under Houthi control by October 31?
+  E7.C2: Perim Island no longer under Houthi control by December 31?
+What to write for E7:
+  Write "p": a whole percent for every contract label, your chance that it resolves YES.
+
+=== E8 (as of 2026-10-01): Houthis successfully target shipping by...?
+Rules:
+This market will resolve to "Yes" if Houthi forces conduct a kinetic strike on or otherwise seize control of a commercial ship between market creation and the specified date, 11:59 PM AST (UTC+03:00). Otherwise, this market will resolve to "No".
+
+Attacks on military vessels will not be considered.
+
+Missile/drone strikes targeting a ship that are intercepted or otherwise do not directly impact the vessel will not be considered, regardless of damage through debris.
+
+Seize control refers to Houthi forces forcefully boarding and taking control of a commercial ship.
+
+Qualifying incidents include, but are not limited to, drone and missile strikes, aerial bombings, and kinetic actions carried out by Houthi operatives in person, such as seizing a ship by force.
+
+The primary resolution source for this market will be a consensus of credible reporting.
+
+If a kinetic incident occurs, but, on the specified date, 11:59 PM AST, material ambiguity remains as to whether the incident can be attributed to Houthi operatives, this market may remain open for an additional 3 calendar days, AST. If, at such time, attribution of the incident still cannot be confirmed, this market will resolve to “No”.
+Contracts:
+  E8.C1: Will the Houthis successfully target shipping by October 15, 2026?
+  E8.C2: Will the Houthis successfully target shipping by October 31, 2026?
+What to write for E8:
+  Write "p": a whole percent for every contract label, your chance that it resolves YES.

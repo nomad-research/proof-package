@@ -1,0 +1,250 @@
+You are reading a group of prediction-market questions that may affect each other. Your view is as of 2026-10-01.
+
+You may search the web and fetch public pages to inform your view (load the WebSearch and WebFetch tools if needed). Rules for that:
+- Every web search must pass blocked_domains = ["polymarket.com", "kalshi.com", "predictit.org", "manifold.markets", "metaculus.com", "betfair.com", "smarkets.com", "oddschecker.com", "electionbettingodds.com", "polymarketanalytics.com", "gjopen.com", "goodjudgment.com", "insightprediction.com", "limitless.exchange", "myriad.markets", "betmgm.com", "draftkings.com", "fanduel.com", "williamhill.com", "paddypower.com", "bet365.com", "ladbrokes.com", "polymarket.co"].
+- Never open a prediction-market, betting or odds site, and never use or mention what any market, bookmaker or trader thinks. Give your own view from the evidence.
+- No other tools: only reading this file, searching and fetching.
+
+First decide which questions belong together. For any you judge unrelated to the rest, put its label in "drop" with a one-line reason; write nothing else for it.
+
+For every question you keep, write what it asks for. Whole percents run from 1 to 99. Levels are plain numbers in the units the contracts use. Dates are YYYY-MM-DD.
+
+CLAIMS. Where you believe one event's outcome changes the chances of another in this group, write a claim:
+  {"if": {"contract": "E1.C2", "resolves": "YES"}, "then_event": "E3", "if_true": <what you would write for E3 if that happens>, "if_false": <what you would write for E3 if it does not>}
+"if_true" and "if_false" use exactly the fields E3 asks for (the same "p", "levels", "high", "low" or "dates" object). Write as many claims as you believe in, including none.
+
+SCALE. For every question you keep that measures a quantity, a count, a price, a size or a date, also write "scale": the kind of thing this is and where you expect this instance to land among instances of that kind.
+  "scale": {"class": "<the reference class, e.g. monthly US core CPI prints since 2010>", "percentile": <0 to 100: where your middle view of this instance sits among instances of that class; 50 is an ordinary one>}
+Write "scale": null for a question with no scale (a plain yes/no about whether something happens).
+
+Also list the pages you relied on in "sources" (URLs).
+
+Reply with one JSON object and nothing else:
+{"drop": {"E5": "reason"}, "events": [{"label": "E1", ...the fields it asks for..., "scale": {"class": "...", "percentile": 50}}], "claims": [...], "sources": ["https://..."]}
+
+=== E1 (as of 2026-10-01): Alaska Senate Election Winner
+Rules:
+This market will resolve according to the winner of the 2026 midterm Alaska U.S. Senate election, inclusive of any run-offs, currently scheduled for November 3, 2026.
+
+If the results of the election are not confirmed by July 31, 2027, this market will resolve to "Other".
+
+The resolution source for this market is the Associated Press, Fox News, and NBC. This market will resolve once all three sources call the race for the same candidate. If all three sources haven’t called the race in this state for the same candidate, this market will resolve based on official certification.
+Contracts:
+  E1.C1: Will Dan Sullivan win the Alaska Senate race in 2026?
+  E1.C2: Will Ann Diener win the Alaska Senate race in 2026?
+  E1.C3: Will Mary Peltola win the Alaska Senate race in 2026?
+  E1.C4: Will Dustin Darden win the Alaska Senate race in 2026?
+  E1.C5: Will Richard Grayson win the Alaska Senate race in 2026?
+  E1.C6: Will Daniel J. Sullivan Jr. win the Alaska Senate race in 2026?
+  E1.C7: Will David Leslie win the Alaska Senate race in 2026?
+  E1.C8: Will Candidate C win the Alaska Senate race in 2026?
+  E1.C9: Will Candidate D win the Alaska Senate race in 2026?
+  E1.C10: Will Candidate E win the Alaska Senate race in 2026?
+  E1.C11: Will Candidate F win the Alaska Senate race in 2026?
+  E1.C12: Will Candidate G win the Alaska Senate race in 2026?
+  E1.C13: Will Candidate H win the Alaska Senate race in 2026?
+  E1.C14: Will Candidate I win the Alaska Senate race in 2026?
+  E1.C15: Will Candidate J win the Alaska Senate race in 2026?
+  E1.C16: Will Candidate K win the Alaska Senate race in 2026?
+  E1.C17: Will Candidate L win the Alaska Senate race in 2026?
+  E1.C18: Will Candidate M win the Alaska Senate race in 2026?
+  E1.C19: Will Candidate N win the Alaska Senate race in 2026?
+  E1.C20: Will Candidate O win the Alaska Senate race in 2026?
+  E1.C21: Will Candidate P win the Alaska Senate race in 2026?
+  E1.C22: Will Candidate Q win the Alaska Senate race in 2026?
+  E1.C23: Will Candidate R win the Alaska Senate race in 2026?
+  E1.C24: Will Candidate S win the Alaska Senate race in 2026?
+  E1.C25: Will Candidate T win the Alaska Senate race in 2026?
+  E1.C26: Will Candidate U win the Alaska Senate race in 2026?
+  E1.C27: Will Candidate V win the Alaska Senate race in 2026?
+  E1.C28: Will Candidate W win the Alaska Senate race in 2026?
+  E1.C29: Will a candidate not listed above win the Alaska Senate race in 2026?
+What to write for E1:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E2 (as of 2026-10-01): New Hampshire Senate Election Winner
+Rules:
+This market will resolve according to the winner of the 2026 midterm New Hampshire U.S. Senate election, inclusive of any run-offs.
+
+A candidate shall be considered to represent a party in the event that he or she is the nominee of the party in question. Candidates other than the Democratic or Republican nominee (e.g., Greens, Libertarian, independent) may be added at a later date.
+
+Candidates who run as independents will not be encompassed by the “Democrat” or “Republican” options regardless of any affiliation they may have with the party.
+
+The candidates may be named in the contract for the convenience of traders. In the event that any named candidate is replaced as the nominee of their respective party prior to election day, the name in the contract will be updated and the market will resolve based on the replacement nominee of the party.
+
+The resolution source for this market is the Associated Press, Fox News, and NBC. This market will resolve once all three sources call the race for the same candidate. If all three sources haven’t called the race in this state for the same candidate, this market will resolve based on the official certification.
+Contracts:
+  E2.C1: Will the Democrats win the New Hampshire Senate race in 2026?
+  E2.C2: Will the Republicans win the New Hampshire Senate race in 2026?
+  E2.C3: Will Person A win the New Hampshire Senate race in 2026?
+  E2.C4: Will Person B win the New Hampshire Senate race in 2026?
+  E2.C5: Will Person C win the New Hampshire Senate race in 2026?
+  E2.C6: Will Person D win the New Hampshire Senate race in 2026?
+  E2.C7: Will Person E win the New Hampshire Senate race in 2026?
+  E2.C8: Will Person F win the New Hampshire Senate race in 2026?
+  E2.C9: Will Person G win the New Hampshire Senate race in 2026?
+  E2.C10: Will Person H win the New Hampshire Senate race in 2026?
+  E2.C11: Will Person I win the New Hampshire Senate race in 2026?
+  E2.C12: Will Person J win the New Hampshire Senate race in 2026?
+  E2.C13: Will a candidate not listed above win the New Hampshire Senate race in 2026?
+What to write for E2:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E3 (as of 2026-10-01): NE-02 House Election Winner
+Rules:
+This market will resolve according to the party of the candidate who wins the NE-02 congressional district seat in the U.S. House of Representatives in the 2026 midterm elections. The midterm elections will take place on November 3, 2026.
+
+​​A candidate's party will be determined by their ballot-listed or otherwise identifiable affiliation with that party at the time all of the 2026 House elections are conclusively called by this market's resolution sources. A candidate without a ballot-listed affiliation to either the Democrat or Republican parties will be considered a member of one of these parties based on the party with which they most recently expressed their intent to caucus at the time all of the House elections are conclusively called by this market's resolution sources.
+
+This market will resolve based on the result of the election as indicated by a consensus of credible reporting. If there is ambiguity, this market will resolve based solely on the official results as reported by the United States government, specifically the Federal Election Commission (https://www.fec.gov/).
+Contracts:
+  E3.C1: Will the Republican Party win the NE-02 House seat?
+  E3.C2: Will the Democratic Party win the NE-02 House seat?
+  E3.C3: Will another party win the NE-02 House seat?
+  E3.C4: Will A win the NE-02 House seat?
+  E3.C5: Will B win the NE-02 House seat?
+  E3.C6: Will C win the NE-02 House seat?
+  E3.C7: Will D win the NE-02 House seat?
+  E3.C8: Will E win the NE-02 House seat?
+What to write for E3:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E4 (as of 2026-10-01): Michigan Senate Election Winner
+Rules:
+This market will resolve according to the winner of the 2026 midterm Michigan U.S. Senate election, inclusive of any run-offs.
+
+A candidate shall be considered to represent a party in the event that he or she is the nominee of the party in question. Candidates other than the Democratic or Republican nominee (e.g., Greens, Libertarian, independent) may be added at a later date.
+
+Candidates who run as independents will not be encompassed by the “Democrat” or “Republican” options regardless of any affiliation they may have with the party.
+
+The candidates may be named in the contract for the convenience of traders. In the event that any named candidate is replaced as the nominee of their respective party prior to election day, the name in the contract will be updated and the market will resolve based on the replacement nominee of the party.
+
+The resolution source for this market is the Associated Press, Fox News, and NBC. This market will resolve once all three sources call the race for the same candidate. If all three sources haven’t called the race in this state for the same candidate, this market will resolve based on the official certification.
+Contracts:
+  E4.C1: Will the Democrats win the Michigan Senate race in 2026?
+  E4.C2: Will the Republicans win the Michigan Senate race in 2026?
+  E4.C3: Will Person A win the Michigan Senate race in 2026?
+  E4.C4: Will Person B win the Michigan Senate race in 2026?
+  E4.C5: Will Person C win the Michigan Senate race in 2026?
+  E4.C6: Will Person D win the Michigan Senate race in 2026?
+  E4.C7: Will Person E win the Michigan Senate race in 2026?
+  E4.C8: Will Person F win the Michigan Senate race in 2026?
+  E4.C9: Will Person G win the Michigan Senate race in 2026?
+  E4.C10: Will Person H win the Michigan Senate race in 2026?
+  E4.C11: Will Person I win the Michigan Senate race in 2026?
+  E4.C12: Will Person J win the Michigan Senate race in 2026?
+  E4.C13: Will a candidate not listed above win the Michigan Senate race in 2026?
+What to write for E4:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E5 (as of 2026-10-01): Ohio Senate Election Winner
+Rules:
+This market will resolve according to the winner of the 2026 Ohio U.S. Senate special election currently scheduled for November 3, inclusive of any run-offs.
+
+A candidate shall be considered to represent a party in the event that he or she is the nominee of the party in question. Candidates other than the Democratic or Republican nominee (e.g., Greens, Libertarian, independent) may be added at a later date.
+
+Candidates who run as independents will not be encompassed by the “Democrat” or “Republican” options regardless of any affiliation they may have with the party.
+
+The candidates may be named in the contract for the convenience of traders. In the event that any named candidate is replaced as the nominee of their respective party prior to election day, the name in the contract will be updated and the market will resolve based on the replacement nominee of the party.
+
+The resolution source for this market is the Associated Press, Fox News, and NBC. This market will resolve once all three sources call the race for the same candidate. If all three sources haven’t called the race in this state for the same candidate, this market will resolve based on the official certification.
+Contracts:
+  E5.C1: Will the Democrats win the Ohio Senate race in 2026?
+  E5.C2: Will the Republicans win the Ohio Senate race in 2026?
+  E5.C3: Will Person A win the Ohio Senate race in 2026?
+  E5.C4: Will Person B win the Ohio Senate race in 2026?
+  E5.C5: Will Person C win the Ohio Senate race in 2026?
+  E5.C6: Will Person D win the Ohio Senate race in 2026?
+  E5.C7: Will Person E win the Ohio Senate race in 2026?
+  E5.C8: Will Person F win the Ohio Senate race in 2026?
+  E5.C9: Will Person G win the Ohio Senate race in 2026?
+  E5.C10: Will Person H win the Ohio Senate race in 2026?
+  E5.C11: Will Person I win the Ohio Senate race in 2026?
+  E5.C12: Will Person J win the Ohio Senate race in 2026?
+  E5.C13: Will a candidate not listed above win the Ohio Senate race in 2026?
+What to write for E5:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E6 (as of 2026-10-01): Nebraska Senate Election Winner  
+Rules:
+This market will resolve according to the winner of the 2026 midterm Nebraska U.S. Senate election, inclusive of any run-offs.
+
+A candidate shall be considered to represent a party in the event that he or she is the nominee of the party in question. Candidates other than the Democratic or Republican nominee (e.g., Greens, Libertarian, independent) may be added at a later date.
+
+Candidates who run as independents will not be encompassed by the “Democrat” or “Republican” options regardless of any affiliation they may have with the party.
+
+The candidates may be named in the contract for the convenience of traders. In the event that any named candidate is replaced as the nominee of their respective party prior to election day, the name in the contract will be updated and the market will resolve based on the replacement nominee of the party.
+
+The resolution source for this market is the Associated Press, Fox News, and NBC. This market will resolve once all three sources call the race for the same candidate. If all three sources haven’t called the race in this state for the same candidate, this market will resolve based on the official certification.
+Contracts:
+  E6.C1: Will the Democrats win the Nebraska Senate race in 2026?
+  E6.C2: Will the Republicans win the Nebraska Senate race in 2026?
+  E6.C3: Will an independent win the Nebraska Senate race in 2026?
+  E6.C4: Will Person B win the Nebraska Senate race in 2026?
+  E6.C5: Will Person C win the Nebraska Senate race in 2026?
+  E6.C6: Will Person D win the Nebraska Senate race in 2026?
+  E6.C7: Will Person E win the Nebraska Senate race in 2026?
+  E6.C8: Will Person F win the Nebraska Senate race in 2026?
+  E6.C9: Will Person G win the Nebraska Senate race in 2026?
+  E6.C10: Will Person H win the Nebraska Senate race in 2026?
+  E6.C11: Will Person I win the Nebraska Senate race in 2026?
+  E6.C12: Will Person J win the Nebraska Senate race in 2026?
+  E6.C13: Will a candidate not listed above win the Nebraska Senate race in 2026?
+What to write for E6:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E7 (as of 2026-10-01): Texas Senate Election Winner
+Rules:
+This market will resolve according to the winner of the 2026 midterm Texas U.S. Senate election, inclusive of any run-offs.
+
+A candidate shall be considered to represent a party in the event that he or she is the nominee of the party in question. Candidates other than the Democratic or Republican nominee (e.g., Greens, Libertarian, independent) may be added at a later date.
+
+Candidates who run as independents will not be encompassed by the “Democrat” or “Republican” options regardless of any affiliation they may have with the party.
+
+The candidates may be named in the contract for the convenience of traders. In the event that any named candidate is replaced as the nominee of their respective party prior to election day, the name in the contract will be updated and the market will resolve based on the replacement nominee of the party.
+
+The resolution source for this market is the Associated Press, Fox News, and NBC. This market will resolve once all three sources call the race for the same candidate. If all three sources haven’t called the race in this state for the same candidate, this market will resolve based on the official certification.
+Contracts:
+  E7.C1: Will the Democrats win the Texas Senate race in 2026?
+  E7.C2: Will the Republicans win the Texas Senate race in 2026?
+  E7.C3: Will Person A win the Texas Senate race in 2026?
+  E7.C4: Will Person B win the Texas Senate race in 2026?
+  E7.C5: Will Person C win the Texas Senate race in 2026?
+  E7.C6: Will Person D win the Texas Senate race in 2026?
+  E7.C7: Will Person E win the Texas Senate race in 2026?
+  E7.C8: Will Person F win the Texas Senate race in 2026?
+  E7.C9: Will Person G win the Texas Senate race in 2026?
+  E7.C10: Will Person H win the Texas Senate race in 2026?
+  E7.C11: Will Person I win the Texas Senate race in 2026?
+  E7.C12: Will Person J win the Texas Senate race in 2026?
+  E7.C13: Will a candidate not listed above win the Texas Senate race in 2026?
+What to write for E7:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E8 (as of 2026-10-01): Iowa Senate Election Winner
+Rules:
+This market will resolve according to the winner of the 2026 midterm Iowa U.S. Senate election, inclusive of any run-offs.
+
+A candidate shall be considered to represent a party in the event that he or she is the nominee of the party in question. Candidates other than the Democratic or Republican nominee (e.g., Greens, Libertarian, independent) may be added at a later date.
+
+Candidates who run as independents will not be encompassed by the “Democrat” or “Republican” options regardless of any affiliation they may have with the party.
+
+The candidates may be named in the contract for the convenience of traders. In the event that any named candidate is replaced as the nominee of their respective party prior to election day, the name in the contract will be updated and the market will resolve based on the replacement nominee of the party.
+
+The resolution source for this market is the Associated Press, Fox News, and NBC. This market will resolve once all three sources call the race for the same candidate. If all three sources haven’t called the race in this state for the same candidate, this market will resolve based on the official certification.
+Contracts:
+  E8.C1: Will the Democrats win the Iowa Senate race in 2026?
+  E8.C2: Will the Republicans win the Iowa Senate race in 2026?
+  E8.C3: Will Person A win the Iowa Senate race in 2026?
+  E8.C4: Will Person B win the Iowa Senate race in 2026?
+  E8.C5: Will Person C win the Iowa Senate race in 2026?
+  E8.C6: Will Person D win the Iowa Senate race in 2026?
+  E8.C7: Will Person E win the Iowa Senate race in 2026?
+  E8.C8: Will Person F win the Iowa Senate race in 2026?
+  E8.C9: Will Person G win the Iowa Senate race in 2026?
+  E8.C10: Will Person H win the Iowa Senate race in 2026?
+  E8.C11: Will Person I win the Iowa Senate race in 2026?
+  E8.C12: Will Person J win the Iowa Senate race in 2026?
+  E8.C13: Will a candidate not listed above win the Iowa Senate race in 2026?
+What to write for E8:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).

@@ -1,0 +1,186 @@
+You are reading a group of prediction-market questions that may affect each other. Your view is as of 2026-10-01.
+
+You may search the web and fetch public pages to inform your view (load the WebSearch and WebFetch tools if needed). Rules for that:
+- Every web search must pass blocked_domains = ["polymarket.com", "kalshi.com", "predictit.org", "manifold.markets", "metaculus.com", "betfair.com", "smarkets.com", "oddschecker.com", "electionbettingodds.com", "polymarketanalytics.com", "gjopen.com", "goodjudgment.com", "insightprediction.com", "limitless.exchange", "myriad.markets", "betmgm.com", "draftkings.com", "fanduel.com", "williamhill.com", "paddypower.com", "bet365.com", "ladbrokes.com", "polymarket.co"].
+- Never open a prediction-market, betting or odds site, and never use or mention what any market, bookmaker or trader thinks. Give your own view from the evidence.
+- No other tools: only reading this file, searching and fetching.
+
+First decide which questions belong together. For any you judge unrelated to the rest, put its label in "drop" with a one-line reason; write nothing else for it.
+
+For every question you keep, write what it asks for. Whole percents run from 1 to 99. Levels are plain numbers in the units the contracts use. Dates are YYYY-MM-DD.
+
+CLAIMS. Where you believe one event's outcome changes the chances of another in this group, write a claim:
+  {"if": {"contract": "E1.C2", "resolves": "YES"}, "then_event": "E3", "if_true": <what you would write for E3 if that happens>, "if_false": <what you would write for E3 if it does not>}
+"if_true" and "if_false" use exactly the fields E3 asks for (the same "p", "levels", "high", "low" or "dates" object). Write as many claims as you believe in, including none.
+
+SCALE. For every question you keep that measures a quantity, a count, a price, a size or a date, also write "scale": the kind of thing this is and where you expect this instance to land among instances of that kind.
+  "scale": {"class": "<the reference class, e.g. monthly US core CPI prints since 2010>", "percentile": <0 to 100: where your middle view of this instance sits among instances of that class; 50 is an ordinary one>}
+Write "scale": null for a question with no scale (a plain yes/no about whether something happens).
+
+Also list the pages you relied on in "sources" (URLs).
+
+Reply with one JSON object and nothing else:
+{"drop": {"E5": "reason"}, "events": [{"label": "E1", ...the fields it asks for..., "scale": {"class": "...", "percentile": 50}}], "claims": [...], "sources": ["https://..."]}
+
+=== E1 (as of 2026-10-01): Putin and Zelenskyy shake hands by...?
+Rules:
+This market will resolve to "Yes" if Vladimir Putin and Volodymyr Zelenskyy shake hands by June 30, 2026, 11:59 PM ET. Otherwise, this market will resolve to "No".
+
+For the handshake to qualify toward a "Yes" resolution, there must be video or photographic evidence.
+
+The resolution source for this market will be photographic or digital evidence verified by a consensus of credible reporting.
+Contracts:
+  E1.C1: Putin and Zelenskyy shake hands by December 31?
+    Contract rules: This market will resolve to "Yes" if Vladimir Putin and Volodymyr Zelenskyy shake hands by December 31, 2026, 11:59 PM ET. Otherwise, this market will resolve to "No".
+
+For the handshake to qualify toward a "Yes" resolution, there must be video or photographic evidence.
+
+The resolution source for this market will be photographic or digital evidence verified by a consensus of credible reporting.
+What to write for E1:
+  Write "dates": for each chance 10, 25, 50, 75 and 90, the date by which you give it that chance of having happened, or null if you do not give it that chance by the last date the contracts cover. Dates must not go earlier as the chance rises.
+
+=== E2 (as of 2026-10-01): Zelenskyy out as Ukraine president by end of 2026?
+Rules:
+This market will resolve to “Yes” if Volodymyr Zelenskyy ceases to be President of Ukraine for any period of time between market creation and the specified date (ET). Otherwise, this market will resolve to “No”.
+
+An announcement of Volodymyr Zelenskyy's resignation/removal before this market's end date will immediately resolve this market to "Yes", regardless of when the announced resignation/removal goes into effect.
+
+The resolution source for this market will be official information from Volodymyr Zelenskyy and the government of Ukraine; however, a consensus of credible reporting may also be used.
+Contracts:
+  E2.C1: Zelenskyy out as Ukraine president by end of 2026?
+What to write for E2:
+  Write "p": a whole percent for every contract label, your chance that it resolves YES.
+
+=== E3 (as of 2026-10-01): Will Putin meet with Zelenskyy by December 31, 2026?
+Rules:
+This market will resolve to "Yes" if Vladimir Putin meets with Volodymyr Zelenskyy between this market's creation and the specified date, 11:59 PM ET. Otherwise, this market will resolve to "No".
+
+An exchange of words, handshake, direct conversation, or other clear personal interaction between the named individuals will qualify as a meeting. Merely standing in proximity, making eye contact, or being present in the same room or event without direct interaction will not qualify.
+
+A meeting is defined as any encounter where both Zelenskyy and Putin are present and interact with each other in person.
+
+The resolution source will be a consensus of credible reporting.
+Contracts:
+  E3.C1: Will Putin meet with Zelenskyy by December 31, 2026?
+What to write for E3:
+  Write "dates": for each chance 10, 25, 50, 75 and 90, the date by which you give it that chance of having happened, or null if you do not give it that chance by the last date the contracts cover. Dates must not go earlier as the chance rises.
+
+=== E4 (as of 2026-10-01): Will Zelenskyy talk to Putin by...?
+Rules:
+This market will resolve to "Yes" if Volodymyr Zelenskyy and Vladimir Putin talk by November 30, 2025, 11:59 PM ET. Otherwise, it will resolve to "No".
+
+A talk is defined as any interaction between Volodymyr Zelenskyy and Vladimir Putin, occurring either in person or through verbal communication by phone or video call.
+
+Events that occurred prior to the start of this market will not qualify toward its resolution.
+
+The resolution source will be a consensus of credible reporting.
+Contracts:
+  E4.C1: Will Zelenskyy talk to Putin by December 31?
+    Contract rules: This market will resolve to "Yes" if Volodymyr Zelenskyy and Vladimir Putin talk by December 31, 2026, 11:59 PM ET. Otherwise, it will resolve to "No".
+
+A talk is defined as any interaction between Volodymyr Zelenskyy and Vladimir Putin, occurring either in person or through verbal communication by phone or video call.
+
+Events that occurred prior to the start of this market will not qualify toward its resolution.
+
+The resolution source will be a consensus of credible reporting.
+What to write for E4:
+  Write "dates": for each chance 10, 25, 50, 75 and 90, the date by which you give it that chance of having happened, or null if you do not give it that chance by the last date the contracts cover. Dates must not go earlier as the chance rises.
+
+=== E5 (as of 2026-10-01): Trump, Putin, and Zelensky meet together before 2027?
+Rules:
+This market will resolve to "Yes" if Vladimir Putin, Volodymyr Zelenskyy, and Donald Trump all meet together between this market's creation and December 31, 2026, 11:59 PM ET. Otherwise, this market will resolve to "No".
+
+A meeting is defined as any encounter where Putin, Zelenskyy, and Trump are present and interact with each other in person.
+
+The resolution source will be a consensus of credible reporting.
+Contracts:
+  E5.C1: Trump, Putin, and Zelensky meet together before 2027?
+What to write for E5:
+  Write "dates": for each chance 10, 25, 50, 75 and 90, the date by which you give it that chance of having happened, or null if you do not give it that chance by the last date the contracts cover. Dates must not go earlier as the chance rises.
+
+=== E6 (as of 2026-10-01): Trump, Putin, and Zelensky seen together before 2027?
+Rules:
+This market will resolve to "Yes" if Donald Trump, Vladimir Putin, and Volodymyr Zelensky are photographed or videotaped together, in the same frame, between this market's creation and December 31, 2026, 11:59 PM ET. Otherwise, this market will resolve to "No".
+
+For this market to resolve to "Yes," the images or video must be taken and released within this market's timeframe. The images or video must be authentic, not the result of artificial intelligence or video editing.
+
+The resolution source for this market will be the images or video of Donald Trump, Vladimir Putin, and Volodymyr Zelensky together.
+Contracts:
+  E6.C1: Trump, Putin, and Zelensky seen together before 2027?
+What to write for E6:
+  Write "dates": for each chance 10, 25, 50, 75 and 90, the date by which you give it that chance of having happened, or null if you do not give it that chance by the last date the contracts cover. Dates must not go earlier as the chance rises.
+
+=== E7 (as of 2026-10-01): Where will Trump and Putin meet next in 2026?
+Rules:
+This market will resolve according to the location of the next meeting between Donald Trump and Vladimir Putin between market creation and December 31, 2026, 11:59 PM ET.
+
+This market will resolve to "No meeting by December 31" if no qualifying meeting occurs during this market's timeframe.
+
+A meeting is defined as any encounter where Putin and Trump are all present and interact with each other in person.
+
+An exchange of words, handshake, direct conversation, or other clear personal interaction between the named individuals will qualify as a meeting. Merely standing in proximity, making eye contact, or being present in the same room or event without direct interaction will not qualify.
+
+For this market, Gulf states are defined as the six members of the Gulf Cooperation Council (Bahrain, Kuwait, Oman, Qatar, Saudi Arabia, United Arab Emirates).
+
+The primary resolution source for this market will be a consensus of credible reporting.
+Contracts:
+  E7.C1: Will Trump and Putin meet next in Belarus?
+  E7.C2: Will Trump and Putin meet next in Turkey?
+  E7.C3: Will Trump and Putin meet next in Finland?
+  E7.C4: Will Trump and Putin meet next in Switzerland?
+  E7.C5: Will Trump and Putin meet next in Russia?
+  E7.C6: Will Trump and Putin meet next in a Gulf country?
+  E7.C7: Will Trump and Putin meet next in South Korea?
+  E7.C8: Will Trump and Putin meet next in Japan?
+  E7.C9: Will Trump and Putin meet next in Australia?
+  E7.C10: Will Trump and Putin meet next in United States?
+  E7.C11: Will Trump and Putin meet next in another EU country?
+  E7.C12: Will Trump and Putin meet next in another country?
+  E7.C13: Will Trump and Putin not meet?
+  E7.C14: Will Trump and Putin meet next in China?
+  E7.C15: Will Trump and Putin meet next in Ukraine?
+What to write for E7:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E8 (as of 2026-10-01): Where will Zelenskyy and Putin meet next before 2027?
+Rules:
+This market will resolve according to the location of the next meeting between Volodymyr Zelenskyy and Vladimir Putin by December 31, 2026, 11:59 PM ET. If no meeting takes place by December 31 ET, this market will resolve to "No meeting before 2027".
+
+A meeting is defined as any encounter where Zelenskyy and Putin are both present and interact with each other in person.
+
+For the purpose of this market, a meeting held on Ukrainian territory under the de facto control of Russia (e.g., Crimea) will be considered part of Russia.
+
+The primary resolution source for this market will be a consensus of credible reporting.
+Contracts:
+  E8.C1: Will Zelenskyy and Putin meet next in Turkey before 2027?
+  E8.C2: Will Zelenskyy and Putin meet next in Russia before 2027?
+  E8.C3: Will Zelenskyy and Putin meet next in Italy / Vatican before 2027?
+  E8.C4: Will Zelenskyy and Putin meet next in Ukraine before 2027?
+  E8.C5: Will Zelenskyy and Putin meet next in China before 2027?
+  E8.C6: Will Zelenskyy and Putin meet next in Qatar / UAE before 2027?
+  E8.C7: Will Zelenskyy and Putin meet next in Saudi Arabia before 2027?
+  E8.C8: Will Zelenskyy and Putin meet next in US before 2027?
+  E8.C9: Will Zelenskyy and Putin meet next in Hungary before 2027?
+  E8.C10: Will Zelenskyy  and Putin meet next in Belarus before 2027?
+  E8.C11: Will Zelenskyy and Putin not meet before 2027?
+  E8.C12: Will Zelenskyy and Putin meet next in Switzerland before 2027?
+  E8.C13: Will Zelenskyy and Putin meet next in India before 2027?
+  E8.C14: Will Zelenskyy and Putin meet next in Kazakhstan before 2027?
+  E8.C15: Will Zelenskyy and Putin meet next in another country before 2027?
+  E8.C16: Will Zelenskyy and Putin meet next in Country E before 2027?
+  E8.C17: Will Zelenskyy and Putin meet next in Country F before 2027?
+  E8.C18: Will Zelenskyy and Putin meet next in Country G before 2027?
+  E8.C19: Will Zelenskyy and Putin meet next in Country H before 2027?
+  E8.C20: Will Zelenskyy and Putin meet next in Country I before 2027?
+  E8.C21: Will Zelenskyy  and Putin meet next in Country J before 2027?
+  E8.C22: Will Zelenskyy  and Putin meet next in Country K before 2027?
+  E8.C23: Will Zelenskyy and Putin meet next in Country L before 2027?
+  E8.C24: Will Zelenskyy and Putin meet next in Country M before 2027?
+  E8.C25: Will Zelenskyy and Putin meet next in Country N before 2027?
+  E8.C26: Will Zelenskyy and Putin meet next in Country O before 2027?
+  E8.C27: Will Zelenskyy and Putin meet next in Country P before 2027?
+  E8.C28: Will Zelenskyy and Putin meet next in Country Q before 2027?
+  E8.C29: Will Zelenskyy and Putin meet next in Country R before 2027?
+  E8.C30: Will Zelenskyy and Putin meet next in Country S before 2027?
+What to write for E8:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
