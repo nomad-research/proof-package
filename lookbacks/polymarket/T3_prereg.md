@@ -79,3 +79,14 @@ The runtime shows the date and the model name, which does not matter forward. Th
 - **E1 in T3.** S1's positions are reported split by side, with NO positions scored against same-side, same-class, same-cost contracts (as `BT_T2_pass2_prereg.md` §2). This is a forward reading of E1 that declares nothing; T3's registered statistics stay S1, S2 and S3.
 - **Answers are read with integer chance keys** (`bt_t2.intkeys`; BT-T2 addendum A3), so the scorer bug found in BT-T2 cannot recur here.
 - **Calibration** follows `docs/EDGE_LEDGER.md`: within this pipeline only, Platt fitted walk-forward once resolved history exists. It never touches S1's selection or S2's ranks.
+
+## 9. Folded in before any session (2026-10-01, decision 11)
+
+- **Scale of scale.** For every kept question that measures a quantity, count, price, size or date, the session also writes `scale`:
+  - the reference class it is using;
+  - the percentile (0–100) where its middle view of this instance sits among instances of that class.
+
+  It writes `null` for plain yes/no questions. The data is collected now. Its score (the realised instance's percentile in the class, against the session's, by rank) needs reference-class data and gets its own registration before any T3 outcome is read. It declares nothing in this test.
+- **Depth at the lock.** With each best ask, the dollars on offer within 1¢ and 2¢ of it are recorded for YES and NO (C7).
+- **The whole prompt must be read.** The retrieval audit also requires the prompt's lines to be reproduced in full by the session's reads (BT-A addendum A2's line-number check). Sessions are told they may read it in parts.
+- **T3's instruction line** allows retrieval (`t3.INSTRUCTION_T3`). The backtests' "reading this file is the only tool call you may make" would contradict D42.

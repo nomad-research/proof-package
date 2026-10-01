@@ -126,12 +126,21 @@ For every question you keep, write what it asks for. Whole percents run from 1 t
 
 {claims}
 
+{scale}
+
 Also list the pages you relied on in "sources" (URLs).
 
 Reply with one JSON object and nothing else:
-{{"drop": {{"E5": "reason"}}, "events": [{{"label": "E1", ...the fields it asks for...}}], "claims": [...], "sources": ["https://..."]}}
+{{"drop": {{"E5": "reason"}}, "events": [{{"label": "E1", ...the fields it asks for..., "scale": {{"class": "...", "percentile": 50}}}}], "claims": [...], "sources": ["https://..."]}}
 
 {body}"""
+
+
+SCALE = """SCALE. For every question you keep that measures a quantity, a count, a price, a size or a date, also write "scale": the kind of thing this is and where you expect this instance to land among instances of that kind.
+  "scale": {"class": "<the reference class, e.g. monthly US core CPI prints since 2010>", "percentile": <0 to 100: where your middle view of this instance sits among instances of that class; 50 is an ordinary one>}
+Write "scale": null for a question with no scale (a plain yes/no about whether something happens)."""
+
+INSTRUCTION_T3 = "Your task is in the file {path}. Read that file (in parts if it is too long for one read), then do exactly what it instructs."   # T3 sessions may search; the backtests' wording forbids it
 
 
 def event_record(e, t):
@@ -152,7 +161,7 @@ def cmd_sessions(a):
         labels = {f"E{i}": {"event_id": r["id"], "kind": r["kind"], "sides": T.sides(r) if r["kind"] == "touch" else None,
                             "contracts": {f"E{i}.C{j}": x["cid"] for j, x in enumerate(r["contracts"], 1)}} for i, r in enumerate(recs, 1)}
         body = "\n\n".join(T.block(i, r) for i, r in enumerate(recs, 1))
-        text = PROMPT.format(as_of=snap["as_of"], blocked=json.dumps(BLOCKED), claims=CLAIMS, body=body)
+        text = PROMPT.format(as_of=snap["as_of"], blocked=json.dumps(BLOCKED), claims=CLAIMS, scale=SCALE, body=body)
         with open(os.path.join(D, "sessions", f"{sid}.txt"), "w", encoding="utf-8") as fh:
             fh.write(text)
         A.jdump({"session": sid, "seed": c["seed"], "labels": labels, "events": recs, "prompt_sha256": hashlib.sha256(text.encode("utf-8")).hexdigest()},
@@ -162,7 +171,7 @@ def cmd_sessions(a):
 
 def cmd_publish(a):
     os.makedirs(A.PROMPT_DIR, exist_ok=True); dst = os.path.join(A.PROMPT_DIR, f"t3_{a.sid}.txt")
-    shutil.copyfile(os.path.join(D, "sessions", f"{a.sid}.txt"), dst); print(A.INSTRUCTION.format(path=dst))
+    shutil.copyfile(os.path.join(D, "sessions", f"{a.sid}.txt"), dst); print(INSTRUCTION_T3.format(path=dst))
 
 
 # ---------------------------------------------------------------- the retrieval audit
@@ -232,6 +241,18 @@ def validate(obj, labels):
     for e in sub["events"]:
         e.setdefault("recognised", False)
     views, er = T.validate(sub, keep); errs += er
+    scale = {}
+    for e in sub["events"]:
+        s = e.get("scale")
+        if s is None:
+            scale[e["label"]] = None; continue
+        try:
+            pc = float(s["percentile"]); cl = str(s["class"]).strip()
+            if not (0 <= pc <= 100) or not cl:
+                raise ValueError
+            scale[e["label"]] = {"class": cl, "percentile": pc}
+        except (KeyError, TypeError, ValueError):
+            errs.append(f"{e['label']}: scale must be null or {{class, percentile 0-100}}")
     claims = []
     for i, c in enumerate(obj.get("claims") or []):
         try:
@@ -253,15 +274,18 @@ def validate(obj, labels):
     text = json.dumps(obj)
     if ODDS.search(text):
         errs.append(f"the answer speaks of a market's view ({ODDS.search(text).group(0)!r}), R6")
-    return {"drop": drop, "views": views, "claims": claims, "sources": obj.get("sources") or []}, errs
+    return {"drop": drop, "views": views, "scale": scale, "claims": claims, "sources": obj.get("sources") or []}, errs
 
 
 def book_ask(tok):
-    """Best ask for buying a token now, from the public book; None if the book is empty or unreachable."""
+    """Best ask for buying a token now, and the dollars on offer within 1 and 2 cents of it (decision 11: depth at every lock); None if the book is empty or unreachable."""
     try:
         b = json.loads(urllib.request.urlopen(urllib.request.Request(f"https://clob.polymarket.com/book?token_id={tok}", headers=BC.H), timeout=30).read().decode("utf-8"))
-        asks = [float(x["price"]) for x in (b.get("asks") or [])]
-        return min(asks) if asks else None
+        asks = sorted((float(x["price"]), float(x["size"])) for x in (b.get("asks") or []))
+        if not asks:
+            return None
+        best = asks[0][0]
+        return {"ask": best, "usd_1c": sum(p * s for p, s in asks if p <= best + 0.01 + 1e-9), "usd_2c": sum(p * s for p, s in asks if p <= best + 0.02 + 1e-9)}
     except Exception:
         return None
 
@@ -270,6 +294,8 @@ def cmd_ingest(a):
     meta = A.jload(os.path.join(D, "sessions", f"{a.sid}.json")); prompt = open(os.path.join(D, "sessions", f"{a.sid}.txt"), encoding="utf-8").read()
     dst = os.path.join(A.PROMPT_DIR, f"t3_{a.sid}.txt"); path = V.find_transcript(a.agent_id)
     au, evidence = audit_retrieval(path, dst, prompt)
+    if au["ok"] and not A.reads_by_line(path, dst, prompt):          # the whole prompt must have been read, by line number (BT-A addendum A2)
+        au["ok"] = False; au["violations"].append("prompt not read in full")
     errs, ans = [], None
     try:
         ans, errs = validate(V.extract_json(V.final_answer(a.agent_id)), meta["labels"])
