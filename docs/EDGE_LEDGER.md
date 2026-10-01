@@ -54,6 +54,13 @@ It also keeps the things that turned out **not** to be edges, because a fresh de
 
 The money is the model's choosing: a blind always-NO rule earns about 0 in both passes; the model's NO picks earn +4.4¢ and +5.2¢ a share, and +8.5¢ and +8.6¢ on NOs priced above 50¢ (`BT_T2_pass2_RESULT.md`). Pass 1's "surer than market" subset shrank from +7.6¢ to +2.5¢ on fresh events. Next test: the forward E1 sweep.
 
+**After BT-T2 pass 3 (`BT_T2_pass3_RESULT.md`, April to June).**
+- Registered E1: +4.9¢ (−0.1 to +9.7), direction only, missing by 0.1¢.
+- Pooled over three passes (post-hoc): **+4.0¢ (+1.2 to +7.0)**; without the top five events +2.0¢ (−0.5 to +4.5).
+- NO money on picks priced 50¢ or more, three passes: +8.5¢, +8.6¢, +12.9¢; pooled **+10.3¢ (+7.0 to +13.5)**.
+- Blind NO earned +3.3¢ in April to June, so part of that window's money was a market lean.
+- Three positive registered reads, none significant alone. It rests on the forward sweep.
+
 **To confirm.** Register it as the main statistic of the next pass: BT-T2 pass 2, on fresh events in the same window. The claim: NO positions where the session is surer than the market beat same-side, same-cost contracts, read at 5%.
 
 **To kill.** That statistic's 95% interval falls below zero on the registered pass.
