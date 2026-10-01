@@ -52,3 +52,17 @@ In the 6 tradable claims, the "then" price had already moved from 0.44 at the lo
 - P(A) is an authored, graded node belief.
 - All of it is price-free (R6). Price enters only at sizing.
 - This needs graded beliefs, which v18 packets now allow. T2 and T3 must collect P(A) and both branches of every C edge, and their calibration is measured before 18.0c bets.
+
+## Post-hoc breakdown (2026-10-01, after the result): magnitude claims against named-contract claims
+
+Not registered; under R20 a hypothesis for the next batch, not a result. Triggered claims, de-duplicated among triggered claims (14), split by how the "then" was stated:
+
+| "Then" stated as | Triggered | Held | Mean lock price |
+|---|---|---|---|
+| A magnitude: a ladder direction and severity tier (mild, moderate, severe) | 9 | 8 | 0.43 |
+| A named contract | 5 | 2 | 0.55 |
+
+When the "if" did not happen, magnitude claims held 19% against 24% priced (36 claims, not de-duplicated). The single magnitude miss is 329566, the timing error.
+
+- **Reading.** The claims' edge sits in the magnitude claims. The named-contract claims include both wrong-direction failures.
+- **Caveat.** The tier was mapped to a rung by lock price with the builder's provisional values (0.50, 0.25, 0.10). So "magnitude" here is partly defined through price, and the sessions gave only one of three words.
