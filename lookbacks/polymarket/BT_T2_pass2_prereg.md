@@ -34,3 +34,11 @@ The window (locks from 2026-07-01 on the 7-day grid), the schedule rules, the pr
 - As the first pass.
 - 25 sessions of 6 events, about 2.2 million subagent tokens at the measured 75–115 thousand per session.
 - No outcome is read until every answer is frozen by hash and committed.
+
+## Addendum A1 (2026-10-01, while sessions ran, before the freeze and before any outcome is read)
+
+S08's prompt was read in two overlapping chunks: the Read tool stopped at line 489 and the session resumed at 489. BT-A addendum A2's read check (rebuilding the prompt by line number, with every line matching) is added to `bt_t2.py`'s ingest. A session failing V1's exact-join check passes only if that check holds and every other audit condition holds. It applies to every pass-2 session alike.
+
+## Addendum A2 (2026-10-01, while sessions ran, before the freeze and before any outcome is read)
+
+S01's and S04's prompts are over the Read tool's 25,000-token cap. Each first session read once, was cut off, and, holding to "it is the only tool call you may make", answered its last event partly unseen; the audit voided both. Re-authored sessions are sent an instruction that permits reading the prompt in parts (`bt_t2.INSTRUCTION_PAGED`). The prompt file and the audit's requirement that the reads reproduce it exactly (by line number, A1) are unchanged. Every re-authoring is counted in the result.

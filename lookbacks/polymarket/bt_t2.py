@@ -33,6 +33,7 @@ SLIP, MATCH_BAND = 0.01, 0.05
 CHANCES = (10, 25, 50, 75, 90)
 DEADLINE = re.compile(rf"\b(by|before)\s+(the\s+end\s+of\s+)?({S.MON}|\d)", re.I)
 INSTRUCTION = A.INSTRUCTION
+INSTRUCTION_PAGED = "Your task is in the file {path}. Read that file, in parts if it is too long for one read (reading this file is the only tool you may use), then answer exactly as it instructs."   # re-authoring only (pass 2 addendum A2)
 
 
 def iso_day(t):
@@ -209,7 +210,7 @@ def cmd_sessions(a):
 
 def cmd_publish(a):
     os.makedirs(A.PROMPT_DIR, exist_ok=True); dst = os.path.join(A.PROMPT_DIR, f"{PREFIX}_{a.sid}.txt")
-    shutil.copyfile(os.path.join(D, "sessions", f"{a.sid}.txt"), dst); print(INSTRUCTION.format(path=dst))
+    shutil.copyfile(os.path.join(D, "sessions", f"{a.sid}.txt"), dst); print((INSTRUCTION_PAGED if a.paged else INSTRUCTION).format(path=dst))
 
 
 def _pct(v):
@@ -285,7 +286,10 @@ def validate(obj, labels):
 def cmd_ingest(a):
     meta = A.jload(os.path.join(D, "sessions", f"{a.sid}.json")); prompt = open(os.path.join(D, "sessions", f"{a.sid}.txt"), encoding="utf-8").read()
     path = V.find_transcript(a.agent_id); dst = os.path.join(A.PROMPT_DIR, f"{PREFIX}_{a.sid}.txt")
-    au = V.audit_transcript(path, declared=A.DECLARED_MODEL, allowed_reads={dst: prompt}, expect_instructions=[INSTRUCTION.format(path=dst)])
+    au = V.audit_transcript(path, declared=A.DECLARED_MODEL, allowed_reads={dst: prompt}, expect_instructions=[(INSTRUCTION_PAGED if a.paged else INSTRUCTION).format(path=dst)])
+    if not au["ok"] and not au["read_content_matches"] and au["prompt_matches_file"] and au["instructions_match"] and not au["tool_calls"] \
+            and set(au["models"]) == {A.DECLARED_MODEL} and A.reads_by_line(path, dst, prompt):
+        au["ok"], au["read_content_matches"], au["read_check"] = True, True, "line-number reconstruction (BT-A addendum A2; BT-T2 pass 2 addendum A1)"
     errs, ans = [], None
     try:
         ans, errs = validate(V.extract_json(V.final_answer(a.agent_id)), meta["labels"])
@@ -603,8 +607,8 @@ def main():
     sp = ap.add_subparsers(dest="cmd", required=True)
     p = sp.add_parser("frame"); p.add_argument("--start", required=True); p.add_argument("--strict-start")
     sp.add_parser("sessions")
-    p = sp.add_parser("publish"); p.add_argument("sid")
-    p = sp.add_parser("ingest"); p.add_argument("sid"); p.add_argument("agent_id")
+    p = sp.add_parser("publish"); p.add_argument("sid"); p.add_argument("--paged", action="store_true")
+    p = sp.add_parser("ingest"); p.add_argument("sid"); p.add_argument("agent_id"); p.add_argument("--paged", action="store_true")
     sp.add_parser("freeze"); sp.add_parser("score")
     a = ap.parse_args()
     if a.pass_dir:
