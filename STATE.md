@@ -658,3 +658,17 @@ Each thesis subgraph is one basket; a basket is which positions, not sizing; lin
 - `bt_crawl.py`: closed events by scheduled-end windows, split under the API cap, with every event's and market's `createdAt`, `startDate`, `endDate` and `closedTime`, a lifetime-volume prefilter and the scope filter at crawl time.
 - `bt_audit.py` and `BT_A_prereg.md`: BT-A, committed before the draw. `BT_AUDIT_GATE` is Rob's and must be set before scoring.
 **Not built (v18 §8):** `v18_packet.py`, `v18_project.py`, `v18_score.py`, `bundle.py` and rules recovery, `world.py`, `bt_run.py`. BT-T2 and T3 wait on the session format: the questions still open in topic 1, put to Rob as one proposal.
+
+## 2026-10-01 (evening) — BT-A and BT-T2 first pass run on Rob's machine
+- **BT-A** (`BT_A_RESULT.md`): 450 events, 45 sessions. The positive control shows recall (+0.088, P 0.99). `BT_WINDOW_START` is 2026-07-01 under both gates (0.5 and 0.2). June failed only on events that resolved in February and March (scheduled ends later); post-hoc by actual resolution month, April to September are all clean. A second pass would settle it.
+- **BT-T2 first pass** (`BT_T2_RESULT.md`): 173 events on locks from 2026-07-01, no-evidence arm, 29 sessions.
+  - S1 skill +0.041 (95% +0.010 to +0.072): edge shown on the registered statistic.
+  - It is concentrated: five events carry two-thirds of it, and without them it is +0.015 and spans zero.
+  - Money +0.029, direction only; magnitude shows nothing; the log score loses to price.
+  - Two scorer bugs were fixed after the freeze (addendum A3), with the first run kept.
+- **Audit gap found and fixed:** a prompt read in overlapping chunks fails V1's exact-join check. BT-A's addendum A2 reconstructs by line number, and BT-T2's prompts all fit one read.
+- **Session mechanics here:**
+  - 20 concurrent subagents at most.
+  - About 75–115k tokens a session.
+  - Hand-backs arrive as messages to the orchestrating session. A transcript contains the word "SubagentHandback" in its system reminder, so readiness is checked by the tool_use, not by text.
+- **Not built yet:** the evidence bundle (`bundle.py`), `world.py`, T3's scorer, the weekly walk-forward batch. T3's packet code (`t3.py`) and draft registration (`T3_prereg.md`, uncommitted) wait on Rob's cluster rule.
