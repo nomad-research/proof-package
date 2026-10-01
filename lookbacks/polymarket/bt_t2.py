@@ -29,6 +29,7 @@ LOCK_HOUR = 12
 STEP_D, HORIZON_D, MIN_OPEN = 7, 75, 3                      # BT_LOCK_STEP, T2_HORIZON_DAYS, T2_MIN_OPEN_MARKETS
 PER_STRATUM, PER_SESSION = 90, 6                            # addendum A1; SWEEP_BATCH
 ONLY, EXCLUDE, PREFIX = None, set(), "bt2"                  # later passes (BT_T2_pass2_prereg.md): one stratum, earlier events excluded, own prompt names
+TITLE_RE, KINDS = None, None                                # targeted passes (E3_MENTIONS_prereg.md): a title filter and a session-format filter
 SLIP, MATCH_BAND = 0.01, 0.05
 CHANCES = (10, 25, 50, 75, 90)
 DEADLINE = re.compile(rf"\b(by|before)\s+(the\s+end\s+of\s+)?({S.MON}|\d)", re.I)
@@ -99,6 +100,8 @@ def cmd_frame(a):
             tally["drawn_in_an_earlier_pass"] += 1; continue
         if ONLY and ("binary" if len(e["markets"]) == 1 else "multi") != ONLY:
             tally[f"not_{ONLY}"] += 1; continue
+        if TITLE_RE and not TITLE_RE.search(e.get("title") or ""):
+            tally["title_filter"] += 1; continue
         if A.MAKER.search(A.text_of(e) + " " + " ".join(e["tags"])):
             tally["maker_excluded"] += 1; continue
         r = A.clean(e)
@@ -109,6 +112,8 @@ def cmd_frame(a):
         k = kind_of(e, len(e["markets"]))
         if k is None:
             tally["two_market"] += 1; continue
+        if KINDS and k not in KINDS:
+            tally["kind_filter"] += 1; continue
         locks = schedule_locks(e, grid)
         if not locks:
             tally["no_schedule_lock"] += 1; continue
@@ -531,7 +536,8 @@ def cmd_score(a):
                         pos.append({"event": ev["id"], "stratum": ev["stratum"], "kind": ev["kind"], "strict": ev["strict"], "money": hit - cc,
                                     "skill": (hit - cc) - (float(np.mean(bm)) if bm else 0.0), "n_base": len(bm), "cost": cc,
                                     "side": "YES" if yes else "NO", "skill_side": (hit - cc) - (float(np.mean(bs)) if bs else 0.0), "n_base_side": len(bs),
-                                    "gap_type": kind_of_gap, "gap": abs(mid_ - q_), "group": group})
+                                    "gap_type": kind_of_gap, "gap": abs(mid_ - q_), "group": group,
+                                    "speaker": "Trump" if "trump" in t else "earnings call" if "earnings call" in t else "other"})
                 mid = (lo + hi) / 2; p_side = mid if c["yes"] else 1 - mid; q_side = c["price_yes"] if c["yes"] else 1 - c["price_yes"]
                 logs.append({"event": ev["id"], "v": math.log(max(p_side, 1e-9) / max(q_side, A.Q_FLOOR)), "bounded": lo != hi})
                 if ev["kind"] in ("partition", "percent"):
@@ -594,16 +600,27 @@ def cmd_score(a):
         "no_by_group": {g: read(pos, "skill_side", lambda r, g=g: no(r) and r["group"] == g) for g in ("mention", "bucket or count", "other")},
         "no_by_kind": {k: read(pos, "skill_side", lambda r, k=k: no(r) and r["kind"] == k) for k in sorted({p["kind"] for p in pos})},
         "no_by_gap": {f"{lo}-{hi}": read(pos, "skill_side", lambda r, lo=lo, hi=hi: no(r) and lo <= r["gap"] < hi) for lo, hi in ((0, .1), (.1, .2), (.2, .4), (.4, 1.01))}}
+    # E3's secondaries (E3_MENTIONS_prereg.md §4): blind NO on every contract of the scored events, NO picks by price and by speaker
+    scored = {p_["event"] for p_ in pos} | {l_["event"] for l_ in logs}
+    blind = [{"event": ev["id"], "money": float(not c["yes"]) - cost(c, False)} for ev in frame.values() if ev["id"] in scored for c in ev["contracts"]]
+    out["E3_secondary"] = {
+        "no_money_picks": read(pos, "money", no), "blind_no_money": read(blind, "money"),
+        "no_skill_cost_under_50": read(pos, "skill_side", lambda r: no(r) and r["cost"] < 0.5),
+        "no_skill_cost_50_up": read(pos, "skill_side", lambda r: no(r) and r["cost"] >= 0.5),
+        "no_money_cost_50_up": read(pos, "money", lambda r: no(r) and r["cost"] >= 0.5),
+        "no_by_speaker": {g: read(pos, "skill_side", lambda r, g=g: no(r) and r["speaker"] == g) for g in ("Trump", "earnings call", "other")}}
     A.jdump(dict(out, rows={"positions": pos, "magnitude": mags}), os.path.join(D, "result.json"))
     print(json.dumps(out, indent=1))
 
 
 def main():
-    global D, SEED, PER_STRATUM, ONLY, EXCLUDE, PREFIX
+    global D, SEED, PER_STRATUM, ONLY, EXCLUDE, PREFIX, TITLE_RE, KINDS, STEP_D
     ap = argparse.ArgumentParser()
     ap.add_argument("--pass-dir", help="output folder under bt/ for a later pass (BT_T2_pass2_prereg.md): e.g. t2_pass2")
     ap.add_argument("--seed", type=int); ap.add_argument("--per-stratum", type=int); ap.add_argument("--only-stratum", choices=("multi", "binary"))
     ap.add_argument("--exclude", action="append", default=[], help="a previous pass's frame.json whose events are not drawn again")
+    ap.add_argument("--title-re", help="draw only events whose title matches (case-insensitive)"); ap.add_argument("--kinds", help="comma-separated session formats to keep")
+    ap.add_argument("--step-days", type=int, help="lock grid step in days (default 7)"); ap.add_argument("--prefix", help="prompt file prefix")
     sp = ap.add_subparsers(dest="cmd", required=True)
     p = sp.add_parser("frame"); p.add_argument("--start", required=True); p.add_argument("--strict-start")
     sp.add_parser("sessions")
@@ -618,6 +635,14 @@ def main():
     if a.per_stratum:
         PER_STRATUM = a.per_stratum
     ONLY = a.only_stratum
+    if a.title_re:
+        TITLE_RE = re.compile(a.title_re, re.I)
+    if a.kinds:
+        KINDS = set(a.kinds.split(","))
+    if a.step_days:
+        STEP_D = a.step_days
+    if a.prefix:
+        PREFIX = a.prefix
     EXCLUDE = {e["id"] for f in a.exclude for e in A.jload(f)["events"]}
     {"frame": cmd_frame, "sessions": cmd_sessions, "publish": cmd_publish, "ingest": cmd_ingest, "freeze": cmd_freeze, "score": cmd_score}[a.cmd](a)
 
