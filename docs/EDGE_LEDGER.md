@@ -50,7 +50,9 @@ It also keeps the things that turned out **not** to be edges, because a fresh de
 | T0 / V1 | Exclusions ("this joint state will not happen") failed in 4 of 69 claims; reality landed inside the declared sets in 37 of 41 rounds | registered (V1); unpriced, a reliability figure |
 | Equity era | Absence calls held 15 of 16, counting expired, unanswered calls as hits | as reported in `docs/nomad_the_system_as_it_stands.md` |
 
-**Status.** A hypothesis with converging evidence from four places, none of it a registered test of this exact claim.
+**Status (updated after BT-T2 pass 2, 2026-10-01).** Its registered test, pass 2, gave +2.6¢ (95% −2.7 to +8.0): **direction only: not confirmed, not killed**. Four positive reads in four samples; pooled across the two BT-T2 passes +3.4¢ (−0.3 to +7.2).
+
+The money is the model's choosing: a blind always-NO rule earns about 0 in both passes; the model's NO picks earn +4.4¢ and +5.2¢ a share, and +8.5¢ and +8.6¢ on NOs priced above 50¢ (`BT_T2_pass2_RESULT.md`). Pass 1's "surer than market" subset shrank from +7.6¢ to +2.5¢ on fresh events. Next test: the forward E1 sweep.
 
 **To confirm.** Register it as the main statistic of the next pass: BT-T2 pass 2, on fresh events in the same window. The claim: NO positions where the session is surer than the market beat same-side, same-cost contracts, read at 5%.
 
@@ -77,6 +79,28 @@ It also keeps the things that turned out **not** to be edges, because a fresh de
 **Status.** Hypothesis. The value is conditional: betting it needs a view on A as well.
 
 **To confirm.** T3 (forward, claims with both branches, S3 registered).
+
+## E3. Mention markets: "What will … say" (candidate, 2026-10-01)
+
+**In plain English.** On markets that pay if a person says a given word or phrase in a window (weekly Trump remarks, an earnings call), the model's NO bets (it won't be said) beat the price by a wide margin.
+
+**Divergence mechanism (hypothesis).** The crowd prices words by salience: what is in the news, what the person said recently. The model prices them by the person's long-run vocabulary and the rules' exact wording (an exact phrase, said by that person, in that window). Exact-phrase rules are easy to over-price when the topic is hot.
+
+**Framework mechanism.** Price-blind, rules-literal reading with a number on every word. Mention markets list many words at once, so the format makes the model rule many of them out.
+
+**Evidence.** BT-T2 pass 1 +16.2¢ (21 positions, 2 events); pass 2 +15.6¢ (20 positions, 2 events); pooled +15.9¢ (95% +5.8 to +29.4) on **4 events**. Post-hoc in both passes.
+
+**Status.** Candidate.
+
+**To confirm.** A targeted backtest of every mention market in the clean window, one lock each, NO positions against same-side, same-cost contracts, registered before the draw.
+
+## A framework observation: the ladder-structure hint (2026-10-01)
+
+One pass-2 session placed price levels "from where the strike ladders are centred and which nearby strikes are missing (I assumed those were already hit)". Rungs already resolved before the lock are left out of a packet, and the rungs a market lists sit around where the market expects the price.
+
+So the structure of a ladder tells a price-blind session roughly where the market thinks the level is. It is knowable at the lock and is not a price, but it comes from the market's own design. That makes it a channel through which the market's view of location reaches the session.
+
+It may help explain why location (S2) never beats the market: the session's best location clue is the market's own. Decision 10's scale of scale sidesteps it.
 
 ---
 
