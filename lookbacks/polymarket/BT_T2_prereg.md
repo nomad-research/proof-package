@@ -116,3 +116,12 @@ Known deviations are the same as BT-A's:
 - A first-pass edge (S1 or S2) is confirmed only by holding on the strict window and on forward data (decision 5).
 - Each week a walk-forward batch adds the locks whose scheduled ends have passed (v18 §6.7, rolling). It is registered as a new batch, so this sample's reading never moves.
 - After this pass, the evidence arm is registered once the bundle exists.
+
+## Addendum A1 (2026-10-01, before the frame is built, before any session or outcome)
+
+Found while writing the script. No data had been read.
+
+1. **Size, corrected.** §2 said "up to 180 per stratum" but costed 30 sessions of 6, which is 180 events in total. The rule is **up to 90 events per stratum** (180 in total, 30 sessions), with a seeded draw within the stratum above that.
+2. **The matched base for S1's skill is pooled across the frame.** It is every other drawn event's priced contracts at their own locks, of the same event class, with cost within 0.05, excluding the event itself. With one lock per event, a base taken "at the same lock" would hold a handful of contracts.
+3. **How the one lock per event is drawn.** The event's locks that pass the schedule rules are put in a seeded order. The first that also passes the price rules (§2) is its lock. That is a draw by seed that never reads an outcome, and it fetches prices only for locks that are tried.
+4. **Price history requests.** The public endpoint answers a 400 for windows longer than about 15 days, which V1's helper reads as "no history". Every fetch here is a 7-day window ending at the lock (the `BT_MIN_POINTS` window), at 60-minute fidelity, falling back to 12-hour.
