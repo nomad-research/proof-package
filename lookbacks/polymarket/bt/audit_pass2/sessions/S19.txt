@@ -1,0 +1,187 @@
+You will be shown 10 questions from a prediction market. Each question has one or more contracts, and each contract resolves YES or NO under the rules shown.
+
+For every contract, give your probability, as a whole percent from 1 to 99, that it resolves YES. Use only what you already know. Do not search for or look up anything: reading this file is the only tool call you may make.
+
+For each question, also say whether you recognise how it actually turned out ("recognised": true only if you believe you remember the real outcome; otherwise false).
+
+Where a question's contracts are mutually exclusive (exactly one can resolve YES), your numbers for it should add up to about 100. Where they are nested thresholds or dates, keep them consistent with each other.
+
+Reply with one JSON object and nothing else, in this form:
+{"events": [{"label": "E1", "recognised": false, "p": {"E1.C1": 35, "E1.C2": 60}}]}
+
+Every contract label below must appear exactly once in your reply.
+
+=== E1: Bank of Japan decision in January?
+Rules:
+The Statement on Monetary Policy for the Bank of Japan's Monetary Policy meeting for January is scheduled to be released on January 23, 2026 (https://www.boj.or.jp/en/mopo/mpmsche_minu/index.htm).
+
+This market will resolve to the amount of basis points the upper bound of the short-term policy interest rate is changed by versus the level it was prior to the Bank of Japan's January 2026 meeting.
+
+If the short-term policy interest rate is changed to a level not expressed in the displayed options, the change will be rounded up to the nearest 25 and will resolve to the relevant bracket. (e.g. if there's a cut/increase of 12.5 bps it will be considered to be 25 bps)
+
+The primary resolution source for this market will be the official website of the Bank of Japan (https://www.boj.or.jp/en/mopo/mpmsche_minu/index.htm), however a consensus of credible reporting may also be used.
+
+This market may resolve as soon as the Bank of Japan's statement for their January meeting with relevant data is issued. If no statement is released by the end date of the next scheduled meeting, this market will resolve to the "No change" bracket.
+Contracts:
+  E1.C1: Bank of Japan decreases interest rates after January 2026 meeting?
+  E1.C2: No change in Bank of Japan's interest rates after January 2026 meeting?
+  E1.C3: Bank of Japan increases interest rates by 25 bps after January 2026 meeting?
+  E1.C4: Bank of Japan increases interest rates by 50+ bps after January 2026 meeting?
+
+=== E2: ICE shooter charged by March 31?
+Rules:
+On January 7, 2026, an Immigration and Customs Enforcement (ICE) officer committed a shooting in Minneapolis (see: https://apnews.com/article/minnesota-immigration-enforcement-shooting-crackdown-surge-173e00fa7388054e98c3b5b9417c1e5a).
+
+This market will resolve to “Yes” if any Federal or State jurisdiction of the United States formally charges or otherwise announces a criminal indictment of the ICE Officer who fired the shots in the specified shooting, for any alleged crime relating to the shooting, between market creation and March 31, 2026, 11:59 PM ET. Otherwise, this market will resolve to “No”.
+
+For a “Yes” resolution, the charged individual does not need to be an active ICE officer at the time the charges are made, as long as they were the shooter in the specified event.
+
+For the purposes of this market the District of Columbia and any county, municipality, or other subdivision of a State shall be included within the definition of a State.
+
+The primary resolution source for this market will be official information from US governmental sources, however a wide consensus of credible reporting will also be used.
+Contracts:
+  E2.C1: ICE shooter charged by March 31?
+
+=== E3: GPT-5.6 released by...?
+Rules:
+This market will resolve to "Yes" if OpenAI's GPT-5.6 model is made available to the general public by the specified date (ET). Otherwise, this market will resolve to "No."
+
+GPT-5.6 refers to a product explicitly named GPT-5.6, or a variant that is recognized as a direct successor to GPT-5.5, similar to the progression from GPT-5.1 to GPT-5.2. (e.g., GPT-5.7, GPT-5.8, etc., would qualify toward a "Yes" resolution to this market)
+ 
+Qualifying releases of task-specialized models (e.g., GPT-Codex/Transcribe), cost-efficiency variants (e.g., Nano/Mini), or reasoning models of the o-series family will count for this market. Products labeled as a new flagship generation GPT-6 or similar will NOT qualify.
+
+For this market to resolve to "Yes," a qualifying model must be launched and publicly accessible, including via open beta or open rolling waitlist signups. A closed beta or any form of private access will not suffice. 
+
+The release must be either clearly defined and publicly announced by OpenAI as being accessible to the general public or otherwise made publicly accessible and explicitly labeled within the company’s official website. Labeling errors, placeholder text, or version names displayed on the website that do not correspond to a model that is actually accessible to the general public will not qualify.
+
+The primary resolution source for this market will be official information from OpenAI, with additional verification from a consensus of credible reporting.
+Contracts:
+  E3.C1: GPT-5.6 released by June 26, 2026?
+  E3.C2: GPT-5.6 released by June 30, 2026?
+  E3.C3: GPT-5.6 released by July 3, 2026?
+  E3.C4: GPT-5.6 released by July 6, 2026?
+  E3.C5: GPT-5.6 released by July 8, 2026?
+  E3.C6: GPT-5.6 released by July 10, 2026?
+  E3.C7: GPT-5.6 released by July 13, 2026?
+  E3.C8: GPT-5.6 released by July 15, 2026?
+  E3.C9: GPT-5.6 released by July 17, 2026?
+  E3.C10: GPT-5.6 released by July 24, 2026?
+  E3.C11: GPT-5.6 released by July 31, 2026?
+
+=== E4: Ukraine signs peace deal with Russia by June 30?
+Rules:
+This market will resolve to “Yes”  if, Ukraine signs any written instrument (e.g., treaty, ceasefire/armistice, framework/“roadmap,” exchange of letters, or mediated agreement text) that: (i) includes both Ukraine and the Russian Federation as parties, and (ii) either ends hostilities/establishes a ceasefire or commits both sides to a defined process toward ending the war (i.e., stated objective of peace/normalization plus principles, steps, and/or a timetable) by June 30, 2026, 11:59 PM ET. Otherwise, this market will resolve to “No”. 
+
+Only Ukraine’s signature is required; Russia’s signature or ratification is not.
+
+Localized, temporary, or issue-specific arrangements—such as airstrike-limitation or deconfliction protocols, humanitarian pauses, evacuation corridors, prisoner-exchange or trade/export arrangements, border/DMZ adjustments, or ceasefires limited to a particular sector/front/municipality—will not qualify.
+
+The document must bear a wet-ink or officially issued electronic signature of an authorized Ukrainian representative. Unsigned agreements (e.g., the 2023 Ohrid arrangement) will not qualify regardless of if they are otherwise officially enacted. 
+
+The primary resolution source will be a consensus of credible reporting.
+Contracts:
+  E4.C1: Ukraine signs peace deal with Russia by June 30?
+
+=== E5: Venezuela coup attempt by March 31?
+Rules:
+This market will resolve to "Yes" if there is a widely reported coup attempt in Venezuela at any point between market creation and March 31, 2026, 11:59 PM ET. Otherwise, this market will resolve to "No."
+
+A coup attempt is defined as a coordinated and deliberate effort by military, security forces, or other state actors (or factions thereof) to overthrow or unlawfully seize control of the Venezuelan government or its leadership. Revolutionary actions by non-state forces, isolated protests, or general unrest will not alone qualify.
+
+Claims by the Venezuelan government that a coup attempt was foiled—such as through arrests or disruption of a planned operation—will only count toward a "Yes" resolution if credible independent sources widely report and explicitly characterize the event as a coup attempt. Foiled plots or arrests that occur without any attempted execution of the coup will not qualify.
+
+The resolution source will be a consensus of credible reporting.
+Contracts:
+  E5.C1: Venezuela coup attempt by March 31?
+
+=== E6: Hungary Parliamentary Election: 2nd Place
+Rules:
+Parliamentary elections are scheduled to be held in Hungary on 12 April 2026.
+
+This market will resolve according to the political party that wins the second greatest number of seats in the next Hungarian National Assembly (Országgyűlés) election. 
+
+If the results are not known definitively by October 31, 2026, 11:59 PM ET, this market will resolve to "Other".
+
+The named parties or coalitions will be primarily ranked by the number of seats won in the specified election. If two or more parties are tied on seats, ties will be broken by the total number of valid votes received, with higher vote totals ranking higher. If parties remain tied, ties will be broken by alphabetical order of the listed party name. This market will resolve to the party that occupies the second-highest finishing position after applying this ranking.
+
+This market's resolution will be based solely on the number of seats won by the named party or coalition in the Hungarian Parliament. If a named coalition dissolves, this market will resolve based on the seat total of the constituent party within that coalition that held the largest number of seats before the election.
+
+This market will resolve based on the results of this election as indicated by a consensus of credible reporting. If there is ambiguity, this market will resolve based solely on the official results as reported by the Hungarian government, specifically the Hungarian Election Authority (Nemzeti Választási Iroda) (valasztas.hu).
+
+Note: Fidesz and KDNP registered jointly for the 2026 Hungary parliamentary elections (see: https://vtr.valasztas.hu/ogy2026/orszagos-listak?tab=partlistak). If the Fidesz-KDNP coalition dissolves prior to the election, this option will represent only seats won by Fidesz.
+Contracts:
+  E6.C1: Will Fidesz–KDNP finish with the second-most seats in the next Hungarian parliamentary election?
+  E6.C2: Will the Democratic Coalition (DK) finish with the second-most seats in the next Hungarian parliamentary election?
+  E6.C3: Will the Hungarian Socialist Party (MSZP) finish with the second-most seats in the next Hungarian parliamentary election?
+  E6.C4: Will Dialogue for Hungary (Párbeszéd) finish with the second-most seats in the next Hungarian parliamentary election?
+  E6.C5: Will TISZA – Respect and Freedom Party (TISZA) finish with the second-most seats in the next Hungarian parliamentary election?
+  E6.C6: Will the Momentum Movement (Momentum) finish with the second-most seats in the next Hungarian parliamentary election?
+  E6.C7: Will Movement for a Better Hungary (Jobbik) finish with the second-most seats in the next Hungarian parliamentary election?
+  E6.C8: Will LMP – Hungary’s Green Party (LMP) finish with the second-most seats in the next Hungarian parliamentary election?
+  E6.C9: Will Our Homeland Movement (Mi Hazánk) finish with the second-most seats in the next Hungarian parliamentary election?
+
+=== E7: Nebraska Democratic Senate Primary Winner
+Rules:
+This market will resolve according to the winner of the Democratic Primary for United States Senator from Nebraska.
+
+If no 2026 Nebraska Democratic Senate Primary takes place, this market will resolve to "Other".
+
+The resolution source for this market will be the first announcement of the results from the Nebraska Democratic party, however an overwhelming consensus of credible reporting may suffice.
+Contracts:
+  E7.C1: Will Cindy Burbank be the Democratic nominee for Senate in Nebraska?
+  E7.C2: Will William Forbes be the Democratic nominee for Senate in Nebraska?
+
+=== E8: Precipitation in London in April?
+Rules:
+This market will resolve according to the total precipitation in mm at Heathrow (London Airport) in April, 2026, according to the Met Office.
+
+If the reported value falls exactly between two brackets, then this market will resolve to the higher range bracket.
+
+The resolution source for this market will be the Met Office, specifically the figure for April 2026 under "rain mm" at the https://www.metoffice.gov.uk/pub/data/weather/uk/climate/stationdata/heathrowdata.txt link once the Provisional figure for the whole month of April 2026 is released.
+
+If the relevant data is not available by June 7, 2026, 11:59 PM ET, another credible resolution source will be chosen.
+
+The resolution source for this market measures precipitation to 1 decimal place (e.g., 1.5), thus, this is the level of precision that will be used when resolving this market. Any revisions to precipitation recorded after Provisional data is released for this market's timeframe will not be considered for this market's resolution.
+Contracts:
+  E8.C1: Will London have less than 20mm of precipitation in April?
+  E8.C2: Will London have between 20-30mm of precipitation in April?
+  E8.C3: Will London have between 30-40mm of precipitation in April?
+  E8.C4: Will London have between 40-50mm of precipitation in April?
+  E8.C5: Will London have between 50-60mm of precipitation in April?
+  E8.C6: Will London have between 60-70mm of precipitation in April?
+  E8.C7: Will London have 70mm or more of precipitation in April?
+
+=== E9: Chungcheongbuk Province Governor Election Winner
+Rules:
+The 2026 Chungcheongbuk Province gubernatorial election is scheduled to take place in South Korea on June 3, 2026 to elect the next governor of Chungcheongbuk Province. 
+
+This market will resolve according to the candidate that wins this election.
+
+If the result of this election isn't known by December 31, 2026, 11:59 PM ET, the market will resolve to "Other".
+
+This market will resolve based on the result of the election as indicated by a consensus of credible reporting. If there is ambiguity, this market will resolve based solely on the official results as reported by the South Korean government, specifically the National Election Commission (https://www.nec.go.kr/).
+Contracts:
+  E9.C1: Will Kim Young-hwan win the 2026 Chungcheongbuk Province gubernatorial election?
+  E9.C2: Will Cho Gil-hyeong win the 2026 Chungcheongbuk Province gubernatorial election?
+  E9.C3: Will Lee Jong-bae win the 2026 Chungcheongbuk Province gubernatorial election?
+  E9.C4: Will Yoon Hee-geun win the 2026 Chungcheongbuk Province gubernatorial election?
+  E9.C5: Will Shin Yong-han win the 2026 Chungcheongbuk Province gubernatorial election?
+  E9.C6: Will Noh Yeong-min win the 2026 Chungcheongbuk Province gubernatorial election?
+  E9.C7: Will Song Ki-sub win the 2026 Chungcheongbuk Province gubernatorial election?
+  E9.C8: Will Do Jong-hwan win the 2026 Chungcheongbuk Province gubernatorial election?
+
+=== E10: How many dissent at the next Fed meeting?
+Rules:
+The next Federal Open Market Committee (FOMC) meeting is scheduled for April 28-29, 2026. The policy decision will be announced at 2:00 PM Eastern Time on April 29, followed by the Fed Chair’s press conference at around 2:30 PM ET.
+
+This market will resolve according to the number of dissenting votes recorded at the next Federal Reserve Open Market Committee monetary policy meeting, specifically those dissenting on the Fed Funds Rate decision.
+
+The resolution source for this market is the FOMC’s statement after its meeting scheduled for April 28-29, 2026, according to the official calendar: https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm.
+
+This market may resolve as soon as the FOMC’s statement for their April meeting with relevant data is issued; however, a consensus of credible reporting will also be used.
+Contracts:
+  E10.C1: Will no one dissent the April Fed decision?
+  E10.C2: Will one person dissent the April Fed decision?
+  E10.C3: Will two people dissent the April Fed decision?
+  E10.C4: Will three people dissent the April Fed decision?
+  E10.C5: Will four or more people dissent the April Fed decision?

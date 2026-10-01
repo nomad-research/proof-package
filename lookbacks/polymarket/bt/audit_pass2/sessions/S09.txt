@@ -1,0 +1,232 @@
+You will be shown 10 questions from a prediction market. Each question has one or more contracts, and each contract resolves YES or NO under the rules shown.
+
+For every contract, give your probability, as a whole percent from 1 to 99, that it resolves YES. Use only what you already know. Do not search for or look up anything: reading this file is the only tool call you may make.
+
+For each question, also say whether you recognise how it actually turned out ("recognised": true only if you believe you remember the real outcome; otherwise false).
+
+Where a question's contracts are mutually exclusive (exactly one can resolve YES), your numbers for it should add up to about 100. Where they are nested thresholds or dates, keep them consistent with each other.
+
+Reply with one JSON object and nothing else, in this form:
+{"events": [{"label": "E1", "recognised": false, "p": {"E1.C1": 35, "E1.C2": 60}}]}
+
+Every contract label below must appear exactly once in your reply.
+
+=== E1: IL-07 Democratic Primary Winner
+Rules:
+This market will resolve according to the candidate who wins the nomination for the Democratic Party to contest the IL-07 congressional district seat in the U.S. House of Representatives in the 2026 midterm elections. The Democratic primary will take place on March 17, 2026.
+
+If no nominee is announced by November 3, 2026, 11:59PM ET, this market will resolve to "Other".
+
+The resolution source for this market will be a consensus of official Democrat sources, including https://democrats.org/.
+
+Any replacement of the nominee before election day will not change the resolution of the market.
+Contracts:
+  E1.C1: Will Richard Boykin be the Democratic Nominee for IL-07?
+  E1.C2: Will Kina Collins be the Democratic Nominee for IL-07?
+  E1.C3: Will Melissa Conyears Ervin be the Democratic Nominee for IL-07?
+  E1.C4: Will Anthony Driver Jr. be the Democratic Nominee for IL-07?
+  E1.C5: Will David Ehrlich be the Democratic Nominee for IL-07?
+  E1.C6: Will Thomas Fisher be the Democratic Nominee for IL-07?
+  E1.C7: Will La Shawn Ford be the Democratic Nominee for IL-07?
+  E1.C8: Will Jason Friedman be the Democratic Nominee for IL-07?
+  E1.C9: Will Rory Hoskins be the Democratic Nominee for IL-07?
+  E1.C10: Will Anabel Mendoza be the Democratic Nominee for IL-07?
+  E1.C11: Will Jazmin Robinson be the Democratic Nominee for IL-07?
+  E1.C12: Will Reed Showalter be the Democratic Nominee for IL-07?
+
+=== E2: How many jobs added in May?
+Rules:
+This market will resolve according to the change in the total nonfarm payroll employment reported by the BLS "Employment Situation Summary" for May 2026, scheduled to be released on June 5, 2026, at 8:30 AM ET.
+
+If the reported value falls exactly between two brackets, then this market will resolve to the higher range bracket.
+
+If no data for the specified month is released by the date the next month's data is scheduled to be released, this market will resolve based on data from the last available month.
+
+The BLS "Employment Situation Summary" may be found here: https://www.bls.gov/bls/newsrels.htm
+Contracts:
+  E2.C1: Will the US lose jobs in May?
+  E2.C2: Will the US add between 0 and 50k jobs in May?
+  E2.C3: Will the US add between 50k and 100k jobs in May?
+  E2.C4: Will the US add between 100k and 150k jobs in May?
+  E2.C5: Will the US add between 150k and 200k jobs in May?
+  E2.C6: Will the US add at least 200k jobs in May?
+
+=== E3: Bangladesh Parliamentary Election Winner
+Rules:
+Parliamentary elections are scheduled to be held in Bangladesh on February 12, 2026.
+
+This market will resolve to the political party that wins the greatest number of seats in the unicameral Bangladeshi parliament, the “House of the Nation” (Jatiya Sangsad), in this election.
+
+This market's resolution will be based solely on the number of seats won by the named party or coalition in the House of the Nation in this election. If additional seats are contested after the results of this election are made official (i.e. seats reserved for women are contested at a later date), those seats will not be considered for resolution of this market. If a second house of the Bangladeshi parliament is established, seats in that house will not be considered for resolution of this market.
+
+In the event of a tie between multiple parties for the most seats won, this market will resolve in favor of the party or coalition which received a greater number of valid votes. In the event that results in a tie, this market will resolve in favor of the party or coalition whose listed abbreviation appears first in alphabetical order.
+
+If the results of this election are not known by December 31, 2026, 11:59 PM ET, this market will resolve to "Other".
+
+This market will resolve based on the election results as indicated by a consensus of credible reporting. If there is ambiguity, this market will resolve based solely on the official results as reported by the Bangladeshi Government, specifically the Bangladesh Election Commission (https://www.ecs.gov.bd/?lang=en).
+Contracts:
+  E3.C1: Will National Citizen Party win the most seats in the Bangladesh parliamentary election?
+  E3.C2: Will Bangladesh Jamaat-e-Islami win the most seats in the Bangladesh parliamentary election?
+  E3.C3: Will Jatiya Party win the most seats in the Bangladesh parliamentary election?
+  E3.C4: Will Bangladesh Nationalist Party win the most seats in the Bangladesh parliamentary election?
+  E3.C5: Will Jatiya Samajtantrik Dal win the most seats in the Bangladesh parliamentary election?
+  E3.C6: Will Islami Andolan Bangladesh win the most seats in the bangladesh parliamentary Election?
+  E3.C7: Will Gono Odhikar Parishad win the most seats in the Bangladesh parliamentary election?
+  E3.C8: Will Workers’ Party of Bangladesh win the most seats in the Bangladesh parliamentary election?
+
+=== E4: Grok 4.20 released on...?
+Rules:
+This market will resolve according to the date (ET) when xAI's Grok 4.20 model is made available to the general public.
+
+This market will resolve to "No release by January 31" if xAI's Grok 4.20 model is not made available to the general public by January 31, 2026, 11:59 PM ET.
+
+To qualify, Grok 4.20 must be launched and publicly accessible, including via open beta or open rolling waitlist signups. A closed beta or any form of private access will not suffice. The release must be clearly defined and publicly announced by xAI as being accessible to the general public.
+
+Grok 4.20 refers to a product explicitly named Grok 4.20, or one that is recognized as a successor to Grok 4.1, similar to the progression from Grok 4 to Grok 4.1. Products labeled as Grok 4.12 or similar will not count for this market's resolution.
+
+The primary resolution source for this market will be official information from xAI, with additional verification from a consensus of credible reporting.
+Contracts:
+  E4.C1: Will Grok 4.20 be released on January 16, 2026?
+  E4.C2: Will Grok 4.20 be released on January 17, 2026?
+  E4.C3: Will Grok 4.20 be released on January 18, 2026?
+  E4.C4: Will Grok 4.20 be released on January 19, 2026?
+  E4.C5: Will Grok 4.20 be released on January 20, 2026?
+  E4.C6: Will Grok 4.20 be released on January 21, 2026?
+  E4.C7: Will Grok 4.20 be released on January 22, 2026?
+  E4.C8: Will Grok 4.20 be released on January 23, 2026?
+  E4.C9: Will Grok 4.20 be released on January 24, 2026?
+  E4.C10: Will Grok 4.20 be released on January 25, 2026?
+  E4.C11: Will Grok 4.20 be released on January 26, 2026?
+  E4.C12: Will Grok 4.20 be released on January 27, 2026?
+
+=== E5: Will JP Morgan (JPM) Q2 investment banking fees be above __?
+Rules:
+This market will resolve to "Yes" if JP Morgan's investment banking fees for the upcoming second fiscal quarter, as reported in its official company earnings materials, is above the listed amount. Otherwise, this market will resolve to "No".
+
+The specified metric will be considered as reported in the company's official earnings materials. Subsequent revisions will not be considered.
+
+If the specified company's official earnings materials for the specified quarter are released, and the specified metric is not included, this market will resolve to "No".
+
+If the specified company does not release quarterly earnings materials for the specified quarter by August 31, 2026, 11:59 PM ET, this market will resolve to "No".
+
+If the specified metric is reported as a range rather than a specific number, the midpoint of the range will be used for resolution of this market.
+
+The resolution source for this market is JP Morgan's official company earnings materials, including press releases, investor presentations, and regulatory filings. If the specified metric is not reported in these materials, recordings or transcripts of the company's earnings webcast may also be used.
+
+Note: This market will resolve based on the most numerically precise version of the specified metric reported in the company's official earnings materials. Only the specified metric will be considered; alternate versions that differ in definition or scope from the specified metric will not be considered.
+Contracts:
+  E5.C1: Will JP Morgan (JPM) Q2 investment banking fees be above $2.55B?
+  E5.C2: Will JP Morgan (JPM) Q2 investment banking fees be above $2.7B?
+  E5.C3: Will JP Morgan (JPM) Q2 investment banking fees be above $2.85B?
+  E5.C4: Will JP Morgan (JPM) Q2 investment banking fees be above $3.0B?
+  E5.C5: Will JP Morgan (JPM) Q2 investment banking fees be above $3.15B?
+
+=== E6: December Inflation U.K. - Monthly
+Rules:
+This is a market about the monthly variation of consumer prices in the U.K., before seasonal adjustment, as reported by the Office for National Statistics (ONS).
+
+This market will resolve according to the number the Consumer Price Index (CPI) changed by in December 2025 (% change) according to the monthly ONS report.
+
+The resolution source for this market will be the ONS Consumer Price Index monthly report released for December 2025 (https://www.ons.gov.uk/economy/inflationandpriceindices/bulletins/consumerpriceinflation/previousreleases), currently scheduled to be released on January 21, 2026. Resolution of this market will take place upon release of the aforementioned data. If no data for the specified month is released by the date the next month's data is scheduled to be released, this market will resolve based on data from the last available month.
+
+You can find this report by choosing the report for the relevant month from the previous releases page for price indices on the ONS website (https://www.ons.gov.uk/economy/inflationandpriceindices/bulletins/consumerpriceinflation/previousreleases). The relevant figure can be found in the "Consumer price inflation rates" table under the column labeled "CPI 1-month rate (%)" for the relevant month.
+
+Note: the resolution source for this market will be the official monthly ONS CPI news release which reports monthly inflation change to only one decimal point (e.g. 1.9%). Thus, this is the level of precision that will be used when resolving the market. For the full release schedule, see: https://www.ons.gov.uk/releasecalendar
+Contracts:
+  E6.C1: Will the U.K.'s monthly inflation be ≤-0.2% in December?
+  E6.C2: Will the U.K.'s monthly inflation be -0.1% in December?
+  E6.C3: Will the U.K.'s monthly inflation be 0.0% in December?
+  E6.C4: Will the U.K.'s monthly inflation be 0.1% in December?
+  E6.C5: Will the U.K.'s monthly inflation be 0.2% in December?
+  E6.C6: Will the U.K.'s monthly inflation be ≥0.3% in December?
+
+=== E7: Will USD hit ___ Iranian rials by April 30?
+Rules:
+This market will resolve to “Yes” if the finalized USD exchange rate on Bonbast is equal to or above the specified price for any day between market creation and April 30, 2026. Otherwise, this market will resolve to “No”.
+
+This market will resolve according to the daily finalized free-market USD exchange rate as displayed on Bonbast (https://www.bonbast.com/graph/usd), which publishes prices in Iranian toman, where 1 Iranian toman equals 10 Iranian rials (IRR).
+
+A daily figure will be considered finalized once the following day’s figure is released.
+
+Revisions or corrections to daily figures indicating a qualifying exchange rate will be considered only if they occur before all relevant figures for this market have been finalized.
+
+The resolution source for this market will be Bonbast (https://www.bonbast.com/graph/usd). Resolution will occur once the final exchange rate data point of the specified timeframe is finalized. If the resolution source becomes permanently unavailable, another resolution source will be chosen.
+Contracts:
+  E7.C1: Will USD reach 1.8M Iranian rials by April 30?
+  E7.C2: Will USD reach 1.7M Iranian rials by April 30?
+  E7.C3: Will USD fall to 1.5M Iranian rials by April 30?
+    Contract rules: This market will resolve to “Yes” if the finalized USD exchange rate on Bonbast is equal to or below the specified price for any day between market creation and April 30, 2026. Otherwise, this market will resolve to “No”.
+
+This market will resolve according to the daily finalized free-market USD exchange rate as displayed on Bonbast (https://www.bonbast.com/graph/usd), which publishes prices in Iranian toman, where 1 Iranian toman equals 10 Iranian rials (IRR).
+
+A daily figure will be considered finalized once the following day’s figure is released.
+
+Revisions or corrections to daily figures indicating a qualifying exchange rate will be considered only if they occur before all relevant figures for this market have been finalized.
+
+The resolution source for this market will be Bonbast (https://www.bonbast.com/graph/usd). Resolution will occur once the final exchange rate data point of the specified timeframe is finalized. If the resolution source becomes permanently unavailable, another resolution source will be chosen.
+  E7.C4: Will USD fall to 1.4M Iranian rials by April 30?
+    Contract rules: This market will resolve to “Yes” if the finalized USD exchange rate on Bonbast is equal to or below the specified price for any day between market creation and April 30, 2026. Otherwise, this market will resolve to “No”.
+
+This market will resolve according to the daily finalized free-market USD exchange rate as displayed on Bonbast (https://www.bonbast.com/graph/usd), which publishes prices in Iranian toman, where 1 Iranian toman equals 10 Iranian rials (IRR).
+
+A daily figure will be considered finalized once the following day’s figure is released.
+
+Revisions or corrections to daily figures indicating a qualifying exchange rate will be considered only if they occur before all relevant figures for this market have been finalized.
+
+The resolution source for this market will be Bonbast (https://www.bonbast.com/graph/usd). Resolution will occur once the final exchange rate data point of the specified timeframe is finalized. If the resolution source becomes permanently unavailable, another resolution source will be chosen.
+  E7.C5: Will USD fall to 1.3M Iranian rials by April 30?
+    Contract rules: This market will resolve to “Yes” if the finalized USD exchange rate on Bonbast is equal to or below the specified price for any day between market creation and April 30, 2026. Otherwise, this market will resolve to “No”.
+
+This market will resolve according to the daily finalized free-market USD exchange rate as displayed on Bonbast (https://www.bonbast.com/graph/usd), which publishes prices in Iranian toman, where 1 Iranian toman equals 10 Iranian rials (IRR).
+
+A daily figure will be considered finalized once the following day’s figure is released.
+
+Revisions or corrections to daily figures indicating a qualifying exchange rate will be considered only if they occur before all relevant figures for this market have been finalized.
+
+The resolution source for this market will be Bonbast (https://www.bonbast.com/graph/usd). Resolution will occur once the final exchange rate data point of the specified timeframe is finalized. If the resolution source becomes permanently unavailable, another resolution source will be chosen.
+
+=== E8: Don Lemon charges dropped?
+Rules:
+This market will resolve to "Yes" if all charges against Don Lemon, stemming from his arrest on January 29, 2026, are officially dropped or reduced to a non-felony charge by May 31, 2026, 11:59 PM ET. Otherwise, this market will resolve to "No".
+
+The primary resolution source for this market will be official information from the relevant court or an official statement from Lemon's legal representatives. However, a consensus of credible reporting may also be used.
+Contracts:
+  E8.C1: Don Lemon charges dropped?
+
+=== E9: Will the Court Force Trump to Refund Tariffs?
+Rules:
+On May 28, 2025, the U.S. Court of International Trade ruled that Donald Trump exceeded his authority under the International Emergency Economic Powers Act (IEEPA) by imposing a series of broad tariffs. The ruling blocked several major measures, including the “Liberation Day” tariffs—a 10% tariff on all imports and country-specific rates of up to 50%—as well as additional tariffs targeting Canadian, Mexican, and Chinese goods. The Trump administration has filed a single consolidated appeal of this decision, titled V.O.S. Selections, Inc. v. United States.
+
+This market will resolve to “Yes” if, by June 30, 2026, 11:59 PM ET, both of the following occur:
+
+1. The Trump administration’s appeal in V.O.S. Selections, Inc. v. United States is denied, in whole or in part
+
+2. U.S. importers receive refunds of at least some tariffs invalidated by the May 28, 2025 ruling, where such refunds occur as a consequence of the denial, in whole or in part, of the Trump administration’s appeal.
+
+Otherwise, this market will resolve to "No".
+
+Announcements, court orders, or plans to issue refunds will not be sufficient for resolution unless actual refunds are issued within the market timeframe.
+
+For purposes of this market, a “refund” includes direct payments, credits, or offsets issued to importers by U.S. Customs and Border Protection or the U.S. Treasury reflecting repayment of previously collected tariffs.
+
+If the appeal is fully upheld and no refunds are issued, this market will resolve to “No”.
+
+The primary resolution source will be official government or court information, or a consensus of credible reporting.
+Contracts:
+  E9.C1: Will the Court Force Trump to Refund Tariffs?
+
+=== E10: Strait of Hormuz traffic returns to normal by end of May?
+Rules:
+This market will resolve to “Yes” if IMF Portwatch publishes a 7-day moving average of transit calls (“Arrivals of Ships”) for the Strait of Hormuz equal to or above 60 for any date between market creation and May 31, 2026. Otherwise, this market will resolve to “No”.
+
+Daily transit calls include container, dry bulk, roll-on/roll-off, general cargo, and tanker ships. Ships not reported by IMF Portwatch will not be considered.
+
+This market will resolve as soon as IMF Portwatch publishes a 7-day moving average of transit calls equal to or above the specified level, or once data has been published for the final date in the specified period and no such value has been published. If no data has been published for the final date of the specified period within 14 calendar days (ET) after the end of that period, this market will resolve based on data published up to that point.
+
+Revisions to previously published data points made within this market’s timeframe will be considered. However, they will not disqualify a previously published data point from qualifying. Revisions to previously published data points after data is published for May 31, 2026, however, will not be considered.
+
+In case of obvious data integrity issues (i.e., erroneous data), the market may remain open until the end of the third calendar day (ET) after the date on which such data is first released to allow for corrections. Data integrity issues refer only to clerical or other similar errors in the underlying data, and do not include cases where IMF Portwatch differs from alternative sources.
+
+The resolution source for this market will be IMF Portwatch, specifically the transit calls data published for the Strait of Hormuz at https://portwatch.imf.org/pages/cb5856222a5b4105adc6ee7e880a1730, both in the chart and through downloadable files.
+Contracts:
+  E10.C1: Strait of Hormuz traffic returns to normal by end of May?

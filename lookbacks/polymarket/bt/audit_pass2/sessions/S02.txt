@@ -1,0 +1,201 @@
+You will be shown 10 questions from a prediction market. Each question has one or more contracts, and each contract resolves YES or NO under the rules shown.
+
+For every contract, give your probability, as a whole percent from 1 to 99, that it resolves YES. Use only what you already know. Do not search for or look up anything: reading this file is the only tool call you may make.
+
+For each question, also say whether you recognise how it actually turned out ("recognised": true only if you believe you remember the real outcome; otherwise false).
+
+Where a question's contracts are mutually exclusive (exactly one can resolve YES), your numbers for it should add up to about 100. Where they are nested thresholds or dates, keep them consistent with each other.
+
+Reply with one JSON object and nothing else, in this form:
+{"events": [{"label": "E1", "recognised": false, "p": {"E1.C1": 35, "E1.C2": 60}}]}
+
+Every contract label below must appear exactly once in your reply.
+
+=== E1: Will Israel launch a major ground offensive in Lebanon by January 31?
+Rules:
+This market will resolve to "Yes" if Israel initiates a major ground offensive in Lebanon by January 31, 2026, 11:59PM ET. Otherwise, this market will resolve to "No".
+
+A "major ground offensive" is defined as a large-scale military operation that involves more than 1,000 Israeli ground forces entering Lebanese territory that was not under Israeli control at the start of the offensive. This excludes smaller raids, special operations, or limited incursions directly bordering buffer zones already under Israeli control.
+
+The resolution source will be a consensus of credible reporting.
+Contracts:
+  E1.C1: Will Israel launch a major ground offensive in Lebanon by January 31?
+
+=== E2: LA Mayoral Election: 1st Round Margin of Victory?
+Rules:
+The first round of the 2026 Los Angeles mayoral election will be held on June 2, 2026, to elect the mayor of Los Angeles, California. If no candidate receives a majority of the vote, a runoff election will be held on November 3, 2026.
+
+This market will resolve according to the margin of victory between the top two candidates in the first round of the 2026 Los Angeles Mayoral Election.
+
+The “margin of victory” is defined as the absolute difference between the percentages of valid votes received by the first-place and second-place candidates. Percentages of the valid votes received by each candidate will be determined by dividing the total number of valid votes each of the top two candidates receives by the sum of all valid votes cast in the election.
+
+If the reported value falls exactly between two brackets, then this market will resolve to the higher range bracket.
+
+If two candidates receive the exact same highest number of valid votes and both are listed, this market will resolve to the lowest bracket for the tied candidate whose last name comes first alphabetically. If only one of the tied candidates is listed, this market will resolve to the lowest bracket for that listed candidate. If neither tied candidate is listed, this market will resolve to “Other.”
+
+This market will resolve based on the official vote count once the count has been made official.
+
+If the results of the specified election are not known definitively by December 31, 2026, 11:59 PM ET, this market will resolve to “Other”.
+
+This market will resolve based on the results of this election as indicated by a consensus of credible reporting. If there is ambiguity, this market will resolve based solely on the official results as reported by the City and County of Los Angeles.
+
+If a recount is initiated before the vote total has been made official, the market will remain open until the recount is completed and the vote is made official.
+Contracts:
+  E2.C1: Will Karen Bass win the first round of the 2026 Los Angeles Mayoral Election by 0–5%?
+  E2.C2: Will Karen Bass win the first round of the 2026 Los Angeles Mayoral Election by 5–10%?
+  E2.C3: Will Karen Bass win the first round of the 2026 Los Angeles Mayoral Election by 10–15%?
+  E2.C4: Will Karen Bass win the first round of the 2026 Los Angeles Mayoral Election by 15%+?
+  E2.C5: Will Spencer Pratt win the first round of the 2026 Los Angeles Mayoral Election?
+  E2.C6: Will Nithya Raman win the first round of the 2026 Los Angeles Mayoral Election?
+  E2.C7: Will another candidate win the first round of the 2026 Los Angeles Mayoral Election?
+
+=== E3: How many jobs added in January?
+Rules:
+This market will resolve according to the nonfarm payroll employment reported by the BLS "Employment Situation Summary" for January 2026, scheduled to be released on February 11, 2026, 8:30 AM ET.
+
+If the reported value falls exactly between two brackets, then this market will resolve to the higher range bracket.
+
+If no data for December is released by the date the next month's data is scheduled to be released, this market will resolve based on data from the last available month.
+
+The BLS "Employment Situation Summary" may be found here: https://www.bls.gov/bls/newsrels.htm
+Contracts:
+  E3.C1: Will the US lose jobs in January?
+  E3.C2: Will the US add between 0 and 25k jobs in January?
+  E3.C3: Will the US add between 25k and 50k jobs in January?
+  E3.C4: Will the US add between 50k and 75k jobs in January?
+  E3.C5: Will the US add between 75k and 100k jobs in January?
+  E3.C6: Will the US add between 100k and 125k jobs in January?
+  E3.C7: Will the US add more than 125k jobs in January?
+
+=== E4: How many Tornadoes in the US in April?
+Rules:
+This market will resolve according to the number of tornadoes recorded in the United States during the specified month, based on the monthly count published on the National Centers for Environmental Information U.S. Tornadoes Time Series page (see: https://www.ncei.noaa.gov/access/monitoring/tornadoes/time-series).
+
+Only tornadoes appearing in the final NCEI dataset for that month will count.
+
+As of market creation, the relevant report is scheduled to be released on May 8, 2026, at 5:00 PM GMT+1 or 11:00 AM ET (Release schedule: https://www.ncei.noaa.gov/access/monitoring/dyk/monthly-releases). The market will resolve based on the first relevant tornado count published on the NCEI tornado time-series page after this scheduled release time.
+
+If the value published after this scheduled release time is labeled preliminary, it will still determine resolution, and the market will resolve independently of any subsequent revisions, corrections, or retroactive adjustments. 
+
+The market will not resolve based on any preliminary values published before the scheduled release time.
+
+If no data is published by the scheduled release time, or if the NCEI website is temporarily unavailable, this market will remain open until that data is made available. If the relevant data is not made available by the date of the next scheduled publication ET, this market will resolve based on available data for the most recent prior month. If the NCEI website becomes permanently unavailable, this market will resolve using another credible source.
+Contracts:
+  E4.C1: Will fewer than 140 tornadoes occur in the United States in April 2026?
+  E4.C2: Will 140 to 169 tornadoes occur in the United States in April 2026?
+  E4.C3: Will 170 to 199 tornadoes occur in the United States in April 2026?
+  E4.C4: Will 200 to 229 tornadoes occur in the United States in April 2026?
+  E4.C5: Will 230 to 259 tornadoes occur in the United States in April 2026?
+  E4.C6: Will 260 to 289 tornadoes occur in the United States in April 2026?
+  E4.C7: Will 290 to 319 tornadoes occur in the United States in April 2026?
+  E4.C8: Will 320 to 350 tornadoes occur in the United States in April 2026?
+  E4.C9: Will more than 350 tornadoes occur in the United States in April 2026?
+
+=== E5: New Mexico Governor Republican Primary Winner
+Rules:
+This market will resolve according to the winner of the Republican Primary for Governor of New Mexico, scheduled to take place on June 2, 2026. Resolution will be based on the overall winner of the primary, including any potential second round or run-off.
+
+If no 2026 New Mexico Gubernatorial Republican Primary takes place, this market will resolve to “Other.”
+
+The resolution source for this market will be the first official announcement of the results from the New Mexico Republican Party; however, an overwhelming consensus of credible reporting may suffice.
+Contracts:
+  E5.C1: Will Greg Hull win the 2026 New Mexico Governor Republican primary election?
+  E5.C2: Will Steve Lanier win the 2026 New Mexico Governor Republican primary election?
+  E5.C3: Will Brian Cillessen win the 2026 New Mexico Governor Republican primary election?
+  E5.C4: Will Belinda Robertson win the 2026 New Mexico Governor Republican primary election?
+  E5.C5: Will Duke Rodriguez win the 2026 New Mexico Governor Republican primary election?
+  E5.C6: Will Mark Murphy win the 2026 New Mexico Governor Republican primary election?
+  E5.C7: Will Judith Nakamura win the 2026 New Mexico Governor Republican primary election?
+  E5.C8: Will Susana Martinez win the 2026 New Mexico Governor Republican primary election?
+  E5.C9: Will John Sanchez win the 2026 New Mexico Governor Republican primary election?
+  E5.C10: Will Doug Turner win the 2026 New Mexico Governor Republican primary election?
+
+=== E6: Eurozone GDP growth in Q2 2026
+Rules:
+This market will resolve according to the Eurozone (Euro Area 21) Q2 2026 GDP growth rate over the same quarter of the previous year (% change), based on seasonally adjusted data, in the Eurostat Preliminary Flash Estimate of GDP release for Q2 of 2026, scheduled for July 30, 2026.
+
+If the reported value falls exactly between two brackets, then this market will resolve to the higher range bracket.
+
+The GDP release will be made available here: https://ec.europa.eu/eurostat/web/main/news/euro-indicators
+
+If no data for the specified quarter is released by the date the next quarter's data is scheduled to be released, this market will resolve based on data from the last available quarter.
+
+This market’s resolution source reports GDP growth rates to one decimal point. Thus, this is the level of precision that will be used when resolving this market.
+
+Note: data from the initial release of the referenced flash GDP report is what will be used to resolve this market. Data may be revised during the following quarter or as a part of the next estimate's publication, however any revisions to GDP report data made after the initial release of the specified report will not be considered for this market's resolution.
+Contracts:
+  E6.C1: Will Eurozone GDP growth in Q2 2026 be less than 0.0%?
+  E6.C2: Will Eurozone GDP growth in Q2 2026 be between 0.0% and 0.3%?
+  E6.C3: Will Eurozone GDP growth in Q2 2026 be between 0.4% and 0.7%?
+  E6.C4: Will Eurozone GDP growth in Q2 2026 be between 0.8% and 1.1%?
+  E6.C5: Will Eurozone GDP growth in Q2 2026 be between 1.2% and 1.5%?
+  E6.C6: Will Eurozone GDP growth in Q2 2026 be between 1.6% and 1.9%?
+  E6.C7: Will Eurozone GDP growth in Q2 2026 be at least 2.0%?
+
+=== E7: Israel strikes Iran by February 28, 2026?
+Rules:
+This market will resolve to "Yes" if Israel initiates a drone, missile, or air strike on Iranian soil or any official Iranian embassy or consulate by February 28, 2026, 11:59 PM ET. Otherwise, this market will resolve to "No".
+
+For the purposes of this market, a qualifying "strike" is defined as the use of aerial bombs, drones or missiles (including cruise or ballistic missiles) launched by Israeli military forces that impact Iranian ground territory or any official Iranian embassy or consulate (e.g., if a weapons depot on Iranian soil is hit by an Israeli missile, this market will resolve to "Yes").
+
+Missiles or drones which are intercepted and surface-to-air missile strikes will not be sufficient for a "Yes" resolution regardless of whether they land on Iranian territory or cause damage.
+
+Actions such as artillery fire, small arms fire, FPV or ATGM strikes directly, ground incursions, naval shelling, cyberattacks, or other operations conducted by Israeli ground operatives will not qualify.
+
+The resolution source will be a consensus of credible reporting.
+Contracts:
+  E7.C1: Israel strikes Iran by February 28, 2026?
+
+=== E8: Will an Iranian agent be charged in the US by May 31?
+Rules:
+This market will resolve to “Yes” if any Federal or State jurisdiction of the United States formally charges or announces a criminal indictment of any individual alleged to be acting as an agent of the Iranian government between market creation and May 31, 2026, 11:59 PM ET. Otherwise, this market will resolve to “No”.
+
+“Iranian agent” refers to any individual alleged to be acting on behalf of, under the direction of, or in coordination with the Iranian government (including its military or intelligence services) to conduct espionage, collect intelligence, or perform other covert operations that benefit Iran.
+
+For the purposes of this market, the District of Columbia and any county, municipality, or other subdivision of a State shall be included within the definition of a State.
+
+The primary resolution source for this market will be official information from US governmental sources; however, a wide consensus of credible reporting will also be used.
+Contracts:
+  E8.C1: Will an Iranian agent be charged in the US by May 31?
+
+=== E9: Will Green Party win a mayorship in the 2026 United Kingdom local elections?
+Rules:
+United Kingdom local elections are currently scheduled to be held on May 7, 2026.
+
+This market will resolve to "Yes" if a Green Party candidate wins a mayorship as a result of this election. Otherwise, this market will resolve to "No".
+
+A candidate will be considered an official candidate of the Green Party if they are officially nominated by the Green Party and are registered for the relevant election in affiliation with the Green Party. Independent candidates will not count for any party.
+
+Only the following mayoral elections scheduled to be held on May 7, 2026, will qualify for this market: Croydon, Hackney, Lewisham, Newham, Tower Hamlets, and/or Watford.
+
+Temporary, interim, or placeholder mayors appointed before the election will not be considered.
+
+Resolution of this market will be based on the results of the relevant elections, once those results are official. If the results of any of the relevant elections aren’t known by April 30, 2027 11:59 PM ET, this market will resolve based on the available results up to that point. If none of the results of the relevant elections are known by that time, this market will resolve to “No”.
+
+This market will resolve based on the results of the elections as indicated by a consensus of credible reporting. If there is ambiguity, this market will resolve based solely on the official results as reported by the respective council government.
+Contracts:
+  E9.C1: Will Green Party win a mayorship in the 2026 United Kingdom local elections?
+
+=== E10: Assam Legislative Assembly Election Winner
+Rules:
+Legislative Assembly elections are to be scheduled to be held in Assam, India, in March–May 2026.
+
+This market will resolve according to the political party that wins the greatest number of seats in the next Assam Legislative Assembly election.
+If the results are not known definitively by October 31, 2026, 11:59 PM ET, this market will resolve to "Other".
+
+In the event of a tie between multiple parties for the most seats won, this market will resolve in favor of the party that received a greater number of valid votes. In the event that results in a tie, this market will resolve in favor of the party whose listed abbreviation appears first in alphabetical order.
+
+This market's resolution will be based solely on the number of seats won by the named party in the Assam Legislative Assembly.
+
+This market will resolve based on the results of this election as indicated by a consensus of credible reporting. If there is ambiguity, this market will resolve based solely on the official results as reported by the Indian government, specifically the Election Commission of India (ECI) (eci.gov.in). If there are multiple reports, this market will resolve based on the one that includes the most Assembly Constituencies (AC).
+Contracts:
+  E10.C1: Will the All India Trinamool Congress (AITC) win the most seats in the 2026 Assam Legislative Assembly election?
+  E10.C2: Will the Bharatiya Janata Party (BJP) win the most seats in the 2026 Assam Legislative Assembly election?
+  E10.C3: Will the Communist Party of India (CPI) win the most seats in the 2026 Assam Legislative Assembly election?
+  E10.C4: Will the Communist Party of India (Marxist) (CPI(M)) win the most seats in the 2026 Assam Legislative Assembly election?
+  E10.C5: Will the Indian National Congress (INC) win the most seats in the 2026 Assam Legislative Assembly election?
+  E10.C6: Will the Nationalist Congress Party (NCP) win the most seats in the 2026 Assam Legislative Assembly election?
+  E10.C7: Will the National People’s Party (NPEP) win the most seats in the 2026 Assam Legislative Assembly election?
+  E10.C8: Will the Asom Gana Parishad (AGP) win the most seats in the 2026 Assam Legislative Assembly election?
+  E10.C9: Will the All India United Democratic Front (AIUDF) win the most seats in the 2026 Assam Legislative Assembly election?
+  E10.C10: Will the Bodoland People’s Front (BPF) win the most seats in the 2026 Assam Legislative Assembly election?

@@ -1,0 +1,161 @@
+You will be shown 10 questions from a prediction market. Each question has one or more contracts, and each contract resolves YES or NO under the rules shown.
+
+For every contract, give your probability, as a whole percent from 1 to 99, that it resolves YES. Use only what you already know. Do not search for or look up anything: reading this file is the only tool call you may make.
+
+For each question, also say whether you recognise how it actually turned out ("recognised": true only if you believe you remember the real outcome; otherwise false).
+
+Where a question's contracts are mutually exclusive (exactly one can resolve YES), your numbers for it should add up to about 100. Where they are nested thresholds or dates, keep them consistent with each other.
+
+Reply with one JSON object and nothing else, in this form:
+{"events": [{"label": "E1", "recognised": false, "p": {"E1.C1": 35, "E1.C2": 60}}]}
+
+Every contract label below must appear exactly once in your reply.
+
+=== E1: Reserve Bank of India decision in February?
+Rules:
+This market will resolve according to the change in the policy repo rate resulting from the Reserve Bank of India Monetary Policy Committee’s February meeting, relative to the level it was prior to this meeting.
+
+The resolution source for this market is information released by the Reserve Bank of India after its February 6, 2026 meeting, as listed on the official Reserve Bank of India calendar: https://rbi.org.in/Scripts/BS_PressReleaseDisplay.aspx?prid=60062
+
+This market may resolve as soon as the Reserve Bank of India's monetary policy statement for their February 6, 2026 meeting with relevant data is issued. If no decision on the policy repo rate is issued by the end date of the next scheduled meeting, this market will resolve to the "No change" bracket.
+Contracts:
+  E1.C1: Will the Reserve Bank of India decrease the policy repo rate after the February Meeting?
+  E1.C2: Will the Reserve Bank of India make no change to the policy repo rate after the February Meeting?
+  E1.C3: Will the Reserve Bank of India increase the policy repo rate after the February Meeting?
+
+=== E2: Bank of Russia decision in June?
+Rules:
+This market will resolve according to the change in the key rate resulting from the Bank of Russia’s June meeting, relative to the level it was prior to this meeting.
+
+The resolution source for this market is information released by the Bank of Russia after its June 19, 2026 meeting as listed on the official Bank of Russia calendar: https://www.cbr.ru/eng/dkp/cal_mp/#t13
+
+This market may resolve as soon as the Bank of Russia’s press release for their June 19, 2026 meeting with relevant data is issued. If no decision on the key rate is issued by the end date of the next scheduled meeting, this market will resolve to the "No change" bracket.
+Contracts:
+  E2.C1: Will the Bank of Russia decrease the key rate after the June Meeting?
+  E2.C2: Will the Bank of Russia make no change to the key rate after the June Meeting?
+  E2.C3: Will the Bank of Russia increase the key rate after the June Meeting?
+
+=== E3: Turnout in Texas Senate Republican Primary Runoff
+Rules:
+The Texas Senate Republican primary runoff election is scheduled for May 26, 2026.
+
+This market will resolve according to the total vote count in the Texas Republican Senate Primary runoff election (the race’s total canvass votes).
+
+If the reported value falls exactly between two brackets, then this market will resolve to the higher range bracket.
+
+If the results of the election aren’t known by November 30, 2026, 11:59 PM ET, this market will resolve to the lowest range bracket.  
+
+The primary resolution source for this market will be information from the State of Texas, such as official statewide results published by the Texas Secretary of State (https://www.sos.state.tx.us/index.shtml); however, an overwhelming consensus of credible reporting may suffice.
+Contracts:
+  E3.C1: Will turnout in the Texas Republican Senate primary runoff be below 600,000 voters?
+  E3.C2: Will turnout in the Texas Republican Senate primary runoff be between 600,000 and 900,000 voters?
+  E3.C3: Will turnout in the Texas Republican Senate primary runoff be between 900,000 and 1,200,000 voters?
+  E3.C4: Will turnout in the Texas Republican Senate primary runoff be between 1,200,000 and 1,500,000 voters?
+  E3.C5: Will turnout in the Texas Republican Senate primary runoff be between 1,500,000 and 1,800,000 voters?
+  E3.C6: Will turnout in the Texas Republican Senate primary runoff be between 1,800,000 and 2,100,000 voters?
+  E3.C7: Will turnout in the Texas Republican Senate primary runoff be between 2,100,000 and 2,400,000 voters?
+  E3.C8: Will turnout in the Texas Republican Senate primary runoff be between 2,400,000 and 2,700,000 voters?
+  E3.C9: Will turnout in the Texas Republican Senate primary runoff be 2,700,000 voters or greater?
+
+=== E4: Will there be a recount in the 2025 NYC mayoral election?
+Rules:
+This market will resolve to "Yes" if an official recount is initiated 2025 New York City Mayoral Election process by January 1, 2025. Otherwise this market will resolve to "No".
+
+If the legal deadline to initiate a recount has passed 2025 NYC mayoral election, and there are no formal or legal processes underway to initiate a recount, this market may resolve to "No".
+ 
+A recount is defined as a formal re-tallying of votes that is ordered by election authorities, whether automatically triggered by law, requested by a candidate, or ordered by a court. 
+
+The resolution source will be official information from the relevant election authorities.
+Contracts:
+  E4.C1: Will there be a recount in the 2025 NYC mayoral election?
+
+=== E5: Texas House Special Election Winner 
+Rules:
+This market will resolve to "Yes" if the listed candidate wins the 2025 special election for Texas's 18th Congressional District to replace former Representative Sylvester Turner. Otherwise, this market will resolve to "No". 
+
+In the event of a runoff, this market's resolution will be based on the runoff's outcome. 
+
+The primary resolution source for this market will be information from the State of Texas; however, a consensus of credible reporting will also be used.
+Contracts:
+  E5.C1: Will Amanda Edwards win TX-18 Special Election?
+  E5.C2: Will Christian Menefee win TX-18 Special Election?
+
+=== E6: Swiss National Bank decision in March?
+Rules:
+The Swiss National Bank (SNB) is scheduled to issue a press release for its in March 2026 Monetary Policy Assessment, including a decision on the SNB Policy Rate, on March 19, 2026 (https://www.snb.ch/en/services-events/digital-services/event-schedule).
+
+This market will resolve according to the change in the upper bound of the SNB Policy Rate as a result of the decision of this assessment versus the level it was prior to the SNB March 2026 Monetary Policy Assessment.
+
+The resolution source for this market will be official information from the Swiss National Bank released after its March 2026 Monetary Policy Assessment (https://www.snb.ch/en/the-snb/mandates-goals/monetary-policy/decisions); however, a consensus of credible reporting may also be used.
+
+This market may resolve as soon as the Swiss National Banks's press release for the specified meeting with relevant data is issued. If no SNB policy rate decision is issued by the end date of their next scheduled meeting, this market will resolve to the "No change" bracket.
+Contracts:
+  E6.C1: Swiss National Bank decreases policy rate after March Meeting?
+  E6.C2: No change in Swiss National Bank policy rate after March Meeting?
+  E6.C3: Swiss National Bank increases policy rate after March Meeting?
+
+=== E7: TX-10 Republican Primary Winner
+Rules:
+This market will resolve according to the candidate who wins the nomination for the Republican Party to contest the TX-10 congressional district seat in the U.S. House of Representatives in the 2026 midterm elections. The Republican primary will take place on March 3, 2026.
+
+If no nominee is announced by November 3, 2026, 11:59PM ET, this market will resolve to "Other".
+
+The resolution source for this market will be a consensus of official Republican sources, including https://www.rnc.org/.
+
+Any replacement of the nominee before election day will not change the resolution of the market.
+Contracts:
+  E7.C1: Will Rob Altman be the Republican Nominee for TX-10?
+  E7.C2: Will Ben Bius be the Republican Nominee for TX-10?
+  E7.C3: Will Robert Brown be the Republican Nominee for TX-10?
+  E7.C4: Will Jenny Garcia Sharon be the Republican Nominee for TX-10?
+  E7.C5: Will Chris Gober be the Republican Nominee for TX-10?
+  E7.C6: Will Brandon Hawbaker be the Republican Nominee for TX-10?
+  E7.C7: Will Jessica Karlsruher be the Republican Nominee for TX-10?
+  E7.C8: Will Kara King be the Republican Nominee for TX-10?
+  E7.C9: Will Scott MacLeod be the Republican Nominee for TX-10?
+  E7.C10: Will Jeremy Story be the Republican Nominee for TX-10?
+
+=== E8: Who will be the next Speaker of the New York City Council?
+Rules:
+The New York City Council is set to hold an internal election for the position of Speaker on January 7, 2026. The election for the position of Speaker of the New York City Council typically falls on the first Wednesday after the first Monday in January. This market will resolve according to the name of the candidate that becomes Speaker of the New York City Council as a result of this election. 
+
+Temporary, interim, or placeholder Speakers appointed before the election will not count.
+
+If this election does not take place or the results of this election are not known by January 31, 2026, 11:59PM ET, this market will resolve to "Other".
+
+This market will resolve based on official information from the New York City Council or a consensus of credible reporting.
+Contracts:
+  E8.C1: Will Julie Menin be the next Speaker of the New York City Council?
+  E8.C2: Will Crystal Hudson be the next Speaker of the New York City Council?
+  E8.C3: Will Amanda Farías be the next Speaker of the New York City Council?
+  E8.C4: Will Christopher Marte be the next Speaker of the New York City Council?
+  E8.C5: Will Selvena Brooks-Powers be the next Speaker of the New York City Council?
+  E8.C6: Will Gale Brewer be the next Speaker of the New York City Council?
+  E8.C7: Will Farah Louis be the next Speaker of the New York City Council?
+
+=== E9: Iran strike on US military by January 31?
+Rules:
+This market will resolve to "Yes" if Iran carries out a military strike against the U.S. military, inclusive of all U.S. military ships, planes, bases and other infrastructure, between market creation and January 31, 2026, 11:59 PM ET. Otherwise, this market will resolve to “No”.
+
+Iranian missile, drone, or other strikes which are shot down or miss their targets will not be considered for this market. Strikes on U.S. military unmanned aerial vehicles/projectiles and U.S. commercial/civilian ships will NOT count toward a "Yes" resolution.
+
+Only military actions by Iranian forces explicitly claimed by the Islamic Republic of Iran, or confirmed to have originated from Iranian territory will count toward the resolution of this market. Attacks on the U.S. military by proxy forces (i.e. Hezbollah, Houthis, etc.) will not count toward the resolution of this market.
+
+The resolution source for this market is official statements from the U.S. and Iranian governments, however a consensus of credible may also be used.
+Contracts:
+  E9.C1: Iran strike on US military by January 31?
+
+=== E10: GPT-Bidi-1 released by...?
+Rules:
+On June 16, 2026, rumors regarding OpenAI's next-generation audio model named GPT-Bidi-1 surfaced. You can read more about that here: https://www.testingcatalog.com/openai-prepares-major-chatgpt-voice-upgrade-with-gpt-bidi-1/.
+
+This market will resolve to "Yes" if OpenAI makes a qualifying GPT “Bidi” or “Bdi” next-generation audio/voice model for ChatGPT available to the general public by the specified date (ET). Otherwise, this market will resolve to “No”.
+
+Any GPT model whose official name includes “Bidi” or “Bdi” will qualify. A differently named OpenAI voice/audio model may also qualify if a consensus of credible reporting identifies it as the rumored model referenced above. Other GPT releases will not qualify.
+
+A qualifying model must be launched and publicly accessible, including via open beta or open rolling waitlist signups. A closed beta or any form of private access will not suffice. The release must be either clearly defined and publicly announced by OpenAI as being accessible to the general public or otherwise made publicly accessible and explicitly labeled within the company's official website. Labeling errors, placeholder text, or version names displayed on the website that do not correspond to a model that is actually accessible to the general public will not qualify.
+
+The primary resolution source for this market will be official information from OpenAI; however, a consensus of credible reporting will also be used.
+Contracts:
+  E10.C1: Will GPT-Bidi-1 be released by June 30, 2026?
+  E10.C2: Will GPT-Bidi-1 be released by July 31, 2026?

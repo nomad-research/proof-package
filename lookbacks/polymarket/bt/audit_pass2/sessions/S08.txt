@@ -1,0 +1,211 @@
+You will be shown 10 questions from a prediction market. Each question has one or more contracts, and each contract resolves YES or NO under the rules shown.
+
+For every contract, give your probability, as a whole percent from 1 to 99, that it resolves YES. Use only what you already know. Do not search for or look up anything: reading this file is the only tool call you may make.
+
+For each question, also say whether you recognise how it actually turned out ("recognised": true only if you believe you remember the real outcome; otherwise false).
+
+Where a question's contracts are mutually exclusive (exactly one can resolve YES), your numbers for it should add up to about 100. Where they are nested thresholds or dates, keep them consistent with each other.
+
+Reply with one JSON object and nothing else, in this form:
+{"events": [{"label": "E1", "recognised": false, "p": {"E1.C1": 35, "E1.C2": 60}}]}
+
+Every contract label below must appear exactly once in your reply.
+
+=== E1: Will RTX (RTX) Q2 Pratt & Whitney sales be above __?
+Rules:
+This market will resolve to "Yes" if RTX's Pratt & Whitney sales for the upcoming second fiscal quarter, as reported in its official company earnings materials, is above the listed amount. Otherwise, this market will resolve to "No".
+
+The specified metric will be considered as reported in the company's official earnings materials. Subsequent revisions will not be considered.
+
+If the specified company's official earnings materials for the specified quarter are released, and the specified metric is not included, this market will resolve to "No".
+
+If the specified company does not release quarterly earnings materials for the specified quarter by August 31, 2026, 11:59 PM ET, this market will resolve to "No".
+
+If the specified metric is reported as a range rather than a specific number, the midpoint of the range will be used for resolution of this market.
+
+The resolution source for this market is the specified company's official company earnings materials, including press releases, investor presentations, and regulatory filings. If the specified metric is not reported in these materials, recordings or transcripts of the company's earnings webcast may also be used.
+
+Note: This market will resolve based on the most numerically precise version of the specified metric reported in the company's official earnings materials. Only the specified metric will be considered; alternate versions that differ in definition or scope from the specified metric will not be considered.
+Contracts:
+  E1.C1: Will RTX (RTX) Q2 Pratt & Whitney sales be above $7.5B?
+  E1.C2: Will RTX (RTX) Q2 Pratt & Whitney sales be above $8B?
+  E1.C3: Will RTX (RTX) Q2 Pratt & Whitney sales be above $8.5B?
+  E1.C4: Will RTX (RTX) Q2 Pratt & Whitney sales be above $9B?
+  E1.C5: Will RTX (RTX) Q2 Pratt & Whitney sales be above $9.5B?
+
+=== E2: Nebraska Republican Senate Primary Winner
+Rules:
+This market will resolve according to the winner of the Republican Primary for United States Senator from Nebraska.
+
+If no 2026 Nebraska Republican Senate Primary takes place, this market will resolve to "Other".
+
+The resolution source for this market will be the first announcement of the results from the Nebraska Republican party, however an overwhelming consensus of credible reporting may suffice.
+Contracts:
+  E2.C1: Will Pete Ricketts be the Republican nominee for Senate in Nebraska?
+  E2.C2: Will Edward Dunn be the Republican nominee for Senate in Nebraska?
+
+=== E3: Farrer By-Election Winner
+Rules:
+A by-election for the seat of Farrer in the Australian House of Representatives is expected to take place on May 9, 2026.
+
+This market will resolve according to the candidate who wins the by-election for the seat of Farrer in the Australian House of Representatives.
+
+If voting does not take place in this election or the election results are not definitively known by March 31, 2027, 11:59 PM ET, this market will resolve to "Other".
+
+The resolution source for this market will be a consensus of credible reporting. In case of ambiguity, this market will resolve solely based on the official election results published by the Australian Government, specifically the Australian Electoral Commission (AEC) (https://www.aec.gov.au/).
+Contracts:
+  E3.C1: Will Michelle Milthorpe win the by-election for the seat of Farrer in the Australian House of Representatives?
+  E3.C2: Will Rebecca Scriven win the by-election for the seat of Farrer in the Australian House of Representatives?
+  E3.C3: Will Helen Dalton win the by-election for the seat of Farrer in the Australian House of Representatives?
+  E3.C4: Will Raissa Butkowski win the by-election for the seat of Farrer in the Australian House of Representatives?
+  E3.C5: Will David Farley win the by-election for the seat of Farrer in the Australian House of Representatives?
+
+=== E4: Han Duck-soo Prison Time?
+Rules:
+Former South Korean Prime Minister Han Duck-soo is scheduled to be sentenced on January 21, 2026 in his criminal case including charges of aiding an insurrection and perjury, among other charges, related to his involvement in Yoon Suk Yeol’s martial law declaration in 2024. You can read more about that here: https://www.reuters.com/world/asia-pacific/south-korea-special-prosecutor-seeks-15-year-jail-term-ex-pm-han-martial-law-2025-11-26/.
+
+This market will resolve according to the prison sentence, if any, imposed on former South Korean Prime Minister Han Duck-soo in this martial-law related criminal trial by April 30, 2026, 11:59 PM ET.
+
+This market will resolve immediately based on the first sentence rendered in this case, regardless of any appeals. If Han Duck-soo is found not guilty, there is a mistrial, or the first sentencing does not include any jail or prison time, this market will resolve to "No Prison Time." If Han Duck-soo is sentenced to life in prison, this market will resolve to the highest bracket.
+
+If no sentencing takes place by April 30, 2026, 11:59 PM ET, this market will also resolve to "No Prison Time."
+
+It does not matter whether the sentence is concurrent or consecutive to any existing sentence Han Duck-soo is already serving. The market will resolve based on the total prison sentence imposed in this case.
+
+If the sentence falls exactly between two brackets, then this market will resolve to the higher range bracket.
+
+The primary resolution source for this market will be official information from the South Korean government and court system; however a consensus of credible reporting may also be used.
+Contracts:
+  E4.C1: Will Han Duck Soo be sentenced to no prison time?
+  E4.C2: Will Han Duck Soo be sentenced to 0–5 years in prison?
+  E4.C3: Will Han Duck Soo be sentenced to 5–10 years in prison?
+  E4.C4: Will Han Duck Soo be sentenced to 10–15 years in prison?
+  E4.C5: Will Han Duck Soo be sentenced to 15–20 years in prison?
+  E4.C6: Will Han Duck Soo be sentenced to at least 20 years in prison?
+
+=== E5: People's Bank of China rate change in May?
+Rules:
+This market will resolve according to the first change made to the People’s Bank of China (PBoC) 7-day reverse repo rate between May 1 and May 31, 2026, 11:59 PM China Standard Time (CST).
+
+An “increase” refers to any change in the 7-day reverse repo rate to a level higher than the most recent effective 7-day reverse repo rate.
+
+A “decrease” refers to any change in the 7-day reverse repo rate to a level lower than the most recent effective 7-day reverse repo rate.
+
+If the People’s Bank of China does not change the 7-day reverse repo rate by May 31, 2026, 11:59 PM China Standard Time, this market will resolve to the “No Change” bracket.
+
+An official announcement of a change to the PBoC 7-day Reverse Repo Rate within this market’s timeframe will be sufficient to resolve this market, regardless of when the rate change is stated to go into effect.
+
+The primary resolution source for this market will be official information from the People’s Bank of China, including PBoC Open Market Operations announcements (https://www.pbc.gov.cn/en/3688110/3688181/index.html); however, a consensus of credible reporting on a change to the 7-day reverse repo rate may also be used.
+Contracts:
+  E5.C1: Will the People’s Bank of China increase rates in May?
+  E5.C2: Will the People’s Bank of China not change rates in May?
+  E5.C3: Will the People’s Bank of China decrease rates in May?
+
+=== E6: Will Russia capture all of Rodynske again by...?
+Rules:
+This market will resolve to “Yes” if, according to the ISW map, Russia captures the entirety of Rodynske, Donetsk Oblast, (48.351463° N, 37.207979° E) between market creation and June 30, 2026, 11:59 PM ET.
+
+Rodynske will be considered captured if the entirety of the municipality is shaded red on the ISW map (https://storymaps.arcgis.com/stories/36a7f6a6f5a9448496de641cf64bd375) by the resolution date. If the area is not shaded red by June 30, 2026, 11:59 PM ET, the market will resolve to “No”.
+
+For any change on the ISW map to qualify for this market’s resolution, the relevant shading indicating Russian control must persist through the next full ISW daily update cycle. If ISW skips a day, shading must persist until the next finalized ISW update is published, regardless of the date. Any continuous shading which reflects either “Assessed Russian Control”, “Assessed Russian Advance In Ukraine”, or “Assessed Russian Gains in the Past 24 Hours” will qualify. “Assessed Russian Infiltration Areas in Ukraine” will not qualify.
+
+The territory of the municipality is shaded in light grey and is distinguished from bordering municipalities with a darker grey line. If all area within the municipality is shaded in red, however, the shading does not precisely match up with the border such that there is a tiny amount of grey along the border of the city, this will still qualify for a "Yes" resolution.
+
+Once Russia captures the entirety of Rodynske, any subsequent loss of control will not be considered towards the resolution of this market.
+
+Location on Google maps: https://maps.app.goo.gl/inyaBPNNyVocH72e8
+
+The primary resolution source for this market will be the ISW Ukraine map. If the ISW map is rendered unavailable, information from DeepStateMap (https://deepstatemap.live/) may be used. If information from both the ISW and DeepStateMap are rendered permanently unavailable, a consensus of credible reporting may be used.
+
+Note: Any temporary glitches or errors in the map which will not be considered.
+
+If Russia comes into control of this territory as a result of a negotiated settlement, this will qualify for a 'Yes' resolution, regardless of if it is shaded red in the ISW map. An announcement of a negotiated settlement which gives Russia de jure control will not qualify. Actual control must be established.
+Contracts:
+  E6.C1: Will Russia capture all of Rodynske again by July 31?
+    Contract rules: This market will resolve to “Yes” if, according to the ISW map, Russia captures the entirety of Rodynske, Donetsk Oblast, (48.351463° N, 37.207979° E) between market creation and July 31, 2026, 11:59 PM ET.
+
+Rodynske will be considered captured if the entirety of the municipality is shaded red on the ISW map (https://storymaps.arcgis.com/stories/36a7f6a6f5a9448496de641cf64bd375) by the resolution date. If the area is not shaded red by July 31, 2026, 11:59 PM ET, the market will resolve to “No”.
+
+For any change on the ISW map to qualify for this market’s resolution, the relevant shading indicating Russian control must persist through the next full ISW daily update cycle. If ISW skips a day, shading must persist until the next finalized ISW update is published, regardless of the date. Any continuous shading which reflects either “Assessed Russian Control”, “Assessed Russian Advance In Ukraine”, or “Assessed Russian Gains in the Past 24 Hours” will qualify. “Assessed Russian Infiltration Areas in Ukraine” will not qualify.
+
+The territory of the municipality is shaded in light grey and is distinguished from bordering municipalities with a darker grey line. If all area within the municipality is shaded in red, however, the shading does not precisely match up with the border such that there is a tiny amount of grey along the border of the city, this will still qualify for a "Yes" resolution.
+
+Once Russia captures the entirety of Rodynske, any subsequent loss of control will not be considered towards the resolution of this market.
+
+Location on Google maps: https://maps.app.goo.gl/inyaBPNNyVocH72e8
+
+The primary resolution source for this market will be the ISW Ukraine map. If the ISW map is rendered unavailable, information from DeepStateMap (https://deepstatemap.live/) may be used. If information from both the ISW and DeepStateMap are rendered permanently unavailable, a consensus of credible reporting may be used.
+
+Note: Any temporary glitches or errors in the map which will not be considered.
+
+If Russia comes into control of this territory as a result of a negotiated settlement, this will qualify for a 'Yes' resolution, regardless of if it is shaded red in the ISW map. An announcement of a negotiated settlement which gives Russia de jure control will not qualify. Actual control must be established.
+  E6.C2: Will Russia capture all of Rodynske again by September 30?
+    Contract rules: This market will resolve to “Yes” if, according to the ISW map, Russia captures the entirety of Rodynske, Donetsk Oblast, (48.351463° N, 37.207979° E) between market creation and September 30, 2026, 11:59 PM ET.
+
+Rodynske will be considered captured if the entirety of the municipality is shaded red on the ISW map (https://storymaps.arcgis.com/stories/36a7f6a6f5a9448496de641cf64bd375) by the resolution date. If the area is not shaded red by September 30, 2026, 11:59 PM ET, the market will resolve to “No”.
+
+For any change on the ISW map to qualify for this market’s resolution, the relevant shading indicating Russian control must persist through the next full ISW daily update cycle. If ISW skips a day, shading must persist until the next finalized ISW update is published, regardless of the date. Any continuous shading which reflects either “Assessed Russian Control”, “Assessed Russian Advance In Ukraine”, or “Assessed Russian Gains in the Past 24 Hours” will qualify. “Assessed Russian Infiltration Areas in Ukraine” will not qualify.
+
+The territory of the municipality is shaded in light grey and is distinguished from bordering municipalities with a darker grey line. If all area within the municipality is shaded in red, however, the shading does not precisely match up with the border such that there is a tiny amount of grey along the border of the city, this will still qualify for a "Yes" resolution.
+
+Once Russia captures the entirety of Rodynske, any subsequent loss of control will not be considered towards the resolution of this market.
+
+Location on Google maps: https://maps.app.goo.gl/inyaBPNNyVocH72e8
+
+The primary resolution source for this market will be the ISW Ukraine map. If the ISW map is rendered unavailable, information from DeepStateMap (https://deepstatemap.live/) may be used. If information from both the ISW and DeepStateMap are rendered permanently unavailable, a consensus of credible reporting may be used.
+
+Note: Any temporary glitches or errors in the map which will not be considered.
+
+If Russia comes into control of this territory as a result of a negotiated settlement, this will qualify for a 'Yes' resolution, regardless of if it is shaded red in the ISW map. An announcement of a negotiated settlement which gives Russia de jure control will not qualify. Actual control must be established.
+
+=== E7: Congress authorizes military force against Iran in 2025?
+Rules:
+This market will resolve to "Yes" if the United States enacts an Authorization for Use of Military Force (AUMF) specifically targeting Iran between June 23, 2025 and December 31, 2025, 11:59 PM ET. Otherwise, this market will resolve to "No."
+
+To qualify, both chambers of Congress must pass, and the President (currently Donald Trump) must sign into law, a bill that explicitly authorizes the use of U.S. military force against Iran. The authorization does not need to use the exact phrase “Authorization for Use of Military Force,” but it must clearly and specifically authorize military action against Iran as a state actor.
+
+General defense appropriations, intelligence findings, covert action approvals, or broader regional authorizations that do not explicitly pertain to Iran will not qualify. Presidential orders or military action without such a law being passed and signed will not qualify.
+
+The primary resolution source will be official U.S. government records (e.g., Congress.gov, White House releases) however a consensus of credible reporting will also be used.
+Contracts:
+  E7.C1: Congress authorizes military force against Iran in 2025?
+
+=== E8: Robinhood launches prediction market through MIAXdx by March 31?
+Rules:
+Robinhood, through a joint venture with Susquehanna International Group, recently acquired a majority stake in MIAXdx, a Commodity Futures Trading Commission-licensed Designated Contract Market and Derivatives Clearing Organization, signaling Robinhood’s intent to deepen its involvement in prediction markets (see: https://robinhood.com/us/en/newsroom/robinhood-prediction-markets-joint-venture/).
+
+This market will resolve to “Yes” if Robinhood makes at least one MIAXdx-cleared prediction market user-tradable on their U.S. platform in any U.S. state by March 31, 2026, 11:59 PM ET. Otherwise, this market will resolve to “No”.
+
+“MIAXdx-cleared” means the prediction market contract is listed on the MIAXdx Designated Contract Market and subject to MIAXdx clearing. Prediction markets offered by Robinhood through KalshiEX, ForecastEX, or any other exchange will not count.
+
+Announcements alone do not qualify; the product must be operational.
+
+Any rebranding or renaming of MIAXdx will not affect the resolution of this market.
+
+The primary source of resolution for this market will be information from the Robinhood U.S. trading platform and a consensus of credible reporting.
+Contracts:
+  E8.C1: Robinhood launches prediction market through MIAXdx by March 31?
+
+=== E9: ICE forced to unmask by February 28?
+Rules:
+This market will resolve to “Yes” if either of the following conditions are met by February 28, 2026, 11:59 PM ET. Otherwise, this market will resolve to “No”.
+
+1) A bill, measure, or resolution that mandates, compels, or formally calls for a general ban on the wearing of masks by Immigration and Customs Enforcement (ICE) agents becomes federal law in the United States.
+
+2) A consensus of credible reporting indicates that an applicable directive or order has been issued by the leadership of ICE, the Department of Homeland Security, or another relevant federal authority to broadly ban the wearing of masks by ICE agents.
+
+Any ban which applies to ICE agents will count, regardless of whether ICE agents are explicitly named (e.g. a ban on the wearing of masks for all federal immigration agents would count).
+
+A qualifying ban must apply broadly to ICE agents nationally. State or other non-federal bans, or bans which only apply to a limited subset of ICE agents will not count. Limited exceptions (e.g. a limited subset of ICE agents are not banned from wearing a mask, or ICE agents are not banned from wearing mask in certain limited circumstances), however, will not disqualify a ban from counting.
+
+The primary resolution sources for this market will be official information from the United States federal government and a consensus of credible reporting.
+Contracts:
+  E9.C1: ICE forced to unmask by February 28?
+
+=== E10: Tucker Carlson federally charged?
+Rules:
+This market will resolve to “Yes” if the United States federal government formally charges or announces a criminal indictment of Tucker Carlson between market creation and June 30, 2026, 11:59 PM ET. Otherwise, this market will resolve to “No”.
+
+The primary resolution source for this market will be official information from US governmental sources, however a wide consensus of credible reporting will also be used.
+Contracts:
+  E10.C1: Tucker Carlson federally charged?

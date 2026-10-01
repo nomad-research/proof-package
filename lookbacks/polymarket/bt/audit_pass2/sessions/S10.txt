@@ -1,0 +1,221 @@
+You will be shown 10 questions from a prediction market. Each question has one or more contracts, and each contract resolves YES or NO under the rules shown.
+
+For every contract, give your probability, as a whole percent from 1 to 99, that it resolves YES. Use only what you already know. Do not search for or look up anything: reading this file is the only tool call you may make.
+
+For each question, also say whether you recognise how it actually turned out ("recognised": true only if you believe you remember the real outcome; otherwise false).
+
+Where a question's contracts are mutually exclusive (exactly one can resolve YES), your numbers for it should add up to about 100. Where they are nested thresholds or dates, keep them consistent with each other.
+
+Reply with one JSON object and nothing else, in this form:
+{"events": [{"label": "E1", "recognised": false, "p": {"E1.C1": 35, "E1.C2": 60}}]}
+
+Every contract label below must appear exactly once in your reply.
+
+=== E1: US announces military support of Iran opposition by...?
+Rules:
+This market will resolve to “Yes” if the US government officially announces or confirms that the United States is engaging in military coordination with, or providing military support to, Iranian opposition groups by March 31, 2026, 11:59 PM ET. Otherwise, this market will resolve to “No”.
+
+For confirmations to qualify, they must be unambiguous, on-the-record public statements issued by an authorized governmental person or entity, speaking in an official capacity.
+
+Informal statements, plans contingent on future conditions, statements of intent without a formal policy directive, or any other statements that do not constitute a formal policy announcement or qualifying confirmation will not be considered.
+
+“Iranian opposition groups” refers to organized political, paramilitary, insurgent, or resistance groups that publicly oppose the current government of the Islamic Republic of Iran and seek to alter, replace, or overthrow it. This includes groups operating inside or outside Iran that claim to represent opposition to the current governing authorities.
+
+Informal statements, plans contingent on future conditions, statements of intent without a formal policy directive, or any other statements that do not constitute a formal policy announcement will not be considered.
+ 
+For the purposes of this market, military coordination or support includes but is not limited to joint operations, direct battlefield assistance, intelligence sharing, weapons or equipment transfers, training, logistics support, or other clearly stated military assistance.
+
+The primary resolution source for this market will be official information from the government of the United States; however, a consensus of credible reporting will also be used.
+Contracts:
+  E1.C1: US announces military support of Iran opposition by April 30?
+    Contract rules: This market will resolve to “Yes” if the US government officially announces or confirms that the United States is engaging in military coordination with, or providing military support to, Iranian opposition groups by April 30, 2026, 11:59 PM ET. Otherwise, this market will resolve to “No”.
+
+For confirmations to qualify, they must be unambiguous, on-the-record public statements issued by an authorized governmental person or entity, speaking in an official capacity.
+
+Informal statements, plans contingent on future conditions, statements of intent without a formal policy directive, or any other statements that do not constitute a formal policy announcement or qualifying confirmation will not be considered.
+
+“Iranian opposition groups” refers to organized political, paramilitary, insurgent, or resistance groups that publicly oppose the current government of the Islamic Republic of Iran and seek to alter, replace, or overthrow it. This includes groups operating inside or outside Iran that claim to represent opposition to the current governing authorities.
+
+Informal statements, plans contingent on future conditions, statements of intent without a formal policy directive, or any other statements that do not constitute a formal policy announcement will not be considered.
+ 
+For the purposes of this market, military coordination or support includes but is not limited to joint operations, direct battlefield assistance, intelligence sharing, weapons or equipment transfers, training, logistics support, or other clearly stated military assistance.
+
+The primary resolution source for this market will be official information from the government of the United States; however, a consensus of credible reporting will also be used.
+
+=== E2: Will Russia capture all of Huliaipole by...?
+Rules:
+This market will resolve to “Yes” if, according to the ISW map, Russia captures the entirety of Huliaipole, Zaporizhzhya Oblast, (47°39'45.5"N 36°15'13.1"E) by February 28, 2026, 11:59 PM ET.
+
+Huliaipole will be considered captured if the entirety of the municipality is shaded red on the ISW map (https://storymaps.arcgis.com/stories/36a7f6a6f5a9448496de641cf64bd375) by the resolution date. If the area is not shaded red by February 28, 2026, 11:59 PM ET, the market will resolve to “No”.
+
+For any change on the ISW map to qualify for this market’s resolution, the relevant shading indicating Russian control must persist through the next full ISW daily update cycle. If ISW skips a day, shading must persist until the next finalized ISW update is published, regardless of the date. Any continuous shading which reflects either “Assessed Russian Control”, “Assessed Russian Advance In Ukraine”, or “Assessed Russian Gains in the Past 24 Hours” will qualify. “Assessed Russian Infiltration Areas in Ukraine” will not qualify.
+
+The territory of the municipality is shaded in light grey and is distinguished from bordering municipalities with a darker grey line. If all area within the municipality is shaded in red, however, the shading does not precisely match up with the border such that there is a tiny amount of grey along the border of the city, this will still qualify for a "Yes" resolution.
+
+Once Russia captures the entirety of Huliaipole, any subsequent loss of control will not be considered towards the resolution of this market.
+
+Location on Google maps: https://maps.app.goo.gl/vXBbP9idYDbbC21RA
+
+The primary resolution source for this market will be the ISW Ukraine map. If the ISW map is rendered unavailable, information from DeepStateMap (https://deepstatemap.live/) may be used. If information from both the ISW and DeepStateMap are rendered permanently unavailable, a consensus of credible reporting may be used.
+
+Note: Any temporary glitches or errors in the map which will not be considered.
+
+If Russia comes into control of this territory as a result of a negotiated settlement, this will qualify for a 'Yes' resolution, regardless of if it is shaded red in the ISW map. An announcement of a negotiated settlement which gives Russia de jure control will not qualify. Actual control must be established.
+Contracts:
+  E2.C1: Will Russia capture all of Huliaipole by September 30?
+    Contract rules: This market will resolve to “Yes” if, according to the ISW map, Russia captures the entirety of Huliaipole, Zaporizhzhya Oblast, (47°39'45.5"N 36°15'13.1"E) by September 30, 2026, 11:59 PM ET.
+
+Huliaipole will be considered captured if the entirety of the municipality is shaded red on the ISW map (https://storymaps.arcgis.com/stories/36a7f6a6f5a9448496de641cf64bd375) by the resolution date. If the area is not shaded red by September 30, 2026, 11:59 PM ET, the market will resolve to “No”.
+
+For any change on the ISW map to qualify for this market’s resolution, the relevant shading indicating Russian control must persist through the next full ISW daily update cycle. If ISW skips a day, shading must persist until the next finalized ISW update is published, regardless of the date. Any continuous shading which reflects either “Assessed Russian Control”, “Assessed Russian Advance In Ukraine”, or “Assessed Russian Gains in the Past 24 Hours” will qualify. “Assessed Russian Infiltration Areas in Ukraine” will not qualify.
+
+The territory of the municipality is shaded in light grey and is distinguished from bordering municipalities with a darker grey line. If all area within the municipality is shaded in red, however, the shading does not precisely match up with the border such that there is a tiny amount of grey along the border of the city, this will still qualify for a "Yes" resolution.
+
+Once Russia captures the entirety of Huliaipole, any subsequent loss of control will not be considered towards the resolution of this market.
+
+Location on Google maps: https://maps.app.goo.gl/vXBbP9idYDbbC21RA
+
+The primary resolution source for this market will be the ISW Ukraine map. If the ISW map is rendered unavailable, information from DeepStateMap (https://deepstatemap.live/) may be used. If information from both the ISW and DeepStateMap are rendered permanently unavailable, a consensus of credible reporting may be used.
+
+Note: Any temporary glitches or errors in the map which will not be considered.
+
+If Russia comes into control of this territory as a result of a negotiated settlement, this will qualify for a 'Yes' resolution, regardless of if it is shaded red in the ISW map. An announcement of a negotiated settlement which gives Russia de jure control will not qualify. Actual control must be established.
+
+=== E3: L.A. U-Haul attack perp charged with terrorism?
+Rules:
+On January 11, 2026, a U-Haul truck drove into a crowd in Los Angeles, during a demonstration in support of Iranian protestors. ABC7 Los Angeles reported that a man was later pulled out of the truck and taken into police custody.
+
+This market will resolve to “Yes” if any Federal or State jurisdiction of the United States formally charges or otherwise announces a criminal indictment of the alleged driver of this U-Haul for terrorism, by February 28, 2026, 11:59 PM ET. Otherwise, this market will resolve to “No”.
+
+Terrorism refers to any state or federal criminal charge or sentencing enhancement that is named “terrorism” or an equivalent term (e.g. “terroristic threats” would count), that is otherwise explicitly labeled in state or federal law as charges of terrorism, or that explicitly charge the defendant with the use or attempted use of violence or terror for political intimidation or coercion.
+
+Terrorism enhancements of base charges will qualify. Hate crime charges or enhancements, however, will not alone qualify.
+
+For the purposes of this market, the District of Columbia and any county, municipality, or other subdivision of a State shall be included within the definition of a State.
+
+The primary resolution source for this market will be official information from US governmental sources; however, a wide consensus of credible reporting will also be used.
+Contracts:
+  E3.C1: L.A. U-Haul attack perp charged with terrorism?
+
+=== E4: António José Seguro vote share in Portuguese presidential first round?
+Rules:
+First-round presidential elections are scheduled to be held in Portugal on January 18, 2026.
+
+This market will resolve according to the vote share António José Seguro wins in the first round of the Portuguese presidential election.
+
+If the reported value falls exactly between two brackets, then this market will resolve to the higher range bracket.
+
+If a recount is initiated before the vote total has been made official, the market will remain open until the recount is completed and the vote is made official.
+
+This market's resolution will be based solely on the proportion of votes won by António José Seguro.
+
+If the results of the election aren’t known by June 30, 2026 ET, this market will resolve to the lowest range bracket.
+
+This market will resolve based on the result of the election as indicated by a consensus of credible reporting. If there is ambiguity, this market will resolve based solely on the official results as reported by the Portuguese government, specifically the National Election Commission (Comissão Nacional de Eleições, CNE) (https://www.cne.pt/).
+Contracts:
+  E4.C1: Will António José Seguro win less than 12% of votes in the first round?
+  E4.C2: Will António José Seguro win between 12% and 14% of votes in the first round?
+  E4.C3: Will António José Seguro win between 14% and 16% of votes in the first round?
+  E4.C4: Will António José Seguro win between 16% and 18% of votes in the first round?
+  E4.C5: Will António José Seguro win between 18% and 20% of votes in the first round?
+  E4.C6: Will António José Seguro win between 20% and 22% of votes in the first round?
+  E4.C7: Will António José Seguro win more than 22% of votes in the first round?
+
+=== E5: Peru Presidential Election First Round: 3rd Place
+Rules:
+First-round presidential elections are scheduled to be held in Peru on April 12, 2026, with a potential second round on June 7, 2026, if no candidate receives more than 50% of the valid votes outright.
+
+This market will resolve according to the listed candidate who receives the third-most valid votes in the first round of this election.
+
+The named candidates will be primarily ranked by the number of valid votes received in the specified election. If two or more candidates are tied on valid votes, ties will be broken by alphabetical order of the candidates' last names. This market will resolve to the candidate that occupies the third-highest finishing position after applying this ranking.
+
+If the results are not known definitively by October 31, 2026, 11:59 PM ET, this market will resolve to "Other".
+
+This market will resolve based on the results of this election, as indicated by a consensus of credible reporting. If there is ambiguity, this market will resolve solely on the official results as reported by the Peruvian government, specifically the National Office of Electoral Processes (Oficina Nacional de Procesos Electorales, ONPE) (https://www.onpe.gob.pe/elecciones/) and the National Jury of Elections (Jurado Nacional de Elecciones, JNE) (https://portal.jne.gob.pe/portal/)
+Contracts:
+  E5.C1: Will Rafael López Aliaga finish in third place in the first round of the 2026 Peruvian presidential election?
+  E5.C2: Will Keiko Fujimori finish in third place in the first round of the 2026 Peruvian presidential election?
+  E5.C3: Will Mario Vizcarra finish in third place in the first round of the 2026 Peruvian presidential election?
+  E5.C4: Will Carlos Álvarez finish in third place in the first round of the 2026 Peruvian presidential election?
+  E5.C5: Will César Acuña finish in third place in the first round of the 2026 Peruvian presidential election?
+  E5.C6: Will Alfonso López Chau finish in third place in the first round of the 2026 Peruvian presidential election?
+  E5.C7: Will Vladimir Cerrón finish in third place in the first round of the 2026 Peruvian presidential election?
+  E5.C8: Will José Luna finish in third place in the first round of the 2026 Peruvian presidential election?
+  E5.C9: Will George Forsyth finish in third place in the first round of the 2026 Peruvian presidential election?
+  E5.C10: Will Roberto Chiabra finish in third place in the first round of the 2026 Peruvian presidential election?
+  E5.C11: Will Enrique Valderrama finish in third place in the first round of the 2026 Peruvian presidential election?
+  E5.C12: Will José Williams finish in third place in the first round of the 2026 Peruvian presidential election?
+
+=== E6: Will Tucker Carlson interview Trump by February 28?
+Rules:
+This market will resolve to "Yes" if Donald Trump is interviewed by Tucker Carlson between November 17, 2025, and February 28, 2026, 11:59 PM ET. Otherwise, this market will resolve to "No".
+
+An interview is defined as a scheduled, recorded conversation where Donald Trump answers questions posed by Tucker Carlson. Press conferences or media briefings held by the White House with Carlson in attendance will not count.
+
+This market will resolve to "Yes" if there is a credible consensus of reporting that Donald Trump has recorded an interview with Tucker Carlson before February 28, 2026, 11:59 PM ET, even if that interview is not yet released.
+
+The resolution source for this market will be publicly available video footage of the interview; however, a consensus of credible reporting may also be used.
+Contracts:
+  E6.C1: Will Tucker Carlson interview Trump by February 28?
+
+=== E7: IN-04 Republican Primary Winner
+Rules:
+This market will resolve according to the candidate who wins the nomination for the Republican Party to contest the IN-04 congressional district seat in the U.S. House of Representatives in the 2026 midterm elections. The Republican primary will take place on May 5, 2026.
+
+If no nominee is announced by November 3, 2026, 11:59PM ET, this market will resolve to "Other".
+
+The resolution source for this market will be a consensus of official Republican sources, including https://rnc.org/.
+
+Any replacement of the nominee before election day will not change the resolution of the market.
+Contracts:
+  E7.C1: Will Jim Baird be the Republican nominee for IN-04?
+  E7.C2: Will Craig Haggard be the Republican nominee for IN-04?
+  E7.C3: Will John Piper be the Republican nominee for IN-04?
+
+=== E8: 2nd largest company end of March?
+Rules:
+This market will resolve to the second-largest company in the world by market cap on March 31, 2026, as of market close.
+
+The resolution source for this market will be a consensus of credible reporting.
+Contracts:
+  E8.C1: Will NVIDIA be the second-largest company in the world by market cap on March 31?
+  E8.C2: Will Microsoft be the second-largest company in the world by market cap on March 31?
+  E8.C3: Will Apple be the second-largest company in the world by market cap on March 31?
+  E8.C4: Will Alphabet be the second-largest company in the world by market cap on March 31?
+  E8.C5: Will Tesla be the second-largest company in the world by market cap on March 31?
+  E8.C6: Will Saudi Aramco be the second-largest company in the world by market cap on March 31?
+  E8.C7: Will Amazon be the second-largest company in the world by market cap on March 31?
+
+=== E9: What will the median home value in Chicago be on June 30?
+Rules:
+This market will resolve according to the median home value for all property types in Chicago on June 30, 2026.
+
+If the reported value falls exactly between two brackets, then this market will resolve to the higher range bracket.
+
+The resolution source will be official data from the Parcl Labs Sales Price Index for Chicago, IL (Parcl_ID: 2899845). The settlement price will be calculated by multiplying the published price index value (price per square foot) by 1500 square feet, which is the median home size in Chicago. Parcl is set to publish this data on June 30, 2026. If no data for June 30 is released by July 10, 2026, 11:59PM ET, this market will resolve according to the most recently published data. (see: https://app.parcllabs.com/prediction-market-resolutions/46)
+Contracts:
+  E9.C1: Will the median home value in Chicago be less than $339,000 on June 30?
+  E9.C2: Will the median home value in Chicago be between $339,000 and $342,000 on June 30?
+  E9.C3: Will the median home value in Chicago be between $342,000 and $345,000 on June 30?
+  E9.C4: Will the median home value in Chicago be between $345,000 and $348,000 on June 30?
+  E9.C5: Will the median home value in Chicago be between $348,000 and $351,000 on June 30?
+  E9.C6: Will the median home value in Chicago be between $351,000 and $354,000 on June 30?
+  E9.C7: Will the median home value in Chicago be greater than $354,000 on June 30?
+
+=== E10: Will Russia enter Zaliznychne by...?
+Rules:
+This market will resolve to “Yes” if, according to the ISW map, Russia captures any territory of Zaliznychne, Zaporizhzhia Oblast, by January 31, 2026, at 11:59 PM ET.
+
+Territory will be considered captured if any part of Zaliznychne is shaded under a below specified layer on the ISW map (https://storymaps.arcgis.com/stories/36a7f6a6f5a9448496de641cf64bd375) by the resolution date. Otherwise, the market will resolve to “No”.
+
+For any change on the ISW map to qualify for this market’s resolution, the relevant shading indicating Russian control must persist through the next full ISW daily update cycle. If ISW skips a day, shading must persist until the next finalized ISW update is published, regardless of the date. Any continuous shading which reflects either "Assessed Russian Infiltration Areas in Ukraine", “Assessed Russian Control”, “Assessed Russian Advance In Ukraine”, or “Assessed Russian Gains in the Past 24 Hours” will qualify. 
+
+Once a qualifying condition is met, any subsequent loss of control will not be considered towards the resolution of this market.
+
+If Russia comes into control of the specified territory as a result of a negotiated settlement, this will qualify for a 'Yes' resolution, regardless of whether it is shaded red in the ISW map. However, an announcement of a negotiated settlement that gives Russia de jure control will not qualify. Actual control must be established.
+
+The primary resolution source for this market will be the ISW Ukraine map. If the ISW map is rendered unavailable, information from DeepStateMap (https://deepstatemap.live/) may be used. If information from both the ISW and DeepStateMap are rendered permanently unavailable, a consensus of credible reporting may be used.
+
+Note: Any temporary glitches or errors in the map will not be considered.
+Contracts:
+  E10.C1: Will Russia enter Zaliznychne by January 31?

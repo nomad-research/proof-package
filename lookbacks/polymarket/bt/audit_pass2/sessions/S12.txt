@@ -1,0 +1,204 @@
+You will be shown 10 questions from a prediction market. Each question has one or more contracts, and each contract resolves YES or NO under the rules shown.
+
+For every contract, give your probability, as a whole percent from 1 to 99, that it resolves YES. Use only what you already know. Do not search for or look up anything: reading this file is the only tool call you may make.
+
+For each question, also say whether you recognise how it actually turned out ("recognised": true only if you believe you remember the real outcome; otherwise false).
+
+Where a question's contracts are mutually exclusive (exactly one can resolve YES), your numbers for it should add up to about 100. Where they are nested thresholds or dates, keep them consistent with each other.
+
+Reply with one JSON object and nothing else, in this form:
+{"events": [{"label": "E1", "recognised": false, "p": {"E1.C1": 35, "E1.C2": 60}}]}
+
+Every contract label below must appear exactly once in your reply.
+
+=== E1: June Inflation US - Monthly
+Rules:
+This is a market about the one-month percent change in the seasonally adjusted Consumer Price Index for All Urban Consumers (CPI-U) published by the Bureau of Labor Statistics (BLS).
+
+This market will resolve to the one-month percent change in the seasonally adjusted Consumer Price Index for All Urban Consumers (CPI-U) in June 2026 according to the monthly BLS report.
+
+The resolution source for this market will be the BLS Consumer Price Index report released for June 2026 (https://www.bls.gov/bls/news-release/cpi.htm), currently scheduled to be released on July 14, 2026, at 8:30 AM ET. Resolution of this market will take place upon release of the aforementioned data.
+
+Note: the resolution source for this market will be the official monthly Consumer Price Index for All Urban Consumers (CPI-U) which BLS reports to one decimal point (e.g. 0.4%). Thus, this is the level of precision that will be used when resolving the market.
+
+If the BLS does not release the relevant figures on the scheduled date, this market may remain open up until the scheduled release time of the next CPI report (https://www.bls.gov/schedule). If the information is not released by that time, this market will resolve according to the figures of the most recent previous month with available data.
+Contracts:
+  E1.C1: Will monthly inflation increase by 0.1% or less in June?
+  E1.C2: Will monthly inflation increase by 0.2% in June?
+  E1.C3: Will monthly inflation increase by 0.3% in June?
+  E1.C4: Will monthly inflation increase by 0.4% in June?
+  E1.C5: Will monthly inflation increase by 0.5% in June?
+  E1.C6: Will monthly inflation increase by 0.6% in June?
+  E1.C7: Will monthly inflation increase by 0.7% in June?
+  E1.C8: Will monthly inflation increase by 0.8% in June?
+  E1.C9: Will monthly inflation increase by 0.9% or more in June?
+
+=== E2: February Unemployment Rate - Mexico
+Rules:
+This market will resolve according to the unemployment rate (15 years and over, total) reported by the Mexican National Institute of Statistics and Geography (INEGI) for February 2026.
+
+The resolution source for this market is the National Survey of Occupation and Employment, published by INEGI every month at https://en.www.inegi.org.mx/programas/enoe/15ymas/
+
+The next data release is scheduled for March 27, 2026. This market will resolve as soon as the relevant data is issued. Any revisions to the data after the first release will not count toward this market's resolution.
+
+If no data for the specified month is released by the date the next month's data is scheduled to be released, this market will resolve based on data from the last available month.
+
+Note: the resolution source for this market reports unemployment to one decimal point. Thus, this is the level of precision that will be used when resolving the market.
+Contracts:
+  E2.C1: Will Mexico’s February unemployment rate be less than or equal to 2.4%?
+  E2.C2: Will Mexico’s February unemployment rate be 2.5%?
+  E2.C3: Will Mexico’s February unemployment rate be 2.6%?
+  E2.C4: Will Mexico’s February unemployment rate be 2.7%?
+  E2.C5: Will Mexico’s February unemployment rate be 2.8%?
+  E2.C6: Will Mexico’s February unemployment rate be 2.9%?
+  E2.C7: Will Mexico’s February unemployment rate be greater than or equal to 3.0%?
+
+=== E3: Will Elon cut the budget by at least 10% in 2025?
+Rules:
+In Q4 2024, government expenditures were $7,106,807,000,000 see (https://fred.stlouisfed.org/series/FGEXPND). 
+
+This market will resolve to “Yes” if federal government current expenditures decrease by 10% or more between the Q4 2024 report and the Q4 2025 report. Otherwise, it will resolve to "No".
+
+Any 2025 quarterly report of $6,396,126,000,000 or less will qualify for a “Yes” resolution.
+
+Revisions made to these figures will not be considered, only the values reported in the initial reports will be used.
+
+This market's resolution source is the Federal Government: Current Expenditures chart maintained by the St. Louis Federal Reserve Bank, displayed here (https://fred.stlouisfed.org/series/FGEXPND).
+Contracts:
+  E3.C1: Will Elon cut the budget by at least 10% in 2025?
+
+=== E4: PA-07 Democratic Primary Winner
+Rules:
+This market will resolve according to the candidate who wins the nomination for the Democratic Party to contest the PA-07 congressional district seat in the U.S. House of Representatives in the 2026 midterm elections. The Democratic primary will take place on May 19, 2026.
+
+If no nominee is announced by November 3, 2026, 11:59 PM ET, this market will resolve to "Other".
+
+The resolution source for this market will be a consensus of official Democrat sources, including https://democrats.org/.
+
+Any replacement of the nominee before election day will not change the resolution of the market.
+Contracts:
+  E4.C1: Will Bob Brooks be the Democratic nominee for PA-07?
+  E4.C2: Will Ryan Crosswell be the Democratic nominee for PA-07?
+  E4.C3: Will Aiden Gonzalez be the Democratic nominee for PA-07?
+  E4.C4: Will Lamont McClure be the Democratic nominee for PA-07?
+  E4.C5: Will Carol Obando-Derstine be the Democratic nominee for PA-07?
+  E4.C6: Will Lewis Shupe be the Democratic nominee for PA-07?
+
+=== E5: Bank of Korea decision in May?
+Rules:
+This market will resolve according to the change in the base rate resulting from the Bank of Korea’s May monetary policy meeting, relative to the level it was prior to this meeting.
+
+The resolution source for this market is information released by the Bank of Korea after its May 28, 2026 policy-setting meeting, as listed on the official Bank of Korea meeting schedule: https://www.bok.or.kr/eng/bbs/E0000627/view.do?nttId=10094301&searchCnd=1&searchKwd=&depth2=400417&depth3=400022&depth=400022&pageUnit=10&pageIndex=1&programType=newsDataEng&menuNo=400022&oldMenuNo=400022
+
+This market may resolve as soon as the Bank of Korea's policy statement for their May 28, 2026 meeting with relevant data is issued. If no decision on the base rate is issued by the end date of the next scheduled meeting, this market will resolve to the "No change" bracket.
+Contracts:
+  E5.C1: Will the Bank of Korea decrease the base rate after the May Meeting?
+  E5.C2: Will the Bank of Korea make no change to the base rate after the May Meeting?
+  E5.C3: Will the Bank of Korea increase the base rate after the May Meeting?
+
+=== E6: NY-07 Democratic Primary Winner
+Rules:
+This market will resolve according to the candidate who wins the nomination for the Democratic Party to contest the NY-07 congressional district seat in the U.S. House of Representatives in the 2026 midterm elections. The Democratic primary will take place on June 23, 2026.
+
+If no nominee is announced by November 3, 2026, 11:59PM ET, this market will resolve to "Other".
+
+The resolution source for this market will be a consensus of official Democrat sources, including https://democrats.org/.
+
+Any replacement of the nominee before election day will not change the resolution of the market.
+Contracts:
+  E6.C1: Will Antonio Reynoso be the Democratic nominee for NY-07?
+  E6.C2: Will Julia Salazar be the Democratic nominee for NY-07?
+  E6.C3: Will Kristen Gonzalez be the Democratic nominee for NY-07?
+  E6.C4: Will Jennifer Gútierrez be the Democratic nominee for NY-07?
+  E6.C5: Will Julie Won be the Democratic nominee for NY-07?
+  E6.C6: Will Sandy Nurse be the Democratic nominee for NY-07?
+  E6.C7: Will Lincoln Restler be the Democratic nominee for NY-07?
+  E6.C8: Will Tiffany Cabán be the Democratic nominee for NY-07?
+  E6.C9: Will Claire Valdez be the Democratic nominee for NY-07?
+
+=== E7: North Carolina Republican Senate Primary Winner
+Rules:
+This market will resolve according to the winner of the Republican Primary for United States Senator from North Carolina.
+
+If no 2026 North Carolina Republican Senate Primary takes place, this market will resolve to "Other". This market includes any potential runoff election.
+
+The resolution source for this market will be the first announcement of the results from the North Carolina Republican party, however an overwhelming consensus of credible reporting may suffice.
+Contracts:
+  E7.C1: Will Michael Whatley be the Republican nominee for Senate in North Carolina?
+  E7.C2: Will Thomas Tillis be the Republican nominee for Senate in North Carolina?
+  E7.C3: Will Pat Harrigan be the Republican nominee for Senate in North Carolina?
+  E7.C4: Will Mark Robinson be the Republican nominee for Senate in North Carolina?
+  E7.C5: Will Michele Morrow be the Republican nominee for Senate in North Carolina?
+  E7.C6: Will Lara Trump be the Republican nominee for Senate in North Carolina?
+  E7.C7: Will Don Brown be the Republican nominee for Senate in North Carolina?
+
+=== E8: Özgür Özel arrested by June 30?
+Rules:
+This market will resolve to "Yes" if the listed individual is arrested by June 30, 2026, 11:59 PM ET. Otherwise, this market will resolve to "No".
+
+A qualifying arrest/detention includes:
+* Being taken into physical custody by law enforcement authorities (including federal, state, local, military, or international law enforcement)
+* Voluntarily surrendering to law enforcement authorities in response to an arrest warrant
+* Being formally booked or processed following detention
+* Being handcuffed by a state authority and taken to a police station
+* Surrendering at a police station or courthouse with their attorney
+* Being placed under house arrest or electronic monitoring
+
+The following scenarios will NOT qualify as an arrest/detention
+* An arrest warrant being issued but not executed
+* Being briefly detained but not arrested (e.g. such as in the South Korean judicial system when an individual is awaiting a judge’s decision on whether to grant a detention warrant)
+* Being questioned or interviewed without arrest
+* Being named in an indictment without arrest
+
+The primary resolution source for this market will be official information from the arresting government and law enforcement, however a consensus of credible reporting may also be used.
+Contracts:
+  E8.C1: Özgür Özel arrested by June 30?
+
+=== E9: Will Google (GOOGL) Q2 Cloud Revenue be above __?
+Rules:
+This market will resolve to "Yes" if Google's Cloud revenue for the upcoming second fiscal quarter, as reported in its official company earnings materials, is above the listed amount. Otherwise, this market will resolve to "No".
+
+The specified metric will be considered as reported in the company's official earnings materials. Subsequent revisions will not be considered.
+
+If the specified company's official earnings materials for the specified quarter are released, and the specified metric is not included, this market will resolve to "No".
+
+If the specified company does not release quarterly earnings materials for the specified quarter by August 31, 2026, 11:59 PM ET, this market will resolve to "No".
+
+If the specified metric is reported as a range rather than a specific number, the midpoint of the range will be used for resolution of this market.
+
+The resolution source for this market is the specified company's official company earnings materials, including press releases, investor presentations, and regulatory filings. If the specified metric is not reported in these materials, recordings or transcripts of the company's earnings webcast may also be used.
+
+Note: This market will resolve based on the most numerically precise version of the specified metric reported in the company's official earnings materials. Only the specified metric will be considered; alternate versions that differ in definition or scope from the specified metric will not be considered.
+Contracts:
+  E9.C1: Will Google (GOOGL) Q2 Cloud Revenue be above $22B?
+  E9.C2: Will Google (GOOGL) Q2 Cloud Revenue be above $22.5B?
+  E9.C3: Will Google (GOOGL) Q2 Cloud Revenue be above $23B?
+  E9.C4: Will Google (GOOGL) Q2 Cloud Revenue be above $23.5B?
+  E9.C5: Will Google (GOOGL) Q2 Cloud Revenue be above $24B?
+
+=== E10: How many times will the US take military action against Somalia in March?
+Rules:
+This market will resolve according to the number of independent incidents of US-initiated drone, missile, or air strikes on the soil of Somalia that occur between March 1 and March 31, 2026, and are announced by the United States Africa Command (AFRICOM) by April 4, 2026, 12:00 PM ET.
+
+For the purposes of this market, a qualifying "strike" is defined as the use of aerial bombs, drones, or missiles (including FPV and ATGM strikes as well as cruise or ballistic missiles) launched by any United States operatives, including military forces, intelligence agencies, or other U.S. government operatives, that physically impact ground territory within the listed country.
+
+A strike on any area within the terrestrial territory (including rivers, lakes, ports, but excluding territorial sea) of the listed country counts.
+
+Missiles or drones that are intercepted and surface-to-air missile strikes will not count, regardless of whether they land in the listed country’s territory or cause damage.
+
+Actions such as artillery fire, small arms fire, ground incursions, naval shelling, or cyberattacks will not qualify.
+
+An incident of a US-initiated drone, missile, or air strike refers to any strike or series of strikes described by AFRICOM as a contiguous incident in a single region. Each AFRICOM press release describing a strike or series of strikes will count as one incident, unless AFRICOM explicitly distinguishes incidents as separate strike events. For example, the strikes on January 25-26, 2026 (https://www.africom.mil/pressrelease/36183/us-forces-conduct-strikes-targeting-al-shabaab) and January 12, 2026 (https://www.africom.mil/pressrelease/36174/us-forces-conduct-strikes-targeting-al-shabaab) would have counted as single incidents, even though they included multiple individual strikes.
+
+The date of a qualifying strike incident will be determined by the date provided by AFRICOM. Any strike incident announced by AFRICOM to have occurred at least partially in the listed period will count (e.g. a strike incident announced to have occurred from February 28-March 1, 2026, would count). If the date of an announced strike is not released by AFRICOM, a consensus of credible reporting may be used to determine the timing of a strike incident. In this case, a strike will be considered to have occurred in the specified period if it is determined that it occurred in that period, in Eastern Time (timeframes partially, but not fully, in this period will count). Any strike incident announced by AFRICOM after April 4, 2026, 12:00 PM ET will not count, regardless of the timing of the strike.
+
+This market will remain open until April 4, 2026, 12:00 PM ET. If the date/time of a qualifying strike cannot be confirmed by that time, it will not count, regardless of whether a strike was later confirmed to have taken place.
+
+The primary resolution source for this market will be the United States Africa Command (AFRICOM) (https://www.africom.mil/media-gallery/press-releases); however, a consensus of credible reporting may also be used to determine the timing of an announced strike incident.
+Contracts:
+  E10.C1: Will there be 5 or fewer US strikes on Somalia in March 2026?
+  E10.C2: Will there be between 6 and 9 US strikes on Somalia in March 2026?
+  E10.C3: Will there be between 10 and 13 US strikes on Somalia in March 2026?
+  E10.C4: Will there be between 14 and 17 US strikes on Somalia in March 2026?
+  E10.C5: Will there be between 18 and 21 US strikes on Somalia in March 2026?
+  E10.C6: Will there be 22 or more US strikes on Somalia in March 2026?

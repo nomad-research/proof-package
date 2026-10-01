@@ -1,0 +1,166 @@
+You will be shown 10 questions from a prediction market. Each question has one or more contracts, and each contract resolves YES or NO under the rules shown.
+
+For every contract, give your probability, as a whole percent from 1 to 99, that it resolves YES. Use only what you already know. Do not search for or look up anything: reading this file is the only tool call you may make.
+
+For each question, also say whether you recognise how it actually turned out ("recognised": true only if you believe you remember the real outcome; otherwise false).
+
+Where a question's contracts are mutually exclusive (exactly one can resolve YES), your numbers for it should add up to about 100. Where they are nested thresholds or dates, keep them consistent with each other.
+
+Reply with one JSON object and nothing else, in this form:
+{"events": [{"label": "E1", "recognised": false, "p": {"E1.C1": 35, "E1.C2": 60}}]}
+
+Every contract label below must appear exactly once in your reply.
+
+=== E1: Negative GDP growth in 2025?
+Rules:
+This market will resolve to 'Yes' if the seasonally adjusted and annualized GDP growth rate for the full year 2025, as derived from the 'Advance Estimate' for Q4 2025, scheduled for release by the U.S. Bureau of Economic Analysis (BEA) on January 30, 2026, reports a growth rate below 0. Otherwise, this market will resolve to 'No'.
+
+The GDP release will be available at: https://www.bea.gov/data/gdp/gross-domestic-product.
+
+Only the first available GDP report labeled as the 'Advance Estimate' for Q4 2025, which provides the initial full-year 2025 GDP growth rate, will be used for resolution. Any subsequent revisions or updates to the data will not be considered.
+Contracts:
+  E1.C1: Negative GDP growth in 2025?
+
+=== E2: Thai Constitutional Court invalidates election?
+Rules:
+Thailand held legislative elections on February 8, 2026. On March 18, 2026, the Constitutional Court of Thailand accepted a petition to rule on the constitutionality of barcodes and QR codes on ballots and whether they undermined ballot secrecy.
+
+This market will resolve to “Yes” if the Constitutional Court of Thailand issues a ruling that invalidates the results of the 2026 Thai legislative elections by June 30, 2026, 11:59 PM ET. Otherwise, this market will resolve to “No”.
+
+A ruling is defined as any written order, judgment, opinion, decision, or summary ruling from the Constitutional Court of Thailand that declares the results of the February 8, 2026, general election void, invalid, or nullified.
+
+This market will resolve upon the issuance of the first qualifying ruling by the specified court on the matter. Only this initial ruling will be considered for resolution, and any subsequent rulings, appeals, clarifications, rehearings, or related decisions will not be considered.
+
+The primary resolution source will be official information from the Constitutional Court of Thailand; however, a consensus of credible reporting may also be used.
+Contracts:
+  E2.C1: Thai Constitutional Court invalidates election?
+
+=== E3: How many pieces of legislation will Trump sign into law in March?
+Rules:
+This market will resolve according to the number of pieces of legislation that are signed into law between March 1, 2026, 12:00 AM and March 31, 2026, 11:59 PM ET. 
+
+Qualifying legislation may include joint resolutions and must pass both the House and the Senate, and must be signed by the President. 
+
+Legislation that becomes law without a signature while Congress remains in session, or becomes law through veto override, as well as Presidential pocket vetoes that expire, will not qualify.
+
+The primary resolution sources for this market will be official information from the White House (https://www.whitehouse.gov/), Congress.gov’s legislation tracker (https://www.congress.gov/bill/119th-congress/house-bill/22), the Library of Congress (congress.gov), and other official information from the government of the United States; however, a consensus of credible reporting may also be used.
+Contracts:
+  E3.C1: Will President Trump sign 0 pieces of legislation into law in March?
+  E3.C2: Will President Trump sign 1 piece of legislation into law in March?
+  E3.C3: Will President Trump sign 2 pieces of legislation into law in March?
+  E3.C4: Will President Trump sign 3 pieces of legislation into law in March?
+  E3.C5: Will President Trump sign 4 pieces of legislation into law in March?
+  E3.C6: Will President Trump sign 5 pieces of legislation into law in March?
+  E3.C7: Will President Trump sign 6 pieces of legislation into law in March?
+  E3.C8: Will President Trump sign 7 pieces of legislation into law in March?
+  E3.C9: Will President Trump sign 8 or more pieces of legislation into law in March?
+
+=== E4: How many pieces of legislation will Trump sign into law in April?
+Rules:
+This market will resolve according to the number of pieces of legislation that are signed into law between April 1, 2026, 12:00 AM and April 30, 2026, 11:59 PM ET. 
+
+Qualifying legislation may include joint resolutions and must pass both the House and the Senate, and must be signed by the President. 
+
+Legislation that becomes law without a signature while Congress remains in session, or becomes law through veto override, as well as Presidential pocket vetoes that expire, will not qualify.
+
+The primary resolution sources for this market will be official information from the White House (https://www.whitehouse.gov/), Congress.gov’s legislation tracker (https://www.congress.gov/bill/119th-congress/house-bill/22), the Library of Congress (congress.gov), and other official information from the government of the United States; however, a consensus of credible reporting may also be used.
+Contracts:
+  E4.C1: Will President Trump sign 0 pieces of legislation into law in April?
+  E4.C2: Will President Trump sign 1 piece of legislation into law in April?
+  E4.C3: Will President Trump sign 2 pieces of legislation into law in April?
+  E4.C4: Will President Trump sign 3 pieces of legislation into law in April?
+  E4.C5: Will President Trump sign 4 pieces of legislation into law in April?
+  E4.C6: Will President Trump sign 5 pieces of legislation into law in April?
+  E4.C7: Will President Trump sign 6 pieces of legislation into law in April?
+  E4.C8: Will President Trump sign 7 or more pieces of legislation into law in April?
+
+=== E5: GPU rental prices (H200) end of July?
+Rules:
+This market will resolve according to the finalized Ornn H200 Index price for July 31, 2026. 
+
+If the recorded data falls exactly between two brackets, this market will resolve to the higher bracket.
+
+The resolution source for this market is Ornnai.com (ornnai.com), specifically, the H200 Index chart data available at https://dashboard.ornnai.com. The specified finalized daily value shown on the chart will be used for resolution. Daily data will be considered finalized once the following day’s data point is published.
+
+Resolution will occur once the specified data point is finalized. If the relevant data is not finalized by the end of the 7th calendar day after the specified date (ET), this market will resolve according to the latest data available at that time. Revisions made after the relevant figure has been finalized will not be considered.
+Contracts:
+  E5.C1: Will the Ornn H200 Index be less than $2.00 on July 31, 2026?
+  E5.C2: Will the Ornn H200 Index be between $2.00 and $3.00 on July 31, 2026?
+  E5.C3: Will the Ornn H200 Index be between $3.00 and $4.00 on July 31, 2026?
+  E5.C4: Will the Ornn H200 Index be between $4.00 and $5.00 on July 31, 2026?
+  E5.C5: Will the Ornn H200 Index be between $5.00 and $6.00 on July 31, 2026?
+  E5.C6: Will the Ornn H200 Index be at least $6.00 on July 31, 2026?
+
+=== E6: Will Spencer Pratt concede by…?
+Rules:
+This market will resolve to "Yes" if Spencer Pratt concedes in the 2026 Los Angeles mayoral elections by the listed date (Pacific Time). Otherwise, this market will resolve to "No".
+
+A concession is defined as an unambiguous public statement that acknowledges that the candidate lost the 2026 Los Angeles mayoral elections, will not be the next Mayor of Los Angeles, or acknowledges the victory of an opponent. If a candidate makes these acknowledgements while also claiming that the election was rigged or that there was fraud, this will still qualify as a concession.
+
+Any public statement from this candidate written or verbal will qualify. Speeches in which this candidate begins speaking within the time frame of this market will qualify, even if their declaration of concession falls outside the market’s timeframe.
+
+Only public statements from this candidate will qualify. Reports of private conversations, e.g. if the candidate called the victor and conceded over the phone, will not count.
+Contracts:
+  E6.C1: Will Spencer Pratt concede by July 2?
+
+=== E7: Will Iran sabotage undersea internet cables by April 30?
+Rules:
+This market will resolve to "Yes" if Iran or Iranian-aligned groups damage undersea internet cables between market creation and April 30, 2026, 11:59 PM ET. Otherwise, this market will resolve to “No”.
+
+Only actions that cause physical damage to the undersea internet cable infrastructure, e.g., physical sabotage, such as cutting, dragging, or explosive attacks, will be considered. Cyber attacks will not qualify, even if they have kinetic effects.
+
+Qualifying incidents must occur in the region spanning the Persian Gulf, Strait of Hormuz, Gulf of Oman, Arabian Sea, Gulf of Aden, and Red Sea, including areas surrounding the Arabian Peninsula.
+
+Attempted attacks that do not result in damage, or actions that are intercepted or fail to impact the cables, will not qualify for a "Yes" resolution.
+
+Incidents which are broadly attributed to Iranian forces or Iranian-aligned groups will qualify regardless of the absence of definitive evidence or official Iranian denials. 
+
+The resolution source will be a consensus of credible reporting.
+Contracts:
+  E7.C1: Will Iran sabotage undersea internet cables by April 30?
+
+=== E8: Gaza flotilla enters Israeli waters by May 31?
+Rules:
+A flotilla organized by the Global Sumud Flotilla, among others, set sail from Spain on April 15, 2026 to deliver aid to Gaza (see: https://apnews.com/article/global-sumud-flotilla-gaza-aid-spain-israel-94b09412fdcb1a0fd6a6e0c981479539). 
+
+This market will resolve to “Yes” if any vessel which is part of this flotilla enters Israel’s territorial sea by May 31, 2026 (ET). Otherwise, this market will resolve to “No”.
+
+For the purposes of this market, Israel’s territorial sea includes the territorial waters off the coast of Gaza that are controlled by Israel.
+
+The primary resolution source will be a consensus of credible reporting.
+Contracts:
+  E8.C1: Gaza flotilla enters Israeli waters by May 31?
+
+=== E9: Argentina Official USD Exchange Rate end of January?
+Rules:
+This is a market about Argentina’s official wholesale U.S. dollar exchange rate at market close on the last business day of January 2026, as published by the Central Bank of Argentina (BCRA).
+
+This market will resolve according to the official wholesale USD to ARS exchange rate (Tipo de Cambio Mayorista, ($ por USD) Com. A 3500 | Referencia) at market close on the final business day of January 2026, as published by the BCRA on its official website (https://www.bcra.gob.ar/).
+
+If the official rate for that date has not been published by the end of the 7th day after the end of the specified month, the market will resolve according to the most recently published official wholesale rate preceding that date.
+
+The resolution source for this market will be the official BCRA publication. Resolution will occur once this figure is available.
+
+Note: the resolution source for this market will be the Central Bank of Argentina (BCRA), which reports the Wholesale Exchange Rate to two decimal points (e.g., 1,408.02 ARS per USD). Thus, this is the level of precision that will be used when resolving the market.
+Contracts:
+  E9.C1: Will the official USD to ARS exchange rate be less than 1420.00 at the end of January 2026?
+  E9.C2: Will the official USD to ARS exchange rate be between 1420.00 and 1439.99 at the end of January 2026?
+  E9.C3: Will the official USD to ARS exchange rate be between 1440.00 and 1459.99 at the end of January 2026?
+  E9.C4: Will the official USD to ARS exchange rate be between 1460.00 and 1479.99 at the end of January 2026?
+  E9.C5: Will the official USD to ARS exchange rate be between 1480.00 and 1499.99 at the end of January 2026?
+  E9.C6: Will the official USD to ARS exchange rate be 1500.00 or higher at the end of January 2026?
+
+=== E10: AZ-05 Democratic Primary Winner
+Rules:
+This market will resolve according to the candidate who wins the nomination for the Democratic Party to contest the AZ-05 congressional district seat in the U.S. House of Representatives in the 2026 midterm elections. The Democratic primary will take place on July 21, 2026.
+
+If no nominee is announced by November 3, 2026, 11:59PM ET, this market will resolve to "Other".
+
+The resolution source for this market will be a consensus of official Democrat sources, including https://democrats.org/.
+
+Any replacement of the nominee before election day will not change the resolution of the market.
+Contracts:
+  E10.C1: Will Blake Bracht be the AZ-05 Democratic nominee?
+  E10.C2: Will Brian Hualde be the AZ-05 Democratic nominee?
+  E10.C3: Will Chris James be the AZ-05 Democratic nominee?
+  E10.C4: Will Elizabeth Lee be the AZ-05 Democratic nominee?

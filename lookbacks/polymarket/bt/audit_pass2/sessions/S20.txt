@@ -1,0 +1,171 @@
+You will be shown 10 questions from a prediction market. Each question has one or more contracts, and each contract resolves YES or NO under the rules shown.
+
+For every contract, give your probability, as a whole percent from 1 to 99, that it resolves YES. Use only what you already know. Do not search for or look up anything: reading this file is the only tool call you may make.
+
+For each question, also say whether you recognise how it actually turned out ("recognised": true only if you believe you remember the real outcome; otherwise false).
+
+Where a question's contracts are mutually exclusive (exactly one can resolve YES), your numbers for it should add up to about 100. Where they are nested thresholds or dates, keep them consistent with each other.
+
+Reply with one JSON object and nothing else, in this form:
+{"events": [{"label": "E1", "recognised": false, "p": {"E1.C1": 35, "E1.C2": 60}}]}
+
+Every contract label below must appear exactly once in your reply.
+
+=== E1: Bangladesh July Charter referendum passes?
+Rules:
+The July Charter referendum is a 2026 constitutional referendum on amendments to the Constitution of Bangladesh, proposed for the general election currently set for February 12, 2026.
+
+This market will resolve to “Yes” if the national referendum held pursuant to the “July National Charter (Constitutional Reform) Implementation Order, 2025” (or any successor order explicitly replacing it) is passed by voters in the Bangladesh general election currently set for February 12, 2026. Otherwise, this market will resolve to “No.”
+
+If the election is officially rescheduled, the same rule applies to the new ballot and its corresponding deadlines. This market will resolve to "no" if no qualifying referendum vote is passed by June 30, 2026, 11:59 PM ET.
+
+The resolution source will be based on the official certified results of the vote as published by the Election Commission of Bangladesh. Subsequent litigation, administrative challenges, or failure of any post-approval implementation steps will not be considered.
+Contracts:
+  E1.C1: Bangladesh July Charter referendum passes?
+
+=== E2: Uganda Presidential Election
+Rules:
+Presidential elections are scheduled to be held in Uganda on January 15, 2026. If no candidate secures more than 50% of the vote outright, a second round of elections will be scheduled.
+
+This market will resolve to the candidate that wins this election. Otherwise, this market will resolve to "No".
+
+This market includes any potential second round. If the result of this election isn't known by December 31, 2026, 11:59 PM ET, the market will resolve to "Other".
+
+This market will resolve based on the result of this election as indicated by a consensus of credible reporting. If there is ambiguity, this market will resolve based solely on the official results as reported by the Ugandan Government, specifically the Ugandan Electoral Commission (https://www.ec.or.ug/).
+Contracts:
+  E2.C1: Will Yoweri Kaguta Museveni win the 2026 Ugandan presidential election?
+  E2.C2: Will Robert Kasibante win the 2026 Ugandan presidential election?
+  E2.C3: Will Joseph Mabirizi win the 2026 Ugandan presidential election?
+  E2.C4: Will Nathan James Nandala Mafabi win the 2026 Ugandan presidential election?
+  E2.C5: Will Gregory Mugisha Muntuyera win the 2026 Ugandan presidential election?
+  E2.C6: Will Robert Kyagulanyi Ssentamu win the 2026 Ugandan presidential election?
+  E2.C7: Will Munyagwa Mubarak Sserunga win the 2026 Ugandan presidential election?
+  E2.C8: Will Bulira Frank Kabinga win the 2026 Ugandan presidential election?
+
+=== E3: Who will advance from the California Lieutenant Governor primary?
+Rules:
+The California primary is currently scheduled to take place on June 2, 2026.
+
+This market will resolve "Yes" if the listed candidate advances from the primary to contest the Lieutenant Governor race in California in the 2026 midterm elections. Otherwise, this market will resolve to "No".
+
+If no nominees are announced by November 3, 2026, 11:59 PM ET, this market will resolve to "No".
+
+The resolution source for this market will be a consensus of official sources, including https://www.sos.ca.gov/.
+
+Any replacement of the nominees before election day will not change the resolution of the market.
+Contracts:
+  E3.C1: Will Rakesh Christian advance from the California Lieutenant Governor Primary in 2026?
+  E3.C2: Will David Collenberg advance from the California Lieutenant Governor Primary in 2026?
+  E3.C3: Will Sean Collinson advance from the California Lieutenant Governor Primary in 2026?
+  E3.C4: Will David Fennell advance from the California Lieutenant Governor Primary in 2026?
+  E3.C5: Will Josh Fryday advance from the California Lieutenant Governor Primary in 2026?
+  E3.C6: Will Janelle Kellman advance from the California Lieutenant Governor Primary in 2026?
+  E3.C7: Will Jeyson Lopez advance from the California Lieutenant Governor Primary in 2026?
+  E3.C8: Will Ebie Lynch advance from the California Lieutenant Governor Primary in 2026?
+  E3.C9: Will Fiona Ma advance from the California Lieutenant Governor Primary in 2026?
+  E3.C10: Will Oliver Ma advance from the California Lieutenant Governor Primary in 2026?
+
+=== E4: Will Russia enter Novyi Donbas by...?
+Rules:
+This market will resolve to “Yes” if, according to the ISW map, Russia captures any territory of Novyi Donbas, Donetsk Oblast, (48.450718° N, 37.181238° E) between market creation and the specified date (ET).
+
+Territory will be considered captured if any part of the specified territory is shaded under a below specified layer on the ISW map (https://storymaps.arcgis.com/stories/36a7f6a6f5a9448496de641cf64bd375) by the resolution date. Otherwise, the market will resolve to “No”.
+
+For any change on the ISW map to qualify for this market’s resolution, the relevant shading indicating Russian control must persist through the next full ISW daily update cycle. If ISW skips a day, shading must persist until the next finalized ISW update is published, regardless of the date. Any continuous shading which reflects either "Assessed Russian Infiltration Areas in Ukraine", “Assessed Russian Control”, “Assessed Russian Advance In Ukraine”, or “Assessed Russian Gains in the Past 24 Hours” will qualify. 
+
+Once a qualifying condition is met, any subsequent loss of control will not be considered towards the resolution of this market.
+
+If Russia comes into control of the specified territory as a result of a negotiated settlement, this will qualify for a 'Yes' resolution, regardless of whether it is shaded red in the ISW map. However, an announcement of a negotiated settlement that gives Russia de jure control will not qualify. Actual control must be established.
+
+The primary resolution source for this market will be the ISW Ukraine map. If the ISW map is rendered unavailable, information from DeepStateMap (https://deepstatemap.live/) may be used. If information from both the ISW and DeepStateMap are rendered permanently unavailable, a consensus of credible reporting may be used.
+
+Note: Any temporary glitches or errors in the map will not be considered.
+Contracts:
+  E4.C1: Will Russia enter Novyi Donbas by September 30?
+
+=== E5: Precipitation in NYC in January?
+Rules:
+This market will resolve according to the total precipitation in inches in Central Park, New York City between January 1 and January 31, 2026, 11:59PM ET according to the National Oceanic and Atmospheric Administration (NOAA).
+
+The resolution source for this market will be NOAA, specifically the figure for January 2026 when the "Monthly summarized data" for "Central Park NY" is selected with the variable set to "Precipitation" at the https://www.weather.gov/wrh/climate?wfo=okx link once that figure is finalized for the whole month of January 2026.
+
+The resolution source for this market measures precipitation to 2 decimal places (e.g., 1.54), thus, this is the level of precision that will be used when resolving this market. Any revisions to precipitation recorded after data is finalized for this market's timeframe will not be considered for this market's resolution.
+Contracts:
+  E5.C1: Will NYC have less than 3 inches of precipitation in January?
+  E5.C2: Will NYC have between 3 and 4 inches of precipitation in January?
+  E5.C3: Will NYC have between 4 and 5 inches of precipitation in January?
+  E5.C4: Will NYC have between 5 and 6 inches of precipitation in January?
+  E5.C5: Will NYC have between 6 and 7 inches of precipitation in January?
+  E5.C6: Will NYC have more than 7 inches of precipitation in January?
+
+=== E6: March 2026 Temperature Increase (ºC)
+Rules:
+This market will resolve according to the value reported by the Global Land-Ocean Temperature Index for March 2026 when it is released.
+
+An anomaly within a named bracket for March 2026 is necessary and sufficient to resolve this market immediately once the data becomes available, regardless of whether the figure for March 2026 is later revised.
+
+The primary resolution source for this market will be the figure found in the table titled "GLOBAL Land-Ocean Temperature Index in 0.01 degrees Celsius" under the column "Mar" in the row "2026" (https://data.giss.nasa.gov/gistemp/tabledata_v4/GLB.Ts+dSST.txt).
+
+If NASA’s “Global Temperature Index” is rendered permanently unavailable, other information from NASA may be used.
+If no information for February 2026 is provided by NASA by May 1, 2026, 11:59 PM ET, this market will resolve to the lowest range bracket.
+Contracts:
+  E6.C1: Will global temperature increase by less than 1.10ºC in March 2026?
+  E6.C2: Will global temperature increase by between 1.10ºC and 1.14ºC in March 2026?
+  E6.C3: Will global temperature increase by between 1.15ºC and 1.19ºC in March 2026?
+  E6.C4: Will global temperature increase by between 1.20ºC and 1.24ºC in March 2026?
+  E6.C5: Will global temperature increase by between 1.25ºC and 1.29ºC in March 2026?
+  E6.C6: Will global temperature increase by more than 1.29ºC in March 2026?
+
+=== E7: Megaquake by March 31?
+Rules:
+A "megaquake" is defined as an earthquake with a magnitude of 8.0 or greater.
+
+This market will resolve to “Yes” if 1 or more earthquakes with a magnitude of 8.0 or higher occur anywhere on Earth between market creation and March 31, 2026, 11:59 PM ET. Otherwise, this market will resolve to “No”.
+
+The resolution source for this market is the United States Geological Survey (USGS) Earthquake Hazards Program (https://earthquake.usgs.gov/earthquakes/browse/significant.php#sigdef).
+
+If an earthquake of substantial size has occurred within this market's timeframe but not yet appeared on the resolution source, this market may remain open until the end of the seventh day after the resolution time, or until the earthquake in question otherwise appears on the resolution source. If such an earthquake has not appeared on the resolution source by that date, another credible resolution source will be used.
+
+After a qualifying earthquake is registered, this market will remain open for 24 hours to account for any revisions to its recorded magnitude. After 24 hours, this market will resolve according to the latest provided data.
+Contracts:
+  E7.C1: Megaquake by March 31?
+
+=== E8: Will Netanyahu publicly insult Trump by June 30?
+Rules:
+This market will resolve to "Yes" if Benjamin Netanyahu makes any public statement in which he insults, mocks, or attacks Donald Trump personally or professionally in a clearly negative manner between market creation and the specified date (ET). Otherwise, this market will resolve to "No". 
+
+This includes calling the individual weak, stupid, disloyal, a failure, using an insulting nickname, using other derogatory language, or using the negative form of a positive trait in a derogatory personal way (e.g., “He/She isn’t smart”). Negative forms used in reference to the individual's professional actions, policies, or decisions (e.g., “He/She isn’t being smart about this policy”) will not count. Policy disagreements stated without disparaging language will not count.
+
+A direct reference will qualify even if the individual is not named, so long as it is reasonably clear from context that they are the subject.
+
+Any written, verbal, or recorded public statement by Benjamin Netanyahu qualifies.
+
+The resolution source will be a consensus of credible reporting.
+Contracts:
+  E8.C1: Will Netanyahu publicly insult Trump by June 30?
+
+=== E9: Will Alien arrests in New York hit ___ by June 30?
+Rules:
+This market will resolve to "Yes" if the Total Arrests counter for aliens in New York, NY, as reported by whitehouse.gov/aliens/, reaches or exceeds the specified figure by June 30, 2026, 11:59 PM ET. Otherwise, this market will resolve to "No".
+
+The resolution source for this market will be the Total Arrests counter for the specified city at https://www.whitehouse.gov/aliens/.
+
+If the counter becomes unavailable and does not resume by the end of the third calendar day after it first became unavailable, this market will resolve to "No".
+
+Note: Only cases reported by the specified resolution source will qualify, regardless of reports from U.S. state agencies or other sources.
+Contracts:
+  E9.C1: Will Alien arrests in New York hit 4800+ by June 30?
+  E9.C2: Will Alien arrests in New York hit 4900+ by June 30?
+  E9.C3: Will Alien arrests in New York hit 5000+ by June 30?
+
+=== E10: Will Ilhan Omar resign by March 31?
+Rules:
+This market will resolve to "Yes" if Ilhan Omar announces she has resigned, will resign, or will not run for re-election for United States Representative from Minnesota by March 31, 2026, 11:59PM ET. Otherwise, this market will resolve to "No."
+
+If it becomes impossible for Ilhan Omar to resign or to announce her resignation (e.g., due to her removal from office by other means, etc.), this market will immediately resolve to "No."
+
+For this market to resolve to "Yes," it is only necessary that Ilhan Omar announce that she has resigned or will resign or will not run for re-election. Whether she actually resigns will have no bearing on the resolution of this market.
+
+The primary resolution source for this market will be official information from the US federal government or the government of Minnesota; however, a consensus of credible reporting will also be used.
+Contracts:
+  E10.C1: Will Ilhan Omar resign by March 31?

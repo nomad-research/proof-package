@@ -1,0 +1,205 @@
+You will be shown 10 questions from a prediction market. Each question has one or more contracts, and each contract resolves YES or NO under the rules shown.
+
+For every contract, give your probability, as a whole percent from 1 to 99, that it resolves YES. Use only what you already know. Do not search for or look up anything: reading this file is the only tool call you may make.
+
+For each question, also say whether you recognise how it actually turned out ("recognised": true only if you believe you remember the real outcome; otherwise false).
+
+Where a question's contracts are mutually exclusive (exactly one can resolve YES), your numbers for it should add up to about 100. Where they are nested thresholds or dates, keep them consistent with each other.
+
+Reply with one JSON object and nothing else, in this form:
+{"events": [{"label": "E1", "recognised": false, "p": {"E1.C1": 35, "E1.C2": 60}}]}
+
+Every contract label below must appear exactly once in your reply.
+
+=== E1: Precipitation in Hong Kong in June?
+Rules:
+This market will resolve according to the total precipitation in mm in Hong Kong between June 1 and June 30, 2026, according to the Hong Kong Observatory.
+
+The resolution source for this market will be the Hong Kong Observatory, specifically the "Total Rainfall (mm)" figure for all days in June 2026 under the "Daily Extract" at the https://www.weather.gov.hk/en/cis/climat.htm link once figures are finalized for the specified range.
+
+If the reported data falls exactly between two brackets, this market will resolve to the higher bracket.
+
+If the relevant data is not available by September 7, 2026, 11:59 PM ET, another credible resolution source will be chosen.
+
+The resolution source for this market measures precipitation to 1 decimal place (e.g., 1.5), thus, this is the level of precision that will be used when resolving this market. Any revisions to precipitation recorded after data is finalized for this market's timeframe will not be considered for this market's resolution.
+Contracts:
+  E1.C1: Will Hong Kong have less than 350mm of precipitation in June?
+  E1.C2: Will Hong Kong have between 350-375mm of precipitation in June?
+  E1.C3: Will Hong Kong have between 375-400mm of precipitation in June?
+  E1.C4: Will Hong Kong have between 400-425mm of precipitation in June?
+  E1.C5: Will Hong Kong have between 425-450mm of precipitation in June?
+  E1.C6: Will Hong Kong have between 450-475mm of precipitation in June?
+  E1.C7: Will Hong Kong have between 475-500mm of precipitation in June?
+  E1.C8: Will Hong Kong have 500mm or more of precipitation in June?
+
+=== E2: US forcibly removes Khamenei from power by March 31?
+Rules:
+This market will resolve to “Yes” if the United States forcibly removes Iran’s Supreme Leader, Ali Khamenei, from power for any length of time between market creation and March 31, 2026, 11:59 PM ET. Otherwise, this market will resolve to “No”.
+
+The United States will be considered to have forcibly removed Khamenei from power if Khamenei is detained, captured, surrenders, or otherwise loses his position or is prevented from fulfilling his duties as Supreme Leader of Iran as a direct result of actions of force, including strikes, invasions, or other operations, carried out by United States government forces.
+
+Actions of force means the use of physical force, including but not limited to kinetic military action (e.g., missiles, bombs, gunfire), ground operations or raids, special operations, invasions, or physical arrests or detentions carried out by United States government forces. Sanctions, diplomacy, or other non-physical actions will not qualify.
+
+United States government forces refers to any active U.S. military (including U.S. Coast Guard), law enforcement, or intelligence personnel. Contractors confirmed to be acting under the orders of the United States government will count.
+
+Actions of force carried out by United States government forces must directly lead to Khamenei’s removal from power. United States actions which merely contribute to or assist in Khamenei’s removal by other forces or through peaceful means will not suffice.
+
+Qualifying examples (would count): The United States’ 2003 invasion of Iraq, which removed Saddam Hussein from power, and 1989 invasion of Panama, which led to Manuel Noriega’s surrender to U.S. forces, would count. The United States 2001 invasion of Afghanistan, which largely toppled the Taliban government and removed the Taliban leadership from power, would also have counted. The 1983 U.S. invasion of Grenada, which removed the existing regime from power, would count.
+
+Non-qualifying examples (would not count): The 2011 removal of Muammar Gaddafi from power in Libya, however, in which the United States Military took part in a NATO operation against the Libyan military, including qualifying actions of force, but Gaddafi was removed by Libyan anti-government forces rather than U.S. government forces, would not count. The 1994 U.S.-led intervention in Haiti, in which the military regime relinquished power through negotiated departure rather than being forcibly removed from power by United States government forces as defined above, would not count. The removal of Slobodan Milošević from power in Serbia, which occurred through domestic political processes rather than Milošević's removal by United States government forces, would not count.
+
+The resolution sources for this market will be official information from the United States federal government and a consensus of credible reporting.
+Contracts:
+  E2.C1: US forcibly removes Khamenei from power by March 31?
+
+=== E3: Hungary Election: TISZA % of Popular Vote
+Rules:
+Parliamentary elections are scheduled to be held in Hungary on April 12, 2026. Hungary uses a mixed electoral system in which most voters cast two votes: one for a candidate in a single-member constituency and one for a national party list.
+
+This market will resolve according to the percentage of all valid national party list votes won by TISZA in this election.
+
+This market will resolve solely based on national party list votes cast in this election. Votes cast for single-member constituencies will not be considered.
+
+If the percentage of all valid national party list votes won by TISZA falls exactly on the boundary between two brackets, this market will resolve to the higher range bracket.
+
+If the results of this election are not definitively known by December 31, 2026, 11:59 PM ET, this market will resolve to the lowest bracket.
+
+This market will resolve based on the official election results reported by the Hungarian government, specifically the Hungarian Election Authority (Nemzeti Választási Iroda) (valasztas.hu). However, an overwhelming consensus of credible reporting may also suffice.
+Contracts:
+  E3.C1: Will TISZA win <42% of the national list votes in the 2026 Hungarian Parliamentary election?
+  E3.C2: Will TISZA win 42-46% of the national list votes in the 2026 Hungarian Parliamentary election?
+  E3.C3: Will TISZA win 46-50% of the national list votes in the 2026 Hungarian Parliamentary election?
+  E3.C4: Will TISZA win 50-54% of the national list votes in the 2026 Hungarian Parliamentary election?
+  E3.C5: Will TISZA win 54%+ of the national list votes in the 2026 Hungarian Parliamentary election?
+
+=== E4: Avg. # of ships transiting Strait of Hormuz end of May?
+Rules:
+This market will resolve according to the 7-day moving average of transit calls (“Arrivals of Ships”) for the Strait of Hormuz that IMF Portwatch reports for May 31, 2026.
+
+If the reported value falls exactly between two brackets, this market will resolve to the higher range bracket.
+
+Transit calls include container, dry bulk, roll-on/roll-off, general cargo, and tanker ships. Ships not reported by IMF Portwatch will not be considered.
+
+This market will resolve as soon as data for the specified date has been published. If no data for the specified date has been published by June 14, 2026, 11:59 PM ET, this market will resolve based on data for the most recent date prior to May 31, 2026, for which data is available.
+
+This market will resolve based on the first publication of data for May 31, 2026. Any subsequent revisions will not be considered.
+
+The resolution source for this market will be IMF Portwatch, specifically the transit calls data published for the Strait of Hormuz at https://portwatch.imf.org/pages/cb5856222a5b4105adc6ee7e880a1730, both in the chart and through downloadable files.
+Contracts:
+  E4.C1: Will there be between 0 and 10 average daily transits of the Strait of Hormuz on May 31?
+  E4.C2: Will there be between 10 and 20 average daily transits of the Strait of Hormuz on May 31?
+  E4.C3: Will there be between 20 and 40 average daily transits of the Strait of Hormuz on May 31?
+  E4.C4: Will there be between 40 and 60 average daily transits of the Strait of Hormuz on May 31?
+  E4.C5: Will there be 60 or more average daily transits of the Strait of Hormuz on May 31?
+
+=== E5: December Inflation US - Monthly
+Rules:
+This is a market about the one-month percent change in the seasonally adjusted Consumer Price Index for All Urban Consumers (CPI-U) published by the Bureau of Labor Statistics (BLS).
+
+This market will resolve to the number the one-month seasonally adjusted Consumer Price Index for All Urban Consumers (CPI-U) increased in December 2025 according to the monthly BLS report.
+
+The resolution source for this market will be the BLS Consumer Price Index report released for December 2025 (https://www.bls.gov/bls/news-release/cpi.htm), currently scheduled to be released on January 13, 2025, at 8:30 AM ET. Resolution of this market will take place upon release of the aforementioned data.
+
+Note: the resolution source for this market will be the official monthly Consumer Price Index for All Urban Consumers (CPI-U) which reports to the one decimal point (e.g. 0.4%). Thus, this is the level of precision that will be used when resolving the market.
+
+If the BLS does not release the relevant figures on the scheduled date, this market may remain open up until the scheduled release time of the next CPI report (https://www.bls.gov/schedule). If the information is not released by that time, this market will resolve according the figures of the most recent previous month with available data.
+Contracts:
+  E5.C1: Will monthly inflation increase by 0.1% or less in December?
+  E5.C2: Will monthly inflation increase by 0.2% in December?
+  E5.C3: Will monthly inflation increase by 0.3% in December?
+  E5.C4: Will monthly inflation increase by 0.4% in December?
+  E5.C5: Will monthly inflation increase by 0.5% or more in December?
+
+=== E6: Will JD Vance talk to Iranian negotiators by...?
+Rules:
+Rules
+Contracts:
+  E6.C1: Will JD Vance talk to Iranian negotiators by March 31?
+    Contract rules: This market will resolve to "Yes" if JD Vance talks with at least one Iranian negotiator by the listed date 11:59 PM ET. Otherwise, it will resolve to "No".
+
+Qualifying Iranian negotiators are representatives of Iran who are acting in an official capacity and are authorized to engage in negotiation or diplomacy regarding US-Iranian relations on behalf of their government.
+
+A talk is defined as any interaction between JD Vance and an Iranian negotiator, occurring either in person or through verbal communication by phone or video call.
+
+The resolution source will be a consensus of credible reporting.
+  E6.C2: Will JD Vance talk to Iranian negotiators by April 30?
+    Contract rules: This market will resolve to "Yes" if JD Vance talks with at least one Iranian negotiator by the listed date 11:59 PM ET. Otherwise, it will resolve to "No".
+
+Qualifying Iranian negotiators are representatives of Iran who are acting in an official capacity and are authorized to engage in negotiation or diplomacy regarding US-Iranian relations on behalf of their government.
+
+A talk is defined as any interaction between JD Vance and an Iranian negotiator, occurring either in person or through verbal communication by phone or video call.
+
+The resolution source will be a consensus of credible reporting.
+
+=== E7: ME-02 Democratic Primary Winner
+Rules:
+This market will resolve according to the candidate who wins the nomination for the Democratic Party to contest the ME-02 congressional district seat in the U.S. House of Representatives in the 2026 midterm elections. The Democratic primary will take place on June 9, 2026.
+
+If no nominee is announced by November 3, 2026, 11:59PM ET, this market will resolve to "Other".
+
+The resolution source for this market will be a consensus of official Democrat sources, including https://democrats.org/.
+
+Any replacement of the nominee before election day will not change the resolution of the market.
+Contracts:
+  E7.C1: Will Jared Golden be the Democratic nominee for ME-02?
+  E7.C2: Will Matthew Dunlap be the Democratic nominee for ME-02?
+  E7.C3: Will Joe Baldacci be the Democratic nominee for ME-02?
+  E7.C4: Will Jordan Wood be the Democratic nominee for ME-02?
+  E7.C5: Will Paige Loud be the Democratic nominee for ME-02?
+
+=== E8: Next Google Gemini Pro Model released on...?
+Rules:
+This market will resolve according to the calendar date (ET) on which Google's next Gemini Pro model is made available to the general public.
+
+Any Gemini model released after market creation and labeled as "Pro" may qualify (e.g., gemini-3.2-pro, gemini-3.5-pro, or gemini-4.0-pro-preview). Gemini models labeled only as Flash, Flash-Lite, or another non-Pro variant will not qualify.
+
+Products labeled as a GA promotion of an already-existing Preview model (e.g., gemini-3.1-pro-ga) may qualify.
+
+A qualifying model must be launched and publicly accessible, including via open beta or open rolling waitlist signups. A closed beta or any form of private access will not suffice. The release must be either clearly defined and publicly announced by Google as being accessible to the general public or otherwise made publicly accessible and explicitly labeled within the company's official website. Labeling errors, placeholder text, or version names displayed on the website that do not correspond to a model that is actually accessible to the general public will not qualify.
+
+The primary resolution source for this market will be official information from Google, with additional verification from a consensus of credible reporting.
+Contracts:
+  E8.C1: Will the next Google Gemini Pro model be released on June 16, 2026?
+  E8.C2: Will the next Google Gemini Pro model be released on June 17, 2026?
+  E8.C3: Will the next Google Gemini Pro model be released on June 18, 2026?
+  E8.C4: Will the next Google Gemini Pro model be released on June 19, 2026?
+  E8.C5: Will the next Google Gemini Pro model be released on June 20, 2026?
+  E8.C6: Will the next Google Gemini Pro model be released on June 21, 2026?
+  E8.C7: Will the next Google Gemini Pro model be released on June 22, 2026?
+  E8.C8: Will the next Google Gemini Pro model be released on June 23, 2026?
+  E8.C9: Will the next Google Gemini Pro model be released on June 24, 2026?
+  E8.C10: Will the next Google Gemini Pro model be released on June 25, 2026?
+  E8.C11: Will the next Google Gemini Pro model be released on June 26, 2026?
+  E8.C12: Will the next Google Gemini Pro model be released on June 27, 2026?
+
+=== E9: Houthi military action against Israel by...?
+Rules:
+This market will resolve to "Yes" if the Houthis initiate a drone, missile, or air strike that impacts Israeli ground territory between market creation and the listed date, 11:59 PM ET. Otherwise, this market will resolve to "No".
+
+For the purposes of this market, a qualifying "military action" is defined as the use of aerial bombs, drones, or missiles (including cruise or ballistic missiles) launched by Houthi forces that physically impact land under Israeli control.
+
+Israeli ground territory, for the purposes of this market, refers to land internationally recognized as part of the State of Israel, including all territory under de facto Israeli government administration as of market creation. This includes the Israeli-controlled Golan Heights and East Jerusalem, but excludes the West Bank and Gaza Strip.
+
+Missiles or drones that are intercepted before reaching the ground, or surface-to-air missile strikes, will not qualify for a "Yes" resolution—regardless of whether debris lands on Israeli soil or causes damage.
+
+The resolution source will be a consensus of credible reporting.
+
+If the date/time of a strike cannot be confirmed by a consensus of credible reporting by the end of the third calendar date after this market's end date, it will resolve to "No" regardless of whether a strike was later confirmed to have taken place.
+Contracts:
+  E9.C1: Houthi military action against Israel by April 15, 2026?
+  E9.C2: Houthi military action against Israel by April 30, 2026?
+
+=== E10: The Pas-Kameesak Manitoba Legislative Assembly By-Election Winner
+Rules:
+A by-election for the Manitoba Legislative Assembly District The Pas-Kameesak is currently scheduled to be held on July 21, 2026.
+
+This market will resolve according to the candidate who wins the 2026 Pas-Kameesak Manitoba Legislative Assembly by-election.
+
+If the election results are not known definitively by March 31, 2027, 11:59 PM ET, this market will resolve to "Other".
+
+The resolution source for this market will be a consensus of credible reporting. In case of ambiguity, this market will resolve solely based on official election results as published by Elections Manitoba (https://www.electionsmanitoba.ca/).
+Contracts:
+  E10.C1: Will Jennifer Flett win the 2026 Pas-Kameesak Manitoba Legislative Assembly by-election?
+  E10.C2: Will Dan Quesnel  win the 2026 Pas-Kameesak Manitoba Legislative Assembly by-election?
+  E10.C3: Will Wally Daudrich win the 2026 Pas-Kameesak Manitoba Legislative Assembly by-election?
+  E10.C4: Will Edna Nabess win the 2026 Pas-Kameesak Manitoba Legislative Assembly by-election?

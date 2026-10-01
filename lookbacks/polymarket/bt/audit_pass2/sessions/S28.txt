@@ -1,0 +1,212 @@
+You will be shown 10 questions from a prediction market. Each question has one or more contracts, and each contract resolves YES or NO under the rules shown.
+
+For every contract, give your probability, as a whole percent from 1 to 99, that it resolves YES. Use only what you already know. Do not search for or look up anything: reading this file is the only tool call you may make.
+
+For each question, also say whether you recognise how it actually turned out ("recognised": true only if you believe you remember the real outcome; otherwise false).
+
+Where a question's contracts are mutually exclusive (exactly one can resolve YES), your numbers for it should add up to about 100. Where they are nested thresholds or dates, keep them consistent with each other.
+
+Reply with one JSON object and nothing else, in this form:
+{"events": [{"label": "E1", "recognised": false, "p": {"E1.C1": 35, "E1.C2": 60}}]}
+
+Every contract label below must appear exactly once in your reply.
+
+=== E1: Hungary Parliamentary Election:  Popular Vote Winner
+Rules:
+Parliamentary elections are scheduled to be held in Hungary on April 12, 2026. Hungary uses a mixed electoral system in which most voters cast two votes: one for a candidate in a single-member constituency and one for a national party list. 
+
+This market will resolve according to the listed political party or coalition whose national candidate list receives the most valid national party list votes in this election.
+
+This market will resolve solely based on national party list votes cast in this election. Votes cast for single-member constituencies will not be considered.
+
+If two or more parties/coalitions tie for the most valid national party list votes in this election, this market will resolve to “Other.”
+
+If any unlisted party wins the most national list votes in this election, or the results of this election are not definitively known by December 31, 2026, 11:59 PM ET, this market will resolve to “Other”.
+
+This market will resolve based on the official election results reported by the Hungarian government, specifically the Hungarian Election Authority (Nemzeti Választási Iroda) (valasztas.hu). However, an overwhelming consensus of credible reporting may also suffice.
+
+Note: If the Fidesz-KDNP does not contest this election with a joint national party list, the Fidesz-KDNP option will represent the national party list officially registered by Fidesz.
+Contracts:
+  E1.C1: Will Fidesz–KDNP win the most national list votes in the 2026 Hungarian parliamentary election?
+  E1.C2: Will Tisza win the most national list votes in the 2026 Hungarian parliamentary election?
+  E1.C3: Will another party win the most national list votes in the 2026 Hungarian parliamentary election?
+
+=== E2: Nick Fuentes arrested by June 30?
+Rules:
+This market will resolve to "Yes" if Nick Fuentes is arrested or detained by law enforcement between the time of market creation and the specified date, 11:59 PM ET. Otherwise, this market will resolve to "No".
+
+Temporary holding at a detention facility while awaiting a judge’s decision on whether to grant a detention warrant qualifies, so long as they are held by law enforcement in an official capacity during that time.
+
+A qualifying arrest/detention includes:
+* Being taken into physical custody by law enforcement authorities (including federal, state, local, military, or international law enforcement)
+* Voluntarily surrendering to law enforcement authorities in response to an arrest warrant
+* Being formally booked or processed following detention
+* Being handcuffed by a state authority and taken to a police station
+* Surrendering at a police station or courthouse with their attorney
+* Being placed under house arrest or electronic monitoring
+
+The following scenarios will NOT qualify as an arrest/detention
+* An arrest warrant being issued but not executed
+* Being questioned or interviewed without arrest
+* Being named in an indictment without arrest
+
+The primary resolution source for this market will be official information from the arresting government and law enforcement; however, a consensus of credible reporting may also be used.
+Contracts:
+  E2.C1: Nick Fuentes arrested by June 30?
+
+=== E3: Will Russia capture Hryshyne by...?
+Rules:
+This market will resolve to “Yes” if, according to the ISW map, Russia captures the intersection located at 48.326824° N, 37.081821° E in Hryshyne, Donetsk Oblast, by the specified date ET.
+
+The intersection will be considered captured if any part of the intersection is shaded red under a below-specified layer on the ISW map (https://storymaps.arcgis.com/stories/36a7f6a6f5a9448496de641cf64bd375) by the resolution date. If the area is not shaded by the specified date ET, the market will resolve to “No”.
+
+For any change on the ISW map to qualify for this market’s resolution, the relevant shading indicating Russian control must persist through the next full ISW daily update cycle. If ISW skips a day, shading must persist until the next finalized ISW update is published, regardless of the date. Any continuous shading which reflects either “Assessed Russian Control”, “Assessed Russian Advance In Ukraine”, or “Assessed Russian Gains in the Past 24 Hours” will qualify. “Assessed Russian Infiltration Areas in Ukraine” will not qualify.
+
+If Russia comes into control of this territory as a result of a negotiated settlement, this will qualify for a 'Yes' resolution, regardless of whether it is shaded red in the ISW map. An announcement of a negotiated settlement that gives Russia de jure control will not qualify. Actual control must be established.
+
+Once Russia captures the intersection under the above-specified conditions, any subsequent loss of control will not be considered towards the resolution of this market.
+
+Intersection Location: https://polymarket-upload.s3.us-east-2.amazonaws.com/H1.png
+
+Intersection Location in Hryshyne: https://polymarket-upload.s3.us-east-2.amazonaws.com/H2.png
+
+Hryshyne Location: https://polymarket-upload.s3.us-east-2.amazonaws.com/H3.png
+
+Location on Google Maps: https://maps.app.goo.gl/h8ZuXgFCYGM77Upc6
+
+The primary resolution source for this market will be the ISW Ukraine map. If the ISW map is rendered unavailable, information from DeepStateMap (https://deepstatemap.live/) may be used. If information from both the ISW and DeepStateMap is rendered permanently unavailable, a consensus of credible reporting may be used.
+
+Note: Any temporary glitches or errors in the map will not be considered.
+Contracts:
+  E3.C1: Will Russia capture Hryshyne by February 28, 2026?
+  E3.C2: Will Russia capture Hryshyne by March 31, 2026?
+  E3.C3: Will Russia capture Hryshyne by April 30, 2026?
+  E3.C4: Will Russia capture Hryshyne by June 30, 2026?
+
+=== E4: Another US strike on Venezuela by...?
+Rules:
+This market will resolve to "Yes" if a US-initiated drone, missile, or air strike on Venezuelan soil is announced or credibly reported to have occurred by the listed date ET. Otherwise, this market will resolve to "No".
+
+For the purposes of this market, a qualifying "strike" is defined as the use of aerial bombs, drones, or missiles (including FPV and ATGM strikes as well as cruise or ballistic missiles) launched by any United States operatives, including military forces, intelligence agencies, or other U.S. government operatives, that physically impact ground territory within Venezuela.
+
+A strike on any area within the terrestrial territory (including rivers, lakes, ports, but excluding territorial sea) of Venezuela counts.
+ 
+Missiles or drones that are intercepted and surface-to-air missile strikes will not be sufficient for a "Yes" resolution, regardless of whether they land on Venezuelan territory or cause damage.
+
+Actions such as artillery fire, small arms fire, ground incursions, naval shelling, or cyberattacks will not qualify.
+
+Any strike occurring during this market’s timeframe that is claimed by either Donald Trump or the U.S. government will qualify.
+
+The primary resolution source will be a consensus of credible reporting.
+
+This market will remain open until the end of the second day after the resolution time. If the date/time of a qualifying strike cannot be confirmed by a consensus of credible reporting by that time, it will resolve to "No" regardless of whether a strike was later confirmed to have taken place.
+Contracts:
+  E4.C1: Another US strike on Venezuela by January 17?
+  E4.C2: Another US strike on Venezuela by January 31?
+  E4.C3: Another US strike on Venezuela by March 31?
+  E4.C4: Another US strike on Venezuela by December 31?
+
+=== E5: Will Congress pass any tariffs by March 31?
+Rules:
+This market will resolve to "Yes" if both the U.S. House of Representatives and the U.S. Senate pass the same bill, measure, or resolution that explicitly seeks to create a tariff on any country or set of countries for any goods by March 31, 2026, 11:59 PM ET. Otherwise, this market will resolve to "No."
+
+A bill, measure or resolution will be considered to “seek to create a tariff” if it explicitly calls for or orders the imposition of any import tax or duty on any category of goods from any country or region. Category-specific tariffs, general tariffs on countries, or blanket global tariffs will all qualify. The delegation of tariff powers to other government authorities (e.g. the President) without calling for specific tariffs to be imposed, trade restrictions which do not impose an import tax or duty, or tariffs imposed under existing executive authority without new passage by both chambers of Congress will not qualify.
+
+A measure amended by either chamber will only qualify if the amended version is subsequently passed by both chambers in identical form.
+
+The resolution source will be official congressional voting records and a consensus of credible reporting.
+Contracts:
+  E5.C1: Will Congress pass any tariffs by March 31?
+
+=== E6: Israel enacts military exemption for Yeshiva students by Sep 30?
+Rules:
+This market will resolve to “Yes” if any legislation is formally enacted into Israeli law that allows for exemptions from, or deferments of, mandatory military conscription for ultra-Orthodox yeshiva students by September 30, 2026, 11:59 PM ET. Otherwise, this market will resolve to “No”.
+
+For purposes of this market, “ultra-Orthodox yeshiva students” refers to ultra-Orthodox or Haredi Israelis who attend a yeshiva or equivalent Torah-study institution.
+
+A qualifying law must provide a legal framework under which some or all ultra-Orthodox yeshiva students are legally able to avoid immediate mandatory military conscription due to their status as yeshiva students, full-time religious students, or an equivalent category. Laws which allow ultra-Orthodox yeshiva students to defer military service while they are studying in yeshiva will qualify.
+
+A law may qualify even if it does not provide a blanket exemption for all ultra-Orthodox yeshiva students, provided it enables exemption from, or deferment of, mandatory military service for some ultra-Orthodox yeshiva students due to their status as yeshiva students.
+
+A law that changes general military service requirements will not qualify unless it includes provisions specifically allowing exemptions from, or deferments of, mandatory military conscription for ultra-Orthodox yeshiva students due to their status as Yeshiva students.
+
+A proposal, preliminary Knesset vote, or other action which does not constitute enactment will not be sufficient unless the relevant law is formally enacted by the specified date.
+
+The primary resolution source will be official information from the Knesset and the government of Israel; however, a consensus of credible reporting may also be used.
+Contracts:
+  E6.C1: Israel enacts military exemption for Yeshiva students by Sep 30?
+
+=== E7: Will France, UK or Germany strike Iran by January 31?
+Rules:
+This market will resolve to "Yes" if France, the United Kingdom, or Germany initiates a drone, missile, or air strike on Iranian soil or any official Iranian embassy or consulate by January 31, 2026, 11:59 PM ET. Otherwise, this market will resolve to "No".
+
+For the purposes of this market, a qualifying "strike" is defined as the use of aerial bombs, drones or missiles (including cruise or ballistic missiles) launched by French, United Kingdom, or German military forces that impact Iranian ground territory or any official Iranian embassy or consulate (e.g., if a weapons depot on Iranian soil is hit by a French, United Kingdom, or German missile, this market will resolve to "Yes").
+
+Missiles or drones which are intercepted and surface-to-air missile strikes will not be sufficient for a "Yes" resolution regardless of whether they land on Iranian territory or cause damage.
+
+Actions such as artillery fire, small arms fire, FPV or ATGM strikes directly, ground incursions, naval shelling, cyberattacks, or other operations conducted by French, United Kingdom, or German ground operatives will not qualify.
+
+The resolution source will be a consensus of credible reporting.
+Contracts:
+  E7.C1: Will France, UK or Germany strike Iran by January 31?
+
+=== E8: Will Google (GOOGL) Q2 YouTube ads revenue be above __?
+Rules:
+This market will resolve to "Yes" if Google's YouTube ads revenue for the upcoming second fiscal quarter, as reported in its official company earnings materials, is above the listed amount. Otherwise, this market will resolve to "No".
+
+The specified metric will be considered as reported in the company's official earnings materials. Subsequent revisions will not be considered.
+
+If the specified company's official earnings materials for the specified quarter are released, and the specified metric is not included, this market will resolve to "No".
+
+If the specified company does not release quarterly earnings materials for the specified quarter by August 31, 2026, 11:59 PM ET, this market will resolve to "No".
+
+If the specified metric is reported as a range rather than a specific number, the midpoint of the range will be used for resolution of this market.
+
+The resolution source for this market is the specified company's official company earnings materials, including press releases, investor presentations, and regulatory filings. If the specified metric is not reported in these materials, recordings or transcripts of the company's earnings webcast may also be used.
+
+Note: This market will resolve based on the most numerically precise version of the specified metric reported in the company's official earnings materials. Only the specified metric will be considered; alternate versions that differ in definition or scope from the specified metric will not be considered.
+Contracts:
+  E8.C1: Will Google (GOOGL) Q2 YouTube ads revenue be above $10.4B?
+  E8.C2: Will Google (GOOGL) Q2 YouTube ads revenue be above $10.6B?
+  E8.C3: Will Google (GOOGL) Q2 YouTube ads revenue be above $10.8B?
+  E8.C4: Will Google (GOOGL) Q2 YouTube ads revenue be above $11B?
+  E8.C5: Will Google (GOOGL) Q2 YouTube ads revenue be above $11.2B?
+
+=== E9: Bulgaria Parliamentary Election Winner
+Rules:
+Parliamentary elections are scheduled to be held in Bulgaria on April 19, 2026.
+
+This market will resolve according to the listed political party or coalition that wins the greatest number of seats in the Bulgarian National Assembly as a result of this election.
+
+If the results are not known definitively by October 31, 2026, 11:59 PM ET, this market will resolve to "Other".
+
+In the event of a tie between multiple parties or coalitions for the most seats won, this market will resolve in favor of the party or coalition that received a greater number of valid votes. In the event that results in a tie, this market will resolve in favor of the party or coalition whose listed abbreviation appears first in alphabetical order. If no abbreviation is listed, the listed name will be used.
+
+This market's resolution will be based solely on the number of seats won by the named party or coalition in the Bulgarian Parliament. If a named coalition dissolves, this market will resolve based on the seat total of the constituent party within that coalition that held the largest number of seats before the election.
+
+This market will resolve based on the results of this election as indicated by a consensus of credible reporting. If there is ambiguity, this market will resolve based solely on the official results as reported by the Bulgarian government, specifically the Central Election Commission of Bulgaria (Tsentralna Izbiratelna Komisia) (https://www.cik.bg/).
+Contracts:
+  E9.C1: Will GERB-SDS (GERB–SDS) win the most seats in the 2026 Bulgarian parliamentary election?
+  E9.C2: Will We Continue the Change – Democratic Bulgaria (PP–DB) win the most seats in the 2026 Bulgarian parliamentary election?
+  E9.C3: Will Vazrazhdane win the most seats in the 2026 Bulgarian parliamentary election?
+  E9.C4: Will Movement for Rights and Freedoms (DPS) win the most seats in the 2026 Bulgarian parliamentary election?
+  E9.C5: Will BSP – United Left win the most seats in the 2026 Bulgarian parliamentary election?
+  E9.C6: Will Alliance for Rights and Freedoms (APS) win the most seats in the 2026 Bulgarian parliamentary election?
+  E9.C7: Will There Is Such a People (ITN) win the most seats in the 2026 Bulgarian parliamentary election?
+  E9.C8: Will Morality, Unity, Honour (MECH) win the most seats in the 2026 Bulgarian parliamentary election?
+  E9.C9: Will Velichie win the most seats in the 2026 Bulgarian parliamentary election?
+  E9.C10: Will Progressive Bulgaria (PB) win the most seats in the 2026 Bulgarian parliamentary election?
+
+=== E10: Ukraine signs peace deal with Russia by March 31?
+Rules:
+This market will resolve to “Yes”  if, Ukraine signs any written instrument (e.g., treaty, ceasefire/armistice, framework/“roadmap,” exchange of letters, or mediated agreement text) that: (i) includes both Ukraine and the Russian Federation as parties, and (ii) either ends hostilities/establishes a ceasefire or commits both sides to a defined process toward ending the war (i.e., stated objective of peace/normalization plus principles, steps, and/or a timetable) by March 31, 2026, 11:59 PM ET. Otherwise, this market will resolve to “No”. 
+
+Only Ukraine’s signature is required; Russia’s signature or ratification is not.
+
+Localized, temporary, or issue-specific arrangements—such as airstrike-limitation or deconfliction protocols, humanitarian pauses, evacuation corridors, prisoner-exchange or trade/export arrangements, border/DMZ adjustments, or ceasefires limited to a particular sector/front/municipality—will not qualify.
+
+The document must bear a wet-ink or officially issued electronic signature of an authorized Ukrainian representative. Unsigned agreements (e.g., the 2023 Ohrid arrangement) will not qualify regardless of if they are otherwise officially enacted. 
+
+The primary resolution source will be a consensus of credible reporting.
+Contracts:
+  E10.C1: Ukraine signs peace deal with Russia by March 31?

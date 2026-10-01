@@ -1,0 +1,197 @@
+You will be shown 10 questions from a prediction market. Each question has one or more contracts, and each contract resolves YES or NO under the rules shown.
+
+For every contract, give your probability, as a whole percent from 1 to 99, that it resolves YES. Use only what you already know. Do not search for or look up anything: reading this file is the only tool call you may make.
+
+For each question, also say whether you recognise how it actually turned out ("recognised": true only if you believe you remember the real outcome; otherwise false).
+
+Where a question's contracts are mutually exclusive (exactly one can resolve YES), your numbers for it should add up to about 100. Where they are nested thresholds or dates, keep them consistent with each other.
+
+Reply with one JSON object and nothing else, in this form:
+{"events": [{"label": "E1", "recognised": false, "p": {"E1.C1": 35, "E1.C2": 60}}]}
+
+Every contract label below must appear exactly once in your reply.
+
+=== E1:  Iran agrees to end enrichment of uranium by June 30?
+Rules:
+This market will resolve to "Yes" if Iran publicly agrees to end all enrichment of uranium by June 30, 2026, 11:59 PM ET. Otherwise, this market will resolve to “No”.
+
+An official pledge by Iran to end all enrichment of Uranium will qualify for a “Yes” resolution, whether as a unilateral announcement or part of an agreement with the U.S. or Israel.
+
+Any agreement or pledge made before the resolution date of this market will qualify, regardless of if/when the agreement goes into effect.
+
+An agreement by Iran to end all enrichment of uranium for any amount of time will count.
+
+An agreement by Iran to end all enrichment of uranium as a precondition of a more comprehensive peace process or deal will qualify, even if the agreement is not finalized or part of a formalized peace deal. 
+
+Agreements to merely limit or cap the level or quality of enrichment—such as reducing enrichment to below weapons-grade thresholds—will not qualify.
+
+The primary resolution source for this market will be a consensus of credible reporting.
+Contracts:
+  E1.C1:  Iran agrees to end enrichment of uranium by June 30?
+
+=== E2: Fed decision in January?
+Rules:
+The FED interest rates are defined in this market by the upper bound of the target federal funds range. The decisions on the target federal fund range are made by the Federal Open Market Committee (FOMC) meetings.
+
+This market will resolve to the amount of basis points the upper bound of the target federal funds rate is changed by versus the level it was prior to the Federal Reserve's January 2026 meeting.
+
+If the target federal funds rate is changed to a level not expressed in the displayed options, the change will be rounded up to the nearest 25 and will resolve to the relevant bracket. (e.g. if there's a cut/increase of 12.5 bps it will be considered to be 25 bps)
+
+The resolution source for this market is the FOMC’s statement after its meeting scheduled for January 27 - 28, 2026 according to the official calendar: https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm.
+
+The level and change of the target federal funds rate is also published at the official website of the Federal Reserve at https://www.federalreserve.gov/monetarypolicy/openmarket.htm.
+
+This market may resolve as soon as the FOMC’s statement for their January meeting with relevant data is issued. If no statement is released by the end date of the next scheduled meeting, this market will resolve to the "No change" bracket.
+Contracts:
+  E2.C1: Fed decreases interest rates by 50+ bps after January 2026 meeting?
+  E2.C2: Fed decreases interest rates by 25 bps after January 2026 meeting?
+  E2.C3: No change in Fed interest rates after January 2026 meeting?
+  E2.C4: Fed increases interest rates by 25+ bps after January 2026 meeting?
+
+=== E3: Who will vote to confirm Kevin Warsh as Fed Chair?
+Rules:
+This market will resolve to “Yes” if the listed Senator votes “Yea” on the first final U.S. Senate confirmation vote on the nomination of Kevin Warsh to be Chair of the Federal Reserve. Otherwise, this market will resolve to “No”.
+
+The vote refers to the first final confirmation vote on the nomination in the full chamber, not including committee votes or procedural motions.
+
+If the nomination passes unanimously or without individual voting (e.g. a voice vote), this market will resolve to “Yes”. If the nomination is rejected unanimously or without individual voting, this market will resolve to “No”.
+
+If no qualifying vote is held by June 30, 2026, 11:59 PM ET, this market will resolve to “No”. If a formally submitted nomination is withdrawn or returned to the President before reaching a final confirmation vote, this market will resolve immediately to “No”.
+
+The resolution sources will be official Senate voting records and a consensus of credible reporting.
+Contracts:
+  E3.C1: Will Thom Tillis vote to confirm Kevin Warsh as Chair of the Federal Reserve?
+  E3.C2: Will Elizabeth Warren vote to confirm Kevin Warsh as Chair of the Federal Reserve?
+  E3.C3: Will Bernie Sanders vote to confirm Kevin Warsh as Chair of the Federal Reserve?
+  E3.C4: Will Chuck Schumer vote to confirm Kevin Warsh as Chair of the Federal Reserve?
+  E3.C5: Will Lisa Murkowski vote to confirm Kevin Warsh as Chair of the Federal Reserve?
+  E3.C6: Will Kevin Cramer vote to confirm Kevin Warsh as Chair of the Federal Reserve?
+  E3.C7: Will John Kennedy vote to confirm Kevin Warsh as Chair of the Federal Reserve?
+
+=== E4: Maduro trial scheduled by January 31?
+Rules:
+On January 3, 2026, Nicolás Maduro was indicted alongside alleged co-conspirators in an indictment titled "United States of America V. Nicolás Maduro Moros, Diosdado Cabello Rondón, Ramón Rodríguez Chacín, Cilia Adela Flores de Maduro, Nicolás Ernesto Maduro Guerra".
+
+This market will resolve to "Yes" if a trial start date in the indictment against Nicolás Maduro is scheduled by January 31, 2026, 11:59 PM ET. Otherwise, this market will resolve to "No."
+
+If the judge schedules a trial date within this market’s timeframe, this will suffice for resolution regardless of the actual date on which the trial is set to begin. If the trial date is subsequently moved, it will have no effect on the outcome of this market.
+
+The resolution source will be a consensus of credible reporting.
+Contracts:
+  E4.C1: Maduro trial scheduled by January 31?
+
+=== E5: December Inflation US - Annual
+Rules:
+This is a market about inflation over the 12-month period ending December 2025, before seasonal adjustment, as reported by the Bureau of Labor Statistics.
+
+This market will resolve to the number the Consumer Price Index (CPI) increased by over the 12-month period ending in December 2025 according to the monthly Bureau of Labor Statistics (BLS) report.
+
+The resolution source for this market will be the BLS Consumer Price Index report released for December 2025 (https://www.bls.gov/bls/news-release/cpi.htm), currently scheduled to be released on January 13, 2026, at 8:30 AM ET. Resolution of this market will take place upon release of the aforementioned data.
+
+Note: the resolution source for this market will be the official monthly BLS CPI news release, which reports inflation over 12-month periods to only one decimal point (e.g., 2.9%). Thus, this is the level of precision that will be used when resolving the market.
+
+If the BLS does not release the relevant figures on the scheduled date, this market may remain open up until the scheduled release time of the next CPI report (https://www.bls.gov/schedule). If the information is not released by that time, this market will resolve according the figures of the most recent previous month with available data.
+Contracts:
+  E5.C1: Will annual inflation increase by ≤2.8% in December?
+  E5.C2: Will annual inflation increase by 2.9% in December?
+  E5.C3: Will annual inflation increase by 3.0% in December?
+  E5.C4: Will annual inflation increase by 3.1% in December?
+  E5.C5: Will annual inflation increase by ≥3.2% in December?
+
+=== E6: What will Google say during their next earnings call?
+Rules:
+This market will resolve based on the next earnings announcement of Google currently scheduled to take place on February 4, 2026 at 4:30 PM ET.
+
+This market will resolve to "Yes" if the listed term is mentioned by anyone during this event. Otherwise, the market will resolve to "No".
+
+Any usage of the term, regardless of context, will count toward the resolution of this market.
+
+Pluralization/possessive of the term will count toward the resolution of this market; however, other forms will NOT count.
+
+Instances where the term is used in a compound word will count regardless of context (e.g. joyful is not a compound word for "joy," however "killjoy" is a compounding of the words "kill" and "joy").
+
+If this market requires a specified number of mentions of a person’s first or last name, a full-name mention will count as one mention (e.g., if a market is about “Joe / Biden 5+ times,” a mention of “Joe Biden” will count once).
+
+A Q&A event will count toward the resolution of this market.
+
+If this event is definitely cancelled, or otherwise is not aired by March 31, 2026, 11:59 PM ET, this market will resolve to "No".
+
+The resolution source will be audio of the event.
+Contracts:
+  E6.C1: Will Google say "European Commission" during earnings call?
+  E6.C2: Will Google say "Privacy" during earnings call?
+  E6.C3: Will Google say "Search Advertising" or "Search Ad" during earnings call?
+  E6.C4: Will Google say "Regulator" or "Regulation" or "Regulatory" during earnings call?
+  E6.C5: Will Google say "Wiz" during earnings call?
+  E6.C6: Will Google say "DeepMind" or "Deep Mind" during earnings call?
+  E6.C7: Will Google say "Quantum" during earnings call?
+  E6.C8: Will Google say "Autonomous" during earnings call?
+  E6.C9: Will Google say "Nano Banana" during earnings call?
+  E6.C10: Will Google say "Ironwood" during earnings call?
+  E6.C11: Will Google say "Youtube Shorts" during earnings call?
+  E6.C12: Will Google say "Gemini 3" during earnings call?
+
+=== E7: Strait of Hormuz traffic returns to normal by end of April?
+Rules:
+This market will resolve to “Yes” if IMF Portwatch publishes a 7-day moving average of transit calls (“Arrivals of Ships”) for the Strait of Hormuz equal to or above 60 for any date between market creation and April 30, 2026. Otherwise, this market will resolve to “No”.
+
+Daily transit calls include container, dry bulk, roll-on/roll-off, general cargo, and tanker ships. Ships not reported by IMF Portwatch will not be considered.
+
+This market will resolve as soon as IMF Portwatch publishes a 7-day moving average of transit calls equal to or above the specified level, or once data has been published for the final date in the specified period and no such value has been published. If no data has been published for the final date of the specified period within 14 calendar days (ET) after the end of that period, this market will resolve based on data published up to that point.
+
+Revisions to previously published data points made within this market’s timeframe will be considered. However, they will not disqualify a previously published data point from qualifying. Revisions to previously published data points after data is published for April 30, 2026, however, will not be considered.
+
+The resolution source for this market will be IMF Portwatch, specifically the transit calls data published for the Strait of Hormuz at https://portwatch.imf.org/pages/cb5856222a5b4105adc6ee7e880a1730, both in the chart and through downloadable files.
+Contracts:
+  E7.C1: Strait of Hormuz traffic returns to normal by end of April?
+
+=== E8: Ilhan Omar federally charged by March 31?
+Rules:
+This market will resolve to "Yes" if the United States federal government formally charges or announces a criminal indictment of Ilhan Omar by March 31, 2026, 11:59 PM ET. Otherwise, this market will resolve to "No".
+
+For the purposes of this market, the District of Columbia and any county, municipality, or other subdivision of a State shall be included within the definition of a State.
+
+The primary resolution source for this market will be official information from US governmental sources; however, a wide consensus of credible reporting will also be used.
+Contracts:
+  E8.C1: Ilhan Omar federally charged by March 31?
+
+=== E9: Odds Trump acquires Greenland before 2027 hit __ by March 31?
+Rules:
+This market will resolve to “Yes” if the “Yes” option for the “Will Trump acquire Greenland before 2027?” market  (https://polymarket.com/event/will-trump-acquire-greenland-before-2027) is priced over the listed value for any four-hour period ending by March 31, 2026, 11:59 PM ET or earlier. Otherwise, this market will resolve to “No”.
+
+A tie in the number of minutes will not suffice.
+
+The resolution source will be the underlying minute-level price data for the “Will Trump acquire Greenland before 2027?” market, which can be viewed using the bar chart on https://derivative.polymarket.com/will-trump-acquire-greenland-before-2027-over-20 or through the “Resolution” tab with the time set to show the four-hour window. Both interfaces display the same underlying data.
+
+Note: This market will resolve according to the price scoring methodology of derivative.polymarket.com.
+Contracts:
+  E9.C1: Odds Trump acquires Greenland before 2027 hit 30% by March 31?
+    Contract rules: This market will resolve to “Yes” if the “Yes” option for the “Will Trump acquire Greenland before 2027?” market  (https://polymarket.com/event/will-trump-acquire-greenland-before-2027) is priced over the listed value for any four-hour period ending by March 31, 2026, 11:59 PM ET or earlier. Otherwise, this market will resolve to “No”.
+
+A tie in the number of minutes will not suffice.
+
+The resolution source will be the underlying minute-level price data for the “Will Trump acquire Greenland before 2027?” market, which can be viewed using the bar chart on https://derivative.polymarket.com/will-trump-acquire-greenland-before-2027-over-30-2 or through the “Resolution” tab with the time set to show the four-hour window. Both interfaces display the same underlying data.
+
+Note: This market will resolve according to the price scoring methodology of derivative.polymarket.com.
+  E9.C2: Odds Trump acquires Greenland before 2027 hit 50% by March 31?
+
+=== E10: Who will Trump meet with in April?
+Rules:
+This market will resolve to "Yes" if the listed individual meets with Donald Trump between April 1, and April 30, 2026, 11:59 PM ET. Otherwise, this market will resolve to "No".
+
+A meeting is defined as any encounter where both the listed individual and Trump are present and interact with each other in person.
+
+The resolution source will be a consensus of credible reporting.
+Contracts:
+  E10.C1: Will Trump meet with Jerome Powell in April 2026?
+  E10.C2: Will Trump meet with Nicolás Maduro in April 2026?
+  E10.C3: Will Trump meet with Reza Pahlavi in April 2026?
+  E10.C4: Will Trump meet with Kim Jong Un in April 2026?
+  E10.C5: Will Trump meet with Volodymyr Zelenskyy in April 2026?
+  E10.C6: Will Trump meet with Xi Jinping in April 2026?
+  E10.C7: Will Trump meet with Mohammed bin Salman in April 2026?
+  E10.C8: Will Trump meet with Vladimir Putin in April 2026?
+  E10.C9: Will Trump meet with King of Morocco Mohammed VI in April 2026?
+  E10.C10: Will Trump meet with Keir Starmer in April 2026?
+  E10.C11: Will Trump meet with Luiz Inácio Lula da Silva in April 2026?
+  E10.C12: Will Trump meet with Giorgia Meloni in April 2026?
