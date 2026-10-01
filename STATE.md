@@ -706,3 +706,14 @@ Each thesis subgraph is one basket; a basket is which positions, not sizing; lin
     - It is registered forward as E3b (sweep addendum A3), and political mention markets come back into scope from W02.
   - **BT-T2 pass 3** (E1 on April–June locks) is registered and its frame is building.
   - **Pushes work again** (Rob completed the Git sign-in): `claude/v18-run` and `ccr-1eed6fb5-w9uiin` are on GitHub.
+
+## 2026-10-01 (night, later) — v19 starting point adopted; A2 registered forward
+- **Starting point.** `docs/NOMAD_V19_STARTING_POINT.md`, Rob's text, adopted as decision 12. Nothing in its stack is built until the design is agreed.
+- **§6 reproduced** from the frozen BT-T2 results (`v19_a2.py backtest`): armed +13.5¢ on 107 events.
+  - On mention markets A2 also concentrates the edge: +24.2¢ on 65 events.
+  - But there the picks it blocks still earn +8.4¢.
+- **A2 forward** (`V19_A2_prereg.md`, `v19_a2.py score`). Registered before any sweep outcome is read, on the sweep's frozen batches.
+  - Looks at 40 and 80 armed events.
+  - W01 holds about 20 armed events.
+  - The sweep's files and statistics are untouched.
+- **Next design question:** which arming rules bind the armed book from the start (decision 12, still open).

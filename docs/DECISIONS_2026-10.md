@@ -190,3 +190,46 @@ Register C3. Refines decisions 4 and 6.
   - **Rob's confirmation** of the scale-of-scale reading.
   - **Whether the weekly forward sweep may run as a scheduled task.** That is standing configuration on Rob's machine and needs his yes.
   - **BT-A pass 2** (window from April) is queued after T3.
+
+## 12. The v19 starting point, and A2 registered forward (2026-10-01)
+
+- **Decision.**
+  - `docs/NOMAD_V19_STARTING_POINT.md` is the starting point for designing the new system. Its choices are the builder's, made under Rob's instruction, and stay open to his change. Where it differs from this session's earlier question-1 proposal, the starting point holds.
+  - **"Build it out" is read as:** develop the design, and do the §9 steps that need no new system code. Layers 1 to 9 of its stack are not built until the design is agreed (§9).
+  - **Its §9 step 1 is done.** A2 is registered as a forward statistic on the sweep, before any sweep outcome is read (`lookbacks/polymarket/V19_A2_prereg.md`, scorer `v19_a2.py`).
+    - It is read at 40 and 80 resolved events with an armed NO position, with a 97.5% interval.
+    - The sweep's files, its scorer and its E1, E3 and E3b statistics are untouched.
+  - **The E1 book is non-mention events.** A2 without mention events is reported beside the declared statistic.
+- **Rob's words.** "You choose and we'll take that as our new starting point." Then: "hmm ive got this as a starting point for the new system, let's build it out."
+- **Evidence.**
+  - **§6 reproduces exactly from the frozen BT-T2 result files** (`v19_a2.py backtest`):
+    - armed +13.5¢ (+8.0 to +18.4) on 245 positions and 107 events;
+    - not armed +1.2¢;
+    - without mention events +12.3¢.
+  - **What A2 actually selects.** It arms NOs costing about 50¢ to 80¢; nothing is armed above 85¢. Twenty-point disagreements on NOs under 50¢ earn +0.3¢ (−6.1 to +7.2, 169 events). That supports the starting point's correction: the edge is in NOs the market already leans to, not bets against its favourite.
+  - **On the two E3 (mention) backtests, scored both sides against same-price mention contracts:**
+
+    | | Skill | Positions (events) |
+    |---|---|---|
+    | A2 either side, 50¢ or more | +24.2¢ (+17.4 to +29.7) | 229 (65) |
+    | Picks A2 blocks | +8.4¢ (+5.4 to +11.5) | |
+    | 20-point disagreements under 50¢ | +15.4¢ (+9.7 to +21.3) | 314 (80) |
+
+    On E1 the blocked positions earn about nothing. On mention markets they keep earning, so the 50¢ floor is an E1 finding that may not carry over. This is reported forward as a secondary; nothing declares on it.
+  - **Forward pace.** W01's frozen answers and lock asks give 24 armed NO positions on 20 events if every contract resolves. This was read without any outcome, by scoring the code against made-up outcomes. So A2's first look comes about two resolved batches in (late October) and its second about four in, both ahead of E1's first look.
+- **Still open.**
+  - **Which rules bind the armed book from the start.** The arming table requires all of A1 to A6, but only A2 has been tested; A1 and A4 have no data yet. That is the "AND over untested rules" which, by the starting point's own principle 8, left v15 arming nothing in 15 rounds. Next question.
+  - **D1 (the news disarm).**
+    - E1's mechanism is that the market prices salience. A news check that disarms whenever news bears on an outcome may remove the very positions the edge is earned on.
+    - "Disarm freely" assumes a false disarm costs one missed trade. A disarm that falls systematically on the edge-bearing cases costs the edge.
+    - It cannot be tested on backtests, since news found now would include the outcome. It runs in the shadow book first.
+  - **The mention book's arming rule** (the floor question above).
+  - **Four statistics now declare on one sample** (E1, E3, E3b, A2): at most about a 19% chance of at least one false confirmation. An A2 confirmation needs the next batch to agree.
+  - **The starting point's §8 items:**
+    - Rob's four numbers;
+    - R6 and an underlying's price;
+    - the procedural-against-cascade rule and labels;
+    - the statistical baseline;
+    - fills;
+    - E2's way to money.
+  - **Rob to confirm** that `fwd_sweep.py score` has not been run on his machine before this commit.
