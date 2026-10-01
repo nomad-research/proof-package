@@ -5,7 +5,7 @@
     python lookbacks/polymarket/bt_audit.py publish S01                           # copies the prompt outside the repository, prints the one-line instruction
     python lookbacks/polymarket/bt_audit.py ingest S01 <agent_id>                 # audits the transcript, validates, stores bt/audit/answers/S01.json
     python lookbacks/polymarket/bt_audit.py freeze                                # hashes every answer into bt/audit/manifest.json (before any score)
-    python lookbacks/polymarket/bt_audit.py score --gate <BT_AUDIT_GATE>          # needs the manifest; writes bt/audit/result.json
+    python lookbacks/polymarket/bt_audit.py score                                 # needs the manifest; writes bt/audit/result.json (both gates, addendum A1)
 
 Sessions are cold subagents sent one instruction: read the prompt file and answer. They see each event's rules and contract questions only, under opaque
 labels: no price, volume, date of resolution, outcome or id. The V1 run tooling is imported unchanged (audit, hand-back extraction, leak scan).
@@ -32,6 +32,7 @@ MIN_POINTS, POINTS_WINDOW_D = 10, 7                        # BT_MIN_POINTS: pric
 MAX_CONTRACTS = 12                                         # contracts scored per event, in display order (V1's menu cap)
 PER_SESSION = 10                                           # events per session (v18 §6.7)
 Q_FLOOR = 0.001                                            # a price side is floored at Polymarket's smallest tick
+GATES = {"loose": 0.5, "strict": 0.2}                      # BT_AUDIT_GATE (Rob, 2026-10-01; BT_A_prereg.md addendum A1): loose first pass, v18's 0.2 as the confirming pass
 PRICE_TAGS = {"crypto-prices", "hit-price", "stock-prices", "finance-updown", "pyth-finance", "multi-strikes", "equities", "stocks", "commodities",
               "forex", "crypto", "bitcoin", "ethereum", "solana", "xrp", "ripple", "dogecoin", "token-prices", "pre-market", "fdv"}
 MAKER = re.compile(r"\b(anthropic|claude)\b", re.I)        # v18 §6.7 rule 6: events about the operator model's maker are excluded
@@ -312,7 +313,7 @@ def cmd_score(a):
                 ps, qs = (p, q) if y else (1 - p, 1 - q)
                 terms.append(math.log(ps / max(qs, Q_FLOOR)))
             res[L["event_id"]] = {"month": ev["month"], "stratum": ev["stratum"], "excess": float(np.mean(terms)), "recognised": r["answers"][lab]["recognised"], "session": sid}
-    rng = np.random.default_rng(SEED); out = {"gate": a.gate, "by_month": {}}
+    rng = np.random.default_rng(SEED); out = {"gates": GATES, "by_month": {}}
     ctrl = [v["excess"] for v in res.values() if v["stratum"] == "news" and v["month"] in CONTROL]
     cb = boot_mean(ctrl, rng); out["control"] = {"n": len(ctrl), "mean": float(np.mean(ctrl)), "ci90": [float(np.quantile(cb, .05)), float(np.quantile(cb, .95))],
                                                  "p_positive": float(np.mean(cb > 0))}
@@ -326,16 +327,18 @@ def cmd_score(a):
                                          "recognised": sum(v["recognised"] for v in res.values() if v["month"] == mo and v["stratum"] == st)}
             if st == "news" and mo not in CONTROL and informative:
                 row["p_reaches_half_control"] = float(np.mean(b >= 0.5 * cb))
-                row["clean"] = row["p_reaches_half_control"] <= a.gate
+                row["clean"] = {name: row["p_reaches_half_control"] <= g for name, g in GATES.items()}
             out["by_month"][f"{mo}_{st}"] = row
-    if informative:
-        test = [mo for mo in MONTHS if mo not in CONTROL]; start = None
-        for i, mo in enumerate(test):
-            if all(out["by_month"].get(f"{m}_news", {}).get("clean") for m in test[i:]):
-                start = mo; break
-        out["bt_window_start"] = f"{start}-01" if start else None
-    else:
-        out["bt_window_start"] = None
+    out["bt_window_start"] = {}
+    for name in GATES:
+        start = None
+        if informative:
+            test = [mo for mo in MONTHS if mo not in CONTROL]
+            for i, mo in enumerate(test):
+                if all(out["by_month"].get(f"{m}_news", {}).get("clean", {}).get(name) for m in test[i:]):
+                    start = mo; break
+        out["bt_window_start"][name] = f"{start}-01" if start else None
+    if not informative:
         out["note"] = "the positive control shows no recall (mean excess not above zero), so the gate cannot be calibrated; the declared cutoff stands, unaudited"
     out["events"] = res; jdump(out, os.path.join(D, "result.json"))
     print(json.dumps({k: v for k, v in out.items() if k != "events"}, indent=1))
@@ -348,7 +351,7 @@ def main():
     p = sp.add_parser("publish"); p.add_argument("sid")
     p = sp.add_parser("ingest"); p.add_argument("sid"); p.add_argument("agent_id")
     sp.add_parser("freeze")
-    p = sp.add_parser("score"); p.add_argument("--gate", type=float, required=True)
+    sp.add_parser("score")
     a = ap.parse_args()
     {"draw": cmd_draw, "sessions": cmd_sessions, "publish": cmd_publish, "ingest": cmd_ingest, "freeze": cmd_freeze, "score": cmd_score}[a.cmd](a)
 

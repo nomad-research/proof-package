@@ -62,3 +62,13 @@ A model with only general priors and no evidence should not beat a price set 14 
 ## 8. Budget
 
 About 45 sessions of 10 events each. A session's fixed overhead measured about 72,000 tokens on this machine (pipeline check, 2026-10-01); a 10-event prompt adds roughly 5,000 to 15,000. Token counts are reported after the run, from the audits.
+
+## Addendum A1 (2026-10-01, before the draw, before any session or outcome): the gate
+
+Rob set the gate (`docs/DECISIONS_2026-10.md`, decision 5): "Looser first and we will do multiple passes to confirm the edge for now."
+
+- **Loose, the first pass: `BT_AUDIT_GATE` = 0.5.** A month is clean if it is more likely than not that its mean excess falls short of half the control's. This window is the one backtests run on first.
+- **Strict, the confirming pass: 0.2** (v18's starting value). The audit reports this window too.
+- A backtest edge found on the loose window counts as confirmed only if it also holds on the strict window and on forward data (decision 7: the 95% interval above zero).
+
+`score` takes no gate argument now; both values are fixed in `bt_audit.GATES`.
