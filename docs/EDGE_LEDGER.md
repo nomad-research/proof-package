@@ -80,7 +80,7 @@ The money is the model's choosing: a blind always-NO rule earns about 0 in both 
 
 **To confirm.** T3 (forward, claims with both branches, S3 registered).
 
-## E3. Mention markets: "What will … say" (candidate, 2026-10-01)
+## E3. Mention markets: "What will … say" (edge shown on its registered test, 2026-10-01; fragile)
 
 **In plain English.** On markets that pay if a person says a given word or phrase in a window (weekly Trump remarks, an earnings call), the model's NO bets (it won't be said) beat the price by a wide margin.
 
@@ -90,9 +90,20 @@ The money is the model's choosing: a blind always-NO rule earns about 0 in both 
 
 **Evidence.** BT-T2 pass 1 +16.2¢ (21 positions, 2 events); pass 2 +15.6¢ (20 positions, 2 events); pooled +15.9¢ (95% +5.8 to +29.4) on **4 events**. Post-hoc in both passes.
 
-**Status.** Candidate.
+**Registered test (`E3_MENTIONS_RESULT.md`).**
+- Every eligible mention event in the clean window, minus the four above: 46 events, 494 NO positions.
+- **The model's NO picks against other mention NOs at the same price: +7.3¢ (95% +1.8 to +13.0). Edge shown.**
+- NO money +10.1¢. NO picks priced 50¢ or more: +19.5¢ a share, about +29% per dollar, hit rate 88%.
+- Blind NO +3.1¢, spanning zero: the market leans slightly towards NO, and the picks beat that lean.
+- It is not only NO. YES picks beat same-price YESes by +14.3¢. The log score ties the market's (−0.007), where every other class lost (−0.074).
+- It holds with stale or decided prices removed.
+- **Fragile:** 23 events add and 23 subtract. Without the top three events it is +3.8¢ (−0.4 to +8.4).
 
-**To confirm.** A targeted backtest of every mention market in the clean window, one lock each, NO positions against same-side, same-cost contracts, registered before the draw.
+**Status.** Edge shown on its registered backtest, concentrated in a few events. It earns a design slot only after a forward pass confirms it.
+
+**To confirm.** Mention markets open now, read cold and price-blind, scored as they resolve: the same statistic, registered before the first batch.
+
+**To kill.** The forward statistic's 95% interval falls below zero.
 
 ## A framework observation: the ladder-structure hint (2026-10-01)
 
