@@ -46,3 +46,19 @@ Retrospective, free, run now on the V1 and V1b claims:
 2. The shared v18 packet, projection and scorer, with the claims track (R21) in the scorer from the start.
 3. BT-A, then BT-T2. Their pre-registrations name 18.0c as a second statistic beside coverage.
 4. T3 before 14 October, so V3's clusters can be reused; its C edges feed the 18.0c learning store.
+
+## 5. After T0 (2026-10-01): the claims track moves from trigger to lock
+
+T0 (`lookbacks/polymarket/T0_RESULT.md`) confirmed the claims and ruled out the trigger trade:
+- Triggered claims beat their lock price by +24 points and a matched placebo by +22 points (P 0.98 and 0.96).
+- After the "if" closed, the "then" price had already moved most of the way within about 1.3 hours.
+- Half the "then" contracts resolved first.
+
+**18.0c is therefore a pre-resolution claim bet:** belief(B) = P(A)·P(B|A) + (1 − P(A))·P(B|not A), sized against B's price at the lock.
+- P(B|A) and P(B|not A) are authored graded C edges, recalibrated from the claims record.
+- P(A) is an authored graded node belief.
+- 18.0c places no bet until T2 or T3 shows those authored probabilities are calibrated (direction ≥ `DIRECTION_PUSH` on their log score).
+
+**Packet change for T2, T3 and the BT tests:** every C edge must carry both branches (if A, and if not A), and every node in a claim must carry a graded P.
+
+R21 is amended to match. The trigger rule is kept as a descriptive statistic only (T0-c1, 6 tradable claims, P 0.65).
