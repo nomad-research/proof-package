@@ -697,3 +697,12 @@ Each thesis subgraph is one basket; a basket is which positions, not sizing; lin
 - **Mechanics found tonight:**
   - Gamma's date-window crawl hits its offset cap on sports events, so mention markets are found by `tag_slug=mention-markets`.
   - Gamma now tags Trump speech events "pop-culture", so the scope list drops them, as it did in the backtest.
+- **Later the same night.**
+  - **T3 frozen:** 24 of 25 clusters (manifest `080b509d…`). Its forward scorer and the scale-of-scale scoring registration (`T3_SCALE_prereg.md`) were committed before any T3 outcome was read.
+  - **Sweep W01 frozen:** 17 sessions; 4 were re-authored after writing 0%, and the originals are kept.
+  - **BT-A pass 2** (`BT_A_pass2_RESULT.md`): the window opens at **2026-04-01** under the loose gate and at 2026-06-01 under the strict gate (May borderline, P 0.38).
+  - **E3 pass 2** (`E3_MENTIONS_pass2_RESULT.md`): the NO statistic is +5.1¢, direction only.
+    - The both-sides reading replicated: +10.9¢ against pass 1's +11.1¢, pooled +11.0¢, and +8.7¢ without the top five events.
+    - It is registered forward as E3b (sweep addendum A3), and political mention markets come back into scope from W02.
+  - **BT-T2 pass 3** (E1 on April–June locks) is registered and its frame is building.
+  - **Pushes work again** (Rob completed the Git sign-in): `claude/v18-run` and `ccr-1eed6fb5-w9uiin` are on GitHub.
