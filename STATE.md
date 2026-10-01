@@ -631,3 +631,6 @@ Variance: `V1_VARIANCE.md` (declared first), `v1_variance.py`, `V1_VARIANCE_RESU
 
 ## 2026-09-30 — V3 authored and frozen
 30 forward rounds authored (26 hedged, 4 no instrument), 6 reserve replacements, answers frozen by hash (`v3/v1_answers_manifest.json`, see V3_prereg.md A4). Horizons 2026-10-15 to 2027-01-10. `v3_status.py` tracks resolution. Open: write the V3 scorer (re-fetch finals at scoring time), study the structural (S/X) split on V3 too, and run it once contracts resolve.
+
+## 2026-10-01 — Evaluation written (lookbacks/polymarket/EVALUATION.md)
+V1b registered, authored (33 events: 24 hedged, 5 no instrument, 4 void), frozen and scored: inconclusive (8 primary losses < 10; B2 interval spans 0; B4 0.33). Pooled V1+V1b (post-hoc, 41 scored, 15 losses): C−D +2.7 (−2.0, +7.5); −2.6 in rounds where the primary lost, +5.7 where it held; cross-entity +0.9 (−4.4, +6.0). Hedges pay more when the primary loses (+9.1, p 0.063); triggered claims beat lock prices (+28 pp, CI +10..+45, n 16); session hedge beats the blind statistical hedge (12 of 15, +14.9). Registered M control found degenerate. Verdict: not supported as an edge over de-risking; V3 is the confirmatory test.
