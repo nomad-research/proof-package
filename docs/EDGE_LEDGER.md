@@ -115,7 +115,42 @@ To score magnitude as magnitude:
 
 **Open for Rob:** for price questions the status quo is itself a market price (the underlying's spot, not the contract's price). Whether R6 allows it as world data is a question for him.
 
-### Calibration
+### Magnitude as "scale of scale" (decision 10, reading to confirm)
+
+Rob: "scale of scale not shift delta". Read as: how big this instance is within the range of sizes its kind takes, an order of magnitude or a percentile of its reference class, not how far something moves.
+
+What changes if so:
+- **Units.** Every outcome is placed on its own reference scale (its percentile among past instances of its kind, or its order of magnitude). Magnitudes then compare across crude, seats and casualties, so they can drive sizing on one scale.
+- **What the session writes.** The reference class and where this instance sits in it. That is base-rate reasoning, the thing E1 shows the model is good at.
+- **The status-quo problem mostly goes away.** The instance's place in its class does not need today's level, except for price questions, where the class is "moves of this size".
+- **Scoring is by rank:** the instance's realised place in its class against the place the session and the market implied. That is calibration-free, as decision 6 asks.
+- **E1 reads as a scale call.** "This will be an ordinary-sized instance, not the large one the market is pricing." Most instances of anything are ordinary.
+
+### Calibration methodology (from `calibration_methods.py`, 2026-10-01)
+
+Measured, walk-forward on BT-A (fit on earlier months, score the next):
+
+| | log loss | calibration error |
+|---|---|---|
+| raw | 0.316 | 0.038 |
+| bin-by-bin (isotonic) | 0.317 | 0.020 |
+| **Platt: one slope, one shift** | **0.309** | **0.015** |
+| beta: separate low and high ends | 0.311 | 0.023 |
+
+Carried from BT-A to BT-T2, a different pipeline, every method made things *worse* than raw: log loss 0.337 raw against about 0.35 for each map.
+
+The method that follows:
+1. **Calibrate within a pipeline only. Never carry a map between pipelines.** Miscalibration depends on how the question is asked: an as-of date or none, priced at the lock or 14 days out, evidence or none.
+2. **Platt scaling as the default,** starting at "no correction" and refitted walk-forward as resolved answers accumulate. Applied only once its walk-forward score beats raw on that pipeline's own history.
+3. **Shrink toward the pipeline's own overall fit by context** (event class, horizon, evidence or none) rather than fitting each small group alone. Two parameters per group, partially pooled.
+4. **Test two elicitation fixes in a dedicated calibration pass:**
+   - several independent sessions per event, averaged in log-odds;
+   - asking half the contracts as "the chance it does *not* happen".
+
+   The YES overconfidence may be partly how the question is framed.
+5. **Calibration never touches E1's selection or magnitude's ranks.** It only rescales chances for the money score and for sizing (decision 6).
+
+### Calibration, the pattern
 
 The model is asymmetric: accurate when it says "unlikely", overconfident when it says "likely".
 
