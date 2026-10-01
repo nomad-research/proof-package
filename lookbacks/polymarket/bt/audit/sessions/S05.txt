@@ -1,0 +1,525 @@
+You will be shown 10 questions from a prediction market. Each question has one or more contracts, and each contract resolves YES or NO under the rules shown.
+
+For every contract, give your probability, as a whole percent from 1 to 99, that it resolves YES. Use only what you already know. Do not search for or look up anything: reading this file is the only tool call you may make.
+
+For each question, also say whether you recognise how it actually turned out ("recognised": true only if you believe you remember the real outcome; otherwise false).
+
+Where a question's contracts are mutually exclusive (exactly one can resolve YES), your numbers for it should add up to about 100. Where they are nested thresholds or dates, keep them consistent with each other.
+
+Reply with one JSON object and nothing else, in this form:
+{"events": [{"label": "E1", "recognised": false, "p": {"E1.C1": 35, "E1.C2": 60}}]}
+
+Every contract label below must appear exactly once in your reply.
+
+=== E1: U.S. x Iran Military Engagement by...?
+Rules:
+This market will resolve to "Yes" if there is a military engagement between the military forces of the United States of America and Iran between market creation and the listed date, 11:59 PM ET. Otherwise, this market will resolve to "No".
+
+A "military engagement" is defined as any incident involving the use of force such as missile strikes, artillery fire, exchange of gunfire, or other forms of direct military engagement between US and Iranian military forces. Non-violent actions, such as warning shots, artillery fire into uninhabited areas, or missile launches that land in territorial waters or pass through airspace, will not qualify for a "Yes" resolution. Intentional ship ramming that results in significant damage to (e.g., a hole in the hull) or the sinking of a military ship by another will count toward a "Yes" resolution; however, minor damage (scrapes, dents) will not. Any U.S. military kinetic strike that impacts Iranian land territory will qualify for a “Yes” resolution. 
+
+Missiles or drones which are intercepted and surface-to-air missile strikes will not be sufficient for a "Yes" resolution, regardless of whether they land on adversarial territory or cause damage.
+
+Note: the U.S. Coast Guard is a branch of the U.S. Armed Forces; the Iranian Law Enforcement Command is a branch of the Iranian Armed Forces; all sub-branches of the Artesh, Islamic Revolutionary Guard Corps (including the Basij), and Law Enforcement Command are part of the Iranian Armed forces.
+
+The resolution source for this market will be a consensus of credible reporting.
+Contracts:
+  E1.C1: U.S. x Iran Military Engagement by March 31, 2026?
+  E1.C2: U.S. x Iran Military Engagement by June 30, 2026?
+
+=== E2: What will FTSE 100 (UKX) hit in March?
+Rules:
+What will FTSE 100 (UKX) hit in March?
+Contracts:
+  E2.C1: Will FTSE 100 (UKX) hit 8000 (LOW) in March?
+    Contract rules: This market will resolve to "Yes" if, at any point during March 2026, any 1-minute candle for FTSE 100 (UKX) shows a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No."
+
+All prices recorded during regular trading hours of the primary exchange for the instrument, as reflected in Yahoo Finance's 1-minute interval ("1m") data, will be considered.
+
+Periods when the market is officially closed (e.g., holidays or maintenance breaks) will not be considered.
+
+All times referenced are local to the primary exchange on which the index trades.
+
+The resolution source for this market is Yahoo Finance — specifically, the 1-minute interval ("1m") chart data for FTSE 100 (UKX).
+
+Note: FTSE 100 (UKX) is represented by ^FTSE on Yahoo Finance.
+  E2.C2: Will FTSE 100 (UKX) hit 7900 (LOW) in March?
+    Contract rules: This market will resolve to "Yes" if, at any point during March 2026, any 1-minute candle for FTSE 100 (UKX) shows a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No."
+
+All prices recorded during regular trading hours of the primary exchange for the instrument, as reflected in Yahoo Finance's 1-minute interval ("1m") data, will be considered.
+
+Periods when the market is officially closed (e.g., holidays or maintenance breaks) will not be considered.
+
+All times referenced are local to the primary exchange on which the index trades.
+
+The resolution source for this market is Yahoo Finance — specifically, the 1-minute interval ("1m") chart data for FTSE 100 (UKX).
+
+Note: FTSE 100 (UKX) is represented by ^FTSE on Yahoo Finance.
+  E2.C3: Will FTSE 100 (UKX) hit 7800 (LOW) in March?
+    Contract rules: This market will resolve to "Yes" if, at any point during March 2026, any 1-minute candle for FTSE 100 (UKX) shows a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No."
+
+All prices recorded during regular trading hours of the primary exchange for the instrument, as reflected in Yahoo Finance's 1-minute interval ("1m") data, will be considered.
+
+Periods when the market is officially closed (e.g., holidays or maintenance breaks) will not be considered.
+
+All times referenced are local to the primary exchange on which the index trades.
+
+The resolution source for this market is Yahoo Finance — specifically, the 1-minute interval ("1m") chart data for FTSE 100 (UKX).
+
+Note: FTSE 100 (UKX) is represented by ^FTSE on Yahoo Finance.
+  E2.C4: Will FTSE 100 (UKX) hit 7650 (LOW) in March?
+    Contract rules: This market will resolve to "Yes" if, at any point during March 2026, any 1-minute candle for FTSE 100 (UKX) shows a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No."
+
+All prices recorded during regular trading hours of the primary exchange for the instrument, as reflected in Yahoo Finance's 1-minute interval ("1m") data, will be considered.
+
+Periods when the market is officially closed (e.g., holidays or maintenance breaks) will not be considered.
+
+All times referenced are local to the primary exchange on which the index trades.
+
+The resolution source for this market is Yahoo Finance — specifically, the 1-minute interval ("1m") chart data for FTSE 100 (UKX).
+
+Note: FTSE 100 (UKX) is represented by ^FTSE on Yahoo Finance.
+  E2.C5: Will FTSE 100 (UKX) hit 7500 (LOW) in March?
+    Contract rules: This market will resolve to "Yes" if, at any point during March 2026, any 1-minute candle for FTSE 100 (UKX) shows a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No."
+
+All prices recorded during regular trading hours of the primary exchange for the instrument, as reflected in Yahoo Finance's 1-minute interval ("1m") data, will be considered.
+
+Periods when the market is officially closed (e.g., holidays or maintenance breaks) will not be considered.
+
+All times referenced are local to the primary exchange on which the index trades.
+
+The resolution source for this market is Yahoo Finance — specifically, the 1-minute interval ("1m") chart data for FTSE 100 (UKX).
+
+Note: FTSE 100 (UKX) is represented by ^FTSE on Yahoo Finance.
+  E2.C6: Will FTSE 100 (UKX) hit 7300 (LOW) in March?
+    Contract rules: This market will resolve to "Yes" if, at any point during March 2026, any 1-minute candle for FTSE 100 (UKX) shows a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No."
+
+All prices recorded during regular trading hours of the primary exchange for the instrument, as reflected in Yahoo Finance's 1-minute interval ("1m") data, will be considered.
+
+Periods when the market is officially closed (e.g., holidays or maintenance breaks) will not be considered.
+
+All times referenced are local to the primary exchange on which the index trades.
+
+The resolution source for this market is Yahoo Finance — specifically, the 1-minute interval ("1m") chart data for FTSE 100 (UKX).
+
+Note: FTSE 100 (UKX) is represented by ^FTSE on Yahoo Finance.
+  E2.C7: Will FTSE 100 (UKX) hit 7050 (LOW) in March?
+    Contract rules: This market will resolve to "Yes" if, at any point during March 2026, any 1-minute candle for FTSE 100 (UKX) shows a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No."
+
+All prices recorded during regular trading hours of the primary exchange for the instrument, as reflected in Yahoo Finance's 1-minute interval ("1m") data, will be considered.
+
+Periods when the market is officially closed (e.g., holidays or maintenance breaks) will not be considered.
+
+All times referenced are local to the primary exchange on which the index trades.
+
+The resolution source for this market is Yahoo Finance — specifically, the 1-minute interval ("1m") chart data for FTSE 100 (UKX).
+
+Note: FTSE 100 (UKX) is represented by ^FTSE on Yahoo Finance.
+
+=== E3: August 2026 Temperature Increase (ºC)
+Rules:
+This market will resolve according to the value reported by the Global Land-Ocean Temperature Index for August 2026 when it is released.
+
+An anomaly within a named bracket for August 2026 is necessary and sufficient to resolve this market immediately once the data becomes available, regardless of whether the figure for August 2026 is later revised.
+
+The primary resolution source for this market will be the figure found in the table titled "GLOBAL Land-Ocean Temperature Index in 0.01 degrees Celsius" under the column "Aug" in the row "2026" (https://data.giss.nasa.gov/gistemp/tabledata_v4/GLB.Ts+dSST.txt).
+
+If NASA’s “Global Temperature Index” is rendered permanently unavailable, other information from NASA may be used.
+
+If no information for August 2026 is provided by NASA by October 1, 2026, 11:59 PM ET, this market will resolve to the lowest range bracket.
+Contracts:
+  E3.C1: Will global temperature increase by less than 1.10ºC in August 2026?
+  E3.C2: Will global temperature increase by between 1.10ºC and 1.14ºC in August 2026?
+  E3.C3: Will global temperature increase by between 1.15ºC and 1.19ºC in August 2026?
+  E3.C4: Will global temperature increase by between 1.20ºC and 1.24ºC in August 2026?
+  E3.C5: Will global temperature increase by between 1.25ºC and 1.29ºC in August 2026?
+  E3.C6: Will global temperature increase by more than 1.29ºC in August 2026?
+
+=== E4: What price will BNB hit in June?
+Rules:
+What price will BNB hit in June?
+Contracts:
+  E4.C1: Will BNB reach $1,100 in June?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for BNB/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last) has a final High price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the BNB/USDT High prices available at https://www.binance.com/en/trade/BNB_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance BNB/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E4.C2: Will BNB reach $1,000 in June?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for BNB/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last) has a final High price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the BNB/USDT High prices available at https://www.binance.com/en/trade/BNB_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance BNB/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E4.C3: Will BNB reach $900 in June?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for BNB/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last) has a final High price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the BNB/USDT High prices available at https://www.binance.com/en/trade/BNB_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance BNB/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E4.C4: Will BNB reach $800 in June?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for BNB/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last) has a final High price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the BNB/USDT High prices available at https://www.binance.com/en/trade/BNB_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance BNB/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E4.C5: Will BNB dip to $500 in June?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for BNB/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last) has a final Low price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the BNB/USDT Low prices available at https://www.binance.com/en/trade/BNB_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance BNB/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E4.C6: Will BNB dip to $400 in June?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for BNB/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last) has a final Low price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the BNB/USDT Low prices available at https://www.binance.com/en/trade/BNB_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance BNB/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E4.C7: Will BNB dip to $300 in June?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for BNB/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last) has a final Low price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the BNB/USDT Low prices available at https://www.binance.com/en/trade/BNB_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance BNB/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E4.C8: Will BNB dip to $200 in June?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for BNB/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last) has a final Low price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the BNB/USDT Low prices available at https://www.binance.com/en/trade/BNB_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance BNB/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+
+=== E5: What will Meta (META) hit in December 2025?
+Rules:
+What will Meta Platforms, Inc. (META) hit in December 2025?
+Contracts:
+  E5.C1: Will Meta reach $820 in December?
+    Contract rules: This market will resolve to "Yes" if, at any point during December 2025 (ET), any 1-minute candle for Meta Platforms, Inc. (META) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during regular trading hours (ET) will be considered.
+
+The resolution source for this market is Yahoo Finance — specifically, the Meta Platforms, Inc. (META) "High" prices available at https://finance.yahoo.com/quote/META/, with the chart settings on "1m" for candle intervals.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Yahoo Finance.
+  E5.C2: Will Meta reach $770 in December?
+    Contract rules: This market will resolve to "Yes" if, at any point during December 2025 (ET), any 1-minute candle for Meta Platforms, Inc. (META) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during regular trading hours (ET) will be considered.
+
+The resolution source for this market is Yahoo Finance — specifically, the Meta Platforms, Inc. (META) "High" prices available at https://finance.yahoo.com/quote/META/, with the chart settings on "1m" for candle intervals.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Yahoo Finance.
+  E5.C3: Will Meta reach $730 in December?
+    Contract rules: This market will resolve to "Yes" if, at any point during December 2025 (ET), any 1-minute candle for Meta Platforms, Inc. (META) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during regular trading hours (ET) will be considered.
+
+The resolution source for this market is Yahoo Finance — specifically, the Meta Platforms, Inc. (META) "High" prices available at https://finance.yahoo.com/quote/META/, with the chart settings on "1m" for candle intervals.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Yahoo Finance.
+  E5.C4: Will Meta reach $690 in December?
+    Contract rules: This market will resolve to "Yes" if, at any point during December 2025 (ET), any 1-minute candle for Meta Platforms, Inc. (META) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during regular trading hours (ET) will be considered.
+
+The resolution source for this market is Yahoo Finance — specifically, the Meta Platforms, Inc. (META) "High" prices available at https://finance.yahoo.com/quote/META/, with the chart settings on "1m" for candle intervals.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Yahoo Finance.
+  E5.C5: Will Meta dip to $600 in December?
+    Contract rules: This market will resolve to "Yes" if, at any point during December 2025 (ET), any 1-minute candle for Meta Platforms, Inc. (META) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during regular trading hours (ET) will be considered.
+
+The resolution source for this market is Yahoo Finance — specifically, the Meta Platforms, Inc. (META) "Low" prices available at https://finance.yahoo.com/quote/META/, with the chart settings on "1m" for candle intervals.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Yahoo Finance.
+  E5.C6: Will Meta dip to $580 in December?
+    Contract rules: This market will resolve to "Yes" if, at any point during December 2025 (ET), any 1-minute candle for Meta Platforms, Inc. (META) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during regular trading hours (ET) will be considered.
+
+The resolution source for this market is Yahoo Finance — specifically, the Meta Platforms, Inc. (META) "Low" prices available at https://finance.yahoo.com/quote/META/, with the chart settings on "1m" for candle intervals.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Yahoo Finance.
+  E5.C7: Will Meta dip to $560 in December?
+    Contract rules: This market will resolve to "Yes" if, at any point during December 2025 (ET), any 1-minute candle for Meta Platforms, Inc. (META) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during regular trading hours (ET) will be considered.
+
+The resolution source for this market is Yahoo Finance — specifically, the Meta Platforms, Inc. (META) "Low" prices available at https://finance.yahoo.com/quote/META/, with the chart settings on "1m" for candle intervals.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Yahoo Finance.
+  E5.C8: Will Meta dip to $530 in December?
+    Contract rules: This market will resolve to "Yes" if, at any point during December 2025 (ET), any 1-minute candle for Meta Platforms, Inc. (META) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during regular trading hours (ET) will be considered.
+
+The resolution source for this market is Yahoo Finance — specifically, the Meta Platforms, Inc. (META) "Low" prices available at https://finance.yahoo.com/quote/META/, with the chart settings on "1m" for candle intervals.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Yahoo Finance.
+  E5.C9: Will Meta dip to $500 in December?
+    Contract rules: This market will resolve to "Yes" if, at any point during December 2025 (ET), any 1-minute candle for Meta Platforms, Inc. (META) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during regular trading hours (ET) will be considered.
+
+The resolution source for this market is Yahoo Finance — specifically, the Meta Platforms, Inc. (META) "Low" prices available at https://finance.yahoo.com/quote/META/, with the chart settings on "1m" for candle intervals.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Yahoo Finance.
+  E5.C10: Will Meta dip to $460 in December?
+    Contract rules: This market will resolve to "Yes" if, at any point during December 2025 (ET), any 1-minute candle for Meta Platforms, Inc. (META) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during regular trading hours (ET) will be considered.
+
+The resolution source for this market is Yahoo Finance — specifically, the Meta Platforms, Inc. (META) "Low" prices available at https://finance.yahoo.com/quote/META/, with the chart settings on "1m" for candle intervals.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Yahoo Finance.
+  E5.C11: Will Meta dip to $410 in December?
+    Contract rules: This market will resolve to "Yes" if, at any point during December 2025 (ET), any 1-minute candle for Meta Platforms, Inc. (META) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during regular trading hours (ET) will be considered.
+
+The resolution source for this market is Yahoo Finance — specifically, the Meta Platforms, Inc. (META) "Low" prices available at https://finance.yahoo.com/quote/META/, with the chart settings on "1m" for candle intervals.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Yahoo Finance.
+
+=== E6: US downs another Iranian drone by February 28?
+Rules:
+This market will resolve to "Yes" if the US military downs any Iranian military drone by any means (including kinetic, jammer, etc.) by February 28, 2026. Otherwise, this market will resolve to “No”.
+
+Any drone whose operation is broadly attributed to Iran by a consensus of credible reporting will be considered an “Iranian drone”, regardless of whether it can be definitively confirmed that the drone was operated by the Iranian government or military. Drones whose operation attributed to individuals or forces external to the Iranian military or government, however, including proxy forces, will not count, even if they are an Iran-designed or Iran-produced drone.
+
+The resolution source for this market will be a consensus of credible reporting.
+Contracts:
+  E6.C1: US downs another Iranian drone by February 28?
+
+=== E7: What will Tesla (TSLA) hit in January 2026?
+Rules:
+What will Tesla, Inc. (TSLA) hit in January 2026?
+Contracts:
+  E7.C1: Will Tesla reach $645 in January?
+    Contract rules: This market will resolve to "Yes" if, at any point during January 2026 (ET), any 1-minute candle for Tesla, Inc. (TSLA) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during regular trading hours (ET) will be considered.
+
+The resolution source for this market is Yahoo Finance — specifically, the Tesla, Inc. (TSLA) "High" prices available at https://finance.yahoo.com/quote/TSLA/, with the chart settings on "1m" for candle intervals.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Yahoo Finance.
+  E7.C2: Will Tesla reach $608 in January?
+    Contract rules: This market will resolve to "Yes" if, at any point during January 2026 (ET), any 1-minute candle for Tesla, Inc. (TSLA) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during regular trading hours (ET) will be considered.
+
+The resolution source for this market is Yahoo Finance — specifically, the Tesla, Inc. (TSLA) "High" prices available at https://finance.yahoo.com/quote/TSLA/, with the chart settings on "1m" for candle intervals.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Yahoo Finance.
+  E7.C3: Will Tesla reach $578 in January?
+    Contract rules: This market will resolve to "Yes" if, at any point during January 2026 (ET), any 1-minute candle for Tesla, Inc. (TSLA) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during regular trading hours (ET) will be considered.
+
+The resolution source for this market is Yahoo Finance — specifically, the Tesla, Inc. (TSLA) "High" prices available at https://finance.yahoo.com/quote/TSLA/, with the chart settings on "1m" for candle intervals.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Yahoo Finance.
+  E7.C4: Will Tesla reach $548 in January?
+    Contract rules: This market will resolve to "Yes" if, at any point during January 2026 (ET), any 1-minute candle for Tesla, Inc. (TSLA) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during regular trading hours (ET) will be considered.
+
+The resolution source for this market is Yahoo Finance — specifically, the Tesla, Inc. (TSLA) "High" prices available at https://finance.yahoo.com/quote/TSLA/, with the chart settings on "1m" for candle intervals.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Yahoo Finance.
+  E7.C5: Will Tesla reach $525 in January?
+    Contract rules: This market will resolve to "Yes" if, at any point during January 2026 (ET), any 1-minute candle for Tesla, Inc. (TSLA) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during regular trading hours (ET) will be considered.
+
+The resolution source for this market is Yahoo Finance — specifically, the Tesla, Inc. (TSLA) "High" prices available at https://finance.yahoo.com/quote/TSLA/, with the chart settings on "1m" for candle intervals.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Yahoo Finance.
+  E7.C6: Will Tesla reach $510 in January?
+    Contract rules: This market will resolve to "Yes" if, at any point during January 2026 (ET), any 1-minute candle for Tesla, Inc. (TSLA) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during regular trading hours (ET) will be considered.
+
+The resolution source for this market is Yahoo Finance — specifically, the Tesla, Inc. (TSLA) "High" prices available at https://finance.yahoo.com/quote/TSLA/, with the chart settings on "1m" for candle intervals.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Yahoo Finance.
+  E7.C7: Will Tesla reach $495 in January?
+    Contract rules: This market will resolve to "Yes" if, at any point during January 2026 (ET), any 1-minute candle for Tesla, Inc. (TSLA) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during regular trading hours (ET) will be considered.
+
+The resolution source for this market is Yahoo Finance — specifically, the Tesla, Inc. (TSLA) "High" prices available at https://finance.yahoo.com/quote/TSLA/, with the chart settings on "1m" for candle intervals.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Yahoo Finance.
+  E7.C8: Will Tesla dip to $405 in January?
+    Contract rules: This market will resolve to "Yes" if, at any point during January 2026 (ET), any 1-minute candle for Tesla, Inc. (TSLA) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during regular trading hours (ET) will be considered.
+
+The resolution source for this market is Yahoo Finance — specifically, the Tesla, Inc. (TSLA) "Low" prices available at https://finance.yahoo.com/quote/TSLA/, with the chart settings on "1m" for candle intervals.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Yahoo Finance.
+  E7.C9: Will Tesla dip to $375 in January?
+    Contract rules: This market will resolve to "Yes" if, at any point during January 2026 (ET), any 1-minute candle for Tesla, Inc. (TSLA) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during regular trading hours (ET) will be considered.
+
+The resolution source for this market is Yahoo Finance — specifically, the Tesla, Inc. (TSLA) "Low" prices available at https://finance.yahoo.com/quote/TSLA/, with the chart settings on "1m" for candle intervals.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Yahoo Finance.
+  E7.C10: Will Tesla dip to $338 in January?
+    Contract rules: This market will resolve to "Yes" if, at any point during January 2026 (ET), any 1-minute candle for Tesla, Inc. (TSLA) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during regular trading hours (ET) will be considered.
+
+The resolution source for this market is Yahoo Finance — specifically, the Tesla, Inc. (TSLA) "Low" prices available at https://finance.yahoo.com/quote/TSLA/, with the chart settings on "1m" for candle intervals.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Yahoo Finance.
+
+=== E8: Sweden Parliamentary Election: S Vote Share?
+Rules:
+Parliamentary elections are scheduled to be held in Sweden on September 13, 2026.
+
+This market will resolve according to the percentage of valid votes received by Swedish Social Democratic Party (S) in the specified election.
+
+If the reported value falls exactly between two brackets, then this market will resolve to the higher range bracket.
+
+This market will resolve solely based on the percentage of valid votes won by the specified party, defined as the number of valid votes won by the specified party divided by the total number of valid votes in the specified election.
+
+Valid vote percentages will be counted only where the Swedish Election Authority attributes them to the aforementioned party. Vote percentages attributed to other parties or electoral designations will not count, regardless of electoral cooperation, endorsements, coalition agreements, or subsequent parliamentary-group arrangements. If the specified party formally merges into a successor party before the election and does not contest separately, the valid vote percentage of the successor party will count towards resolution.
+
+If the results of this election are not definitively known by December 31, 2026, 11:59 PM ET, this market will resolve to the lowest range bracket.
+
+This market will resolve based on the results of this election as indicated by a consensus of credible reporting. If there is ambiguity, this market will resolve based solely on the official results as reported by the Swedish government, specifically the Swedish Election Authority (Valmyndigheten) (https://www.val.se/).
+Contracts:
+  E8.C1: Will Swedish Social Democratic Party (S) win less than 27% of all valid votes?
+  E8.C2: Will Swedish Social Democratic Party (S) win between 27% and 30% of all valid votes?
+  E8.C3: Will Swedish Social Democratic Party (S) win between 30% and 33% of all valid votes?
+  E8.C4: Will Swedish Social Democratic Party (S) win at least 33% of all valid votes?
+
+=== E9: Will Anduril's valuation hit __ by August 31?
+Rules:
+This market will resolve to "Yes" if Anduril's private market valuation, as measured by the NPM Price reported by Nasdaq Private Market, LLC (NPM) for any date between market creation and August 31, 2026, reaches or exceeds the listed amount. Otherwise, this market will resolve to "No".
+
+NPM Prices are published for trading days only and are updated once daily at 1:00 PM ET on the following calendar day.
+
+If NPM has not published relevant data for all business dates in the specified period by 1:00 PM ET on the calendar date following the specified date, this market will remain open until 11:59 PM ET on the third business day following the specified date. If no further data is released by that time, the market will resolve according to the data available.
+
+If NPM ceases publishing relevant data prior to the end of the specified period, this market will resolve based on the NPM data published for the period prior to the cessation of coverage, as well as any applicable public market capitalization data following an IPO or direct listing.
+
+If the company completes an IPO or direct listing before the end of the specified period, this market will consider, in addition to the relevant NPM valuations published between market creation and the IPO or direct listing date, the valuation implied by the official IPO or direct listing price, and the company’s public market capitalization between the IPO or direct listing date and the end of the specified period.
+
+Public market capitalization will be determined through appropriate calculation using official regular-hours trading prices published for the company’s listed equities on its primary exchange for any trading day during the specified period, multiplied by the company's total number of shares outstanding at the relevant time. If necessary, to accurately capture the company’s total market capitalization, rather than a stock-class-specific market capitalization, the calculation will include all outstanding share classes and apply any stated conversion ratios to the publicly traded class. Where no conversion right exists, such shares will be counted at their stated outstanding amount without discount, unless official filings explicitly specify differently. The number of outstanding shares will be determined from official company filings or disclosures (e.g., SEC filings).
+
+If the listed company merges with or acquires another entity and remains the parent company, no change to resolution methodology applies.
+
+If the listed company is acquired, merges into another entity and is no longer the surviving parent company, or otherwise ceases to exist as an independent entity prior to the end of the period, only NPM valuations and applicable public market capitalizations achieved prior to completion of the transaction will be considered for resolution. No transaction, acquisition, or merger consideration will be considered for resolution.
+
+The resolution source for this market is NPM data published here: (https://fe.secondmarket.com/companies/company-c62b8140-fdeb-428d-a9a6-d04eb3b24b49/data). The resolution source for any period following an IPO, direct listing, or relevant corporate action, will be the relevant Market Cap figure displayed on https://www.nasdaq.com/ as well as official exchange trading data and publicly reported share counts.
+
+Revisions to previously published NPM data made after their initial release will not be considered, unless made to correct clearly erroneous data.
+Contracts:
+  E9.C1: Will Anduril's valuation hit (HIGH) $175B by August 31?
+  E9.C2: Will Anduril's valuation hit (HIGH) $150B by August 31?
+  E9.C3: Will Anduril's valuation hit (HIGH) $120B by August 31?
+  E9.C4: Will Anduril's valuation hit (HIGH) $110B by August 31?
+  E9.C5: Will Anduril's valuation hit (HIGH) $105B by August 31? (copy)
+  E9.C6: Will Anduril's valuation hit (LOW) $92.5B by August 31?
+  E9.C7: Will Anduril's valuation hit (LOW) $85B by August 31?
+  E9.C8: Will Anduril's valuation hit (LOW) $80B by August 31?
+
+=== E10: SpaceX Closing Market Cap End of July
+Rules:
+This market will resolve based on SpaceX's market capitalization at the closing price on the last trading day of July 2026.
+
+Market capitalization expresses the monetary value of a company’s outstanding shares, stated in its pricing currency. It is calculated as the number of shares outstanding multiplied by the closing share price on the last trading day of July.
+
+If the relevant value falls exactly between two brackets, then this market will resolve to the higher range bracket.
+
+Resolution will be based on the primary exchange’s official listing page. In the event that the relevant figure is not displayed, another reliable source will be used.
+
+In the event of an interruption in the course of the normal trading session on the specified day of SpaceX trading (e.g., a circuit breaker or half-day), the market will resolve according to the official closing price of the abbreviated session. If no such official closing price is published for the specified day, the market will resolve according to the next trading day on which an official closing price is published, treating that as the specified day for purposes of this market.
+Contracts:
+  E10.C1: Will SpaceX's market cap be less than $1.0T at market close on last trading day of July?
+    Contract rules: This market will resolve based on SpaceX's market capitalization at the closing price on the last trading day of the calendar month in which SpaceX completes its Initial Public Offering (IPO).
+
+The IPO refers to the first sale of stock by SpaceX to the public on any recognized stock exchange. If no SpaceX IPO occurs by December 31, 2027, 11:59 PM ET, the market will resolve to "No IPO before 2028".
+
+Market capitalization expresses the monetary value of a company’s outstanding shares, stated in its pricing currency. It is calculated as the number of shares outstanding multiplied by the closing share price on the last trading day of the calendar month in which SpaceX completes its IPO.
+
+If the relevant value falls exactly between two brackets, then this market will resolve to the higher range bracket.
+
+Resolution will be based on the primary exchange’s official listing page. In the event that the relevant figure is not displayed, another reliable source will be used.
+
+In the event of an interruption in the course of the normal trading session on SpaceX’s last trading day of the calendar month in which SpaceX completes its IPO (e.g., a circuit breaker or half-day), the market will resolve according to the official closing price of the abbreviated session. If no such official closing price is published, the market will resolve according to the next trading day on which an official closing price is published, treating that as the last trading day of the calendar month in which SpaceX completes its IPO.
+  E10.C2: Will SpaceX's market cap be between $1.0T and $1.5T at market close on last trading day of July?
+    Contract rules: This market will resolve based on SpaceX's market capitalization at the closing price on the last trading day of the calendar month in which SpaceX completes its Initial Public Offering (IPO).
+
+The IPO refers to the first sale of stock by SpaceX to the public on any recognized stock exchange. If no SpaceX IPO occurs by December 31, 2027, 11:59 PM ET, the market will resolve to "No IPO before 2028".
+
+Market capitalization expresses the monetary value of a company’s outstanding shares, stated in its pricing currency. It is calculated as the number of shares outstanding multiplied by the closing share price on the last trading day of the calendar month in which SpaceX completes its IPO.
+
+If the relevant value falls exactly between two brackets, then this market will resolve to the higher range bracket.
+
+Resolution will be based on the primary exchange’s official listing page. In the event that the relevant figure is not displayed, another reliable source will be used.
+
+In the event of an interruption in the course of the normal trading session on SpaceX’s last trading day of the calendar month in which SpaceX completes its IPO (e.g., a circuit breaker or half-day), the market will resolve according to the official closing price of the abbreviated session. If no such official closing price is published, the market will resolve according to the next trading day on which an official closing price is published, treating that as the last trading day of the calendar month in which SpaceX completes its IPO.
+  E10.C3: Will SpaceX's market cap be between $1.5T and $2.0T at market close on last trading day of July?
+    Contract rules: This market will resolve based on SpaceX's market capitalization at the closing price on the last trading day of the calendar month in which SpaceX completes its Initial Public Offering (IPO).
+
+The IPO refers to the first sale of stock by SpaceX to the public on any recognized stock exchange. If no SpaceX IPO occurs by December 31, 2027, 11:59 PM ET, the market will resolve to "No IPO before 2028".
+
+Market capitalization expresses the monetary value of a company’s outstanding shares, stated in its pricing currency. It is calculated as the number of shares outstanding multiplied by the closing share price on the last trading day of the calendar month in which SpaceX completes its IPO.
+
+If the relevant value falls exactly between two brackets, then this market will resolve to the higher range bracket.
+
+Resolution will be based on the primary exchange’s official listing page. In the event that the relevant figure is not displayed, another reliable source will be used.
+
+In the event of an interruption in the course of the normal trading session on SpaceX’s last trading day of the calendar month in which SpaceX completes its IPO (e.g., a circuit breaker or half-day), the market will resolve according to the official closing price of the abbreviated session. If no such official closing price is published, the market will resolve according to the next trading day on which an official closing price is published, treating that as the last trading day of the calendar month in which SpaceX completes its IPO.
+  E10.C4: Will SpaceX's market cap be between $2.0T and $2.5T at market close on last trading day of July?
+    Contract rules: This market will resolve based on SpaceX's market capitalization at the closing price on the last trading day of the calendar month in which SpaceX completes its Initial Public Offering (IPO).
+
+The IPO refers to the first sale of stock by SpaceX to the public on any recognized stock exchange. If no SpaceX IPO occurs by December 31, 2027, 11:59 PM ET, the market will resolve to "No IPO before 2028".
+
+Market capitalization expresses the monetary value of a company’s outstanding shares, stated in its pricing currency. It is calculated as the number of shares outstanding multiplied by the closing share price on the last trading day of the calendar month in which SpaceX completes its IPO.
+
+If the relevant value falls exactly between two brackets, then this market will resolve to the higher range bracket.
+
+Resolution will be based on the primary exchange’s official listing page. In the event that the relevant figure is not displayed, another reliable source will be used.
+
+In the event of an interruption in the course of the normal trading session on SpaceX’s last trading day of the calendar month in which SpaceX completes its IPO (e.g., a circuit breaker or half-day), the market will resolve according to the official closing price of the abbreviated session. If no such official closing price is published, the market will resolve according to the next trading day on which an official closing price is published, treating that as the last trading day of the calendar month in which SpaceX completes its IPO.
+  E10.C5: Will SpaceX's market cap be between $2.5T and $3.0T at market close on last trading day of July?
+    Contract rules: This market will resolve based on SpaceX's market capitalization at the closing price on the last trading day of the calendar month in which SpaceX completes its Initial Public Offering (IPO).
+
+The IPO refers to the first sale of stock by SpaceX to the public on any recognized stock exchange. If no SpaceX IPO occurs by December 31, 2027, 11:59 PM ET, the market will resolve to "No IPO before 2028".
+
+Market capitalization expresses the monetary value of a company’s outstanding shares, stated in its pricing currency. It is calculated as the number of shares outstanding multiplied by the closing share price on the last trading day of the calendar month in which SpaceX completes its IPO.
+
+If the relevant value falls exactly between two brackets, then this market will resolve to the higher range bracket.
+
+Resolution will be based on the primary exchange’s official listing page. In the event that the relevant figure is not displayed, another reliable source will be used.
+
+In the event of an interruption in the course of the normal trading session on SpaceX’s last trading day of the calendar month in which SpaceX completes its IPO (e.g., a circuit breaker or half-day), the market will resolve according to the official closing price of the abbreviated session. If no such official closing price is published, the market will resolve according to the next trading day on which an official closing price is published, treating that as the last trading day of the calendar month in which SpaceX completes its IPO.
+  E10.C6: Will SpaceX's market cap be between $3.0T and $3.5T at market close on last trading day of July?
+    Contract rules: This market will resolve based on SpaceX's market capitalization at the closing price on the last trading day of the calendar month in which SpaceX completes its Initial Public Offering (IPO).
+
+The IPO refers to the first sale of stock by SpaceX to the public on any recognized stock exchange. If no SpaceX IPO occurs by December 31, 2027, 11:59 PM ET, the market will resolve to "No IPO before 2028".
+
+Market capitalization expresses the monetary value of a company’s outstanding shares, stated in its pricing currency. It is calculated as the number of shares outstanding multiplied by the closing share price on the last trading day of the calendar month in which SpaceX completes its IPO.
+
+If the relevant value falls exactly between two brackets, then this market will resolve to the higher range bracket.
+
+Resolution will be based on the primary exchange’s official listing page. In the event that the relevant figure is not displayed, another reliable source will be used.
+
+In the event of an interruption in the course of the normal trading session on SpaceX’s last trading day of the calendar month in which SpaceX completes its IPO (e.g., a circuit breaker or half-day), the market will resolve according to the official closing price of the abbreviated session. If no such official closing price is published, the market will resolve according to the next trading day on which an official closing price is published, treating that as the last trading day of the calendar month in which SpaceX completes its IPO.
+  E10.C7: Will SpaceX's market cap be at least $3.5T at market close on last trading day of July?
+    Contract rules: This market will resolve based on SpaceX's market capitalization at the closing price on the last trading day of the calendar month in which SpaceX completes its Initial Public Offering (IPO).
+
+The IPO refers to the first sale of stock by SpaceX to the public on any recognized stock exchange. If no SpaceX IPO occurs by December 31, 2027, 11:59 PM ET, the market will resolve to "No IPO before 2028".
+
+Market capitalization expresses the monetary value of a company’s outstanding shares, stated in its pricing currency. It is calculated as the number of shares outstanding multiplied by the closing share price on the last trading day of the calendar month in which SpaceX completes its IPO.
+
+If the relevant value falls exactly between two brackets, then this market will resolve to the higher range bracket.
+
+Resolution will be based on the primary exchange’s official listing page. In the event that the relevant figure is not displayed, another reliable source will be used.
+
+In the event of an interruption in the course of the normal trading session on SpaceX’s last trading day of the calendar month in which SpaceX completes its IPO (e.g., a circuit breaker or half-day), the market will resolve according to the official closing price of the abbreviated session. If no such official closing price is published, the market will resolve according to the next trading day on which an official closing price is published, treating that as the last trading day of the calendar month in which SpaceX completes its IPO.

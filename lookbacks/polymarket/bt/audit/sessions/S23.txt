@@ -1,0 +1,271 @@
+You will be shown 10 questions from a prediction market. Each question has one or more contracts, and each contract resolves YES or NO under the rules shown.
+
+For every contract, give your probability, as a whole percent from 1 to 99, that it resolves YES. Use only what you already know. Do not search for or look up anything: reading this file is the only tool call you may make.
+
+For each question, also say whether you recognise how it actually turned out ("recognised": true only if you believe you remember the real outcome; otherwise false).
+
+Where a question's contracts are mutually exclusive (exactly one can resolve YES), your numbers for it should add up to about 100. Where they are nested thresholds or dates, keep them consistent with each other.
+
+Reply with one JSON object and nothing else, in this form:
+{"events": [{"label": "E1", "recognised": false, "p": {"E1.C1": 35, "E1.C2": 60}}]}
+
+Every contract label below must appear exactly once in your reply.
+
+=== E1: Will Neuralink’s valuation hit __ by June 30?
+Rules:
+This market will resolve to "Yes" if Neuralink's private market valuation, as measured by the NPM Price reported by Nasdaq Private Market, LLC (NPM) for any date between market creation and June 30, 2026, reaches or exceeds the listed amount. Otherwise, this market will resolve to "No".
+
+NPM Prices are published for trading days only and are updated once daily at 1:00 PM ET on the following calendar day.
+
+If NPM has not published relevant data for all business dates in the specified period by 1:00 PM ET on July 1, 2026, this market may remain open until 11:59 PM ET on July 4, 2026. If no further data is released by that time, the market will resolve according to the data available.
+
+If NPM ceases publishing relevant data prior to the end of the specified period, this market will resolve based on the NPM data published for the period prior to the cessation of coverage, as well as any applicable public market capitalization data following an IPO or direct listing.
+
+If the company completes an IPO or direct listing before the end of the specified period, this market will consider, in addition to the relevant NPM valuations published between market creation and the IPO or direct listing date, the valuation implied by the official IPO or direct listing price, and the company's public market capitalization between the IPO or direct listing date and the end of the specified period.
+
+Public market capitalization will be determined using the highest/lowest official regular-hours trading price published for the company's primary listed common equity on its primary exchange for any trading day during the specified period, multiplied by the company's total outstanding common shares at the relevant time.
+
+If the listed company merges with or acquires another entity and remains the parent company, no change to resolution methodology applies.
+
+If the listed company is acquired, merges into another entity and is no longer the surviving parent company, or otherwise ceases to exist as an independent entity prior to the end of the period, only NPM valuations and applicable public market capitalizations achieved prior to completion of the transaction will be considered for resolution. No transaction, acquisition, or merger consideration will be considered for resolution.
+
+The resolution source for this market is NPM data published here: (https://fe.secondmarket.com/companies/company-782c0a32-4727-4097-a40b-9a2602f243e7/data?return_url=https://polymarket.com/finance/privates). The resolution source for any period following an IPO, direct listing, or relevant corporate action, will be official exchange trading data and publicly reported share counts.
+
+Revisions to previously published NPM data made after their initial release will not be considered, unless made to correct clearly erroneous data.
+Contracts:
+  E1.C1: Will Neuralink's valuation hit (HIGH) $75B by June 30?
+    Contract rules: This market will resolve to "Yes" if Neuralink's private market valuation, as measured by the NPM Price reported by Nasdaq Private Market, LLC (NPM) for any date between market creation and June 30, 2026, reaches or exceeds the listed amount. Otherwise, this market will resolve to "No".
+
+NPM Prices are published for trading days only and are updated once daily at 1:00 PM ET on the following calendar day.
+
+If NPM has not published relevant data for all business dates in the specified period by 1:00 PM ET on July 1, 2026, this market may remain open until 11:59 PM ET on July 4, 2026. If no further data is released by that time, the market will resolve according to the data available.
+
+If NPM ceases publishing relevant data prior to the end of the specified period, this market will resolve based on the NPM data published for the period prior to the cessation of coverage, as well as any applicable public market capitalization data following an IPO or direct listing.
+
+If the company completes an IPO or direct listing before the end of the specified period, this market will consider, in addition to the relevant NPM valuations published between market creation and the IPO or direct listing date, the valuation implied by the official IPO or direct listing price, and the company's public market capitalization between the IPO or direct listing date and the end of the specified period.
+
+Public market capitalization will be determined using the highest/lowest official regular-hours trading price published for the company's primary listed common equity on its primary exchange for any trading day during the specified period, multiplied by the company's total outstanding common shares at the relevant time.
+
+If the listed company merges with or acquires another entity and remains the parent company, no change to resolution methodology applies.
+
+If the listed company is acquired, merges into another entity and is no longer the surviving parent company, or otherwise ceases to exist as an independent entity prior to the end of the period, only NPM valuations and applicable public market capitalizations achieved prior to completion of the transaction will be considered for resolution. No transaction, acquisition, or merger consideration will be considered for resolution.
+
+The resolution source for this market is NPM data published here: (https://fe.secondmarket.com/companies/company-802a7f97-3625-4614-a13d-d999cf139330/data). The resolution source for any period following an IPO, direct listing, or relevant corporate action, will be official exchange trading data and publicly reported share counts.
+
+Revisions to previously published NPM data made after their initial release will not be considered, unless made to correct clearly erroneous data.
+  E1.C2: Will Neuralink's valuation hit (HIGH) $50B by June 30?
+    Contract rules: This market will resolve to "Yes" if Neuralink's private market valuation, as measured by the NPM Price reported by Nasdaq Private Market, LLC (NPM) for any date between market creation and June 30, 2026, reaches or exceeds the listed amount. Otherwise, this market will resolve to "No".
+
+NPM Prices are published for trading days only and are updated once daily at 1:00 PM ET on the following calendar day.
+
+If NPM has not published relevant data for all business dates in the specified period by 1:00 PM ET on July 1, 2026, this market may remain open until 11:59 PM ET on July 4, 2026. If no further data is released by that time, the market will resolve according to the data available.
+
+If NPM ceases publishing relevant data prior to the end of the specified period, this market will resolve based on the NPM data published for the period prior to the cessation of coverage, as well as any applicable public market capitalization data following an IPO or direct listing.
+
+If the company completes an IPO or direct listing before the end of the specified period, this market will consider, in addition to the relevant NPM valuations published between market creation and the IPO or direct listing date, the valuation implied by the official IPO or direct listing price, and the company's public market capitalization between the IPO or direct listing date and the end of the specified period.
+
+Public market capitalization will be determined using the highest/lowest official regular-hours trading price published for the company's primary listed common equity on its primary exchange for any trading day during the specified period, multiplied by the company's total outstanding common shares at the relevant time.
+
+If the listed company merges with or acquires another entity and remains the parent company, no change to resolution methodology applies.
+
+If the listed company is acquired, merges into another entity and is no longer the surviving parent company, or otherwise ceases to exist as an independent entity prior to the end of the period, only NPM valuations and applicable public market capitalizations achieved prior to completion of the transaction will be considered for resolution. No transaction, acquisition, or merger consideration will be considered for resolution.
+
+The resolution source for this market is NPM data published here: (https://fe.secondmarket.com/companies/company-802a7f97-3625-4614-a13d-d999cf139330/data). The resolution source for any period following an IPO, direct listing, or relevant corporate action, will be official exchange trading data and publicly reported share counts.
+
+Revisions to previously published NPM data made after their initial release will not be considered, unless made to correct clearly erroneous data.
+  E1.C3: Will Neuralink's valuation hit (LOW) $37.5B by June 30?
+    Contract rules: This market will resolve to "Yes" if Neuralink's private market valuation, as measured by the NPM Price reported by Nasdaq Private Market, LLC (NPM) for any date between market creation and June 30, 2026, reaches or exceeds the listed amount. Otherwise, this market will resolve to "No".
+
+NPM Prices are published for trading days only and are updated once daily at 1:00 PM ET on the following calendar day.
+
+If NPM has not published relevant data for all business dates in the specified period by 1:00 PM ET on July 1, 2026, this market may remain open until 11:59 PM ET on July 4, 2026. If no further data is released by that time, the market will resolve according to the data available.
+
+If NPM ceases publishing relevant data prior to the end of the specified period, this market will resolve based on the NPM data published for the period prior to the cessation of coverage, as well as any applicable public market capitalization data following an IPO or direct listing.
+
+If the company completes an IPO or direct listing before the end of the specified period, this market will consider, in addition to the relevant NPM valuations published between market creation and the IPO or direct listing date, the valuation implied by the official IPO or direct listing price, and the company's public market capitalization between the IPO or direct listing date and the end of the specified period.
+
+Public market capitalization will be determined using the highest/lowest official regular-hours trading price published for the company's primary listed common equity on its primary exchange for any trading day during the specified period, multiplied by the company's total outstanding common shares at the relevant time.
+
+If the listed company merges with or acquires another entity and remains the parent company, no change to resolution methodology applies.
+
+If the listed company is acquired, merges into another entity and is no longer the surviving parent company, or otherwise ceases to exist as an independent entity prior to the end of the period, only NPM valuations and applicable public market capitalizations achieved prior to completion of the transaction will be considered for resolution. No transaction, acquisition, or merger consideration will be considered for resolution.
+
+The resolution source for this market is NPM data published here: (https://fe.secondmarket.com/companies/company-802a7f97-3625-4614-a13d-d999cf139330/data). The resolution source for any period following an IPO, direct listing, or relevant corporate action, will be official exchange trading data and publicly reported share counts.
+
+Revisions to previously published NPM data made after their initial release will not be considered, unless made to correct clearly erroneous data.
+  E1.C4: Will Neuralink's valuation hit (LOW) $35B by June 30?
+    Contract rules: This market will resolve to "Yes" if Neuralink's private market valuation, as measured by the NPM Price reported by Nasdaq Private Market, LLC (NPM) for any date between market creation and June 30, 2026, reaches or exceeds the listed amount. Otherwise, this market will resolve to "No".
+
+NPM Prices are published for trading days only and are updated once daily at 1:00 PM ET on the following calendar day.
+
+If NPM has not published relevant data for all business dates in the specified period by 1:00 PM ET on July 1, 2026, this market may remain open until 11:59 PM ET on July 4, 2026. If no further data is released by that time, the market will resolve according to the data available.
+
+If NPM ceases publishing relevant data prior to the end of the specified period, this market will resolve based on the NPM data published for the period prior to the cessation of coverage, as well as any applicable public market capitalization data following an IPO or direct listing.
+
+If the company completes an IPO or direct listing before the end of the specified period, this market will consider, in addition to the relevant NPM valuations published between market creation and the IPO or direct listing date, the valuation implied by the official IPO or direct listing price, and the company's public market capitalization between the IPO or direct listing date and the end of the specified period.
+
+Public market capitalization will be determined using the highest/lowest official regular-hours trading price published for the company's primary listed common equity on its primary exchange for any trading day during the specified period, multiplied by the company's total outstanding common shares at the relevant time.
+
+If the listed company merges with or acquires another entity and remains the parent company, no change to resolution methodology applies.
+
+If the listed company is acquired, merges into another entity and is no longer the surviving parent company, or otherwise ceases to exist as an independent entity prior to the end of the period, only NPM valuations and applicable public market capitalizations achieved prior to completion of the transaction will be considered for resolution. No transaction, acquisition, or merger consideration will be considered for resolution.
+
+The resolution source for this market is NPM data published here: (https://fe.secondmarket.com/companies/company-802a7f97-3625-4614-a13d-d999cf139330/data). The resolution source for any period following an IPO, direct listing, or relevant corporate action, will be official exchange trading data and publicly reported share counts.
+
+Revisions to previously published NPM data made after their initial release will not be considered, unless made to correct clearly erroneous data.
+  E1.C5: Will Neuralink's valuation hit (LOW) $32.5B by June 30?
+    Contract rules: This market will resolve to "Yes" if Neuralink's private market valuation, as measured by the NPM Price reported by Nasdaq Private Market, LLC (NPM) for any date between market creation and June 30, 2026, reaches or exceeds the listed amount. Otherwise, this market will resolve to "No".
+
+NPM Prices are published for trading days only and are updated once daily at 1:00 PM ET on the following calendar day.
+
+If NPM has not published relevant data for all business dates in the specified period by 1:00 PM ET on July 1, 2026, this market may remain open until 11:59 PM ET on July 4, 2026. If no further data is released by that time, the market will resolve according to the data available.
+
+If NPM ceases publishing relevant data prior to the end of the specified period, this market will resolve based on the NPM data published for the period prior to the cessation of coverage, as well as any applicable public market capitalization data following an IPO or direct listing.
+
+If the company completes an IPO or direct listing before the end of the specified period, this market will consider, in addition to the relevant NPM valuations published between market creation and the IPO or direct listing date, the valuation implied by the official IPO or direct listing price, and the company's public market capitalization between the IPO or direct listing date and the end of the specified period.
+
+Public market capitalization will be determined using the highest/lowest official regular-hours trading price published for the company's primary listed common equity on its primary exchange for any trading day during the specified period, multiplied by the company's total outstanding common shares at the relevant time.
+
+If the listed company merges with or acquires another entity and remains the parent company, no change to resolution methodology applies.
+
+If the listed company is acquired, merges into another entity and is no longer the surviving parent company, or otherwise ceases to exist as an independent entity prior to the end of the period, only NPM valuations and applicable public market capitalizations achieved prior to completion of the transaction will be considered for resolution. No transaction, acquisition, or merger consideration will be considered for resolution.
+
+The resolution source for this market is NPM data published here: (https://fe.secondmarket.com/companies/company-802a7f97-3625-4614-a13d-d999cf139330/data). The resolution source for any period following an IPO, direct listing, or relevant corporate action, will be official exchange trading data and publicly reported share counts.
+
+Revisions to previously published NPM data made after their initial release will not be considered, unless made to correct clearly erroneous data.
+
+=== E2: Another Iranian diplomat expelled by April 30?
+Rules:
+This market will resolve to “Yes” if any country expels an Iranian diplomat stationed in that country between market creation and April 30, 2026, 11:59 PM ET. Otherwise, this market will resolve to “No”.
+
+For the purposes of this market, “expel” refers to a formal action by the relevant country ordering the Iranian diplomat to leave, including a declaration of persona non grata.
+
+An announcement of a qualifying expulsion will suffice for a “Yes” resolution, regardless of whether the relevant diplomat actually leaves the country.
+
+The primary resolution source for this market will be official information from the relevant country; however, a consensus of credible reporting may also be used.
+Contracts:
+  E2.C1: Another Iranian diplomat expelled by April 30?
+
+=== E3: Number of North Korea Missile Tests in May 2026?
+Rules:
+This market will resolve to the number of calendar days on which North Korea (DPRK) conducts a missile launch during May 2026, Pyongyang Time.
+
+If a single test event spans multiple calendar days, it will count only for the day on which it began.
+
+Only test launches of ballistic missiles, cruise missiles, and anti-ship missiles will qualify.
+
+Test launches of other systems, including surface-to-air missiles (SAMs), multiple launch rocket systems (MLRS)/rocket artillery, torpedoes, or similar systems, will not qualify.
+
+Resolution will be based on publicly available information from reliable sources such as official government statements, reports from international monitoring bodies like the United Nations, or reports from reputable international media.
+Contracts:
+  E3.C1: Will there be fewer than 2 North Korea tests in May 2026?
+  E3.C2: Will there be 2–3 North Korea tests in May 2026?
+  E3.C3: Will there be 4 or more North Korea tests in May 2026?
+
+=== E4: U.S. issues passport with Trump's face on it by July 31?
+Rules:
+This market will resolve to “Yes” if any United States passports containing images or representations of Donald Trump’s face are issued by the United States government by July 31, 2026, 11:59 PM ET. Otherwise, this market will resolve to “No”.
+
+The passports must actually be issued to U.S. citizens. Proposals, approvals, announcements that qualifying passports will be issued, or unreleased sample passports will not qualify.
+
+The primary resolution source for this market will be official information from the United States government and a consensus of credible information.
+Contracts:
+  E4.C1: U.S. issues passport with Trump's face on it by July 31?
+
+=== E5: Will France, UK or Germany strike Iran by February 28?
+Rules:
+This market will resolve to "Yes" if France, the United Kingdom, or Germany initiates a drone, missile, or air strike on Iranian soil or any official Iranian embassy or consulate by February 28, 2026, 11:59 PM ET. Otherwise, this market will resolve to "No".
+
+For the purposes of this market, a qualifying "strike" is defined as the use of aerial bombs, drones or missiles (including cruise or ballistic missiles) launched by French, United Kingdom, or German military forces that impact Iranian ground territory or any official Iranian embassy or consulate (e.g., if a weapons depot on Iranian soil is hit by a French, United Kingdom, or German missile, this market will resolve to "Yes").
+
+Missiles or drones which are intercepted and surface-to-air missile strikes will not be sufficient for a "Yes" resolution regardless of whether they land on Iranian territory or cause damage.
+
+Actions such as artillery fire, small arms fire, FPV or ATGM strikes directly, ground incursions, naval shelling, cyberattacks, or other operations conducted by French, United Kingdom, or German ground operatives will not qualify.
+
+The resolution source will be a consensus of credible reporting.
+Contracts:
+  E5.C1: Will France, UK or Germany strike Iran by February 28?
+
+=== E6: Fed Decision in June?
+Rules:
+The FED interest rates are defined in this market by the upper bound of the target federal funds range. The decisions on the target federal funds range are made by the Federal Open Market Committee (FOMC) meetings.
+
+This market will resolve to the amount of basis points the upper bound of the target federal funds rate is changed by versus the level it was prior to the Federal Reserve's June 2026 meeting.
+
+If the target federal funds rate is changed to a level not expressed in the displayed options, the change will be rounded up to the nearest 25 and will resolve to the relevant bracket. (e.g. if there's a cut/increase of 12.5 bps it will be considered to be 25 bps)
+
+The resolution source for this market is the FOMC’s statement after its meeting scheduled for June 16-17, 2026 according to the official calendar: https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm.
+
+The level and change of the target federal funds rate is also published at the official website of the Federal Reserve at https://www.federalreserve.gov/monetarypolicy/openmarket.htm.
+
+This market may resolve as soon as the FOMC’s statement for their June meeting with relevant data is issued. If no statement is released by the end date of the next scheduled meeting, this market will resolve to the "No change" bracket.
+Contracts:
+  E6.C1: Will the Fed decrease interest rates by 50+ bps after the June 2026 meeting?
+  E6.C2: Will the Fed decrease interest rates by 25 bps after the June 2026 meeting?
+  E6.C3: Will there be no change in Fed interest rates after the June 2026 meeting?
+  E6.C4: Will the Fed increase interest rates by 25 bps after the June 2026 meeting?
+  E6.C5: Will the Fed increase interest rates by 50+ bps after the June 2026 meeting?
+
+=== E7: OH-09 Republican Primary Winner
+Rules:
+This market will resolve according to the candidate who wins the nomination for the Republican Party to contest the OH-09 congressional district seat in the U.S. House of Representatives in the 2026 midterm elections. The Republican primary will take place on May 5, 2026.
+
+If no nominee is announced by November 3, 2026, 11:59PM ET, this market will resolve to "Other".
+
+The resolution source for this market will be a consensus of official Republican sources, including https://www.rnc.org/.
+
+Any replacement of the nominee before election day will not change the resolution of the market.
+Contracts:
+  E7.C1: Will Derek Merrin be the Republican nominee for OH-09?
+  E7.C2: Will Alea Nadeem be the Republican nominee for OH-09?
+  E7.C3: Will Madison Sheahan be the Republican nominee for OH-09?
+  E7.C4: Will Josh Williams be the Republican nominee for OH-09?
+  E7.C5: Will Anthony Campbell be the Republican nominee for OH-09?
+  E7.C6: Will Jacob Frost be the Republican nominee for OH-09?
+  E7.C7: Will Wayne Kinsel be the Republican nominee for OH-09?
+
+=== E8: CO-01 Democratic Primary Winner
+Rules:
+This market will resolve according to the candidate who wins the nomination for the Democratic Party to contest the CO-01 congressional district seat in the U.S. House of Representatives in the 2026 midterm elections. The Democratic primary will take place on June 30, 2026.
+
+If no nominee is announced by November 3, 2026, 11:59 PM ET, this market will resolve to "Other".
+
+The resolution source for this market will be a consensus of official Democrat sources, including https://democrats.org/.
+
+Any replacement of the nominee before election day will not change the resolution of the market.
+Contracts:
+  E8.C1: Will Carter Hanson be the Democratic nominee for CO-01?
+  E8.C2: Will Christopher Oldfield be the Democratic nominee for CO-01?
+  E8.C3: Will Diana DeGette be the Democratic nominee for CO-01?
+  E8.C4: Will Melat Kiros be the Democratic nominee for CO-01?
+  E8.C5: Will Santiago Palomino be the Democratic nominee for CO-01?
+  E8.C6: Will Tiffany Rodgers be the Democratic nominee for CO-01?
+  E8.C7: Will Wanda James be the Democratic nominee for CO-01?
+
+=== E9: Who will meet with Iran by May 31?
+Rules:
+This market will resolve to "Yes" if there is a diplomatic meeting between the listed individual, acting as a representative of the United States, and representatives of Iran by May 31, 2026, 11:59 PM ET. Otherwise, this market will resolve to “No”.
+
+To qualify, the listed individual must be physically present at the meeting and actively participate as a negotiator representing the United States.
+
+A diplomatic meeting refers to a deliberate meeting between representatives of the listed countries who are acting in an official capacity and are authorized to engage in negotiation or diplomacy regarding US-Iranian relations on behalf of their governments. Meetings conducted indirectly, for example, through designated mediators, facilitators, or interlocutors acting with the knowledge and authorization of the relevant governments, will qualify.
+
+Brief greetings, chance encounters, or talks otherwise not deliberately aimed at diplomacy or negotiation will not count.
+
+The meeting must be in-person and must be publicly acknowledged by either government or reported by a consensus of credible media. Remote meetings, phone calls, or other meetings where the relevant parties are not present will not count.
+
+The primary resolution source for this market will be official information from the listed individual and the governments of the United States and Iran; however, a consensus of credible reporting will also be used.
+Contracts:
+  E9.C1: Will Donald Trump have a diplomatic meeting with Iran by May 31?
+  E9.C2: Will J.D. Vance have a diplomatic meeting with Iran by May 31?
+  E9.C3: Will Marco Rubio have a diplomatic meeting with Iran by May 31?
+  E9.C4: Will Jared Kushner have a diplomatic meeting with Iran by May 31?
+  E9.C5: Will Steve Witkoff have a diplomatic meeting with Iran by May 31?
+
+=== E10: Mitch McConnell votes in the Senate by July 31?
+Rules:
+This market will resolve to "Yes" if Senator Mitch McConnell of Kentucky casts a vote in the United States Senate on any bill, resolution, nomination, motion, or any other measure between market creation and July 31, 2026 at 11:59PM ET. Otherwise, this market will resolve to "No".
+
+The resolution source for this market will be the United States Senate; however, a consensus of credible reporting may also be used.
+Contracts:
+  E10.C1: Mitch McConnell votes in the Senate by July 31?

@@ -1,0 +1,334 @@
+You will be shown 10 questions from a prediction market. Each question has one or more contracts, and each contract resolves YES or NO under the rules shown.
+
+For every contract, give your probability, as a whole percent from 1 to 99, that it resolves YES. Use only what you already know. Do not search for or look up anything: reading this file is the only tool call you may make.
+
+For each question, also say whether you recognise how it actually turned out ("recognised": true only if you believe you remember the real outcome; otherwise false).
+
+Where a question's contracts are mutually exclusive (exactly one can resolve YES), your numbers for it should add up to about 100. Where they are nested thresholds or dates, keep them consistent with each other.
+
+Reply with one JSON object and nothing else, in this form:
+{"events": [{"label": "E1", "recognised": false, "p": {"E1.C1": 35, "E1.C2": 60}}]}
+
+Every contract label below must appear exactly once in your reply.
+
+=== E1: What will Robinhood Markets, Inc. (HOOD) hit in August 2026?
+Rules:
+What will Robinhood Markets, Inc. (HOOD) hit in August 2026?
+Contracts:
+  E1.C1: Will Robinhood Markets, Inc. (HOOD) hit (HIGH) $125 in August?
+    Contract rules: This market will resolve to "Yes" if, at any point during August 2026, any 1-minute candle for Robinhood Markets, Inc. (HOOD) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Robinhood Markets, Inc. (HOOD) "High" prices available at https://pythdata.app/explore/Equity.US.HOOD%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.HOOD%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E1.C2: Will Robinhood Markets, Inc. (HOOD) hit (HIGH) $120 in August?
+    Contract rules: This market will resolve to "Yes" if, at any point during August 2026, any 1-minute candle for Robinhood Markets, Inc. (HOOD) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Robinhood Markets, Inc. (HOOD) "High" prices available at https://pythdata.app/explore/Equity.US.HOOD%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.HOOD%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E1.C3: Will Robinhood Markets, Inc. (HOOD) hit (HIGH) $115 in August?
+    Contract rules: This market will resolve to "Yes" if, at any point during August 2026, any 1-minute candle for Robinhood Markets, Inc. (HOOD) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Robinhood Markets, Inc. (HOOD) "High" prices available at https://pythdata.app/explore/Equity.US.HOOD%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.HOOD%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E1.C4: Will Robinhood Markets, Inc. (HOOD) hit (LOW) $85 in August?
+    Contract rules: This market will resolve to "Yes" if, at any point during August 2026, any 1-minute candle for Robinhood Markets, Inc. (HOOD) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Robinhood Markets, Inc. (HOOD) "Low" prices available at https://pythdata.app/explore/Equity.US.HOOD%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.HOOD%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E1.C5: Will Robinhood Markets, Inc. (HOOD) hit (LOW) $80 in August?
+    Contract rules: This market will resolve to "Yes" if, at any point during August 2026, any 1-minute candle for Robinhood Markets, Inc. (HOOD) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Robinhood Markets, Inc. (HOOD) "Low" prices available at https://pythdata.app/explore/Equity.US.HOOD%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.HOOD%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E1.C6: Will Robinhood Markets, Inc. (HOOD) hit (LOW) $75 in August?
+    Contract rules: This market will resolve to "Yes" if, at any point during August 2026, any 1-minute candle for Robinhood Markets, Inc. (HOOD) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Robinhood Markets, Inc. (HOOD) "Low" prices available at https://pythdata.app/explore/Equity.US.HOOD%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.HOOD%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E1.C7: Will Robinhood Markets, Inc. (HOOD) hit (LOW) $70 in August?
+    Contract rules: This market will resolve to "Yes" if, at any point during August 2026, any 1-minute candle for Robinhood Markets, Inc. (HOOD) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Robinhood Markets, Inc. (HOOD) "Low" prices available at https://pythdata.app/explore/Equity.US.HOOD%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.HOOD%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E1.C8: Will Robinhood Markets, Inc. (HOOD) hit (LOW) $65 in August?
+    Contract rules: This market will resolve to "Yes" if, at any point during August 2026, any 1-minute candle for Robinhood Markets, Inc. (HOOD) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Robinhood Markets, Inc. (HOOD) "Low" prices available at https://pythdata.app/explore/Equity.US.HOOD%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.HOOD%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E1.C9: Will Robinhood Markets, Inc. (HOOD) hit (LOW) $60 in August?
+    Contract rules: This market will resolve to "Yes" if, at any point during August 2026, any 1-minute candle for Robinhood Markets, Inc. (HOOD) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Robinhood Markets, Inc. (HOOD) "Low" prices available at https://pythdata.app/explore/Equity.US.HOOD%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.HOOD%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E1.C10: Will Robinhood Markets, Inc. (HOOD) hit (HIGH) $110 in August?
+    Contract rules: This market will resolve to "Yes" if, at any point during August 2026, any 1-minute candle for Robinhood Markets, Inc. (HOOD) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Robinhood Markets, Inc. (HOOD) "High" prices available at https://pythdata.app/explore/Equity.US.HOOD%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.HOOD%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E1.C11: Will Robinhood Markets, Inc. (HOOD) hit (HIGH) $105 in August?
+    Contract rules: This market will resolve to "Yes" if, at any point during August 2026, any 1-minute candle for Robinhood Markets, Inc. (HOOD) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Robinhood Markets, Inc. (HOOD) "High" prices available at https://pythdata.app/explore/Equity.US.HOOD%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.HOOD%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+
+=== E2: Will Epstein Data Set 13 be released by...?
+Rules:
+This market will resolve to "Yes" if Data Set 13 of the Epstein Files is released between market creation and the listed date, 11:59PM ET. Otherwise, this market will resolve to "No".
+
+A qualifying data set will be labeled "Data Set 13 Files" on the U.S. Department of Justice website in the Epstein Library. Any additions to previously released data sets or file releases under data sets with names not exhibiting a sequential relationship similar to that between "Data Set 7 Files" and "Data Set 8 Files" will not be considered.
+
+A partial release will qualify, so long as other qualifying conditions are met.
+
+The resolution source for this market will be the U.S. Department of Justice website (see: https://www.justice.gov/epstein/doj-disclosures).
+Contracts:
+  E2.C1: Will Epstein Data Set 13 be released by February 28?
+  E2.C2: Will Epstein Data Set 13 be released by March 31?
+
+=== E3: MA-08 Democratic Primary Winner
+Rules:
+This market will resolve according to the candidate who wins the nomination for the Democratic Party to contest the MA-08 congressional district seat in the U.S. House of Representatives in the 2026 midterm elections. The Democratic primary will take place on September 1, 2026.
+
+If no nominee is announced by November 3, 2026, 11:59 PM ET, this market will resolve to "Other".
+
+The resolution source for this market will be a consensus of official Democrat sources, including https://democrats.org/.
+
+Any replacement of the nominee before election day will not change the resolution of the market.
+Contracts:
+  E3.C1: Will Stephen Lynch be the Democratic nominee for MA-08?
+  E3.C2: Will Patrick Roath be the Democratic nominee for MA-08?
+  E3.C3: Will Andrew Zylberfink be the Democratic nominee for MA-08?
+
+=== E4: Portugal Presidential Election: 1st Round Winner
+Rules:
+Presidential elections are scheduled to be held in Portugal on 18 or 25 January 2026, with a possible second round on 8 or 15 February 2026. A second round will be held if no candidate secures more than 50% of the valid votes in the first round.
+
+This market will resolve according to the listed candidate that receives the highest number of valid votes in the first round of this election. 
+
+If the result of this election isn't known by December 31, 2026, 11:59 PM ET, the market will resolve to "Other".
+
+This market will resolve based on the result of the first round of this election as indicated by a consensus of credible reporting. If there is ambiguity, this market will resolve based solely on the official results as reported by the Portuguese government, specifically the National Election Commission (Comissão Nacional de Eleições, CNE) (https://www.cne.pt/).
+Contracts:
+  E4.C1: Will Tim Vieira win the 1st round of the 2026 Portugal presidential election?
+  E4.C2: Will Joana Amaral Dias win the 1st round of the 2026 Portugal presidential election?
+  E4.C3: Will André Pestana win the 1st round of the 2026 Portugal presidential election?
+  E4.C4: Will André Ventura win the 1st round of the 2026 Portugal presidential election?
+  E4.C5: Will Orlando Cruz win the 1st round of the 2026 Portugal presidential election?
+  E4.C6: Will Aristides Teixeira win the 1st round of the 2026 Portugal presidential election?
+  E4.C7: Will Manuela Magno win the 1st round of the 2026 Portugal presidential election?
+  E4.C8: Will Luís Marques Mendes win the 1st round of the 2026 Portugal presidential election?
+  E4.C9: Will Pedro Tinoco de Faria win the 1st round of the 2026 Portugal presidential election?
+  E4.C10: Will Henrique Gouveia e Melo win the 1st round of the 2026 Portugal presidential election?
+  E4.C11: Will António José Seguro win the 1st round of the 2026 Portugal presidential election?
+  E4.C12: Will Vitorino Silva win the 1st round of the 2026 Portugal presidential election?
+
+=== E5: Khamenei out as Supreme Leader of Iran by June 30?
+Rules:
+This market will resolve to "Yes" if Iran's Supreme Leader, Ali Khamenei, is removed from power for any length of time by June 30, 2026, 11:59 PM ET. Otherwise, this market will resolve to "No".
+
+Khamenei will be considered to be removed from power if he resigns, is detained, or otherwise loses his position or is prevented from fulfilling his duties as Supreme Leader of Iran within this market's timeframe.
+
+The primary resolution source for this market will be a consensus of credible reporting.
+Contracts:
+  E5.C1: Khamenei out as Supreme Leader of Iran by June 30?
+
+=== E6: Khamenei out as Supreme Leader of Iran by January 31?
+Rules:
+This market will resolve to "Yes" if Iran's Supreme Leader, Ali Khamenei, is removed from power for any length of time between this market's creation and January 31, 2026, 11:59 PM ET. Otherwise, this market will resolve to "No".
+
+Khamenei will be considered to be removed from power if he resigns, is detained, or otherwise loses his position or is prevented from fulfilling his duties as Supreme Leader of Iran within this market's timeframe.
+
+The primary resolution source for this market will be a consensus of credible reporting.
+Contracts:
+  E6.C1: Khamenei out as Supreme Leader of Iran by January 31?
+
+=== E7: December Inflation U.K. - Annual
+Rules:
+This is a market about the variation of consumer prices in the U.K. over the 12-month period ending December 2025, before seasonal adjustment, as reported by the Office for National Statistics (ONS).
+
+This market will resolve according to the number the Consumer Price Index (CPI) increased by over the 12-month period ending December 2025 (% change) according to the monthly ONS report.
+
+The resolution source for this market will be the ONS Consumer Price Index monthly report released for December 2025 (https://www.ons.gov.uk/economy/inflationandpriceindices/bulletins/consumerpriceinflation/previousreleases), currently scheduled to be released on January 21, 2026. Resolution of this market will take place upon release of the aforementioned data. If no data for the specified month is released by the date the next month's data is scheduled to be released, this market will resolve based on data from the last available month.
+
+You can find this report by choosing the report for the relevant month from the previous releases page for price indices on the ONS website (https://www.ons.gov.uk/economy/inflationandpriceindices/bulletins/consumerpriceinflation/previousreleases). The relevant figure can be found in the "Consumer price inflation rates" table under the column labeled "CPI 12-month rate (%)" for the relevant month.
+
+Note: the resolution source for this market will be the official monthly ONS CPI news release which reports inflation change over 12-month periods to only one decimal point (e.g. 1.9%). Thus, this is the level of precision that will be used when resolving the market. For the full release schedule, see: https://www.ons.gov.uk/releasecalendar
+Contracts:
+  E7.C1: Will the U.K.'s annual inflation increase by ≤2.8% in December?
+  E7.C2: Will the U.K.'s annual inflation increase by 2.9% in December?
+  E7.C3: Will the U.K.'s annual inflation increase by 3.0% in December?
+  E7.C4: Will the U.K.'s annual inflation increase by 3.1% in December?
+  E7.C5: Will the U.K.'s annual inflation increase by 3.2% in December?
+  E7.C6: Will the U.K.'s annual inflation increase by 3.3% in December?
+  E7.C7: Will the U.K.'s annual inflation increase by ≥3.4% in December?
+
+=== E8: Avg. # of ships transiting Bab el-Mandeb Strait end of August?
+Rules:
+This market will resolve according to the 7-day moving average of transit calls (“Arrivals of Ships”) for the Bab el-Mandeb Strait that IMF Portwatch reports for August 31, 2026.
+
+Transit calls include container, dry bulk, roll-on/roll-off, general cargo, and tanker ships. Ships not reported by IMF Portwatch will not be considered.
+
+This market will resolve as soon as the relevant data has been published. If the relevant data is not published within 14 calendar days of the specified date, this market will resolve based on the most recent data published up to that point.
+
+In case of obvious data integrity issues (i.e., erroneous data), the market may remain open until the end of the third calendar day (ET) after the date on which such data is first released to allow for corrections. Data integrity issues refer only to clerical or other similar errors in the underlying data, and do not include cases where IMF Portwatch differs from alternative sources.
+
+The resolution source for this market will be IMF PortWatch, specifically the “Arrivals of Ships” data published for the Bab el-Mandeb Strait at https://portwatch.imf.org/pages/6b1814d64903461b98144a6cc25eb79c.
+Contracts:
+  E8.C1: Will there be fewer than 25 average daily transits of the Bab el-Mandeb Strait on August 31?
+  E8.C2: Will there be between 25 and 29 average daily transits of the Bab el-Mandeb Strait on August 31?
+  E8.C3: Will there be between 30 and 34 average daily transits of the Bab el-Mandeb Strait on August 31?
+  E8.C4: Will there be between 35 and 39 average daily transits of the Bab el-Mandeb Strait on August 31?
+  E8.C5: Will there be 40 or more average daily transits of the Bab el-Mandeb Strait on August 31?
+
+=== E9: Arizona Superintendent of Public Instruction Republican Primary Winner
+Rules:
+This market will resolve according to the winner of the Republican nomination for Arizona Superintendent of Public Instruction. The Republican primary is scheduled to take place on July 21, 2026. 
+
+If no nominee is announced by November 3, 2026, 11:59PM ET, this market will resolve to "Other".
+
+The resolution source for this market will be the first official announcement of the results from the Arizona Republican Party; however, an overwhelming consensus of credible reporting may suffice.
+Contracts:
+  E9.C1: Will Tom Horne be the Arizona Superintendent of Public Instruction Republican nominee?
+  E9.C2: Will Kimberly Yee be the Arizona Superintendent of Public Instruction Republican nominee?
+
+=== E10: Will Goldman Sachs (GS) Q2 investment banking fees be above __?
+Rules:
+This market will resolve to "Yes" if Goldman Sachs's investment banking fees for the upcoming second fiscal quarter, as reported in its official company earnings materials, is above the listed amount. Otherwise, this market will resolve to "No".
+
+The specified metric will be considered as reported in the company's official earnings materials. Subsequent revisions will not be considered.
+
+If the specified company's official earnings materials for the specified quarter are released, and the specified metric is not included, this market will resolve to "No".
+
+If the specified company does not release quarterly earnings materials for the specified quarter by August 31, 2026, 11:59 PM ET, this market will resolve to "No".
+
+If the specified metric is reported as a range rather than a specific number, the midpoint of the range will be used for resolution of this market.
+
+The resolution source for this market is Goldman Sachs's official company earnings materials, including press releases, investor presentations, and regulatory filings. If the specified metric is not reported in these materials, recordings or transcripts of the company's earnings webcast may also be used.
+
+Note: This market will resolve based on the most numerically precise version of the specified metric reported in the company's official earnings materials. Only the specified metric will be considered; alternate versions that differ in definition or scope from the specified metric will not be considered.
+Contracts:
+  E10.C1: Will Goldman Sachs (GS) Q2 investment banking fees be above $2.1B?
+  E10.C2: Will Goldman Sachs (GS) Q2 investment banking fees be above $2.35B?
+  E10.C3: Will Goldman Sachs (GS) Q2 investment banking fees be above $2.6B?
+  E10.C4: Will Goldman Sachs (GS) Q2 investment banking fees be above $2.85B?
+  E10.C5: Will Goldman Sachs (GS) Q2 investment banking fees be above $3.1B?

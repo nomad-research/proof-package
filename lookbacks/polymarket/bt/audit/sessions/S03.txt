@@ -1,0 +1,627 @@
+You will be shown 10 questions from a prediction market. Each question has one or more contracts, and each contract resolves YES or NO under the rules shown.
+
+For every contract, give your probability, as a whole percent from 1 to 99, that it resolves YES. Use only what you already know. Do not search for or look up anything: reading this file is the only tool call you may make.
+
+For each question, also say whether you recognise how it actually turned out ("recognised": true only if you believe you remember the real outcome; otherwise false).
+
+Where a question's contracts are mutually exclusive (exactly one can resolve YES), your numbers for it should add up to about 100. Where they are nested thresholds or dates, keep them consistent with each other.
+
+Reply with one JSON object and nothing else, in this form:
+{"events": [{"label": "E1", "recognised": false, "p": {"E1.C1": 35, "E1.C2": 60}}]}
+
+Every contract label below must appear exactly once in your reply.
+
+=== E1: What will Palantir Technologies Inc. (PLTR) hit in May 2026?
+Rules:
+What will Palantir Technologies Inc. (PLTR) hit in May 2026?
+Contracts:
+  E1.C1: Will Palantir Technologies Inc. (PLTR) hit (HIGH) $180 in May?
+    Contract rules: This market will resolve to "Yes" if, at any point during May 2026, any 1-minute candle for Palantir Technologies Inc. (PLTR) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Palantir Technologies Inc. (PLTR) "High" prices available at https://pythdata.app/explore/Equity.US.PLTR%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.PLTR%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E1.C2: Will Palantir Technologies Inc. (PLTR) hit (HIGH) $174 in May?
+    Contract rules: This market will resolve to "Yes" if, at any point during May 2026, any 1-minute candle for Palantir Technologies Inc. (PLTR) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Palantir Technologies Inc. (PLTR) "High" prices available at https://pythdata.app/explore/Equity.US.PLTR%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.PLTR%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E1.C3: Will Palantir Technologies Inc. (PLTR) hit (HIGH) $168 in May?
+    Contract rules: This market will resolve to "Yes" if, at any point during May 2026, any 1-minute candle for Palantir Technologies Inc. (PLTR) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Palantir Technologies Inc. (PLTR) "High" prices available at https://pythdata.app/explore/Equity.US.PLTR%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.PLTR%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E1.C4: Will Palantir Technologies Inc. (PLTR) hit (HIGH) $162 in May?
+    Contract rules: This market will resolve to "Yes" if, at any point during May 2026, any 1-minute candle for Palantir Technologies Inc. (PLTR) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Palantir Technologies Inc. (PLTR) "High" prices available at https://pythdata.app/explore/Equity.US.PLTR%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.PLTR%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E1.C5: Will Palantir Technologies Inc. (PLTR) hit (HIGH) $156 in May?
+    Contract rules: This market will resolve to "Yes" if, at any point during May 2026, any 1-minute candle for Palantir Technologies Inc. (PLTR) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Palantir Technologies Inc. (PLTR) "High" prices available at https://pythdata.app/explore/Equity.US.PLTR%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.PLTR%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E1.C6: Will Palantir Technologies Inc. (PLTR) hit (HIGH) $150 in May?
+    Contract rules: This market will resolve to "Yes" if, at any point during May 2026, any 1-minute candle for Palantir Technologies Inc. (PLTR) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Palantir Technologies Inc. (PLTR) "High" prices available at https://pythdata.app/explore/Equity.US.PLTR%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.PLTR%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E1.C7: Will Palantir Technologies Inc. (PLTR) hit (LOW) $126 in May?
+    Contract rules: This market will resolve to "Yes" if, at any point during May 2026, any 1-minute candle for Palantir Technologies Inc. (PLTR) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Palantir Technologies Inc. (PLTR) "Low" prices available at https://pythdata.app/explore/Equity.US.PLTR%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.PLTR%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E1.C8: Will Palantir Technologies Inc. (PLTR) hit (LOW) $120 in May?
+    Contract rules: This market will resolve to "Yes" if, at any point during May 2026, any 1-minute candle for Palantir Technologies Inc. (PLTR) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Palantir Technologies Inc. (PLTR) "Low" prices available at https://pythdata.app/explore/Equity.US.PLTR%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.PLTR%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E1.C9: Will Palantir Technologies Inc. (PLTR) hit (LOW) $114 in May?
+    Contract rules: This market will resolve to "Yes" if, at any point during May 2026, any 1-minute candle for Palantir Technologies Inc. (PLTR) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Palantir Technologies Inc. (PLTR) "Low" prices available at https://pythdata.app/explore/Equity.US.PLTR%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.PLTR%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E1.C10: Will Palantir Technologies Inc. (PLTR) hit (LOW) $108 in May?
+    Contract rules: This market will resolve to "Yes" if, at any point during May 2026, any 1-minute candle for Palantir Technologies Inc. (PLTR) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Palantir Technologies Inc. (PLTR) "Low" prices available at https://pythdata.app/explore/Equity.US.PLTR%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.PLTR%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E1.C11: Will Palantir Technologies Inc. (PLTR) hit (LOW) $102 in May?
+    Contract rules: This market will resolve to "Yes" if, at any point during May 2026, any 1-minute candle for Palantir Technologies Inc. (PLTR) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Palantir Technologies Inc. (PLTR) "Low" prices available at https://pythdata.app/explore/Equity.US.PLTR%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.PLTR%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+
+=== E2: Will Trump create a tariff dividend by June 30?
+Rules:
+This market will resolve to "Yes" if the Trump Administration formally creates (e.g., by signing federal legislation or performing executive action) a tariff dividend/rebate by June 30, 2026, 11:59 PM ET. Otherwise, this market will resolve to "No".
+
+Any bill signed into law or executive action taken within this market's time frame will qualify, regardless of when the law or action goes into effect.
+
+A qualifying payment of any amount distributed to any segment of individual US taxpayers will qualify as long as it is clearly attributed primarily to tariff revenue rather than a routine tax refund or credit.
+
+The resolution source will be a consensus of credible reporting.
+Contracts:
+  E2.C1: Will Trump create a tariff dividend by June 30?
+
+=== E3: Evidence Epstein blackmailed politicians released by Feb 28?
+Rules:
+This market will resolve to "Yes" if previously unreleased documents containing evidence that Jeffrey Epstein blackmailed a politician are made public by February 28, 2026, 11:59 PM ET. Otherwise, this market will resolve to "No".
+
+Blackmail is defined as any use or attempted use of compromising materials or information (such as photos, videos, documents, or incriminating knowledge) to coerce, extort, manipulate, or otherwise gain leverage over a specific person or persons.
+
+Qualifying evidence that Epstein blackmailed any individual requires one of the following:
+
+- A direct statement within the newly released files demonstrating that Epstein blackmailed any individual or group.
+
+- A clear consensus of credible reporting indicating that the newly released files show that Epstein blackmailed any individual or group.
+
+- A clear consensus of credible reporting indicating that Epstein used any materials released as part of the newly released files for blackmail.
+
+General references to Epstein possessing damaging information, vague insinuations, or speculative commentary will not qualify.
+
+Mentions of “leverage,” “influence,” “favors,” or similar language will not qualify unless clearly tied to the use or attempted use of compromising materials for blackmail as defined in this market.
+
+The primary resolution sources for this market will be the content of any released files and a consensus of credible reporting.
+Contracts:
+  E3.C1: Evidence Epstein blackmailed politicians released by Feb 28?
+
+=== E4: Next Google Gemini Pro Model released on...?
+Rules:
+This market will resolve according to the calendar date (ET) on which Google's next Gemini Pro model is made available to the general public.
+
+Any Gemini model released after market creation and labeled as "Pro" may qualify (e.g., gemini-3.2-pro, gemini-3.5-pro, or gemini-4.0-pro-preview). Gemini models labeled only as Flash, Flash-Lite, or another non-Pro variant will not qualify.
+
+Products labeled as a GA promotion of an already-existing Preview model (e.g., gemini-3.1-pro-ga) may qualify.
+
+A qualifying model must be launched and publicly accessible, including via open beta or open rolling waitlist signups. A closed beta or any form of private access will not suffice. The release must be either clearly defined and publicly announced by Google as being accessible to the general public or otherwise made publicly accessible and explicitly labeled within the company's official website. Labeling errors, placeholder text, or version names displayed on the website that do not correspond to a model that is actually accessible to the general public will not qualify.
+
+The primary resolution source for this market will be official information from Google, with additional verification from a consensus of credible reporting.
+Contracts:
+  E4.C1: Will the next Google Gemini Pro model be released on July 17, 2026?
+  E4.C2: Will the next Google Gemini Pro model be released on July 18, 2026?
+  E4.C3: Will the next Google Gemini Pro model be released on July 19, 2026?
+  E4.C4: Will the next Google Gemini Pro model be released on July 20, 2026?
+  E4.C5: Will the next Google Gemini Pro model be released on July 21, 2026?
+  E4.C6: Will the next Google Gemini Pro model be released on July 22, 2026?
+  E4.C7: Will the next Google Gemini Pro model be released on July 23, 2026?
+  E4.C8: Will the next Google Gemini Pro model be released on July 24, 2026?
+  E4.C9: Will the next Google Gemini Pro model be released on July 25, 2026?
+  E4.C10: Will the next Google Gemini Pro model be released on July 26, 2026?
+  E4.C11: Will the next Google Gemini Pro model be released on July 27, 2026?
+  E4.C12: Will the next Google Gemini Pro model be released on July 28, 2026?
+
+=== E5: Daejeon Mayoral Election Winner
+Rules:
+The Daejeon mayoral election is scheduled to take place on June 3, 2026.
+
+This market will resolve according to the candidate who wins this election.
+
+Interim, temporary, or caretaker mayors will not count.
+
+If the result of this election isn't known by December 31, 2026, 11:59 PM ET, the market will resolve to "Other".
+
+This market will resolve based on the result of the election as indicated by a consensus of credible reporting. If there is ambiguity, this market will resolve based solely on the official results as reported by the South Korean government, specifically the National Election Commission (https://www.nec.go.kr/).
+Contracts:
+  E5.C1: Will Huh Tae-jung win the 2026 Daejeon mayoral election?
+  E5.C2: Will Lee Jang-woo win the 2026 Daejeon mayoral election?
+
+=== E6: What will MicroStrategy (MSTR) hit in August 2026?
+Rules:
+What will MicroStrategy (MSTR) hit in August 2026?
+Contracts:
+  E6.C1: Will MicroStrategy (MSTR) hit (HIGH) $160 in August?
+    Contract rules: This market will resolve to "Yes" if, at any point during August 2026, any 1-minute candle for MicroStrategy (MSTR) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the MicroStrategy (MSTR) "High" prices available at https://pythdata.app/explore/Equity.US.MSTR%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.MSTR%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E6.C2: Will MicroStrategy (MSTR) hit (HIGH) $150 in August?
+    Contract rules: This market will resolve to "Yes" if, at any point during August 2026, any 1-minute candle for MicroStrategy (MSTR) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the MicroStrategy (MSTR) "High" prices available at https://pythdata.app/explore/Equity.US.MSTR%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.MSTR%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E6.C3: Will MicroStrategy (MSTR) hit (HIGH) $140 in August?
+    Contract rules: This market will resolve to "Yes" if, at any point during August 2026, any 1-minute candle for MicroStrategy (MSTR) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the MicroStrategy (MSTR) "High" prices available at https://pythdata.app/explore/Equity.US.MSTR%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.MSTR%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E6.C4: Will MicroStrategy (MSTR) hit (LOW) $90 in August?
+    Contract rules: This market will resolve to "Yes" if, at any point during August 2026, any 1-minute candle for MicroStrategy (MSTR) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the MicroStrategy (MSTR) "Low" prices available at https://pythdata.app/explore/Equity.US.MSTR%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.MSTR%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E6.C5: Will MicroStrategy (MSTR) hit (LOW) $80 in August?
+    Contract rules: This market will resolve to "Yes" if, at any point during August 2026, any 1-minute candle for MicroStrategy (MSTR) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the MicroStrategy (MSTR) "Low" prices available at https://pythdata.app/explore/Equity.US.MSTR%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.MSTR%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E6.C6: Will MicroStrategy (MSTR) hit (LOW) $70 in August?
+    Contract rules: This market will resolve to "Yes" if, at any point during August 2026, any 1-minute candle for MicroStrategy (MSTR) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the MicroStrategy (MSTR) "Low" prices available at https://pythdata.app/explore/Equity.US.MSTR%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.MSTR%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E6.C7: Will MicroStrategy (MSTR) hit (LOW) $60 in August?
+    Contract rules: This market will resolve to "Yes" if, at any point during August 2026, any 1-minute candle for MicroStrategy (MSTR) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the MicroStrategy (MSTR) "Low" prices available at https://pythdata.app/explore/Equity.US.MSTR%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.MSTR%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E6.C8: Will MicroStrategy (MSTR) hit (LOW) $50 in August?
+    Contract rules: This market will resolve to "Yes" if, at any point during August 2026, any 1-minute candle for MicroStrategy (MSTR) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the MicroStrategy (MSTR) "Low" prices available at https://pythdata.app/explore/Equity.US.MSTR%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.MSTR%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E6.C9: Will MicroStrategy (MSTR) hit (LOW) $40 in August?
+    Contract rules: This market will resolve to "Yes" if, at any point during August 2026, any 1-minute candle for MicroStrategy (MSTR) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the MicroStrategy (MSTR) "Low" prices available at https://pythdata.app/explore/Equity.US.MSTR%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.MSTR%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E6.C10: Will MicroStrategy (MSTR) hit (LOW) $30 in August?
+    Contract rules: This market will resolve to "Yes" if, at any point during August 2026, any 1-minute candle for MicroStrategy (MSTR) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the MicroStrategy (MSTR) "Low" prices available at https://pythdata.app/explore/Equity.US.MSTR%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.MSTR%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E6.C11: Will MicroStrategy (MSTR) hit (HIGH) $130 in August?
+    Contract rules: This market will resolve to "Yes" if, at any point during August 2026, any 1-minute candle for MicroStrategy (MSTR) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the MicroStrategy (MSTR) "High" prices available at https://pythdata.app/explore/Equity.US.MSTR%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.MSTR%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E6.C12: Will MicroStrategy (MSTR) hit (HIGH) $120 in August?
+    Contract rules: This market will resolve to "Yes" if, at any point during August 2026, any 1-minute candle for MicroStrategy (MSTR) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the MicroStrategy (MSTR) "High" prices available at https://pythdata.app/explore/Equity.US.MSTR%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.MSTR%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+
+=== E7: Will the 10-year treasury hit __ in April?
+Rules:
+This market will resolve to "Yes" if the United States Department of the Treasury publishes a Daily Treasury Par Yield Curve Rate for the 10-year U.S. Treasury equal to or above the listed value for any day in April 2026. Otherwise, this market will resolve to “No”.
+
+This market will resolve as soon as the Department of the Treasury publishes a Daily Treasury Par Yield Curve Rate for the 10-year U.S. Treasury equal to or above the listed value, or once the Daily Treasury Par Yield Curve Rate has been published for the final relevant day in April, and the listed value has not been reached.
+
+Revisions made prior to the publication of the Daily Treasury Par Yield Curve Rate for the final relevant date in April will be considered; however, they will not disqualify a previously published data point from counting. Revisions or corrections made after the publication of the Daily Treasury Par Yield Curve Rate for the final relevant date in April will not be considered.
+
+The resolution source for this market is the Department of the Treasury, specifically the data listed under "Daily Treasury Par Yield Curve Rates" for the column "10 Yr" at https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve&field_tdr_date_value=202604.
+Contracts:
+  E7.C1: Will the 10-year Treasury hit 4.60% (HIGH) in April?
+    Contract rules: This market will resolve to "Yes" if the United States Department of the Treasury publishes a Daily Treasury Par Yield Curve Rate for the 10-year U.S. Treasury equal to or above the listed value for any day in April 2026. Otherwise, this market will resolve to “No”.
+
+This market will resolve as soon as the Department of the Treasury publishes a Daily Treasury Par Yield Curve Rate for the 10-year U.S. Treasury equal to or above the listed value, or once the Daily Treasury Par Yield Curve Rate has been published for the final relevant day in April, and the listed value has not been reached.
+
+Revisions made prior to the publication of the Daily Treasury Par Yield Curve Rate for the final relevant day in April will be considered; however, they will not disqualify a previously published data point from counting. Revisions or corrections made after the publication of the Daily Treasury Par Yield Curve Rate for the final relevant date in April will not be considered.
+
+The resolution source for this market is the Department of the Treasury, specifically the data listed under "Daily Treasury Par Yield Curve Rates" for the column "10 Yr" at https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve&field_tdr_date_value=202604.
+  E7.C2: Will the 10-year Treasury hit 4.50% (HIGH) in April?
+    Contract rules: This market will resolve to "Yes" if the United States Department of the Treasury publishes a Daily Treasury Par Yield Curve Rate for the 10-year U.S. Treasury equal to or above the listed value for any day in April 2026. Otherwise, this market will resolve to “No”.
+
+This market will resolve as soon as the Department of the Treasury publishes a Daily Treasury Par Yield Curve Rate for the 10-year U.S. Treasury equal to or above the listed value, or once the Daily Treasury Par Yield Curve Rate has been published for the final relevant day in April, and the listed value has not been reached.
+
+Revisions made prior to the publication of the Daily Treasury Par Yield Curve Rate for the final relevant day in April will be considered; however, they will not disqualify a previously published data point from counting. Revisions or corrections made after the publication of the Daily Treasury Par Yield Curve Rate for the final relevant date in April will not be considered.
+
+The resolution source for this market is the Department of the Treasury, specifically the data listed under "Daily Treasury Par Yield Curve Rates" for the column "10 Yr" at https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve&field_tdr_date_value=202604.
+  E7.C3: Will the 10-year Treasury hit 4.45% (HIGH) in April?
+    Contract rules: This market will resolve to "Yes" if the United States Department of the Treasury publishes a Daily Treasury Par Yield Curve Rate for the 10-year U.S. Treasury equal to or above the listed value for any day in April 2026. Otherwise, this market will resolve to “No”.
+
+This market will resolve as soon as the Department of the Treasury publishes a Daily Treasury Par Yield Curve Rate for the 10-year U.S. Treasury equal to or above the listed value, or once the Daily Treasury Par Yield Curve Rate has been published for the final relevant day in April, and the listed value has not been reached.
+
+Revisions made prior to the publication of the Daily Treasury Par Yield Curve Rate for the final relevant day in April will be considered; however, they will not disqualify a previously published data point from counting. Revisions or corrections made after the publication of the Daily Treasury Par Yield Curve Rate for the final relevant date in April will not be considered.
+
+The resolution source for this market is the Department of the Treasury, specifically the data listed under "Daily Treasury Par Yield Curve Rates" for the column "10 Yr" at https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve&field_tdr_date_value=202604.
+  E7.C4: Will the 10-year Treasury hit 4.40% (HIGH) in April?
+    Contract rules: This market will resolve to "Yes" if the United States Department of the Treasury publishes a Daily Treasury Par Yield Curve Rate for the 10-year U.S. Treasury equal to or above the listed value for any day in April 2026. Otherwise, this market will resolve to “No”.
+
+This market will resolve as soon as the Department of the Treasury publishes a Daily Treasury Par Yield Curve Rate for the 10-year U.S. Treasury equal to or above the listed value, or once the Daily Treasury Par Yield Curve Rate has been published for the final relevant day in April, and the listed value has not been reached.
+
+Revisions made prior to the publication of the Daily Treasury Par Yield Curve Rate for the final relevant day in April will be considered; however, they will not disqualify a previously published data point from counting. Revisions or corrections made after the publication of the Daily Treasury Par Yield Curve Rate for the final relevant date in April will not be considered.
+
+The resolution source for this market is the Department of the Treasury, specifically the data listed under "Daily Treasury Par Yield Curve Rates" for the column "10 Yr" at https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve&field_tdr_date_value=202604.
+  E7.C5: Will the 10-year Treasury hit 4.25% (LOW) in April?
+    Contract rules: This market will resolve to "Yes" if the United States Department of the Treasury publishes a Daily Treasury Par Yield Curve Rate for the 10-year U.S. Treasury equal to or below the listed value for any day in April 2026. Otherwise, this market will resolve to “No”.
+
+This market will resolve as soon as the Department of the Treasury publishes a Daily Treasury Par Yield Curve Rate for the 10-year U.S. Treasury equal to or below the listed value, or once the Daily Treasury Par Yield Curve Rate has been published for the final relevant day in April, and the listed value has not been reached.
+
+Revisions made prior to the publication of the Daily Treasury Par Yield Curve Rate for the final relevant day in April will be considered; however, they will not disqualify a previously published data point from counting. Revisions or corrections made after the publication of the Daily Treasury Par Yield Curve Rate for the final relevant date in April will not be considered.
+
+The resolution source for this market is the Department of the Treasury, specifically the data listed under "Daily Treasury Par Yield Curve Rates" for the column "10 Yr" at https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve&field_tdr_date_value=202604.
+  E7.C6: Will the 10-year Treasury hit 4.20% (LOW) in April?
+    Contract rules: This market will resolve to "Yes" if the United States Department of the Treasury publishes a Daily Treasury Par Yield Curve Rate for the 10-year U.S. Treasury equal to or below the listed value for any day in April 2026. Otherwise, this market will resolve to “No”.
+
+This market will resolve as soon as the Department of the Treasury publishes a Daily Treasury Par Yield Curve Rate for the 10-year U.S. Treasury equal to or below the listed value, or once the Daily Treasury Par Yield Curve Rate has been published for the final relevant day in April, and the listed value has not been reached.
+
+Revisions made prior to the publication of the Daily Treasury Par Yield Curve Rate for the final relevant day in April will be considered; however, they will not disqualify a previously published data point from counting. Revisions or corrections made after the publication of the Daily Treasury Par Yield Curve Rate for the final relevant date in April will not be considered.
+
+The resolution source for this market is the Department of the Treasury, specifically the data listed under "Daily Treasury Par Yield Curve Rates" for the column "10 Yr" at https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve&field_tdr_date_value=202604.
+  E7.C7: Will the 10-year Treasury hit 4.15% (LOW) in April?
+    Contract rules: This market will resolve to "Yes" if the United States Department of the Treasury publishes a Daily Treasury Par Yield Curve Rate for the 10-year U.S. Treasury equal to or below the listed value for any day in April 2026. Otherwise, this market will resolve to “No”.
+
+This market will resolve as soon as the Department of the Treasury publishes a Daily Treasury Par Yield Curve Rate for the 10-year U.S. Treasury equal to or below the listed value, or once the Daily Treasury Par Yield Curve Rate has been published for the final relevant day in April, and the listed value has not been reached.
+
+Revisions made prior to the publication of the Daily Treasury Par Yield Curve Rate for the final relevant day in April will be considered; however, they will not disqualify a previously published data point from counting. Revisions or corrections made after the publication of the Daily Treasury Par Yield Curve Rate for the final relevant date in April will not be considered.
+
+The resolution source for this market is the Department of the Treasury, specifically the data listed under "Daily Treasury Par Yield Curve Rates" for the column "10 Yr" at https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve&field_tdr_date_value=202604.
+  E7.C8: Will the 10-year Treasury hit 4.10% (LOW) in April?
+    Contract rules: This market will resolve to "Yes" if the United States Department of the Treasury publishes a Daily Treasury Par Yield Curve Rate for the 10-year U.S. Treasury equal to or below the listed value for any day in April 2026. Otherwise, this market will resolve to “No”.
+
+This market will resolve as soon as the Department of the Treasury publishes a Daily Treasury Par Yield Curve Rate for the 10-year U.S. Treasury equal to or below the listed value, or once the Daily Treasury Par Yield Curve Rate has been published for the final relevant day in April, and the listed value has not been reached.
+
+Revisions made prior to the publication of the Daily Treasury Par Yield Curve Rate for the final relevant day in April will be considered; however, they will not disqualify a previously published data point from counting. Revisions or corrections made after the publication of the Daily Treasury Par Yield Curve Rate for the final relevant date in April will not be considered.
+
+The resolution source for this market is the Department of the Treasury, specifically the data listed under "Daily Treasury Par Yield Curve Rates" for the column "10 Yr" at https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve&field_tdr_date_value=202604.
+  E7.C9: Will the 10-year Treasury hit 4.00% (LOW) in April?
+    Contract rules: This market will resolve to "Yes" if the United States Department of the Treasury publishes a Daily Treasury Par Yield Curve Rate for the 10-year U.S. Treasury equal to or below the listed value for any day in April 2026. Otherwise, this market will resolve to “No”.
+
+This market will resolve as soon as the Department of the Treasury publishes a Daily Treasury Par Yield Curve Rate for the 10-year U.S. Treasury equal to or below the listed value, or once the Daily Treasury Par Yield Curve Rate has been published for the final relevant day in April, and the listed value has not been reached.
+
+Revisions made prior to the publication of the Daily Treasury Par Yield Curve Rate for the final relevant day in April will be considered; however, they will not disqualify a previously published data point from counting. Revisions or corrections made after the publication of the Daily Treasury Par Yield Curve Rate for the final relevant date in April will not be considered.
+
+The resolution source for this market is the Department of the Treasury, specifically the data listed under "Daily Treasury Par Yield Curve Rates" for the column "10 Yr" at https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve&field_tdr_date_value=202604.
+
+=== E8: Will the Kharg Island oil terminal be hit by January 31?
+Rules:
+This market will resolve to "Yes" if the Kharg Island oil terminal is the subject of a kinetic strike between market creation and January 31, 2026, 11:59 PM ET. Otherwise, this market will resolve to "No".
+
+Missile/drone strikes which are shot down or don't hit the terminal will not be considered for this market.
+
+The primary resolution source for this market will be a consensus of credible reporting.
+Contracts:
+  E8.C1: Will the Kharg Island oil terminal be hit by January 31?
+
+=== E9: Will USD reach 1.5M Iranian rials by January 31?
+Rules:
+This market will resolve to “Yes” if the finalized USD exchange rate on Bonbast reaches or exceeds 150,000 Iranian toman (equivalent to 1,500,000 Iranian rials) at any point between market creation and January 31, 2026. Otherwise, this market will resolve to “No”.
+
+This market will resolve according to the daily finalized free-market USD exchange rate as displayed on Bonbast (https://www.bonbast.com/graph/usd), which publishes prices in Iranian toman, where 1 Iranian toman equals 10 Iranian rials (IRR).
+
+A daily figure will be considered finalized once the following day’s figure is released.
+
+Revisions or corrections to daily figures indicating a qualifying exchange rate will be considered only if they occur before all relevant figures for this market have been finalized.
+
+The resolution source for this market will be Bonbast (https://www.bonbast.com/graph/usd). Resolution will occur once the January 31, 2026, exchange rate data is finalized. If the resolution source becomes permanently unavailable, another resolution source will be chosen.
+Contracts:
+  E9.C1: Will USD reach 1.5M Iranian rials by January 31?
+
+=== E10: Will SOFR hit __ in March?
+Rules:
+The Secured Overnight Financing Rate (SOFR) is a measure of the cost of borrowing cash overnight, collateralized by US Treasury securities. SOFR is used to price loans, bonds, derivatives, and more. The SOFR rate is published by the Federal Reserve Bank of New York each business day at 8:00 AM ET, for the previous business day.
+
+This market will resolve to “Yes” if the Federal Reserve Bank of New York publishes a daily SOFR rate (%) equal to or above the listed value for any business day between March 1 and March 31, 2026. Otherwise, this market will resolve to “No”.
+
+This market will resolve as soon as the SOFR rate is equal to or above the listed value during the specified period, or when SOFR data is published for the final business day on or before March 31, 2026. If no data is published for the final business day on or before March 31, 2026 by April 07, 2026, 11:59 PM ET, this market will resolve based on the data published up to that point. Business day refers to any day treated as such by the Federal Reserve Bank of New York.
+
+Any revisions to the daily SOFR values published by the Federal Reserve Bank of New York prior to the release of SOFR data for the final business day on or before March 31, 2026 will be considered; however, these revisions will not disqualify a previously published SOFR rate from counting. Any revisions published after the release of SOFR data for the final business day on or before March 31, 2026 will not be considered.
+
+The primary resolution source for this market will be the Federal Reserve Bank of New York, specifically the Secured Overnight Financing Rate Data table at https://www.newyorkfed.org/markets/reference-rates/sofr.
+
+Note: This market’s resolution source publishes the SOFR rate to two decimal places (e.g. 3.65%). Thus, this is the level of precision that will be used when resolving this market.
+Contracts:
+  E10.C1: Will SOFR hit 3.80% (High) between March 1 and March 31?
+  E10.C2: Will SOFR hit 3.78% (High) between March 1 and March 31?
+  E10.C3: Will SOFR hit 3.76% (High) between March 1 and March 31?
+  E10.C4: Will SOFR hit 3.74% (High) between March 1 and March 31?
+  E10.C5: Will SOFR hit 3.72% (High) between March 1 and March 31?
+  E10.C6: Will SOFR hit 3.62% (Low) between March 1 and March 31?
+    Contract rules: The Secured Overnight Financing Rate (SOFR) is a measure of the cost of borrowing cash overnight, collateralized by US Treasury securities. SOFR is used to price loans, bonds, derivatives, and more. The SOFR rate is published by the Federal Reserve Bank of New York each business day at 8:00 AM ET, for the previous business day.
+
+This market will resolve to “Yes” if the Federal Reserve Bank of New York publishes a daily SOFR rate (%) equal to or below the listed value for any business day between March 1 and March 31, 2026. Otherwise, this market will resolve to “No”.
+
+This market will resolve as soon as the SOFR rate is equal to or below the listed value during the specified period, or when SOFR data is published for the final business day on or before March 31, 2026. If no data is published for the final business day on or before March 31, 2026 by April 07, 2026, 11:59 PM ET, this market will resolve based on the data published up to that point. Business day refers to any day treated as such by the Federal Reserve Bank of New York.
+
+Any revisions to the daily SOFR values published by the Federal Reserve Bank of New York prior to the release of SOFR data for the final business day on or before March 31, 2026 will be considered; however, these revisions will not disqualify a previously published SOFR rate from counting. Any revisions published after the release of SOFR data for the final business day on or before March 31, 2026 will not be considered.
+
+The primary resolution source for this market will be the Federal Reserve Bank of New York, specifically the Secured Overnight Financing Rate Data table at https://www.newyorkfed.org/markets/reference-rates/sofr.
+
+Note: This market’s resolution source publishes the SOFR rate to two decimal places (e.g. 3.65%). Thus, this is the level of precision that will be used when resolving this market.
+  E10.C7: Will SOFR hit 3.60% (Low) between March 1 and March 31?
+    Contract rules: The Secured Overnight Financing Rate (SOFR) is a measure of the cost of borrowing cash overnight, collateralized by US Treasury securities. SOFR is used to price loans, bonds, derivatives, and more. The SOFR rate is published by the Federal Reserve Bank of New York each business day at 8:00 AM ET, for the previous business day.
+
+This market will resolve to “Yes” if the Federal Reserve Bank of New York publishes a daily SOFR rate (%) equal to or below the listed value for any business day between March 1 and March 31, 2026. Otherwise, this market will resolve to “No”.
+
+This market will resolve as soon as the SOFR rate is equal to or below the listed value during the specified period, or when SOFR data is published for the final business day on or before March 31, 2026. If no data is published for the final business day on or before March 31, 2026 by April 07, 2026, 11:59 PM ET, this market will resolve based on the data published up to that point. Business day refers to any day treated as such by the Federal Reserve Bank of New York.
+
+Any revisions to the daily SOFR values published by the Federal Reserve Bank of New York prior to the release of SOFR data for the final business day on or before March 31, 2026 will be considered; however, these revisions will not disqualify a previously published SOFR rate from counting. Any revisions published after the release of SOFR data for the final business day on or before March 31, 2026 will not be considered.
+
+The primary resolution source for this market will be the Federal Reserve Bank of New York, specifically the Secured Overnight Financing Rate Data table at https://www.newyorkfed.org/markets/reference-rates/sofr.
+
+Note: This market’s resolution source publishes the SOFR rate to two decimal places (e.g. 3.65%). Thus, this is the level of precision that will be used when resolving this market.
+  E10.C8: Will SOFR hit 3.58% (Low) between March 1 and March 31?
+    Contract rules: The Secured Overnight Financing Rate (SOFR) is a measure of the cost of borrowing cash overnight, collateralized by US Treasury securities. SOFR is used to price loans, bonds, derivatives, and more. The SOFR rate is published by the Federal Reserve Bank of New York each business day at 8:00 AM ET, for the previous business day.
+
+This market will resolve to “Yes” if the Federal Reserve Bank of New York publishes a daily SOFR rate (%) equal to or below the listed value for any business day between March 1 and March 31, 2026. Otherwise, this market will resolve to “No”.
+
+This market will resolve as soon as the SOFR rate is equal to or below the listed value during the specified period, or when SOFR data is published for the final business day on or before March 31, 2026. If no data is published for the final business day on or before March 31, 2026 by April 07, 2026, 11:59 PM ET, this market will resolve based on the data published up to that point. Business day refers to any day treated as such by the Federal Reserve Bank of New York.
+
+Any revisions to the daily SOFR values published by the Federal Reserve Bank of New York prior to the release of SOFR data for the final business day on or before March 31, 2026 will be considered; however, these revisions will not disqualify a previously published SOFR rate from counting. Any revisions published after the release of SOFR data for the final business day on or before March 31, 2026 will not be considered.
+
+The primary resolution source for this market will be the Federal Reserve Bank of New York, specifically the Secured Overnight Financing Rate Data table at https://www.newyorkfed.org/markets/reference-rates/sofr.
+
+Note: This market’s resolution source publishes the SOFR rate to two decimal places (e.g. 3.65%). Thus, this is the level of precision that will be used when resolving this market.

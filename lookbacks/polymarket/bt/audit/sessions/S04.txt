@@ -1,0 +1,325 @@
+You will be shown 10 questions from a prediction market. Each question has one or more contracts, and each contract resolves YES or NO under the rules shown.
+
+For every contract, give your probability, as a whole percent from 1 to 99, that it resolves YES. Use only what you already know. Do not search for or look up anything: reading this file is the only tool call you may make.
+
+For each question, also say whether you recognise how it actually turned out ("recognised": true only if you believe you remember the real outcome; otherwise false).
+
+Where a question's contracts are mutually exclusive (exactly one can resolve YES), your numbers for it should add up to about 100. Where they are nested thresholds or dates, keep them consistent with each other.
+
+Reply with one JSON object and nothing else, in this form:
+{"events": [{"label": "E1", "recognised": false, "p": {"E1.C1": 35, "E1.C2": 60}}]}
+
+Every contract label below must appear exactly once in your reply.
+
+=== E1: Will Uranium hit __ by end of February?
+Rules:
+This market will resolve to "Yes" if, for any day by the final trading day in February 2026, the price of Uranium (USD/LBS) is equal to or above the listed price, as reported by Trading Economics. Otherwise, this market will resolve to “No”.
+
+The resolution source for this market is Trading Economics — specifically, the Uranium USD/LBS price chart available at https://tradingeconomics.com/commodity/uranium. The daily values shown on the chart will be used for resolution. Daily data will be considered finalized once the following day’s data point is published.
+
+This market will resolve as soon as the price shown on the Trading Economics Uranium USD/Lbs chart is equal to or above the listed price, or once the value for the final trading day of February, 2026 is finalized. If no data for the final trading day of February, 2026 has been finalized by March 14, 2026, this market will resolve based on the data available at that time.
+
+Revisions made to previously published data points before data for the final trading day of February, 2026 has been finalized, will be considered; however, they will not disqualify a previously published data point from resolving this market. Revisions made after the data point for the final trading day of February, 2026 has been finalized will not be considered.
+
+Note: This market’s resolution source only reports Uranium prices on standard trading days; thus, prices for those days are the only prices which will impact this market’s resolution. Uranium prices for non-trading days (e.g. weekends or holidays) will not be considered.
+Contracts:
+  E1.C1: Will Uranium (USD/LBS) hit $125 (HIGH) by end of February?
+  E1.C2: Will Uranium (USD/LBS) hit $115 (HIGH) by end of February?
+  E1.C3: Will Uranium (USD/LBS) hit $110 (HIGH) by end of February?
+  E1.C4: Will Uranium (USD/LBS) hit $105 (HIGH) by end of February?
+  E1.C5: Will Uranium (USD/LBS) hit $100 (HIGH) by end of February?
+  E1.C6: Will Uranium (USD/LBS) hit $85 (LOW) by end of February?
+  E1.C7: Will Uranium (USD/LBS) hit $80 (LOW) by end of February?
+  E1.C8: Will Uranium (USD/LBS) hit $70 (LOW) by end of February?
+
+=== E2: Will Google (GOOGL) close above ___ end of July?
+Rules:
+This market will resolve to "Yes" if the official closing price for Alphabet Inc. (GOOGL) on the final trading day of July 2026 is higher than the listed price. Otherwise, this market will resolve to "No".
+
+If the final trading day of the month is shortened (for example, due to a market-holiday schedule), the official closing price published for that shortened session will still be used for resolution.
+
+If no official closing price is published for that session (for example, due to a trading halt into the close, system issue, or other disruption), the market will use the last valid on-exchange trade price of the regular session as the effective closing price.
+
+The resolution source for this market is Yahoo Finance — specifically, the Alphabet Inc. (GOOGL) "Close" prices available at https://finance.yahoo.com/quote/GOOGL/history, published under "Historical Prices."
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Yahoo Finance.
+Contracts:
+  E2.C1: Will Google (GOOGL) close above $280 end of July?
+  E2.C2: Will Google (GOOGL) close above $290 end of July?
+  E2.C3: Will Google (GOOGL) close above $300 end of July?
+  E2.C4: Will Google (GOOGL) close above $310 end of July?
+  E2.C5: Will Google (GOOGL) close above $320 end of July?
+  E2.C6: Will Google (GOOGL) close above $330 end of July?
+  E2.C7: Will Google (GOOGL) close above $340 end of July?
+  E2.C8: Will Google (GOOGL) close above $350 end of July?
+  E2.C9: Will Google (GOOGL) close above $360 end of July?
+  E2.C10: Will Google (GOOGL) close above $370 end of July?
+  E2.C11: Will Google (GOOGL) close above $380 end of July?
+  E2.C12: Will Google (GOOGL) close above $390 end of July?
+
+=== E3: Ohio Democratic Senate Primary Winner
+Rules:
+This market will resolve according to the winner of the Democratic Primary for United States Senator from Ohio.
+
+If no 2026 Ohio Democratic Senate Primary takes place, this market will resolve to "Other".
+
+The resolution source for this market will be the first announcement of the results from the Ohio Democratic party, however an overwhelming consensus of credible reporting may suffice.
+Contracts:
+  E3.C1: Will Sherrod Brown be the Democratic nominee for Senate in Ohio?
+  E3.C2: Will Tim Ryan be the Democratic nominee for Senate in Ohio?
+  E3.C3: Will Greg Landsman be the Democratic nominee for Senate in Ohio?
+  E3.C4: Will Allison Russo be the Democratic nominee for Senate in Ohio?
+
+=== E4: What price will XRP hit in July?
+Rules:
+What price will XRP hit in July?
+Contracts:
+  E4.C1: Will XRP reach $3.00 in July?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for XRP/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last), has a final High price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the XRP/USDT High prices available at https://www.binance.com/en/trade/XRP_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance XRP/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E4.C2: Will XRP reach $2.80 in July?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for XRP/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last), has a final High price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the XRP/USDT High prices available at https://www.binance.com/en/trade/XRP_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance XRP/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E4.C3: Will XRP reach $2.60 in July?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for XRP/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last), has a final High price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the XRP/USDT High prices available at https://www.binance.com/en/trade/XRP_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance XRP/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E4.C4: Will XRP reach $2.40 in July?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for XRP/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last), has a final High price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the XRP/USDT High prices available at https://www.binance.com/en/trade/XRP_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance XRP/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E4.C5: Will XRP reach $2.20 in July?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for XRP/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last), has a final High price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the XRP/USDT High prices available at https://www.binance.com/en/trade/XRP_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance XRP/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E4.C6: Will XRP reach $2.00 in July?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for XRP/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last), has a final High price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the XRP/USDT High prices available at https://www.binance.com/en/trade/XRP_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance XRP/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E4.C7: Will XRP reach $1.80 in July?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for XRP/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last), has a final High price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the XRP/USDT High prices available at https://www.binance.com/en/trade/XRP_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance XRP/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E4.C8: Will XRP reach $1.60 in July?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for XRP/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last), has a final High price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the XRP/USDT High prices available at https://www.binance.com/en/trade/XRP_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance XRP/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E4.C9: Will XRP reach $1.40 in July?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for XRP/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last), has a final High price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the XRP/USDT High prices available at https://www.binance.com/en/trade/XRP_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance XRP/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E4.C10: Will XRP reach $1.20 in July?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for XRP/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last), has a final High price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the XRP/USDT High prices available at https://www.binance.com/en/trade/XRP_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance XRP/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E4.C11: Will XRP dip to $1.00 in July?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for XRP/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last), has a final Low price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the XRP/USDT Low prices available at https://www.binance.com/en/trade/XRP_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance XRP/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E4.C12: Will XRP dip to $0.80 in July?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for XRP/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last), has a final Low price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the XRP/USDT Low prices available at https://www.binance.com/en/trade/XRP_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance XRP/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+
+=== E5: Will OpenAI's valuation hit __ by July 31?
+Rules:
+This market will resolve to "Yes" if OpenAI's private market valuation, as measured by the NPM Price reported by Nasdaq Private Market, LLC (NPM) for any date between market creation and July 31, 2026, reaches or exceeds the listed amount. Otherwise, this market will resolve to "No".
+
+NPM Prices are published for trading days only and are updated once daily at 1:00 PM ET on the following calendar day.
+
+If NPM has not published relevant data for all business dates in the specified period by 1:00 PM ET on August 1, 2026, this market may remain open until 11:59 PM ET on August 4, 2026. If no further data is released by that time, the market will resolve according to the data available.
+
+If NPM ceases publishing relevant data prior to the end of the specified period, this market will resolve based on the NPM data published for the period prior to the cessation of coverage, as well as any applicable public market capitalization data following an IPO or direct listing.
+
+If the company completes an IPO or direct listing before the end of the specified period, this market will consider, in addition to the relevant NPM valuations published between market creation and the IPO or direct listing date, the valuation implied by the official IPO or direct listing price, and the company's public market capitalization between the IPO or direct listing date and the end of the specified period.
+
+Public market capitalization will be determined using the highest/lowest official regular-hours trading price published for the company's primary listed common equity on its primary exchange for any trading day during the specified period, multiplied by the company's total outstanding common shares at the relevant time.
+
+If the listed company merges with or acquires another entity and remains the parent company, no change to resolution methodology applies.
+
+If the listed company is acquired, merges into another entity and is no longer the surviving parent company, or otherwise ceases to exist as an independent entity prior to the end of the period, only NPM valuations and applicable public market capitalizations achieved prior to completion of the transaction will be considered for resolution. No transaction, acquisition, or merger consideration will be considered for resolution.
+
+The resolution source for this market is NPM data published here: (https://fe.secondmarket.com/companies/company-30839e0b-2730-4495-839f-1bf638fa9cca/data). The resolution source for any period following an IPO, direct listing, or relevant corporate action, will be official exchange trading data and publicly reported share counts.
+
+Revisions to previously published NPM data made after their initial release will not be considered, unless made to correct clearly erroneous data.
+Contracts:
+  E5.C1: Will OpenAI's valuation hit (HIGH) $1.5T by July 31?
+  E5.C2: Will OpenAI's valuation hit (HIGH) $1.25T by July 31?
+  E5.C3: Will OpenAI's valuation hit (HIGH) $1.1T by July 31?
+  E5.C4: Will OpenAI's valuation hit (HIGH) $1.0T by July 31?
+  E5.C5: Will OpenAI's valuation hit (HIGH) $950B by July 31?
+  E5.C6: Will OpenAI's valuation hit (HIGH) $900B by July 31?
+  E5.C7: Will OpenAI's valuation hit (LOW) $800B by July 31?
+  E5.C8: Will OpenAI's valuation hit (LOW) $725B by July 31?
+
+=== E6: GPU rental prices (B200) end of July?
+Rules:
+This market will resolve according to the finalized Ornn B200 Index price for July 31, 2026. 
+
+If the recorded data falls exactly between two brackets, this market will resolve to the higher bracket.
+
+The resolution source for this market is Ornnai.com (ornnai.com), specifically, the B200 Index chart data available at https://dashboard.ornnai.com. The specified finalized daily value shown on the chart will be used for resolution. Daily data will be considered finalized once the following day’s data point is published.
+
+Resolution will occur once the specified data point is finalized. If the relevant data is not finalized by the end of the 7th calendar day after the specified date (ET), this market will resolve according to the latest data available at that time. Revisions made after the relevant figure has been finalized will not be considered.
+Contracts:
+  E6.C1: Will the Ornn B200 Index be less than $3.00 on July 31, 2026?
+  E6.C2: Will the Ornn B200 Index be between $3.00 and $4.00 on July 31, 2026?
+  E6.C3: Will the Ornn B200 Index be between $4.00 and $5.00 on July 31, 2026?
+  E6.C4: Will the Ornn B200 Index be between $5.00 and $6.00 on July 31, 2026?
+  E6.C5: Will the Ornn B200 Index be between $6.00 and $7.00 on July 31, 2026?
+  E6.C6: Will the Ornn B200 Index be at least $7.00 on July 31, 2026?
+
+=== E7: Will gas hit__ by end of March?
+Rules:
+This market will resolve to "Yes" if on any day between market creation and March 31, 2026, the average US regular gas price is equal to or above the listed price. Otherwise, the market will resolve to "No".
+
+This market will resolve based on the first two digits of the reported price (e.g., if the price is reported as $3.157, this market will resolve to the "$3.15" bracket).
+
+The resolution source for this market will be information from the American Automotive Association (AAA), presently found here: https://gasprices.aaa.com/. Specifically, the cell under "Regular" and for the row "Current Avg.".
+Contracts:
+  E7.C1: Will gas hit (High) $5.00 by March 31?
+  E7.C2: Will gas hit (High) $4.50 by March 31?
+  E7.C3: Will gas hit (High) $4.25 by March 31?
+  E7.C4: Will gas hit (High) $4.00 by March 31?
+  E7.C5: Will gas hit (High) $3.75 by March 31?
+  E7.C6: Will gas hit (Low) $3.15 by March 31?
+    Contract rules: This market will resolve to "Yes" if on any day between market creation and March 31, 2026, the average US regular gas price is equal to or below the listed price. Otherwise, the market will resolve to "No".
+
+This market will resolve based on the first two digits of the reported price (e.g., if the price is reported as $3.157, this market will resolve to the "$3.15" bracket).
+
+The resolution source for this market will be information from the American Automotive Association (AAA), presently found here: https://gasprices.aaa.com/. Specifically, the cell under "Regular" and for the row "Current Avg.".
+  E7.C7: Will gas hit (Low) $3.10 by March 31?
+    Contract rules: This market will resolve to "Yes" if on any day between market creation and March 31, 2026, the average US regular gas price is equal to or below the listed price. Otherwise, the market will resolve to "No".
+
+This market will resolve based on the first two digits of the reported price (e.g., if the price is reported as $3.157, this market will resolve to the "$3.15" bracket).
+
+The resolution source for this market will be information from the American Automotive Association (AAA), presently found here: https://gasprices.aaa.com/. Specifically, the cell under "Regular" and for the row "Current Avg.".
+  E7.C8: Will gas hit (Low) $3.05 by March 31?
+    Contract rules: This market will resolve to "Yes" if on any day between market creation and March 31, 2026, the average US regular gas price is equal to or below the listed price. Otherwise, the market will resolve to "No".
+
+This market will resolve based on the first two digits of the reported price (e.g., if the price is reported as $3.157, this market will resolve to the "$3.15" bracket).
+
+The resolution source for this market will be information from the American Automotive Association (AAA), presently found here: https://gasprices.aaa.com/. Specifically, the cell under "Regular" and for the row "Current Avg.".
+  E7.C9: Will gas hit (Low) $3.00 by March 31?
+    Contract rules: This market will resolve to "Yes" if on any day between market creation and March 31, 2026, the average US regular gas price is equal to or below the listed price. Otherwise, the market will resolve to "No".
+
+This market will resolve based on the first two digits of the reported price (e.g., if the price is reported as $3.157, this market will resolve to the "$3.15" bracket).
+
+The resolution source for this market will be information from the American Automotive Association (AAA), presently found here: https://gasprices.aaa.com/. Specifically, the cell under "Regular" and for the row "Current Avg.".
+
+=== E8: How many Tesla deliveries in Q1 2026?
+Rules:
+This market will resolve according to Tesla's announced total vehicle deliveries for Q1 2026.
+
+If Tesla does not publish Q1 2026 delivery figures by May 31, 2026, 11:59 PM ET, this market will resolve to the lowest bracket.
+
+If the reported value falls exactly between two brackets, this market will resolve to the higher range bracket.
+
+The resolution source will be https://ir.tesla.com/press.
+Contracts:
+  E8.C1: Will Tesla deliver less than 350000 vehicles in Q1 2026
+  E8.C2: Will Tesla deliver between 350000 and 375000 vehicles in Q1 2026
+  E8.C3: Will Tesla deliver between 375000 and 400000 vehicles in Q1 2026
+  E8.C4: Will Tesla deliver between 400000 and 425000 vehicles in Q1 2026
+  E8.C5: Will Tesla deliver between 425000 and 450000 vehicles in Q1 2026
+  E8.C6: Will Tesla deliver between 450000 and 475000 vehicles in Q1 2026
+  E8.C7: Will Tesla deliver between 475000 and 500000 vehicles in Q1 2026
+  E8.C8: Will Tesla deliver 500000 or more vehicles in Q1 2026
+
+=== E9: How many jobs added in April?
+Rules:
+This market will resolve according to the change in the total nonfarm payroll employment reported by the BLS "Employment Situation Summary" for April 2026, scheduled to be released on May 8, 2026, at 8:30 AM ET.
+
+If the reported value falls exactly between two brackets, then this market will resolve to the higher range bracket.
+
+If no data for the specified month is released by the date the next month's data is scheduled to be released, this market will resolve based on data from the last available month.
+
+The BLS "Employment Situation Summary" may be found here: https://www.bls.gov/bls/newsrels.htm
+Contracts:
+  E9.C1: Will the US lose more than 50k jobs in April?
+  E9.C2: Will the US lose between 0 and 50k jobs in April?
+  E9.C3: Will the US add between 0 and 50k jobs in April?
+  E9.C4: Will the US add between 50k and 100k jobs in April?
+  E9.C5: Will the US add between 100k and 150k jobs in April?
+  E9.C6: Will the US add between 150k and 200k jobs in April?
+  E9.C7: Will the US add between 200k and 250k jobs in April?
+  E9.C8: Will the US add at least 250k jobs in April?
+
+=== E10: Will __ ships transit the Strait of Hormuz on any day in March?
+Rules:
+This market will resolve to “Yes” if IMF Portwatch publishes a daily number of transit calls (“Arrivals of Ships”) for the Strait of Hormuz (chokepoint 6) equal to or above __ for any date between market creation and March 31, 2026. Otherwise, this market will resolve to “No”.
+
+The number of daily transit calls/arrivals includes container, dry bulk, roll-on/roll-off, general cargo, and tanker ships. Ships not reported by IMF Portwatch will not be considered.
+
+This market will resolve as soon as IMF Portwatch publishes a daily number of transit calls equal to or above the specified level, or once data has been published for the final date in the specified period and no such value has been published. If no data has been published for the final date of the specified period within 14 calendar days (ET) after the end of that period, this market will resolve based on data published up to that point.
+
+Revisions to previously published data points, made within this market’s timeframe, will be considered. However, they will not disqualify a previously published data point from qualifying. Revisions to previously published data points after data is published for March 31, 2026, however, will not be considered.
+
+The resolution source for this market will be IMF Portwatch, specifically the transit calls data published for the Strait of Hormuz at https://portwatch.imf.org/pages/cb5856222a5b4105adc6ee7e880a1730, both in the chart and through downloadable files.
+Contracts:
+  E10.C1: Will 20 ships transit the Strait of Hormuz on any day in March?
+    Contract rules: This market will resolve to “Yes” if IMF Portwatch publishes a daily number of transit calls (“Arrivals of Ships”) for the Strait of Hormuz equal to or above __ for any date between market creation and March 31, 2026. Otherwise, this market will resolve to “No”.
+
+The number of daily transit calls/arrivals includes container, dry bulk, roll-on/roll-off, general cargo, and tanker ships. Ships not reported by IMF Portwatch will not be considered.
+
+This market will resolve as soon as IMF Portwatch publishes a daily number of transit calls equal to or above the specified level, or once data has been published for the final date in the specified period and no such value has been published. If no data has been published for the final date of the specified period within 14 calendar days (ET) after the end of that period, this market will resolve based on data published up to that point.
+
+Revisions to previously published data points, made within this market’s timeframe, will be considered. However, they will not disqualify a previously published data point from qualifying. Revisions to previously published data points after data is published for March 31, 2026, however, will not be considered.
+
+The resolution source for this market will be IMF Portwatch, specifically the transit calls data published for the Strait of Hormuz at https://portwatch.imf.org/pages/cb5856222a5b4105adc6ee7e880a1730, both in the chart and through downloadable files.
+  E10.C2: Will 40 ships transit the Strait of Hormuz on any day in March?
+    Contract rules: This market will resolve to “Yes” if IMF Portwatch publishes a daily number of transit calls (“Arrivals of Ships”) for the Strait of Hormuz equal to or above __ for any date between market creation and March 31, 2026. Otherwise, this market will resolve to “No”.
+
+The number of daily transit calls/arrivals includes container, dry bulk, roll-on/roll-off, general cargo, and tanker ships. Ships not reported by IMF Portwatch will not be considered.
+
+This market will resolve as soon as IMF Portwatch publishes a daily number of transit calls equal to or above the specified level, or once data has been published for the final date in the specified period and no such value has been published. If no data has been published for the final date of the specified period within 14 calendar days (ET) after the end of that period, this market will resolve based on data published up to that point.
+
+Revisions to previously published data points, made within this market’s timeframe, will be considered. However, they will not disqualify a previously published data point from qualifying. Revisions to previously published data points after data is published for March 31, 2026, however, will not be considered.
+
+The resolution source for this market will be IMF Portwatch, specifically the transit calls data published for the Strait of Hormuz at https://portwatch.imf.org/pages/cb5856222a5b4105adc6ee7e880a1730, both in the chart and through downloadable files.
+  E10.C3: Will 60 ships transit the Strait of Hormuz on any day in March?
+    Contract rules: This market will resolve to “Yes” if IMF Portwatch publishes a daily number of transit calls (“Arrivals of Ships”) for the Strait of Hormuz equal to or above __ for any date between market creation and March 31, 2026. Otherwise, this market will resolve to “No”.
+
+The number of daily transit calls/arrivals includes container, dry bulk, roll-on/roll-off, general cargo, and tanker ships. Ships not reported by IMF Portwatch will not be considered.
+
+This market will resolve as soon as IMF Portwatch publishes a daily number of transit calls equal to or above the specified level, or once data has been published for the final date in the specified period and no such value has been published. If no data has been published for the final date of the specified period within 14 calendar days (ET) after the end of that period, this market will resolve based on data published up to that point.
+
+Revisions to previously published data points, made within this market’s timeframe, will be considered. However, they will not disqualify a previously published data point from qualifying. Revisions to previously published data points after data is published for March 31, 2026, however, will not be considered.
+
+The resolution source for this market will be IMF Portwatch, specifically the transit calls data published for the Strait of Hormuz at https://portwatch.imf.org/pages/cb5856222a5b4105adc6ee7e880a1730, both in the chart and through downloadable files.
+  E10.C4: Will 80 ships transit the Strait of Hormuz on any day in March?
+    Contract rules: This market will resolve to “Yes” if IMF Portwatch publishes a daily number of transit calls (“Arrivals of Ships”) for the Strait of Hormuz equal to or above __ for any date between market creation and March 31, 2026. Otherwise, this market will resolve to “No”.
+
+The number of daily transit calls/arrivals includes container, dry bulk, roll-on/roll-off, general cargo, and tanker ships. Ships not reported by IMF Portwatch will not be considered.
+
+This market will resolve as soon as IMF Portwatch publishes a daily number of transit calls equal to or above the specified level, or once data has been published for the final date in the specified period and no such value has been published. If no data has been published for the final date of the specified period within 14 calendar days (ET) after the end of that period, this market will resolve based on data published up to that point.
+
+Revisions to previously published data points, made within this market’s timeframe, will be considered. However, they will not disqualify a previously published data point from qualifying. Revisions to previously published data points after data is published for March 31, 2026, however, will not be considered.
+
+The resolution source for this market will be IMF Portwatch, specifically the transit calls data published for the Strait of Hormuz at https://portwatch.imf.org/pages/cb5856222a5b4105adc6ee7e880a1730, both in the chart and through downloadable files.

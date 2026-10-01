@@ -1,0 +1,259 @@
+You will be shown 10 questions from a prediction market. Each question has one or more contracts, and each contract resolves YES or NO under the rules shown.
+
+For every contract, give your probability, as a whole percent from 1 to 99, that it resolves YES. Use only what you already know. Do not search for or look up anything: reading this file is the only tool call you may make.
+
+For each question, also say whether you recognise how it actually turned out ("recognised": true only if you believe you remember the real outcome; otherwise false).
+
+Where a question's contracts are mutually exclusive (exactly one can resolve YES), your numbers for it should add up to about 100. Where they are nested thresholds or dates, keep them consistent with each other.
+
+Reply with one JSON object and nothing else, in this form:
+{"events": [{"label": "E1", "recognised": false, "p": {"E1.C1": 35, "E1.C2": 60}}]}
+
+Every contract label below must appear exactly once in your reply.
+
+=== E1: What price will XRP hit in December?
+Rules:
+What price will XRP hit in December?
+Contracts:
+  E1.C1: Will XRP reach $3.60 in December?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for XRP/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last), has a final High price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the XRP/USDT High prices available at https://www.binance.com/en/trade/XRP_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance XRP/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E1.C2: Will XRP reach $3.00 in December?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for XRP/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last), has a final High price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the XRP/USDT High prices available at https://www.binance.com/en/trade/XRP_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance XRP/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E1.C3: Will XRP reach $2.80 in December?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for XRP/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last), has a final High price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the XRP/USDT High prices available at https://www.binance.com/en/trade/XRP_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance XRP/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E1.C4: Will XRP reach $2.60 in December?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for XRP/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last), has a final High price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the XRP/USDT High prices available at https://www.binance.com/en/trade/XRP_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance XRP/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E1.C5: Will XRP reach $2.40 in December?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for XRP/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last), has a final High price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the XRP/USDT High prices available at https://www.binance.com/en/trade/XRP_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance XRP/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E1.C6: Will XRP dip to $1.70 in December?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for XRP/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last), has a final Low price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the XRP/USDT Low prices available at https://www.binance.com/en/trade/XRP_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance XRP/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E1.C7: Will XRP dip to $1.50 in December?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for XRP/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last), has a final Low price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the XRP/USDT Low prices available at https://www.binance.com/en/trade/XRP_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance XRP/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E1.C8: Will XRP dip to $1.30 in December?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for XRP/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last), has a final Low price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the XRP/USDT Low prices available at https://www.binance.com/en/trade/XRP_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance XRP/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E1.C9: Will XRP dip to $1.10 in December?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for XRP/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last), has a final Low price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the XRP/USDT Low prices available at https://www.binance.com/en/trade/XRP_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance XRP/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E1.C10: Will XRP dip to $0.90 in December?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for XRP/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last), has a final Low price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the XRP/USDT Low prices available at https://www.binance.com/en/trade/XRP_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance XRP/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E1.C11: Will XRP dip to $0.70 in December?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for XRP/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last), has a final Low price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the XRP/USDT Low prices available at https://www.binance.com/en/trade/XRP_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance XRP/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+
+=== E2: Precipitation in Hong Kong in May?
+Rules:
+This market will resolve according to the total precipitation in mm in Hong Kong between May 1 and May 31, 2026, according to the Hong Kong Observatory.
+
+The resolution source for this market will be the Hong Kong Observatory, specifically the "Total Rainfall (mm)" figure for all days in May 2026 under the "Daily Extract" at the https://www.weather.gov.hk/en/cis/climat.htm link once figures are finalized for the specified range.
+
+If the reported data falls exactly between two brackets, this market will resolve to the higher bracket.
+
+If the relevant data is not available by July 7, 2026, 11:59 PM ET, another credible resolution source will be chosen.
+
+The resolution source for this market measures precipitation to 1 decimal place (e.g., 1.5), thus, this is the level of precision that will be used when resolving this market. Any revisions to precipitation recorded after data is finalized for this market's timeframe will not be considered for this market's resolution.
+Contracts:
+  E2.C1: Will Hong Kong have less than 180mm of precipitation in May?
+  E2.C2: Will Hong Kong have between 180-190mm of precipitation in May?
+  E2.C3: Will Hong Kong have between 190-200mm of precipitation in May?
+  E2.C4: Will Hong Kong have between 200-210mm of precipitation in May?
+  E2.C5: Will Hong Kong have between 210-220mm of precipitation in May?
+  E2.C6: Will Hong Kong have between 220-230mm of precipitation in May?
+  E2.C7: Will Hong Kong have between 230-240mm of precipitation in May?
+  E2.C8: Will Hong Kong have 240mm or more of precipitation in May?
+
+=== E3: How many Republican Senators not running in 2026?
+Rules:
+The 2026 U.S. general elections for Congress are scheduled to be held on November 3, 2026.
+
+This market will resolve according to the total number of Republican members of the U.S. Senate who are considered to be retiring or not seeking reelection in 2026.
+
+For the purposes of this market, a member may be considered not to seek reelection if:
+• They publicly announce they are retiring from Congress and will not run for reelection to their current seat
+• They choose to run for a different elected office in 2026 instead of running for reelection to their current seat
+• They do not seek their party’s nomination for reelection to their current seat, meaning they neither file for reelection nor participate in their party’s nominating process (such as a primary, convention, or caucus)
+
+Only members whose current term is scheduled to end with the 2026 regular election for the Senate may qualify for this market.
+
+This market will not resolve until after the relevant final 2026 candidate filing deadline has passed in all states, which is expected to occur in late August 2026.
+
+The resolution source for this market will be a consensus of credible reporting.
+Contracts:
+  E3.C1: Will the number of Republican Senate members who retire in 2026 be less than 5?
+  E3.C2: Will the number of Republican Senate members who retire in 2026 be exactly 5?
+  E3.C3: Will the number of Republican Senate members who retire in 2026 be exactly 6?
+  E3.C4: Will the number of Republican Senate members who retire in 2026 be exactly 7?
+  E3.C5: Will the number of Republican Senate members who retire in 2026 be exactly 8?
+  E3.C6: Will the number of Republican Senate members who retire in 2026 be exactly 9?
+  E3.C7: Will the number of Republican Senate members who retire in 2026 be exactly 10?
+  E3.C8: Will the number of Republican Senate members who retire in 2026 be exactly 11?
+  E3.C9: Will the number of Republican Senate members who retire in 2026 be 12 or more?
+
+=== E4: Pam Bondi out as Attorney General by January 31?
+Rules:
+This market will resolve to “Yes” if Pam Bondi ceases to be the US Attorney General for any period of time between market creation and January 31, 2026, 11:59 PM ET. Otherwise, this market will resolve to “No”.
+
+An announcement of Bondi's resignation/removal before this market's end date will immediately resolve this market to "Yes", regardless of when the announced resignation/removal goes into effect.
+
+The resolution source for this market will be official information from the Trump administration, however a consensus of credible reporting may also be used.
+Contracts:
+  E4.C1: Pam Bondi out as Attorney General by January 31?
+
+=== E5: Montana Democratic Senate Primary Winner
+Rules:
+This market will resolve according to the winner of the Democratic Primary for United States Senator from Montana.
+
+If no 2026 Montana Democratic Senate Primary takes place, this market will resolve to "Other".
+
+The resolution source for this market will be the first announcement of the results from the Montana Democratic party, however an overwhelming consensus of credible reporting may suffice.
+Contracts:
+  E5.C1: Will Michael Hummert be the Democratic nominee for Senate in Montana?
+  E5.C2: Will Reilly Neill be the Democratic nominee for Senate in Montana?
+  E5.C3: Will Alani Bankhead be the Democratic nominee for Senate in Montana?
+  E5.C4: Will Michael BlackWolf be the Democratic nominee for Senate in Montana?
+  E5.C5: Will Kathleen McLaughlin be the Democratic nominee for Senate in Montana?
+
+=== E6: Sweden Parliamentary Election: Örebropartiet Win Seats?
+Rules:
+Parliamentary elections are scheduled to be held in Sweden on September 13, 2026.
+
+This market will resolve to “Yes” if Örebropartiet receives at least one seat in the Swedish Riksdag as a result of the 2026 Swedish parliamentary elections. Otherwise this market will resolve to “No”.
+
+Seats will be counted only where the Swedish Election Authority attributes them to Örebropartiet. Seats attributed to another party or electoral designation will not count, regardless of electoral cooperation, endorsements, coalition agreements, or subsequent parliamentary-group arrangements. If Örebropartiet formally merges into a successor party before the election and does not contest separately, seats officially attributed to that successor party will count.
+
+If the results of this election are not definitively known by December 31, 2026, 11:59 PM ET, this market will resolve to “No”.
+
+This market's resolution will be based solely on the number of seats won by Örebropartiet in this election.
+
+This market will resolve based on the results of this election as indicated by a consensus of credible reporting. If there is ambiguity, this market will resolve based solely on the official results as reported by the Swedish government, specifically the Swedish Election Authority (Valmyndigheten) (https://www.val.se/).
+Contracts:
+  E6.C1: Sweden Parliamentary Election: Örebropartiet Win Seats?
+
+=== E7: What will Coinbase say during their next earnings call?
+Rules:
+This market will resolve based on the next earnings announcement of Coinbase currently projected to take place on February 19, 2026 at 11:59 PM EST.
+
+This market will resolve to "Yes" if the listed term is mentioned by anyone during this event. Otherwise, the market will resolve to "No".
+
+Any usage of the term, regardless of context, will count toward the resolution of this market.
+
+Pluralization/possessive of the term will count toward the resolution of this market; however, other forms will NOT count.
+
+Instances where the term is used in a compound word will count regardless of context (e.g. joyful is not a compound word for "joy," however "killjoy" is a compounding of the words "kill" and "joy").
+
+If this market requires a specified number of mentions of a person’s first or last name, a full-name mention will count as one mention (e.g., if a market is about “Joe / Biden 5+ times,” a mention of “Joe Biden” will count once).
+
+A Q&A event will count toward the resolution of this market.
+
+If this event is definitely cancelled, or otherwise is not aired by March 31, 2026, 11:59 PM ET, this market will resolve to "No".
+
+The resolution source will be audio of the event.
+Contracts:
+  E7.C1: Will Coinbase say "Web3" during earnings call?
+  E7.C2: Will Coinbase say "Decentralized Exchange" or "DEX" during earnings call?
+  E7.C3: Will Coinbase say "Custodial" or "Custody" during earnings call?
+  E7.C4: Will Coinbase say "Ethereum" or "ETH" during earnings call?
+  E7.C5: Will Coinbase say "Blockchain" during earnings call?
+  E7.C6: Will Coinbase say "Institution" or "Institutional" during earnings call?
+  E7.C7: Will Coinbase say "Staking" or "Stake" during earnings call?
+  E7.C8: Will Coinbase say "Margin" during earnings call?
+  E7.C9: Will Coinbase say "International" during earnings call?
+  E7.C10: Will Coinbase say "Bitcoin" during earnings call?
+  E7.C11: Will Coinbase say "Subscription" during earnings call?
+  E7.C12: Will Coinbase say "Stablecoin" during earnings call?
+
+=== E8: Texas Democratic Senate Primary Winner
+Rules:
+This market will resolve according to the winner of the Democratic Primary for United States Senator from Texas.
+
+If no 2026 Texas Democratic Senate Primary takes place, this market will resolve to "Other".
+
+The resolution source for this market will be the first announcement of the results from the Texas Democratic party, however an overwhelming consensus of credible reporting may suffice.
+Contracts:
+  E8.C1: Will Colin Allred be the Democratic nominee for Senate in Texas?
+  E8.C2: Will Emily Morgul be the Democratic nominee for Senate in Texas?
+  E8.C3: Will Michael Swanson be the Democratic nominee for Senate in Texas?
+  E8.C4: Will James Talarico be the Democratic nominee for Senate in Texas?
+  E8.C5: Will Beto O'Rourke be the Democratic nominee for Senate in Texas?
+  E8.C6: Will Jasmine Crockett be the Democratic nominee for Senate in Texas?
+
+=== E9: Will Trump declare war on Iran by...?
+Rules:
+This market will resolve to "Yes" if President Donald Trump or an official representative of his administration (such as the White House Press Secretary, National Security Advisor, or Secretary of Defense) issues a formal public statement declaring that the United States is at war with Iran by the specified date (ET). Otherwise, this market will resolve to "No". 
+
+The statement must clearly and explicitly use language equivalent to a declaration of war—for example, stating that "the United States is now at war with Iran" or "we are declaring war on Iran."
+
+General statements about military action, retaliation, force, or operations will not qualify unless they include an unambiguous declaration of war.
+
+Executive orders or official memoranda may qualify only if they contain clear language declaring war.
+
+The primary resolution source will be official government communications, including White House press releases, presidential speeches, or public statements by senior administration officials; however, a consensus of credible reporting may also be used.
+Contracts:
+  E9.C1: Will Trump declare war on Iran by March 31, 2026?
+
+=== E10: Encore Medical IPO Closing Market Cap
+Rules:
+This market will resolve based on Encore Medical’s market capitalization at the closing price on its first day of trading.
+
+As of market creation, the IPO is scheduled to price on April 22 (ET). If no such IPO occurs by May 31, 2026, 11:59 PM ET, the market will resolve to "No IPO before June 2026".
+
+Market capitalization expresses the monetary value of a company’s outstanding shares, stated in its pricing currency.
+
+It is calculated as the total number of outstanding shares, multiplied by the official closing share price of the publicly traded class on the first trading day.
+
+If necessary, to accurately capture the company’s total market capitalization, rather than a stock-class-specific market capitalization, the calculation will include all outstanding share classes and apply any stated conversion ratios to the publicly traded class. Where no conversion right exists, such shares will be counted at their stated outstanding amount without discount, unless official filings explicitly specify differently.
+
+The number of outstanding shares will be determined from official company filings or disclosures (e.g., SEC filings). The closing share price on the first trading day will be determined from the primary exchange’s official listing page.
+
+If the relevant value falls exactly between two brackets, this market will resolve to the higher range bracket.
+
+The primary resolution source for this market will be official company filings and the primary exchange’s official listing page. The market capitalization will be determined through appropriate calculation using the total outstanding shares and the closing price from the first day of trading.
+
+In the event of an interruption in the normal trading session on the specified company’s first day of trading (e.g., a circuit breaker or half-day), the market will resolve according to the official closing price of the abbreviated session. If no such official closing price is published, the market will resolve according to the next trading day on which an official closing price is published, treating that day as the first day of trading for the purposes of this market.
+Contracts:
+  E10.C1: Will Encore Medical’s market cap be less than $45M at market close on IPO day?
+  E10.C2: Will Encore Medical’s market cap be between $45M and $50M at market close on IPO day?
+  E10.C3: Will Encore Medical’s market cap be between $50M and $55M at market close on IPO day?
+  E10.C4: Will Encore Medical’s market cap be greater than $55M at market close on IPO day?
+  E10.C5: Will Encore Medical not IPO before June 2026?

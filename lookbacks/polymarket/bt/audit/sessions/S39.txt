@@ -1,0 +1,667 @@
+You will be shown 10 questions from a prediction market. Each question has one or more contracts, and each contract resolves YES or NO under the rules shown.
+
+For every contract, give your probability, as a whole percent from 1 to 99, that it resolves YES. Use only what you already know. Do not search for or look up anything: reading this file is the only tool call you may make.
+
+For each question, also say whether you recognise how it actually turned out ("recognised": true only if you believe you remember the real outcome; otherwise false).
+
+Where a question's contracts are mutually exclusive (exactly one can resolve YES), your numbers for it should add up to about 100. Where they are nested thresholds or dates, keep them consistent with each other.
+
+Reply with one JSON object and nothing else, in this form:
+{"events": [{"label": "E1", "recognised": false, "p": {"E1.C1": 35, "E1.C2": 60}}]}
+
+Every contract label below must appear exactly once in your reply.
+
+=== E1: Who will win the Lyon mayoral election?
+Rules:
+The 2026 Lyon municipal election is scheduled for May 15 and May 22, 2026. The Mayor of Lyon, France is elected via a three-round system; if no candidate obtains an absolute majority after two rounds of voting the election proceeds to a third round which requires only a simple majority. In case of a tie, the oldest candidate wins.
+
+This market will resolve according to the candidate that wins this election.
+
+If the results of the election are not known by December 31, 2026, 11:59 PM ET, this market will resolve to "Other".
+
+This market will resolve based on the election results, as indicated by a consensus of credible reporting. If there is ambiguity, this market will resolve based solely on the official results as reported by the French Ministry of the Interior (élections.interieur.gouv.fr).
+Contracts:
+  E1.C1: Will Jean-Michel Aulas win the 2026 Lyon mayoral election?
+  E1.C2: Will Grégory Doucet win the 2026 Lyon mayoral election?
+  E1.C3: Will Anaïs Belouassa-Cherifi win the 2026 Lyon mayoral election?
+  E1.C4: Will Alexandre Dupalais win the 2026 Lyon mayoral election?
+  E1.C5: Will Georges Képénékian win the 2026 Lyon mayoral election?
+  E1.C6: Will Nathalie Perrin-Gilbert win the 2026 Lyon mayoral election?
+
+=== E2: What will S&P 500 (SPY) hit in July 2026?
+Rules:
+What will S&P 500 (SPY) hit in July 2026?
+Contracts:
+  E2.C1: Will S&P 500 (SPY) hit (HIGH) $800 in July?
+    Contract rules: This market will resolve to "Yes" if, at any point during July 2026, any 1-minute candle for S&P 500 (SPY) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the S&P 500 (SPY) "High" prices available at https://pythdata.app/explore/Equity.US.SPY%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.SPY%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E2.C2: Will S&P 500 (SPY) hit (HIGH) $790 in July?
+    Contract rules: This market will resolve to "Yes" if, at any point during July 2026, any 1-minute candle for S&P 500 (SPY) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the S&P 500 (SPY) "High" prices available at https://pythdata.app/explore/Equity.US.SPY%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.SPY%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E2.C3: Will S&P 500 (SPY) hit (HIGH) $780 in July?
+    Contract rules: This market will resolve to "Yes" if, at any point during July 2026, any 1-minute candle for S&P 500 (SPY) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the S&P 500 (SPY) "High" prices available at https://pythdata.app/explore/Equity.US.SPY%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.SPY%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E2.C4: Will S&P 500 (SPY) hit (HIGH) $770 in July?
+    Contract rules: This market will resolve to "Yes" if, at any point during July 2026, any 1-minute candle for S&P 500 (SPY) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the S&P 500 (SPY) "High" prices available at https://pythdata.app/explore/Equity.US.SPY%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.SPY%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E2.C5: Will S&P 500 (SPY) hit (HIGH) $760 in July?
+    Contract rules: This market will resolve to "Yes" if, at any point during July 2026, any 1-minute candle for S&P 500 (SPY) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the S&P 500 (SPY) "High" prices available at https://pythdata.app/explore/Equity.US.SPY%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.SPY%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E2.C6: Will S&P 500 (SPY) hit (LOW) $730 in July?
+    Contract rules: This market will resolve to "Yes" if, at any point during July 2026, any 1-minute candle for S&P 500 (SPY) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the S&P 500 (SPY) "Low" prices available at https://pythdata.app/explore/Equity.US.SPY%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.SPY%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E2.C7: Will S&P 500 (SPY) hit (LOW) $720 in July?
+    Contract rules: This market will resolve to "Yes" if, at any point during July 2026, any 1-minute candle for S&P 500 (SPY) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the S&P 500 (SPY) "Low" prices available at https://pythdata.app/explore/Equity.US.SPY%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.SPY%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E2.C8: Will S&P 500 (SPY) hit (LOW) $710 in July?
+    Contract rules: This market will resolve to "Yes" if, at any point during July 2026, any 1-minute candle for S&P 500 (SPY) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the S&P 500 (SPY) "Low" prices available at https://pythdata.app/explore/Equity.US.SPY%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.SPY%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E2.C9: Will S&P 500 (SPY) hit (LOW) $700 in July?
+    Contract rules: This market will resolve to "Yes" if, at any point during July 2026, any 1-minute candle for S&P 500 (SPY) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the S&P 500 (SPY) "Low" prices available at https://pythdata.app/explore/Equity.US.SPY%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.SPY%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E2.C10: Will S&P 500 (SPY) hit (LOW) $690 in July?
+    Contract rules: This market will resolve to "Yes" if, at any point during July 2026, any 1-minute candle for S&P 500 (SPY) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the S&P 500 (SPY) "Low" prices available at https://pythdata.app/explore/Equity.US.SPY%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.SPY%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E2.C11: Will S&P 500 (SPY) hit (LOW) $680 in July?
+    Contract rules: This market will resolve to "Yes" if, at any point during July 2026, any 1-minute candle for S&P 500 (SPY) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the S&P 500 (SPY) "Low" prices available at https://pythdata.app/explore/Equity.US.SPY%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.SPY%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E2.C12: Will S&P 500 (SPY) hit (LOW) $670 in July?
+    Contract rules: This market will resolve to "Yes" if, at any point during July 2026, any 1-minute candle for S&P 500 (SPY) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the S&P 500 (SPY) "Low" prices available at https://pythdata.app/explore/Equity.US.SPY%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.SPY%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+
+=== E3: Florida Governor Republican Primary Second Place
+Rules:
+This market will resolve according to the individual who places second in the Republican Primary for Governor of Florida, scheduled to take place on August 18, 2026.
+
+The named candidates will be primarily ranked by the number of valid votes received in the specified election. If two or more candidates are tied on valid votes, ties will be broken by alphabetical order of the candidates' last names. This market will resolve to the candidate that occupies the second-highest finishing position after applying this ranking.
+
+If the results are not known definitively by December 31, 2026, 11:59 PM ET, this market will resolve to "Other".
+
+The resolution source for this market will be the official results of the election; however, an overwhelming consensus of credible reporting may suffice.
+Contracts:
+  E3.C1: Will Jay Collins finish second in the Florida Republican Governor primary?
+  E3.C2: Will Byron Donalds finish second in the Florida Republican Governor primary?
+  E3.C3: Will Paul Renner finish second in the Florida Republican Governor primary?
+  E3.C4: Will James Fishback finish second in the Florida Republican Governor primary?
+  E3.C5: Will Jim Holcomb finish second in the Florida Republican Governor primary?
+  E3.C6: Will Arthur Joseph McCaffrey finish second in the Florida Republican Governor primary?
+  E3.C7: Will Daniel Nokovich finish second in the Florida Republican Governor primary?
+  E3.C8: Will Rachel Rodriguez finish second in the Florida Republican Governor primary?
+  E3.C9: Will James Walker Shaw finish second in the Florida Republican Governor primary?
+  E3.C10: Will Caneste Succe finish second in the Florida Republican Governor primary?
+  E3.C11: Will Bobby Williams finish second in the Florida Republican Governor primary?
+
+=== E4: What will Opendoor (OPEN) hit in April 2026?
+Rules:
+What will Opendoor Technologies Inc. (OPEN) hit in April 2026?
+Contracts:
+  E4.C1: Will Opendoor reach $10 in April?
+    Contract rules: This market will resolve to "Yes" if, at any point during April 2026 (ET), any 1-minute candle for Opendoor Technologies Inc. (OPEN) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during regular trading hours (ET) will be considered.
+
+The resolution source for this market is Yahoo Finance — specifically, the Opendoor Technologies Inc. (OPEN) "High" prices available at https://finance.yahoo.com/quote/OPEN/, with the chart settings on "1m" for candle intervals.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Yahoo Finance.
+  E4.C2: Will Opendoor reach $8.75 in April?
+    Contract rules: This market will resolve to "Yes" if, at any point during April 2026 (ET), any 1-minute candle for Opendoor Technologies Inc. (OPEN) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during regular trading hours (ET) will be considered.
+
+The resolution source for this market is Yahoo Finance — specifically, the Opendoor Technologies Inc. (OPEN) "High" prices available at https://finance.yahoo.com/quote/OPEN/, with the chart settings on "1m" for candle intervals.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Yahoo Finance.
+  E4.C3: Will Opendoor reach $7.75 in April?
+    Contract rules: This market will resolve to "Yes" if, at any point during April 2026 (ET), any 1-minute candle for Opendoor Technologies Inc. (OPEN) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during regular trading hours (ET) will be considered.
+
+The resolution source for this market is Yahoo Finance — specifically, the Opendoor Technologies Inc. (OPEN) "High" prices available at https://finance.yahoo.com/quote/OPEN/, with the chart settings on "1m" for candle intervals.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Yahoo Finance.
+  E4.C4: Will Opendoor reach $6.75 in April?
+    Contract rules: This market will resolve to "Yes" if, at any point during April 2026 (ET), any 1-minute candle for Opendoor Technologies Inc. (OPEN) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during regular trading hours (ET) will be considered.
+
+The resolution source for this market is Yahoo Finance — specifically, the Opendoor Technologies Inc. (OPEN) "High" prices available at https://finance.yahoo.com/quote/OPEN/, with the chart settings on "1m" for candle intervals.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Yahoo Finance.
+  E4.C5: Will Opendoor reach $6 in April?
+    Contract rules: This market will resolve to "Yes" if, at any point during April 2026 (ET), any 1-minute candle for Opendoor Technologies Inc. (OPEN) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during regular trading hours (ET) will be considered.
+
+The resolution source for this market is Yahoo Finance — specifically, the Opendoor Technologies Inc. (OPEN) "High" prices available at https://finance.yahoo.com/quote/OPEN/, with the chart settings on "1m" for candle intervals.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Yahoo Finance.
+  E4.C6: Will Opendoor reach $5.50 in April?
+    Contract rules: This market will resolve to "Yes" if, at any point during April 2026 (ET), any 1-minute candle for Opendoor Technologies Inc. (OPEN) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during regular trading hours (ET) will be considered.
+
+The resolution source for this market is Yahoo Finance — specifically, the Opendoor Technologies Inc. (OPEN) "High" prices available at https://finance.yahoo.com/quote/OPEN/, with the chart settings on "1m" for candle intervals.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Yahoo Finance.
+  E4.C7: Will Opendoor dip to $4 in April?
+    Contract rules: This market will resolve to "Yes" if, at any point during April 2026 (ET), any 1-minute candle for Opendoor Technologies Inc. (OPEN) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during regular trading hours (ET) will be considered.
+
+The resolution source for this market is Yahoo Finance — specifically, the Opendoor Technologies Inc. (OPEN) "Low" prices available at https://finance.yahoo.com/quote/OPEN/, with the chart settings on "1m" for candle intervals.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Yahoo Finance.
+  E4.C8: Will Opendoor dip to $3.50 in April?
+    Contract rules: This market will resolve to "Yes" if, at any point during April 2026 (ET), any 1-minute candle for Opendoor Technologies Inc. (OPEN) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during regular trading hours (ET) will be considered.
+
+The resolution source for this market is Yahoo Finance — specifically, the Opendoor Technologies Inc. (OPEN) "Low" prices available at https://finance.yahoo.com/quote/OPEN/, with the chart settings on "1m" for candle intervals.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Yahoo Finance.
+  E4.C9: Will Opendoor dip to $2.75 in April?
+    Contract rules: This market will resolve to "Yes" if, at any point during April 2026 (ET), any 1-minute candle for Opendoor Technologies Inc. (OPEN) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during regular trading hours (ET) will be considered.
+
+The resolution source for this market is Yahoo Finance — specifically, the Opendoor Technologies Inc. (OPEN) "Low" prices available at https://finance.yahoo.com/quote/OPEN/, with the chart settings on "1m" for candle intervals.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Yahoo Finance.
+  E4.C10: Will Opendoor dip to $2 in April?
+    Contract rules: This market will resolve to "Yes" if, at any point during April 2026 (ET), any 1-minute candle for Opendoor Technologies Inc. (OPEN) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during regular trading hours (ET) will be considered.
+
+The resolution source for this market is Yahoo Finance — specifically, the Opendoor Technologies Inc. (OPEN) "Low" prices available at https://finance.yahoo.com/quote/OPEN/, with the chart settings on "1m" for candle intervals.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Yahoo Finance.
+  E4.C11: Will Opendoor dip to $1 in April?
+    Contract rules: This market will resolve to "Yes" if, at any point during April 2026 (ET), any 1-minute candle for Opendoor Technologies Inc. (OPEN) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during regular trading hours (ET) will be considered.
+
+The resolution source for this market is Yahoo Finance — specifically, the Opendoor Technologies Inc. (OPEN) "Low" prices available at https://finance.yahoo.com/quote/OPEN/, with the chart settings on "1m" for candle intervals.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Yahoo Finance.
+
+=== E5: Will Palo Alto Networks (PANW) beat quarterly earnings?
+Rules:
+As of market creation, Palo Alto Networks is estimated to release earnings on February 12, 2026. The Street consensus estimate for Palo Alto Networks’s non-GAAP EPS for the relevant quarter is $0.94 as of market creation. This market will resolve to "Yes" if Palo Alto Networks reports non-GAAP EPS greater than $0.94 for the relevant quarter in its next quarterly earnings release. Otherwise, it will resolve to "No." The resolution source will be the non-GAAP EPS listed in the company’s official earnings documents. 
+
+If Palo Alto Networks releases earnings without non-GAAP EPS, then the market will resolve according to the non-GAAP EPS figure reported by SeekingAlpha. If no such figure is published within 96h of market close (4:00:00pm ET) on the day earnings are announced, the market will resolve according to the GAAP EPS listed in the company’s official earnings documents; or, if not published there, according to the GAAP EPS provided by SeekingAlpha. If no GAAP EPS number is available from either source at that time, the market will resolve to “No.” (For the purposes of this market, GAAP EPS refers to diluted GAAP EPS, unless it is not published, in which case it refers to basic GAAP EPS.)
+
+If the company does not release earnings within 45 calendar days of the estimated earnings date, this market will resolve to “No.” 
+
+Note: Subsequent restatements, corrections, or revisions made to the initially announced non-GAAP EPS figure will not qualify for resolution, except in the case of obvious and immediate mistakes (e.g., fat finger errors, as with Lyft's (LYFT) earnings release in February 2024).
+Note: The strike prices used in these markets are derived from SeekingAlpha estimates, and reflect the consensus of sell-side analyst estimates for non-GAAP EPS.
+Note: All figures will be rounded to the nearest cent using standard rounding.
+Note: For the purposes of this market, IFRS EPS will be treated as GAAP EPS.
+Note: If multiple versions of non-GAAP EPS are published, the market will resolve according to the primary headline non-GAAP EPS number, which is typically presented on a diluted basis. If diluted is not published, then basic non-GAAP EPS will qualify.
+Note: All figures are expressed in USD, unless otherwise indicated.
+Note: For primarily internationally listed companies, this market refers specifically to the shares traded in the United States on U.S. stock exchanges such as the NYSE or Nasdaq. In cases where the company trades in the U.S. through an American Depositary Receipt (ADR) or American Depositary Share (ADS), this market will refer to the ADR/ADS.
+Contracts:
+  E5.C1: Will Palo Alto Networks (PANW) beat quarterly earnings?
+
+=== E6: 3rd largest company end of April?
+Rules:
+This market will resolve to the third-largest company in the world by market cap on April 30, 2026, as of market close.
+
+The resolution source for this market will be a consensus of credible reporting.
+Contracts:
+  E6.C1: Will NVIDIA be the third-largest company in the world by market cap on April 30?
+  E6.C2: Will Microsoft be the third-largest company in the world by market cap on April 30?
+  E6.C3: Will Apple be the third-largest company in the world by market cap on April 30?
+  E6.C4: Will Alphabet be the third-largest company in the world by market cap on April 30?
+  E6.C5: Will Tesla be the third-largest company in the world by market cap on April 30?
+  E6.C6: Will Saudi Aramco be the third-largest company in the world by market cap on April 30?
+  E6.C7: Will Amazon be the third-largest company in the world by market cap on April 30?
+  E6.C8: Will Oracle be the third-largest company in the world by market cap on April 30?
+
+=== E7: What will Apple (AAPL) hit in May 2026?
+Rules:
+What will Apple (AAPL) hit in May 2026?
+Contracts:
+  E7.C1: Will Apple (AAPL) hit (HIGH) $328 in May?
+    Contract rules: This market will resolve to "Yes" if, at any point during May 2026, any 1-minute candle for Apple (AAPL) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Apple (AAPL) "High" prices available at https://pythdata.app/explore/Equity.US.AAPL%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.AAPL%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E7.C2: Will Apple (AAPL) hit (HIGH) $320 in May?
+    Contract rules: This market will resolve to "Yes" if, at any point during May 2026, any 1-minute candle for Apple (AAPL) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Apple (AAPL) "High" prices available at https://pythdata.app/explore/Equity.US.AAPL%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.AAPL%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E7.C3: Will Apple (AAPL) hit (HIGH) $312 in May?
+    Contract rules: This market will resolve to "Yes" if, at any point during May 2026, any 1-minute candle for Apple (AAPL) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Apple (AAPL) "High" prices available at https://pythdata.app/explore/Equity.US.AAPL%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.AAPL%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E7.C4: Will Apple (AAPL) hit (HIGH) $304 in May?
+    Contract rules: This market will resolve to "Yes" if, at any point during May 2026, any 1-minute candle for Apple (AAPL) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Apple (AAPL) "High" prices available at https://pythdata.app/explore/Equity.US.AAPL%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.AAPL%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E7.C5: Will Apple (AAPL) hit (LOW) $288 in May?
+    Contract rules: This market will resolve to "Yes" if, at any point between market creation and the close of the last trading day in May 2026, any 1-minute candle for Apple (AAPL) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Apple (AAPL) "Low" prices available at https://pythdata.app/explore/Equity.US.AAPL%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.AAPL%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E7.C6: Will Apple (AAPL) hit (LOW) $280 in May?
+    Contract rules: This market will resolve to "Yes" if, at any point between market creation and the close of the last trading day in May 2026, any 1-minute candle for Apple (AAPL) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Apple (AAPL) "Low" prices available at https://pythdata.app/explore/Equity.US.AAPL%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.AAPL%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E7.C7: Will Apple (AAPL) hit (LOW) $272 in May?
+    Contract rules: This market will resolve to "Yes" if, at any point between market creation and the close of the last trading day in May 2026, any 1-minute candle for Apple (AAPL) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Apple (AAPL) "Low" prices available at https://pythdata.app/explore/Equity.US.AAPL%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.AAPL%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E7.C8: Will Apple (AAPL) hit (LOW) $264 in May?
+    Contract rules: This market will resolve to "Yes" if, at any point during May 2026, any 1-minute candle for Apple (AAPL) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Apple (AAPL) "Low" prices available at https://pythdata.app/explore/Equity.US.AAPL%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.AAPL%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E7.C9: Will Apple (AAPL) hit (LOW) $256 in May?
+    Contract rules: This market will resolve to "Yes" if, at any point during May 2026, any 1-minute candle for Apple (AAPL) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Apple (AAPL) "Low" prices available at https://pythdata.app/explore/Equity.US.AAPL%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.AAPL%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E7.C10: Will Apple (AAPL) hit (LOW) $248 in May?
+    Contract rules: This market will resolve to "Yes" if, at any point during May 2026, any 1-minute candle for Apple (AAPL) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Apple (AAPL) "Low" prices available at https://pythdata.app/explore/Equity.US.AAPL%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.AAPL%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E7.C11: Will Apple (AAPL) hit (LOW) $240 in May?
+    Contract rules: This market will resolve to "Yes" if, at any point during May 2026, any 1-minute candle for Apple (AAPL) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Apple (AAPL) "Low" prices available at https://pythdata.app/explore/Equity.US.AAPL%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.AAPL%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E7.C12: Will Apple (AAPL) hit (LOW) $232 in May?
+    Contract rules: This market will resolve to "Yes" if, at any point during May 2026, any 1-minute candle for Apple (AAPL) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Apple (AAPL) "Low" prices available at https://pythdata.app/explore/Equity.US.AAPL%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.AAPL%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+
+=== E8: James Fishback vote share in 2026 Florida Republican Governor Primary?
+Rules:
+Primary elections in Florida are scheduled to be held on August 18, 2026.
+
+This market will resolve according to the share of valid votes James Fishback wins in the 2026 Florida Republican Gubernatorial Primary.
+
+If the reported value falls exactly between two brackets, then this market will resolve to the higher range bracket.
+
+If the results of the specified election are not known definitively by November 30, 2026, 11:59 PM ET, this market will resolve to the lowest bracket.
+
+The primary resolution source for this market will be information from the State of Florida, such as official statewide results published by the Florida Department of State (https://dos.fl.gov/); however, an overwhelming consensus of credible reporting may suffice.
+
+If a recount is initiated before the vote total has been made official, the market will remain open until the recount is completed and the vote is made official.
+Contracts:
+  E8.C1: Will James Fishback win less than 10% of votes in the Florida Republican Governor primary?
+  E8.C2: Will James Fishback win 10–15% of votes in the Florida Republican Governor primary?
+  E8.C3: Will James Fishback win 15–20% of votes in the Florida Republican Governor primary?
+  E8.C4: Will James Fishback win 20–25% of votes in the Florida Republican Governor primary?
+  E8.C5: Will James Fishback win 25–30% of votes in the Florida Republican Governor primary?
+  E8.C6: Will James Fishback at least 30% of votes in the Florida Republican Governor primary?
+
+=== E9: Will any country expel a U.S. ambassador by March 31?
+Rules:
+This market will resolve to “Yes” if any U.S. ambassador is expelled from their assigned country by the government of that country between market creation and March 31, 2026, 11:59: PM ET. Otherwise, this market will resolve to "No".
+
+Any expulsion from a country where a U.S. ambassador is assigned as of the time of this market’s creation will qualify.
+
+For the purposes of resolving this market, an official announcement that a U.S. ambassador will be or is being expelled will suffice regardless of whether or not the respective ambassador leaves the country within this market’s timeframe.
+
+Qualifying announcements must be definitive, unambiguous, official statements issued by an authorized governmental person or entity.
+
+Whether the ambassador resigns, is recalled, or otherwise departs voluntarily will have no bearing on the resolution of this market.
+
+The primary resolution source for this market will be official information from the government of the United States, including the U.S. Department of State, as well as official information from the relevant expelling government; however, an overwhelming consensus of credible reporting may also be used.
+Contracts:
+  E9.C1: Will any country expel a U.S. ambassador by March 31?
+
+=== E10: What price will Hyperliquid hit in February?
+Rules:
+What price will Hyperliquid hit in February?
+Contracts:
+  E10.C1: Will Hyperliquid reach $56 in February?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for HYPEUSDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last) has a final High price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the HYPEUSDT High prices available at https://www.binance.com/en/futures/HYPEUSDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance HYPEUSDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E10.C2: Will Hyperliquid reach $52 in February?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for HYPEUSDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last) has a final High price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the HYPEUSDT High prices available at https://www.binance.com/en/futures/HYPEUSDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance HYPEUSDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E10.C3: Will Hyperliquid reach $48 in February?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for HYPEUSDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last) has a final High price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the HYPEUSDT High prices available at https://www.binance.com/en/futures/HYPEUSDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance HYPEUSDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E10.C4: Will Hyperliquid reach $44 in February?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for HYPEUSDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last) has a final High price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the HYPEUSDT High prices available at https://www.binance.com/en/futures/HYPEUSDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance HYPEUSDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E10.C5: Will Hyperliquid reach $40 in February?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for HYPEUSDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last) has a final High price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the HYPEUSDT High prices available at https://www.binance.com/en/futures/HYPEUSDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance HYPEUSDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E10.C6: Will Hyperliquid dip to $28 in February?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for HYPEUSDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last) has a final Low price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the HYPEUSDT Low prices available at https://www.binance.com/en/futures/HYPEUSDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance HYPEUSDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E10.C7: Will Hyperliquid dip to $24 in February?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for HYPEUSDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last) has a final Low price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the HYPEUSDT Low prices available at https://www.binance.com/en/futures/HYPEUSDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance HYPEUSDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E10.C8: Will Hyperliquid dip to $20 in February?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for HYPEUSDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last) has a final Low price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the HYPEUSDT Low prices available at https://www.binance.com/en/futures/HYPEUSDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance HYPEUSDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E10.C9: Will Hyperliquid dip to $16 in February?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for HYPEUSDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last) has a final Low price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the HYPEUSDT Low prices available at https://www.binance.com/en/futures/HYPEUSDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance HYPEUSDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.

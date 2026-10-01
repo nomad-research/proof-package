@@ -1,0 +1,196 @@
+You will be shown 10 questions from a prediction market. Each question has one or more contracts, and each contract resolves YES or NO under the rules shown.
+
+For every contract, give your probability, as a whole percent from 1 to 99, that it resolves YES. Use only what you already know. Do not search for or look up anything: reading this file is the only tool call you may make.
+
+For each question, also say whether you recognise how it actually turned out ("recognised": true only if you believe you remember the real outcome; otherwise false).
+
+Where a question's contracts are mutually exclusive (exactly one can resolve YES), your numbers for it should add up to about 100. Where they are nested thresholds or dates, keep them consistent with each other.
+
+Reply with one JSON object and nothing else, in this form:
+{"events": [{"label": "E1", "recognised": false, "p": {"E1.C1": 35, "E1.C2": 60}}]}
+
+Every contract label below must appear exactly once in your reply.
+
+=== E1: Measles cases in U.S. by May 31?
+Rules:
+This market will resolve to "Yes" if there have been the specified amount or more confirmed cases of Measles (Rubeola) in humans in the territory of the United States of America in 2026, according to the CDC case counter by May 31, 2026, 11:59 PM ET. Otherwise, this market will resolve to "No".
+
+The resolution source for this market will be the CDC Measles (Rubeola) counter 'Total Cases' in 2026 (see: https://www.cdc.gov/measles/data-research/index.html) at the resolution time. If the counter becomes unavailable, another credible source will be used.
+
+Note: Only cases reported by the CDC Measles (Rubeola) counter will qualify, regardless of reports from U.S. State agencies or other sources.
+Contracts:
+  E1.C1: Will there be at least 1900 measles cases in the U.S. by May 31, 2026?
+  E1.C2: Will there be at least 1925 measles cases in the U.S. by May 31, 2026?
+  E1.C3: Will there be at least 1950 measles cases in the U.S. by May 31, 2026?
+  E1.C4: Will there be at least 2000 measles cases in the U.S. by May 31, 2026?
+  E1.C5: Will there be at least 2200 measles cases in the U.S. by May 31, 2026?
+  E1.C6: Will there be at least 2400 measles cases in the U.S. by May 31, 2026?
+
+=== E2: Venice Mayoral Election Winner
+Rules:
+The 2026 Venice, Italy mayoral election is currently scheduled to be held on May 24 and 25, 2026, with a potential runoff scheduled for June 7 and 8, 2026.
+
+This market will resolve according to the candidate who becomes the next mayor of Venice as a result of this election.
+
+Temporary, interim, or placeholder mayors appointed before the election will not be considered.
+
+This market includes any potential second round. If the result of this election isn't known by April 30, 2027, 11:59 PM ET, the market will resolve to "Other".
+
+The primary resolution source for this market will be a consensus of credible reporting; however, if there is any ambiguity in the results, this market will resolve according to official information from Venice.
+Contracts:
+  E2.C1: Will Andrea Martella win the 2026 Venice mayoral election?
+  E2.C2: Will Simone Venturini win the 2026 Venice mayoral election?
+  E2.C3: Will Michele Boldrin win the 2026 Venice mayoral election?
+  E2.C4: Will Pierangelo Del Zotto win the 2026 Venice mayoral election?
+  E2.C5: Will Giovanni Andrea Martini win the 2026 Venice mayoral election?
+
+=== E3: US downs a Mexican cartel drone by March 31?
+Rules:
+This market will resolve to "Yes" if the US military or federal government downs or disables any Mexican cartel drone by any means (including kinetic, laser, jammer, etc.) by March 31, 2026, 11:59 PM ET. Otherwise, this market will resolve to “No”.
+
+Any drone whose operation is broadly attributed to a Mexican drug cartel or any Narco-trafficking organization based in Mexico by a consensus of credible reporting will be considered a “Mexican cartel drone.”
+
+The resolution source for this market will be a consensus of credible reporting.
+Contracts:
+  E3.C1: US downs a Mexican cartel drone by March 31?
+
+=== E4: Trump Media x TAE Technologies merger closed by March 31?
+Rules:
+Donald Trump’s Social Media and Cryptocurrency company Trump Media and Technology Group and the fusion power company TAE Technologies announced they had agreed to a merger deal on December 18th, signaling a shift of focus for the Trump-owned firm. You can read more about that here: https://www.nytimes.com/2025/12/18/business/trump-media-tae-technologies-fusion-power-deal.html
+
+This market will resolve to “Yes” if the merger between Trump Media and Technology Group and TAE Technologies is completed by March 31, 2026, 11:59 PM ET. Otherwise, this market will resolve to “No”.
+
+The merger will be considered completed once it has become legally effective and the two companies are now a single entity or they exist under a single entity as one corporate group, as evidenced by official company announcements and/or regulatory filings (e.g. the filing of an 8-K form to the SEC that announces the closure of the deal). Shareholder approval, receipt of regulatory approvals, regulatory filings which do not announce the closure of the deal, or other intermediate steps towards the closing of a deal will not alone be sufficient for a ‘Yes’ resolution.
+
+If the merger agreement is officially terminated or the deal has been abandoned according to official company communications, this market will resolve to “No”.
+
+Resolution will be based on official company communications and regulatory filings from Trump Media and Technology Group, TAE Technologies, or a combined successor entity, supplemented as needed by a consensus of reporting from major reputable news outlets.
+Contracts:
+  E4.C1: Trump Media x TAE Technologies merger closed by March 31?
+
+=== E5: What will Trump say in September?
+Rules:
+This market will resolve to "Yes" if Donald Trump mentions the listed term between September 1, 2026, 12:00 AM ET and September 30, 2026, 11:59 PM ET. Otherwise, this market will resolve to "No".
+
+A 'mention' will include any verbal mention which is recorded (audio or video) and publicly accessible.
+
+Written usages of terms (e.g. Truth Social posts, written statements, etc.) will not count toward this market's resolution.
+
+Videos posted on his social media which were filmed outside this market's time frame will not qualify for a "Yes" resolution.
+
+For full rules, see: https://polymarket-upload.s3.us-east-2.amazonaws.com/market_products/Mentions/Period+Mentions+Contract+DeFi.pdf
+Contracts:
+  E5.C1: Will Trump say "Dancing in the Street" in September?
+  E5.C2: Will Trump say "Seizure" in September?
+  E5.C3: Will Trump say "Printer" or "Printing" in September?
+  E5.C4: Will Trump say "China Virus" in September?
+  E5.C5: Will Trump say "Let Me Finish" in September?
+  E5.C6: Will Trump say "Darth Vader" in September?
+  E5.C7: Will Trump say "Antifa" in September?
+  E5.C8: Will Trump say "Gay" in September?
+  E5.C9: Will Trump say "Sucker" in September?
+  E5.C10: Will Trump say "Javelin" in September?
+  E5.C11: Will Trump say "Epstein" in September?
+  E5.C12: Will Trump say "Pelosi" in September?
+
+=== E6: 3rd largest company end of June?
+Rules:
+This market will resolve to the third-largest company in the world by market cap on June 30, 2026, as of market close.
+
+The resolution source for this market will be a consensus of credible reporting.
+Contracts:
+  E6.C1: Will NVIDIA be the third-largest company in the world by market cap on June 30?
+  E6.C2: Will Microsoft be the third-largest company in the world by market cap on June 30?
+  E6.C3: Will Apple be the third-largest company in the world by market cap on June 30?
+  E6.C4: Will Alphabet be the third-largest company in the world by market cap on June 30?
+  E6.C5: Will Tesla be the third-largest company in the world by market cap on June 30?
+  E6.C6: Will Saudi Aramco be the third-largest company in the world by market cap on June 30?
+  E6.C7: Will Amazon be the third-largest company in the world by market cap on June 30?
+  E6.C8: Will Broadcom be the third-largest company in the world by market cap on June 30?
+
+=== E7: Costa Rica Legislative Assembly Election Winner
+Rules:
+Parliamentary elections are scheduled to be held in Costa Rica on 1 February 2026.
+
+This market will resolve to the political party that wins the greatest number of seats in the Costa Rican Legislative Assembly.
+
+If voting in the Costa Rican Legislative Assembly election does not occur by December 31, 2026, this market will resolve to "Other".
+
+In the event of a tie between this party and any other for the most seats won, this market will be resolved in favor of the party or coalition which received a greater number of valid votes. In the event that results in a tie, this market will resolve in favor of the party or coalition whose listed abbreviation appears first in alphabetical order.
+
+This market's resolution will be based solely on the number of seats won by the named party or coalition in the Legislative Assembly.
+
+This market will resolve based on the election results, as indicated by a consensus of credible reporting. If there is ambiguity, this market will resolve based solely on the official results as reported by Costa Rica's Supreme Electoral Tribunal (Tribunal Supremo de Elecciones) (https://www.tse.go.cr/index.html).
+Contracts:
+  E7.C1: Will PLN win the most seats in the 2026 Costa Rican Legislative Assembly election?
+  E7.C2: Will PUSC win the most seats in the 2026 Costa Rican Legislative Assembly election?
+  E7.C3: Will PLP win the most seats in the 2026 Costa Rican Legislative Assembly election?
+  E7.C4: Will PNR win the most seats in the 2026 Costa Rican Legislative Assembly election?
+  E7.C5: Will FA win the most seats in the 2026 Costa Rican Legislative Assembly election?
+  E7.C6: Will UP win the most seats in the 2026 Costa Rican Legislative Assembly election?
+  E7.C7: Will PPSO win the most seats in the 2026 Costa Rican Legislative Assembly election?
+  E7.C8: Will PPSD win the most seats in the 2026 Costa Rican Legislative Assembly election?
+  E7.C9: Will PIN win the most seats in the 2026 Costa Rican Legislative Assembly election?
+  E7.C10: Will PNG win the most seats in the 2026 Costa Rican Legislative Assembly election?
+  E7.C11: Will PJSC win the most seats in the 2026 Costa Rican Legislative Assembly election?
+  E7.C12: Will PT win the most seats in the 2026 Costa Rican Legislative Assembly election?
+
+=== E8: Will NVIDIA (NVDA) close above ___ end of March?
+Rules:
+This market will resolve to "Yes" if the official closing price for NVIDIA (NVDA) on the final trading day of March 2026 is higher than the listed price. Otherwise, this market will resolve to "No".
+
+If the final trading day of the month is shortened (for example, due to a market-holiday schedule), the official closing price published for that shortened session will still be used for resolution.
+
+If no official closing price is published for that session (for example, due to a trading halt into the close, system issue, or other disruption), the market will use the last valid on-exchange trade price of the regular session as the effective closing price.
+
+The resolution source for this market is Yahoo Finance — specifically, the NVIDIA (NVDA) "Close" prices available at https://finance.yahoo.com/quote/NVDA/history, published under "Historical Prices."
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Yahoo Finance.
+Contracts:
+  E8.C1: Will NVIDIA (NVDA) close above $120 end of March?
+  E8.C2: Will NVIDIA (NVDA) close above $130 end of March?
+  E8.C3: Will NVIDIA (NVDA) close above $140 end of March?
+  E8.C4: Will NVIDIA (NVDA) close above $150 end of March?
+  E8.C5: Will NVIDIA (NVDA) close above $160 end of March?
+  E8.C6: Will NVIDIA (NVDA) close above $170 end of March?
+  E8.C7: Will NVIDIA (NVDA) close above $180 end of March?
+  E8.C8: Will NVIDIA (NVDA) close above $190 end of March?
+  E8.C9: Will NVIDIA (NVDA) close above $200 end of March?
+  E8.C10: Will NVIDIA (NVDA) close above $210 end of March?
+  E8.C11: Will NVIDIA (NVDA) close above $220 end of March?
+  E8.C12: Will NVIDIA (NVDA) close above $230 end of March?
+
+=== E9: Israeli forces cross the Litani River by June 30?
+Rules:
+This market will resolve to “Yes” if Israeli military personnel cross the Litani River in Lebanon by June 30, 2026, 11:59 PM ET. Otherwise, this market will resolve to “No”.
+
+“Israeli military personnel” refers to members of the Israel Defense Forces (IDF) or any other official military units acting under the authority of the State of Israel. Intelligence or other non-military personnel will not count.
+
+A “crossing” will be considered to have occurred if Israeli military personnel are confirmed to have physically traversed the Litani River in Lebanon at any point, including but not limited to by bridge, boat, swimming, wading, or temporary or permanent crossing.
+
+Aerial insertion, parachute drops, helicopter landings, or other forms of aerial infiltration that do not involve Israeli military personnel physically traversing the Litani River will not qualify.
+
+Mere presence on one bank of the Litani River, without confirmation that Israeli military personnel traversed the river to the opposite bank, will not qualify.
+
+The primary resolution source will be a consensus of credible reporting.
+Contracts:
+  E9.C1: Israeli forces cross the Litani River by June 30?
+
+=== E10: # of seats won by GERB-SDS in Bulgarian Parliamentary Election?
+Rules:
+Parliamentary elections are scheduled to be held in Bulgaria on April 19, 2026.
+
+This market will resolve according to the number of seats won by GERB-SDS in the next Bulgarian National Assembly (Народно събрание, Narodno săbraniе) election.
+
+If the results are not known definitively by October 31, 2026, 11:59 PM ET, this market will resolve to the lowest bracket.
+
+This market's resolution will be based solely on the number of seats won by the named party or coalition in the Bulgarian Parliament. If a named coalition dissolves, this market will resolve based on the seat total of the constituent party within that coalition that held the largest number of seats before the election.
+
+This market will resolve based on the results of this election as indicated by a consensus of credible reporting. If there is ambiguity, this market will resolve based solely on the official results as reported by the Bulgarian government, specifically the Central Election Commission of Bulgaria (Tsentralna Izbiratelna Komisia) (https://www.cik.bg/).
+Contracts:
+  E10.C1: Will GERB-SDS win fewer than 50 seats in the 2026 Bulgarian parliamentary election?
+  E10.C2: Will GERB-SDS win between 50-54 seats in the 2026 Bulgarian parliamentary election?
+  E10.C3: Will GERB-SDS win between 55-59 seats in the 2026 Bulgarian parliamentary election?
+  E10.C4: Will GERB-SDS win between 60-64 seats in the 2026 Bulgarian parliamentary election?
+  E10.C5: Will GERB-SDS win between 65-69 seats in the 2026 Bulgarian parliamentary election?
+  E10.C6: Will GERB-SDS win 70 or more seats in the 2026 Bulgarian parliamentary election?

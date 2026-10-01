@@ -1,0 +1,362 @@
+You will be shown 10 questions from a prediction market. Each question has one or more contracts, and each contract resolves YES or NO under the rules shown.
+
+For every contract, give your probability, as a whole percent from 1 to 99, that it resolves YES. Use only what you already know. Do not search for or look up anything: reading this file is the only tool call you may make.
+
+For each question, also say whether you recognise how it actually turned out ("recognised": true only if you believe you remember the real outcome; otherwise false).
+
+Where a question's contracts are mutually exclusive (exactly one can resolve YES), your numbers for it should add up to about 100. Where they are nested thresholds or dates, keep them consistent with each other.
+
+Reply with one JSON object and nothing else, in this form:
+{"events": [{"label": "E1", "recognised": false, "p": {"E1.C1": 35, "E1.C2": 60}}]}
+
+Every contract label below must appear exactly once in your reply.
+
+=== E1: Connecticut Governor Republican Primary Winner
+Rules:
+This market will resolve according to the winner of the Republican Primary for Governor of Connecticut, scheduled to take place on August 11, 2026. Resolution will be based on the overall winner of the primary, including any potential second round or run-off.
+
+If no 2026 Connecticut Gubernatorial Republican Primary takes place, this market will resolve to “Other.”
+
+The resolution source for this market will be the first official announcement of the results from the Connecticut Republican Party; however, an overwhelming consensus of credible reporting may suffice.
+Contracts:
+  E1.C1: Will Erin Stewart win the 2026 Connecticut Governor Republican primary election?
+  E1.C2: Will Ryan Fazio win the 2026 Connecticut Governor Republican primary election?
+  E1.C3: Will Timothy Wilcox win the 2026 Connecticut Governor Republican primary election?
+  E1.C4: Will Betsy McCaughey win the 2026 Connecticut Governor Republican primary election?
+  E1.C5: Will Harry Arora win the 2026 Connecticut Governor Republican primary election?
+
+=== E2: Omsk Oblast Parliament Election: Party Winner
+Rules:
+Parliamentary elections to elect the Legislative Assembly of Omsk Oblast, Russia are scheduled to take place on September 20, 2026.
+
+This market will resolve to the political party that wins the greatest number of seats in the Legislative Assembly of Omsk Oblast as a result of this election.
+
+The number of seats will include all members of the Legislative Assembly of Omsk Oblast serving as a result of this election, including members elected in a single- or multiple-member constituency or by proportional representation, where applicable.
+
+If the results of the specified election are not definitively known by July 31, 2027, this market will resolve to "Other".
+
+In the event of a tie between multiple parties for the most seats won, this market will resolve in favor of the party whose party list received a greater number of valid votes in the specified region’s proportional representation system. Aggregate votes received in constituencies will have no bearing on resolution in a tie. In the event that results in a tie, this market will resolve in favor of the party whose name as listed in this market appears first in alphabetical order.
+
+A constituency-elected member will count towards the party they registered to contest the election with. A member elected by proportional representation will count towards the party whose list they were elected from.
+
+This market's resolution will be based solely on the number of seats won by the named party. Independents will not count towards any party.
+
+This market will resolve based on the results of this election, as indicated by a consensus of credible reporting. If there is ambiguity, this market will resolve solely based on official results as reported by government sources of Omsk Oblast and Russia, including the Election Commission of Omsk Oblast and the Central Election Commission of Russia.
+Contracts:
+  E2.C1: Will United Russia win the next Omsk Oblast Parliament elections?
+  E2.C2: Will CPRF win the next Omsk Oblast Parliament elections?
+  E2.C3: Will LDPR win the next Omsk Oblast Parliament elections?
+  E2.C4: Will A Just Russia win the next Omsk Oblast Parliament elections?
+  E2.C5: Will New People win the next Omsk Oblast Parliament elections?
+  E2.C6: Will Party of Pensioners win the next Omsk Oblast Parliament elections?
+  E2.C7: Will Communists of Russia win the next Omsk Oblast Parliament elections?
+
+=== E3: Thailand Legislative Election Winner
+Rules:
+The Thai House of Representatives was dissolved on December 12, 2025, triggering a snap legislative election within 45-60 days to elect members of the Thai House of Representatives (Sapha Phuthaen Ratsadon).
+
+This market will resolve according to the political party that wins the greatest number of seats in the Thai House of Representatives as a result of this election.
+
+If voting in the Thai legislative election does not occur by December 31, 2026, 11:59 PM ET, this market will resolve to "Other".
+
+In the event of a tie between multiple parties for the most seats won, this market will resolve in favor of the party or coalition which received a greater number of valid votes. In the event that results in a tie, this market will resolve in favor of the party or coalition whose listed abbreviation appears first in alphabetical order.
+
+This market's resolution will be based solely on the number of seats won by the named party or coalition in the Thai House of Representatives.
+
+This market will resolve based on the results of this election as indicated by a consensus of credible reporting. If there is ambiguity, this market will resolve based solely on the official results as reported by the Thai government, specifically the Thai Election Commission.
+Contracts:
+  E3.C1: Will People’s Party (PPLE) win the most seats in the 2026 Thai legislative election?
+  E3.C2: Will Bhumjaithai Party (BJT) win the most seats in the 2026 Thai legislative election?
+  E3.C3: Will Pheu Thai Party (PT) win the most seats in the 2026 Thai legislative election?
+  E3.C4: Will Palang Pracharath Party (PPRP) win the most seats in the 2026 Thai legislative election?
+  E3.C5: Will United Thai Nation Party (UTN) win the most seats in the 2026 Thai legislative election?
+  E3.C6: Will Democrat Party (DP) win the most seats in the 2026 Thai legislative election?
+  E3.C7: Will Chart Thai Pattana Party (CTPP) win the most seats in the 2026 Thai legislative election?
+  E3.C8: Will Prachachat Party (PCC) win the most seats in the 2026 Thai legislative election?
+  E3.C9: Will Kla Tham Party (KT) win the most seats in the 2026 Thai legislative election?
+
+=== E4: S&P 500 (SPX) above ___ end of March?
+Rules:
+This market will resolve to "Yes" if the official closing price for S&P 500 (SPX) on the final trading day of March 2026 is higher than the listed price. Otherwise, this market will resolve to "No".
+
+If the final trading day of the month is shortened (for example, due to a market-holiday schedule), the official closing price published for that shortened session will still be used for resolution.
+
+If no official closing price is published for that session (for example, due to a trading halt into the close, system issue, delisting, or other disruption), the market will use the last valid recorded price in March as the effective closing price.
+
+The resolution source for this market is Yahoo Finance, specifically the S&P 500 (SPX) "Close" prices available at https://finance.yahoo.com/quote/%5EGSPC/history, published under "Historical Prices."
+Contracts:
+  E4.C1: Will S&P 500 (SPX) close over $7,100 on the final trading day of March 2026?
+  E4.C2: Will S&P 500 (SPX) close over $7,000 on the final trading day of March 2026?
+  E4.C3: Will S&P 500 (SPX) close over $6,900 on the final trading day of March 2026?
+  E4.C4: Will S&P 500 (SPX) close over $6,800 on the final trading day of March 2026?
+  E4.C5: Will S&P 500 (SPX) close over $6,700 on the final trading day of March 2026?
+  E4.C6: Will S&P 500 (SPX) close over $6,600 on the final trading day of March 2026?
+  E4.C7: Will S&P 500 (SPX) close over $6,500 on the final trading day of March 2026?
+
+=== E5: What will Apple (AAPL) hit in April 2026?
+Rules:
+What will Apple (AAPL) hit in April 2026?
+Contracts:
+  E5.C1: Will Apple reach $344 in April?
+    Contract rules: This market will resolve to "Yes" if, at any point during April 2026 (ET), any 1-minute candle for Apple (AAPL) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during regular trading hours (ET) will be considered.
+
+The resolution source for this market is Yahoo Finance — specifically, the Apple (AAPL) "High" prices available at https://finance.yahoo.com/quote/AAPL/, with the chart settings on "1m" for candle intervals.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Yahoo Finance.
+  E5.C2: Will Apple reach $324 in April?
+    Contract rules: This market will resolve to "Yes" if, at any point during April 2026 (ET), any 1-minute candle for Apple (AAPL) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during regular trading hours (ET) will be considered.
+
+The resolution source for this market is Yahoo Finance — specifically, the Apple (AAPL) "High" prices available at https://finance.yahoo.com/quote/AAPL/, with the chart settings on "1m" for candle intervals.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Yahoo Finance.
+  E5.C3: Will Apple reach $308 in April?
+    Contract rules: This market will resolve to "Yes" if, at any point during April 2026 (ET), any 1-minute candle for Apple (AAPL) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during regular trading hours (ET) will be considered.
+
+The resolution source for this market is Yahoo Finance — specifically, the Apple (AAPL) "High" prices available at https://finance.yahoo.com/quote/AAPL/, with the chart settings on "1m" for candle intervals.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Yahoo Finance.
+  E5.C4: Will Apple reach $292 in April?
+    Contract rules: This market will resolve to "Yes" if, at any point during April 2026 (ET), any 1-minute candle for Apple (AAPL) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during regular trading hours (ET) will be considered.
+
+The resolution source for this market is Yahoo Finance — specifically, the Apple (AAPL) "High" prices available at https://finance.yahoo.com/quote/AAPL/, with the chart settings on "1m" for candle intervals.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Yahoo Finance.
+  E5.C5: Will Apple reach $280 in April?
+    Contract rules: This market will resolve to "Yes" if, at any point during April 2026 (ET), any 1-minute candle for Apple (AAPL) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during regular trading hours (ET) will be considered.
+
+The resolution source for this market is Yahoo Finance — specifically, the Apple (AAPL) "High" prices available at https://finance.yahoo.com/quote/AAPL/, with the chart settings on "1m" for candle intervals.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Yahoo Finance.
+  E5.C6: Will Apple reach $272 in April?
+    Contract rules: This market will resolve to "Yes" if, at any point during April 2026 (ET), any 1-minute candle for Apple (AAPL) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during regular trading hours (ET) will be considered.
+
+The resolution source for this market is Yahoo Finance — specifically, the Apple (AAPL) "High" prices available at https://finance.yahoo.com/quote/AAPL/, with the chart settings on "1m" for candle intervals.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Yahoo Finance.
+  E5.C7: Will Apple dip to $240 in April?
+    Contract rules: This market will resolve to "Yes" if, at any point during April 2026 (ET), any 1-minute candle for Apple (AAPL) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during regular trading hours (ET) will be considered.
+
+The resolution source for this market is Yahoo Finance — specifically, the Apple (AAPL) "Low" prices available at https://finance.yahoo.com/quote/AAPL/, with the chart settings on "1m" for candle intervals.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Yahoo Finance.
+  E5.C8: Will Apple dip to $228 in April?
+    Contract rules: This market will resolve to "Yes" if, at any point during April 2026 (ET), any 1-minute candle for Apple (AAPL) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during regular trading hours (ET) will be considered.
+
+The resolution source for this market is Yahoo Finance — specifically, the Apple (AAPL) "Low" prices available at https://finance.yahoo.com/quote/AAPL/, with the chart settings on "1m" for candle intervals.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Yahoo Finance.
+  E5.C9: Will Apple dip to $216 in April?
+    Contract rules: This market will resolve to "Yes" if, at any point during April 2026 (ET), any 1-minute candle for Apple (AAPL) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during regular trading hours (ET) will be considered.
+
+The resolution source for this market is Yahoo Finance — specifically, the Apple (AAPL) "Low" prices available at https://finance.yahoo.com/quote/AAPL/, with the chart settings on "1m" for candle intervals.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Yahoo Finance.
+  E5.C10: Will Apple dip to $200 in April?
+    Contract rules: This market will resolve to "Yes" if, at any point during April 2026 (ET), any 1-minute candle for Apple (AAPL) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during regular trading hours (ET) will be considered.
+
+The resolution source for this market is Yahoo Finance — specifically, the Apple (AAPL) "Low" prices available at https://finance.yahoo.com/quote/AAPL/, with the chart settings on "1m" for candle intervals.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Yahoo Finance.
+  E5.C11: Will Apple dip to $180 in April?
+    Contract rules: This market will resolve to "Yes" if, at any point during April 2026 (ET), any 1-minute candle for Apple (AAPL) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during regular trading hours (ET) will be considered.
+
+The resolution source for this market is Yahoo Finance — specifically, the Apple (AAPL) "Low" prices available at https://finance.yahoo.com/quote/AAPL/, with the chart settings on "1m" for candle intervals.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Yahoo Finance.
+
+=== E6: GA-14 special election winner?
+Rules:
+This market will resolve according to the candidate who wins the 2026 special election for the seat for Georgia's 14th congressional district in the U.S. House of Representatives. The special election should take place no later than February 15, 2026.
+
+This market includes any potential runoff election or second round.
+
+If no winner is announced by June 30, 2026, 11:59PM ET, this market will resolve to "Other".
+
+The resolution source for this market will be a consensus of official sources, including https://sos.ga.gov/.
+Contracts:
+  E6.C1: Will Colton Moore win the GA-14 special election?
+  E6.C2: Will John Cowan win the GA-14 special election?
+  E6.C3: Will Chuck Hufstetler win the GA-14 special election?
+  E6.C4: Will Kasey Carpenter win the GA-14 special election?
+  E6.C5: Will Katie Dempsey win the GA-14 special election?
+  E6.C6: Will Star Black win the GA-14 special election?
+  E6.C7: Will Jason Anavitarte win the GA-14 special election?
+  E6.C8: Will Laura Loomer win the GA-14 special election?
+  E6.C9: Will Jeff Criswell win the GA-14 special election?
+  E6.C10: Will Elvis Casely win the GA-14 special election?
+  E6.C11: Will Jennifer Strahan win the GA-14 special election?
+  E6.C12: Will Shawn Harris win the GA-14 special election?
+
+=== E7: How many South Korean mayor/governor races will DP win?
+Rules:
+South Korean local elections are scheduled to be held on June 3, 2026.
+
+This market will resolve according to the number of Mayor and Governor elections for South Korea’s upper-level local governments won by the Democratic Party (DP) during these elections.
+
+A candidate will be considered an official candidate of a party if they are officially nominated by that party and are registered for the relevant election in affiliation with that party. Independent candidates will not count for any party.
+
+South Korea’s upper-level local governments include the following cities and provinces:
+
+Cities (mayoral elections): Seoul, Busan, Daegu, Incheon, Gwangju, Daejeon, Ulsan, & Sejong
+
+Provinces (governor elections): Gyeonggi, North Chungcheong, South Chungcheong, North Jeolla, South Jeolla, North Gyeongsang, South Gyeongsang, Jeju, & Gangwon.
+
+If the results of the 2026 South Korean local elections aren’t known by January 31, 2027, 11:59 PM ET, this market will resolve to the lowest bracket.
+
+This market will resolve based on the results of the elections as indicated by a consensus of credible reporting. If there is ambiguity, this market will resolve based solely on the official results as reported by the South Korean government, specifically the National Election Commission.
+Contracts:
+  E7.C1: Will the Democratic Party win 10 or fewer upper-level local government races?
+  E7.C2: Will the Democratic Party win 11 upper-level local government races?
+  E7.C3: Will the Democratic Party win 12 upper-level local government races?
+  E7.C4: Will the Democratic Party win 13 upper-level local government races?
+  E7.C5: Will the Democratic Party win 14 upper-level local government races?
+  E7.C6: Will the Democratic Party win 15 upper-level local government races?
+  E7.C7: Will the Democratic Party win 16 or more upper-level local government races?
+
+=== E8: Will Elon Musk pay TSA salaries?
+Rules:
+Elon Musk offered to pay the salaries of Transportation Security Administration employees affected by the Department of Homeland Security shutdown that began on February 14, 2026 (see: https://x.com/elonmusk/status/2035306094281855336?s=20).
+
+This market will resolve to “Yes” if, Elon Musk, or a company for which Elon Musk is the largest shareholder, pays any Transportation Security Administration (TSA) employee for time during the shutdown for which that employee has not been paid by the U.S. government by April 14, 2026, 11:59 PM ET. Otherwise, this market will resolve to “No”.
+
+Qualifying compensation may be provided directly to affected TSA employees, indirectly through a third-party vehicle, or through funding provided to the U.S. government for the expressed purpose of compensating affected TSA employees.
+
+An official announcement from the United States government, or from Elon Musk and subsequently confirmed by the United States government, that Elon Musk will provide qualifying compensation to any TSA employee will be sufficient for a “Yes” resolution, regardless of whether receipt of payment has yet been publicly confirmed.
+
+Offers, statements of intent, proposals, or other supportive statements that are not accompanied by an official announcement as described above will not qualify.
+
+Payments that will later be returned once DHS funding is supplied may still qualify, provided Elon Musk supplies the initial monetary payment.
+
+Assistance that is not monetary payment, including donations of food, transportation, or other non-wage benefits, will not qualify.
+
+The primary resolution sources for this market will be official information from Elon Musk, the United States federal government, and a consensus of credible reporting.
+Contracts:
+  E8.C1: Will Elon Musk pay TSA salaries?
+
+=== E9: What Trump-named things will Trump mention in May?
+Rules:
+This market will resolve to "Yes" if Donald Trump says the listed term between May 1, 2026, 12:00AM ET and May 31, 2026, 11:59PM ET. Otherwise, the market will resolve to "No".
+
+Plural and possessive forms of the listed term will count toward the resolution of this market regardless of context; however, other forms will NOT count.
+
+If this market requires a specified number of mentions of a person’s first or last name, a full-name mention will count as one mention (e.g., if a market is about “Joe / Biden 5+ times,” a mention of “Joe Biden” will count once).
+
+A ‘mention’ will include any verbal mention which is recorded (audio or video) and publicly accessible.
+
+Written usages of terms (e.g. Truth Social posts, written statements, etc.) will not count toward this market's resolution.
+
+AI-generated audio or video will not count toward this market's resolution.
+
+Videos posted on his social media which were filmed outside this market's time frame will not qualify for a "Yes" resolution.
+Contracts:
+  E9.C1: Will Trump say "Trump Kennedy Center" or "Trump-Kennedy Center" in May?
+  E9.C2: Will Trump say "Trump Card" or "Trump Gold Card" in May?
+  E9.C3: Will Trump say "Best of Trump" in May?
+  E9.C4: Will Trump say "Trump Tower" in May?
+  E9.C5: Will Trump say "Trump Strait" or "Strait of Trump" in May?
+  E9.C6: Will Trump say "Trump-Class" or "Trump Fleet" in May?
+  E9.C7: Will Trump say "Trump Tax" in May?
+  E9.C8: Will Trump say "Trump Plan" in May?
+  E9.C9: Will Trump say "Trump Family" in May?
+  E9.C10: Will Trump say "Trump Time" in May?
+  E9.C11: Will Trump say "Trump Grande" in May?
+  E9.C12: Will Trump say "Trump Trap" in May?
+
+=== E10: What price will Ethereum hit in April?
+Rules:
+What price will Ethereum hit in April?
+Contracts:
+  E10.C1: Will Ethereum reach $4,000 in April?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for ETH/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last), has a final High price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the ETH/USDT High prices available at https://www.binance.com/en/trade/ETH_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance ETH/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E10.C2: Will Ethereum reach $3,800 in April?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for ETH/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last), has a final High price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the ETH/USDT High prices available at https://www.binance.com/en/trade/ETH_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance ETH/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E10.C3: Will Ethereum reach $3,600 in April?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for ETH/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last), has a final High price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the ETH/USDT High prices available at https://www.binance.com/en/trade/ETH_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance ETH/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E10.C4: Will Ethereum reach $3,400 in April?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for ETH/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last), has a final High price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the ETH/USDT High prices available at https://www.binance.com/en/trade/ETH_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance ETH/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E10.C5: Will Ethereum reach $3,200 in April?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for ETH/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last), has a final High price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the ETH/USDT High prices available at https://www.binance.com/en/trade/ETH_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance ETH/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E10.C6: Will Ethereum reach $3,000 in April?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for ETH/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last), has a final High price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the ETH/USDT High prices available at https://www.binance.com/en/trade/ETH_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance ETH/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E10.C7: Will Ethereum reach $2,800 in April?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for ETH/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last), has a final High price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the ETH/USDT High prices available at https://www.binance.com/en/trade/ETH_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance ETH/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E10.C8: Will Ethereum reach $2,600 in April?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for ETH/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last), has a final High price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the ETH/USDT High prices available at https://www.binance.com/en/trade/ETH_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance ETH/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E10.C9: Will Ethereum dip to $2,000 in April?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for ETH/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last), has a final Low price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the ETH/USDT Low prices available at https://www.binance.com/en/trade/ETH_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance ETH/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E10.C10: Will Ethereum dip to $1,800 in April?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for ETH/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last), has a final Low price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the ETH/USDT Low prices available at https://www.binance.com/en/trade/ETH_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance ETH/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E10.C11: Will Ethereum dip to $1,600 in April?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for ETH/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last), has a final Low price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the ETH/USDT Low prices available at https://www.binance.com/en/trade/ETH_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance ETH/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E10.C12: Will Ethereum dip to $1,400 in April?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for ETH/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last), has a final Low price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the ETH/USDT Low prices available at https://www.binance.com/en/trade/ETH_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance ETH/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.

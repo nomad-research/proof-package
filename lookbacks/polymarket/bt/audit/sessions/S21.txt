@@ -1,0 +1,237 @@
+You will be shown 10 questions from a prediction market. Each question has one or more contracts, and each contract resolves YES or NO under the rules shown.
+
+For every contract, give your probability, as a whole percent from 1 to 99, that it resolves YES. Use only what you already know. Do not search for or look up anything: reading this file is the only tool call you may make.
+
+For each question, also say whether you recognise how it actually turned out ("recognised": true only if you believe you remember the real outcome; otherwise false).
+
+Where a question's contracts are mutually exclusive (exactly one can resolve YES), your numbers for it should add up to about 100. Where they are nested thresholds or dates, keep them consistent with each other.
+
+Reply with one JSON object and nothing else, in this form:
+{"events": [{"label": "E1", "recognised": false, "p": {"E1.C1": 35, "E1.C2": 60}}]}
+
+Every contract label below must appear exactly once in your reply.
+
+=== E1: Turnout in 2025 Portugal Presidential Election First Round (Higher Strikes)
+Rules:
+First-round presidential elections are scheduled to be held in Portugal on January 18, 2026.
+
+This market will resolve according to the first-round turnout percentage, calculated as “Total votantes” divided by “Total inscritos”
+
+If the reported value falls exactly between two brackets, then this market will resolve to the higher range bracket.
+
+If the results of the election aren’t known by May 31, 2026 ET, this market will resolve to the lowest range bracket.  
+
+This market will resolve based on the result of this election as indicated by a consensus of credible reporting. If there is ambiguity, this market will resolve based solely on the official results as reported by the Portuguese government, specifically the National Election Commission (Comissão Nacional de Eleições, CNE) (https://www.cne.pt/).
+Contracts:
+  E1.C1: Will turnout in the first round of the 2026 Portuguese presidential election be less than 45%?
+  E1.C2: Will turnout in the first round of the 2026 Portuguese presidential election be between 45% and 46%?
+  E1.C3: Will turnout in the first round of the 2026 Portuguese presidential election be between 46% and 47%?
+  E1.C4: Will turnout in the first round of the 2026 Portuguese presidential election be between 47% and 48%?
+  E1.C5: Will turnout in the first round of the 2026 Portuguese presidential election be between 48% and 49%?
+  E1.C6: Will turnout in the first round of the 2026 Portuguese presidential election be between 49% and 50%?
+  E1.C7: Will turnout in the first round of the 2026 Portuguese presidential election be at least 50%?
+
+=== E2: Maine Governor Republican Primary Winner
+Rules:
+This market will resolve according to the winner of the Republican Primary for Governor of Maine, scheduled to take place on June 9, 2026. Resolution will be based on the overall winner of the primary, including any potential second round or run-off.
+
+If no 2026 Maine Gubernatorial Republican Primary takes place, this market will resolve to “Other.”
+
+The resolution source for this market will be the first official announcement of the results from the Maine Republican Party; however, an overwhelming consensus of credible reporting may suffice.
+Contracts:
+  E2.C1: Will Jonathan Bush win the 2026 Maine Governor Republican primary election?
+  E2.C2: Will Ken Capron win the 2026 Maine Governor Republican primary election?
+  E2.C3: Will Robert Charles win the 2026 Maine Governor Republican primary election?
+  E2.C4: Will David Jones win the 2026 Maine Governor Republican primary election?
+  E2.C5: Will James Libby win the 2026 Maine Governor Republican primary election?
+  E2.C6: Will Owen McCarthy win the 2026 Maine Governor Republican primary election?
+  E2.C7: Will Ben Midgley win the 2026 Maine Governor Republican primary election?
+  E2.C8: Will Robert Wessels win the 2026 Maine Governor Republican primary election?
+  E2.C9: Will Garrett Mason win the 2026 Maine Governor Republican primary election?
+
+=== E3: Murmansk Oblast Parliament Election: Party Winner
+Rules:
+Parliamentary elections to elect the Duma of Murmansk Oblast, Russia are scheduled to take place on September 20, 2026.
+
+This market will resolve to the political party that wins the greatest number of seats in the Duma of Murmansk Oblast as a result of this election.
+
+The number of seats will include all members of the Duma of Murmansk Oblast serving as a result of this election, including members elected in a single- or multiple-member constituency or by proportional representation, where applicable.
+
+If the results of the specified election are not definitively known by July 31, 2027, this market will resolve to "Other".
+
+In the event of a tie between multiple parties for the most seats won, this market will resolve in favor of the party whose party list received a greater number of valid votes in the specified region’s proportional representation system. Aggregate votes received in constituencies will have no bearing on resolution in a tie. In the event that results in a tie, this market will resolve in favor of the party whose name as listed in this market appears first in alphabetical order.
+
+A constituency-elected member will count towards the party they registered to contest the election with. A member elected by proportional representation will count towards the party whose list they were elected from.
+
+This market's resolution will be based solely on the number of seats won by the named party. Independents will not count towards any party.
+
+This market will resolve based on the results of this election, as indicated by a consensus of credible reporting. If there is ambiguity, this market will resolve solely based on official results as reported by government sources of Murmansk Oblast and Russia, including the Election Commission of Murmansk Oblast and the Central Election Commission of Russia.
+Contracts:
+  E3.C1: Will United Russia win the next Murmansk Oblast Parliament elections?
+  E3.C2: Will CPRF win the next Murmansk Oblast Parliament elections?
+  E3.C3: Will LDPR win the next Murmansk Oblast Parliament elections?
+  E3.C4: Will A Just Russia win the next Murmansk Oblast Parliament elections?
+  E3.C5: Will New People win the next Murmansk Oblast Parliament elections?
+  E3.C6: Will Party of Pensioners win the next Murmansk Oblast Parliament elections?
+
+=== E4: What will Palantir (PLTR) hit in February 2026?
+Rules:
+What will Palantir Technologies Inc. (PLTR) hit in February 2026?
+Contracts:
+  E4.C1: Will Palantir reach $234 in February?
+    Contract rules: This market will resolve to "Yes" if, at any point during February 2026 (ET), any 1-minute candle for Palantir Technologies Inc. (PLTR) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during regular trading hours (ET) will be considered.
+
+The resolution source for this market is Yahoo Finance — specifically, the Palantir Technologies Inc. (PLTR) "High" prices available at https://finance.yahoo.com/quote/PLTR/, with the chart settings on "1m" for candle intervals.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Yahoo Finance.
+  E4.C2: Will Palantir reach $219 in February?
+    Contract rules: This market will resolve to "Yes" if, at any point during February 2026 (ET), any 1-minute candle for Palantir Technologies Inc. (PLTR) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during regular trading hours (ET) will be considered.
+
+The resolution source for this market is Yahoo Finance — specifically, the Palantir Technologies Inc. (PLTR) "High" prices available at https://finance.yahoo.com/quote/PLTR/, with the chart settings on "1m" for candle intervals.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Yahoo Finance.
+  E4.C3: Will Palantir reach $207 in February?
+    Contract rules: This market will resolve to "Yes" if, at any point during February 2026 (ET), any 1-minute candle for Palantir Technologies Inc. (PLTR) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during regular trading hours (ET) will be considered.
+
+The resolution source for this market is Yahoo Finance — specifically, the Palantir Technologies Inc. (PLTR) "High" prices available at https://finance.yahoo.com/quote/PLTR/, with the chart settings on "1m" for candle intervals.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Yahoo Finance.
+  E4.C4: Will Palantir reach $195 in February?
+    Contract rules: This market will resolve to "Yes" if, at any point during February 2026 (ET), any 1-minute candle for Palantir Technologies Inc. (PLTR) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during regular trading hours (ET) will be considered.
+
+The resolution source for this market is Yahoo Finance — specifically, the Palantir Technologies Inc. (PLTR) "High" prices available at https://finance.yahoo.com/quote/PLTR/, with the chart settings on "1m" for candle intervals.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Yahoo Finance.
+  E4.C5: Will Palantir reach $186 in February?
+    Contract rules: This market will resolve to "Yes" if, at any point during February 2026 (ET), any 1-minute candle for Palantir Technologies Inc. (PLTR) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during regular trading hours (ET) will be considered.
+
+The resolution source for this market is Yahoo Finance — specifically, the Palantir Technologies Inc. (PLTR) "High" prices available at https://finance.yahoo.com/quote/PLTR/, with the chart settings on "1m" for candle intervals.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Yahoo Finance.
+  E4.C6: Will Palantir reach $180 in February?
+    Contract rules: This market will resolve to "Yes" if, at any point during February 2026 (ET), any 1-minute candle for Palantir Technologies Inc. (PLTR) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during regular trading hours (ET) will be considered.
+
+The resolution source for this market is Yahoo Finance — specifically, the Palantir Technologies Inc. (PLTR) "High" prices available at https://finance.yahoo.com/quote/PLTR/, with the chart settings on "1m" for candle intervals.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Yahoo Finance.
+  E4.C7: Will Palantir reach $174 in February?
+    Contract rules: This market will resolve to "Yes" if, at any point during February 2026 (ET), any 1-minute candle for Palantir Technologies Inc. (PLTR) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during regular trading hours (ET) will be considered.
+
+The resolution source for this market is Yahoo Finance — specifically, the Palantir Technologies Inc. (PLTR) "High" prices available at https://finance.yahoo.com/quote/PLTR/, with the chart settings on "1m" for candle intervals.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Yahoo Finance.
+  E4.C8: Will Palantir dip to $126 in February?
+    Contract rules: This market will resolve to "Yes" if, at any point during February 2026 (ET), any 1-minute candle for Palantir Technologies Inc. (PLTR) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during regular trading hours (ET) will be considered.
+
+The resolution source for this market is Yahoo Finance — specifically, the Palantir Technologies Inc. (PLTR) "Low" prices available at https://finance.yahoo.com/quote/PLTR/, with the chart settings on "1m" for candle intervals.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Yahoo Finance.
+  E4.C9: Will Palantir dip to $111 in February?
+    Contract rules: This market will resolve to "Yes" if, at any point during February 2026 (ET), any 1-minute candle for Palantir Technologies Inc. (PLTR) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during regular trading hours (ET) will be considered.
+
+The resolution source for this market is Yahoo Finance — specifically, the Palantir Technologies Inc. (PLTR) "Low" prices available at https://finance.yahoo.com/quote/PLTR/, with the chart settings on "1m" for candle intervals.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Yahoo Finance.
+
+=== E5: Will Russia enter Sofiivka by...?
+Rules:
+This market will resolve to “Yes” if, according to the ISW map, Russia captures any territory of Sofiivka by January 31, 2026, at 11:59 PM ET.
+
+Territory will be considered captured if any part of Sofiivka is shaded under a below specified layer on the ISW map (https://storymaps.arcgis.com/stories/36a7f6a6f5a9448496de641cf64bd375) by the resolution date. Otherwise, the market will resolve to “No”.
+
+For any change on the ISW map to qualify for this market’s resolution, the relevant shading indicating Russian control must persist through the next full ISW daily update cycle. If ISW skips a day, shading must persist until the next finalized ISW update is published, regardless of the date. Any continuous shading which reflects either "Assessed Russian Infiltration Areas in Ukraine", “Assessed Russian Control”, “Assessed Russian Advance In Ukraine”, or “Assessed Russian Gains in the Past 24 Hours” will qualify. 
+
+Once a qualifying condition is met, any subsequent loss of control will not be considered towards the resolution of this market.
+
+If Russia comes into control of the specified territory as a result of a negotiated settlement, this will qualify for a 'Yes' resolution, regardless of whether it is shaded red in the ISW map. However, an announcement of a negotiated settlement that gives Russia de jure control will not qualify. Actual control must be established.
+
+The primary resolution source for this market will be the ISW Ukraine map. If the ISW map is rendered unavailable, information from DeepStateMap (https://deepstatemap.live/) may be used. If information from both the ISW and DeepStateMap are rendered permanently unavailable, a consensus of credible reporting may be used.
+
+Note: Any temporary glitches or errors in the map will not be considered.
+Contracts:
+  E5.C1: Will Russia enter Sofiivka by January 31?
+
+=== E6: Paramount x Warner Bros. acquisition announced by June 30?
+Rules:
+This market will resolve to "Yes" if it is announced that Warner Bros. Discovery's studios and streaming businesses will be, have been, or are being acquired by or merged with Paramount Global by June 30, 2026, 11:59 PM ET. Otherwise, this market will resolve to "No".
+
+An official announcement will qualify for a "Yes" resolution, regardless of whether the merger or acquisition is ultimately completed.
+
+Any merger or acquisition will qualify regardless of whether it regards all of Warner Bros. Discovery's studios and streaming businesses or only a subset of those businesses (including, for example, HBO / Max, Warner Bros. Pictures, Warner Bros. Television, or related streaming platforms and content libraries).
+
+The primary resolution source for this market is official information from Paramount Global and/or Warner Bros. Discovery; however, a consensus of credible reporting will also be used.
+Contracts:
+  E6.C1: Paramount x Warner Bros. acquisition announced by June 30?
+
+=== E7: Trump's face on US gold coin by July 4?
+Rules:
+This market will resolve to “Yes” if any gold coin featuring Donald Trump’s likeness is officially issued by the U.S. Mint by July 4th, 2026, 11:59 PM ET. Otherwise, this market will resolve to “No”.
+
+A coin will be considered “officially issued” if the U.S. Mint makes it available for any form of public purchase, order, or distribution. Announcement of a coin without qualifying issuance will not count.
+
+A qualifying coin must be legal tender, but does not need to be minted for general circulation. Commemorative coins minted for a limited production run will qualify.
+
+The primary resolution source for this market will be official information from the U.S. Mint; however, a consensus of credible reporting may also be used.
+Contracts:
+  E7.C1: Trump's face on US gold coin by July 4?
+
+=== E8: Trump out as President by July 31?
+Rules:
+This market will resolve to “Yes” if Donald Trump resigns or is removed as President or otherwise ceases to be the President of the United States for any period of time by July 31, 2026, 11:59 PM ET. Otherwise, this market will resolve to “No”.
+
+An announcement of Donald Trump's resignation/removal before this market's end date will immediately resolve this market to "Yes", regardless of when the announced resignation/removal goes into effect.
+
+Only permanent removal from office will qualify. Temporary removal (e.g. temporary invocation of the 25th Amendment under Section 3 or a Section 4 invocation not sustained by both Houses of Congress) or impeachment without removal will not count.
+
+A sustained invocation of the Twenty-Fifth Amendment, Section 4 (i.e., if both Houses of Congress, by two-thirds vote, uphold the Vice President and Cabinet’s determination of presidential inability) will qualify for a "Yes" resolution. 
+
+The resolution source for this market will be a consensus of credible reporting.
+Contracts:
+  E8.C1: Trump out as President by July 31?
+
+=== E9: Largest Company end of June?
+Rules:
+This market will resolve to the largest company in the world by market cap on June 30, 2026, as of market close.
+
+The resolution source for this market will be a consensus of credible reporting.
+Contracts:
+  E9.C1: Will NVIDIA be the largest company in the world by market cap on June 30?
+  E9.C2: Will Microsoft be the largest company in the world by market cap on June 30?
+  E9.C3: Will Apple be the largest company in the world by market cap on June 30?
+  E9.C4: Will Alphabet be the largest company in the world by market cap on June 30?
+  E9.C5: Will Tesla be the largest company in the world by market cap on June 30?
+  E9.C6: Will Saudi Aramco be the largest company in the world by market cap on June 30?
+  E9.C7: Will Amazon be the largest company in the world by market cap on June 30?
+
+=== E10: MD-01 Democratic Primary Winner
+Rules:
+This market will resolve according to the candidate who wins the nomination for the Democratic Party to contest the MD-01 congressional district seat in the U.S. House of Representatives in the 2026 midterm elections. The Democratic primary will take place on June 23, 2026.
+
+If no nominee is announced by November 3, 2026, 11:59 PM ET, this market will resolve to "Other".
+
+The resolution source for this market will be a consensus of official Democrat sources, including https://democrats.org/.
+
+Any replacement of the nominee before election day will not change the resolution of the market.
+Contracts:
+  E10.C1: Will Victor Guidice be the Democratic nominee for MD-01?
+  E10.C2: Will Dan Schwartz be the Democratic nominee for MD-01?
+  E10.C3: Will George Walsh be the Democratic nominee for MD-01?
+  E10.C4: Will Randi White be the Democratic nominee for MD-01?

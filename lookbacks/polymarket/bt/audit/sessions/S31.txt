@@ -1,0 +1,214 @@
+You will be shown 10 questions from a prediction market. Each question has one or more contracts, and each contract resolves YES or NO under the rules shown.
+
+For every contract, give your probability, as a whole percent from 1 to 99, that it resolves YES. Use only what you already know. Do not search for or look up anything: reading this file is the only tool call you may make.
+
+For each question, also say whether you recognise how it actually turned out ("recognised": true only if you believe you remember the real outcome; otherwise false).
+
+Where a question's contracts are mutually exclusive (exactly one can resolve YES), your numbers for it should add up to about 100. Where they are nested thresholds or dates, keep them consistent with each other.
+
+Reply with one JSON object and nothing else, in this form:
+{"events": [{"label": "E1", "recognised": false, "p": {"E1.C1": 35, "E1.C2": 60}}]}
+
+Every contract label below must appear exactly once in your reply.
+
+=== E1: August Inflation US - Annual
+Rules:
+This is a market about inflation over the 12-month period ending August 2026, before seasonal adjustment, as reported by the Bureau of Labor Statistics.
+
+This market will resolve to the percentage change in the Consumer Price Index (CPI) over the 12-month period ending in August 2026 according to the monthly Bureau of Labor Statistics (BLS) report.
+
+The resolution source for this market will be the BLS Consumer Price Index report released for August 2026 (https://www.bls.gov/bls/news-release/cpi.htm), currently scheduled to be released on September 11, 2026, at 8:30 AM ET. Resolution of this market will take place upon release of the aforementioned data.
+
+Note: the resolution source for this market will be the official monthly BLS CPI news release, which reports inflation over 12-month periods to only one decimal point (e.g., 2.9%). Thus, this is the level of precision that will be used when resolving the market.
+
+If the BLS does not release the relevant figures on the scheduled date, this market may remain open up until the scheduled release time of the next CPI report (https://www.bls.gov/schedule). If the information is not released by that time, this market will resolve according to the figures of the most recent previous month with available data.
+Contracts:
+  E1.C1: Will annual inflation be 2.9% or less in August?
+  E1.C2: Will annual inflation be 3.0% in August?
+  E1.C3: Will annual inflation be 3.1% in August?
+  E1.C4: Will annual inflation be 3.2% in August?
+  E1.C5: Will annual inflation be 3.3% in August?
+  E1.C6: Will annual inflation be 3.4% in August?
+  E1.C7: Will annual inflation be 3.5% in August?
+  E1.C8: Will annual inflation be 3.6% in August?
+  E1.C9: Will annual inflation be 3.7% in August?
+  E1.C10: Will annual inflation be 3.8% in August?
+  E1.C11: Will annual inflation be 3.9% in August?
+  E1.C12: Will annual inflation be 4.0% or more in August?
+
+=== E2: Bank of Korea decision in February?
+Rules:
+This market will resolve according to the change in the base rate resulting from the Bank of Korea’s February monetary policy meeting, relative to the level it was prior to this meeting.
+
+The resolution source for this market is information released by the Bank of Korea after its February 26, 2026 policy-setting meeting, as listed on the official Bank of Korea meeting schedule: https://www.bok.or.kr/eng/bbs/E0000627/view.do?nttId=10094301&searchCnd=1&searchKwd=&depth2=400417&depth3=400022&depth=400022&pageUnit=10&pageIndex=1&programType=newsDataEng&menuNo=400022&oldMenuNo=400022
+
+This market may resolve as soon as the Bank of Korea's policy statement for their February 26 2026 meeting with relevant data is issued. If no decision on the base rate is issued by the end date of the next scheduled meeting, this market will resolve to the "No change" bracket.
+Contracts:
+  E2.C1: Will the Bank of Korea decrease the base rate after the February Meeting?
+  E2.C2: Will the Bank of Korea make no change to the base rate after the February Meeting?
+  E2.C3: Will the Bank of Korea increase the base rate after the February Meeting?
+
+=== E3: Andalusia Election: PP # of seats?
+Rules:
+Elections for the autonomous community of Andalusia’s unicameral parliament are scheduled for May 17, 2026.
+
+This market will resolve according to the number of seats won by Partido Popular (PP) in the Parliament of Andalusia as a result of this election.
+
+If the results of this election are not definitively known by December 31, 2026, 11:59 PM ET, this market will resolve to the lowest range bracket.
+
+This market's resolution will be based solely on the number of seats won by Partido Popular in this election.
+
+This market will resolve based on the result of the election as indicated by a consensus of credible reporting. If there is ambiguity, this market will resolve based solely on the official results as published by the Spanish Junta Electoral Central (JEC) (https://www.juntaelectoralcentral.es/cs/jec/inicio).
+Contracts:
+  E3.C1: Will Partido Popular (PP) win fewer than 50 seats in the 2026 Andalusia Regional Election?
+  E3.C2: Will Partido Popular (PP) win 50-52 seats in the 2026 Andalusia Regional Election?
+  E3.C3: Will Partido Popular (PP) win 53-55 seats in the 2026 Andalusia Regional Election?
+  E3.C4: Will Partido Popular (PP) win 56-58 seats in the 2026 Andalusia Regional Election?
+  E3.C5: Will Partido Popular (PP) win 59-61 seats in the 2026 Andalusia Regional Election?
+  E3.C6: Will Partido Popular (PP) win 62 or more seats in the 2026 Andalusia Regional Election?
+
+=== E4: Will Elon cut the budget by at least 5% in 2025?
+Rules:
+In Q4 2024, government expenditures were $7,106,807,000,000 (see https://fred.stlouisfed.org/series/FGEXPND). 
+
+This market will resolve to “Yes” if federal government current expenditures decrease by 5% or more between the Q4 2024 report and the Q4 2025 report. Otherwise, it will resolve to "No".
+
+Any 2025 quarterly report of $6,751,467,000,000 or less will qualify for a “Yes” resolution.
+
+Revisions made to these figures will not be considered, only the values reported in the initial reports will be used.
+
+This market's resolution source is the Federal Government: Current Expenditures chart maintained by the St. Louis Federal Reserve Bank, displayed here (https://fred.stlouisfed.org/series/FGEXPND).
+Contracts:
+  E4.C1: Will Elon cut the budget by at least 5% in 2025?
+
+=== E5: How low will 30-year Treasury yield get in September?
+Rules:
+This market will resolve to "Yes" if the Treasury 30-year yield is lower than the listed value for any date between September 3, 2026 and September 30, 2026. Otherwise this market will resolve to "No".
+
+This market will resolve as soon as the Treasury 30-year yield is lower than the listed value, or once data is available for September 30, 2026. If no qualifying value is published and data is not available for September 30, 2026 by October 14, 11:59 PM ET, this market will resolve to "No".
+
+The resolution source for this market is the Department of the treasury, specifically the data listed under "Daily Treasury Par Yield Curve Rates" for the column "30 Yr" (see: https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve&field_tdr_date_value=2026).
+Contracts:
+  E5.C1: Will the 30-year Treasury yield dip below 4.95% in September?
+  E5.C2: Will the 30-year Treasury yield dip below 5.00% in September?
+  E5.C3: Will the 30-year Treasury yield dip below 5.05% in September?
+  E5.C4: Will the 30-year Treasury yield dip below 5.09% in September?
+  E5.C5: Will the 30-year Treasury yield dip below 5.12% in September?
+  E5.C6: Will the 30-year Treasury yield dip below 5.15% in September?
+  E5.C7: Will the 30-year Treasury yield dip below 5.18% in September?
+  E5.C8: Will the 30-year Treasury yield dip below 5.21% in September?
+  E5.C9: Will the 30-year Treasury yield dip below 5.24% in September?
+
+=== E6: Santa Cruz Governor Election Winner (Bolivia)
+Rules:
+The Santa Cruz gubernatorial election is scheduled to take place in Bolivia on March 22, 2026.
+
+This market will resolve according to the candidate who wins this election.
+
+If the result of this election isn't known by December 31, 2026, 11:59 PM ET, the market will resolve to "Other".
+
+This market will resolve based on the result of the election as indicated by a consensus of credible reporting. If there is ambiguity, this market will resolve based solely on the official results as reported by the Bolivian electoral authority, the Tribunal Supremo Electoral (TSE) (https://www.oep.org.bo).
+Contracts:
+  E6.C1: Will Juan Pablo Velasco win the 2026 Santa Cruz gubernatorial election?
+  E6.C2: Will Juan Carlos Medrano win the 2026 Santa Cruz gubernatorial election?
+  E6.C3: Will Otto Ritter win the 2026 Santa Cruz gubernatorial election?
+  E6.C4: Will Mauricio Quezada win the 2026 Santa Cruz gubernatorial election?
+  E6.C5: Will Miguel Cadima win the 2026 Santa Cruz gubernatorial election?
+  E6.C6: Will Chi Hyun Chung win the 2026 Santa Cruz gubernatorial election?
+  E6.C7: Will Vladimir Peña win the 2026 Santa Cruz gubernatorial election?
+  E6.C8: Will Julio César Tórrez win the 2026 Santa Cruz gubernatorial election?
+  E6.C9: Will Luis Fernando Camacho win the 2026 Santa Cruz gubernatorial election?
+  E6.C10: Will Guido Eduardo Nayar win the 2026 Santa Cruz gubernatorial election?
+
+=== E7: Pete Hegseth out as Secretary of Defense by September 30?
+Rules:
+This market will resolve to “Yes” if Pete Hegseth ceases to be U.S. Secretary of Defense for any period of time between market creation and the specified date, 11:59 PM ET. Otherwise, this market will resolve to “No”.
+
+An announcement of Pete Hegseth's resignation/removal by this market's end date will immediately resolve this market to "Yes", regardless of when the announced resignation/removal goes into effect.
+
+The resolution source for this market will be official information from Pete Hegseth and the U.S. government; however, a consensus of credible reporting may also be used.
+Contracts:
+  E7.C1: Pete Hegseth out as Secretary of Defense by September 30?
+
+=== E8: Will Russia capture Huliaipole by December 31?
+Rules:
+This market will resolve to “Yes” if, according to the ISW map, Russia captures the intersection between T-04-01 and Heroiv Ukrainy Vulytsia located in Huliaipole by the listed date, 11:59 PM ET.
+
+The intersection station will be considered captured if any part of the intersection is shaded red on the ISW map (https://storymaps.arcgis.com/stories/36a7f6a6f5a9448496de641cf64bd375) by the resolution date. If the area is not shaded red by the specified date, the market will resolve to “No”.
+
+If Russia comes into control of this territory as a result of a negotiated settlement, this will qualify for a 'Yes' resolution, regardless of whether it is shaded red in the ISW map. An announcement of a negotiated settlement that gives Russia de jure control will not qualify. Actual control must be established.
+
+Once Russia captures the intersection, any subsequent loss of control will not be considered towards the resolution of this market.
+
+Intersection Location: https://polymarket-upload.s3.us-east-2.amazonaws.com/1-25de2807b3.png
+
+Intersection Location in Huliaipole: https://polymarket-upload.s3.us-east-2.amazonaws.com/2-4fb07c1a3f.png
+
+Huliaipole Location: https://polymarket-upload.s3.us-east-2.amazonaws.com/3-fb49118886.png
+
+Location on Google Maps: https://maps.app.goo.gl/tQZEoimrxmfJb2MK6
+
+The primary resolution source for this market will be the ISW Ukraine map. If the ISW map is rendered unavailable, information from DeepStateMap (https://deepstatemap.live/) may be used. If information from both the ISW and DeepStateMap are rendered permanently unavailable, a consensus of credible reporting may be used.
+
+Note: Any temporary glitches or errors in the map will not be considered.
+Contracts:
+  E8.C1: Will Russia capture Huliaipole by December 31?
+  E8.C2: Will Russia capture Huliaipole by January 31?
+    Contract rules: This market will resolve to “Yes” if, according to the ISW map, Russia captures the intersection between T-04-01 and Heroiv Ukrainy Vulytsia located in Huliaipole by the listed date, 11:59 PM ET.
+
+The intersection station will be considered captured if any part of the intersection is shaded red on the ISW map (https://storymaps.arcgis.com/stories/36a7f6a6f5a9448496de641cf64bd375) by the resolution date. If the area is not shaded red by the specified date, the market will resolve to “No”.
+
+For any change on the ISW map to qualify for this market’s resolution, the relevant shading indicating Russian control must persist through the next full ISW daily update cycle. If ISW skips a day, shading must persist until the next finalized ISW update is published, regardless of the date. Any continuous shading which reflects either “Assessed Russian Control”, “Assessed Russian Advance In Ukraine”, or “Assessed Russian Gains in the Past 24 Hours” will qualify. “Assessed Russian Infiltration Areas in Ukraine” will not qualify.
+
+If Russia comes into control of this territory as a result of a negotiated settlement, this will qualify for a 'Yes' resolution, regardless of whether it is shaded red in the ISW map. An announcement of a negotiated settlement that gives Russia de jure control will not qualify. Actual control must be established.
+
+Once Russia captures the intersection, any subsequent loss of control will not be considered towards the resolution of this market.
+
+Intersection Location: https://polymarket-upload.s3.us-east-2.amazonaws.com/1-25de2807b3.png
+
+Intersection Location in Huliaipole: https://polymarket-upload.s3.us-east-2.amazonaws.com/2-4fb07c1a3f.png
+
+Huliaipole Location: https://polymarket-upload.s3.us-east-2.amazonaws.com/3-fb49118886.png
+
+Location on Google Maps: https://maps.app.goo.gl/tQZEoimrxmfJb2MK6
+
+The primary resolution source for this market will be the ISW Ukraine map. If the ISW map is rendered unavailable, information from DeepStateMap (https://deepstatemap.live/) may be used. If information from both the ISW and DeepStateMap are rendered permanently unavailable, a consensus of credible reporting may be used.
+
+Note: Any temporary glitches or errors in the map will not be considered.
+
+=== E9: Will John Fetterman leave the Democratic Party in 2025?
+Rules:
+This market will resolve to "Yes" if John Fetterman leaves the Democratic Party by December 31, 2025, 11:59 PM ET. Otherwise, this market will resolve to "No".
+
+This includes switching to the Republican Party, registering as an Independent, or affiliating with any other political party. An official announcement from Fetterman stating that he is leaving the Democratic Party or will no longer caucus with the Democrats will qualify, regardless of when the change takes effect.
+
+The primary resolution source will be an official announcement from John Fetterman or a change in his registration in government records. However, a consensus of credible reporting may also be used.
+Contracts:
+  E9.C1: Will John Fetterman leave the Democratic Party in 2025?
+
+=== E10: US-Iran 60 day negotiation period extended?
+Rules:
+On June 14, 2026, the United States and Iran announced a written diplomatic agreement (the MOU), including a 60-day negotiation period toward a “final deal”, extendable by mutual consent.
+
+This market will resolve to “Yes” if both the United States and Iran publicly and officially announce an extension of the 60-day negotiation period initiated by the MOU between market creation and August 20, 2026, 11:59 PM ET. Otherwise, this market will resolve to “No”.
+
+A qualifying announcement must be a declarative statement of a present extension of the 60-day negotiation period, a previously-unannounced prior extension of the 60-day negotiation period, or definitive agreement to extend the 60-day negotiation period.
+
+A qualifying announcement must clearly and unambiguously identify an extension of the 60-day negotiation period initiated by the MOU. Statements that merely allude to, reference, or describe an extension, without clearly communicating it, do not qualify. However, the announcement need not use specific terminology or reference the MOU by name.
+
+A qualifying announcement must be made through official channels, by an individual acting in an official capacity. Statements made incidentally or informally in a context not intended for official communication do not qualify.
+
+The extension must be mutually announced by the United States and the Islamic Republic of Iran by the specified date, 11:59 PM ET. Mutual announcement means that taken together, the announcements from the United States and the Islamic Republic of Iran directly indicate that both parties have agreed to extend the 60-day negotiation period, or have recognized a definitive extension of the period.
+
+The following do not qualify as official announcements: 
+- Anonymous, unattributed, or leaked statements not confirmed as official; 
+- Statements by persons not authorized to speak for the United States or Iran;
+- Third-party speculation, analysis, or predictions that the United States or Iran will announce or implement an extension of the 60-day negotiation period; 
+- Satirical, fabricated, hacked, or impersonated communications; 
+- Statements that describe a prospective, contingent, probable, or conditional extension of the 60-day negotiation period rather than announcing a present and decided position.
+
+Once an extension has been mutually announced by the United States and Iran, this market will resolve to “Yes” regardless of whether it is later reversed, or whether the extension is ever actually implemented.
+
+Resolution will be based on official information from the United States and Iran, including their official representatives.
+Contracts:
+  E10.C1: US-Iran 60 day negotiation period extended?

@@ -1,0 +1,294 @@
+You will be shown 10 questions from a prediction market. Each question has one or more contracts, and each contract resolves YES or NO under the rules shown.
+
+For every contract, give your probability, as a whole percent from 1 to 99, that it resolves YES. Use only what you already know. Do not search for or look up anything: reading this file is the only tool call you may make.
+
+For each question, also say whether you recognise how it actually turned out ("recognised": true only if you believe you remember the real outcome; otherwise false).
+
+Where a question's contracts are mutually exclusive (exactly one can resolve YES), your numbers for it should add up to about 100. Where they are nested thresholds or dates, keep them consistent with each other.
+
+Reply with one JSON object and nothing else, in this form:
+{"events": [{"label": "E1", "recognised": false, "p": {"E1.C1": 35, "E1.C2": 60}}]}
+
+Every contract label below must appear exactly once in your reply.
+
+=== E1: OpenAI’s valuation end of August 2026?
+Rules:
+This market will resolve according to OpenAI's private market valuation, as measured by the NPM Price reported by Nasdaq Private Market, LLC (NPM) for the last trading day of the specified month.
+
+If the determined value falls exactly on the boundary between two brackets, this market will resolve to the higher bracket.
+
+NPM Prices are published for trading days only and are updated once daily at 1:00 PM ET on the following calendar day.
+
+If NPM has not published relevant data for the last trading day of the specified month by 1:00 PM ET on the day following the last trading day of the specified month, this market may remain open until 11:59 PM ET on the third business day following the last trading day of the specified month. If no further data is released by that time, the market will resolve according to the data available.
+
+If NPM ceases publishing relevant data prior to the end of the specified period, this market will resolve based on the NPM data published for the period prior to the cessation of coverage, as well as any applicable public market capitalization data following an IPO or direct listing.
+
+If the company completes an IPO or direct listing before the end of the specified period, this market will consider the company’s public market capitalization on the last trading day of the specified month.
+
+Public market capitalization will be determined through appropriate calculation using the final official regular-hours closing prices published for the company's listed equities on its primary exchange for the last trading day of the specified month, multiplied by the company's total number of shares outstanding at the relevant time. If necessary, to accurately capture the company’s total market capitalization, rather than a stock-class-specific market capitalization, the calculation will include all outstanding share classes and apply any stated conversion ratios to the publicly traded class. Where no conversion right exists, such shares will be counted at their stated outstanding amount without discount, unless official filings explicitly specify differently. The number of outstanding shares will be determined from official company filings or disclosures (e.g., SEC filings).
+
+If the listed company merges with or acquires another entity and remains the parent company, no change to resolution methodology applies.
+
+If the listed company is acquired, merges into another entity and is no longer the surviving parent company, or otherwise ceases to exist as an independent entity prior to the end of the period, only NPM valuations and applicable public market capitalizations achieved prior to completion of the transaction will be considered for resolution. No transaction, acquisition, or merger consideration will be considered for resolution.
+
+The resolution source for this market is NPM data published here: https://fe.secondmarket.com/companies/company-30839e0b-2730-4495-839f-1bf638fa9cca/data. The resolution source for any period following an IPO, direct listing, or relevant corporate action, will be official exchange trading data and publicly reported share counts.
+
+Revisions to previously published NPM data made after their initial release will not be considered, unless made to correct clearly erroneous data.
+Contracts:
+  E1.C1: Will OpenAI’s valuation be less than $600B at the end of August 2026?
+  E1.C2: Will OpenAI’s valuation be between $600B and $700B at the end of August 2026?
+  E1.C3: Will OpenAI’s valuation be between $700B and $800B at the end of August 2026?
+  E1.C4: Will OpenAI’s valuation be between $800B and $900B at the end of August 2026?
+  E1.C5: Will OpenAI’s valuation be between $900B and $1.00T at the end of August 2026?
+  E1.C6: Will OpenAI’s valuation be between $1.00T and $1.10T at the end of August 2026?
+  E1.C7: Will OpenAI’s valuation be between $1.10T and $1.20T at the end of August 2026?
+  E1.C8: Will OpenAI’s valuation be between $1.20T and $1.30T at the end of August 2026?
+  E1.C9: Will OpenAI’s valuation be at least $1.30T at the end of August 2026?
+
+=== E2: Japan General Election 3rd Place?
+Rules:
+General elections are scheduled to be held in Japan on February 8, 2026.
+
+This market will resolve according to the political party that wins the third greatest number of seats in the next Japanese House of Representatives (衆議院, Shūgiin) election.
+
+If the results are not known definitively by November 30, 2026, 11:59 PM ET, this market will resolve to "Other".
+
+Parties will be ranked by the number of seats won in the House of Representatives of the Japanese National Diet. If two or more parties are tied on seats, ties will be broken by the total number of valid votes received, with higher vote totals ranking higher. If parties remain tied, ties will be broken by alphabetical order of the listed party abbreviations. This market will resolve to the party that occupies the third-highest finishing position after applying this ranking.
+
+This market will resolve based on the results of the election as indicated by a consensus of credible reporting. If there is ambiguity, this market will resolve based solely on the official results reported by the Japanese government, including the Ministry of Internal Affairs and Communications (https://www.soumu.go.jp/) or e-Stat (Japan’s government statistics portal; https://www.e-stat.go.jp/).
+
+Note: If a listed party contests the election as part of a jointly listed coalition with one or more parties not listed in this market (including through merger), the market corresponding to the listed party will represent the coalition and will count all seats won by the coalition collectively. If two or more listed parties contest the election as a jointly listed coalition (including through merger), with or without additional parties not listed in this market, the market corresponding to the party within that coalition that won the most seats in the previous election will represent the coalition and will count all seats won by the coalition collectively. If such a coalition dissolves, each market will again represent its respective party individually.
+Contracts:
+  E2.C1: Will the Liberal Democratic Party win the third-most seats in the 2026 Japanese general election?
+  E2.C2: Will the Centrist Reform Alliance win the third-most seats in the 2026 Japanese general election?
+  E2.C3: Will the Japan Innovation Party win the third-most seats in the 2026 Japanese general election?
+  E2.C4: Will the Democratic Party for the People win the third-most seats in the 2026 Japanese general election?
+  E2.C5: Will Sanseitō win the third-most seats in the 2026 Japanese general election?
+  E2.C6: Will Reiwa Shinsengumi win the third-most seats in the 2026 Japanese general election?
+  E2.C7: Will the Japanese Communist Party win the third-most seats in the 2026 Japanese general election?
+  E2.C8: Will the Conservative Party of Japan win the third-most seats in the 2026 Japanese general election?
+  E2.C9: Will the Social Democratic Party win the third-most seats in the 2026 Japanese general election?
+  E2.C10: Will Team Mirai win the third-most seats in the 2026 Japanese general election?
+
+=== E3: Tulsi Gabbard out by...?
+Rules:
+This market will resolve to “Yes” if Tulsi Gabbard ceases to be the Director of National Intelligence for any period of time between market creation and March 31, 2026, 11:59 PM ET. Otherwise, this market will resolve to “No”.
+
+An announcement of Gabbard's resignation/removal before this market's end date will immediately resolve this market to "Yes", regardless of when the announced resignation/removal goes into effect.
+
+The resolution source for this market will be official information from the Trump administration, however a consensus of credible reporting may also be used.
+Contracts:
+  E3.C1: Tulsi Gabbard out by June 30?
+    Contract rules: This market will resolve to “Yes” if Tulsi Gabbard ceases to be the Director of National Intelligence for any period of time between market creation and June 30, 2026, 11:59 PM ET. Otherwise, this market will resolve to “No”.
+
+An announcement of Gabbard's resignation/removal before this market's end date will immediately resolve this market to "Yes", regardless of when the announced resignation/removal goes into effect.
+
+The resolution source for this market will be official information from the Trump administration, however a consensus of credible reporting may also be used.
+
+=== E4: Who will Trump name in April?
+Rules:
+This market will resolve to "Yes" if Donald Trump says the listed name between April 1, 2026, 12:00AM ET and April 30, 2026, 11:59PM ET. Otherwise, the market will resolve to "No".
+
+Plural and possessive forms of the listed term will count toward the resolution of this market regardless of context; however, other forms will NOT count.
+
+If this market requires a specified number of mentions of a person’s first or last name, a full-name mention will count as one mention (e.g., if a market is about “Joe / Biden 5+ times,” a mention of “Joe Biden” will count once).
+
+A ‘mention’ will include any verbal mention which is recorded (audio or video) and publicly accessible.
+
+Written usages of terms (e.g. Truth Social posts, written statements, etc.) will not count toward this market's resolution.
+
+AI-generated audio or video will not count toward this market's resolution.
+
+Videos posted on his social media which were filmed outside this market's time frame will not qualify for a "Yes" resolution.
+Contracts:
+  E4.C1: Will Trump name "Hillary" in April?
+  E4.C2: Will Trump name "Bernie" in April?
+  E4.C3: Will Trump name "Oz" in April?
+  E4.C4: Will Trump name "Paxton" in April?
+  E4.C5: Will Trump name "Talarico" in April?
+  E4.C6: Will Trump name "Schumer" in April?
+  E4.C7: Will Trump name "Massie" in April?
+  E4.C8: Will Trump name "Rand Paul" in April?
+  E4.C9: Will Trump name "Kavanaugh" in April?
+  E4.C10: Will Trump name "Leavitt" in April?
+  E4.C11: Will Trump name "Zohran" or "Mamdani" in April?
+  E4.C12: Will Trump name "Jensen" or "Huang" in April?
+
+=== E5: What price will Bitcoin hit in March?
+Rules:
+What price will Bitcoin hit in March?
+Contracts:
+  E5.C1: Will Bitcoin reach $150,000 in March?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for BTC/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last), has a final High price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the BTC/USDT High prices available at https://www.binance.com/en/trade/BTC_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance BTC/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E5.C2: Will Bitcoin reach $110,000 in March?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for BTC/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last), has a final High price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the BTC/USDT High prices available at https://www.binance.com/en/trade/BTC_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance BTC/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E5.C3: Will Bitcoin reach $105,000 in March?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for BTC/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last), has a final High price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the BTC/USDT High prices available at https://www.binance.com/en/trade/BTC_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance BTC/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E5.C4: Will Bitcoin reach $100,000 in March?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for BTC/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last), has a final High price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the BTC/USDT High prices available at https://www.binance.com/en/trade/BTC_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance BTC/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E5.C5: Will Bitcoin reach $95,000 in March?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for BTC/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last), has a final High price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the BTC/USDT High prices available at https://www.binance.com/en/trade/BTC_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance BTC/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E5.C6: Will Bitcoin reach $90,000 in March?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for BTC/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last), has a final High price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the BTC/USDT High prices available at https://www.binance.com/en/trade/BTC_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance BTC/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E5.C7: Will Bitcoin reach $85,000 in March?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for BTC/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last), has a final High price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the BTC/USDT High prices available at https://www.binance.com/en/trade/BTC_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance BTC/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E5.C8: Will Bitcoin reach $80,000 in March?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for BTC/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last), has a final High price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the BTC/USDT High prices available at https://www.binance.com/en/trade/BTC_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance BTC/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E5.C9: Will Bitcoin dip to $65,000 in March?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for BTC/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last), has a final Low price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the BTC/USDT Low prices available at https://www.binance.com/en/trade/BTC_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance BTC/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E5.C10: Will Bitcoin dip to $60,000 in March?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for BTC/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last), has a final Low price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the BTC/USDT Low prices available at https://www.binance.com/en/trade/BTC_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance BTC/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E5.C11: Will Bitcoin dip to $55,000 in March?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for BTC/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last), has a final Low price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the BTC/USDT Low prices available at https://www.binance.com/en/trade/BTC_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance BTC/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E5.C12: Will Bitcoin dip to $50,000 in March?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for BTC/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last), has a final Low price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the BTC/USDT Low prices available at https://www.binance.com/en/trade/BTC_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance BTC/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+
+=== E6: Silver (SI) above ___ end of February?
+Rules:
+This market will resolve to "Yes" if the official CME settlement price for the Active Month of Silver futures on the final trading day of February 2026 is higher than the listed price. Otherwise, the market will resolve to "No".
+
+For CME Silver (SI) futures contracts, the Active Month is the nearest of CME's designated delivery-cycle months (March, May, July, September, December) that is not the spot month. The Active Month becomes a non-active month effective on its First Position Date, at which point the next eligible contract month becomes the Active Month.
+
+Only the Active Month's official settlement price published by CME Group will be considered. Intraday trades, highs, lows, bids, offers, midpoint values, or indicative prices do not count.
+
+Note that the settlement price may differ from the last traded price. CME's methodology to determine the settlement price can vary by commodity and contract.
+
+Only days during February on which CME publishes an official settlement price for the Active Month will be included. Days without settlement prices (weekends, holidays, or market closures) are ignored.
+
+This market will resolve based on the settlement price as it appears on the CME settlement page at the time it is first published for that trading day, regardless of any later corrections or updates.
+
+The resolution source for this market is the CME Group website — specifically, the daily "Settlement" price for the Active Month of Silver (SI) futures.
+Contracts:
+  E6.C1: Will Silver (SI) settle over $120 on the final trading day of February 2026?
+  E6.C2: Will Silver (SI) settle over $110 on the final trading day of February 2026?
+  E6.C3: Will Silver (SI) settle over $100 on the final trading day of February 2026?
+  E6.C4: Will Silver (SI) settle over $95 on the final trading day of February 2026?
+  E6.C5: Will Silver (SI) settle over $90 on the final trading day of February 2026?
+  E6.C6: Will Silver (SI) settle over $85 on the final trading day of February 2026?
+  E6.C7: Will Silver (SI) settle over $80 on the final trading day of February 2026?
+  E6.C8: Will Silver (SI) settle over $75 on the final trading day of February 2026?
+  E6.C9: Will Silver (SI) settle over $70 on the final trading day of February 2026?
+  E6.C10: Will Silver (SI) settle over $65 on the final trading day of February 2026?
+  E6.C11: Will Silver (SI) settle over $55 on the final trading day of February 2026?
+  E6.C12: Will Silver (SI) settle over $40 on the final trading day of February 2026?
+
+=== E7: Honduras presidential election annulled by February 28?
+Rules:
+This market will resolve to "Yes" if the results of the November 30 Honduran presidential election are annulled by February 28, 2026, 11:59 PM ET. Otherwise, this market will resolve to "No". 
+
+The results of this election will be considered annulled if they are formally declared invalid by the Honduras Tribunal de Justicia Electoral or another official body of the government of Honduras with the legal jurisdiction to do so.
+
+If an official body of the government of Honduras with legal jurisdiction to rule on this matter has formally accepted a case seeking annulment of this election and no ruling has been issued by February 28, 2026, 11:59 PM ET, this market may remain open until a ruling is publicly announced.
+
+This market will resolve based on the first qualifying ruling issued that annuls this election. Subsequent appeals or challenges will not be considered.
+
+The resolution sources will be official information from the government of Honduras and a consensus of credible reporting.
+Contracts:
+  E7.C1: Honduras presidential election annulled by February 28?
+
+=== E8: Will Trump cut off trade with Spain?
+Rules:
+This market will resolve to “Yes” if Donald Trump signs any federal legislation into law or performs any executive action (including executive orders, proclamations, and memoranda) that orders, directs, or enacts a comprehensive ban on imports and exports between the United States and Spain by March 31, 2026, 11:59 PM ET. Otherwise this market will resolve to “No”.
+
+An official announcement, made within this market’s timeframe, from the Trump Administration that a concrete policy to comprehensively ban imports and exports between the US and Spain will definitively be implemented, without such legislation or executive action, will also suffice for a “Yes” resolution. Such an announcement must be tied to a specific policy or set of actions being implemented; mere public statements that a ban will be implemented will not qualify.
+
+A comprehensive ban on imports and exports between the United States and Spain is defined as any trade ban or embargo that applies broadly to imports and exports between the US and Spain. Limited exceptions for certain categories of imports and exports will not disqualify a ban from counting, provided the ban applies generally to US-Spain imports and exports. Bans or embargoes which apply only to a limited subset of U.S.-Spain trade, or tariffs, sanctions, or other punitive trade measures which do not constitute a comprehensive ban on imports or exports between the US and Spain, will not count.
+
+A qualifying ban which is ordered, enacted, or announced within this market’s timeframe will qualify, regardless of when it is scheduled to be implemented or if it is blocked or invalidated prior to implementation.
+
+The primary resolution source for this market will be official information from the Trump Administration; however, a consensus of credible reporting may also be used.
+Contracts:
+  E8.C1: Will Trump cut off trade with Spain?
+
+=== E9: Paramount+ subscribers above __ in Q1?
+Rules:
+This market will resolve to “Yes” if Paramount’s number of Paramount+ Subscribers for the first fiscal quarter of 2026, as reported in its official company earnings materials, is above the listed amount. Otherwise, this market will resolve to “No”.
+
+The specified metric will be considered as reported in the company’s official earnings materials. Subsequent revisions will not be considered.
+
+If the specified company’s official earnings materials for the specified quarter are released and the specified metric is not included, this market will resolve to “No”. 
+
+If the specified company does not release quarterly earnings materials for the specified quarter by June 30, 2026, 11:59 PM ET, this market will resolve to “No”.
+
+If the specified metric is reported as a range rather than a specific number, the midpoint of the range will be used for resolution of this market. 
+
+The resolution source for this market is Paramount’s official company earnings materials, including press releases, investor presentations, and regulatory filings. If the specified metric is not reported in these materials, recordings or transcripts of the company’s earnings webcast may also be used.
+
+Note: This market will resolve based on the most numerically precise version of the specified metric reported in the company’s official earnings materials. Only the specified metric will be considered; alternate versions that differ in definition or scope from the specified metric will not be considered.
+Contracts:
+  E9.C1: Paramount+ subscribers above 74M in Q1?
+  E9.C2: Paramount+ subscribers above 76M in Q1?
+  E9.C3: Paramount+ subscribers above 78M in Q1?
+  E9.C4: Paramount+ subscribers above 80M in Q1?
+  E9.C5: Paramount+ subscribers above 82M in Q1?
+  E9.C6: Paramount+ subscribers above 84M in Q1?
+  E9.C7: Paramount+ subscribers above 86M in Q1?
+
+=== E10: Trump invokes War Powers against Venezuela by...?
+Rules:
+This market will resolve to “Yes” if the Trump Administration submits a 48-hour report consistent with the War Powers Resolution regarding the introduction of U.S. armed forces into hostilities or imminent hostilities against Venezuela between the date of market creation and the listed date, ET. Otherwise, this market will resolve to “No.”
+
+The market will resolve based on the listed date of the report. This market may stay open until 10 days after the listed date (ET) to allow for a qualifying report to be published.
+
+The primary resolution sources for this market will be the White House, the Congressional Record, and the NYU Law War Powers Resolution Reporting Project; however, a consensus of credible reporting may also be used.
+Contracts:
+  E10.C1: Trump invokes War Powers against Venezuela by January 15?
+    Contract rules: This market will resolve to “Yes” if the Trump Administration submits a 48-hour report consistent with the War Powers Resolution regarding the introduction of U.S. armed forces into hostilities or imminent hostilities against Venezuela between the date of market creation and January 15, 2026, 11:59PM ET. Otherwise, this market will resolve to “No.”
+
+The market will resolve based on the listed date of the report. This market may stay open until 10 days after the listed date (ET) to allow for a qualifying report to be published.
+
+The primary resolution sources for this market will be the White House, the Congressional Record, and the NYU Law War Powers Resolution Reporting Project; however, a consensus of credible reporting may also be used.
+  E10.C2: Trump invokes War Powers against Venezuela by January 31?
+    Contract rules: This market will resolve to “Yes” if the Trump Administration submits a 48-hour report consistent with the War Powers Resolution regarding the introduction of U.S. armed forces into hostilities or imminent hostilities against Venezuela between the date of market creation and January 31, 2026, 11:59PM ET. Otherwise, this market will resolve to “No.”
+
+The market will resolve based on the listed date of the report. This market may stay open until 10 days after the listed date (ET) to allow for a qualifying report to be published.
+
+The primary resolution sources for this market will be the White House, the Congressional Record, and the NYU Law War Powers Resolution Reporting Project; however, a consensus of credible reporting may also be used.

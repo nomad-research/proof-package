@@ -1,0 +1,217 @@
+You will be shown 10 questions from a prediction market. Each question has one or more contracts, and each contract resolves YES or NO under the rules shown.
+
+For every contract, give your probability, as a whole percent from 1 to 99, that it resolves YES. Use only what you already know. Do not search for or look up anything: reading this file is the only tool call you may make.
+
+For each question, also say whether you recognise how it actually turned out ("recognised": true only if you believe you remember the real outcome; otherwise false).
+
+Where a question's contracts are mutually exclusive (exactly one can resolve YES), your numbers for it should add up to about 100. Where they are nested thresholds or dates, keep them consistent with each other.
+
+Reply with one JSON object and nothing else, in this form:
+{"events": [{"label": "E1", "recognised": false, "p": {"E1.C1": 35, "E1.C2": 60}}]}
+
+Every contract label below must appear exactly once in your reply.
+
+=== E1: Trump renames Strait of Hormuz to "Strait of Trump" by May 31?
+Rules:
+This market will resolve to "Yes" if Donald Trump publicly announces, that the United States will officially refer to the Strait of Hormuz as the "Strait of Trump" or "Trump Strait" or any equivalent name which includes "Trump" by May 31, 2026, 11:59 PM ET. Otherwise, this market will resolve to "No".
+
+The primary resolution source for this market will be official information from Donald Trump however, a consensus of credible reporting may also be used.
+Contracts:
+  E1.C1: Trump renames Strait of Hormuz to "Strait of Trump" by May 31?
+
+=== E2: Will T-Mobile (TMUS) Q2 total service revenues be above __?
+Rules:
+This market will resolve to "Yes" if T-Mobile's total service revenues for the upcoming second fiscal quarter, as reported in its official company earnings materials, is above the listed amount. Otherwise, this market will resolve to "No".
+
+The specified metric will be considered as reported in the company's official earnings materials. Subsequent revisions will not be considered.
+
+If the specified company's official earnings materials for the specified quarter are released, and the specified metric is not included, this market will resolve to "No".
+
+If the specified company does not release quarterly earnings materials for the specified quarter by August 31, 2026, 11:59 PM ET, this market will resolve to "No".
+
+If the specified metric is reported as a range rather than a specific number, the midpoint of the range will be used for resolution of this market.
+
+The resolution source for this market is the specified company's official company earnings materials, including press releases, investor presentations, and regulatory filings. If the specified metric is not reported in these materials, recordings or transcripts of the company's earnings webcast may also be used.
+
+Note: This market will resolve based on the most numerically precise version of the specified metric reported in the company's official earnings materials. Only the specified metric will be considered; alternate versions that differ in definition or scope from the specified metric will not be considered.
+Contracts:
+  E2.C1: Will T-Mobile (TMUS) Q2 total service revenues be above $19B?
+  E2.C2: Will T-Mobile (TMUS) Q2 total service revenues be above $19.1B?
+  E2.C3: Will T-Mobile (TMUS) Q2 total service revenues be above $19.2B?
+  E2.C4: Will T-Mobile (TMUS) Q2 total service revenues be above $19.3B?
+  E2.C5: Will T-Mobile (TMUS) Q2 total service revenues be above $19.4B?
+
+=== E3: 2nd Largest company end of January?
+Rules:
+This market will resolve to the second-largest company in the world by market cap on January 31, 2026, as of market close.
+
+The resolution source for this market will be a consensus of credible reporting.
+Contracts:
+  E3.C1: Will NVIDIA be the second-largest company in the world by market cap on January 31?
+  E3.C2: Will Microsoft be the second-largest company in the world by market cap on January 31?
+  E3.C3: Will Apple be the second-largest company in the world by market cap on January 31?
+  E3.C4: Will Alphabet be the second-largest company in the world by market cap on January 31?
+  E3.C5: Will Tesla be the second-largest company in the world by market cap on January 31?
+  E3.C6: Will Saudi Aramco be the second-largest company in the world by market cap on January 31?
+  E3.C7: Will Amazon be the second-largest company in the world by market cap on January 31?
+
+=== E4: Will KOSPI (KS11) close above __ end of Q1?
+Rules:
+This market will resolve to "Yes" if the official closing price for the KOSPI Composite Index (^KS11) on the final trading day of the first quarter of 2026 is higher than the listed price. Otherwise, this market will resolve to "No".
+
+The first quarter of 2026 ends on March 31, 2026. The closing price for the final day of trading on or before this date will be used to resolve this market.
+
+If the final trading day of the quarter is shortened (for example, due to a market-holiday schedule), the official closing price published for that shortened session will still be used for resolution.
+
+If no official closing price is published for that session (for example, due to a trading halt into the close, system issue, or other disruption), the market will use the last valid on-exchange trade price of the regular session as the effective closing price.
+
+The resolution source for this market is Yahoo Finance, specifically the KOSPI Composite Index (^KS11) "Close" prices available at https://finance.yahoo.com/quote/%5EKS11/history/, published under "Historical Data."
+Contracts:
+  E4.C1: Will the KOSPI Composite Index (^KS11) close above 4500 on the final trading day of Q1 2026?
+  E4.C2: Will the KOSPI Composite Index (^KS11) close above 4750 on the final trading day of Q1 2026?
+  E4.C3: Will the KOSPI Composite Index (^KS11) close above 5000 on the final trading day of Q1 2026?
+  E4.C4: Will the KOSPI Composite Index (^KS11) close above 5250 on the final trading day of Q1 2026?
+  E4.C5: Will the KOSPI Composite Index (^KS11) close above 5500 on the final trading day of Q1 2026?
+  E4.C6: Will the KOSPI Composite Index (^KS11) close above 5750 on the final trading day of Q1 2026?
+  E4.C7: Will the KOSPI Composite Index (^KS11) close above 6000 on the final trading day of Q1 2026?
+  E4.C8: Will the KOSPI Composite Index (^KS11) close above 6500 on the final trading day of Q1 2026?
+  E4.C9: Will the KOSPI Composite Index (^KS11) close above 7000 on the final trading day of Q1 2026?
+
+=== E5: What price will Hyperliquid hit in July?
+Rules:
+What price will Hyperliquid hit in July?
+Contracts:
+  E5.C1: Will Hyperliquid reach $88 in July?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for HYPEUSDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last) has a final High price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the HYPEUSDT High prices available at https://www.binance.com/en/futures/HYPEUSDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance HYPEUSDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E5.C2: Will Hyperliquid reach $84 in July?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for HYPEUSDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last) has a final High price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the HYPEUSDT High prices available at https://www.binance.com/en/futures/HYPEUSDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance HYPEUSDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E5.C3: Will Hyperliquid reach $80 in July?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for HYPEUSDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last) has a final High price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the HYPEUSDT High prices available at https://www.binance.com/en/futures/HYPEUSDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance HYPEUSDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E5.C4: Will Hyperliquid reach $76 in July?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for HYPEUSDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last) has a final High price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the HYPEUSDT High prices available at https://www.binance.com/en/futures/HYPEUSDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance HYPEUSDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E5.C5: Will Hyperliquid dip to $56 in July?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for HYPEUSDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last) has a final Low price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the HYPEUSDT Low prices available at https://www.binance.com/en/futures/HYPEUSDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance HYPEUSDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E5.C6: Will Hyperliquid dip to $52 in July?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for HYPEUSDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last) has a final Low price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the HYPEUSDT Low prices available at https://www.binance.com/en/futures/HYPEUSDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance HYPEUSDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E5.C7: Will Hyperliquid dip to $48 in July?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for HYPEUSDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last) has a final Low price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the HYPEUSDT Low prices available at https://www.binance.com/en/futures/HYPEUSDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance HYPEUSDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+
+=== E6: Will Nigel Farage up his vote share in Clacton?
+Rules:
+A by-election for the United Kingdom parliamentary constituency of Clacton is expected to be held soon following the announced resignation of incumbent Nigel Farage.
+
+This market will resolve to “Yes” if Nigel Farage receives a greater percentage of valid votes in the next by-election in Clacton than in the 2024 election in Clacton. Otherwise, this market will resolve to "No".
+
+Percentages of the valid votes received by Nigel Farage in each election will be determined by dividing the total number of valid votes Nigel Farage received by the sum of all valid votes cast in the election.
+
+If Nigel Farage does not contest the next by-election in Clacton, if no by-election happens by June 30, 2027, or if the results of the by-election are not known definitively by June 30, 2027, this market will resolve to “No”.
+
+The resolution source for this market will be a consensus of credible reporting. In case of ambiguity, this market will resolve solely based on official election results as published by Tendring District Council (https://www.tendringdc.gov.uk/) and the UK Parliament (https://www.parliament.uk/).
+Contracts:
+  E6.C1: Will Nigel Farage up his vote share in Clacton?
+
+=== E7: Will Taiwan Semiconductor (TSM) Q2 revenue (USD) be above __?
+Rules:
+This market will resolve to "Yes" if Taiwan Semiconductor's revenue in USD for the upcoming second fiscal quarter, as reported in its official company earnings materials, is above the listed amount. Otherwise, this market will resolve to "No".
+
+The specified metric will be considered as reported in the company's official earnings materials. Subsequent revisions will not be considered.
+
+If the specified company's official earnings materials for the specified quarter are released, and the specified metric is not included, this market will resolve to "No".
+
+If the specified company does not release quarterly earnings materials for the specified quarter by August 31, 2026, 11:59 PM ET, this market will resolve to "No".
+
+If the specified metric is reported as a range rather than a specific number, the midpoint of the range will be used for resolution of this market.
+
+The resolution source for this market is Taiwan Semiconductor's official company earnings materials, including press releases, investor presentations, and regulatory filings. If the specified metric is not reported in these materials, recordings or transcripts of the company's earnings webcast may also be used.
+
+Note: This market will resolve based on the most numerically precise version of the specified metric reported in the company's official earnings materials. Only the specified metric will be considered; alternate versions that differ in definition or scope from the specified metric will not be considered.
+Contracts:
+  E7.C1: Will Taiwan Semiconductor (TSM) Q2 revenue (USD) be above $39B?
+  E7.C2: Will Taiwan Semiconductor (TSM) Q2 revenue (USD) be above $40B?
+  E7.C3: Will Taiwan Semiconductor (TSM) Q2 revenue (USD) be above $41B?
+  E7.C4: Will Taiwan Semiconductor (TSM) Q2 revenue (USD) be above $42B?
+  E7.C5: Will Taiwan Semiconductor (TSM) Q2 revenue (USD) be above $43B?
+
+=== E8: Sejong Mayoral Election Winner
+Rules:
+The Sejong mayoral election is scheduled to take place on June 3, 2026.
+
+This market will resolve according to the candidate who wins this election.
+
+Interim, temporary, or caretaker mayors will not count.
+
+If the result of this election isn't known by December 31, 2026, 11:59 PM ET, the market will resolve to "Other".
+
+This market will resolve based on the result of the election as indicated by a consensus of credible reporting. If there is ambiguity, this market will resolve based solely on the official results as reported by the South Korean government, specifically the National Election Commission (https://www.nec.go.kr/).
+Contracts:
+  E8.C1: Will Cho Sangho win the 2026 Sejong mayoral election?
+  E8.C2: Will Choi Min-ho win the 2026 Sejong mayoral election?
+
+=== E9: LA Mayoral Election: First Round Second Place?
+Rules:
+The 2026 Los Angeles mayoral election will be held on June 2, 2026, to elect the mayor of Los Angeles, California. If no candidate receives a majority of the vote, a runoff election will be held on November 3, 2026.
+
+This market will resolve according to the listed candidate who receives the second-most valid votes in the first round of this election.
+
+The named candidates will be primarily ranked by the number of valid votes received in the specified election. If two or more candidates are tied on valid votes, ties will be broken by alphabetical order of the candidates' last names. This market will resolve to the candidate that occupies the second-highest finishing position after applying this ranking.
+
+If the results are not known definitively by December 31, 2026, 11:59 PM ET, this market will resolve to "Other".
+
+This market will resolve based on the results of this election as indicated by a consensus of credible reporting. If there is ambiguity, this market will resolve based solely on the official results as reported by the city and county of Los Angeles.
+Contracts:
+  E9.C1: Will Karen Bass finish second in the first round of the 2026 Los Angeles mayoral election?
+  E9.C2: Will Rick Caruso finish second in the first round of the 2026 Los Angeles mayoral election?
+  E9.C3: Will Asaad Alnajjar finish second in the first round of the 2026 Los Angeles mayoral election?
+  E9.C4: Will Gina Viola finish second in the first round of the 2026 Los Angeles mayoral election?
+  E9.C5: Will Spencer Pratt finish second in the first round of the 2026 Los Angeles mayoral election?
+  E9.C6: Will Austin Beutner finish second in the first round of the 2026 Los Angeles mayoral election?
+  E9.C7: Will Lindsey Horvath finish second in the first round of the 2026 Los Angeles mayoral election?
+  E9.C8: Will Monica Rodriguez finish second in the first round of the 2026 Los Angeles mayoral election?
+  E9.C9: Will Rae Huang finish second in the first round of the 2026 Los Angeles mayoral election?
+  E9.C10: Will Nithya Raman finish second in the first round of the 2026 Los Angeles mayoral election?
+  E9.C11: Will Adam Miller finish second in the first round of the 2026 Los Angeles mayoral election?
+
+=== E10: Google Gemini Parlay
+Rules:
+This market will resolve to “Yes” if all of the following conditions are met by January 31, 2026, 11:59 PM ET:
+
+- Any model owned by Google has the highest arena score based on the Chatbot Arena LLM Leaderboard on January 31, 2026, 12:00 PM ET.
+- Google Gemini 3 scores at least 40% on Humanity’s Last Exam
+- Gemini 3 scores at least 40% on FrontierMath Benchmark
+
+Otherwise, this market will resolve to “No”.
+
+This market will remain open until it is confirmed that at least one of the above conditions has not been met, or until all of the above conditions have been met.
+
+The full rules for this market can be found here:
+https://polymarket-upload.s3.us-east-2.amazonaws.com/Google+Gemini+Parlay.pdf
+Contracts:
+  E10.C1: Google Gemini Parlay

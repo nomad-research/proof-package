@@ -1,0 +1,205 @@
+You will be shown 10 questions from a prediction market. Each question has one or more contracts, and each contract resolves YES or NO under the rules shown.
+
+For every contract, give your probability, as a whole percent from 1 to 99, that it resolves YES. Use only what you already know. Do not search for or look up anything: reading this file is the only tool call you may make.
+
+For each question, also say whether you recognise how it actually turned out ("recognised": true only if you believe you remember the real outcome; otherwise false).
+
+Where a question's contracts are mutually exclusive (exactly one can resolve YES), your numbers for it should add up to about 100. Where they are nested thresholds or dates, keep them consistent with each other.
+
+Reply with one JSON object and nothing else, in this form:
+{"events": [{"label": "E1", "recognised": false, "p": {"E1.C1": 35, "E1.C2": 60}}]}
+
+Every contract label below must appear exactly once in your reply.
+
+=== E1: Will US Bancorp (USB) beat quarterly earnings?
+Rules:
+As of market creation, US Bancorp is estimated to release earnings on January 20, 2026. The Street consensus estimate for US Bancorp's GAAP EPS for the relevant quarter is $1.19 as of market creation. This market will resolve to "Yes" if US Bancorp reports GAAP EPS greater than $1.19 for the relevant quarter in its next quarterly earnings release. Otherwise, it will resolve to "No." The resolution source will be the GAAP EPS listed in the company’s official earnings documents. 
+
+If US Bancorp releases earnings without GAAP EPS, then the market will resolve according to the GAAP EPS figure reported by SeekingAlpha. If no such figure is published within 96h of market close (4:00:00pm ET) on the day earnings are announced, the market will resolve to “No”.
+
+If the company does not release earnings within 45 calendar days of the estimated earnings date, this market will resolve to “No.” 
+
+Note: Subsequent restatements, corrections, or revisions made to the initially announced GAAP EPS figure will not qualify for resolution, except in the case of obvious and immediate mistakes (e.g., fat finger errors, as with Lyft's (LYFT) earnings release in February 2024).
+Note: The strike prices used in these markets are derived from SeekingAlpha estimates, and reflect the consensus of sell-side analyst estimates for GAAP EPS. 
+Note: All figures will be rounded to the nearest cent using standard rounding.
+Note: For the purposes of this market, IFRS EPS will be treated as GAAP EPS.
+Note: For the purposes of this market, GAAP EPS refers to diluted GAAP EPS, unless this is not published, in which case it refers to basic GAAP EPS.
+Note: All figures are expressed in USD, unless otherwise indicated.
+Note: For primarily internationally listed companies, this market refers specifically to the shares traded in the United States on U.S. stock exchanges such as the NYSE or Nasdaq. In cases where the company trades in the U.S. through an American Depositary Receipt (ADR) or American Depositary Share (ADS), this market will refer to the ADR/ADS.
+Contracts:
+  E1.C1: Will US Bancorp (USB) beat quarterly earnings?
+
+=== E2: Core CPI MoM - July 2026
+Rules:
+This is a market about the one-month percent change in the Consumer Price Index for All Urban Consumers excluding food and energy in July 2026 as reported by the Bureau of Labor Statistics.
+
+This market will resolve to the one-month percentage change in the Consumer Price Index for All Urban Consumers excluding food and energy (Core CPI-U) in July 2026 according to the monthly Bureau of Labor Statistics (BLS) report (seasonally adjusted change from the preceding month).
+
+The resolution source for this market will be the BLS Consumer Price Index report released for July 2026 (https://www.bls.gov/bls/news-release/cpi.htm), currently scheduled to be released on August 12, 2026, at 8:30 AM ET. Resolution of this market will take place upon release of the aforementioned data.
+
+Note: the resolution source for this market will be the official monthly BLS CPI news release, which reports core inflation (all items less food and energy) over 1-month periods to only one decimal point (e.g., 0.3%). Thus, this is the level of precision that will be used when resolving the market. For the avoidance of doubt, this market resolves on the core CPI figure — the all items index excluding food and energy — not the headline all items CPI figure.
+
+If the BLS does not release the relevant figures on the scheduled date, this market may remain open up until the scheduled release time of the next CPI report (https://www.bls.gov/schedule). If the information is not released by that time, this market will resolve according to the figures of the most recent previous month with available data.
+Contracts:
+  E2.C1: Will Core CPI MoM be 0.0% or less in July?
+  E2.C2: Will Core CPI MoM be 0.1% in July?
+  E2.C3: Will Core CPI MoM be 0.2% in July?
+  E2.C4: Will Core CPI MoM be 0.3% in July?
+  E2.C5: Will Core CPI MoM be 0.4% in July?
+  E2.C6: Will Core CPI MoM be 0.5% in July?
+  E2.C7: Will Core CPI MoM be 0.6% or more in July?
+
+=== E3: Argentina Monthly Inflation - April
+Rules:
+This is a market about the monthly variation of consumer prices in Argentina, before seasonal adjustment, as reported by the National Institute of Statistics and Census (INDEC) of Argentina.
+
+This market will resolve according to the monthly percentage change in the Consumer Price Index (CPI / IPC) in April 2026 (Variación % mensual Total nacional), according to the monthly INDEC report.
+
+The resolution source for this market will be the INDEC Consumer Price Index report released for April 2026 (https://www.indec.gob.ar/), currently scheduled to be released on May 14, 2026. 
+
+Resolution of this market will take place upon release of the aforementioned data. If no data for the specified month is released by the date the next month's data is scheduled to be released, this market will resolve based on data from the last available month.
+
+You can find this report by clicking on the “Precios al Consumidor” option on the home page of https://www.indec.gob.ar/, and searching the PDF for the figure under “Variación % mensual Total nacional”.
+
+Note: the resolution source for this market will be the official monthly INDEC CPI (IPC) news release, which reports monthly inflation change to only one decimal point (e.g., 1.9%). Thus, this is the level of precision that will be used when resolving the market.
+Contracts:
+  E3.C1: Will Argentina’s monthly inflation in April 2026 be less than or equal to 2.1%?
+  E3.C2: Will Argentina’s monthly inflation in April 2026 be between 2.2% and 2.4%?
+  E3.C3: Will Argentina’s monthly inflation in April 2026 be between 2.5% and 2.7%?
+  E3.C4: Will Argentina’s monthly inflation in April 2026 be between 2.8% and 3.0%?
+  E3.C5: Will Argentina’s monthly inflation in April 2026 be between 3.1% and 3.3%?
+  E3.C6: Will Argentina’s monthly inflation in April 2026 be between 3.4% and 3.6%?
+  E3.C7: Will Argentina’s monthly inflation in April 2026 be between 3.7% and 3.9%?
+  E3.C8: Will Argentina’s monthly inflation in April 2026 be 4.0% or higher?
+
+=== E4: Will Sentient launch a token in 2025?
+Rules:
+This market will resolve to "Yes" if Sentient officially launches a token by December 31, 2025, 11:59 PM ET. Otherwise, this market will resolve to "No".
+
+The token must be actively and publicly transferable and tradable. Announcements alone do not qualify
+
+The primary resolution source for this market will be information from Sentient (https://www.sentient.xyz/), however a consensus of credible reporting will also be used.
+Contracts:
+  E4.C1: Will Sentient launch a token in 2025?
+
+=== E5: Will Russia announce a Christmas truce?
+Rules:
+This market will resolve to “Yes” if, by January 7, 2026, 11:59 PM ET, the Russian government or military publicly and officially announces a ceasefire or “truce” in its war against Ukraine that is explicitly tied to Christmas or Orthodox Christmas for the 2025–26 holiday period.
+
+A qualifying announcement must:
+
+The January 2023 unilateral “Orthodox Christmas” ceasefire order is an example of a qualifying announcement.
+
+The announcement alone is sufficient: the truce does not need to be accepted by Ukraine or actually upheld in practice, and any later violations, non-compliance, or cancellation will not change the outcome once a qualifying announcement has been made.
+
+The primary resolution sources will be official Russian government.
+Contracts:
+  E5.C1: Will Russia announce a Christmas truce?
+
+=== E6: Price of dozen eggs in December?
+Rules:
+This market will resolve to the bracket within which the price for "Eggs, Grade A, Large (Cost per Dozen) in U.S. City Average" lies when the December data point is published by the St. Louis Fed (https://fred.stlouisfed.org/series/APU0000708111).
+
+The St. Louis Fed bases its numbers for egg prices on the BLS's CPI release. The December release is presently scheduled for January 13, 2025. Resolution of this market will take place upon the update of the St. Louis Fed's chart. If no data for the specified month is released by the date the next month's data is scheduled to be released, this market will resolve based on data from the last available month.
+
+The resolution source for this market measures prices to the third decimal place. Thus, this is the level of precision that will be used when resolving the market.
+
+If the reported value falls exactly between two brackets, then this market will resolve to the higher range bracket.
+Contracts:
+  E6.C1: Will a dozen eggs cost <$2.50 in December?
+  E6.C2: Will a dozen eggs cost between $2.50–2.75 in December?
+  E6.C3: Will a dozen eggs cost between $2.75–3.00 in December?
+  E6.C4: Will a dozen eggs cost between $3.00–3.25 in December?
+  E6.C5: Will a dozen eggs cost between $3.25–3.50 in December?
+  E6.C6: Will a dozen eggs cost between $3.50–3.75 in December?
+  E6.C7: Will a dozen eggs cost between $3.75–4.00 in December?
+  E6.C8: Will a dozen eggs cost >$4.00 in December?
+
+=== E7: What price will Dogecoin hit in August?
+Rules:
+What price will Dogecoin hit in August?
+Contracts:
+  E7.C1: Will Dogecoin reach $0.20 in August?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for DOGE/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last), has a final High price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the DOGE/USDT High prices available at https://www.binance.com/en/trade/DOGE_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance DOGE/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E7.C2: Will Dogecoin reach $0.15 in August?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for DOGE/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last), has a final High price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the DOGE/USDT High prices available at https://www.binance.com/en/trade/DOGE_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance DOGE/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E7.C3: Will Dogecoin dip to $0.05 in August?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for DOGE/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last), has a final Low price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the DOGE/USDT Low prices available at https://www.binance.com/en/trade/DOGE_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance DOGE/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E7.C4: Will Dogecoin reach $0.10 in August?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for DOGE/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last), has a final High price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the DOGE/USDT High prices available at https://www.binance.com/en/trade/DOGE_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance DOGE/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+
+=== E8: When will Jerome Powell depart as Fed Chair?
+Rules:
+This market will resolve according to the listed date range during which Jerome Powell vacates his role as Chair of the Federal Reserve Board of Governors.
+
+Vacating his role refers to Powell actually ceasing to hold the position of Chair of the Federal Reserve Board of Governors. Announcements of Powell's resignation or firing will not alone qualify.
+
+The scheduled end of Powell’s term as Chair will not alone qualify. If Powell continues to serve as Chair on a temporary basis (e.g. until the confirmation of his successor), he will not be considered to have vacated his role as Chair.
+
+This market is restricted to Powell’s status as Chair of the Federal Reserve Board of Governors. Powell’s status as a regular member of the Federal Reserve Board of Governors will not affect this market’s resolution.
+
+All dates refer to the Eastern Time zone (ET).
+
+The primary resolution source for this market will be official information from Jerome Powell and the Federal Reserve; however, a consensus of credible reporting may also be used.
+Contracts:
+  E8.C1: Will Jerome Powell depart as Fed Chair before May 15?
+  E8.C2: Will Jerome Powell depart as Fed Chair between May 15 and May 22?
+  E8.C3: Will Jerome Powell depart as Fed Chair between May 23 and May 29?
+  E8.C4: Will Jerome Powell depart as Fed Chair between May 30 and June 5?
+  E8.C5: Will Jerome Powell depart as Fed Chair between June 6 and June 12?
+  E8.C6: Will Jerome Powell depart as Fed Chair between June 13 and June 19?
+  E8.C7: Will Jerome Powell depart as Fed Chair between June 20 and June 26?
+  E8.C8: Will Jerome Powell depart as Fed Chair between June 27 and July 3?
+  E8.C9: Will Jerome Powell depart as Fed Chair after July 3?
+
+=== E9: Body-cam footage of Maduro capture released by Jan 31?
+Rules:
+This market will resolve to "Yes" if authentic helmet/body-cam video footage recorded after January 2 that shows U.S. forces physically capturing (taking into custody) President Nicolás Maduro in Venezuela is made widely available to the public by January 31, 2026, 11:59 PM ET. Otherwise, this market will resolve to "No".
+
+This market will resolve to "Yes" if such capture footage becomes widely available to the public by any means, regardless of whether it is released officially, leaked, or published by media.
+
+Qualifying footage must be at least 5 seconds in length and depict the moment Maduro is physically apprehended or restrained (or immediately thereafter while still at/within the capture location in Venezuela) in a way that makes it clear from the video that the operation is effecting his capture. Footage of Maduro already in custody outside Venezuela (e.g., aboard a ship/aircraft, at an airport, or at a U.S. facility) will not count unless it also includes the initial apprehension in Venezuela. Still images alone will not count.
+
+The resolution source for this market will be a consensus of credible reporting.
+Contracts:
+  E9.C1: Body-cam footage of Maduro capture released by Jan 31?
+
+=== E10: Netflix (NFLX) Q2 operating margin?
+Rules:
+This market will resolve according to Netflix's operating margin for the upcoming second fiscal quarter, as reported in its official company earnings materials.
+
+The specified metric will be considered as reported in the company's official earnings materials. Subsequent revisions will not be considered.
+
+If the specified company's official earnings materials for the specified quarter are released, and the specified metric is not included, this market will resolve to the lowest bracket.
+
+If the specified company does not release quarterly earnings materials for the specified quarter by August 31, 2026, 11:59 PM ET, this market will resolve to the lowest bracket.
+
+If the reported value falls exactly between two brackets, this market will resolve to the higher range bracket.
+
+If the specified metric is reported as a range rather than a specific number, the midpoint of the range will be used for resolution of this market.
+
+The resolution source for this market is Netflix's official company earnings materials, including press releases, investor presentations, and regulatory filings. If the specified metric is not reported in these materials, recordings or transcripts of the company's earnings webcast may also be used.
+
+Note: This market will resolve based on the most numerically precise version of the specified metric reported in the company's official earnings materials. Only the specified metric will be considered; alternate versions that differ in definition or scope from the specified metric will not be considered.
+Contracts:
+  E10.C1: Netflix (NFLX) Q2 operating margin <30%?
+  E10.C2: Netflix (NFLX) Q2 operating margin 30%-32%?
+  E10.C3: Netflix (NFLX) Q2 operating margin 32%-34%?
+  E10.C4: Netflix (NFLX) Q2 operating margin 34%-36%?
+  E10.C5: Netflix (NFLX) Q2 operating margin 36%+?

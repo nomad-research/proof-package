@@ -1,0 +1,239 @@
+You will be shown 10 questions from a prediction market. Each question has one or more contracts, and each contract resolves YES or NO under the rules shown.
+
+For every contract, give your probability, as a whole percent from 1 to 99, that it resolves YES. Use only what you already know. Do not search for or look up anything: reading this file is the only tool call you may make.
+
+For each question, also say whether you recognise how it actually turned out ("recognised": true only if you believe you remember the real outcome; otherwise false).
+
+Where a question's contracts are mutually exclusive (exactly one can resolve YES), your numbers for it should add up to about 100. Where they are nested thresholds or dates, keep them consistent with each other.
+
+Reply with one JSON object and nothing else, in this form:
+{"events": [{"label": "E1", "recognised": false, "p": {"E1.C1": 35, "E1.C2": 60}}]}
+
+Every contract label below must appear exactly once in your reply.
+
+=== E1: Canada New Democratic Party Leadership Election Winner
+Rules:
+This market will resolve to the candidate who wins the Canadian New Democratic Party Leadership election scheduled for March 29, 2026.
+
+The primary resolution source will be official New Democratic Party announcements; if unavailable, a consensus of credible reporting will be used.
+
+If no official winner has been declared by May 31, 2026, 11:59 PM ET, this market will resolve to "Other".
+Contracts:
+  E1.C1: Will Rob Ashton win the Canadian NDP Leadership election?
+  E1.C2: Will Tanille Johnson win the Canadian NDP Leadership election?
+  E1.C3: Will Avi Lewis win the Canadian NDP Leadership election?
+  E1.C4: Will Heather McPherson win the Canadian NDP Leadership election?
+  E1.C5: Will Tony McQuail win the Canadian NDP Leadership election?
+  E1.C6: Will Bianca Mugyenyi win the Canadian NDP Leadership election?
+
+=== E2: Will Russia enter Shevchenko by...?
+Rules:
+This market will resolve to “Yes” if, according to the ISW map, Russia captures any territory of Shevchenko, Donetsk Oblast, (48.384157880601364° N, 37.10809761679785° E) between market creation and the specified date (ET).
+
+Territory will be considered captured if any part of the specified territory is shaded under a below specified layer on the ISW map (https://storymaps.arcgis.com/stories/36a7f6a6f5a9448496de641cf64bd375) by the resolution date. Otherwise, the market will resolve to “No”.
+
+For any change on the ISW map to qualify for this market’s resolution, the relevant shading indicating Russian control must persist through the next full ISW daily update cycle. If ISW skips a day, shading must persist until the next finalized ISW update is published, regardless of the date. Any continuous shading which reflects either "Assessed Russian Infiltration Areas in Ukraine", “Assessed Russian Control”, “Assessed Russian Advance In Ukraine”, or “Assessed Russian Gains in the Past 24 Hours” will qualify. 
+
+Once a qualifying condition is met, any subsequent loss of control will not be considered towards the resolution of this market.
+
+If Russia comes into control of the specified territory as a result of a negotiated settlement, this will qualify for a 'Yes' resolution, regardless of whether it is shaded red in the ISW map. However, an announcement of a negotiated settlement that gives Russia de jure control will not qualify. Actual control must be established.
+
+The primary resolution source for this market will be the ISW Ukraine map. If the ISW map is rendered unavailable, information from DeepStateMap (https://deepstatemap.live/) may be used. If information from both the ISW and DeepStateMap are rendered permanently unavailable, a consensus of credible reporting may be used.
+
+Note: Any temporary glitches or errors in the map will not be considered.
+Contracts:
+  E2.C1: Will Russia enter Shevchenko by May 31?
+  E2.C2: Will Russia enter Shevchenko by June 30?
+
+=== E3: WI-07 Democratic Primary Winner
+Rules:
+This market will resolve according to the candidate who wins the nomination for the Democratic Party to contest the WI-07 congressional district seat in the U.S. House of Representatives in the 2026 midterm elections. The Democratic primary is scheduled to take place on August 11, 2026.
+
+If no nominee is announced by November 3, 2026, 11:59PM ET, this market will resolve to "Other".
+
+The resolution source for this market will be a consensus of official Democrat sources, including https://democrats.org/.
+
+Any replacement of the nominee before election day will not change the resolution of the market.
+Contracts:
+  E3.C1: Will Chris Armstrong be the WI-07 Democratic nominee?
+  E3.C2: Will Fred Clark be the WI-07 Democratic nominee?
+  E3.C3: Will Ginger Murray be the WI-07 Democratic nominee?
+
+=== E4: Arizona Governor Republican Primary Winner
+Rules:
+This market will resolve according to the winner of the Republican Primary for Governor of Arizona, scheduled to take place on August 4, 2026. Resolution will be based on the overall winner of the primary, including any potential second round or run-off.
+
+If no 2026 Arizona Gubernatorial Republican Primary takes place, this market will resolve to “Other.”
+
+The resolution source for this market will be the first official announcement of the results from the Arizona Republican Party; however, an overwhelming consensus of credible reporting may suffice.
+Contracts:
+  E4.C1: Will Andy Biggs win the 2026 Arizona Governor Republican primary election?
+    Contract rules: This market will resolve according to the winner of the Republican Primary for Governor of Arizona, scheduled to take place on July 21, 2026. Resolution will be based on the overall winner of the primary, including any potential second round or run-off.
+
+If no 2026 Arizona Gubernatorial Republican Primary takes place, this market will resolve to “Other.”
+
+The resolution source for this market will be the first official announcement of the results from the Arizona Republican Party; however, an overwhelming consensus of credible reporting may suffice.
+  E4.C2: Will David Schweikert win the 2026 Arizona Governor Republican primary election?
+    Contract rules: This market will resolve according to the winner of the Republican Primary for Governor of Arizona, scheduled to take place on July 21, 2026. Resolution will be based on the overall winner of the primary, including any potential second round or run-off.
+
+If no 2026 Arizona Gubernatorial Republican Primary takes place, this market will resolve to “Other.”
+
+The resolution source for this market will be the first official announcement of the results from the Arizona Republican Party; however, an overwhelming consensus of credible reporting may suffice.
+  E4.C3: Will Karrin Taylor Robson win the 2026 Arizona Governor Republican primary election?
+    Contract rules: This market will resolve according to the winner of the Republican Primary for Governor of Arizona, scheduled to take place on July 21, 2026. Resolution will be based on the overall winner of the primary, including any potential second round or run-off.
+
+If no 2026 Arizona Gubernatorial Republican Primary takes place, this market will resolve to “Other.”
+
+The resolution source for this market will be the first official announcement of the results from the Arizona Republican Party; however, an overwhelming consensus of credible reporting may suffice.
+
+=== E5: TrumpRX launched by January 31, 2026?
+Rules:
+TrumpRx (https://trumprx.gov/) is scheduled to launch in January 2026 and is intended to help consumers access lower-cost medications by directing them to manufacturers’ direct-to-consumer purchasing channels.
+
+This market will resolve to "Yes" if TrumpRx.gov becomes publicly accessible in a form that allows members of the public to search for and find medications by January 31, 2026, 11:59 PM ET. Otherwise, this market will resolve to "No."
+
+To qualify, the site must be publicly accessible and operational in at least a limited capacity, meaning it functions in its intended portal role by allowing users to search for or view medications and be redirected to purchase them. Glitches or minor technical issues will not render the site non-functional, provided the core portal functionality remains available to the public.
+
+Once the qualifying functionality goes live, the market will resolve to "Yes" immediately, regardless of any subsequent reversal, rollback, or withdrawal of access.
+
+This market will resolve to "No" if TrumpRx.gov becomes permanently unavailable.
+
+The primary resolution source for this market will be TrumpRx.gov; however, a consensus of credible reporting will also be used.
+Contracts:
+  E5.C1: TrumpRX launched by January 31, 2026?
+
+=== E6: What will the Bitcoin realized volatility index hit by April 30?
+Rules:
+What will the Bitcoin realized volatility index hit by April 30?
+Contracts:
+  E6.C1: Will the Bitcoin realized volatility index hit 90 by April 30? 
+    Contract rules: This market will immediately resolve to "Yes" if any Polylayer data point for the BTC-CRVIX 30 Day Index between the creation of this market and 23:59 ET on the date specified in the title has a value equal to or greater than the value specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Polylayer, specifically the BTC-CRVIX 30 Day Index values available at https://polylayer.xyz/crvix/btc, with the chart settings on "7D".
+
+A data point is considered finalized once the next data point is published.
+
+Please note that the outcome of this market depends solely on the data from the BTC-CRVIX 30 Day Index chart. Values from other exchanges or different indexes will not be considered for the resolution of this market.
+
+For reference, the methodology can be found at: https://polylayer.xyz/crvix
+  E6.C2: Will the Bitcoin realized volatility index hit 80 by April 30? 
+    Contract rules: This market will immediately resolve to "Yes" if any Polylayer data point for the BTC-CRVIX 30 Day Index between the creation of this market and 23:59 ET on the date specified in the title has a value equal to or greater than the value specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Polylayer, specifically the BTC-CRVIX 30 Day Index values available at https://polylayer.xyz/crvix/btc, with the chart settings on "7D".
+
+A data point is considered finalized once the next data point is published.
+
+Please note that the outcome of this market depends solely on the data from the BTC-CRVIX 30 Day Index chart. Values from other exchanges or different indexes will not be considered for the resolution of this market.
+
+For reference, the methodology can be found at: https://polylayer.xyz/crvix
+  E6.C3: Will the Bitcoin realized volatility index hit 70 by April 30? 
+    Contract rules: This market will immediately resolve to "Yes" if any Polylayer data point for the BTC-CRVIX 30 Day Index between the creation of this market and 23:59 ET on the date specified in the title has a value equal to or greater than the value specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Polylayer, specifically the BTC-CRVIX 30 Day Index values available at https://polylayer.xyz/crvix/btc, with the chart settings on "7D".
+
+A data point is considered finalized once the next data point is published.
+
+Please note that the outcome of this market depends solely on the data from the BTC-CRVIX 30 Day Index chart. Values from other exchanges or different indexes will not be considered for the resolution of this market.
+
+For reference, the methodology can be found at: https://polylayer.xyz/crvix
+  E6.C4: Will the Bitcoin realized volatility index hit 60 by April 30? 
+    Contract rules: This market will immediately resolve to "Yes" if any Polylayer data point for the BTC-CRVIX 30 Day Index between the creation of this market and 23:59 ET on the date specified in the title has a value equal to or greater than the value specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Polylayer, specifically the BTC-CRVIX 30 Day Index values available at https://polylayer.xyz/crvix/btc, with the chart settings on "7D".
+
+A data point is considered finalized once the next data point is published.
+
+Please note that the outcome of this market depends solely on the data from the BTC-CRVIX 30 Day Index chart. Values from other exchanges or different indexes will not be considered for the resolution of this market.
+
+For reference, the methodology can be found at: https://polylayer.xyz/crvix
+  E6.C5: Will the Bitcoin realized volatility index dip to 40 by April 30? 
+    Contract rules: This market will immediately resolve to "Yes" if any Polylayer data point for the BTC-CRVIX 30 Day Index between the creation of this market and 23:59 ET on the date specified in the title has a value equal to or lower than the value specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Polylayer, specifically the BTC-CRVIX 30 Day Index values available at https://polylayer.xyz/crvix/btc, with the chart settings on "7D".
+
+A data point is considered finalized once the next data point is published.
+
+Please note that the outcome of this market depends solely on the data from the BTC-CRVIX 30 Day Index chart. Values from other exchanges or different indexes will not be considered for the resolution of this market.
+
+For reference, the methodology can be found at: https://polylayer.xyz/crvix
+  E6.C6: Will the Bitcoin realized volatility index dip to 30 by April 30? 
+    Contract rules: This market will immediately resolve to "Yes" if any Polylayer data point for the BTC-CRVIX 30 Day Index between the creation of this market and 23:59 ET on the date specified in the title has a value equal to or lower than the value specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Polylayer, specifically the BTC-CRVIX 30 Day Index values available at https://polylayer.xyz/crvix/btc, with the chart settings on "7D".
+
+A data point is considered finalized once the next data point is published.
+
+Please note that the outcome of this market depends solely on the data from the BTC-CRVIX 30 Day Index chart. Values from other exchanges or different indexes will not be considered for the resolution of this market.
+
+For reference, the methodology can be found at: https://polylayer.xyz/crvix
+
+=== E7: Will Oregon reach D4 (Exceptional Drought) by August 31, 2026?
+Rules:
+This market will resolve "Yes" if the D4 Exceptional Drought value shown in the official U.S. Drought Monitor's weekly "Categorical Percent Area" statistics table for Oregon published by the National Drought Mitigation Center at https://droughtmonitor.unl.edu/DmData/DataTables.aspx?dregion,4 is 1.00% or greater in any weekly release published from market creation through August 31, 2026, 11:59:59 PM ET. Otherwise, this market will resolve "No". D4 Exceptional Drought is defined as described at https://droughtmonitor.unl.edu/About/AbouttheData.aspx.
+
+"Oregon" means the entire State of Oregon as recognized under U.S. law.
+
+Eligibility is determined solely by the release's publication date, not the date its underlying map data is valid "as of" (USDM releases are typically published on Thursday but reflect conditions as of the preceding Tuesday), except as provided in the force majeure clause below.
+
+Upon a qualifying release, the market will be held open for 7 calendar days from its publication date before finalizing, to allow for NDMC corrections. If those 7 days elapse before August 31, settlement finalizes at that point. If the qualifying release is published within 7 days of August 31, including on August 31 itself, the market will remain open past August 31 for the balance of that window, resolving at the earlier of (i) the 7 days elapsing or (ii) NDMC issuing a correction to that release. This holding period does not extend the publication-date cutoff, it only delays finalization of a release that already qualified.
+
+If the NDMC publishes no weekly release at all before August 31, 2026, 11:59 PM ET, due to a data disruption, government shutdown, or other event, this market will accept the next official weekly release published after that date as the sole governing release, up to 14 calendar days following the scheduled expiration date, and will resolve "Yes" or "No" based on that release's D4 value under the same 1.00% threshold.
+
+A correction will be considered only if issued before the market finalizes settlement under the holding period above. Once finalized, that determination is final and will not be revised, reopened, or reversed by any correction, revision, or retraction issued afterward. A correction issued within the holding period is fully applied to the D4 value used for resolution, and that finalization occurs after (not at the instant of) any such correction, so the corrected value governs.
+Contracts:
+  E7.C1: Will Oregon reach D4 (Exceptional Drought) by August 31, 2026?
+
+=== E8: Costa Rica Presidential Election
+Rules:
+The 2026 Costa Rican general election is scheduled for February 1, 2026. The President of Costa Rica is elected via a two-round system; a candidate must secure over 40% of the vote to win outright in the first round. If no candidate achieves this, the top two contenders advance to a runoff.
+
+This market will resolve according to the candidate that wins this election.
+
+This market includes any potential second round. If the results of the election are not known by December 31, 2026, 11:59 PM ET, this market will resolve to "Other".
+
+This market will resolve based on the election results, as indicated by a consensus of credible reporting. If there is ambiguity, this market will resolve based solely on the official results as reported by the Tribunal Supremo de Elecciones (https://www.tse.go.cr/index.html).
+Contracts:
+  E8.C1: Will Claudia Vanessa Dobles Camargo win the 2026 Costa Rican presidential election?
+  E8.C2: Will Douglas Caamaño Quirós win the 2026 Costa Rican presidential election?
+  E8.C3: Will David Hernández Brenes win the 2026 Costa Rican presidential election?
+  E8.C4: Will Claudio Alberto Alpízar Otoya win the 2026 Costa Rican presidential election?
+  E8.C5: Will Marco David Rodríguez Badilla win the 2026 Costa Rican presidential election?
+  E8.C6: Will Andrés Ariel Robles Barrantes win the 2026 Costa Rican presidential election?
+  E8.C7: Will Luis Esteban Amador Jiménez win the 2026 Costa Rican presidential election?
+  E8.C8: Will Walter Rubén Hernández Juárez win the 2026 Costa Rican presidential election?
+  E8.C9: Will Álvaro Roberto Ramos Chaves win the 2026 Costa Rican presidential election?
+  E8.C10: Will Eliécer Feinzaig Mintz win the 2026 Costa Rican presidential election?
+  E8.C11: Will Fernando Zamora Castellanos win the 2026 Costa Rican presidential election?
+  E8.C12: Will Gerardo Fabricio Alvarado Muñoz win the 2026 Costa Rican presidential election?
+
+=== E9: New Jersey Republican Senate Primary Winner
+Rules:
+This market will resolve according to the winner of the Republican Primary for United States Senator from New Jersey.
+
+If no 2026 New Jersey Republican Senate Primary takes place, this market will resolve to "Other".
+
+The resolution source for this market will be the first announcement of the results from the New Jersey Republican party; however, an overwhelming consensus of credible reporting may suffice.
+Contracts:
+  E9.C1: Will Justin Murphy be the Republican nominee for Senate in New Jersey?
+  E9.C2: Will Richard Tabor be the Republican nominee for Senate in New Jersey?
+  E9.C3: Will Natalie Rivera be the Republican nominee for Senate in New Jersey?
+  E9.C4: Will Alex Zdan be the Republican nominee for Senate in New Jersey?
+  E9.C5: Will Vinnie Brand be the Republican nominee for Senate in New Jersey?
+  E9.C6: Will Robert Lebovics be the Republican nominee for Senate in New Jersey?
+  E9.C7: Will Alina Habba be the Republican nominee for Senate in New Jersey?
+  E9.C8: Will Steven Boston be the Republican nominee for Senate in New Jersey?
+
+=== E10: FL-02 Democratic Primary Winner
+Rules:
+This market will resolve according to the candidate who wins the nomination for the Democratic Party to contest the FL-02 congressional district seat in the U.S. House of Representatives in the 2026 midterm elections. The Democratic primary will take place on August 18, 2026.
+
+If no nominee is announced by November 3, 2026, 11:59 PM ET, this market will resolve to "Other".
+
+The resolution source for this market will be a consensus of official Democrat sources, including https://democrats.org/.
+
+Any replacement of the nominee before election day will not change the resolution of the market.
+Contracts:
+  E10.C1: Will Yen Bailey be the FL-02 Democratic nominee?
+  E10.C2: Will Brice Barnes be the FL-02 Democratic nominee?
+  E10.C3: Will Amanda Green be the FL-02 Democratic nominee?
+  E10.C4: Will Nic Zateslo be the FL-02 Democratic nominee?

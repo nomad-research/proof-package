@@ -1,0 +1,211 @@
+You will be shown 10 questions from a prediction market. Each question has one or more contracts, and each contract resolves YES or NO under the rules shown.
+
+For every contract, give your probability, as a whole percent from 1 to 99, that it resolves YES. Use only what you already know. Do not search for or look up anything: reading this file is the only tool call you may make.
+
+For each question, also say whether you recognise how it actually turned out ("recognised": true only if you believe you remember the real outcome; otherwise false).
+
+Where a question's contracts are mutually exclusive (exactly one can resolve YES), your numbers for it should add up to about 100. Where they are nested thresholds or dates, keep them consistent with each other.
+
+Reply with one JSON object and nothing else, in this form:
+{"events": [{"label": "E1", "recognised": false, "p": {"E1.C1": 35, "E1.C2": 60}}]}
+
+Every contract label below must appear exactly once in your reply.
+
+=== E1: December Inflation China - Annual
+Rules:
+This is a market about the variation of consumer prices in China over a 12-month period ending December 2025 as reported by the National Bureau of Statistics (NBS) of China.
+
+This market will resolve according to the number the Consumer Price Index (CPI) increased by during the 12-month period ending December 2025 (% change from the same month in the previous year) according to the monthly NBS report.
+
+The resolution source for this market will be the NBS Consumer Price Index monthly report released for December 2025 (https://www.stats.gov.cn/english/PressRelease/), currently scheduled to be released in January 2026. Resolution of this market will take place upon release of the aforementioned data. If no data for the specified month is released by the date the next month's data is scheduled to be released, this market will resolve based on data from the last available month.
+
+You can find the relevant figure by locating the report for December 2025 on the Press Releases page (see: https://www.stats.gov.cn/english/PressRelease/), locating the table named "Consumer Price Index in December 2025", and finding the consumer price index figure in the column labeled "Growth Rate Y/Y (%)".
+
+Note: the resolution source for this market will be the official monthly NBS CPI news release which reports inflation during 12-month periods to only one decimal point (e.g. 1.9%). Thus, this is the level of precision that will be used when resolving the market. For the full release schedule, see: https://www.stats.gov.cn/english/PressRelease/ReleaseCalendar/
+Contracts:
+  E1.C1: Will China's annual inflation decrease by ≤-0.3% in December?
+  E1.C2: Will China's annual inflation decrease by between -0.2% and 0.0% in December?
+  E1.C3: Will China's annual inflation increase by between 0.1% and 0.3% in December?
+  E1.C4: Will China's annual inflation increase by between 0.4% and 0.6% in December?
+  E1.C5: Will China's annual inflation increase by ≥0.7% in December?
+
+=== E2: Ukraine signs peace deal with Russia by January 31?
+Rules:
+This market will resolve to “Yes”  if, Ukraine signs any written instrument (e.g., treaty, ceasefire/armistice, framework/“roadmap,” exchange of letters, or mediated agreement text) that: (i) includes both Ukraine and the Russian Federation as parties, and (ii) either ends hostilities/establishes a ceasefire or commits both sides to a defined process toward ending the war (i.e., stated objective of peace/normalization plus principles, steps, and/or a timetable) by January 31, 2026, 11:59 PM ET. Otherwise, this market will resolve to “No”. 
+
+Only Ukraine’s signature is required; Russia’s signature or ratification is not.
+
+Localized, temporary, or issue-specific arrangements—such as airstrike-limitation or deconfliction protocols, humanitarian pauses, evacuation corridors, prisoner-exchange or trade/export arrangements, border/DMZ adjustments, or ceasefires limited to a particular sector/front/municipality—will not qualify.
+
+The document must bear a wet-ink or officially issued electronic signature of an authorized Ukrainian representative. Unsigned agreements (e.g., the 2023 Ohrid arrangement) will not qualify regardless of if they are otherwise officially enacted. 
+
+The primary resolution source will be a consensus of credible reporting.
+Contracts:
+  E2.C1: Ukraine signs peace deal with Russia by January 31?
+
+=== E3: What will EA say during their next earnings call?
+Rules:
+This market will resolve based on the next earnings announcement of EA currently scheduled to take place on February 3, 2026 at 11:59 PM EST.
+
+This market will resolve to "Yes" if the listed term is mentioned by anyone during this event. Otherwise, the market will resolve to "No".
+
+Any usage of the term, regardless of context, will count toward the resolution of this market.
+
+Pluralization/possessive of the term will count toward the resolution of this market; however, other forms will NOT count.
+
+Instances where the term is used in a compound word will count regardless of context (e.g. joyful is not a compound word for "joy," however "killjoy" is a compounding of the words "kill" and "joy").
+
+If this market requires a specified number of mentions of a person’s first or last name, a full-name mention will count as one mention (e.g., if a market is about “Joe / Biden 5+ times,” a mention of “Joe Biden” will count once).
+
+A Q&A event will count toward the resolution of this market.
+
+If this event is definitely cancelled, or otherwise is not aired by March 31, 2026, 11:59 PM ET, this market will resolve to "No".
+
+The resolution source will be audio of the event.
+Contracts:
+  E3.C1: Will EA say "Shutdown" or "Shut Down" during earnings call?
+  E3.C2: Will EA say "Player Engagement" during earnings call?
+  E3.C3: Will EA say "Jared" or "Kushner" during earnings call?
+  E3.C4: Will EA say "Competition" during earnings call?
+  E3.C5: Will EA say "Underperformance" during earnings call?
+  E3.C6: Will EA say "The Sims" during earnings call?
+  E3.C7: Will EA say "Apex Legends" during earnings call?
+  E3.C8: Will EA say "Skate" during earnings call?
+  E3.C9: Will EA say "Live Service" during earnings call?
+  E3.C10: Will EA say "EA Sports FC" during earnings call?
+  E3.C11: Will EA say "Saudi Arabia" during earnings call?
+  E3.C12: Will EA say "Acquisition" during earnings call?
+
+=== E4: What will Nebius say during their next earnings call?
+Rules:
+This market will resolve based on the next earnings announcement of Nebius currently forecasted to take place on February 18, 2026 at 11:59 PM EST.
+
+This market will resolve to "Yes" if the listed term is mentioned by anyone during this event. Otherwise, the market will resolve to "No".
+
+Any usage of the term, regardless of context, will count toward the resolution of this market.
+
+Pluralization/possessive of the term will count toward the resolution of this market; however, other forms will NOT count.
+
+Instances where the term is used in a compound word will count regardless of context (e.g. joyful is not a compound word for "joy," however "killjoy" is a compounding of the words "kill" and "joy").
+
+If this market requires a specified number of mentions of a person’s first or last name, a full-name mention will count as one mention (e.g., if a market is about “Joe / Biden 5+ times,” a mention of “Joe Biden” will count once).
+
+A Q&A event will count toward the resolution of this market.
+
+If this event is definitely cancelled, or otherwise is not aired by March 31, 2026, 11:59 PM ET, this market will resolve to "No".
+
+The resolution source will be audio of the event.
+Contracts:
+  E4.C1: Will Nebius say "Neocloud" during earnings call?
+  E4.C2: Will Nebius say "Robotics" during earnings call?
+  E4.C3: Will Nebius say "TripleTen" or "Triple Ten" during earnings call?
+  E4.C4: Will Nebius say "Token" during earnings call?
+  E4.C5: Will Nebius say "Uber" during earnings call?
+  E4.C6: Will Nebius say "ClickHouse" or "Click House" during earnings call?
+  E4.C7: Will Nebius say "Hyperscaler" during earnings call?
+  E4.C8: Will Nebius say "Aether" during earnings call?
+  E4.C9: Will Nebius say "Meta" during earnings call?
+  E4.C10: Will Nebius say "Nvidia" during earnings call?
+  E4.C11: Will Nebius say "Cash" during earnings call?
+
+=== E5: Trump Endorsement in Texas GOP Senate Primary
+Rules:
+Primary elections in Texas are scheduled to be held on March 3, 2026, with a runoff on May 26 if no candidate receives a majority.
+
+This market will resolve according to the candidate Donald Trump first announces that he endorses for the Texas Republican Senate Primary election by March 2, 2026, 11:59 PM ET.
+
+If Donald Trump endorses someone not listed in this market or does not announce an endorsement by March 2, 2026, 11:59 PM ET, this market will resolve to "No endorsement / Other".
+
+The resolution source for this market will be official information from Donald Trump or one of his representatives, or a consensus of credible reporting of Donald Trump's endorsement.
+Contracts:
+  E5.C1: Will Donald Trump endorse Ken Paxton for the Texas Republican Senate primary by March 2, 2026?
+  E5.C2: Will Donald Trump endorse John Cornyn for the Texas Republican Senate primary by March 2, 2026?
+  E5.C3: Will Donald Trump endorse Wesley Hunt for the Texas Republican Senate primary by March 2, 2026?
+  E5.C4: Will Donald Trump make no endorsement or endorse someone other than Ken Paxton, John Cornyn, or Wesley Hunt for the Texas Republican Senate primary by March 2, 2026?
+
+=== E6: Which company has the best Text-to-Image AI end of September?
+Rules:
+This market will resolve according to the company that owns the model that has the highest rank based on the arena.ai Text-to-Image Leaderboard when the table under "Text-to-Image Arena" filtered for "Models" is checked on September 30, 2026, 12:00 PM ET.
+
+Results from the "Rank" column under the "Text-to-Image Arena" Leaderboard tab at https://arena.ai/leaderboard/text-to-image (Overall) filtered for "Models" will be used to resolve this market.
+
+Models will be ordered primarily by their leaderboard rank at the market’s check time. If two or more models are tied on rank, they will be ordered by which model is listed higher on the leaderboard. If a tie still remains, alphabetical order of company names as listed in this market group will be used as a final tiebreaker (e.g., “Google” would be ranked ahead of “SpaceXAI”). This market will resolve based on the company that occupies first place under this ranking.
+
+The resolution source for this market is the arena.ai Text-to-Image Arena Leaderboard. If this resolution source is unavailable at check time, this market will remain open until the leaderboard comes back online and will resolve based on the first check after it becomes available. If it becomes permanently unavailable, this market will resolve to "Other".
+Contracts:
+  E6.C1: Will OpenAI have the best Text-to-Image AI at the end of September 2026?
+  E6.C2: Will Reve have the best Text-to-Image AI at the end of September 2026?
+  E6.C3: Will Meta have the best Text-to-Image AI at the end of September 2026?
+  E6.C4: Will Google have the best Text-to-Image AI at the end of September 2026?
+  E6.C5: Will Microsoft AI have the best Text-to-Image AI at the end of September 2026?
+  E6.C6: Will ByteDance have the best Text-to-Image AI at the end of September 2026?
+  E6.C7: Will SpaceXAI have the best Text-to-Image AI at the end of September 2026?
+  E6.C8: Will Ideogram have the best Text-to-Image AI at the end of September 2026?
+  E6.C9: Will Alibaba have the best Text-to-Image AI at the end of September 2026?
+  E6.C10: Will Luma AI have the best Text-to-Image AI at the end of September 2026?
+  E6.C11: Will Recraft have the best Text-to-Image AI at the end of September 2026?
+  E6.C12: Will Black Forest Labs have the best Text-to-Image AI at the end of September 2026?
+
+=== E7: What will the median home value in Chicago be on March 1?
+Rules:
+This market will resolve according to the median home value for all property types in Chicago on March 1, 2026.
+
+If the reported value falls exactly between two brackets, then this market will resolve to the higher range bracket.
+
+The resolution source will be official data from the Parcl Labs Sales Price Index for Chicago, IL (Parcl_ID: 2899845). The settlement price will be calculated by multiplying the published price index value (price per square foot) by 1500 square feet, which is the median home size in Chicago. Parcl is set to publish this data on March 1, 2026. If no data for March 1 is released by March 10, 2026, 11:59PM ET, this market will resolve according to the most recently published data. (see: https://app.parcllabs.com/prediction-market-resolutions/14)
+Contracts:
+  E7.C1: Will the median home value in Chicago be less than $300,000 by March 1?
+  E7.C2: Will the median home value in Chicago be between $300,000 and $305,000 by March 1?
+  E7.C3: Will the median home value in Chicago be between $305,000 and $310,000 by March 1?
+  E7.C4: Will the median home value in Chicago be between $310,000 and $315,000 by March 1?
+  E7.C5: Will the median home value in Chicago be between $315,000 and $320,000 by March 1?
+  E7.C6: Will the median home value in Chicago be greater than $320,000 by March 1?
+
+=== E8: Russia Parliamentary Election: 3rd Place
+Rules:
+Parliamentary elections are scheduled to be held in Russia in September 2026.
+
+This market will resolve according to the political party that wins the third greatest number of seats in the next Russian State Duma election.
+
+If the results are not known definitively by September 30, 2027, 11:59 PM ET, this market will resolve to "Other".
+
+The named parties or coalitions will be primarily ranked by the number of seats won in the specified election. If two or more parties are tied on seats, ties will be broken by the total number of valid votes received, with higher vote totals ranking higher. If parties remain tied, ties will be broken by alphabetical order of the listed party abbreviations. This market will resolve to the party that occupies the third-highest finishing position after applying this ranking.
+
+This market's resolution will be based solely on the number of seats won by the named party in the State Duma of the Federal Assembly of the Russian Federation.
+
+This market will resolve based on the results of this election as indicated by a consensus of credible reporting. If there is ambiguity, this market will resolve based solely on the official results reported by Russian government sources such as the Central Election Commission of the Russian Federation.
+
+Note: If a listed party contests the election as part of a jointly listed coalition with one or more parties not listed in this market, the market corresponding to the listed party will represent the coalition and will count all seats won by the coalition collectively. If two or more listed parties contest the election as a jointly listed coalition, with or without additional parties not listed in this market, the market corresponding to the party within that coalition that won the most seats in the previous election will represent the coalition and will count all seats won by the coalition collectively. If such a coalition dissolves, each market will again represent its respective party individually.
+Contracts:
+  E8.C1: Will United Russia (ER) win the third-most seats in the next Russian parliamentary election?
+  E8.C2: Will the Communist Party of the Russian Federation (KPRF) win the third-most seats in the next Russian parliamentary election?
+  E8.C3: Will A Just Russia – For Truth (SRZP) win the third-most seats in the next Russian parliamentary election?
+  E8.C4: Will the Liberal Democratic Party of Russia (LDPR) win the third-most seats in the next Russian parliamentary election?
+  E8.C5: Will New People (NL) win the third-most seats in the next Russian parliamentary election?
+  E8.C6: Will Rodina win the third-most seats in the next Russian parliamentary election?
+  E8.C7: Will Civic Platform (GP) win the third-most seats in the next Russian parliamentary election?
+  E8.C8: Will Yabloko win the third-most seats in the next Russian parliamentary election?
+
+=== E9: Tennessee Governor Republican Primary Winner
+Rules:
+This market will resolve according to the winner of the Republican Primary for Governor of Tennessee, scheduled to take place on August 6, 2026. Resolution will be based on the overall winner of the primary, including any potential second round or run-off.
+
+If no 2026 Tennessee Gubernatorial Republican Primary takes place, this market will resolve to “Other.”
+
+The resolution source for this market will be the first official announcement of the results from the Tennessee Republican Party; however, an overwhelming consensus of credible reporting may suffice.
+Contracts:
+  E9.C1: Will Marsha Blackburn win the 2026 Tennessee Governor Republican primary election?
+  E9.C2: Will Monty Fritts win the 2026 Tennessee Governor Republican primary election?
+  E9.C3: Will John Rose win the 2026 Tennessee Governor Republican primary election?
+
+=== E10: Will Marine Le Pen win her appeal to lift ineligibility ban in 2026?
+Rules:
+On March 31, 2025, Marine Le Pen was sentenced to a five-year ban from public office for embezzlement of public funds, potentially blocking her from the 2027 presidential race. The appeal focuses on this penalty, with hearings currently scheduled to run from January 13 to February 12. You can read more about that here: https://www.lemonde.fr/en/les-decodeurs/article/2026/01/13/understanding-marine-le-pen-s-crucial-appeals-trial_6749363_8.html.
+
+This market will resolve to “Yes” if the Paris Court of Appeal issues an initial appeal decision, lifting, annulling, suspending, or otherwise removing Marine Le Pen’s ineligibility penalty such that she is legally permitted to run for public office again, by December 31, 2026, 11:59 PM CET. Otherwise, this market will resolve to “No”.
+
+This market will resolve immediately based on the first merits judgment rendered by the Paris Court of Appeal in this appeal, regardless of any subsequent appeals or legal proceedings. Procedural or interim rulings that do not decide the merits of the appeal will not qualify toward resolution.
+
+The primary resolution source for this market will be official rulings from the Paris Court of Appeal (Cour d’appel de Paris); however, a consensus of credible reporting may also be used.
+Contracts:
+  E10.C1: Will Marine Le Pen win her appeal to lift ineligibility ban in 2026?
