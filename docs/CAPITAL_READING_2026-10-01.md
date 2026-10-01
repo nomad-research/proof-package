@@ -56,3 +56,10 @@ Assumptions:
 | Paper fills against live books | In parallel with the forward sweep, 2–4 weeks | Real slippage and how much fills (C7) |
 | BT-A pass 2 (months by actual resolution) | Any time, about 25 sessions | Whether backtests can lock from April, doubling the window |
 | **Earliest point E1 could be "confirmed forward, with execution measured"** | **about mid-November 2026** | The prerequisite for any real-money discussion |
+
+## Update after BT-T2 pass 2 (same day)
+
+- **What replicated.** The money on the model's NO picks: +4.4¢ and +5.2¢ a share in the two passes, and **+8.5¢ and +8.6¢ on NOs priced 50¢ or more** (about +11.7% per dollar). A blind always-NO rule earned about 0 in both. The +5% to +12% per dollar band above stands. Its upper end now rests on two independent samples rather than one subset.
+- **What did not.** The registered, stricter test (against NO contracts of the same class and price) gave +2.6¢ with an interval spanning zero. The "surer than market" subset shrank on fresh events.
+- **So read the illustration's lower end as the planning case,** about +5% per dollar or $5,000 a month at the illustrated scale, until the forward sweep confirms more.
+- **Opportunity count, revised from pass 2:** about 2.5 NO positions per event read, of which about 1.6 are priced 50¢ or more. At 600 events a month that is about 950 of the latter, before depth limits.
