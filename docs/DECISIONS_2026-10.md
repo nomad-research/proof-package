@@ -176,3 +176,17 @@ Register C3. Refines decisions 4 and 6.
   - Rob's confirmation of the reading.
   - Then the elicitation: the reference class and the instance's place in it.
   - Then the scoring: the instance's realised place against the place the session and the market implied, by rank.
+
+## 11. Fold the day's findings into what runs next (2026-10-01)
+
+- **Rob's words.** "Let's fold in everything from above as well." Said after the explanation of the NO edge, the "scale of scale" reading of magnitude, the calibration comparison and the capital reading.
+- **Decision (builder's reading of that instruction; Rob may narrow it).**
+  1. **Magnitude.** "Scale of scale" (decision 10) is the working definition: how big this instance is within its kind. T3 collects it from now on: per scaled event, the reference class the session uses and where it expects this instance to sit in that class, as a percentile. Scoring needs reference-class data and is registered separately before any T3 outcome is read.
+  2. **Calibration.** The `docs/EDGE_LEDGER.md` method is adopted: within a pipeline only; Platt, walk-forward, switched on only when it beats raw; partial pooling by context. A dedicated calibration pass on resolved events tests the two elicitation fixes (several sessions averaged; half the questions framed as "will not happen").
+  3. **The NO edge (E1)** is the line pushed first. BT-T2 pass 2 is its registered backtest test. A forward E1 sweep, registered as a standing weekly pass, is its forward test.
+  4. **Capacity.** Every forward lock records the order book's depth within 1¢ and 2¢ of the best ask, so the capital reading moves from one day's sample to every position (C7).
+  5. **The ladder-structure hint** (sessions infer location from where the rungs are and which are missing) is recorded in the edge ledger as a framework mechanism. Nothing is changed for it yet.
+- **Still open.**
+  - **Rob's confirmation** of the scale-of-scale reading.
+  - **Whether the weekly forward sweep may run as a scheduled task.** That is standing configuration on Rob's machine and needs his yes.
+  - **BT-A pass 2** (window from April) is queued after T3.
