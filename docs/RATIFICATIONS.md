@@ -126,3 +126,6 @@ Rob: "price stays out as a foundational data point, not out of the system." Read
 
 ## 2026-10-01 — v18 decisions under delegation (Rob: "make a good decision on all following my intent")
 Decided by the builder under Rob's instruction, open to his reversal: D33 proceed on the Polymarket frame; D34–D39, D41–D43 adopted as written in `docs/nomad_v18_updates.md`; **D40 structural coherence trades stay out (diagnostic only)** until T1 reports. **18.1 deferred; claims added to 18.0 as track 18.0c (proposed R21: a triggered claim is a conditional bet, belief learned from the claims' own record, sized against price only at the trigger).** T0 extended with the trigger-lag, matched-placebo and de-duplication tests. Full record: `docs/nomad_v18_addendum_B1.md`.
+
+## 2026-10-01 — each subgraph is a basket (Rob)
+Rob: "the basket is the set of positions that comprise the subgraph, it is each subgraph." R16 amended: one thesis subgraph is one basket, sized on its own scenarios; links are never traded alone; tests count baskets. 18.0c is folded in as calibrated edges inside subgraphs (R21's trading rule superseded). Across-basket sizing (Kelly per basket, scaled pro rata to the bankroll cap) is the builder's, provisional. Open: whether baskets may share a contract. Full record: `docs/nomad_v18_addendum_B1.md` §6.
