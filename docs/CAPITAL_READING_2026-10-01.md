@@ -63,3 +63,51 @@ Assumptions:
 - **What did not.** The registered, stricter test (against NO contracts of the same class and price) gave +2.6¢ with an interval spanning zero. The "surer than market" subset shrank on fresh events.
 - **So read the illustration's lower end as the planning case,** about +5% per dollar or $5,000 a month at the illustrated scale, until the forward sweep confirms more.
 - **Opportunity count, revised from pass 2:** about 2.5 NO positions per event read, of which about 1.6 are priced 50¢ or more. At 600 events a month that is about 950 of the latter, before depth limits.
+
+## Update after three E1 passes and two E3 passes (night of 2026-10-01)
+
+**Still not investment advice.** Every figure is a backtest priced at the last trade plus 1¢, not at real fills. The forward sweep, which prices at the actual ask, is the check.
+
+### What each edge is worth per dollar (the lean-free part is the planning number)
+
+| Edge | Bets | Per bet (mean cost) | **Skill per dollar** (versus same-price contracts) | Money per dollar (includes any market lean) | Basis |
+|---|---|---|---|---|---|
+| E1, NO picks priced 50¢ or more | 690 on 231 events | 72¢, wins 83% | **+6.5% (+2.0 to +11.1)** | +14.3% (+9.3 to +18.7) | BT-T2 passes 1–3 pooled, post-hoc pooling |
+| E1, all NO picks | 1,093 on 367 events | 54¢ | +7.4% (+2.1 to +12.9) | +13.6% | same |
+| E3b, mention markets, both sides | 1,412 on 82 events | 46¢ | **+23.8% (+17.4 to +30.0)** | +19.1% (+12.8 to +25.6) | E3 passes 1–2 pooled, post-hoc |
+
+- **Why skill and money differ.** Money counts what NO bets earned in that window, and in April to June every NO earned something (blind NO +3.3¢). Skill subtracts what same-price contracts earned, so it is the part that should survive any window. Plan on skill.
+- **E3b's spread risk is larger.** Mention books are thin (below), so the 1¢ slippage assumed in the backtest is optimistic there. Each extra cent of spread costs about 2% per dollar at a 46¢ mean cost. Planning case: about +15% per dollar after spread, until forward fills say otherwise.
+
+### Capacity: how much each edge can take
+
+| | E1 (short-dated NOs) | E3b (mention markets) |
+|---|---|---|
+| Eligible events a month | About 500 (W01 snapshot: 242 events in scope ending within 14 days) | About 20–40 (Gamma lists 18 open mention events; about 5–10 a week are in scope from W02) |
+| Bets per event | About 1.6–1.9 (NO priced 50¢ or more; passes 2–3) | About 17 (both sides) |
+| Dollars on offer near the best price | Median $120 within 1¢, $200 within 2¢ (`depth_sample.py`). Longer-dated T3 books: median $416 and $777 | **Median $50 within 1¢, $60 within 2¢; a quarter above $170–180** (live, 2026-10-01, 250 books priced 30–95¢) |
+| Size per bet | $150 | About $60 |
+| Staked a month | About 850 bets × $150 ≈ **$127k** | About 30 events × 17 × $60 ≈ **$30k** |
+| Expected gross a month | 6.5% → **about $8k** (range $2.5k–14k on the interval) | 15% → **about $4.5k** (range $2k–7k) |
+| Holding time | Median 4.5 days | Mostly hours to a week |
+| Working capital tied up | About $20–35k | About $5–10k |
+
+**Together: about $12k a month gross at about $25–45k working capital, capacity-bound, before execution costs are measured.** The previous planning case was about $5k a month on E1 alone at +5% per dollar. The rise comes from a firmer E1 skill estimate (three passes), more bets per event, and E3b.
+
+### Risk shape (unchanged, and larger for E1)
+- An E1 NO bought at 72¢ makes 28¢ when it wins (83%) and loses 72¢ when it doesn't.
+- Losses cluster: one shock can flip many NOs together.
+- C1 (global risk) and C2 (position risk) are Rob's numbers and are still blank. Nothing here sizes a real position.
+
+### Timeline to a real-money decision
+
+| Step | Earliest | What it settles |
+|---|---|---|
+| Sweep W01 resolves | By 15 October | First forward E1 and E3 rows, priced at the real ask |
+| Weekly batches W02 onward | Each week (needs a session open, or a scheduled run) | Builds the forward sample |
+| **E1 forward, first look** (400 resolved events with a NO pick) | **About mid-November**, at about 80 such events a week plus two weeks to resolve | Confirms or kills E1 at 97.5% |
+| E1 forward, second look (800) | About mid-December | The same, with more power |
+| E3 and E3b forward, first look (50 mention events) | About early to mid December | Confirms or kills the mention edge |
+| **Execution (C7): paper fills against recorded books** | Can start now: the recorder logs books every 15 minutes and the live stream since 2026-10-01 18:24 | Real spread and slippage, above all on mention books |
+| T3 (claims, live evidence) | October to December as contracts resolve | E2, and E1 with retrieval |
+| **Earliest real-money discussion** | **Late November** (E1 first look plus measured fills) | Needs Rob's C1 numbers and the terms check (v18 §6.7) |
