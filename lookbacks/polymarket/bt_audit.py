@@ -54,6 +54,17 @@ def month_of(t):
     return dt.datetime.fromtimestamp(t, dt.timezone.utc).strftime("%Y-%m")
 
 
+BY_RESOLUTION, EXCLUDE, NO_PRICE, PREFIX = False, set(), False, "bta"   # pass 2 (BT_A_pass2_prereg.md): months by actual resolution, earlier events excluded
+
+
+def month_key(e):
+    """The month an event belongs to: its scheduled end, or (pass 2) the earlier of scheduled end and actual close."""
+    end, closed = ts(e.get("end")), ts(e.get("closed_time"))
+    if end is None:
+        return None
+    return month_of(min(end, closed) if (BY_RESOLUTION and closed) else end)
+
+
 def sha(o):
     return hashlib.sha256(json.dumps(o, sort_keys=True, separators=(",", ":")).encode()).hexdigest()
 
@@ -145,7 +156,7 @@ def eligible_event(e):
             break
     if not ms:
         return None, "no_priced_contract"
-    return {"id": e["id"], "title": e["title"], "description": e.get("description"), "tags": e["tags"], "month": month_of(end), "stratum": stratum(e),
+    return {"id": e["id"], "title": e["title"], "description": e.get("description"), "tags": e["tags"], "month": month_key(e), "stratum": stratum(e),
             "price_time": t, "end": e.get("end"), "closed_time": e.get("closed_time"), "contracts": ms}, None
 
 
@@ -153,9 +164,13 @@ def cmd_draw(a):
     crawl = jload(a.crawl)
     tally = collections.Counter(); pools = collections.defaultdict(list)
     for e in crawl:
-        end = ts(e.get("end"))
-        if end is None or month_of(end) not in MONTHS:
+        mo = month_key(e)
+        if mo is None or mo not in MONTHS:
             tally["outside_months"] += 1; continue
+        if e["id"] in EXCLUDE:
+            tally["drawn_in_an_earlier_test"] += 1; continue
+        if NO_PRICE and stratum(e) == "price":
+            tally["price_stratum_not_drawn"] += 1; continue
         if MAKER.search(text_of(e) + " " + " ".join(e["tags"])):
             tally["maker_excluded"] += 1; continue
         r = clean(e)
@@ -163,7 +178,7 @@ def cmd_draw(a):
             tally[r] += 1; continue
         if K.leak_flags(text_of(e)):
             tally["leak_flag"] += 1; continue
-        pools[(month_of(end), stratum(e))].append(e)
+        pools[(mo, stratum(e))].append(e)
     draw, reasons = [], collections.Counter()
     for (mo, st), evs in sorted(pools.items()):
         rng = random.Random(f"{SEED}:{mo}:{st}"); evs = sorted(evs, key=lambda e: e["id"]); rng.shuffle(evs)
@@ -241,7 +256,7 @@ INSTRUCTION = "Your task is in the file {path}. Read that file (it is the only t
 
 def cmd_publish(a):
     src = os.path.join(D, "sessions", f"{a.sid}.txt"); os.makedirs(PROMPT_DIR, exist_ok=True)
-    dst = os.path.join(PROMPT_DIR, f"bta_{a.sid}.txt"); shutil.copyfile(src, dst)
+    dst = os.path.join(PROMPT_DIR, f"{PREFIX}_{a.sid}.txt"); shutil.copyfile(src, dst)
     print(INSTRUCTION.format(path=dst))
 
 
@@ -296,7 +311,7 @@ def reads_by_line(path, allowed_path, prompt):
 
 def cmd_ingest(a):
     meta = jload(os.path.join(D, "sessions", f"{a.sid}.json")); prompt = open(os.path.join(D, "sessions", f"{a.sid}.txt"), encoding="utf-8").read()
-    path = V.find_transcript(a.agent_id); dst = os.path.join(PROMPT_DIR, f"bta_{a.sid}.txt")
+    path = V.find_transcript(a.agent_id); dst = os.path.join(PROMPT_DIR, f"{PREFIX}_{a.sid}.txt")
     au = V.audit_transcript(path, declared=DECLARED_MODEL, allowed_reads={dst: prompt}, expect_instructions=[INSTRUCTION.format(path=dst)])
     if not au["ok"] and not au["read_content_matches"] and au["prompt_matches_file"] and au["instructions_match"] and not au["tool_calls"] \
             and set(au["models"]) == {DECLARED_MODEL} and reads_by_line(path, dst, prompt):
@@ -378,7 +393,11 @@ def cmd_score(a):
 
 
 def main():
-    ap = argparse.ArgumentParser(); sp = ap.add_subparsers(dest="cmd", required=True)
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--pass-dir"); ap.add_argument("--seed", type=int); ap.add_argument("--months", help="comma-separated YYYY-MM")
+    ap.add_argument("--by-resolution", action="store_true"); ap.add_argument("--no-price", action="store_true")
+    ap.add_argument("--exclude", action="append", default=[], help="an earlier test's draw.json or frame.json")
+    sp = ap.add_subparsers(dest="cmd", required=True)
     p = sp.add_parser("draw"); p.add_argument("--crawl", required=True)
     sp.add_parser("sessions")
     p = sp.add_parser("publish"); p.add_argument("sid")
@@ -386,6 +405,16 @@ def main():
     sp.add_parser("freeze")
     sp.add_parser("score")
     a = ap.parse_args()
+    global D, SEED, MONTHS, BY_RESOLUTION, EXCLUDE, NO_PRICE, PREFIX
+    if a.pass_dir:
+        D = os.path.join(HERE, "bt", a.pass_dir); PREFIX = "bta" + a.pass_dir.replace("audit_", "").replace("pass", "p")
+    if a.seed:
+        SEED = a.seed
+    if a.months:
+        MONTHS = a.months.split(",")
+    BY_RESOLUTION, NO_PRICE = a.by_resolution, a.no_price
+    for f in a.exclude:
+        EXCLUDE |= {e["id"] for e in jload(f)["events"]}
     {"draw": cmd_draw, "sessions": cmd_sessions, "publish": cmd_publish, "ingest": cmd_ingest, "freeze": cmd_freeze, "score": cmd_score}[a.cmd](a)
 
 

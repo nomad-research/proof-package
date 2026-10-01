@@ -8,7 +8,7 @@
     python lookbacks/polymarket/fwd_sweep.py freeze W01              # answers and lock asks into sweep/W01/manifest.json, committed at once
     python lookbacks/polymarket/fwd_sweep.py score                   # every frozen batch: what has resolved (Gamma re-read), E1 and E3 at their looks
 """
-import argparse, collections, datetime as dt, gzip, hashlib, json, math, os, random, re, shutil, sys, time
+import argparse, collections, concurrent.futures, datetime as dt, gzip, hashlib, json, math, os, random, re, shutil, sys, time
 HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.dirname(os.path.dirname(HERE))
 sys.path.insert(0, HERE); sys.path.insert(0, ROOT)
 import numpy as np
@@ -146,9 +146,12 @@ def cmd_ingest(a):
     lock = t3.now_ts(); prices = {}
     if status == "ok":                                          # the lock is the hand-back: asks are read now, after the answer exists
         fr = {e["id"]: e for e in A.jload(os.path.join(bdir(a.batch), "frame.json"))["events"]}
-        for L in meta["labels"].values():
-            for c in fr[L["event_id"]]["contracts"]:
-                prices[c["cid"]] = {"ask_yes": t3.book_ask(c["token_yes"]), "ask_no": t3.book_ask(c["token_no"]) if c.get("token_no") else None}
+        cs = [c for L in meta["labels"].values() for c in fr[L["event_id"]]["contracts"]]
+        toks = [t for c in cs for t in (c["token_yes"], c.get("token_no")) if t]
+        with concurrent.futures.ThreadPoolExecutor(16) as ex:     # read every book at once, so the lock price sits close to the hand-back
+            got = dict(zip(toks, ex.map(t3.book_ask, toks)))
+        for c in cs:
+            prices[c["cid"]] = {"ask_yes": got.get(c["token_yes"]), "ask_no": got.get(c["token_no"]) if c.get("token_no") else None}
     rec = {"session": a.sid, "agent_id": a.agent_id, "status": status, "errors": errs, "audit": au, "answers": ans, "lock": lock, "lock_prices": prices,
            "prompt_sha256": meta["prompt_sha256"], "ingested_at": dt.datetime.now(dt.timezone.utc).isoformat()}
     os.makedirs(os.path.join(bdir(a.batch), "answers"), exist_ok=True); A.jdump(rec, os.path.join(bdir(a.batch), "answers", f"{a.sid}.json"))
