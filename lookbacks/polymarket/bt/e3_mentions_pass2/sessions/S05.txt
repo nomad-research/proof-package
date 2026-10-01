@@ -1,0 +1,232 @@
+You will be shown 6 questions from a prediction market. Each has one or more contracts that resolve YES or NO under the rules shown. Each question gives the date your view is "as of": answer as you would on that date.
+
+Use only what you already know. Do not search for or look up anything: reading this file is the only tool call you may make. There are no prices in this file and you should not try to estimate what any market thinks; give your own view.
+
+Each question says what to write for it. Whole percents run from 1 to 99. Levels are plain numbers in the units the contracts use (for example 95000 for $95,000, 3.25 for 3.25%). Dates are YYYY-MM-DD.
+
+For each question also say whether you recognise how it actually turned out ("recognised": true only if you believe you remember the real outcome; otherwise false).
+
+Reply with one JSON object and nothing else:
+{"events": [{"label": "E1", "recognised": false, ...the fields that question asks for...}]}
+
+=== E1 (as of 2026-04-10): What will MrBeast say during his next YouTube video?
+Rules:
+MrBeast releases videos on https://www.youtube.com/@MrBeast.
+
+This market will resolve to "Yes" if Mr Beast says the listed term during the next video he releases on YouTube. Otherwise, the market will resolve to "No".
+
+If clips of old videos or prerecorded clips are aired where people are speaking, those clips will count toward this market's resolution.
+
+AI-generated audio or video will count toward this market's resolution.
+
+Any usage of the term, regardless of context, will count toward the resolution of this market.
+
+Pluralization/possessive of the term will count toward the resolution of this market; however, other forms will NOT count.
+
+Instances where the term is used in a compound word will count regardless of context (e.g. joyful is not a compound word for "joy," however "killjoy" is a compounding of the words "kill" and "joy").
+
+If this market requires a specified number of mentions of a person’s first or last name, a full-name mention will count as one mention (e.g., if a market is about “Joe / Biden 5+ times,” a mention of “Joe Biden” will count once).
+
+If no such video is posted by MrBeast by May 31, 2026, 11:59 PM ET, this market will resolve to "No".
+
+The resolution source will be the released video from (https://www.youtube.com/@MrBeast).
+
+Note: This market refers to MrBeast's next video posted. Shorts, previews, or other videos released other than the referenced video will not be considered.
+Contracts:
+  E1.C1: Will MrBeast say "Dollar" 5+ times during his next video?
+  E1.C2: Will MrBeast say "Africa" during his next video?
+  E1.C3: Will MrBeast say "Super Mario Galaxy" during his next video?
+  E1.C4: Will MrBeast say "Tesla" or "Lamborghini" during his next video?
+  E1.C5: Will MrBeast say "Movie" during his next video?
+  E1.C6: Will MrBeast say "Donate" or "Donated" during his next video?
+  E1.C7: Will MrBeast say "Calendar" during his next video?
+  E1.C8: Will MrBeast say "Chocolate" during his next video?
+What to write for E1:
+  Write "p": a whole percent for every contract label, your chance that it resolves YES.
+
+=== E2 (as of 2026-04-02): What will Trump say this week? (April 5)
+Rules:
+This market will resolve to “Yes” if Donald Trump mentions the listed term between March 30, 2026, 12:00 AM ET and April 5, 2026, 11:59 PM ET. Otherwise, this market will resolve to “No”.
+
+Plural and possessive forms of the listed term will count toward the resolution of this market regardless of context; however, other forms will NOT count.
+
+Instances where the term is used in a compound word will count regardless of context (e.g. joyful is not a compound word for "joy," however "killjoy" is a compounding of the words "kill" and "joy").
+
+If this market requires a specified number of mentions of a person’s first or last name, a full-name mention will count as one mention (e.g., if a market is about “Joe / Biden 5+ times,” a mention of “Joe Biden” will count once).
+
+A ‘mention’ will include any verbal mention which is recorded (audio or video) and publicly accessible.
+
+Written usages of terms (e.g. Truth Social posts, written statements, etc.) will not count toward this market's resolution.
+
+AI-generated audio or video will not count toward this market's resolution.
+
+Videos posted on his social media which were filmed outside this market's time frame will not qualify for a "Yes" resolution.
+Contracts:
+  E2.C1: Will Trump say "Gay" this week? (April 5)
+  E2.C2: Will Trump say "April Fool" this week? (April 5)
+  E2.C3: Will Trump say "Unlimited Ammunition" this week? (April 5)
+  E2.C4: Will Trump say "Delcy" or "Rodriguez" this week? (April 5)
+  E2.C5: Will Trump say "Eight Boats" or "Eight Ships" this week? (April 5)
+  E2.C6: Will Trump say "Hot as a pistol" this week? (April 5)
+  E2.C7: Will Trump say "Dark cloud" this week? (April 5)
+  E2.C8: Will Trump say "Divider" this week? (April 5)
+  E2.C9: Will Trump say "Mine dropper" this week? (April 5)
+  E2.C10: Will Trump say "Plastic Egg" this week? (April 5)
+  E2.C11: Will Trump say "Caravan" this week? (April 5)
+  E2.C12: Will Trump say "UFC" this week? (April 5)
+  E2.C13: Will Trump say "Hamas" or "Hezbollah" this week? (April 5)
+What to write for E2:
+  Write "p": a whole percent for every contract label, your chance that it resolves YES.
+
+=== E3 (as of 2026-05-02): What will Bernie Sanders say in Detroit?
+Rules:
+Bernie Sanders is scheduled to speak in Detroit, Michigan on his Fighting Oligarchy tour on May 3, 2026 (https://act.berniesanders.com/signup/rsvp-oligarchy-detroit/?source=website-oligarchy). 
+
+This market will resolve to "Yes" if Bernie Sanders says the listed term during events in Detroit scheduled for May 3, 2026. Otherwise, the market will resolve to "No".
+
+If clips of old interviews or prerecorded videos are aired where Sanders is speaking, those clips will count toward this market's resolution.
+
+Plural and possessive forms of the listed term will count toward the resolution of this market regardless of context; however, other forms will NOT count.
+
+Instances where the term is used in a compound word will count regardless of context (e.g., joyful is not a compound word for "joy," however, "killjoy" is a compounding of the words "kill" and "joy").
+
+If this market requires a specified number of mentions of a person’s first or last name, a full-name mention will count as one mention (e.g., if a market is about “Joe / Biden 5+ times,” a mention of “Joe Biden” will count once).
+
+This market is explicitly about Bernie Sanders's remarks in Detroit scheduled for May 3, 2026. Speeches, events, or comments that occur outside of the named, scheduled event will not qualify toward this market's resolution. If the event contains a Q&A, it will count toward the resolution of this market.
+
+AI-generated audio or video will not count toward this market's resolution.
+
+If this event is definitively cancelled, or otherwise is not aired by May 3, 2026, 11:59 PM ET, "-No Qualifying Event-" will resolve to "Yes" and all other brackets will resolve to "No". 
+
+The resolution source will be video of the events. Only remarks which are broadcast or streamed live will count toward this market's resolution.
+Contracts:
+  E3.C1: Will Bernie Sanders say "Billion" or "Billionaire" 5+ times in Michigan?
+  E3.C2: Will Bernie Sanders say "One Percent" or "One Percenter" 3+ times in Michigan?
+  E3.C3: Will Bernie Sanders say "Trump" 3+ times in Michigan?
+  E3.C4: Will Bernie Sanders say "Trump" 10+ times in Michigan?
+  E3.C5: Will Bernie Sanders say "ICE" 3+ times in Michigan?
+  E3.C6: Will Bernie Sanders say "DHS" or "TSA" in Michigan?
+  E3.C7: Will Bernie Sanders say "Affordable" or "Affordability" in Michigan?
+  E3.C8: Will Bernie Sanders say "AI" or "Artificial Intelligence" in Michigan?
+  E3.C9: Will Bernie Sanders say "Campaign" in Michigan?
+  E3.C10: Will Bernie Sanders say "Iran" in Michigan?
+  E3.C11: Will Bernie Sanders say "Legislation" in Michigan?
+  E3.C12: Will Bernie Sanders say "Data Center" in Michigan?
+  E3.C13: Will Bernie Sanders say "Moratorium" in Michigan?
+  E3.C14: Will Bernie Sanders say "King" in Michigan?
+  E3.C15: Will Bernie Sanders say "Working Family" in Michigan?
+  E3.C16: Will Bernie Sanders say "Healthcare" in Michigan?
+  E3.C17: Will Bernie Sanders say "Oil" or "Gas" or "Gasoline" in Michigan?
+  E3.C18: Will Bernie Sanders say "Election" in Michigan?
+  E3.C19: Will Bernie Sanders say "Elon" or "Musk" in Michigan?
+  E3.C20: Will Bernie Sanders say "Amazon" or "Jeff" or "Bezos" in Michigan?
+  E3.C21: Will Bernie Sanders say "Corrupt" or "Corruption" in Michigan?
+  E3.C22: Will Bernie Sanders say "Authoritarian" or "Authoritarianism" in Michigan?
+  E3.C23: Will Bernie Sanders say "OpenAI" or "ChatGPT" in Michigan?
+  E3.C24: Will Bernie Sanders say "Tuition" in Michigan?
+  E3.C25: Will Bernie Sanders's remarks not air?
+What to write for E3:
+  Write "p": a whole percent for every contract label, your chance that it resolves YES.
+
+=== E4 (as of 2026-06-12): What will Trump say in June?
+Rules:
+This market will resolve to “Yes” if Donald Trump mentions the listed term between June 1, 2026, 12:00 AM ET and June 30, 2026, 11:59 PM ET. Otherwise, this market will resolve to “No”.
+
+Plural and possessive forms of the listed term will count toward the resolution of this market regardless of context; however, other forms will NOT count.
+
+Instances where the term is used in a compound word will count regardless of context (e.g. joyful is not a compound word for "joy," however "killjoy" is a compounding of the words "kill" and "joy").
+
+If this market requires a specified number of mentions of a person’s first or last name, a full-name mention will count as one mention (e.g., if a market is about “Joe / Biden 5+ times,” a mention of “Joe Biden” will count once).
+
+A ‘mention’ will include any verbal mention which is recorded (audio or video) and publicly accessible.
+
+Written usages of terms (e.g. Truth Social posts, written statements, etc.) will not count toward this market's resolution.
+
+AI-generated audio or video will not count toward this market's resolution.
+
+Videos posted on his social media which were filmed outside this market's time frame will not qualify for a "Yes" resolution.
+Contracts:
+  E4.C1: Will Trump say "Big League" or "Bigly" in June?
+  E4.C2: Will Trump say "Muscle" in June?
+  E4.C3: Will Trump say "Six Seven" in June?
+  E4.C4: Will Trump say "Antifa" in June?
+  E4.C5: Will Trump say "Sex" in June?
+  E4.C6: Will Trump say "Bond" in June?
+  E4.C7: Will Trump say "Regarded" in June?
+  E4.C8: Will Trump say "Gay" in June?
+  E4.C9: Will Trump say "Four More Years" in June?
+  E4.C10: Will Trump say "Hippo" or "Hippopotamus" in June?
+  E4.C11: Will Trump say "Yips" in June?
+  E4.C12: Will Trump say "KAG" or "Keep America Great" in June?
+  E4.C13: Will Trump say "All In All Out" in June?
+  E4.C14: Will Trump say "Satan" in June?
+  E4.C15: Will Trump say "Buy Dell Computer / Buy a Dell Computer" in June?
+  E4.C16: Will Trump say "Gulf of Trump" in June?
+  E4.C17: Will Trump say "Ay Ay Ay" in June?
+  E4.C18: Will Trump say "No No No Donald" in June?
+What to write for E4:
+  Write "p": a whole percent for every contract label, your chance that it resolves YES.
+
+=== E5 (as of 2026-04-15): What will Trump say during No Tax on Tips Roundtable? 
+Rules:
+Donald Trump is scheduled to participate in an event titled "The President participates in a Roundtable and Remarks on Tax Day" in Las Vegas, Nevada on April 16, 2026, 7PM ET (https://rollcall.com/factbase/trump/calendar/). 
+
+This market will resolve to "Yes" if Donald Trump says the listed term during the Tax Day Roundtable scheduled for April 16, 2026. Otherwise, the market will resolve to "No".
+
+Plural and possessive forms of the listed term will count toward the resolution of this market regardless of context; however, other forms will NOT count.
+
+Instances where the term is used in a compound word will count regardless of context (e.g., joyful is not a compound word for "joy," however, "killjoy" is a compounding of the words "kill" and "joy").
+
+If this market requires a specified number of mentions of a person’s first or last name, a full-name mention will count as one mention (e.g., if a market is about “Joe / Biden 5+ times,” a mention of “Joe Biden” will count once).
+
+This market is explicitly about the event titled "The President participates in a Roundtable and Remarks on Tax Day" scheduled for April 16, 2026, 7PM ET (https://rollcall.com/factbase/trump/calendar/). Speeches, events, or comments that occur outside of the named, scheduled event will not qualify toward this market's resolution. If the event contains a Q&A, it will count toward the resolution of this market.
+
+AI-generated audio or video will not count toward this market's resolution.
+
+If this event is definitively cancelled, or otherwise is not aired by April 16, 2026, 11:59 PM ET, "-No Qualifying Event-" will resolve to "Yes" and all other brackets will resolve to "No". 
+
+The resolution source will be video of the events. Only remarks which are broadcast or streamed live will count toward this market's resolution.
+Contracts:
+  E5.C1: Will Trump say "Percent" 10+ times during No Tax on Tips Roundtable?
+  E5.C2: Will Trump say "Farmer" during No Tax on Tips Roundtable?
+  E5.C3: Will Trump say "Deficit" during No Tax on Tips Roundtable?
+  E5.C4: Will Trump say "Regulation" during No Tax on Tips Roundtable?
+  E5.C5: Will Trump say "Air force" during No Tax on Tips Roundtable?
+  E5.C6: Will Trump say "Refund" during No Tax on Tips Roundtable?
+  E5.C7: Will Trump say "DoorDash" or "McDonald's" during No Tax on Tips Roundtable?
+  E5.C8: Will Trump say "Election" during No Tax on Tips Roundtable?
+  E5.C9: Will Trump say "Crypto" or "Bitcoin" during No Tax on Tips Roundtable?
+What to write for E5:
+  Write "p": a whole percent for every contract label, your chance that it resolves YES.
+
+=== E6 (as of 2026-04-14): What will Trump say during Fox Business interview on April 15?
+Rules:
+Donald Trump is scheduled to participate in an interview with Maria Bartiromo on April 15, 2026. (https://www.youtube.com/watch?v=wmwVQMWTqD0&start=2027). 
+
+This market will resolve to "Yes" if Donald Trump says the listed term during the Fox Business interview scheduled for April 15, 2026. Otherwise, the market will resolve to "No".
+
+Plural and possessive forms of the listed term will count toward the resolution of this market regardless of context; however, other forms will NOT count.
+
+Instances where the term is used in a compound word will count regardless of context (e.g., joyful is not a compound word for "joy," however, "killjoy" is a compounding of the words "kill" and "joy").
+
+If this market requires a specified number of mentions of a person’s first or last name, a full-name mention will count as one mention (e.g., if a market is about “Joe / Biden 5+ times,” a mention of “Joe Biden” will count once).
+
+This market is explicitly about Trump's remarks during the Fox Business interview scheduled for April 15, 2026. (See: https://www.youtube.com/watch?v=wmwVQMWTqD0&start=2027). Speeches, events, or comments that occur outside of the named, scheduled event will not qualify toward this market's resolution. If the event contains a Q&A, it will count toward the resolution of this market.
+
+AI-generated audio or video will not count toward this market's resolution.
+
+If this event is definitively cancelled, or otherwise is not aired by April 15, 2026, 11:59 PM ET, "-No Qualifying Event-" will resolve to "Yes" and all other brackets will resolve to "No". 
+
+The resolution source will be video of the events. Only remarks which are broadcast or streamed live will count toward this market's resolution.
+Contracts:
+  E6.C1: Will Trump say "Million" or "Billion" or "Trillion" 12+ times during Fox interview on Wednesday?
+  E6.C2: Will Trump say "Biden" during Fox interview on Wednesday?
+  E6.C3: Will Trump say "Midterm" during Fox interview on Wednesday?
+  E6.C4: Will Trump say "Dow" or "S&P" during Fox interview on Wednesday?
+  E6.C5: Will Trump say "Leo" or "Pope" during Fox interview on Wednesday?
+  E6.C6: Will Trump say "Paper tiger" during Fox interview on Wednesday?
+  E6.C7: Will Trump say "Inflation" during Fox interview on Wednesday?
+  E6.C8: Will Trump say "JD" or "Vance" during Fox interview on Wednesday?
+  E6.C9: Will Trump say "Bottom of the Sea" during Fox interview on Wednesday?
+What to write for E6:
+  Write "p": a whole percent for every contract label, your chance that it resolves YES.
