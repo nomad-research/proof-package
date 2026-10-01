@@ -129,3 +129,6 @@ Decided by the builder under Rob's instruction, open to his reversal: D33 procee
 
 ## 2026-10-01 — each subgraph is a basket (Rob)
 Rob: "the basket is the set of positions that comprise the subgraph, it is each subgraph." R16 amended: one thesis subgraph is one basket, sized on its own scenarios; links are never traded alone; tests count baskets. 18.0c is folded in as calibrated edges inside subgraphs (R21's trading rule superseded). Across-basket sizing (Kelly per basket, scaled pro rata to the bankroll cap) is the builder's, provisional. Open: whether baskets may share a contract. Full record: `docs/nomad_v18_addendum_B1.md` §6.
+
+## 2026-10-01 — correction: a basket is not sizing (Rob)
+Rob: "basket isn't sizing." The previous entry's across-basket sizing rule is withdrawn. A basket is the set of positions (contract and side) a subgraph implies. Sizing has not been discussed with Rob: v18 §5.5 and its sizing values are suspended as proposals, unbuilt. Tests score baskets unsized. `docs/nomad_v18_addendum_B1.md` §6 rewritten.

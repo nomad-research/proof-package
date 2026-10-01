@@ -65,13 +65,12 @@ R21 is amended to match. The trigger rule is kept as a descriptive statistic onl
 
 ## 6. Each subgraph is a basket (Rob, 2026-10-01)
 
-Rob: "the basket is the set of positions that comprise the subgraph, it is each subgraph." This amends R16, which said the basket is one sizer solution over the union of all live theses.
+Rob: "the basket is the set of positions that comprise the subgraph, it is each subgraph." And: "basket isn't sizing."
 
-- **One thesis subgraph, one basket.** The basket is the set of positions on that subgraph's contracts. The sizer runs once per subgraph, over that subgraph's own scenarios and joint belief. There is no single solution across theses.
-- **Links are never traded alone.** An edge is structure inside a subgraph. It shapes the subgraph's joint belief and so the basket's positions.
-- **Hedging inside a basket** is a property of that basket's solution: if the thesis weights its own failure scenarios, the sizer buys what pays in them.
-- **Across baskets.** Each basket is a separate bet. Builder's provisional rule until Rob sets one: each basket is sized by its own log growth at the Kelly fraction, and all baskets are scaled down pro rata if their total stake exceeds the bankroll cap.
-- **Scoring and evidence.** A basket is scored as a unit once every contract in it has resolved. Tests count baskets (independent theses), not contracts or legs.
-- **18.0c folds into this.** A claim is an edge, with both branches, inside a subgraph. It is scored for calibration and never traded alone. This supersedes the trading rule of R21 (§2 and §5). The packet requirement of §5 stays: every edge carries both branches, every node a graded P.
+- **One thesis subgraph, one basket.** A basket is *which* positions: the contracts of that subgraph and the side the thesis takes on each. It says nothing about how much.
+- **Links are never traded alone.** An edge is structure inside a subgraph; it decides what the basket holds.
+- **Claims** are edges inside subgraphs, carrying both branches, scored for calibration. R21's trading rule (§2, §5) is superseded. The packet requirement of §5 stays.
+- **Scoring and evidence.** A basket is scored as a unit once every contract in it has resolved, unsized (each position at one unit, hit minus all-in cost). Tests count baskets, not legs.
+- **Sizing is not decided.** It has not been discussed with Rob. v18 §5.5 (Kelly, `KELLY_FRACTION`, the event and cluster caps) and every sizing value in §7 are suspended as proposals, not built, until that discussion. No test depends on sizing.
 
-**Open, for Rob:** whether two baskets may hold the same contract. The 2026-09-30 intent ("the hedge is itself a correlated parallel thesis ... N baskets from that pool", `docs/RATIFICATIONS.md`) suggests a hedge can be its own basket over the same event; "independent subgraphs" suggests baskets share nothing. Until he says, baskets may overlap, and any overlap is recorded and its net exposure reported.
+**Open, for Rob:** whether two baskets may hold the same contract (the 2026-09-30 intent of a hedge as a parallel thesis suggests yes; "independent subgraphs" suggests no).
