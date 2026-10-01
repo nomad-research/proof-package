@@ -1,0 +1,224 @@
+You will be shown 6 questions from a prediction market. Each has one or more contracts that resolve YES or NO under the rules shown. Each question gives the date your view is "as of": answer as you would on that date.
+
+Use only what you already know. Do not search for or look up anything: reading this file is the only tool call you may make. There are no prices in this file and you should not try to estimate what any market thinks; give your own view.
+
+Each question says what to write for it. Whole percents run from 1 to 99. Levels are plain numbers in the units the contracts use (for example 95000 for $95,000, 3.25 for 3.25%). Dates are YYYY-MM-DD.
+
+For each question also say whether you recognise how it actually turned out ("recognised": true only if you believe you remember the real outcome; otherwise false).
+
+Reply with one JSON object and nothing else:
+{"events": [{"label": "E1", "recognised": false, ...the fields that question asks for...}]}
+
+=== E1 (as of 2026-07-22): What will Trump say this week? (July 20 - July 26)
+Rules:
+This market will resolve to “Yes” if Donald Trump mentions the listed term between July 20, 2026, 12:00 AM ET and July 26, 2026, 11:59 PM ET. Otherwise, this market will resolve to “No”.
+
+Written usages of terms (e.g. Truth Social posts, written statements, etc.) will not count toward this market's resolution.
+
+Videos posted on his social media which were filmed outside this market's time frame will not qualify for a "Yes" resolution.
+
+For full rules, see: https://polymarket-upload.s3.us-east-2.amazonaws.com/market_products/Period+Mentions+Contract+DeFi.pdf
+Contracts:
+  E1.C1: Will Trump say "Six Seven" this week?
+  E1.C2: Will Trump say "Messi" this week?
+  E1.C3: Will Trump say "Spain" this week?
+  E1.C4: Will Trump say "President Xi" this week?
+  E1.C5: Will Trump say "Rigged" this week?
+  E1.C6: Will Trump say "Egg" this week?
+  E1.C7: Will Trump say "Ronaldo" this week?
+  E1.C8: Will Trump say "Champion" this week?
+  E1.C9: Will Trump say "Ballroom" this week?
+  E1.C10: Will Trump say "Cuba" or "Cuban" this week?
+  E1.C11: Will Trump say "Golden Dome" this week?
+  E1.C12: Will Trump say "Melania" this week?
+  E1.C13: Will Trump say "Trump Account" this week?
+  E1.C14: Will Trump say "Windmill" this week?
+  E1.C15: Will Trump say "Crypto" or "Bitcoin" this week?
+  E1.C16: Will Trump say "Landslide" this week?
+  E1.C17: Will Trump say "Stupid Question" this week?
+  E1.C18: Will Trump say "Uranium" this week?
+  E1.C19: Will Trump say "American Flag Blue" this week?
+  E1.C20: Will Trump say "Autopen" or "Auto Pen" this week?
+  E1.C21: Will Trump say "Karoline" or "Leavitt" this week?
+  E1.C22: Will Trump say "Epstein" this week?
+  E1.C23: Will Trump say "Marijuana", "Weed", or "Cannabis" this week?
+  E1.C24: Will Trump say "Bibi" or "Netanyahu" this week?
+  E1.C25: Will Trump say "Fraud" this week?
+  E1.C26: Will Trump say "Sleepy Joe" this week?
+  E1.C27: Will Trump say "TikTok" this week?
+  E1.C28: Will Trump say "Transgender" this week?
+  E1.C29: Will Trump say "Ukraine" this week?
+What to write for E1:
+  Write "p": a whole percent for every contract label, your chance that it resolves YES.
+
+=== E2 (as of 2026-07-29): Will SpaceX (SPCX) beat quarterly earnings?
+Rules:
+As of market creation, SpaceX is estimated to release earnings on August 4, 2026. The Street consensus estimate for SpaceX's GAAP EPS for the relevant quarter is $-0.29 as of market creation. This market will resolve to "Yes" if SpaceX reports GAAP EPS greater than $-0.29 for the relevant quarter in its next quarterly earnings release. Otherwise, it will resolve to "No." The resolution source will be the GAAP EPS listed in the company’s official earnings documents. 
+
+If SpaceX releases earnings without GAAP EPS, then the market will resolve according to the GAAP EPS figure reported by SeekingAlpha. If no such figure is published within 96h of market close (4:00:00pm ET) on the day earnings are announced, the market will resolve to “No”.
+
+If the company does not release earnings within 45 calendar days of the estimated earnings date, this market will resolve to “No.” 
+
+Note: Subsequent restatements, corrections, or revisions made to the initially announced GAAP EPS figure will not qualify for resolution, except in the case of obvious and immediate mistakes (e.g., fat finger errors, as with Lyft's (LYFT) earnings release in February 2024).
+Note: The strike prices used in these markets are derived from SeekingAlpha estimates, and reflect the consensus of sell-side analyst estimates for GAAP EPS. 
+Note: All figures will be rounded to the nearest cent using standard rounding.
+Note: For the purposes of this market, IFRS EPS will be treated as GAAP EPS.
+Note: For the purposes of this market, GAAP EPS refers to diluted GAAP EPS, unless this is not published, in which case it refers to basic GAAP EPS.
+Note: All figures are expressed in USD, unless otherwise indicated.
+Note: For primarily internationally listed companies, this market refers specifically to the shares traded in the United States on U.S. stock exchanges such as the NYSE or Nasdaq. In cases where the company trades in the U.S. through an American Depositary Receipt (ADR) or American Depositary Share (ADS), this market will refer to the ADR/ADS.
+Contracts:
+  E2.C1: Will SpaceX (SPCX) beat quarterly earnings?
+What to write for E2:
+  Write "p": a whole percent for every contract label, your chance that it resolves YES.
+
+=== E3 (as of 2026-07-15): Trump alleges Georgia foreign election interference by July 16?
+Rules:
+This market will resolve to "Yes" if Donald Trump publicly alleges interference by a foreign actor has occurred in any election in Georgia between market creation and July 16, 2026, 11:59 PM ET. Otherwise, this market will resolve to "No".
+
+Qualifying interference includes, but is not limited to: manipulation of vote tallies or voting machines; hacking of election infrastructure; casting of fraudulent ballots; coordinated disinformation or influence campaigns intended to alter the election's outcome; or illegal foreign funding of campaigns. Allegations limited to procedural irregularities, administrative errors, ordinary lobbying, legal foreign media coverage, or fraud of domestic or unspecified origin will not qualify.
+
+The alleged interference must be attributed to a specific foreign government, foreign state-affiliated entity, foreign organization, or foreign nationals acting in that capacity. The actor must be identified at least at the national level (e.g., "China," "Russian operatives," "Iranian hackers"). Allegations against domestic actors, including US-based companies, media organizations, political parties, or election officials, will not qualify.
+
+Qualifying statements must explicitly or through context unambiguously refer to the state of Georgia.
+
+A qualifying statement must definitively allege that election interference occurred. Statements that are clearly satirical, hypothetical, or rhetorical will not qualify (e.g., "Did China interfere? Who knows," "If China interfered...", "They could easily interfere”).
+
+A statement need not use the word "interference." Any phrasing that communicates the elements above (e.g., "China stole the Georgia Senate election," "Russia rigged the vote in Geogia") will qualify.
+
+Reposts, retweets, or shares of third-party content will qualify only if accompanied by original commentary from Trump that itself meets the criteria above, or if the repost includes an unambiguous endorsement of a qualifying claim (e.g., "TRUE!"). A bare repost without comment will not qualify.
+
+Statements made by representatives will not alone qualify. Reports of private conversations, leaked audio not intended for public release, and secondhand accounts will not qualify.
+
+Any public statement from the listed individual, written or verbal, will qualify. Speeches in which the listed individual begins speaking within the time frame of this market will qualify, even if their allegation falls outside the market’s timeframe.
+
+The resolution source for this market will be public statements by Donald Trump.
+Contracts:
+  E3.C1: Trump alleges Georgia foreign election interference by July 16?
+What to write for E3:
+  Write "dates": for each chance 10, 25, 50, 75 and 90, the date by which you give it that chance of having happened, or null if you do not give it that chance by the last date the contracts cover. Dates must not go earlier as the chance rises.
+
+=== E4 (as of 2026-07-08): Will Microstrategy announce selling any Bitcoin July 7-13?
+Rules:
+This market will resolve to "Yes" if Strategy Inc., formerly known as MicroStrategy, announces that they have sold any Bitcoin between the dates in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last date). Otherwise, it will resolve to "No".
+
+This market will resolve based on announcements made within the market's designated time frame regardless of when the actual sells were made.
+
+The resolution source for this market will be official information from MicroStrategy or Michael Saylor.
+
+For reference, MicroStrategy's reported BTC holdings can be tracked at: https://www.strategy.com/purchases
+Contracts:
+  E4.C1: Will Microstrategy announce selling any Bitcoin July 7-13?
+What to write for E4:
+  Write "p": a whole percent for every contract label, your chance that it resolves YES.
+
+=== E5 (as of 2026-07-29): Will Under Armour (UAA) beat quarterly earnings?
+Rules:
+As of market creation, Under Armour is estimated to release earnings on August 7, 2026. The Street consensus estimate for Under Armour’s non-GAAP EPS for the relevant quarter is $0.02 as of market creation. This market will resolve to "Yes" if Under Armour reports non-GAAP EPS greater than $0.02 for the relevant quarter in its next quarterly earnings release. Otherwise, it will resolve to "No." The resolution source will be the non-GAAP EPS listed in the company’s official earnings documents. 
+
+If Under Armour releases earnings without non-GAAP EPS, then the market will resolve according to the non-GAAP EPS figure reported by SeekingAlpha. If no such figure is published within 96h of market close (4:00:00pm ET) on the day earnings are announced, the market will resolve according to the GAAP EPS listed in the company’s official earnings documents; or, if not published there, according to the GAAP EPS provided by SeekingAlpha. If no GAAP EPS number is available from either source at that time, the market will resolve to “No.” (For the purposes of this market, GAAP EPS refers to diluted GAAP EPS, unless it is not published, in which case it refers to basic GAAP EPS.)
+
+If the company does not release earnings within 45 calendar days of the estimated earnings date, this market will resolve to “No.” 
+
+Note: Subsequent restatements, corrections, or revisions made to the initially announced non-GAAP EPS figure will not qualify for resolution, except in the case of obvious and immediate mistakes (e.g., fat finger errors, as with Lyft's (LYFT) earnings release in February 2024).
+Note: The strike prices used in these markets are derived from SeekingAlpha estimates, and reflect the consensus of sell-side analyst estimates for non-GAAP EPS.
+Note: All figures will be rounded to the nearest cent using standard rounding.
+Note: For the purposes of this market, IFRS EPS will be treated as GAAP EPS.
+Note: If multiple versions of non-GAAP EPS are published, the market will resolve according to the primary headline non-GAAP EPS number, which is typically presented on a diluted basis. If diluted is not published, then basic non-GAAP EPS will qualify.
+Note: All figures are expressed in USD, unless otherwise indicated.
+Note: For primarily internationally listed companies, this market refers specifically to the shares traded in the United States on U.S. stock exchanges such as the NYSE or Nasdaq. In cases where the company trades in the U.S. through an American Depositary Receipt (ADR) or American Depositary Share (ADS), this market will refer to the ADR/ADS.
+Contracts:
+  E5.C1: Will Under Armour (UAA) beat quarterly earnings?
+What to write for E5:
+  Write "p": a whole percent for every contract label, your chance that it resolves YES.
+
+=== E6 (as of 2026-07-01): What price will XRP hit June 29-July 5?
+Rules:
+What price will XRP hit June 29-July 5?
+Contracts:
+  E6.C1: Will XRP reach $1.80 June 29-July 5?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1-minute candle for XRP/USDT during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "High" price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the XRP/USDT "High" prices available at https://www.binance.com/en/trade/XRP_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance XRP/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E6.C2: Will XRP reach $1.70 June 29-July 5?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1-minute candle for XRP/USDT during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "High" price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the XRP/USDT "High" prices available at https://www.binance.com/en/trade/XRP_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance XRP/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E6.C3: Will XRP reach $1.60 June 29-July 5?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1-minute candle for XRP/USDT during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "High" price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the XRP/USDT "High" prices available at https://www.binance.com/en/trade/XRP_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance XRP/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E6.C4: Will XRP reach $1.50 June 29-July 5?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1-minute candle for XRP/USDT during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "High" price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the XRP/USDT "High" prices available at https://www.binance.com/en/trade/XRP_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance XRP/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E6.C5: Will XRP reach $1.40 June 29-July 5?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1-minute candle for XRP/USDT during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "High" price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the XRP/USDT "High" prices available at https://www.binance.com/en/trade/XRP_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance XRP/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E6.C6: Will XRP reach $1.30 June 29-July 5?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1-minute candle for XRP/USDT during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "High" price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the XRP/USDT "High" prices available at https://www.binance.com/en/trade/XRP_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance XRP/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E6.C7: Will XRP reach $1.20 June 29-July 5?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1-minute candle for XRP/USDT during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "High" price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the XRP/USDT "High" prices available at https://www.binance.com/en/trade/XRP_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance XRP/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E6.C8: Will XRP dip to $1.00 June 29-July 5?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for XRP (XRP/USDT) during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "Low" price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the XRP/USDT "Low" prices available at https://www.binance.com/en/trade/XRP_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance XRP/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E6.C9: Will XRP dip to $0.90 June 29-July 5?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for XRP (XRP/USDT) during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "Low" price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the XRP/USDT "Low" prices available at https://www.binance.com/en/trade/XRP_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance XRP/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E6.C10: Will XRP dip to $0.80 June 29-July 5?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for XRP (XRP/USDT) during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "Low" price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the XRP/USDT "Low" prices available at https://www.binance.com/en/trade/XRP_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance XRP/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E6.C11: Will XRP dip to $0.70 June 29-July 5?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for XRP (XRP/USDT) during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "Low" price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the XRP/USDT "Low" prices available at https://www.binance.com/en/trade/XRP_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance XRP/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E6.C12: Will XRP dip to $0.60 June 29-July 5?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for XRP (XRP/USDT) during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "Low" price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the XRP/USDT "Low" prices available at https://www.binance.com/en/trade/XRP_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance XRP/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E6.C13: Will XRP dip to $0.50 June 29-July 5?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for XRP (XRP/USDT) during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "Low" price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the XRP/USDT "Low" prices available at https://www.binance.com/en/trade/XRP_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance XRP/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E6.C14: Will XRP dip to $0.40 June 29-July 5?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for XRP (XRP/USDT) during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "Low" price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the XRP/USDT "Low" prices available at https://www.binance.com/en/trade/XRP_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance XRP/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+What to write for E6:
+  Write "high": for each chance 10, 25, 50, 75 and 90, the level you give that chance of being reached (at or above) within the period. The 10 level is the highest.
+  Write "low": for each chance 10, 25, 50, 75 and 90, the level you give that chance of being reached (at or below) within the period. The 10 level is the lowest.

@@ -69,7 +69,7 @@ def schedule_locks(e, grid):
         if A.ts(e.get("created")) and A.ts(e["created"]) > L:
             continue
         ms = [m for m in e["markets"] if m.get("tokens") and not (m.get("created") and A.ts(m["created"]) > L)
-              and not (m.get("closed_time") and A.ts(m["closed_time"]) <= L) and m.get("end")]
+              and not (m.get("closed_time") and A.ts(m["closed_time"]) <= L) and m.get("end") and A.ts(m["end"]) > L]   # a deadline already past at the lock is not open
         if not ms:
             continue
         H = max(A.ts(m["end"]) for m in ms)

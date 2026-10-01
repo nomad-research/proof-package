@@ -1,0 +1,126 @@
+You will be shown 6 questions from a prediction market. Each has one or more contracts that resolve YES or NO under the rules shown. Each question gives the date your view is "as of": answer as you would on that date.
+
+Use only what you already know. Do not search for or look up anything: reading this file is the only tool call you may make. There are no prices in this file and you should not try to estimate what any market thinks; give your own view.
+
+Each question says what to write for it. Whole percents run from 1 to 99. Levels are plain numbers in the units the contracts use (for example 95000 for $95,000, 3.25 for 3.25%). Dates are YYYY-MM-DD.
+
+For each question also say whether you recognise how it actually turned out ("recognised": true only if you believe you remember the real outcome; otherwise false).
+
+Reply with one JSON object and nothing else:
+{"events": [{"label": "E1", "recognised": false, ...the fields that question asks for...}]}
+
+=== E1 (as of 2026-08-12): Will Home Depot (HD) beat quarterly earnings?
+Rules:
+As of market creation, Home Depot is estimated to release earnings on August 18, 2026. The Street consensus estimate for Home Depot’s non-GAAP EPS for the relevant quarter is $4.73 as of market creation. This market will resolve to "Yes" if Home Depot reports non-GAAP EPS greater than $4.73 for the relevant quarter in its next quarterly earnings release. Otherwise, it will resolve to "No." The resolution source will be the non-GAAP EPS listed in the company’s official earnings documents. 
+
+If Home Depot releases earnings without non-GAAP EPS, then the market will resolve according to the non-GAAP EPS figure reported by SeekingAlpha. If no such figure is published within 96h of market close (4:00:00pm ET) on the day earnings are announced, the market will resolve according to the GAAP EPS listed in the company’s official earnings documents; or, if not published there, according to the GAAP EPS provided by SeekingAlpha. If no GAAP EPS number is available from either source at that time, the market will resolve to “No.” (For the purposes of this market, GAAP EPS refers to diluted GAAP EPS, unless it is not published, in which case it refers to basic GAAP EPS.)
+
+If the company does not release earnings within 45 calendar days of the estimated earnings date, this market will resolve to “No.” 
+
+Note: Subsequent restatements, corrections, or revisions made to the initially announced non-GAAP EPS figure will not qualify for resolution, except in the case of obvious and immediate mistakes (e.g., fat finger errors, as with Lyft's (LYFT) earnings release in February 2024).
+Note: The strike prices used in these markets are derived from SeekingAlpha estimates, and reflect the consensus of sell-side analyst estimates for non-GAAP EPS.
+Note: All figures will be rounded to the nearest cent using standard rounding.
+Note: For the purposes of this market, IFRS EPS will be treated as GAAP EPS.
+Note: If multiple versions of non-GAAP EPS are published, the market will resolve according to the primary headline non-GAAP EPS number, which is typically presented on a diluted basis. If diluted is not published, then basic non-GAAP EPS will qualify.
+Note: All figures are expressed in USD, unless otherwise indicated.
+Note: For primarily internationally listed companies, this market refers specifically to the shares traded in the United States on U.S. stock exchanges such as the NYSE or Nasdaq. In cases where the company trades in the U.S. through an American Depositary Receipt (ADR) or American Depositary Share (ADS), this market will refer to the ADR/ADS.
+Contracts:
+  E1.C1: Will Home Depot (HD) beat quarterly earnings?
+What to write for E1:
+  Write "p": a whole percent for every contract label, your chance that it resolves YES.
+
+=== E2 (as of 2026-08-19): Will NVIDIA (NVDA) beat quarterly earnings?
+Rules:
+As of market creation, NVIDIA is estimated to release earnings on August 26, 2026. The Street consensus estimate for NVIDIA’s non-GAAP EPS for the relevant quarter is $2.08 as of market creation. This market will resolve to "Yes" if NVIDIA reports non-GAAP EPS greater than $2.08 for the relevant quarter in its next quarterly earnings release. Otherwise, it will resolve to "No." The resolution source will be the non-GAAP EPS listed in the company’s official earnings documents. 
+
+If NVIDIA releases earnings without non-GAAP EPS, then the market will resolve according to the non-GAAP EPS figure reported by SeekingAlpha. If no such figure is published within 96h of market close (4:00:00pm ET) on the day earnings are announced, the market will resolve according to the GAAP EPS listed in the company’s official earnings documents; or, if not published there, according to the GAAP EPS provided by SeekingAlpha. If no GAAP EPS number is available from either source at that time, the market will resolve to “No.” (For the purposes of this market, GAAP EPS refers to diluted GAAP EPS, unless it is not published, in which case it refers to basic GAAP EPS.)
+
+If the company does not release earnings within 45 calendar days of the estimated earnings date, this market will resolve to “No.” 
+
+Note: Subsequent restatements, corrections, or revisions made to the initially announced non-GAAP EPS figure will not qualify for resolution, except in the case of obvious and immediate mistakes (e.g., fat finger errors, as with Lyft's (LYFT) earnings release in February 2024).
+Note: The strike prices used in these markets are derived from SeekingAlpha estimates, and reflect the consensus of sell-side analyst estimates for non-GAAP EPS.
+Note: All figures will be rounded to the nearest cent using standard rounding.
+Note: For the purposes of this market, IFRS EPS will be treated as GAAP EPS.
+Note: If multiple versions of non-GAAP EPS are published, the market will resolve according to the primary headline non-GAAP EPS number, which is typically presented on a diluted basis. If diluted is not published, then basic non-GAAP EPS will qualify.
+Note: All figures are expressed in USD, unless otherwise indicated.
+Note: For primarily internationally listed companies, this market refers specifically to the shares traded in the United States on U.S. stock exchanges such as the NYSE or Nasdaq. In cases where the company trades in the U.S. through an American Depositary Receipt (ADR) or American Depositary Share (ADS), this market will refer to the ADR/ADS.
+Contracts:
+  E2.C1: Will NVIDIA (NVDA) beat quarterly earnings?
+What to write for E2:
+  Write "p": a whole percent for every contract label, your chance that it resolves YES.
+
+=== E3 (as of 2026-09-02): Sweden Parliamentary Election: Örebropartiet Win Seats?
+Rules:
+Parliamentary elections are scheduled to be held in Sweden on September 13, 2026.
+
+This market will resolve to “Yes” if Örebropartiet receives at least one seat in the Swedish Riksdag as a result of the 2026 Swedish parliamentary elections. Otherwise this market will resolve to “No”.
+
+Seats will be counted only where the Swedish Election Authority attributes them to Örebropartiet. Seats attributed to another party or electoral designation will not count, regardless of electoral cooperation, endorsements, coalition agreements, or subsequent parliamentary-group arrangements. If Örebropartiet formally merges into a successor party before the election and does not contest separately, seats officially attributed to that successor party will count.
+
+If the results of this election are not definitively known by December 31, 2026, 11:59 PM ET, this market will resolve to “No”.
+
+This market's resolution will be based solely on the number of seats won by Örebropartiet in this election.
+
+This market will resolve based on the results of this election as indicated by a consensus of credible reporting. If there is ambiguity, this market will resolve based solely on the official results as reported by the Swedish government, specifically the Swedish Election Authority (Valmyndigheten) (https://www.val.se/).
+Contracts:
+  E3.C1: Sweden Parliamentary Election: Örebropartiet Win Seats?
+What to write for E3:
+  Write "p": a whole percent for every contract label, your chance that it resolves YES.
+
+=== E4 (as of 2026-07-01): Ted Cruz # posts June 26 - July 3, 2026?
+Rules:
+This market will resolve according to the number of times Ted Cruz (@tedcruz), posts on X between June 26, 12:00 PM ET and July 3, 2026, 12:00 PM ET.
+
+For the purposes of this market, only main feed posts, quote posts and reposts will count.
+
+Replies will NOT count towards the total - however, replies which are recorded on the main feed will be counted by the tracker.
+
+Deleted posts will count as long as they remain available long enough to be captured by the tracker (~5 minutes).
+
+The resolution source for this market is the "Post Counter" figure for posts found at https://xtracker.polymarket.com. Individual posts can be viewed by clicking "Export Data". If the tracker does not update correctly in accordance with the rules, X itself may be used as a secondary resolution source.
+Contracts:
+  E4.C1: Will Ted Cruz post 40-59 posts from June 26 to July 3, 2026?
+  E4.C2: Will Ted Cruz post 60-79 posts from June 26 to July 3, 2026?
+  E4.C3: Will Ted Cruz post 80-99 posts from June 26 to July 3, 2026?
+  E4.C4: Will Ted Cruz post 100-119 posts from June 26 to July 3, 2026?
+  E4.C5: Will Ted Cruz post 120-139 posts from June 26 to July 3, 2026?
+  E4.C6: Will Ted Cruz post 140-159 posts from June 26 to July 3, 2026?
+  E4.C7: Will Ted Cruz post 160-179 posts from June 26 to July 3, 2026?
+  E4.C8: Will Ted Cruz post 180-199 posts from June 26 to July 3, 2026?
+  E4.C9: Will Ted Cruz post 200+ posts from June 26 to July 3, 2026?
+What to write for E4:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E5 (as of 2026-08-12): Spain accuses Morocco of facilitating Ceuta migrant wave by August 31?
+Rules:
+This market will resolve to "Yes" if the Spanish government explicitly claims that Moroccan authorities deliberately caused or facilitated the influx of migrants that occurred in the Spanish territory of Ceuta on July 30, 2026, by August 31, 2026, 11:59 PM ET. Otherwise, this market will resolve to "No".
+
+Such a claim requires an on-the-record public statement issued by an authorized person or entity representing the Spanish Central government, speaking in an official capacity, which expressly states that Moroccan authorities deliberately caused or facilitated the influx. A statement from a lawmaker speaking in their own capacity or on behalf of a party not in government will not alone qualify. 
+
+Ambiguous statements which imply responsibility but which do not directly claim it will not qualify. Statements that do not attribute deliberate intent to Morocco (e.g., "this would not have happened if Morocco spent more on border security") will not qualify. 
+
+The primary resolution source for this market will be official information from the Spanish government; however, a consensus of credible reporting may also be used.
+Contracts:
+  E5.C1: Spain accuses Morocco of facilitating Ceuta migrant wave by August 31?
+What to write for E5:
+  Write "dates": for each chance 10, 25, 50, 75 and 90, the date by which you give it that chance of having happened, or null if you do not give it that chance by the last date the contracts cover. Dates must not go earlier as the chance rises.
+
+=== E6 (as of 2026-07-29): Will IonQ (IONQ) beat quarterly earnings?
+Rules:
+As of market creation, IonQ is estimated to release earnings on August 5, 2026. The Street consensus estimate for IonQ's GAAP EPS for the relevant quarter is $-0.59 as of market creation. This market will resolve to "Yes" if IonQ reports GAAP EPS greater than $-0.59 for the relevant quarter in its next quarterly earnings release. Otherwise, it will resolve to "No." The resolution source will be the GAAP EPS listed in the company’s official earnings documents. 
+
+If IonQ releases earnings without GAAP EPS, then the market will resolve according to the GAAP EPS figure reported by SeekingAlpha. If no such figure is published within 96h of market close (4:00:00pm ET) on the day earnings are announced, the market will resolve to “No”.
+
+If the company does not release earnings within 45 calendar days of the estimated earnings date, this market will resolve to “No.” 
+
+Note: Subsequent restatements, corrections, or revisions made to the initially announced GAAP EPS figure will not qualify for resolution, except in the case of obvious and immediate mistakes (e.g., fat finger errors, as with Lyft's (LYFT) earnings release in February 2024).
+Note: The strike prices used in these markets are derived from SeekingAlpha estimates, and reflect the consensus of sell-side analyst estimates for GAAP EPS. 
+Note: All figures will be rounded to the nearest cent using standard rounding.
+Note: For the purposes of this market, IFRS EPS will be treated as GAAP EPS.
+Note: For the purposes of this market, GAAP EPS refers to diluted GAAP EPS, unless this is not published, in which case it refers to basic GAAP EPS.
+Note: All figures are expressed in USD, unless otherwise indicated.
+Note: For primarily internationally listed companies, this market refers specifically to the shares traded in the United States on U.S. stock exchanges such as the NYSE or Nasdaq. In cases where the company trades in the U.S. through an American Depositary Receipt (ADR) or American Depositary Share (ADS), this market will refer to the ADR/ADS.
+Contracts:
+  E6.C1: Will IonQ (IONQ) beat quarterly earnings?
+What to write for E6:
+  Write "p": a whole percent for every contract label, your chance that it resolves YES.

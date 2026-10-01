@@ -125,3 +125,7 @@ Found while writing the script. No data had been read.
 2. **The matched base for S1's skill is pooled across the frame.** It is every other drawn event's priced contracts at their own locks, of the same event class, with cost within 0.05, excluding the event itself. With one lock per event, a base taken "at the same lock" would hold a handful of contracts.
 3. **How the one lock per event is drawn.** The event's locks that pass the schedule rules are put in a seeded order. The first that also passes the price rules (§2) is its lock. That is a draw by seed that never reads an outcome, and it fetches prices only for locks that are tried.
 4. **Price history requests.** The public endpoint answers a 400 for windows longer than about 15 days, which V1's helper reads as "no history". Every fetch here is a 7-day window ending at the lock (the `BT_MIN_POINTS` window), at 60-minute fidelity, falling back to 12-hour.
+
+## Addendum A2 (2026-10-01, after a first frame build, before any session or outcome)
+
+The first frame build admitted markets whose scheduled end had already passed at the lock but which had not yet closed, because resolution was pending. An example is "… by June 30?" at a 1 July lock. Their outcome was already fixed at the lock, at the model's cutoff. A market is now open at the lock only if it has not closed **and** its scheduled end is after the lock. The frame was rebuilt; the first build is discarded. No outcome was read in either build.

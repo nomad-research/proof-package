@@ -1,0 +1,333 @@
+You will be shown 6 questions from a prediction market. Each has one or more contracts that resolve YES or NO under the rules shown. Each question gives the date your view is "as of": answer as you would on that date.
+
+Use only what you already know. Do not search for or look up anything: reading this file is the only tool call you may make. There are no prices in this file and you should not try to estimate what any market thinks; give your own view.
+
+Each question says what to write for it. Whole percents run from 1 to 99. Levels are plain numbers in the units the contracts use (for example 95000 for $95,000, 3.25 for 3.25%). Dates are YYYY-MM-DD.
+
+For each question also say whether you recognise how it actually turned out ("recognised": true only if you believe you remember the real outcome; otherwise false).
+
+Reply with one JSON object and nothing else:
+{"events": [{"label": "E1", "recognised": false, ...the fields that question asks for...}]}
+
+=== E1 (as of 2026-07-01): Trump's face on US gold coin by July 4?
+Rules:
+This market will resolve to “Yes” if any gold coin featuring Donald Trump’s likeness is officially issued by the U.S. Mint by July 4th, 2026, 11:59 PM ET. Otherwise, this market will resolve to “No”.
+
+A coin will be considered “officially issued” if the U.S. Mint makes it available for any form of public purchase, order, or distribution. Announcement of a coin without qualifying issuance will not count.
+
+A qualifying coin must be legal tender, but does not need to be minted for general circulation. Commemorative coins minted for a limited production run will qualify.
+
+The primary resolution source for this market will be official information from the U.S. Mint; however, a consensus of credible reporting may also be used.
+Contracts:
+  E1.C1: Trump's face on US gold coin by July 4?
+What to write for E1:
+  Write "dates": for each chance 10, 25, 50, 75 and 90, the date by which you give it that chance of having happened, or null if you do not give it that chance by the last date the contracts cover. Dates must not go earlier as the chance rises.
+
+=== E2 (as of 2026-08-26): Ukraine agrees not to join NATO by August 31?
+Rules:
+This market will resolve to "Yes" if Ukraine publicly agrees not to join NATO by August 31, 2026, 11:59 PM ET. Otherwise, this market will resolve to “No”.
+
+An official pledge by Ukraine not to join NATO will qualify for a “Yes” resolution whether as a unilateral announcement or part of an agreement with the Russian Federation.
+
+Any agreement or pledge made before the resolution date of this market will qualify, regardless of if/when the agreement goes into effect.
+
+An agreement by Ukraine not to join NATO for any amount of time will count (e.g. If Ukraine agrees not to join NATO for 10 years this will qualify).
+
+An agreement by Ukraine not to join NATO as a precondition of a more comprehensive peace process or deal will qualify, even if the agreement is not finalized or part of a formalized peace deal. The September 8, 1995 “Agreed Basic Principles” between Bosnia and Yugoslavia which recognized the borders and sovereignty of Bosnia and Herzegovina, and was later formalized through the Dayton Peace Agreement is an example of a qualifying agreement. 
+
+The primary resolution source for this market will be an official announcement by Ukraine, however an overwhelming consensus of credible reporting confirming a qualifying agreement has been reached will also count.
+Contracts:
+  E2.C1: Ukraine agrees not to join NATO by August 31?
+What to write for E2:
+  Write "dates": for each chance 10, 25, 50, 75 and 90, the date by which you give it that chance of having happened, or null if you do not give it that chance by the last date the contracts cover. Dates must not go earlier as the chance rises.
+
+=== E3 (as of 2026-09-09): Apple Announces Foldable iPhone at “Surprise and Shine” Event?
+Rules:
+This market will resolve to "Yes" if Apple announces it has or will release a foldable iPhone during the "Surprise and Shine" event currently scheduled for 10 a.m. PT on September 9, 2026. Otherwise, this market will resolve to "No".
+
+This market will resolve immediately upon qualifying announcements from Apple, regardless of if/when the specified product becomes available for purchase. Any announcements made outside of the "Surprise and Shine" event will not qualify. Only announcements made at the specified event will qualify.
+
+Any foldable smartphone announced by Apple will qualify, even if it is not explicitly branded as an iPhone.
+
+If the "Surprise and Shine" event does not occur by September 30, 2026, 11:59 PM ET, this market will resolve to "No".
+
+The primary resolution source for this market will be official statements from Apple. However, a consensus of credible reporting may also be used.
+Contracts:
+  E3.C1: Apple Announces Foldable iPhone at “Surprise and Shine” Event?
+What to write for E3:
+  Write "p": a whole percent for every contract label, your chance that it resolves YES.
+
+=== E4 (as of 2026-09-30): Where will it rain on September 29?
+Rules:
+This market will resolve to "Yes" for each listed city that records measurable precipitation on September 29, 2026. Otherwise, this market will resolve to "No".
+
+Measurable precipitation means 0.01 inches or more as reported by the PRECIPITATION (IN) figure in the NWS Daily Climate Report (CLI) for the city's station.
+
+A report of trace ("T") does not qualify.
+
+The PRECIPITATION (IN) figure measures total liquid-equivalent precipitation and does not distinguish between precipitation types.
+
+The observation period is the NWS climate day for each station: midnight to midnight local standard time. The final CLI report for a climate day is issued the following morning.
+
+Each city is an independent market. Any number of cities may resolve "Yes", including all of them or none of them.
+
+This market will resolve according to the NWS Daily Climate Report as published by 2:00 PM ET on the day following the observation date. If multiple versions of the report are issued, the last version published before that time governs. If no figure has been published by that time, this market will resolve to "No".
+
+The resolution source for this market is the NWS Daily Climate Report (CLI) for each city's station.
+Contracts:
+  E4.C1: Will it rain in New York, NY on September 29?
+    Contract rules: This market will resolve to "Yes" if New York, NY records measurable precipitation on September 29, 2026. Otherwise, this market will resolve to "No".
+
+Measurable precipitation means 0.01 inches or more as reported by the PRECIPITATION (IN) figure in the NWS Daily Climate Report (CLI) for the city's station.
+
+A report of trace ("T") does not qualify.
+
+The PRECIPITATION (IN) figure measures total liquid-equivalent precipitation and does not distinguish between precipitation types.
+
+The observation period is the NWS climate day for KNYC: midnight to midnight local standard time. The final CLI report for a climate day is issued the following morning.
+
+This market will resolve according to the NWS Daily Climate Report as published by 2:00 PM ET on the day following the observation date. If multiple versions of the report are issued, the last version published before that time governs. If no figure has been published by that time, this market will resolve to "No".
+
+The resolution source for this market is the NWS Daily Climate Report (CLI) for KNYC, published at https://forecast.weather.gov/product.php?site=NWS&product=CLI&issuedby=NYC.
+  E4.C2: Will it rain in Los Angeles, CA on September 29?
+    Contract rules: This market will resolve to "Yes" if Los Angeles, CA records measurable precipitation on September 29, 2026. Otherwise, this market will resolve to "No".
+
+Measurable precipitation means 0.01 inches or more as reported by the PRECIPITATION (IN) figure in the NWS Daily Climate Report (CLI) for the city's station.
+
+A report of trace ("T") does not qualify.
+
+The PRECIPITATION (IN) figure measures total liquid-equivalent precipitation and does not distinguish between precipitation types.
+
+The observation period is the NWS climate day for KLAX: midnight to midnight local standard time. The final CLI report for a climate day is issued the following morning.
+
+This market will resolve according to the NWS Daily Climate Report as published by 2:00 PM ET on the day following the observation date. If multiple versions of the report are issued, the last version published before that time governs. If no figure has been published by that time, this market will resolve to "No".
+
+The resolution source for this market is the NWS Daily Climate Report (CLI) for KLAX, published at https://forecast.weather.gov/product.php?site=NWS&product=CLI&issuedby=LAX.
+  E4.C3: Will it rain in Chicago, IL on September 29?
+    Contract rules: This market will resolve to "Yes" if Chicago, IL records measurable precipitation on September 29, 2026. Otherwise, this market will resolve to "No".
+
+Measurable precipitation means 0.01 inches or more as reported by the PRECIPITATION (IN) figure in the NWS Daily Climate Report (CLI) for the city's station.
+
+A report of trace ("T") does not qualify.
+
+The PRECIPITATION (IN) figure measures total liquid-equivalent precipitation and does not distinguish between precipitation types.
+
+The observation period is the NWS climate day for KMDW: midnight to midnight local standard time. The final CLI report for a climate day is issued the following morning.
+
+This market will resolve according to the NWS Daily Climate Report as published by 2:00 PM ET on the day following the observation date. If multiple versions of the report are issued, the last version published before that time governs. If no figure has been published by that time, this market will resolve to "No".
+
+The resolution source for this market is the NWS Daily Climate Report (CLI) for KMDW, published at https://forecast.weather.gov/product.php?site=NWS&product=CLI&issuedby=MDW.
+  E4.C4: Will it rain in Houston, TX on September 29?
+    Contract rules: This market will resolve to "Yes" if Houston, TX records measurable precipitation on September 29, 2026. Otherwise, this market will resolve to "No".
+
+Measurable precipitation means 0.01 inches or more as reported by the PRECIPITATION (IN) figure in the NWS Daily Climate Report (CLI) for the city's station.
+
+A report of trace ("T") does not qualify.
+
+The PRECIPITATION (IN) figure measures total liquid-equivalent precipitation and does not distinguish between precipitation types.
+
+The observation period is the NWS climate day for KIAH: midnight to midnight local standard time. The final CLI report for a climate day is issued the following morning.
+
+This market will resolve according to the NWS Daily Climate Report as published by 2:00 PM ET on the day following the observation date. If multiple versions of the report are issued, the last version published before that time governs. If no figure has been published by that time, this market will resolve to "No".
+
+The resolution source for this market is the NWS Daily Climate Report (CLI) for KIAH, published at https://forecast.weather.gov/product.php?site=NWS&product=CLI&issuedby=IAH.
+  E4.C5: Will it rain in Dallas, TX on September 29?
+    Contract rules: This market will resolve to "Yes" if Dallas, TX records measurable precipitation on September 29, 2026. Otherwise, this market will resolve to "No".
+
+Measurable precipitation means 0.01 inches or more as reported by the PRECIPITATION (IN) figure in the NWS Daily Climate Report (CLI) for the city's station.
+
+A report of trace ("T") does not qualify.
+
+The PRECIPITATION (IN) figure measures total liquid-equivalent precipitation and does not distinguish between precipitation types.
+
+The observation period is the NWS climate day for KDFW: midnight to midnight local standard time. The final CLI report for a climate day is issued the following morning.
+
+This market will resolve according to the NWS Daily Climate Report as published by 2:00 PM ET on the day following the observation date. If multiple versions of the report are issued, the last version published before that time governs. If no figure has been published by that time, this market will resolve to "No".
+
+The resolution source for this market is the NWS Daily Climate Report (CLI) for KDFW, published at https://forecast.weather.gov/product.php?site=NWS&product=CLI&issuedby=DFW.
+  E4.C6: Will it rain in Phoenix, AZ on September 29?
+    Contract rules: This market will resolve to "Yes" if Phoenix, AZ records measurable precipitation on September 29, 2026. Otherwise, this market will resolve to "No".
+
+Measurable precipitation means 0.01 inches or more as reported by the PRECIPITATION (IN) figure in the NWS Daily Climate Report (CLI) for the city's station.
+
+A report of trace ("T") does not qualify.
+
+The PRECIPITATION (IN) figure measures total liquid-equivalent precipitation and does not distinguish between precipitation types.
+
+The observation period is the NWS climate day for KPHX: midnight to midnight local standard time. The final CLI report for a climate day is issued the following morning.
+
+This market will resolve according to the NWS Daily Climate Report as published by 2:00 PM ET on the day following the observation date. If multiple versions of the report are issued, the last version published before that time governs. If no figure has been published by that time, this market will resolve to "No".
+
+The resolution source for this market is the NWS Daily Climate Report (CLI) for KPHX, published at https://forecast.weather.gov/product.php?site=NWS&product=CLI&issuedby=PHX.
+  E4.C7: Will it rain in Philadelphia, PA on September 29?
+    Contract rules: This market will resolve to "Yes" if Philadelphia, PA records measurable precipitation on September 29, 2026. Otherwise, this market will resolve to "No".
+
+Measurable precipitation means 0.01 inches or more as reported by the PRECIPITATION (IN) figure in the NWS Daily Climate Report (CLI) for the city's station.
+
+A report of trace ("T") does not qualify.
+
+The PRECIPITATION (IN) figure measures total liquid-equivalent precipitation and does not distinguish between precipitation types.
+
+The observation period is the NWS climate day for KPHL: midnight to midnight local standard time. The final CLI report for a climate day is issued the following morning.
+
+This market will resolve according to the NWS Daily Climate Report as published by 2:00 PM ET on the day following the observation date. If multiple versions of the report are issued, the last version published before that time governs. If no figure has been published by that time, this market will resolve to "No".
+
+The resolution source for this market is the NWS Daily Climate Report (CLI) for KPHL, published at https://forecast.weather.gov/product.php?site=NWS&product=CLI&issuedby=PHL.
+  E4.C8: Will it rain in Denver, CO on September 29?
+    Contract rules: This market will resolve to "Yes" if Denver, CO records measurable precipitation on September 29, 2026. Otherwise, this market will resolve to "No".
+
+Measurable precipitation means 0.01 inches or more as reported by the PRECIPITATION (IN) figure in the NWS Daily Climate Report (CLI) for the city's station.
+
+A report of trace ("T") does not qualify.
+
+The PRECIPITATION (IN) figure measures total liquid-equivalent precipitation and does not distinguish between precipitation types.
+
+The observation period is the NWS climate day for KDEN: midnight to midnight local standard time. The final CLI report for a climate day is issued the following morning.
+
+This market will resolve according to the NWS Daily Climate Report as published by 2:00 PM ET on the day following the observation date. If multiple versions of the report are issued, the last version published before that time governs. If no figure has been published by that time, this market will resolve to "No".
+
+The resolution source for this market is the NWS Daily Climate Report (CLI) for KDEN, published at https://forecast.weather.gov/product.php?site=NWS&product=CLI&issuedby=DEN.
+  E4.C9: Will it rain in Washington, DC on September 29?
+    Contract rules: This market will resolve to "Yes" if Washington, DC records measurable precipitation on September 29, 2026. Otherwise, this market will resolve to "No".
+
+Measurable precipitation means 0.01 inches or more as reported by the PRECIPITATION (IN) figure in the NWS Daily Climate Report (CLI) for the city's station.
+
+A report of trace ("T") does not qualify.
+
+The PRECIPITATION (IN) figure measures total liquid-equivalent precipitation and does not distinguish between precipitation types.
+
+The observation period is the NWS climate day for KDCA: midnight to midnight local standard time. The final CLI report for a climate day is issued the following morning.
+
+This market will resolve according to the NWS Daily Climate Report as published by 2:00 PM ET on the day following the observation date. If multiple versions of the report are issued, the last version published before that time governs. If no figure has been published by that time, this market will resolve to "No".
+
+The resolution source for this market is the NWS Daily Climate Report (CLI) for KDCA, published at https://forecast.weather.gov/product.php?site=NWS&product=CLI&issuedby=DCA.
+  E4.C10: Will it rain in Atlanta, GA on September 29?
+    Contract rules: This market will resolve to "Yes" if Atlanta, GA records measurable precipitation on September 29, 2026. Otherwise, this market will resolve to "No".
+
+Measurable precipitation means 0.01 inches or more as reported by the PRECIPITATION (IN) figure in the NWS Daily Climate Report (CLI) for the city's station.
+
+A report of trace ("T") does not qualify.
+
+The PRECIPITATION (IN) figure measures total liquid-equivalent precipitation and does not distinguish between precipitation types.
+
+The observation period is the NWS climate day for KATL: midnight to midnight local standard time. The final CLI report for a climate day is issued the following morning.
+
+This market will resolve according to the NWS Daily Climate Report as published by 2:00 PM ET on the day following the observation date. If multiple versions of the report are issued, the last version published before that time governs. If no figure has been published by that time, this market will resolve to "No".
+
+The resolution source for this market is the NWS Daily Climate Report (CLI) for KATL, published at https://forecast.weather.gov/product.php?site=NWS&product=CLI&issuedby=ATL.
+  E4.C11: Will it rain in Miami, FL on September 29?
+    Contract rules: This market will resolve to "Yes" if Miami, FL records measurable precipitation on September 29, 2026. Otherwise, this market will resolve to "No".
+
+Measurable precipitation means 0.01 inches or more as reported by the PRECIPITATION (IN) figure in the NWS Daily Climate Report (CLI) for the city's station.
+
+A report of trace ("T") does not qualify.
+
+The PRECIPITATION (IN) figure measures total liquid-equivalent precipitation and does not distinguish between precipitation types.
+
+The observation period is the NWS climate day for KMIA: midnight to midnight local standard time. The final CLI report for a climate day is issued the following morning.
+
+This market will resolve according to the NWS Daily Climate Report as published by 2:00 PM ET on the day following the observation date. If multiple versions of the report are issued, the last version published before that time governs. If no figure has been published by that time, this market will resolve to "No".
+
+The resolution source for this market is the NWS Daily Climate Report (CLI) for KMIA, published at https://forecast.weather.gov/product.php?site=NWS&product=CLI&issuedby=MIA.
+  E4.C12: Will it rain in Seattle, WA on September 29?
+    Contract rules: This market will resolve to "Yes" if Seattle, WA records measurable precipitation on September 29, 2026. Otherwise, this market will resolve to "No".
+
+Measurable precipitation means 0.01 inches or more as reported by the PRECIPITATION (IN) figure in the NWS Daily Climate Report (CLI) for the city's station.
+
+A report of trace ("T") does not qualify.
+
+The PRECIPITATION (IN) figure measures total liquid-equivalent precipitation and does not distinguish between precipitation types.
+
+The observation period is the NWS climate day for KSEA: midnight to midnight local standard time. The final CLI report for a climate day is issued the following morning.
+
+This market will resolve according to the NWS Daily Climate Report as published by 2:00 PM ET on the day following the observation date. If multiple versions of the report are issued, the last version published before that time governs. If no figure has been published by that time, this market will resolve to "No".
+
+The resolution source for this market is the NWS Daily Climate Report (CLI) for KSEA, published at https://forecast.weather.gov/product.php?site=NWS&product=CLI&issuedby=SEA.
+  E4.C13: Will it rain in Boston, MA on September 29?
+    Contract rules: This market will resolve to "Yes" if Boston, MA records measurable precipitation on September 29, 2026. Otherwise, this market will resolve to "No".
+
+Measurable precipitation means 0.01 inches or more as reported by the PRECIPITATION (IN) figure in the NWS Daily Climate Report (CLI) for the city's station.
+
+A report of trace ("T") does not qualify.
+
+The PRECIPITATION (IN) figure measures total liquid-equivalent precipitation and does not distinguish between precipitation types.
+
+The observation period is the NWS climate day for KBOS: midnight to midnight local standard time. The final CLI report for a climate day is issued the following morning.
+
+This market will resolve according to the NWS Daily Climate Report as published by 2:00 PM ET on the day following the observation date. If multiple versions of the report are issued, the last version published before that time governs. If no figure has been published by that time, this market will resolve to "No".
+
+The resolution source for this market is the NWS Daily Climate Report (CLI) for KBOS, published at https://forecast.weather.gov/product.php?site=NWS&product=CLI&issuedby=BOS.
+  E4.C14: Will it rain in New Orleans, LA on September 29?
+    Contract rules: This market will resolve to "Yes" if New Orleans, LA records measurable precipitation on September 29, 2026. Otherwise, this market will resolve to "No".
+
+Measurable precipitation means 0.01 inches or more as reported by the PRECIPITATION (IN) figure in the NWS Daily Climate Report (CLI) for the city's station.
+
+A report of trace ("T") does not qualify.
+
+The PRECIPITATION (IN) figure measures total liquid-equivalent precipitation and does not distinguish between precipitation types.
+
+The observation period is the NWS climate day for KMSY: midnight to midnight local standard time. The final CLI report for a climate day is issued the following morning.
+
+This market will resolve according to the NWS Daily Climate Report as published by 2:00 PM ET on the day following the observation date. If multiple versions of the report are issued, the last version published before that time governs. If no figure has been published by that time, this market will resolve to "No".
+
+The resolution source for this market is the NWS Daily Climate Report (CLI) for KMSY, published at https://forecast.weather.gov/product.php?site=NWS&product=CLI&issuedby=MSY.
+  E4.C15: Will it rain in San Francisco, CA on September 29?
+    Contract rules: This market will resolve to "Yes" if San Francisco, CA records measurable precipitation on September 29, 2026. Otherwise, this market will resolve to "No".
+
+Measurable precipitation means 0.01 inches or more as reported by the PRECIPITATION (IN) figure in the NWS Daily Climate Report (CLI) for the city's station.
+
+A report of trace ("T") does not qualify.
+
+The PRECIPITATION (IN) figure measures total liquid-equivalent precipitation and does not distinguish between precipitation types.
+
+The observation period is the NWS climate day for KSFO: midnight to midnight local standard time. The final CLI report for a climate day is issued the following morning.
+
+This market will resolve according to the NWS Daily Climate Report as published by 2:00 PM ET on the day following the observation date. If multiple versions of the report are issued, the last version published before that time governs. If no figure has been published by that time, this market will resolve to "No".
+
+The resolution source for this market is the NWS Daily Climate Report (CLI) for KSFO, published at https://forecast.weather.gov/product.php?site=NWS&product=CLI&issuedby=SFO.
+What to write for E4:
+  Write "p": a whole percent for every contract label, your chance that it resolves YES.
+
+=== E5 (as of 2026-09-16): Ethereum price on September 18?
+Rules:
+This market will resolve according to the final "Close" price of the Binance 1 minute candle for ETH/USDT 12:00 in the ET timezone (noon) on the date specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the ETH/USDT "Close" prices currently available at https://www.binance.com/en/trade/ETH_USDT with "1m" and "Candles" selected on the top bar.
+
+If the reported value falls exactly between two brackets, then this market will resolve to the higher range bracket.
+
+Please note that this market is about the price according to Binance ETH/USDT, not according to other exchanges or trading pairs.
+Contracts:
+  E5.C1: Will the price of Ethereum be less than $2,100 on September 18?
+  E5.C2: Will the price of Ethereum be between $2,100 and $2,200 on September 18?
+  E5.C3: Will the price of Ethereum be between $2,200 and $2,300 on September 18?
+  E5.C4: Will the price of Ethereum be between $2,300 and $2,400 on September 18?
+  E5.C5: Will the price of Ethereum be between $2,400 and $2,500 on September 18?
+  E5.C6: Will the price of Ethereum be between $2,500 and $2,600 on September 18?
+  E5.C7: Will the price of Ethereum be between $2,600 and $2,700 on September 18?
+  E5.C8: Will the price of Ethereum be between $2,700 and $2,800 on September 18?
+  E5.C9: Will the price of Ethereum be between $2,800 and $2,900 on September 18?
+  E5.C10: Will the price of Ethereum be between $2,900 and $3,000 on September 18?
+  E5.C11: Will the price of Ethereum be greater than $3,000 on September 18?
+What to write for E5:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E6 (as of 2026-07-08): São Tomé and Príncipe Presidential Election Winner
+Rules:
+Presidential elections are currently scheduled to be held in São Tomé and Príncipe on July 19, 2026.
+
+This market will resolve according to the listed candidate who wins the 2026 São Tomé and Príncipe presidential elections. Any interim or caretaker President will not qualify.
+
+This market includes any potential second round. 
+
+If the results are not known definitively by June 30, 2027, 11:59 PM ET, this market will resolve to "Other".
+
+This market will resolve based on the results of this election, as indicated by a consensus of credible reporting. If there is ambiguity, this market will resolve solely based on official results as reported by São Tomé and Príncipe government sources.
+Contracts:
+  E6.C1: Will Carlos Vila Nova win the 2026 São Tomé and Príncipe presidential elections?
+  E6.C2: Will Nito Abreu win the 2026 São Tomé and Príncipe presidential elections?
+  E6.C3: Will Elsa Pinto win the 2026 São Tomé and Príncipe presidential elections?
+  E6.C4: Will Jorge Bom Jesus win the 2026 São Tomé and Príncipe presidential elections?
+  E6.C5: Will Nino Monteiro win the 2026 São Tomé and Príncipe presidential elections?
+What to write for E6:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).

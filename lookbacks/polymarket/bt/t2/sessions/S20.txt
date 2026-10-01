@@ -1,0 +1,136 @@
+You will be shown 6 questions from a prediction market. Each has one or more contracts that resolve YES or NO under the rules shown. Each question gives the date your view is "as of": answer as you would on that date.
+
+Use only what you already know. Do not search for or look up anything: reading this file is the only tool call you may make. There are no prices in this file and you should not try to estimate what any market thinks; give your own view.
+
+Each question says what to write for it. Whole percents run from 1 to 99. Levels are plain numbers in the units the contracts use (for example 95000 for $95,000, 3.25 for 3.25%). Dates are YYYY-MM-DD.
+
+For each question also say whether you recognise how it actually turned out ("recognised": true only if you believe you remember the real outcome; otherwise false).
+
+Reply with one JSON object and nothing else:
+{"events": [{"label": "E1", "recognised": false, ...the fields that question asks for...}]}
+
+=== E1 (as of 2026-08-12): Will Oregon reach D4 (Exceptional Drought) by August 31, 2026?
+Rules:
+This market will resolve "Yes" if the D4 Exceptional Drought value shown in the official U.S. Drought Monitor's weekly "Categorical Percent Area" statistics table for Oregon published by the National Drought Mitigation Center at https://droughtmonitor.unl.edu/DmData/DataTables.aspx?dregion,4 is 1.00% or greater in any weekly release published from market creation through August 31, 2026, 11:59:59 PM ET. Otherwise, this market will resolve "No". D4 Exceptional Drought is defined as described at https://droughtmonitor.unl.edu/About/AbouttheData.aspx.
+
+"Oregon" means the entire State of Oregon as recognized under U.S. law.
+
+Eligibility is determined solely by the release's publication date, not the date its underlying map data is valid "as of" (USDM releases are typically published on Thursday but reflect conditions as of the preceding Tuesday), except as provided in the force majeure clause below.
+
+Upon a qualifying release, the market will be held open for 7 calendar days from its publication date before finalizing, to allow for NDMC corrections. If those 7 days elapse before August 31, settlement finalizes at that point. If the qualifying release is published within 7 days of August 31, including on August 31 itself, the market will remain open past August 31 for the balance of that window, resolving at the earlier of (i) the 7 days elapsing or (ii) NDMC issuing a correction to that release. This holding period does not extend the publication-date cutoff, it only delays finalization of a release that already qualified.
+
+If the NDMC publishes no weekly release at all before August 31, 2026, 11:59 PM ET, due to a data disruption, government shutdown, or other event, this market will accept the next official weekly release published after that date as the sole governing release, up to 14 calendar days following the scheduled expiration date, and will resolve "Yes" or "No" based on that release's D4 value under the same 1.00% threshold.
+
+A correction will be considered only if issued before the market finalizes settlement under the holding period above. Once finalized, that determination is final and will not be revised, reopened, or reversed by any correction, revision, or retraction issued afterward. A correction issued within the holding period is fully applied to the D4 value used for resolution, and that finalization occurs after (not at the instant of) any such correction, so the corrected value governs.
+Contracts:
+  E1.C1: Will Oregon reach D4 (Exceptional Drought) by August 31, 2026?
+What to write for E1:
+  Write "dates": for each chance 10, 25, 50, 75 and 90, the date by which you give it that chance of having happened, or null if you do not give it that chance by the last date the contracts cover. Dates must not go earlier as the chance rises.
+
+=== E2 (as of 2026-09-09): Pete Hegseth out as Secretary of Defense by September 30?
+Rules:
+This market will resolve to “Yes” if Pete Hegseth ceases to be U.S. Secretary of Defense for any period of time between market creation and the specified date, 11:59 PM ET. Otherwise, this market will resolve to “No”.
+
+An announcement of Pete Hegseth's resignation/removal by this market's end date will immediately resolve this market to "Yes", regardless of when the announced resignation/removal goes into effect.
+
+The resolution source for this market will be official information from Pete Hegseth and the U.S. government; however, a consensus of credible reporting may also be used.
+Contracts:
+  E2.C1: Pete Hegseth out as Secretary of Defense by September 30?
+What to write for E2:
+  Write "dates": for each chance 10, 25, 50, 75 and 90, the date by which you give it that chance of having happened, or null if you do not give it that chance by the last date the contracts cover. Dates must not go earlier as the chance rises.
+
+=== E3 (as of 2026-08-12): Yabloko Effectively Banned From 2026 Russian Elections by September 17?
+Rules:
+Parliamentary elections are scheduled to be held in Russia on September 20, 2026.
+
+This market will resolve to "Yes" if Yabloko is effectively banned from participation in the 2026 Russian parliamentary elections by September 17, 2026, 11:59 PM Moscow time. Otherwise, this market will resolve to "No".
+
+For the purposes of this market, a ban means any official action by Russian authorities that prevents Yabloko from contesting the 2026 Russian parliamentary elections as a political party. This includes, but is not limited to: Yabloko being denied registration to contest the specified election, or having such registration revoked or annulled; Yabloko’s federal list of candidates being refused registration, removed from the ballot, or otherwise rendered ineligible to participate in the federal electoral district; Yabloko being forcibly dissolved, deregistered, or otherwise ceasing to be a legally registered political party in Russia; the party being suspended or otherwise designated in a manner that bars its participation in the specified election; or an official determination that votes cast for Yabloko’s federal list will not be counted or will be invalidated. If Yabloko’s federal list is ineligible to contest the election, this will suffice regardless of whether individual candidates nominated by, affiliated with, or identified with Yabloko remain eligible to contest one or more single-member constituencies.
+
+A decision by Yabloko to voluntarily withdraw from, boycott, or otherwise decline to contest the specified election will not qualify. The disqualification, withdrawal, arrest, or barring of individual Yabloko candidates or officials will not qualify, provided the Yabloko party list remains eligible to contest the specified election.
+
+Confirmation of a ban may come from an official announcement by the Russian government, by Yabloko, or by an authorised representative thereof. A consensus of credible reporting that Yabloko has been banned may also be used.
+
+A qualifying decision will count as soon as it takes legal effect. Once such a decision has taken effect, any subsequent stay, suspension, reversal, annulment, reinstatement, or other action that modifies or renders the decision ineffective will not affect this market’s resolution.
+
+Confirmation of a ban must occur by September 17, 2026, 11:59 PM Moscow time. If no such confirmation occurs by that time, this market will resolve to "No".
+
+This market will resolve based on official information from the Russian government and Yabloko; however, a consensus of credible reporting will also be used.
+Contracts:
+  E3.C1: Yabloko Effectively Banned From 2026 Russian Elections by September 17?
+What to write for E3:
+  Write "dates": for each chance 10, 25, 50, 75 and 90, the date by which you give it that chance of having happened, or null if you do not give it that chance by the last date the contracts cover. Dates must not go earlier as the chance rises.
+
+=== E4 (as of 2026-07-08): Solana price on July 10?
+Rules:
+This market will resolve according to the final "Close" price of the Binance 1 minute candle for SOL/USDT 12:00 in the ET timezone (noon) on the date specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the SOL/USDT "Close" prices currently available at https://www.binance.com/en/trade/SOL_USDT with "1m" and "Candles" selected on the top bar.
+
+If the reported value falls exactly between two brackets, then this market will resolve to the higher range bracket.
+
+Please note that this market is about the price according to Binance SOL/USDT, not according to other exchanges or trading pairs.
+Contracts:
+  E4.C1: Will the price of Solana be less than $40 on July 10?
+  E4.C2: Will the price of Solana be between $40 and $50 on July 10?
+  E4.C3: Will the price of Solana be between $50 and $60 on July 10?
+  E4.C4: Will the price of Solana be between $60 and $70 on July 10?
+  E4.C5: Will the price of Solana be between $70 and $80 on July 10?
+  E4.C6: Will the price of Solana be between $80 and $90 on July 10?
+  E4.C7: Will the price of Solana be between $90 and $100 on July 10?
+  E4.C8: Will the price of Solana be between $100 and $110 on July 10?
+  E4.C9: Will the price of Solana be between $110 and $120 on July 10?
+  E4.C10: Will the price of Solana be between $120 and $130 on July 10?
+  E4.C11: Will the price of Solana be greater than $130 on July 10?
+What to write for E4:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E5 (as of 2026-07-01): Amazon (AMZN) closes week of Jun 29 at ___?
+Rules:
+This market will resolve according to the official closing price for Amazon (AMZN) on the final day of trading of the specified week (normally Friday).
+
+If the reported value falls exactly between two brackets, then this market will resolve to the higher range bracket.
+
+If the final session of the week is shortened (for example, due to a market-holiday schedule), the official closing price published for that shortened session will still be used for resolution.
+
+If no official closing price is published for that session (for example, due to a trading halt into the close, system issue, delisting, or other disruption), the market will use the last valid on-exchange trade price of the regular session as the effective closing price.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Yahoo Finance.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Yahoo Finance after any adjustments have been applied.
+
+The resolution source for this market is Yahoo Finance, specifically the Amazon (AMZN) "Close" prices available at https://finance.yahoo.com/quote/AMZN/history, published under "Historical Prices."
+Contracts:
+  E5.C1: Will Amazon (AMZN) close at <$205 on the final day of trading of the week of Jun 29 – Jul 3?
+  E5.C2: Will Amazon (AMZN) close at $205-$210 on the final day of trading of the week of Jun 29 – Jul 3?
+  E5.C3: Will Amazon (AMZN) close at $210-$215 on the final day of trading of the week of Jun 29 – Jul 3?
+  E5.C4: Will Amazon (AMZN) close at $215-$220 on the final day of trading of the week of Jun 29 – Jul 3?
+  E5.C5: Will Amazon (AMZN) close at $220-$225 on the final day of trading of the week of Jun 29 – Jul 3?
+  E5.C6: Will Amazon (AMZN) close at $225-$230 on the final day of trading of the week of Jun 29 – Jul 3?
+  E5.C7: Will Amazon (AMZN) close at $230-$235 on the final day of trading of the week of Jun 29 – Jul 3?
+  E5.C8: Will Amazon (AMZN) close at $235-$240 on the final day of trading of the week of Jun 29 – Jul 3?
+  E5.C9: Will Amazon (AMZN) close at $240-$245 on the final day of trading of the week of Jun 29 – Jul 3?
+  E5.C10: Will Amazon (AMZN) close at $245-$250 on the final day of trading of the week of Jun 29 – Jul 3?
+  E5.C11: Will Amazon (AMZN) close at >$250 on the final day of trading of the week of Jun 29 – Jul 3?
+What to write for E5:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E6 (as of 2026-08-05): Will Datadog (DDOG) beat quarterly earnings?
+Rules:
+As of market creation, Datadog is estimated to release earnings on August 6, 2026. The Street consensus estimate for Datadog’s non-GAAP EPS for the relevant quarter is $0.58 as of market creation. This market will resolve to "Yes" if Datadog reports non-GAAP EPS greater than $0.58 for the relevant quarter in its next quarterly earnings release. Otherwise, it will resolve to "No." The resolution source will be the non-GAAP EPS listed in the company’s official earnings documents. 
+
+If Datadog releases earnings without non-GAAP EPS, then the market will resolve according to the non-GAAP EPS figure reported by SeekingAlpha. If no such figure is published within 96h of market close (4:00:00pm ET) on the day earnings are announced, the market will resolve according to the GAAP EPS listed in the company’s official earnings documents; or, if not published there, according to the GAAP EPS provided by SeekingAlpha. If no GAAP EPS number is available from either source at that time, the market will resolve to “No.” (For the purposes of this market, GAAP EPS refers to diluted GAAP EPS, unless it is not published, in which case it refers to basic GAAP EPS.)
+
+If the company does not release earnings within 45 calendar days of the estimated earnings date, this market will resolve to “No.” 
+
+Note: Subsequent restatements, corrections, or revisions made to the initially announced non-GAAP EPS figure will not qualify for resolution, except in the case of obvious and immediate mistakes (e.g., fat finger errors, as with Lyft's (LYFT) earnings release in February 2024).
+Note: The strike prices used in these markets are derived from SeekingAlpha estimates, and reflect the consensus of sell-side analyst estimates for non-GAAP EPS.
+Note: All figures will be rounded to the nearest cent using standard rounding.
+Note: For the purposes of this market, IFRS EPS will be treated as GAAP EPS.
+Note: If multiple versions of non-GAAP EPS are published, the market will resolve according to the primary headline non-GAAP EPS number, which is typically presented on a diluted basis. If diluted is not published, then basic non-GAAP EPS will qualify.
+Note: All figures are expressed in USD, unless otherwise indicated.
+Note: For primarily internationally listed companies, this market refers specifically to the shares traded in the United States on U.S. stock exchanges such as the NYSE or Nasdaq. In cases where the company trades in the U.S. through an American Depositary Receipt (ADR) or American Depositary Share (ADS), this market will refer to the ADR/ADS.
+Contracts:
+  E6.C1: Will Datadog (DDOG) beat quarterly earnings?
+What to write for E6:
+  Write "p": a whole percent for every contract label, your chance that it resolves YES.

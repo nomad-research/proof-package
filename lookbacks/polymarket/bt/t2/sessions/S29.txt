@@ -1,0 +1,231 @@
+You will be shown 5 questions from a prediction market. Each has one or more contracts that resolve YES or NO under the rules shown. Each question gives the date your view is "as of": answer as you would on that date.
+
+Use only what you already know. Do not search for or look up anything: reading this file is the only tool call you may make. There are no prices in this file and you should not try to estimate what any market thinks; give your own view.
+
+Each question says what to write for it. Whole percents run from 1 to 99. Levels are plain numbers in the units the contracts use (for example 95000 for $95,000, 3.25 for 3.25%). Dates are YYYY-MM-DD.
+
+For each question also say whether you recognise how it actually turned out ("recognised": true only if you believe you remember the real outcome; otherwise false).
+
+Reply with one JSON object and nothing else:
+{"events": [{"label": "E1", "recognised": false, ...the fields that question asks for...}]}
+
+=== E1 (as of 2026-08-05): Haiti elections delayed again?
+Rules:
+After earlier delays, the first round of the 2026 Haitian legislative and presidential elections is currently scheduled to be held on August 30, 2026, with a potential second round set for December 6, 2026.
+
+This market will resolve to "Yes" if the first round of voting for the presidency or the national legislative bodies, including the Senate (Sénat) and the Chamber of Deputies (Chambre des Députés), is rescheduled to take place after August 30, 2026, or otherwise does not take place by August 30, 2026, 11:59 PM ET. Otherwise, this market will resolve to "No".
+
+The primary source of resolution for this market will be Official information from the Haitian government; however, a consensus of credible reporting may also be used.
+Contracts:
+  E1.C1: Haiti elections delayed again?
+What to write for E1:
+  Write "p": a whole percent for every contract label, your chance that it resolves YES.
+
+=== E2 (as of 2026-08-19): US-Iran 60 day negotiation period extended?
+Rules:
+On June 14, 2026, the United States and Iran announced a written diplomatic agreement (the MOU), including a 60-day negotiation period toward a “final deal”, extendable by mutual consent.
+
+This market will resolve to “Yes” if both the United States and Iran publicly and officially announce an extension of the 60-day negotiation period initiated by the MOU between market creation and August 20, 2026, 11:59 PM ET. Otherwise, this market will resolve to “No”.
+
+A qualifying announcement must be a declarative statement of a present extension of the 60-day negotiation period, a previously-unannounced prior extension of the 60-day negotiation period, or definitive agreement to extend the 60-day negotiation period.
+
+A qualifying announcement must clearly and unambiguously identify an extension of the 60-day negotiation period initiated by the MOU. Statements that merely allude to, reference, or describe an extension, without clearly communicating it, do not qualify. However, the announcement need not use specific terminology or reference the MOU by name.
+
+A qualifying announcement must be made through official channels, by an individual acting in an official capacity. Statements made incidentally or informally in a context not intended for official communication do not qualify.
+
+The extension must be mutually announced by the United States and the Islamic Republic of Iran by the specified date, 11:59 PM ET. Mutual announcement means that taken together, the announcements from the United States and the Islamic Republic of Iran directly indicate that both parties have agreed to extend the 60-day negotiation period, or have recognized a definitive extension of the period.
+
+The following do not qualify as official announcements: 
+- Anonymous, unattributed, or leaked statements not confirmed as official; 
+- Statements by persons not authorized to speak for the United States or Iran;
+- Third-party speculation, analysis, or predictions that the United States or Iran will announce or implement an extension of the 60-day negotiation period; 
+- Satirical, fabricated, hacked, or impersonated communications; 
+- Statements that describe a prospective, contingent, probable, or conditional extension of the 60-day negotiation period rather than announcing a present and decided position.
+
+Once an extension has been mutually announced by the United States and Iran, this market will resolve to “Yes” regardless of whether it is later reversed, or whether the extension is ever actually implemented.
+
+Resolution will be based on official information from the United States and Iran, including their official representatives.
+Contracts:
+  E2.C1: US-Iran 60 day negotiation period extended?
+What to write for E2:
+  Write "p": a whole percent for every contract label, your chance that it resolves YES.
+
+=== E3 (as of 2026-08-05): What will Rocket Lab USA, Inc. (RKLB) hit Week of August 3 2026?
+Rules:
+What will Rocket Lab USA, Inc. (RKLB) hit Week of August 3 2026?
+Contracts:
+  E3.C1: Will Rocket Lab USA, Inc. (RKLB) hit (HIGH) $78 Week of August 3 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of August 3 2026, any 1-minute candle for Rocket Lab USA, Inc. (RKLB) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Rocket Lab USA, Inc. (RKLB) "High" prices available at https://pythdata.app/explore/Equity.US.RKLB%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.RKLB%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E3.C2: Will Rocket Lab USA, Inc. (RKLB) hit (HIGH) $76 Week of August 3 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of August 3 2026, any 1-minute candle for Rocket Lab USA, Inc. (RKLB) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Rocket Lab USA, Inc. (RKLB) "High" prices available at https://pythdata.app/explore/Equity.US.RKLB%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.RKLB%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E3.C3: Will Rocket Lab USA, Inc. (RKLB) hit (LOW) $62 Week of August 3 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of August 3 2026, any 1-minute candle for Rocket Lab USA, Inc. (RKLB) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Rocket Lab USA, Inc. (RKLB) "Low" prices available at https://pythdata.app/explore/Equity.US.RKLB%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.RKLB%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E3.C4: Will Rocket Lab USA, Inc. (RKLB) hit (LOW) $60 Week of August 3 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of August 3 2026, any 1-minute candle for Rocket Lab USA, Inc. (RKLB) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Rocket Lab USA, Inc. (RKLB) "Low" prices available at https://pythdata.app/explore/Equity.US.RKLB%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.RKLB%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E3.C5: Will Rocket Lab USA, Inc. (RKLB) hit (LOW) $58 Week of August 3 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of August 3 2026, any 1-minute candle for Rocket Lab USA, Inc. (RKLB) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Rocket Lab USA, Inc. (RKLB) "Low" prices available at https://pythdata.app/explore/Equity.US.RKLB%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.RKLB%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E3.C6: Will Rocket Lab USA, Inc. (RKLB) hit (LOW) $56 Week of August 3 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of August 3 2026, any 1-minute candle for Rocket Lab USA, Inc. (RKLB) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Rocket Lab USA, Inc. (RKLB) "Low" prices available at https://pythdata.app/explore/Equity.US.RKLB%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.RKLB%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E3.C7: Will Rocket Lab USA, Inc. (RKLB) hit (LOW) $54 Week of August 3 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of August 3 2026, any 1-minute candle for Rocket Lab USA, Inc. (RKLB) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Rocket Lab USA, Inc. (RKLB) "Low" prices available at https://pythdata.app/explore/Equity.US.RKLB%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.RKLB%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E3.C8: Will Rocket Lab USA, Inc. (RKLB) hit (LOW) $52 Week of August 3 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of August 3 2026, any 1-minute candle for Rocket Lab USA, Inc. (RKLB) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Rocket Lab USA, Inc. (RKLB) "Low" prices available at https://pythdata.app/explore/Equity.US.RKLB%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.RKLB%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+What to write for E3:
+  Write "high": for each chance 10, 25, 50, 75 and 90, the level you give that chance of being reached (at or above) within the period. The 10 level is the highest.
+  Write "low": for each chance 10, 25, 50, 75 and 90, the level you give that chance of being reached (at or below) within the period. The 10 level is the lowest.
+
+=== E4 (as of 2026-08-19): Russia Elections: Yabloko Clears Duma Threshold?
+Rules:
+Parliamentary elections are scheduled to be held in Russia on September 20, 2026.
+
+This market will resolve to "Yes" if the Yabloko party list receives a percentage of valid votes greater than or equal to the threshold to gain seats in the State Duma from the proportional representation system in the 2026 Russian parliamentary elections. Otherwise, this market will resolve to "No".
+
+This market will resolve solely according to the percentage of valid votes received by the Yabloko party list. Whether Yabloko is awarded any seats in the State Duma will have no bearing on resolution.
+
+The applicable threshold will be the threshold in effect at the time of the specified election. As of the creation of this market, that threshold is 5% of valid votes.
+
+If the Yabloko party list is not present on the nationwide ballot, or is otherwise excluded from the results of the specified election, this market will resolve to "No".
+
+If the results of this election are not known definitively by September 30, 2027, 11:59 PM ET, this market will resolve to "No".
+
+This market will resolve based on the results of this election as indicated by a consensus of credible reporting. If there is ambiguity, this market will resolve based solely on the official results reported by Russian government sources such as the Central Election Commission of the Russian Federation.
+Contracts:
+  E4.C1: Russia Elections: Yabloko Clears Duma Threshold?
+What to write for E4:
+  Write "p": a whole percent for every contract label, your chance that it resolves YES.
+
+=== E5 (as of 2026-07-22): Ethereum above ___ on July 27?
+Rules:
+This market will resolve to "Yes" if the Binance 1 minute candle for ETH/USDT 12:00 in the ET timezone (noon) on the date specified in the title has a final "Close" price higher than the price specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the ETH/USDT "Close" prices currently available at https://www.binance.com/en/trade/ETH_USDT with "1m" and "Candles" selected on the top bar.
+
+Please note that this market is about the price according to Binance ETH/USDT, not according to other exchanges or trading pairs.
+
+Price precision is determined by the number of decimal places in the source.
+Contracts:
+  E5.C1: Will the price of Ethereum be above $1,400 on July 27?
+  E5.C2: Will the price of Ethereum be above $1,500 on July 27?
+  E5.C3: Will the price of Ethereum be above $1,600 on July 27?
+  E5.C4: Will the price of Ethereum be above $1,700 on July 27?
+  E5.C5: Will the price of Ethereum be above $1,800 on July 27?
+  E5.C6: Will the price of Ethereum be above $1,900 on July 27?
+  E5.C7: Will the price of Ethereum be above $2,000 on July 27?
+  E5.C8: Will the price of Ethereum be above $2,100 on July 27?
+  E5.C9: Will the price of Ethereum be above $2,200 on July 27?
+  E5.C10: Will the price of Ethereum be above $2,300 on July 27?
+  E5.C11: Will the price of Ethereum be above $2,400 on July 27?
+What to write for E5:
+  Write "levels": for each chance 10, 25, 50, 75 and 90, the level you give that chance of the measured quantity being at or above when it resolves. The 10 level is the highest and the 90 level the lowest. Example: {"10": 120, "25": 110, "50": 100, "75": 92, "90": 85}.

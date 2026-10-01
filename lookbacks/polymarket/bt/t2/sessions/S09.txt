@@ -1,0 +1,485 @@
+You will be shown 6 questions from a prediction market. Each has one or more contracts that resolve YES or NO under the rules shown. Each question gives the date your view is "as of": answer as you would on that date.
+
+Use only what you already know. Do not search for or look up anything: reading this file is the only tool call you may make. There are no prices in this file and you should not try to estimate what any market thinks; give your own view.
+
+Each question says what to write for it. Whole percents run from 1 to 99. Levels are plain numbers in the units the contracts use (for example 95000 for $95,000, 3.25 for 3.25%). Dates are YYYY-MM-DD.
+
+For each question also say whether you recognise how it actually turned out ("recognised": true only if you believe you remember the real outcome; otherwise false).
+
+Reply with one JSON object and nothing else:
+{"events": [{"label": "E1", "recognised": false, ...the fields that question asks for...}]}
+
+=== E1 (as of 2026-08-19): Will a new country join the Abraham Accords by August 31?
+Rules:
+This market will resolve to "Yes" if any country not already a part of the Abraham Accords formally signs a normalization agreement with Israel under the framework of the Abraham Accords by August 31, 2026, 11:59 PM ET. Otherwise, this market will resolve to "No".
+
+A formal signing refers to an official agreement between Israel and another country that is publicly acknowledged by both governments and clearly attributed to the Abraham Accords or their continuation. Such a signing will qualify regardless of whether a country had an established diplomatic relationship with Israel predating this event; their becoming a signatory of the Abraham Accords qualifies as normalizing relations under the framework of that agreement.
+
+For the purposes of this market, Somaliland will count as a country.
+
+Countries already part of the Abraham Accords as of market creation—including the United Arab Emirates, Bahrain, Morocco, and Sudan—will not count.
+
+The resolution source will be official government statements, however a consensus for credible reporting may also be used.
+Contracts:
+  E1.C1: Will a new country join the Abraham Accords by August 31?
+What to write for E1:
+  Write "dates": for each chance 10, 25, 50, 75 and 90, the date by which you give it that chance of having happened, or null if you do not give it that chance by the last date the contracts cover. Dates must not go earlier as the chance rises.
+
+=== E2 (as of 2026-07-22): Will Cigna Group (CI) beat quarterly earnings?
+Rules:
+As of market creation, Cigna Group is estimated to release earnings on July 30, 2026. The Street consensus estimate for Cigna Group’s non-GAAP EPS for the relevant quarter is $7.60 as of market creation. This market will resolve to "Yes" if Cigna Group reports non-GAAP EPS greater than $7.60 for the relevant quarter in its next quarterly earnings release. Otherwise, it will resolve to "No." The resolution source will be the non-GAAP EPS listed in the company’s official earnings documents. 
+
+If Cigna Group releases earnings without non-GAAP EPS, then the market will resolve according to the non-GAAP EPS figure reported by SeekingAlpha. If no such figure is published within 96h of market close (4:00:00pm ET) on the day earnings are announced, the market will resolve according to the GAAP EPS listed in the company’s official earnings documents; or, if not published there, according to the GAAP EPS provided by SeekingAlpha. If no GAAP EPS number is available from either source at that time, the market will resolve to “No.” (For the purposes of this market, GAAP EPS refers to diluted GAAP EPS, unless it is not published, in which case it refers to basic GAAP EPS.)
+
+If the company does not release earnings within 45 calendar days of the estimated earnings date, this market will resolve to “No.” 
+
+Note: Subsequent restatements, corrections, or revisions made to the initially announced non-GAAP EPS figure will not qualify for resolution, except in the case of obvious and immediate mistakes (e.g., fat finger errors, as with Lyft's (LYFT) earnings release in February 2024).
+Note: The strike prices used in these markets are derived from SeekingAlpha estimates, and reflect the consensus of sell-side analyst estimates for non-GAAP EPS.
+Note: All figures will be rounded to the nearest cent using standard rounding.
+Note: For the purposes of this market, IFRS EPS will be treated as GAAP EPS.
+Note: If multiple versions of non-GAAP EPS are published, the market will resolve according to the primary headline non-GAAP EPS number, which is typically presented on a diluted basis. If diluted is not published, then basic non-GAAP EPS will qualify.
+Note: All figures are expressed in USD, unless otherwise indicated.
+Note: For primarily internationally listed companies, this market refers specifically to the shares traded in the United States on U.S. stock exchanges such as the NYSE or Nasdaq. In cases where the company trades in the U.S. through an American Depositary Receipt (ADR) or American Depositary Share (ADS), this market will refer to the ADR/ADS.
+Contracts:
+  E2.C1: Will Cigna Group (CI) beat quarterly earnings?
+What to write for E2:
+  Write "p": a whole percent for every contract label, your chance that it resolves YES.
+
+=== E3 (as of 2026-07-01): ITG IPO Closing Market Cap
+Rules:
+This market will resolve based on ITG, Inc./DE/'s market capitalization at the closing price on its first day of trading.
+
+As of market creation, the IPO is scheduled to price on July 1 (ET). If no such IPO occurs by August 31, 2026, 11:59 PM ET, the market will resolve to "No IPO before September 2026".
+
+Market capitalization expresses the monetary value of a company’s outstanding shares, stated in its pricing currency.
+
+It is calculated as the total number of outstanding shares, multiplied by the official closing share price of the publicly traded class on the first trading day.
+
+If necessary, to accurately capture the company’s total market capitalization, rather than a stock-class-specific market capitalization, the calculation will include all outstanding share classes and apply any stated conversion ratios to the publicly traded class. Where no conversion right exists, such shares will be counted at their stated outstanding amount without discount, unless official filings explicitly specify differently.
+
+The number of outstanding shares will be determined from official company filings or disclosures (e.g., SEC filings). The closing share price on the first trading day will be determined from the primary exchange’s official listing page.
+
+If the relevant value falls exactly between two brackets, this market will resolve to the higher range bracket.
+
+The primary resolution source for this market will be official company filings and the primary exchange’s official listing page. The market capitalization will be determined through appropriate calculation using the total outstanding shares and the closing price from the first day of trading.
+
+In the event of an interruption in the normal trading session on the specified company’s first day of trading (e.g., a circuit breaker or half-day), the market will resolve according to the official closing price of the abbreviated session. If no such official closing price is published, the market will resolve according to the next trading day on which an official closing price is published, treating that day as the first day of trading for the purposes of this market.
+Contracts:
+  E3.C1: Will ITG's market cap be less than $2.1B at market close on IPO day?
+  E3.C2: Will ITG's market cap be between $2.1B and $2.7B at market close on IPO day?
+  E3.C3: Will ITG's market cap be between $2.7B and $3.3B at market close on IPO day?
+  E3.C4: Will ITG's market cap be between $3.3B and $3.9B at market close on IPO day?
+  E3.C5: Will ITG's market cap be between $3.9B and $4.5B at market close on IPO day?
+  E3.C6: Will ITG's market cap be greater than $4.5B at market close on IPO day?
+  E3.C7: Will ITG not IPO before September 2026?
+What to write for E3:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E4 (as of 2026-08-12): What will Silver (XAGUSD) hit Week of August 10 2026?
+Rules:
+What will Silver (XAGUSD) hit Week of August 10 2026?
+Contracts:
+  E4.C1: Will Silver (XAGUSD) hit (HIGH) $70 Week of August 10 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during a trading session of the week of August 10 2026, any 1-minute candle for Silver (XAGUSD) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during an applicable trading session of the specified timeframe's business days will be considered. The trading session for a given business day typically begins at 6:00 PM ET on the prior calendar date. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If Silver (XAGUSD) does not trade at all during the listed time frame, this market will resolve to "No".
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Silver (XAGUSD) "High" and "Low" prices available at https://pythdata.app/explore/Metal.XAG%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published for the relevant CME COMEX futures contract for the underlying metal—COMEX Silver Futures (SI)—may be used to determine whether the listed price was reached during the applicable trading session.
+  E4.C2: Will Silver (XAGUSD) hit (HIGH) $69 Week of August 10 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during a trading session of the week of August 10 2026, any 1-minute candle for Silver (XAGUSD) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during an applicable trading session of the specified timeframe's business days will be considered. The trading session for a given business day typically begins at 6:00 PM ET on the prior calendar date. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If Silver (XAGUSD) does not trade at all during the listed time frame, this market will resolve to "No".
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Silver (XAGUSD) "High" and "Low" prices available at https://pythdata.app/explore/Metal.XAG%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published for the relevant CME COMEX futures contract for the underlying metal—COMEX Silver Futures (SI)—may be used to determine whether the listed price was reached during the applicable trading session.
+  E4.C3: Will Silver (XAGUSD) hit (HIGH) $68 Week of August 10 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during a trading session of the week of August 10 2026, any 1-minute candle for Silver (XAGUSD) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during an applicable trading session of the specified timeframe's business days will be considered. The trading session for a given business day typically begins at 6:00 PM ET on the prior calendar date. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If Silver (XAGUSD) does not trade at all during the listed time frame, this market will resolve to "No".
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Silver (XAGUSD) "High" and "Low" prices available at https://pythdata.app/explore/Metal.XAG%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published for the relevant CME COMEX futures contract for the underlying metal—COMEX Silver Futures (SI)—may be used to determine whether the listed price was reached during the applicable trading session.
+  E4.C4: Will Silver (XAGUSD) hit (HIGH) $67 Week of August 10 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during a trading session of the week of August 10 2026, any 1-minute candle for Silver (XAGUSD) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during an applicable trading session of the specified timeframe's business days will be considered. The trading session for a given business day typically begins at 6:00 PM ET on the prior calendar date. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If Silver (XAGUSD) does not trade at all during the listed time frame, this market will resolve to "No".
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Silver (XAGUSD) "High" and "Low" prices available at https://pythdata.app/explore/Metal.XAG%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published for the relevant CME COMEX futures contract for the underlying metal—COMEX Silver Futures (SI)—may be used to determine whether the listed price was reached during the applicable trading session.
+  E4.C5: Will Silver (XAGUSD) hit (LOW) $62 Week of August 10 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during a trading session of the week of August 10 2026, any 1-minute candle for Silver (XAGUSD) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during an applicable trading session of the specified timeframe's business days will be considered. The trading session for a given business day typically begins at 6:00 PM ET on the prior calendar date. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If Silver (XAGUSD) does not trade at all during the listed time frame, this market will resolve to "No".
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Silver (XAGUSD) "High" and "Low" prices available at https://pythdata.app/explore/Metal.XAG%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published for the relevant CME COMEX futures contract for the underlying metal—COMEX Silver Futures (SI)—may be used to determine whether the listed price was reached during the applicable trading session.
+  E4.C6: Will Silver (XAGUSD) hit (LOW) $61 Week of August 10 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during a trading session of the week of August 10 2026, any 1-minute candle for Silver (XAGUSD) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during an applicable trading session of the specified timeframe's business days will be considered. The trading session for a given business day typically begins at 6:00 PM ET on the prior calendar date. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If Silver (XAGUSD) does not trade at all during the listed time frame, this market will resolve to "No".
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Silver (XAGUSD) "High" and "Low" prices available at https://pythdata.app/explore/Metal.XAG%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published for the relevant CME COMEX futures contract for the underlying metal—COMEX Silver Futures (SI)—may be used to determine whether the listed price was reached during the applicable trading session.
+  E4.C7: Will Silver (XAGUSD) hit (LOW) $60 Week of August 10 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during a trading session of the week of August 10 2026, any 1-minute candle for Silver (XAGUSD) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during an applicable trading session of the specified timeframe's business days will be considered. The trading session for a given business day typically begins at 6:00 PM ET on the prior calendar date. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If Silver (XAGUSD) does not trade at all during the listed time frame, this market will resolve to "No".
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Silver (XAGUSD) "High" and "Low" prices available at https://pythdata.app/explore/Metal.XAG%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published for the relevant CME COMEX futures contract for the underlying metal—COMEX Silver Futures (SI)—may be used to determine whether the listed price was reached during the applicable trading session.
+  E4.C8: Will Silver (XAGUSD) hit (LOW) $59 Week of August 10 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during a trading session of the week of August 10 2026, any 1-minute candle for Silver (XAGUSD) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during an applicable trading session of the specified timeframe's business days will be considered. The trading session for a given business day typically begins at 6:00 PM ET on the prior calendar date. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If Silver (XAGUSD) does not trade at all during the listed time frame, this market will resolve to "No".
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Silver (XAGUSD) "High" and "Low" prices available at https://pythdata.app/explore/Metal.XAG%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published for the relevant CME COMEX futures contract for the underlying metal—COMEX Silver Futures (SI)—may be used to determine whether the listed price was reached during the applicable trading session.
+  E4.C9: Will Silver (XAGUSD) hit (LOW) $58 Week of August 10 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during a trading session of the week of August 10 2026, any 1-minute candle for Silver (XAGUSD) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during an applicable trading session of the specified timeframe's business days will be considered. The trading session for a given business day typically begins at 6:00 PM ET on the prior calendar date. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If Silver (XAGUSD) does not trade at all during the listed time frame, this market will resolve to "No".
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Silver (XAGUSD) "High" and "Low" prices available at https://pythdata.app/explore/Metal.XAG%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published for the relevant CME COMEX futures contract for the underlying metal—COMEX Silver Futures (SI)—may be used to determine whether the listed price was reached during the applicable trading session.
+  E4.C10: Will Silver (XAGUSD) hit (LOW) $57 Week of August 10 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during a trading session of the week of August 10 2026, any 1-minute candle for Silver (XAGUSD) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during an applicable trading session of the specified timeframe's business days will be considered. The trading session for a given business day typically begins at 6:00 PM ET on the prior calendar date. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If Silver (XAGUSD) does not trade at all during the listed time frame, this market will resolve to "No".
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Silver (XAGUSD) "High" and "Low" prices available at https://pythdata.app/explore/Metal.XAG%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published for the relevant CME COMEX futures contract for the underlying metal—COMEX Silver Futures (SI)—may be used to determine whether the listed price was reached during the applicable trading session.
+What to write for E4:
+  Write "high": for each chance 10, 25, 50, 75 and 90, the level you give that chance of being reached (at or above) within the period. The 10 level is the highest.
+  Write "low": for each chance 10, 25, 50, 75 and 90, the level you give that chance of being reached (at or below) within the period. The 10 level is the lowest.
+
+=== E5 (as of 2026-08-19): PPI YoY - August 2026
+Rules:
+This is a market about the Producer Price Index (PPI) for final demand over the 12-month period ending August 2026, before seasonal adjustment, as reported by the Bureau of Labor Statistics.
+
+This market will resolve to the percentage change in the Producer Price Index (PPI) for final demand over the 12-month period ending in August 2026, before seasonal adjustment, according to the monthly Bureau of Labor Statistics (BLS) report.
+
+The resolution source for this market will be the BLS Producer Price Index report released for August 2026 (https://www.bls.gov/ppi/), currently scheduled to be released on September 10, 2026, at 8:30 AM ET. Resolution of this market will take place upon release of the aforementioned data.
+
+Note: the resolution source for this market will be the official monthly BLS PPI news release, which reports PPI over 12-month periods to only one decimal point (e.g., 6.0%). Thus, this is the level of precision that will be used when resolving the market. This market resolves on the total PPI for final demand figure, not the core PPI figure excluding food and energy.
+
+If the BLS does not release the relevant figures on the scheduled date, this market may remain open up until the scheduled release time of the next PPI report (https://www.bls.gov/schedule). If the information is not released by that time, this market will resolve according to the figures of the most recent previous month with available data.
+Contracts:
+  E5.C1: Will PPI YoY be 4.2% or less in August?
+  E5.C2: Will PPI YoY be 4.3% in August?
+  E5.C3: Will PPI YoY be 4.4% in August?
+  E5.C4: Will PPI YoY be 4.5% in August?
+  E5.C5: Will PPI YoY be 4.6% in August?
+  E5.C6: Will PPI YoY be 4.7% in August?
+  E5.C7: Will PPI YoY be 4.8% in August?
+  E5.C8: Will PPI YoY be 4.9% in August?
+  E5.C9: Will PPI YoY be 5.0% in August?
+  E5.C10: Will PPI YoY be 5.1% or more in August?
+What to write for E5:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E6 (as of 2026-09-09): What will Rocket Lab USA, Inc. (RKLB) hit Week of September 7 2026?
+Rules:
+What will Rocket Lab USA, Inc. (RKLB) hit Week of September 7 2026?
+Contracts:
+  E6.C1: Will Rocket Lab USA, Inc. (RKLB) hit (HIGH) $78 Week of September 7 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of September 7 2026, any 1-minute candle for Rocket Lab USA, Inc. (RKLB) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Rocket Lab USA, Inc. (RKLB) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.RKLB%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.RKLB%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E6.C2: Will Rocket Lab USA, Inc. (RKLB) hit (HIGH) $76 Week of September 7 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of September 7 2026, any 1-minute candle for Rocket Lab USA, Inc. (RKLB) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Rocket Lab USA, Inc. (RKLB) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.RKLB%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.RKLB%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E6.C3: Will Rocket Lab USA, Inc. (RKLB) hit (HIGH) $74 Week of September 7 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of September 7 2026, any 1-minute candle for Rocket Lab USA, Inc. (RKLB) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Rocket Lab USA, Inc. (RKLB) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.RKLB%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.RKLB%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E6.C4: Will Rocket Lab USA, Inc. (RKLB) hit (HIGH) $72 Week of September 7 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of September 7 2026, any 1-minute candle for Rocket Lab USA, Inc. (RKLB) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Rocket Lab USA, Inc. (RKLB) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.RKLB%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.RKLB%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E6.C5: Will Rocket Lab USA, Inc. (RKLB) hit (HIGH) $70 Week of September 7 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of September 7 2026, any 1-minute candle for Rocket Lab USA, Inc. (RKLB) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Rocket Lab USA, Inc. (RKLB) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.RKLB%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.RKLB%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E6.C6: Will Rocket Lab USA, Inc. (RKLB) hit (HIGH) $68 Week of September 7 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of September 7 2026, any 1-minute candle for Rocket Lab USA, Inc. (RKLB) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Rocket Lab USA, Inc. (RKLB) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.RKLB%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.RKLB%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E6.C7: Will Rocket Lab USA, Inc. (RKLB) hit (LOW) $60 Week of September 7 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of September 7 2026, any 1-minute candle for Rocket Lab USA, Inc. (RKLB) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Rocket Lab USA, Inc. (RKLB) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.RKLB%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.RKLB%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E6.C8: Will Rocket Lab USA, Inc. (RKLB) hit (LOW) $58 Week of September 7 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of September 7 2026, any 1-minute candle for Rocket Lab USA, Inc. (RKLB) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Rocket Lab USA, Inc. (RKLB) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.RKLB%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.RKLB%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E6.C9: Will Rocket Lab USA, Inc. (RKLB) hit (LOW) $56 Week of September 7 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of September 7 2026, any 1-minute candle for Rocket Lab USA, Inc. (RKLB) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Rocket Lab USA, Inc. (RKLB) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.RKLB%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.RKLB%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E6.C10: Will Rocket Lab USA, Inc. (RKLB) hit (LOW) $54 Week of September 7 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of September 7 2026, any 1-minute candle for Rocket Lab USA, Inc. (RKLB) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Rocket Lab USA, Inc. (RKLB) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.RKLB%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.RKLB%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E6.C11: Will Rocket Lab USA, Inc. (RKLB) hit (LOW) $52 Week of September 7 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of September 7 2026, any 1-minute candle for Rocket Lab USA, Inc. (RKLB) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Rocket Lab USA, Inc. (RKLB) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.RKLB%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.RKLB%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E6.C12: Will Rocket Lab USA, Inc. (RKLB) hit (LOW) $64 Week of September 7 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of September 7 2026, any 1-minute candle for Rocket Lab USA, Inc. (RKLB) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Rocket Lab USA, Inc. (RKLB) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.RKLB%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.RKLB%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E6.C13: Will Rocket Lab USA, Inc. (RKLB) hit (LOW) $62 Week of September 7 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of September 7 2026, any 1-minute candle for Rocket Lab USA, Inc. (RKLB) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Rocket Lab USA, Inc. (RKLB) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.RKLB%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.RKLB%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+What to write for E6:
+  Write "high": for each chance 10, 25, 50, 75 and 90, the level you give that chance of being reached (at or above) within the period. The 10 level is the highest.
+  Write "low": for each chance 10, 25, 50, 75 and 90, the level you give that chance of being reached (at or below) within the period. The 10 level is the lowest.
