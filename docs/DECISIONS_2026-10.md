@@ -143,3 +143,36 @@ Register C6.
   - claims kept as calibrated edges between events.
   - Each pass updates the record, and significance marks when a direction has been shown, not when work stops.
 - **Still open.** The machinery for the standing graph (v18 §5.1's world graph, the weekly batches, the learning store) is not built.
+
+## 8. T3's clusters: the graph proposes, the session decides (2026-10-01)
+
+Register C4, in part.
+
+- **Decision.**
+  - Seeds are V3's authored events still open at T3's snapshot.
+  - Candidates are open events sharing a rare tag or named entity with the seed, with link score at least 4.0, up to 8 events per cluster. Both are v18 §7 values, used as stand-ins.
+  - The session drops any it judges unrelated, with a reason, and the drops are recorded.
+  - An event may sit in two clusters, recorded both ways.
+- **Rob's words.** "Let's go ahead with your next steps too please", in answer to the proposal "graph proposes, session decides, unless you say otherwise".
+- **Evidence.** v18 §2: coherent clusters of 3 to 8 events at that score in the 2026-09-30 run, and a component of 181 when the graph alone decides. The 2026-10-01 preview of 25 clusters (`lookbacks/polymarket/t3/clusters.json`) showed mostly causal neighbourhoods, with a few same-type lists for the session to prune.
+- **Still open.** C4's other questions: what bounds a subgraph in general, and whether baskets may share a contract.
+
+## 9. The NO edge (E1) is the registered main statistic of the next backtest pass (2026-10-01)
+
+- **Decision.** BT-T2 pass 2 runs on fresh events from the same window, with NO positions as its registered main statistic. Those are positions taken on the NO side where the session's chance of NO beats NO's all-in cost, scored against same-side, same-class, same-cost contracts and read at 5%. It is the confirm-or-kill test for E1 (`docs/EDGE_LEDGER.md`).
+- **Rob's words.** "I'm realizing nomad in it's pure risk engine form is probably an amazing NO predictor as well in the first place." And: "Let's go ahead with your next steps too please."
+- **Evidence.** All post-hoc:
+  - BT-A NO bets +7.4¢ money, +3.7¢ against same-side, same-cost (221 events);
+  - BT-T2 NO positions +5.0¢ class-matched, and +7.6¢ where the session was surer than the market.
+- **Still open.** Whether a NO book's payoff shape (small wins, rare large losses, correlated shocks) fits the global risk numbers (C1), which are Rob's.
+
+## 10. Magnitude means scale of scale, not shift delta (2026-10-01)
+
+Register C3. Refines decisions 4 and 6.
+
+- **Rob's words.** "My definition of magnitude here is scale of scale not shift delta."
+- **Reading (builder's; to confirm with Rob).** Magnitude is how big an outcome is relative to the range of sizes outcomes of its kind take: where this instance sits on its own reference scale, an order of magnitude or a percentile of its kind. It is not how far a quantity moves from where it is now.
+- **Still open.**
+  - Rob's confirmation of the reading.
+  - Then the elicitation: the reference class and the instance's place in it.
+  - Then the scoring: the instance's realised place against the place the session and the market implied, by rank.
