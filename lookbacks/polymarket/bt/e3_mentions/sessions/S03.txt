@@ -1,0 +1,221 @@
+You will be shown 6 questions from a prediction market. Each has one or more contracts that resolve YES or NO under the rules shown. Each question gives the date your view is "as of": answer as you would on that date.
+
+Use only what you already know. Do not search for or look up anything: reading this file is the only tool call you may make. There are no prices in this file and you should not try to estimate what any market thinks; give your own view.
+
+Each question says what to write for it. Whole percents run from 1 to 99. Levels are plain numbers in the units the contracts use (for example 95000 for $95,000, 3.25 for 3.25%). Dates are YYYY-MM-DD.
+
+For each question also say whether you recognise how it actually turned out ("recognised": true only if you believe you remember the real outcome; otherwise false).
+
+Reply with one JSON object and nothing else:
+{"events": [{"label": "E1", "recognised": false, ...the fields that question asks for...}]}
+
+=== E1 (as of 2026-07-05): What will PriceSmart say during their next earnings call?
+Rules:
+This market will resolve based on the next earnings announcement of PriceSmart, currently scheduled to take place on July 9, 2026 at 12 PM ET.
+
+This market will resolve to "Yes" if the listed term is mentioned by anyone during this event. Otherwise, the market will resolve to "No".
+
+If this event is definitely cancelled, or otherwise is not aired by July 10, 2026, 11:59 PM ET, "-No Qualifying Event-" will resolve to "Yes" and all other brackets will resolve to "No". 
+
+The resolution source will be audio/video of the event, including 800-715-9871.
+
+For full rules, see: https://polymarket-upload.s3.us-east-2.amazonaws.com/market_products/Event+Mentions+Contract+DeFi.pdf
+Contracts:
+  E1.C1: Will PriceSmart say "Store" 15+ times during earnings call?
+  E1.C2: Will PriceSmart say "Profit" 10+ times during earnings call?
+  E1.C3: Will PriceSmart say "Fiscal" 10+ times during earnings call?
+  E1.C4: Will PriceSmart say "Merchandise" 5+ times during earnings call?
+  E1.C5: Will PriceSmart say "Club" 5+ times during earnings call?
+  E1.C6: Will PriceSmart say "Costco" during earnings call?
+  E1.C7: Will PriceSmart say "Food" during earnings call?
+  E1.C8: Will PriceSmart say "Growth" during earnings call?
+  E1.C9: Will PriceSmart say "Membership" during earnings call?
+  E1.C10: Will PriceSmart say "Tax" during earnings call?
+  E1.C11: Will PriceSmart say "Warehouse" during earnings call?
+  E1.C12: Will PriceSmart say "Franchise" during earnings call?
+  E1.C13: Will PriceSmart say "Tariff" during earnings call?
+  E1.C14: Will PriceSmart say "Relax" during earnings call?
+  E1.C15: Will PriceSmart say "Fuel Cost" during earnings call?
+  E1.C16: Will PriceSmart say "Commerce" during earnings call?
+  E1.C17: Will PriceSmart say "Costa Rica" during earnings call?
+  E1.C18: Will PriceSmart say "Colombia" during earnings call?
+  E1.C19: Will PriceSmart say "Guatemala" during earnings call?
+  E1.C20: Will the earnings call not air?
+What to write for E1:
+  Write "p": a whole percent for every contract label, your chance that it resolves YES.
+
+=== E2 (as of 2026-07-10): What will Delta Air Lines say during their next earnings call?
+Rules:
+This market will resolve based on the next earnings announcement of Delta Air Lines, currently scheduled to take place on July 10, 2026 at 10 AM ET.
+
+This market will resolve to "Yes" if the listed term is mentioned by anyone during this event. Otherwise, the market will resolve to "No".
+
+If this event is definitely cancelled, or otherwise is not aired by July 11, 2026, 11:59 PM ET, "-No Qualifying Event-" will resolve to "Yes" and all other brackets will resolve to "No". 
+
+The resolution source will be audio/video of the event.
+
+For full rules, see: https://polymarket-upload.s3.us-east-2.amazonaws.com/market_products/Event+Mentions+Contract+DeFi.pdf
+Contracts:
+  E2.C1: Will Delta Air Lines say "Delta" 15+ times during earnings call?
+  E2.C2: Will Delta Air Lines say "Revenue" 10+ times during earnings call?
+  E2.C3: Will Delta Air Lines say "Demand" 5+ times during earnings call?
+  E2.C4: Will Delta Air Lines say "Fuel" 5+ times during earnings call?
+  E2.C5: Will Delta Air Lines say "Loyal" or "Loyalty" during earnings call?
+  E2.C6: Will Delta Air Lines say "Corporate" during earnings call?
+  E2.C7: Will Delta Air Lines say "Leverage" during earnings call?
+  E2.C8: Will Delta Air Lines say "American Express" or "Amex" during earnings call?
+  E2.C9: Will Delta Air Lines say "Cargo" during earnings call?
+  E2.C10: Will Delta Air Lines say "Vacation" during earnings call?
+  E2.C11: Will Delta Air Lines say "Premium" during earnings call?
+  E2.C12: Will Delta Air Lines say "Capacity" during earnings call?
+  E2.C13: Will Delta Air Lines say "Occupancy" during earnings call?
+  E2.C14: Will Delta Air Lines say "Margin" during earnings call?
+  E2.C15: Will Delta Air Lines say "Fleet" during earnings call?
+  E2.C16: Will Delta Air Lines say "Absorption" during earnings call?
+  E2.C17: Will Delta Air Lines say "International" during earnings call?
+  E2.C18: Will Delta Air Lines say "World Cup" during earnings call?
+  E2.C19: Will the earnings call not air?
+What to write for E2:
+  Write "p": a whole percent for every contract label, your chance that it resolves YES.
+
+=== E3 (as of 2026-07-14): What will Bank of America say during their next earnings call?
+Rules:
+This market will resolve based on the next earnings announcement of Bank of America currently scheduled to take place on July 14, 2026 at 8:30 AM ET.
+
+This market will resolve to "Yes" if the listed term is mentioned by anyone during this event. Otherwise, the market will resolve to "No".
+
+If this event is definitely cancelled, or otherwise is not aired by July 15, 2026, 11:59 PM ET, "-No Qualifying Event-" will resolve to "Yes" and all other brackets will resolve to "No".
+
+The resolution source will be audio of the event.
+
+For full rules, see: https://polymarket-upload.s3.us-east-2.amazonaws.com/market_products/Event+Mentions+Contract+DeFi.pdf
+Contracts:
+  E3.C1: Will Bank of America say "Invest" or "Investment" 5+ times during earnings call?
+  E3.C2: Will Bank of America say "AI" or "Artificial Intelligence" 5+ times during earnings call?
+  E3.C3: Will Bank of America say "Growth" 5+ times during earnings call?
+  E3.C4: Will Bank of America say "World Cup" during earnings call?
+  E3.C5: Will Bank of America say "Disappointing" during earnings call?
+  E3.C6: Will Bank of America say "Recession" during earnings call?
+  E3.C7: Will Bank of America say "Synergy" during earnings call?
+  E3.C8: Will Bank of America say "Pivot" during earnings call?
+  E3.C9: Will Bank of America say "Monetize" during earnings call?
+  E3.C10: Will Bank of America say "Deteriorating" during earnings call?
+  E3.C11: Will Bank of America say "Cryptocurrency" during earnings call?
+  E3.C12: Will Bank of America say "Gross margin" during earnings call?
+  E3.C13: Will Bank of America say "Subscriber" during earnings call?
+  E3.C14: Will Bank of America say "Expansion" during earnings call?
+  E3.C15: Will Bank of America say "Trump" during earnings call?
+  E3.C16: Will Bank of America say "Disruption" during earnings call?
+  E3.C17: Will Bank of America say "Ecosystem" during earnings call?
+  E3.C18: Will the earnings call not air?
+What to write for E3:
+  Write "p": a whole percent for every contract label, your chance that it resolves YES.
+
+=== E4 (as of 2026-08-01): What will Spotify say during their next earnings call?
+Rules:
+This market will resolve based on the next earnings announcement of Spotify currently scheduled to take place on August 4, 2026 at 8:00 AM ET.
+
+This market will resolve to "Yes" if the listed term is mentioned by anyone during this event. Otherwise, the market will resolve to "No".
+
+If this event is definitely cancelled, or otherwise is not aired by August 5, 2026, 11:59 PM ET, "-No Qualifying Event-" will resolve to "Yes" and all other brackets will resolve to "No".
+
+The resolution source will be audio of the event.
+
+For full rules, see: https://polymarket-upload.s3.us-east-2.amazonaws.com/market_products/Event+Mentions+Contract+DeFi.pdf
+Contracts:
+  E4.C1: Will Spotify say "Premium" 20+ times during earnings call?
+  E4.C2: Will Spotify say "Quarter" 15+ times during earnings call?
+  E4.C3: Will Spotify say "AI" or "Artificial Intelligence" 10+ times during earnings call?
+  E4.C4: Will Spotify say "User" 5+ times during earnings call?
+  E4.C5: Will Spotify say "Customer" during earnings call?
+  E4.C6: Will Spotify say "Stream" during earnings call?
+  E4.C7: Will Spotify say "Record" during earnings call?
+  E4.C8: Will Spotify say "World Cup" during earnings call?
+  E4.C9: Will Spotify say "Dividend" during earnings call?
+  E4.C10: Will Spotify say "Playlist" during earnings call?
+  E4.C11: Will Spotify say "Fitness" during earnings call?
+  E4.C12: Will Spotify say "Monetization" during earnings call?
+  E4.C13: Will Spotify say "Churn" during earnings call?
+  E4.C14: Will Spotify say "Award" during earnings call?
+  E4.C15: Will Spotify say "Meta" during earnings call?
+  E4.C16: Will the earnings call not air?
+What to write for E4:
+  Write "p": a whole percent for every contract label, your chance that it resolves YES.
+
+=== E5 (as of 2026-09-19): What will AutoZone say during their next earnings call?
+Rules:
+This market will resolve based on the next earnings announcement of AutoZone currently scheduled to take place on September 22, 2026 at 10:00 AM ET.
+
+This market will resolve to "Yes" if the listed term is mentioned by anyone during this event. Otherwise, the market will resolve to "No".
+
+If this event is definitely cancelled, or otherwise is not aired by September 23, 2026, 11:59 PM ET, "-No Qualifying Event-" will resolve to "Yes" and all other brackets will resolve to "No".
+
+The resolution source will be audio of the event.
+
+For full rules, see: https://polymarket-upload.s3.us-east-2.amazonaws.com/market_products/Mentions/Event+Mentions+Contract+DeFi.pdf
+Contracts:
+  E5.C1: Will AutoZone say "Quarter" 15+ times during earnings call?
+  E5.C2: Will AutoZone say "Customer" 10+ times during earnings call?
+  E5.C3: Will AutoZone say "Interest Rate" during earnings call?
+  E5.C4: Will AutoZone say "Brazil" during earnings call?
+  E5.C5: Will AutoZone say "Same Store Sales" during earnings call?
+  E5.C6: Will AutoZone say "Buyback" or "Buy Back" during earnings call?
+  E5.C7: Will AutoZone say "Tailwind" during earnings call?
+  E5.C8: Will AutoZone say "Headwind" during earnings call?
+  E5.C9: Will AutoZone say "Distribution Center" during earnings call?
+  E5.C10: Will AutoZone say "Duralast" during earnings call?
+  E5.C11: Will AutoZone say "Used Car" during earnings call?
+  E5.C12: Will AutoZone say "Pricing" during earnings call?
+  E5.C13: Will AutoZone say "Refund" during earnings call?
+  E5.C14: Will the earnings call not air?
+What to write for E5:
+  Write "p": a whole percent for every contract label, your chance that it resolves YES.
+
+=== E6 (as of 2026-08-05): What will Trump say in August?
+Rules:
+This market will resolve to “Yes” if Donald Trump mentions the listed term between August 1, 2026, 12:00 AM ET and August 31, 2026, 11:59 PM ET. Otherwise, this market will resolve to “No”.
+
+A ‘mention’ will include any verbal mention which is recorded (audio or video) and publicly accessible.
+
+Written usages of terms (e.g. Truth Social posts, written statements, etc.) will not count toward this market's resolution.
+
+Videos posted on his social media which were filmed outside this market's time frame will not qualify for a "Yes" resolution.
+
+For full rules, see: https://polymarket-upload.s3.us-east-2.amazonaws.com/market_products/Mentions/Period+Mentions+Contract+DeFi.pdf
+Contracts:
+  E6.C1: Will Trump say "Ass" in August?
+  E6.C2: Will Trump say "Shit" in August?
+  E6.C3: Will Trump say "Red Card" in August?
+  E6.C4: Will Trump say "Death to America" in August?
+  E6.C5: Will Trump say "Sucker" in August?
+  E6.C6: Will Trump say "Slob" in August?
+  E6.C7: Will Trump say "Garbage" in August?
+  E6.C8: Will Trump say "Let Me Finish" in August?
+  E6.C9: Will Trump say "State of the Union" or "State of Union" in August?
+  E6.C10: Will Trump say "Potato" in August?
+  E6.C11: Will Trump say "Tango" in August?
+  E6.C12: Will Trump say "Marxist" in August?
+  E6.C13: Will Trump say "Crooked Joe" in August?
+  E6.C14: Will Trump say "Dictionary" in August?
+  E6.C15: Will Trump say "Gay" in August?
+  E6.C16: Will Trump say "Central Casting" in August?
+  E6.C17: Will Trump say "No No No" in August?
+  E6.C18: Will Trump say "Through the Roof" in August?
+  E6.C19: Will Trump say "Antifa" in August?
+  E6.C20: Will Trump say "Cocaine" in August?
+  E6.C21: Will Trump say "Movie Star" in August?
+  E6.C22: Will Trump say "Green New Scam" in August?
+  E6.C23: Will Trump say "State of the Art" in August?
+  E6.C24: Will Trump say "Soaking Wet" in August?
+  E6.C25: Will Trump say "Six Seven" in August?
+  E6.C26: Will Trump say "Presidential Walk of Fame" in August?
+  E6.C27: Will Trump say "Future President" in August?
+  E6.C28: Will Trump say "Affordable" or "Affordability" in August?
+  E6.C29: Will Trump say "Pelosi" in August?
+  E6.C30: Will Trump say "Epstein" in August?
+  E6.C31: Will Trump say "American Dream" in August?
+  E6.C32: Will Trump say "Moscow" in August?
+  E6.C33: Will Trump say "Thomas Jefferson" in August?
+  E6.C34: Will Trump say "World Cup" in August?
+What to write for E6:
+  Write "p": a whole percent for every contract label, your chance that it resolves YES.

@@ -1,0 +1,214 @@
+You will be shown 6 questions from a prediction market. Each has one or more contracts that resolve YES or NO under the rules shown. Each question gives the date your view is "as of": answer as you would on that date.
+
+Use only what you already know. Do not search for or look up anything: reading this file is the only tool call you may make. There are no prices in this file and you should not try to estimate what any market thinks; give your own view.
+
+Each question says what to write for it. Whole percents run from 1 to 99. Levels are plain numbers in the units the contracts use (for example 95000 for $95,000, 3.25 for 3.25%). Dates are YYYY-MM-DD.
+
+For each question also say whether you recognise how it actually turned out ("recognised": true only if you believe you remember the real outcome; otherwise false).
+
+Reply with one JSON object and nothing else:
+{"events": [{"label": "E1", "recognised": false, ...the fields that question asks for...}]}
+
+=== E1 (as of 2026-07-15): What will Netflix say during their next earnings call?
+Rules:
+This market will resolve based on the next earnings announcement of Netflix currently scheduled to take place on July 16, 2026 at 4:45 PM EST.
+
+This market will resolve to "Yes" if the listed term is mentioned by anyone during this event. Otherwise, the market will resolve to "No".
+
+If this event is definitely cancelled, or otherwise is not aired by July 17, 2026, 11:59 PM ET, "-No Qualifying Event-" will resolve to "Yes" and all other brackets will resolve to "No".
+
+The resolution source will be audio of the event.
+
+For full rules, see: https://polymarket-upload.s3.us-east-2.amazonaws.com/market_products/Event+Mentions+Contract+DeFi.pdf
+Contracts:
+  E1.C1: Will Netflix say "Invest" / "Investment" / "Investing" 10+ times during earnings call?
+  E1.C2: Will Netflix say "AI" / "Artificial Intelligence" 5+ times during earnings call?
+  E1.C3: Will Netflix say "Growth" 5+ times during earnings call?
+  E1.C4: Will Netflix say "NFL" / "Football" during earnings call?
+  E1.C5: Will Netflix say "Cloud gaming" during earnings call?
+  E1.C6: Will Netflix say "Formula 1" / "F1" during earnings call?
+  E1.C7: Will Netflix say "Squid Game" during earnings call?
+  E1.C8: Will Netflix say "Subscriber" during earnings call?
+  E1.C9: Will Netflix say "Membership" during earnings call?
+  E1.C10: Will Netflix say "Podcast" during earnings call?
+  E1.C11: Will Netflix say "Synergy" during earnings call?
+  E1.C12: Will Netflix say "User" during earnings call?
+  E1.C13: Will Netflix say "Content" during earnings call?
+  E1.C14: Will Netflix say "Ecosystem" during earnings call?
+  E1.C15: Will Netflix say "World Cup" during earnings call?
+  E1.C16: Will Netflix say "Crypto" during earnings call?
+  E1.C17: Will Netflix say "Pivot" during earnings call?
+  E1.C18: Will the earnings call not air?
+What to write for E1:
+  Write "p": a whole percent for every contract label, your chance that it resolves YES.
+
+=== E2 (as of 2026-08-18): What will Trump say this week? (August 17 - August 23)
+Rules:
+This market will resolve to “Yes” if Donald Trump mentions the listed term between August 17, 2026, 12:00 AM ET and August 23, 2026, 11:59 PM ET. Otherwise, this market will resolve to “No”.
+
+Written usages of terms (e.g. Truth Social posts, written statements, etc.) will not count toward this market's resolution.
+
+Videos posted on his social media which were filmed outside this market's time frame will not qualify for a "Yes" resolution.
+
+For full rules, see: https://polymarket-upload.s3.us-east-2.amazonaws.com/market_products/Period+Mentions+Contract+DeFi.pdf
+Contracts:
+  E2.C1: Will Trump say "Prediction Market" this week?
+  E2.C2: Will Trump say "America First" this week?
+  E2.C3: Will Trump say "Weather" or "Rain" this week?
+  E2.C4: Will Trump say "Uber" this week?
+  E2.C5: Will Trump say "Alaska" this week?
+  E2.C6: Will Trump say "Assassin" or "Assassination" this week?
+  E2.C7: Will Trump say "Through The Roof" this week?
+  E2.C8: Will Trump say "Japan" this week?
+  E2.C9: Will Trump say "Mental Institution" or "Mental Institute" this week?
+  E2.C10: Will Trump say "No No No" this week?
+  E2.C11: Will Trump say "Pearl Harbor" this week?
+  E2.C12: Will Trump say "Six Seven" this week?
+  E2.C13: Will Trump say "Barack Hussein Obama" this week?
+  E2.C14: Will Trump say "Transgender" this week?
+What to write for E2:
+  Write "p": a whole percent for every contract label, your chance that it resolves YES.
+
+=== E3 (as of 2026-09-12): What will Kevin Warsh say during September Press Conference?
+Rules:
+Kevin Warsh is currently scheduled to give an FOMC Introductory Statement and press conference on September 16, 2026, at 2:30 PM ET. This market pertains to his Introductory Statement as well as the following Q&A session.
+
+This market will resolve to "Yes" if Warsh says the listed term during the FOMC Press Conference. Otherwise, this market will resolve to "No".
+
+If no such statement by Warsh happens by September 17, 2026, 11:59 PM ET, "-No Qualifying Event-" will resolve to "Yes" and all other brackets will resolve to "No".
+
+The resolution source will be video and transcripts of the FOMC Press conference.
+
+For full rules, see: https://polymarket-upload.s3.us-east-2.amazonaws.com/market_products/Mentions/Event+Mentions+Contract+DeFi.pdf
+Contracts:
+  E3.C1: Will Warsh say "Inflation" 40+ times during September Press Conference?
+  E3.C2: Will Warsh say "Inflation" 20+ times during September Press Conference?
+  E3.C3: Will Warsh say "Task Force" 10+ times during September Press Conference?
+  E3.C4: Will Warsh say "Good Day" during September Press Conference?
+  E3.C5: Will Warsh say "Good Afternoon" during September Press Conference?
+  E3.C6: Will Warsh say "AI" or "Artificial Intelligence" during September Press Conference?
+  E3.C7: Will Warsh say "Labor Force" during September Press Conference?
+  E3.C8: Will Warsh say "Scenario" during September Press Conference?
+  E3.C9: Will Warsh say "Echo" during September Press Conference?
+  E3.C10: Will Warsh say "Software" during September Press Conference?
+  E3.C11: Will Warsh say "Pressure" during September Press Conference?
+  E3.C12: Will Warsh say "Luck" or "Lucky" during September Press Conference?
+  E3.C13: Will Warsh say "Dissent" during September Press Conference?
+  E3.C14: Will Warsh say "Trump" during September Press Conference?
+  E3.C15: Will Warsh say "Productivity" during September Press Conference?
+  E3.C16: Will Warsh say "Bet" or "Betting" during September Press Conference?
+  E3.C17: Will Warsh say "Projection" during September Press Conference?
+  E3.C18: Will Warsh say "Balance Sheet" during September Press Conference?
+  E3.C19: Will Warsh say "Pandemic" during September Press Conference?
+  E3.C20: Will Warsh say "Anchor" or "Anchored" during September Press Conference?
+  E3.C21: Will Warsh say "Gas" or "Gasoline" or "Natural Gas" during September Press Conference?
+  E3.C22: Will no statement by Warsh happen during September Press Conference?
+What to write for E3:
+  Write "p": a whole percent for every contract label, your chance that it resolves YES.
+
+=== E4 (as of 2026-07-19): What will Tesla say during their next earnings call?
+Rules:
+This market will resolve based on the next earnings announcement of Tesla currently scheduled to take place on July 22, 2026 at 5:30 PM ET.
+
+This market will resolve to "Yes" if the listed term is mentioned by anyone during this event. Otherwise, the market will resolve to "No".
+
+If this event is definitely cancelled, or otherwise is not aired by July 23, 2026, 11:59 PM ET, "-No Qualifying Event-" will resolve to "Yes" and all other brackets will resolve to "No".
+
+The resolution source will be audio of the event.
+
+For full rules, see: https://polymarket-upload.s3.us-east-2.amazonaws.com/market_products/Event+Mentions+Contract+DeFi.pdf
+Contracts:
+  E4.C1: Will Tesla say "Income" 10+ times during earnings call?
+  E4.C2: Will Tesla say "Quarter" 10+ times during earnings call?
+  E4.C3: Will Tesla say "Fiscal" 10+ times during earnings call?
+  E4.C4: Will Tesla say "Car" 10+ times during earnings call?
+  E4.C5: Will Tesla say "Growth" 5+ times during earnings call?
+  E4.C6: Will Tesla say "Software" during earnings call?
+  E4.C7: Will Tesla say "Factory" during earnings call?
+  E4.C8: Will Tesla say "Emission" during earnings call?
+  E4.C9: Will Tesla say "America" during earnings call?
+  E4.C10: Will Tesla say "Texas" during earnings call?
+  E4.C11: Will Tesla say "Optimus" during earnings call?
+  E4.C12: Will Tesla say "China" during earnings call?
+  E4.C13: Will Tesla say "Solar" during earnings call?
+  E4.C14: Will Tesla say "Energy" during earnings call?
+  E4.C15: Will Tesla say "SpaceX" during earnings call?
+  E4.C16: Will Tesla say "Subscription" during earnings call?
+  E4.C17: Will Tesla say "Cybertruck" during earnings call?
+  E4.C18: Will Tesla say "Robot" during earnings call?
+  E4.C19: Will the earnings call not air?
+What to write for E4:
+  Write "p": a whole percent for every contract label, your chance that it resolves YES.
+
+=== E5 (as of 2026-08-24): What will Ulta say during their next earnings call?
+Rules:
+This market will resolve based on the next earnings announcement of Ulta currently scheduled to take place on August 27, 2026 at 4:30 PM ET.
+
+This market will resolve to "Yes" if the listed term is mentioned by anyone during this event. Otherwise, the market will resolve to "No".
+
+If this event is definitely cancelled, or otherwise is not aired by August 28, 2026, 11:59 PM ET, "-No Qualifying Event-" will resolve to "Yes" and all other brackets will resolve to "No".
+
+The resolution source will be audio of the event.
+
+For full rules, see: https://polymarket-upload.s3.us-east-2.amazonaws.com/market_products/Mentions/Event+Mentions+Contract+DeFi.pdf
+Contracts:
+  E5.C1: Will Ulta say "Growth" 30+ times during earnings call?
+  E5.C2: Will Ulta say "Product" 20+ times during earnings call?
+  E5.C3: Will Ulta say "Fiscal" 10+ times during earnings call?
+  E5.C4: Will Ulta say "Healthy" during earnings call?
+  E5.C5: Will Ulta say "Medicine" during earnings call?
+  E5.C6: Will Ulta say "Cosmetic" during earnings call?
+  E5.C7: Will Ulta say "Fragrance" during earnings call?
+  E5.C8: Will Ulta say "AI" or "Artificial Intelligence" during earnings call?
+  E5.C9: Will Ulta say "Uncertainty" during earnings call?
+  E5.C10: Will Ulta say "Diamond" during earnings call?
+  E5.C11: Will Ulta say "Luxury" during earnings call?
+  E5.C12: Will Ulta say "Traffic" during earnings call?
+  E5.C13: Will Ulta say "Holiday" during earnings call?
+  E5.C14: Will Ulta say "Reward" during earnings call?
+  E5.C15: Will the earnings call not air?
+What to write for E5:
+  Write "p": a whole percent for every contract label, your chance that it resolves YES.
+
+=== E6 (as of 2026-09-02): What will Trump say in September?
+Rules:
+This market will resolve to "Yes" if Donald Trump mentions the listed term between September 1, 2026, 12:00 AM ET and September 30, 2026, 11:59 PM ET. Otherwise, this market will resolve to "No".
+
+A 'mention' will include any verbal mention which is recorded (audio or video) and publicly accessible.
+
+Written usages of terms (e.g. Truth Social posts, written statements, etc.) will not count toward this market's resolution.
+
+Videos posted on his social media which were filmed outside this market's time frame will not qualify for a "Yes" resolution.
+
+For full rules, see: https://polymarket-upload.s3.us-east-2.amazonaws.com/market_products/Mentions/Period+Mentions+Contract+DeFi.pdf
+Contracts:
+  E6.C1: Will Trump say "Dancing in the Street" in September?
+  E6.C2: Will Trump say "Seizure" in September?
+  E6.C3: Will Trump say "Printer" or "Printing" in September?
+  E6.C4: Will Trump say "Teleprompter" in September?
+  E6.C5: Will Trump say "China Virus" in September?
+  E6.C6: Will Trump say "Let Me Finish" in September?
+  E6.C7: Will Trump say "Darth Vader" in September?
+  E6.C8: Will Trump say "Central Casting" in September?
+  E6.C9: Will Trump say "Antifa" in September?
+  E6.C10: Will Trump say "Soaking Wet" in September?
+  E6.C11: Will Trump say "Ass" in September?
+  E6.C12: Will Trump say "Shit" in September?
+  E6.C13: Will Trump say "Slob" in September?
+  E6.C14: Will Trump say "Gay" in September?
+  E6.C15: Will Trump say "Sucker" in September?
+  E6.C16: Will Trump say "Javelin" in September?
+  E6.C17: Will Trump say "No No No" in September?
+  E6.C18: Will Trump say "Through the Roof" in September?
+  E6.C19: Will Trump say "Six Seven" in September?
+  E6.C20: Will Trump say "Future President" in September?
+  E6.C21: Will Trump say "Epstein" in September?
+  E6.C22: Will Trump say "Pelosi" in September?
+  E6.C23: Will Trump say "American Dream" in September?
+  E6.C24: Will Trump say "Barack Hussein Obama" in September?
+  E6.C25: Will Trump say "Predict" or "Prediction" in September?
+  E6.C26: Will Trump say "Trump Derangement Syndrome" in September?
+  E6.C27: Will Trump say "Who Are You With" or "Where Are You From" in September?
+  E6.C28: Will Trump say "Zohran" or "Mamdani" in September?
+What to write for E6:
+  Write "p": a whole percent for every contract label, your chance that it resolves YES.

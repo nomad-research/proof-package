@@ -1,0 +1,196 @@
+You will be shown 6 questions from a prediction market. Each has one or more contracts that resolve YES or NO under the rules shown. Each question gives the date your view is "as of": answer as you would on that date.
+
+Use only what you already know. Do not search for or look up anything: reading this file is the only tool call you may make. There are no prices in this file and you should not try to estimate what any market thinks; give your own view.
+
+Each question says what to write for it. Whole percents run from 1 to 99. Levels are plain numbers in the units the contracts use (for example 95000 for $95,000, 3.25 for 3.25%). Dates are YYYY-MM-DD.
+
+For each question also say whether you recognise how it actually turned out ("recognised": true only if you believe you remember the real outcome; otherwise false).
+
+Reply with one JSON object and nothing else:
+{"events": [{"label": "E1", "recognised": false, ...the fields that question asks for...}]}
+
+=== E1 (as of 2026-08-11): What will Cisco say during their next earnings call?
+Rules:
+This market will resolve based on the next earnings announcement of Cisco currently scheduled to take place on August 12, 2026 at 4:30 PM ET.
+
+This market will resolve to "Yes" if the listed term is mentioned by anyone during this event. Otherwise, the market will resolve to "No".
+
+If this event is definitely cancelled, or otherwise is not aired by August 13, 2026, 11:59 PM ET, "-No Qualifying Event-" will resolve to "Yes" and all other brackets will resolve to "No".
+
+The resolution source will be audio of the event.
+
+For full rules, see: https://polymarket-upload.s3.us-east-2.amazonaws.com/market_products/Event+Mentions+Contract+DeFi.pdf
+Contracts:
+  E1.C1: Will Cisco say "AI" or "Artificial Intelligence" 10+ times during earnings call?
+  E1.C2: Will Cisco say "Income" 10+ times during earnings call?
+  E1.C3: Will Cisco say "Quarter" 10+ times during earnings call?
+  E1.C4: Will Cisco say "Fiscal" 10+ times during earnings call?
+  E1.C5: Will Cisco say "Growth" during earnings call?
+  E1.C6: Will Cisco say "Chip" during earnings call?
+  E1.C7: Will Cisco say "China" during earnings call?
+  E1.C8: Will Cisco say "Europe" during earnings call?
+  E1.C9: Will Cisco say "Capacity" during earnings call?
+  E1.C10: Will Cisco say "Tariff" during earnings call?
+  E1.C11: Will Cisco say "World Cup" during earnings call?
+  E1.C12: Will the earnings call not air?
+What to write for E1:
+  Write "p": a whole percent for every contract label, your chance that it resolves YES.
+
+=== E2 (as of 2026-08-03): What will Trump say this week? (August 3 - August 9)
+Rules:
+This market will resolve to “Yes” if Donald Trump mentions the listed term between August 3, 2026, 12:00 AM ET and August 9, 2026, 11:59 PM ET. Otherwise, this market will resolve to “No”.
+
+Written usages of terms (e.g. Truth Social posts, written statements, etc.) will not count toward this market's resolution.
+
+Videos posted on his social media which were filmed outside this market's time frame will not qualify for a "Yes" resolution.
+
+For full rules, see: https://polymarket-upload.s3.us-east-2.amazonaws.com/market_products/Period+Mentions+Contract+DeFi.pdf
+Contracts:
+  E2.C1: Will Trump say "No No No" this week?
+  E2.C2: Will Trump say "Who Are You" this week?
+  E2.C3: Will Trump say "Make America Great Again" this week?
+  E2.C4: Will Trump say "Epic Fury" this week?
+  E2.C5: Will Trump say "Pearl Harbor" this week?
+  E2.C6: Will Trump say "Moon" this week?
+  E2.C7: Will Trump say "Six Seven" this week?
+  E2.C8: Will Trump say "Through The Roof" this week?
+  E2.C9: Will Trump say "Stupid Question" this week?
+  E2.C10: Will Trump say "Karoline" or "Leavitt" this week?
+  E2.C11: Will Trump say "Ballroom" this week?
+  E2.C12: Will Trump say "Trump Account" this week?
+  E2.C13: Will Trump say "Barack Hussein Obama" this week?
+  E2.C14: Will Trump say "Sleepy Joe" this week?
+  E2.C15: Will Trump say "Transgender" this week?
+What to write for E2:
+  Write "p": a whole percent for every contract label, your chance that it resolves YES.
+
+=== E3 (as of 2026-07-16): What will General Motors say during their next earnings call?
+Rules:
+This market will resolve based on the next earnings announcement of General Motors currently scheduled to take place on July 21, 2026 at 8:30 AM ET.
+
+This market will resolve to "Yes" if the listed term is mentioned by anyone during this event. Otherwise, the market will resolve to "No".
+
+If this event is definitely cancelled, or otherwise is not aired by July 22, 2026, 11:59 PM ET, "-No Qualifying Event-" will resolve to "Yes" and all other brackets will resolve to "No".
+
+The resolution source will be audio of the event.
+
+For full rules, see: https://polymarket-upload.s3.us-east-2.amazonaws.com/market_products/Event+Mentions+Contract+DeFi.pdf
+Contracts:
+  E3.C1: Will General Motors say "Revenue" 10+ times during earnings call?
+  E3.C2: Will General Motors say "Dollar" 10+ times during earnings call?
+  E3.C3: Will General Motors say "Million" 10+ times during earnings call?
+  E3.C4: Will General Motors say "Income" 10+ times during earnings call?
+  E3.C5: Will General Motors say "Quarter" 10+ times during earnings call?
+  E3.C6: Will General Motors say "Fiscal" 10+ times during earnings call?
+  E3.C7: Will General Motors say "Car" 10+ times during earnings call?
+  E3.C8: Will General Motors say "Truck" 5+ times during earnings call?
+  E3.C9: Will General Motors say "SUV" 5+ times during earnings call?
+  E3.C10: Will General Motors say "GMC" during earnings call?
+  E3.C11: Will General Motors say "Cruise" during earnings call?
+  E3.C12: Will General Motors say "Software" during earnings call?
+  E3.C13: Will General Motors say "Factory" during earnings call?
+  E3.C14: Will General Motors say "Emission" during earnings call?
+  E3.C15: Will General Motors say "America" during earnings call?
+  E3.C16: Will General Motors say "Horsepower" during earnings call?
+  E3.C17: Will General Motors say "Chevy" during earnings call?
+  E3.C18: Will General Motors say "Electric car" during earnings call?
+  E3.C19: Will General Motors say "Portfolio" during earnings call?
+  E3.C20: Will General Motors say "China" during earnings call?
+  E3.C21: Will General Motors say "Charging station" during earnings call?
+  E3.C22: Will the earnings call not air?
+What to write for E3:
+  Write "p": a whole percent for every contract label, your chance that it resolves YES.
+
+=== E4 (as of 2026-08-03): What will SpaceX say during their next earnings call?
+Rules:
+This market will resolve based on the next earnings announcement of SpaceX currently scheduled to take place on August 4, 2026 at 4:30 PM ET.
+
+This market will resolve to "Yes" if the listed term is mentioned by anyone during this event. Otherwise, the market will resolve to "No".
+
+If this event is definitely cancelled, or otherwise is not aired by August 5, 2026, 11:59 PM ET, "-No Qualifying Event-" will resolve to "Yes" and all other brackets will resolve to "No".
+
+The resolution source will be audio of the event.
+
+For full rules, see: https://polymarket-upload.s3.us-east-2.amazonaws.com/market_products/Event+Mentions+Contract+DeFi.pdf
+Contracts:
+  E4.C1: Will SpaceX say "Launch" 10+ times during earnings call?
+  E4.C2: Will SpaceX say "Data Center" 5+ times during earnings call?
+  E4.C3: Will SpaceX say "Elon" or "Musk" 3+ times during earnings call?
+  E4.C4: Will SpaceX say "Moon" 3+ times during earnings call?
+  E4.C5: Will SpaceX say "Fuel" 3+ times during earnings call?
+  E4.C6: Will SpaceX say "Data Center" during earnings call?
+  E4.C7: Will SpaceX say "Grok" during earnings call?
+  E4.C8: Will SpaceX say "IPO" during earnings call?
+  E4.C9: Will SpaceX say "Starship" during earnings call?
+  E4.C10: Will SpaceX say "Cursor" during earnings call?
+  E4.C11: Will SpaceX say "Mars" during earnings call?
+  E4.C12: Will SpaceX say "ISS" or "International Space Station" during earnings call?
+  E4.C13: Will SpaceX say "Tesla" during earnings call?
+  E4.C14: Will SpaceX say "Weather" during earnings call?
+  E4.C15: Will SpaceX say "Trump" during earnings call?
+  E4.C16: Will the earnings call not air?
+What to write for E4:
+  Write "p": a whole percent for every contract label, your chance that it resolves YES.
+
+=== E5 (as of 2026-08-10): What will Cava say during their next earnings call?
+Rules:
+This market will resolve based on the next earnings announcement of Cava currently scheduled to take place on August 11, 2026 at 5:00 PM ET.
+
+This market will resolve to "Yes" if the listed term is mentioned by anyone during this event. Otherwise, the market will resolve to "No".
+
+If this event is definitely cancelled, or otherwise is not aired by August 12, 2026, 11:59 PM ET, "-No Qualifying Event-" will resolve to "Yes" and all other brackets will resolve to "No".
+
+The resolution source will be audio of the event.
+
+For full rules, see: https://polymarket-upload.s3.us-east-2.amazonaws.com/market_products/Event+Mentions+Contract+DeFi.pdf
+Contracts:
+  E5.C1: Will Cava say "Quarter" 10+ times during earnings call?
+  E5.C2: Will Cava say "Fiscal" 5+ times during earnings call?
+  E5.C3: Will Cava say "Franchising" during earnings call?
+  E5.C4: Will Cava say "Prototype" during earnings call?
+  E5.C5: Will Cava say "Salmon" during earnings call?
+  E5.C6: Will Cava say "Catering" during earnings call?
+  E5.C7: Will Cava say "Expansion" during earnings call?
+  E5.C8: Will Cava say "Shrimp" during earnings call?
+  E5.C9: Will Cava say "Spice" during earnings call?
+  E5.C10: Will Cava say "Sweet Potato" during earnings call?
+  E5.C11: Will Cava say "Tariff" during earnings call?
+  E5.C12: Will Cava say "World Cup" during earnings call?
+  E5.C13: Will the earnings call not air?
+What to write for E5:
+  Write "p": a whole percent for every contract label, your chance that it resolves YES.
+
+=== E6 (as of 2026-07-28): What will Apple say during their next earnings call?
+Rules:
+This market will resolve based on the next earnings announcement of Apple currently scheduled to take place on July 30, 2026 at 5:00 PM ET.
+
+This market will resolve to "Yes" if the listed term is mentioned by anyone during this event. Otherwise, the market will resolve to "No".
+
+If this event is definitely cancelled, or otherwise is not aired by July 31, 2026, 11:59 PM ET, "-No Qualifying Event-" will resolve to "Yes" and all other brackets will resolve to "No".
+
+The resolution source will be audio of the event.
+
+For full rules, see: https://polymarket-upload.s3.us-east-2.amazonaws.com/market_products/Event+Mentions+Contract+DeFi.pdf
+Contracts:
+  E6.C1: Will Apple say "Mac" 10+ times during earnings call?
+  E6.C2: Will Apple say "AI / Artificial Intelligence" 5+ times during earnings call?
+  E6.C3: Will Apple say "Apple Intelligence" during earnings call?
+  E6.C4: Will Apple say "iCloud" during earnings call?
+  E6.C5: Will Apple say "China" during earnings call?
+  E6.C6: Will Apple say "AirPod" during earnings call?
+  E6.C7: Will Apple say "Health" during earnings call?
+  E6.C8: Will Apple say "GPU / CPU" during earnings call?
+  E6.C9: Will Apple say "App Store" during earnings call?
+  E6.C10: Will Apple say "Roadmap" during earnings call?
+  E6.C11: Will Apple say "Home" during earnings call?
+  E6.C12: Will Apple say "Tariff" during earnings call?
+  E6.C13: Will Apple say "Siri" during earnings call?
+  E6.C14: Will Apple say "Gemini" during earnings call?
+  E6.C15: Will Apple say "Creator Studio" during earnings call?
+  E6.C16: Will Apple say "Sport" during earnings call?
+  E6.C17: Will Apple say "Liquid Glass" during earnings call?
+  E6.C18: Will Apple say "Friday Night Baseball" during earnings call?
+  E6.C19: Will Apple say "iPhone 18" during earnings call?
+  E6.C20: Will Apple say "Widget" during earnings call?
+What to write for E6:
+  Write "p": a whole percent for every contract label, your chance that it resolves YES.

@@ -1,0 +1,132 @@
+You will be shown 4 questions from a prediction market. Each has one or more contracts that resolve YES or NO under the rules shown. Each question gives the date your view is "as of": answer as you would on that date.
+
+Use only what you already know. Do not search for or look up anything: reading this file is the only tool call you may make. There are no prices in this file and you should not try to estimate what any market thinks; give your own view.
+
+Each question says what to write for it. Whole percents run from 1 to 99. Levels are plain numbers in the units the contracts use (for example 95000 for $95,000, 3.25 for 3.25%). Dates are YYYY-MM-DD.
+
+For each question also say whether you recognise how it actually turned out ("recognised": true only if you believe you remember the real outcome; otherwise false).
+
+Reply with one JSON object and nothing else:
+{"events": [{"label": "E1", "recognised": false, ...the fields that question asks for...}]}
+
+=== E1 (as of 2026-08-03): What Trump-named things will Trump mention in August?
+Rules:
+This market will resolve to "Yes" if Donald Trump says the listed term between August 1, 2026, 12:00AM ET and August 31, 2026, 11:59PM ET. Otherwise, the market will resolve to "No".
+
+Written usages of terms (e.g. Truth Social posts, written statements, etc.) will not count toward this market's resolution.
+
+Videos posted on his social media which were filmed outside this market's time frame will not qualify for a "Yes" resolution.
+
+For full rules, see: https://polymarket-upload.s3.us-east-2.amazonaws.com/market_products/Mentions/Period+Mentions+Contract+DeFi.pdf
+Contracts:
+  E1.C1: Will Trump say "Trump Kennedy Center" or "Trump-Kennedy Center" in August?
+  E1.C2: Will Trump say "TrumpRX" or "TrumpRX Dot Gov" in August?
+  E1.C3: Will Trump say "Trump Derangement Syndrome" in August?
+  E1.C4: Will Trump say "Trump Card" or "Trump Gold Card" in August?
+  E1.C5: Will Trump say "Trump Country" in August?
+  E1.C6: Will Trump say "Trump Age" or "Age of Trump" in August?
+  E1.C7: Will Trump say "Best of Trump" in August?
+  E1.C8: Will Trump say "Trump Tower" in August?
+  E1.C9: Will Trump say "Trump Baby" in August?
+  E1.C10: Will Trump say "Trump Strait" or "Strait of Trump" in August?
+  E1.C11: Will Trump say "Trump-Class" or "Trump Fleet" in August?
+  E1.C12: Will Trump say "Trump Gulf" or "Gulf of Trump" in August?
+  E1.C13: Will Trump say "Trump Tariff" or "Trump Tax" in August?
+  E1.C14: Will Trump say "Trump Plan" in August?
+  E1.C15: Will Trump say "Trump Family" in August?
+  E1.C16: Will Trump say "Trump National" or "Trump International" in August?
+  E1.C17: Will Trump say "Trump Heights" in August?
+  E1.C18: Will Trump say "Trump Accord" or "Trump Peace" in August?
+  E1.C19: Will Trump say "Trump Organization" in August?
+  E1.C20: Will Trump say "Trump Media" in August?
+What to write for E1:
+  Write "p": a whole percent for every contract label, your chance that it resolves YES.
+
+=== E2 (as of 2026-09-03): What will Trump say this week? (August 31 - September 6)
+Rules:
+This market will resolve to "Yes" if Donald Trump mentions the listed term between August 31, 2026, 12:00 AM ET and September 6, 2026, 11:59 PM ET. Otherwise, this market will resolve to "No".
+
+Written usages of terms (e.g. Truth Social posts, written statements, etc.) will not count toward this market's resolution.
+
+Videos posted on his social media which were filmed outside this market's time frame will not qualify for a "Yes" resolution.
+
+For full rules, see: https://polymarket-upload.s3.us-east-2.amazonaws.com/market_products/Mentions/Period+Mentions+Contract+DeFi.pdf
+Contracts:
+  E2.C1: Will Trump say "Droneport" this week?
+  E2.C2: Will Trump say "Graffiti" this week?
+  E2.C3: Will Trump say "Migrant Criminal" this week?
+  E2.C4: Will Trump say "Warrior" this week?
+  E2.C5: Will Trump say "Milk" this week?
+  E2.C6: Will Trump say "Fever" or "Flu" this week?
+  E2.C7: Will Trump say "Bye Bye" this week?
+  E2.C8: Will Trump say "Mom" or "Mommy" this week?
+  E2.C9: Will Trump say "Peanut" this week?
+  E2.C10: Will Trump say "Incompetent" this week?
+  E2.C11: Will Trump say "Karoline" or "Leavitt" this week?
+  E2.C12: Will Trump say "God" this week?
+  E2.C13: Will Trump say "Who Are You" this week?
+  E2.C14: Will Trump say "Six Seven" this week?
+  E2.C15: Will Trump say "Barack Hussein Obama" this week?
+What to write for E2:
+  Write "p": a whole percent for every contract label, your chance that it resolves YES.
+
+=== E3 (as of 2026-09-10): What will Macy's say during their next earnings call?
+Rules:
+This market will resolve based on the next earnings announcement of Macy's currently scheduled to take place on September 10, 2026 at 8:00 AM ET.
+
+This market will resolve to "Yes" if the listed term is mentioned by anyone during this event. Otherwise, the market will resolve to "No".
+
+If this event is definitively cancelled, or otherwise is not aired by September 11, 2026, 11:59 PM ET, "-No Qualifying Event-" will resolve to "Yes" and all other brackets will resolve to "No".
+
+The resolution source will be audio of the event.
+
+For full rules, see: https://polymarket-upload.s3.us-east-2.amazonaws.com/market_products/Mentions/Event+Mentions+Contract+DeFi.pdf
+Contracts:
+  E3.C1: Will Macy's say "Fiscal" 20+ times during earnings call?
+  E3.C2: Will Macy's say "Customer" 15+ times during earnings call?
+  E3.C3: Will Macy's say "Positive" 3+ times during earnings call?
+  E3.C4: Will Macy's say "Negative" 3+ times during earnings call?
+  E3.C5: Will Macy's say "Tax" during earnings call?
+  E3.C6: Will Macy's say "Impact" during earnings call?
+  E3.C7: Will Macy's say "Lawsuit" during earnings call?
+  E3.C8: Will Macy's say "Dividend" during earnings call?
+  E3.C9: Will Macy's say "Private Brand" during earnings call?
+  E3.C10: Will Macy's say "China" during earnings call?
+  E3.C11: Will Macy's say "Headwind" during earnings call?
+  E3.C12: Will Macy's say "Amazon" during earnings call?
+  E3.C13: Will Macy's say "Automation" during earnings call?
+  E3.C14: Will Macy's say "Real Estate" during earnings call?
+  E3.C15: Will the earnings call not air?
+What to write for E3:
+  Write "p": a whole percent for every contract label, your chance that it resolves YES.
+
+=== E4 (as of 2026-08-18): What will Home Depot say during their next earnings call?
+Rules:
+This market will resolve based on the next earnings announcement of Home Depot currently scheduled to take place on August 18, 2026 at 9:00 AM ET.
+
+This market will resolve to "Yes" if the listed term is mentioned by anyone during this event. Otherwise, the market will resolve to "No".
+
+If this event is definitely cancelled, or otherwise is not aired by August 19, 2026, 11:59 PM ET, "-No Qualifying Event-" will resolve to "Yes" and all other brackets will resolve to "No".
+
+The resolution source will be audio of the event.
+
+For full rules, see: https://polymarket-upload.s3.us-east-2.amazonaws.com/market_products/Event+Mentions+Contract+DeFi.pdf
+Contracts:
+  E4.C1: Will Home Depot say "Customer" 20+ times during earnings call?
+  E4.C2: Will Home Depot say "Quarter" 15+ times during earnings call?
+  E4.C3: Will Home Depot say "Project" 10+ times during earnings call?
+  E4.C4: Will Home Depot say "Relationship" 2+ times during earnings call?
+  E4.C5: Will Home Depot say "Inflation" during earnings call?
+  E4.C6: Will Home Depot say "Build" during earnings call?
+  E4.C7: Will Home Depot say "Delivery" during earnings call?
+  E4.C8: Will Home Depot say "Mexico" during earnings call?
+  E4.C9: Will Home Depot say "Tariff" during earnings call?
+  E4.C10: Will Home Depot say "Innovation" during earnings call?
+  E4.C11: Will Home Depot say "Weather" during earnings call?
+  E4.C12: Will Home Depot say "Storm" during earnings call?
+  E4.C13: Will Home Depot say "Lumber" during earnings call?
+  E4.C14: Will Home Depot say "Revenue" during earnings call?
+  E4.C15: Will Home Depot say "Volatility" during earnings call?
+  E4.C16: Will the earnings call not air?
+What to write for E4:
+  Write "p": a whole percent for every contract label, your chance that it resolves YES.
