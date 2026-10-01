@@ -40,3 +40,21 @@ Register C3. Question 1 of topic 1.
   - Whether a bare value needs a probability or a stated confidence beside it (question 2).
   - What a yes/no event with no scale gets (question 3).
   - Whether the earlier rungs of date ladders resolve YES more often than priced across V1 and V1b. If they do, T0's timing result is a market habit rather than session skill. Not yet checked.
+
+## 3. T3 collects the session's confidence beside every magnitude (2026-10-01)
+
+Register C5. Question 2 of topic 1.
+
+- **Decision.** T3 asks sessions for probabilities, so their calibration can be measured. Every world-unit value carries the session's confidence in it. The form of that confidence is not yet decided.
+- **Rob's words.** "I'm fine with probabilities although I wonder if it can be expressed through magnitude so probability then gets tied to risk intrinsically?"
+- **Evidence.**
+  - **A bare value can't be scored or compared.** "Signed by 15 November" with no confidence can't be scored for calibration. Nor can it be set against the market's rung, which is itself a probability. Without the session's confidence, the builder would have to assume one: an unratified value.
+  - **The repo already requires it for claims.** Addendum B1 §5 requires every claim in the T2 and T3 packets to carry both branches and a graded probability on every node, and §6 kept that requirement. This decision confirms it for T3.
+  - **Nothing is known yet about sessions' probabilities.** There are none on record (addendum B1 §2), because V1 and V1b asked for none. Collecting them is the only way to learn whether they are calibrated.
+- **Still open.**
+  - **The form**, which is the next question:
+    - (a) a value plus the session's probability, for example "signed by 15 November: 70%";
+    - (b) values at fixed chances, where the session gives the value it thinks has a set chance of being reached, at a few set chances. The probability is then carried by the magnitude, which is Rob's question.
+  - **Under (b), which chances and how many.** These are missing values and need a basis. One candidate basis is comparability with T0: V1's frozen tier targets 0.50, 0.25 and 0.10 were already fixed chances, read from the market's prices instead of the session.
+  - **How many resolved values calibration needs** before it can be read.
+  - **Parked, outside topic 1.** Rob called beliefs about where the market's prices go wrong, learned from their own track record, "correct and useful". R6 and D40 currently exclude them, so using them would mean amending R6. Not decided.
