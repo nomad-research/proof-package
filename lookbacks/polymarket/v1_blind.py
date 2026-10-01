@@ -24,7 +24,7 @@ def hist(tok, lock):
 def blind(eid):
     R, d = S.load_round(eid); lock = R["lock"]
     res_p = os.path.join(S.HERE, "results", f"R{eid}.json"); C = json.load(open(res_p)) if os.path.exists(res_p) else None
-    k = len(C["hedge"]) if C and C.get("status") == "scored" else 3
+    k = min(4, max(1, len(C["hedge"]))) if C and C.get("status") == "scored" else 3      # sessions could name at most 4 hedges
     basket = R["ans1a"]["primary"]["basket"]
     legs = [(R["primary"]["contracts"][b["contract"]], b["side"]) for b in basket]
     lh = [hist(c["tok_yes"], lock) for c, _ in legs]
