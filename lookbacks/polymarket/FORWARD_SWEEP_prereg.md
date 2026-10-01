@@ -83,3 +83,15 @@ Decision 7 asks for confirmation forward before any design leans on either. This
   - the title rule;
   - the scope list as in the backtest crawl. So "pop-culture"-tagged speech events and sports-announcer markets stay out, as they did in the backtest.
 - **What this means for pace.** On 2026-10-01 the tag lists 12 open mention events ending within 14 days. Four pass the scope list and two of those the title rule. **E3's looks (50 and 130 mention events) may take months at this rate.** Reaching them sooner would mean widening the population, which would need its own registration.
+
+## Addendum A3 (2026-10-01, after E3 pass 2, before W02 and before any sweep outcome is read)
+
+**Political mention markets come back into scope (from W02; W01 is frozen as drawn).**
+- E3's backtests drew Trump speech and rally events (G7 events, bilateral meetings, rallies) tagged "politics" and not "pop-culture" (`E3_MENTIONS_pass2_RESULT.md` §Reading 4).
+- The same kind of event open now also carries "pop-culture", which the scope list drops.
+- From W02 a mention event is kept if its only out-of-scope tag is "pop-culture" and it carries "politics". Entertainment and sports mention markets stay out, as they were in the backtests.
+
+**A second registered E3 statistic: both sides.** Both E3 passes reported it, and it replicated: +11.1¢ and +10.9¢, pooled +11.0¢ (+7.9 to +14.3), +8.7¢ without the top five events. It was never either pass's main statistic, so it is registered here, forward.
+- **E3b.** Every position on a mention contract, YES or NO, scores (hit − cost) minus the mean (hit − cost) of every side of every other resolved mention contract of the same session format with cost within 0.05, own event excluded.
+- **Looks and reading** as E3: 50 and 130 resolved mention events with a position, each read with a 97.5% interval.
+- With E1, E3 and E3b each declared, the chance of at least one false confirmation across the three is about 14%. Any confirmation is read with that in mind and needs the next batch to agree.

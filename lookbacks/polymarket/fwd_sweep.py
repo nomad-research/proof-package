@@ -51,13 +51,21 @@ def cmd_snapshot(a):
     A.jdump(snap, os.path.join(bdir(a.batch), "snapshot.json")); print(json.dumps({k: v for k, v in snap.items() if k != "windows"}))
 
 
+def mention_in_scope(e):
+    """Addendum A3: a mention event whose only out-of-scope tag is 'pop-culture' is kept when it carries 'politics'."""
+    tags = {t.get("slug") for t in (e.get("tags") or [])}
+    if (tags & BC.EXCL) == {"pop-culture"} and "politics" in tags:
+        return True
+    return BC.in_scope(e)
+
+
 def crawl_mentions(a, b, out):
     off = 0
     while True:
         p = BC.get(f"{BC.GAMMA}?closed=false&tag_slug=mention-markets&end_date_min={BC.iso(a)}&end_date_max={BC.iso(b)}&order=endDate&ascending=true"
                    f"&limit={BC.PAGE}&offset={off}")                      # addendum A2: found by Gamma's tag, since a date-window crawl stops at the cap
         for e in p:
-            if MENTION.search(e.get("title") or "") and BC.in_scope(e) and str(e["id"]) not in out:
+            if MENTION.search(e.get("title") or "") and mention_in_scope(e) and str(e["id"]) not in out:
                 c = BC.compact(e)
                 for m, raw in zip(c["markets"], e.get("markets") or []):
                     m["closed"] = bool(raw.get("closed"))
@@ -239,6 +247,9 @@ def cmd_score(a):
         bs = [x["hit"] - x["cost"] for x in contracts if same(x)]
         bm = [x["hit"] - x["cost"] for x in contracts if same(x) and x["mention"]]
         r["skill"] = r["money"] - (float(np.mean(bs)) if bs else 0.0); r["skill_mention"] = r["money"] - (float(np.mean(bm)) if bm else 0.0)
+        both = [x["hit"] - x["cost"] for x in contracts if x["counts"] and x["mention"] and x["event"] != r["event"] and x["kind"] == r["kind"]
+                and abs(x["cost"] - r["cost"]) <= MATCH_BAND]                                    # addendum A3: E3b, both sides
+        r["skill_mention_both"] = r["money"] - (float(np.mean(both)) if both else 0.0)
         r["money_150"] = (min(150.0, r["usd_2c"]) / r["cost"]) * r["money"] if r.get("usd_2c") else None
     rng = np.random.default_rng(SEED)
 
@@ -258,7 +269,9 @@ def cmd_score(a):
     no = [r for r in rows if r["side"] == "NO" and r["counts"]]; nom = [r for r in no if r["mention"]]
     nom_all = [r for r in rows if r["side"] == "NO" and r["mention"]]
     out = {"batches": sorted({r["batch"] for r in rows}), "positions": len(rows), "resolved_contract_sides": len(contracts)}
-    for name, rs, key in (("E1", no, "skill"), ("E3", nom, "skill_mention")):
+    allm = [r for r in rows if r["mention"] and r["counts"]]
+    LOOKS["E3b"] = LOOKS["E3"]
+    for name, rs, key in (("E1", no, "skill"), ("E3", nom, "skill_mention"), ("E3b", allm, "skill_mention_both")):
         n_ev = len({r["event"] for r in rs}); first, second = LOOKS[name]
         look = 2 if n_ev >= second else 1 if n_ev >= first else 0
         res = read(rs, key, 97.5)

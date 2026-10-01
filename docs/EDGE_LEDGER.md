@@ -80,7 +80,7 @@ The money is the model's choosing: a blind always-NO rule earns about 0 in both 
 
 **To confirm.** T3 (forward, claims with both branches, S3 registered).
 
-## E3. Mention markets: "What will … say" (edge shown on its registered test, 2026-10-01; fragile)
+## E3. Mention markets: "What will … say" (two registered passes: edge shown, then direction only; both-sided reading replicates)
 
 **In plain English.** On markets that pay if a person says a given word or phrase in a window (weekly Trump remarks, an earnings call), the model's NO bets (it won't be said) beat the price by a wide margin.
 
@@ -99,7 +99,22 @@ The money is the model's choosing: a blind always-NO rule earns about 0 in both 
 - It holds with stale or decided prices removed.
 - **Fragile:** 23 events add and 23 subtract. Without the top three events it is +3.8¢ (−0.4 to +8.4).
 
-**Status.** Edge shown on its registered backtest, concentrated in a few events. It earns a design slot only after a forward pass confirms it.
+**Second registered pass (`E3_MENTIONS_pass2_RESULT.md`).** April to June, 36 fresh events, opened by BT-A pass 2.
+- The NO statistic: **+5.1¢ (−2.4 to +12.4), direction only.** Three Trump events carry most of it again.
+- Pooled over both passes: +6.2¢ (+1.6 to +10.7), +2.8¢ without the top five events.
+- Blind NO earned +7.8¢ in April to June, a market habit in that window that the statistic subtracts.
+
+**What replicated: both sides.**
+- All picks against same-price contracts: **+11.1¢ and +10.9¢** in the two passes; pooled +11.0¢ (+7.9 to +14.3), **+8.7¢ (+6.1 to +11.4) without the top five events**.
+- YES picks: +12.8¢ pooled.
+- Log score: ties or beats the market (−0.007, +0.014). It loses in every other class.
+- Mention markets are the one class tested where the model's probabilities are as good as the crowd's. Its disagreements pay on both sides, not only on NO.
+- This was a reported, not a registered, statistic in both passes. It is registered forward as E3b (`FORWARD_SWEEP_prereg.md` addendum A3).
+
+**Status.**
+- E3 (NO only): carried to the forward sweep.
+- E3b (both sides): the strongest candidate in the ledger. It replicated across two independent backtest passes and survives removing the biggest events. It is registered forward.
+- Neither earns a design slot until the forward sweep confirms it.
 
 **To confirm.** Mention markets open now, read cold and price-blind, scored as they resolve: the same statistic, registered before the first batch.
 
