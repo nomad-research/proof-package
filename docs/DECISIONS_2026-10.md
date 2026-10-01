@@ -58,3 +58,25 @@ Register C5. Question 2 of topic 1.
   - **Under (b), which chances and how many.** These are missing values and need a basis. One candidate basis is comparability with T0: V1's frozen tier targets 0.50, 0.25 and 0.10 were already fixed chances, read from the market's prices instead of the session.
   - **How many resolved values calibration needs** before it can be read.
   - **Parked, outside topic 1.** Rob called beliefs about where the market's prices go wrong, learned from their own track record, "correct and useful". R6 and D40 currently exclude them, so using them would mean amending R6. Not decided.
+
+## 4. Confidence is carried by magnitude: values at fixed chances (2026-10-01)
+
+Registers C3 and C5. Settles the form left open in decision 3.
+
+- **Decision.** In T3 a session states, for each scaled outcome, the world-unit value it thinks has a fixed chance of being reached, at a few fixed chances. For example, the crude price it thinks is a coin flip, the one it gives 1 in 4, and the one it gives 1 in 10. The session writes only world units; the probability is carried by the question. This form is to be tested.
+- **Rob's words.** "Yes let's go with this and test, we need a quick test we can run on new directions to validate or invalidate them quickly as well."
+- **Evidence and reasoning.**
+  - **It ties confidence to risk at expression without the session seeing a price (R6).** Laid over a ladder, the session's values give each rung its chance of paying. The market gives its payoff multiple (one over the price). The chance of a total loss is one minus the session's chance. That is the position-risk shape C2 needs.
+  - **Calibration is a count.** Of the values a session gives at a 1-in-10 chance, about 1 in 10 should be reached.
+  - **It is the reverse of T0's tier mapping.** V1's targets (0.50, 0.25, 0.10) were fixed chances whose values the market supplied; here the session supplies them.
+- **Caveat found after this decision, being checked.** T0's claim result, and its timing reading (decision 2), may be produced by how V1 chose its events.
+  - The V1 pool admitted events by their actual close time after 2026-06-30, and set each lock at the midpoint between start and actual close (`V1_prereg.md` A9).
+  - v18 §6.7 records what that rule does to date ladders: counted by actual close time, "of 33 date ladders 31 closed early on a Yes rung".
+  - Six or seven of T0's nine triggered tier claims are "happens by a date" claims on the YES side.
+  - So the pool may make "it happens sooner than priced" true by construction. Decisions 2 to 4 are about measurement and stand either way; the reason to expect a timing edge does not, until checked.
+- **Still open.**
+  - Which chances, and how many (missing values; one basis is T0 comparability).
+  - Claims double the writing: values for B if A, and if not A.
+  - Yes/no nodes with no scale (question 3).
+  - How magnitude is scored as magnitude (question 4).
+  - **The quick test for new directions (Rob).** Not yet designed. v18's backtests (§6.7) are the nearest existing design: locks inside the window after the model's cutoff, eligibility by schedule rather than outcome, results in days.
