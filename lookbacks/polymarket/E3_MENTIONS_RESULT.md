@@ -66,3 +66,5 @@ It holds under each.
      - a person's stock phrases.
    - Many words that feel topical are not in the speaker's habit, and many that feel dull are.
 7. **Mechanism (framework).** The model is cold and price-blind and writes a number for every word. The bet rule turns its confident disagreements into positions.
+
+**Note on the crawl hash.** The registration gives the crawl's hash as `929ddee7…`, the hash of its uncompressed JSON. Every frame records `a99059aa…`, the hash of the `.gz` file. Both are the same crawl, checked on 2026-10-01.

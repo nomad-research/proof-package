@@ -90,3 +90,10 @@ The runtime shows the date and the model name, which does not matter forward. Th
 - **Depth at the lock.** With each best ask, the dollars on offer within 1¢ and 2¢ of it are recorded for YES and NO (C7).
 - **The whole prompt must be read.** The retrieval audit also requires the prompt's lines to be reproduced in full by the session's reads (BT-A addendum A2's line-number check). Sessions are told they may read it in parts.
 - **T3's instruction line** allows retrieval (`t3.INSTRUCTION_T3`). The backtests' "reading this file is the only tool call you may make" would contradict D42.
+
+## Addendum A1 (2026-10-01, while sessions ran, before the freeze and before any outcome)
+
+- **A shared search budget.** C01–C20 ran at once and shared one session-wide budget of 200 web searches. Each hit it after 5 to 20 searches and finished its research with page fetches only (counts per session are in each answer's audit). C21–C25 and the re-authorings ran after the budget had reset. This is a limit on evidence, not on the firewall: every search still passed the blocked list. The result reports it per session.
+- **C09 voided twice.** Its prompt is 138 KB. Both sessions read it partly with Bash (`sed`, `grep`, `tail` on the prompt file), which the retrieval audit does not allow, since the line-number read check cannot verify such reads. The cluster is not scored; that is counted.
+- **C05 voided once.** It used Read on a PDF that the fetch tool had saved in the harness's tool-results folder, and only the prompt may be read. It was re-authored with the same instruction; see the freeze for the outcome.
+- **Lock timing.** For some sessions ingest came up to about 20 minutes after hand-back, so their book asks were read that much later than the lock. Each record keeps its own `lock` (the ingest time) and `ingested_at`. Contracts that closed before that lock are excluded, as §4 says.

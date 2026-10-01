@@ -1,0 +1,1330 @@
+{
+ "agent_id": "a2fe432fffdd194fb",
+ "answers": {
+  "claims": [
+   {
+    "if": {
+     "contract": "E2.C1",
+     "resolves": "YES"
+    },
+    "if_false": {
+     "p": {
+      "E8.C1": 24.0,
+      "E8.C2": 43.0
+     },
+     "recognised": false
+    },
+    "if_true": {
+     "p": {
+      "E8.C1": 60.0,
+      "E8.C2": 99.0
+     },
+     "recognised": false
+    },
+    "then_event": "E8"
+   },
+   {
+    "if": {
+     "contract": "E1.C1",
+     "resolves": "YES"
+    },
+    "if_false": {
+     "p": {
+      "E8.C1": 25.0,
+      "E8.C2": 45.0
+     },
+     "recognised": false
+    },
+    "if_true": {
+     "p": {
+      "E8.C1": 70.0,
+      "E8.C2": 95.0
+     },
+     "recognised": false
+    },
+    "then_event": "E8"
+   },
+   {
+    "if": {
+     "contract": "E8.C2",
+     "resolves": "YES"
+    },
+    "if_false": {
+     "p": {
+      "E1.C1": 2.0,
+      "E1.C2": 8.0
+     },
+     "recognised": false
+    },
+    "if_true": {
+     "p": {
+      "E1.C1": 6.0,
+      "E1.C2": 16.0
+     },
+     "recognised": false
+    },
+    "then_event": "E1"
+   },
+   {
+    "if": {
+     "contract": "E1.C2",
+     "resolves": "YES"
+    },
+    "if_false": {
+     "dates": {
+      "10": null,
+      "25": null,
+      "50": null,
+      "75": null,
+      "90": null
+     },
+     "recognised": false
+    },
+    "if_true": {
+     "dates": {
+      "10": 1793491199,
+      "25": 1796515199,
+      "50": null,
+      "75": null,
+      "90": null
+     },
+     "recognised": false
+    },
+    "then_event": "E4"
+   }
+  ],
+  "drop": {},
+  "scale": {
+   "E1": null,
+   "E2": {
+    "class": "waiting time to a Houthi seizure of an oil-carrying ship, measured from the start of each month since 2015 (lower percentile = sooner)",
+    "percentile": 35.0
+   },
+   "E3": {
+    "class": "weekly (Mon-Sun) Bab el-Mandeb transit-call totals on IMF PortWatch, 2019-2026",
+    "percentile": 6.0
+   },
+   "E4": {
+    "class": "waiting time to a first zero-transit day at a major chokepoint on IMF PortWatch, measured from the start of each quarter since 2019 (lower percentile = sooner)",
+    "percentile": 45.0
+   },
+   "E5": null,
+   "E6": null,
+   "E7": null,
+   "E8": null
+  },
+  "sources": [
+   "https://services9.arcgis.com/weJ1QsnbMYJlCHdG/arcgis/rest/services/Daily_Chokepoints_Data/FeatureServer/0/query?where=portid%3D%27chokepoint4%27&outFields=date,n_total,n_tanker,n_container,n_dry_bulk,n_general_cargo,n_roro&orderByFields=date%20DESC&resultRecordCount=60&f=json",
+   "https://services9.arcgis.com/weJ1QsnbMYJlCHdG/arcgis/rest/services/Daily_Chokepoints_Data/FeatureServer/0/query?where=portid%3D%27chokepoint6%27%20AND%20date%3E%3Dtimestamp%20%272026-02-15%2000:00:00%27&outFields=date,n_total,portname&orderByFields=date%20ASC&resultRecordCount=230&f=json",
+   "https://en.wikipedia.org/wiki/2026_Yemen_offensive",
+   "https://en.wikipedia.org/wiki/Strait_of_Bab_al-Mandab_crisis",
+   "https://en.wikipedia.org/wiki/Houthi_attacks_on_commercial_vessels",
+   "https://en.wikipedia.org/wiki/Red_Sea_crisis",
+   "https://en.wikipedia.org/wiki/2026_East%E2%80%93West_Crude_Oil_Pipeline_attack",
+   "https://www.argusmedia.com/en/news-and-insights/latest-market-news/2813059-saudi-east-west-crude-pipeline-back-to-full-capacity",
+   "https://www.cnbc.com/2026/09/11/saudi-arabia-shut-down-east-west-crude-oil-pipeline.html",
+   "https://www.usnews.com/news/world/articles/2026-09-22/saudi-arabia-restarts-east-west-oil-pipeline-to-resume-exports-from-yanbu-sources-say",
+   "https://www.dailysabah.com/business/economy/saudi-arabia-reportedly-restarts-east-west-oil-pipeline",
+   "https://africacenter.org/spotlight/2026-houthi-red-sea-threats/",
+   "https://asiatimes.com/2026/10/african-red-sea-statess-risks-grow-as-houthi-rebels-expand-reach",
+   "https://aljazeera.com/news-analysis/2026/9/29/iran-downplays-their-possible-role-in-houthis-recent-yemen-victories",
+   "https://www.aljazeera.com/news/2026/9/27/yemen-government-forces-widen-attacks-against-houthis-what-we-know",
+   "https://www.aljazeera.com/news/2026/9/30/saudi-crown-prince-says-no-compromise-on-kingdoms-security-against-threats",
+   "https://www.aljazeera.com/where/yemen/",
+   "https://gcaptain.com/eus-kallas-says-two-countries-may-send-ships-to-counter-houthis/",
+   "https://gcaptain.com/jpmorgan-and-goldman-see-mideast-oil-flows-near-pre-war-levels/",
+   "https://gcaptain.com/trump-rejects-iran-proposal-on-hormuz-as-houthis-target-riyadh/",
+   "https://news.google.com/rss/search?q=%22Iran+tells+Houthis%22+close+Red+Sea&hl=en-US&gl=US&ceid=US:en",
+   "https://news.google.com/rss/search?q=Houthi+ship+Red+Sea+when:10d&hl=en-US&gl=US&ceid=US:en"
+  ],
+  "views": {
+   "E1": {
+    "p": {
+     "E1.C1": 4.0,
+     "E1.C2": 12.0
+    },
+    "recognised": false
+   },
+   "E2": {
+    "dates": {
+     "10": null,
+     "25": null,
+     "50": null,
+     "75": null,
+     "90": null
+    },
+    "recognised": false
+   },
+   "E3": {
+    "p": {
+     "E3.C1": 11.0,
+     "E3.C2": 41.0,
+     "E3.C3": 38.0,
+     "E3.C4": 8.0,
+     "E3.C5": 2.0
+    },
+    "recognised": false
+   },
+   "E4": {
+    "dates": {
+     "10": null,
+     "25": null,
+     "50": null,
+     "75": null,
+     "90": null
+    },
+    "recognised": false
+   },
+   "E5": {
+    "p": {
+     "E5.C1": 18.0,
+     "E5.C2": 38.0
+    },
+    "recognised": false
+   },
+   "E6": {
+    "p": {
+     "E6.C1": 3.0,
+     "E6.C2": 7.0
+    },
+    "recognised": false
+   },
+   "E7": {
+    "p": {
+     "E7.C1": 5.0,
+     "E7.C2": 12.0
+    },
+    "recognised": false
+   },
+   "E8": {
+    "p": {
+     "E8.C1": 27.0,
+     "E8.C2": 47.0
+    },
+    "recognised": false
+   }
+  }
+ },
+ "audit": {
+  "models": {
+   "claude-opus-5-5": 91
+  },
+  "ok": true,
+  "pages_quoting_odds": 0,
+  "tool_calls": {
+   "Read": 1,
+   "ToolSearch": 1,
+   "WebFetch": 38,
+   "WebSearch": 13
+  },
+  "transcript_sha256": "7ceabbf52ce8629a8b62e7ab8f9b7d2b2882615370db61c14e8ad1d5c360d1db",
+  "violations": []
+ },
+ "errors": [],
+ "evidence": [
+  {
+   "chars": 2525,
+   "input": {
+    "blocked_domains": [
+     "polymarket.com",
+     "kalshi.com",
+     "predictit.org",
+     "manifold.markets",
+     "metaculus.com",
+     "betfair.com",
+     "smarkets.com",
+     "oddschecker.com",
+     "electionbettingodds.com",
+     "polymarketanalytics.com",
+     "gjopen.com",
+     "goodjudgment.com",
+     "insightprediction.com",
+     "limitless.exchange",
+     "myriad.markets",
+     "betmgm.com",
+     "draftkings.com",
+     "fanduel.com",
+     "williamhill.com",
+     "paddypower.com",
+     "bet365.com",
+     "ladbrokes.com",
+     "polymarket.co"
+    ],
+    "query": "Houthi Red Sea shipping attack October 2026"
+   },
+   "quotes_odds": false,
+   "sha256": "597ba6def13dc096c7da297d9cb867d0b6cd7adc1116104054209d44c6eb568b",
+   "tool": "WebSearch"
+  },
+  {
+   "chars": 3223,
+   "input": {
+    "blocked_domains": [
+     "polymarket.com",
+     "kalshi.com",
+     "predictit.org",
+     "manifold.markets",
+     "metaculus.com",
+     "betfair.com",
+     "smarkets.com",
+     "oddschecker.com",
+     "electionbettingodds.com",
+     "polymarketanalytics.com",
+     "gjopen.com",
+     "goodjudgment.com",
+     "insightprediction.com",
+     "limitless.exchange",
+     "myriad.markets",
+     "betmgm.com",
+     "draftkings.com",
+     "fanduel.com",
+     "williamhill.com",
+     "paddypower.com",
+     "bet365.com",
+     "ladbrokes.com",
+     "polymarket.co"
+    ],
+    "query": "East-West pipeline shut down Saudi Arabia September 2026"
+   },
+   "quotes_odds": false,
+   "sha256": "8c072f7b66be2829bec4c9f9abf0b38a99316971c36728b1e6e82967461b7fd2",
+   "tool": "WebSearch"
+  },
+  {
+   "chars": 1452,
+   "input": {
+    "prompt": "Give a detailed summary of all facts: dates of Houthi attacks on ships, seizures, control of Perim Island and Mokha, Aden, shipping transit numbers (weekly vessels), any ceasefire, Iran war context. Quote dates precisely and the publication date.",
+    "url": "https://africacenter.org/spotlight/2026-houthi-red-sea-threats/"
+   },
+   "page_refetched_at": 1790868621,
+   "page_sha256": "d2f6dfcaed1d09f887740b67ab19ec44299f2f054687902903f293718a1cb741",
+   "quotes_odds": false,
+   "sha256": "5cc79fd86fcd27a4388d80c200fc755202e7ec7199f57113147a7b1fb2a629b6",
+   "tool": "WebFetch"
+  },
+  {
+   "chars": 1298,
+   "input": {
+    "prompt": "Give a detailed summary of all facts: dates of Houthi attacks on ships, seizures, control of Perim Island and Mokha, Aden, shipping transit numbers, any ceasefire, Iran war context. Quote dates precisely.",
+    "url": "https://asiatimes.com/2026/10/african-red-sea-statess-risks-grow-as-houthi-rebels-expand-reach"
+   },
+   "page_refetched_at": 1790868622,
+   "page_sha256": "e6c99615448cfdc3a0ec425bfb508d5d02d00e5969d4da0a771ccf76ff0bd726",
+   "quotes_odds": false,
+   "sha256": "98f8681725cfda0e5d199f3d6089600a5fb2b3e7fd839bb69211166f22cff2f7",
+   "tool": "WebFetch"
+  },
+  {
+   "chars": 1816,
+   "input": {
+    "prompt": "List every record: date (convert epoch ms to YYYY-MM-DD) and n_total, n_tanker, n_container. Output all records verbatim as a table, in order.",
+    "url": "https://services9.arcgis.com/weJ1QsnbMYJlCHdG/arcgis/rest/services/Daily_Chokepoints_Data/FeatureServer/0/query?where=portid%3D%27chokepoint4%27&outFields=date,n_total,n_tanker,n_container,n_dry_bulk,n_general_cargo,n_roro&orderByFields=date%20DESC&resultRecordCount=60&f=json"
+   },
+   "page_refetched_at": 1790868623,
+   "page_sha256": "640ca9468fac98739b2f334b71b630135c42bdf5c03e287063b421be6be58110",
+   "quotes_odds": false,
+   "sha256": "d4989beb34ffd3a75b71f35a06eb011d5c5885e3015bd72be42bc6907e855bd8",
+   "tool": "WebFetch"
+  },
+  {
+   "chars": 943,
+   "input": {
+    "prompt": "List every record: date (convert epoch ms to YYYY-MM-DD) and n_total, in order given.",
+    "url": "https://services9.arcgis.com/weJ1QsnbMYJlCHdG/arcgis/rest/services/Daily_Chokepoints_Data/FeatureServer/0/query?where=portid%3D%27chokepoint4%27%20AND%20date%3E%3Dtimestamp%20%272023-11-01%2000:00:00%27&outFields=date,n_total&orderByFields=n_total%20ASC&resultRecordCount=30&f=json"
+   },
+   "page_refetched_at": 1790868623,
+   "page_sha256": "4b0d1e75ba32e9eb969166c911680eeabc468afc08b16c37224323c852bf32c8",
+   "quotes_odds": false,
+   "sha256": "0cae9fa0bbeed5a16b7a047731b9e0c03e60e719c58c494150d91bdd420bb71d",
+   "tool": "WebFetch"
+  },
+  {
+   "chars": 3285,
+   "input": {
+    "blocked_domains": [
+     "polymarket.com",
+     "kalshi.com",
+     "predictit.org",
+     "manifold.markets",
+     "metaculus.com",
+     "betfair.com",
+     "smarkets.com",
+     "oddschecker.com",
+     "electionbettingodds.com",
+     "polymarketanalytics.com",
+     "gjopen.com",
+     "goodjudgment.com",
+     "insightprediction.com",
+     "limitless.exchange",
+     "myriad.markets",
+     "betmgm.com",
+     "draftkings.com",
+     "fanduel.com",
+     "williamhill.com",
+     "paddypower.com",
+     "bet365.com",
+     "ladbrokes.com",
+     "polymarket.co"
+    ],
+    "query": "Houthis Perim Island capture Mayyun September 2026"
+   },
+   "quotes_odds": false,
+   "sha256": "31059f18e16ecb1bce4ca4d87be87890c1a4c306d3eb52208b641bf6964c9138",
+   "tool": "WebSearch"
+  },
+  {
+   "chars": 2314,
+   "input": {
+    "blocked_domains": [
+     "polymarket.com",
+     "kalshi.com",
+     "predictit.org",
+     "manifold.markets",
+     "metaculus.com",
+     "betfair.com",
+     "smarkets.com",
+     "oddschecker.com",
+     "electionbettingodds.com",
+     "polymarketanalytics.com",
+     "gjopen.com",
+     "goodjudgment.com",
+     "insightprediction.com",
+     "limitless.exchange",
+     "myriad.markets",
+     "betmgm.com",
+     "draftkings.com",
+     "fanduel.com",
+     "williamhill.com",
+     "paddypower.com",
+     "bet365.com",
+     "ladbrokes.com",
+     "polymarket.co"
+    ],
+    "query": "Houthi offensive Aden Lahij front September 2026"
+   },
+   "quotes_odds": false,
+   "sha256": "f1c9b2ecdbe130dbb7a78d5f2b0ef5340429e93fac00be4c6857b31da92376d2",
+   "tool": "WebSearch"
+  },
+  {
+   "chars": 215,
+   "input": {
+    "prompt": "Summarize everything about Yemen/Houthis (front lines, Aden, Perim, Bab el-Mandeb, shipping attacks, seizures), Iran war status (ceasefire talks?), Strait of Hormuz, Saudi East-West pipeline, Iraqi militia drone attacks. Give dates.",
+    "url": "https://www.criticalthreats.org/analysis/iran-update-september-25-2026"
+   },
+   "page_refetch_error": "<HTTPError 403: 'Forbidden'>",
+   "quotes_odds": false,
+   "sha256": "141ba98ee9752dbbc785a7474a7c5b02bd2b643dc4a46dc2a8a53ebafbe7ee47",
+   "tool": "WebFetch"
+  },
+  {
+   "chars": 3691,
+   "input": {
+    "prompt": "Give a detailed chronological summary of the 2026 Yemen offensive: dates, territories captured (Mocha, Dhubab, Perim/Mayyun, Hanish), front lines near Aden (distance of Houthi forces from Aden city, Lahij, Al-Anad, Kahboub), any ships seized or attacked, any ceasefire negotiations, Saudi/UAE/US involvement, latest status as of end of September 2026.",
+    "url": "https://en.wikipedia.org/wiki/2026_Yemen_offensive"
+   },
+   "page_refetched_at": 1790868624,
+   "page_sha256": "76d89f1aae3cfd131c0c610c45a970f8da2441f31011f9f54372dbef93db2efb",
+   "quotes_odds": false,
+   "sha256": "f2623d4488867bc7b0a35a5dda7407fbe17572b99da572eb60340534d4523c42",
+   "tool": "WebFetch"
+  },
+  {
+   "chars": 2629,
+   "input": {
+    "blocked_domains": [
+     "polymarket.com",
+     "kalshi.com",
+     "predictit.org",
+     "manifold.markets",
+     "metaculus.com",
+     "betfair.com",
+     "smarkets.com",
+     "oddschecker.com",
+     "electionbettingodds.com",
+     "polymarketanalytics.com",
+     "gjopen.com",
+     "goodjudgment.com",
+     "insightprediction.com",
+     "limitless.exchange",
+     "myriad.markets",
+     "betmgm.com",
+     "draftkings.com",
+     "fanduel.com",
+     "williamhill.com",
+     "paddypower.com",
+     "bet365.com",
+     "ladbrokes.com",
+     "polymarket.co"
+    ],
+    "query": "Houthi attack ship Red Sea UKMTO late September 2026"
+   },
+   "quotes_odds": false,
+   "sha256": "406fa5df26200da6bd00fc2d1dd4cf3c021a685a3f07ca2b71b8b4ef4d747800",
+   "tool": "WebSearch"
+  },
+  {
+   "chars": 2189,
+   "input": {
+    "blocked_domains": [
+     "polymarket.com",
+     "kalshi.com",
+     "predictit.org",
+     "manifold.markets",
+     "metaculus.com",
+     "betfair.com",
+     "smarkets.com",
+     "oddschecker.com",
+     "electionbettingodds.com",
+     "polymarketanalytics.com",
+     "gjopen.com",
+     "goodjudgment.com",
+     "insightprediction.com",
+     "limitless.exchange",
+     "myriad.markets",
+     "betmgm.com",
+     "draftkings.com",
+     "fanduel.com",
+     "williamhill.com",
+     "paddypower.com",
+     "bet365.com",
+     "ladbrokes.com",
+     "polymarket.co"
+    ],
+    "query": "Houthis seize tanker 2026"
+   },
+   "quotes_odds": false,
+   "sha256": "67709675a51caf81fb6ed713a39125647084ea0d23a2293f8f947480467642bc",
+   "tool": "WebSearch"
+  },
+  {
+   "chars": 1106,
+   "input": {
+    "prompt": "Summarize the 2026 part of the Red Sea crisis: Houthi blockade of Saudi Arabia, attacks on ships (dates, names, hit/miss), seizures, latest incidents in September 2026, any announcements about closing Bab el-Mandeb, any ceasefire or truce, US/Iran war context.",
+    "url": "https://en.wikipedia.org/wiki/Red_Sea_crisis"
+   },
+   "page_refetched_at": 1790868624,
+   "page_sha256": "f21c33de3d5ff2737847adc2abd024e6f041b43090341458864ac1bce2c9f50d",
+   "quotes_odds": false,
+   "sha256": "0a8a62862cdbb0ebd45512ff3ae8bd891f43e4a1be88b00a79be823248e354e4",
+   "tool": "WebFetch"
+  },
+  {
+   "chars": 1262,
+   "input": {
+    "prompt": "List all 2026 incidents (date, ship name, type, whether hit or missed/intercepted, whether seized), especially July-September 2026. Also note the latest dated incident in the article and any seizures (boarding/hijack) in 2026.",
+    "url": "https://en.wikipedia.org/wiki/Houthi_attacks_on_commercial_vessels"
+   },
+   "page_refetched_at": 1790868625,
+   "page_sha256": "3cb8a0905ddc1430da8a42919213d7df23019f9997836ece84621665b6704f42",
+   "quotes_odds": false,
+   "sha256": "9230e74fa41fc709993e7ee9be95ad080445b6d3aca6cc99f05ad959108d73f4",
+   "tool": "WebFetch"
+  },
+  {
+   "chars": 2870,
+   "input": {
+    "blocked_domains": [
+     "polymarket.com",
+     "kalshi.com",
+     "predictit.org",
+     "manifold.markets",
+     "metaculus.com",
+     "betfair.com",
+     "smarkets.com",
+     "oddschecker.com",
+     "electionbettingodds.com",
+     "polymarketanalytics.com",
+     "gjopen.com",
+     "goodjudgment.com",
+     "insightprediction.com",
+     "limitless.exchange",
+     "myriad.markets",
+     "betmgm.com",
+     "draftkings.com",
+     "fanduel.com",
+     "williamhill.com",
+     "paddypower.com",
+     "bet365.com",
+     "ladbrokes.com",
+     "polymarket.co"
+    ],
+    "query": "Houthis Bab el-Mandeb ships September 29 2026"
+   },
+   "quotes_odds": false,
+   "sha256": "12a80a7f67844b21aba914c9f1758de70cc15ce5d72e5beeb89bd9a54ac967d8",
+   "tool": "WebSearch"
+  },
+  {
+   "chars": 2714,
+   "input": {
+    "blocked_domains": [
+     "polymarket.com",
+     "kalshi.com",
+     "predictit.org",
+     "manifold.markets",
+     "metaculus.com",
+     "betfair.com",
+     "smarkets.com",
+     "oddschecker.com",
+     "electionbettingodds.com",
+     "polymarketanalytics.com",
+     "gjopen.com",
+     "goodjudgment.com",
+     "insightprediction.com",
+     "limitless.exchange",
+     "myriad.markets",
+     "betmgm.com",
+     "draftkings.com",
+     "fanduel.com",
+     "williamhill.com",
+     "paddypower.com",
+     "bet365.com",
+     "ladbrokes.com",
+     "polymarket.co"
+    ],
+    "query": "\"Bab al-Mandab crisis\" 2026 Houthis strait"
+   },
+   "quotes_odds": false,
+   "sha256": "b6f7f230cd966e8f9f3ab1252ca7c384f5421931da1d8d0a74c5ba4eee042685",
+   "tool": "WebSearch"
+  },
+  {
+   "chars": 1471,
+   "input": {
+    "prompt": "Give a detailed chronological summary with dates: Houthi announcements about closing the strait or which vessels are targeted, attacks on ships (hit/miss), any seizure of vessels, international responses (US, Saudi, Egypt, Eritrea, multinational alliance), any counter-offensive to retake Perim, ceasefire talks, and the latest events listed (late September 2026).",
+    "url": "https://en.wikipedia.org/wiki/Strait_of_Bab_al-Mandab_crisis"
+   },
+   "page_refetched_at": 1790868625,
+   "page_sha256": "c140d4e073f8e8274a993d14f86c6f808001d9febb44b866804670e21894c64d",
+   "quotes_odds": false,
+   "sha256": "c328b47a1bab00331312860c06f5bb1a8b59a9e45c0097c0433aa9f2ca5ee4a9",
+   "tool": "WebFetch"
+  },
+  {
+   "chars": 250,
+   "input": {
+    "prompt": "Summarize: Houthi next phase of campaign, targets (Aden? Marib? Lahij?), distance from Aden, shipping attacks/threats in Bab el-Mandeb, US posture, Saudi response. Give dates and quotes on threats to shipping.",
+    "url": "https://www.cnn.com/2026/09/21/middleeast/yemen-houthis-offensive-intl"
+   },
+   "page_refetch_error": "URLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1082)'))",
+   "quotes_odds": false,
+   "sha256": "fff54d78796fb1c5994026b4110996796cd49d8ad9ef51dc67afa6199b4e0294",
+   "tool": "WebFetch"
+  },
+  {
+   "chars": 1501,
+   "input": {
+    "prompt": "Summarize all facts about the current situation as of Sept 29, 2026: Houthi front lines, Aden, Perim, shipping, Iran war status, any ceasefire or negotiations.",
+    "url": "https://aljazeera.com/news-analysis/2026/9/29/iran-downplays-their-possible-role-in-houthis-recent-yemen-victories"
+   },
+   "page_refetched_at": 1790868626,
+   "page_sha256": "859af531eb6978004a08b49c7c42fc28e1db68885025f5f5249607de495f317a",
+   "quotes_odds": false,
+   "sha256": "15de2339f631929e80ae2ab785921213b907f1cc6229ef5d4326a72d261b85e7",
+   "tool": "WebFetch"
+  },
+  {
+   "chars": 215,
+   "input": {
+    "prompt": "What does this advisory say? Issue date, expiration, threat description, recent incidents, Houthi stated targets.",
+    "url": "https://www.maritime.dot.gov/msci/2026-006-red-sea-bab-el-mandeb-strait-gulf-aden-arabian-sea-and-somali-basin-houthi-attacks"
+   },
+   "page_refetch_error": "<HTTPError 403: 'Forbidden'>",
+   "quotes_odds": false,
+   "sha256": "141ba98ee9752dbbc785a7474a7c5b02bd2b643dc4a46dc2a8a53ebafbe7ee47",
+   "tool": "WebFetch"
+  },
+  {
+   "chars": 2809,
+   "input": {
+    "blocked_domains": [
+     "polymarket.com",
+     "kalshi.com",
+     "predictit.org",
+     "manifold.markets",
+     "metaculus.com",
+     "betfair.com",
+     "smarkets.com",
+     "oddschecker.com",
+     "electionbettingodds.com",
+     "polymarketanalytics.com",
+     "gjopen.com",
+     "goodjudgment.com",
+     "insightprediction.com",
+     "limitless.exchange",
+     "myriad.markets",
+     "betmgm.com",
+     "draftkings.com",
+     "fanduel.com",
+     "williamhill.com",
+     "paddypower.com",
+     "bet365.com",
+     "ladbrokes.com",
+     "polymarket.co"
+    ],
+    "query": "Houthis claim attack Saudi tanker September 2026 Yanbu"
+   },
+   "quotes_odds": false,
+   "sha256": "bac274af2e18a108c679dcd6773c6f5563ce8bef7ca8717940789cd51413a7b0",
+   "tool": "WebSearch"
+  },
+  {
+   "chars": 482,
+   "input": {
+    "prompt": "Give the full text of this statement and its date.",
+    "url": "https://www.spa.gov.sa/en/N2674017"
+   },
+   "page_refetched_at": 1790868627,
+   "page_sha256": "74c4ba93c6a5fcb60eef1e7c509e39a5909bd6f4fc6c68f5a34c2afc0c9bf3ef",
+   "quotes_odds": false,
+   "sha256": "74c54562cfb531ba35fafe20b0f9b273fba1ff506a4875f7890c64d6e096510c",
+   "tool": "WebFetch"
+  },
+  {
+   "chars": 1352,
+   "input": {
+    "prompt": "Give full details: attack dates, damage, shutdown announcement, and especially the restart: who reported the Sept 22 restart (Saudi Ministry of Energy, Aramco, SPA, or sources/Reuters/Bloomberg?), exact wording, volumes, expected timeline to full capacity, any later attacks. Quote the relevant sentences and their citations.",
+    "url": "https://en.wikipedia.org/wiki/2026_East%E2%80%93West_Crude_Oil_Pipeline_attack"
+   },
+   "page_refetched_at": 1790868627,
+   "page_sha256": "5f0a9593f72e0d3728ff8bee7c25baaf3f9a624baed9e5f34b9e5228a5c3387a",
+   "quotes_odds": false,
+   "sha256": "d2a5befc2bc214c9fffba09447fa55fc8556f1248db9b91149a734489cdfc3f2",
+   "tool": "WebFetch"
+  },
+  {
+   "chars": 2928,
+   "input": {
+    "blocked_domains": [
+     "polymarket.com",
+     "kalshi.com",
+     "predictit.org",
+     "manifold.markets",
+     "metaculus.com",
+     "betfair.com",
+     "smarkets.com",
+     "oddschecker.com",
+     "electionbettingodds.com",
+     "polymarketanalytics.com",
+     "gjopen.com",
+     "goodjudgment.com",
+     "insightprediction.com",
+     "limitless.exchange",
+     "myriad.markets",
+     "betmgm.com",
+     "draftkings.com",
+     "fanduel.com",
+     "williamhill.com",
+     "paddypower.com",
+     "bet365.com",
+     "ladbrokes.com",
+     "polymarket.co"
+    ],
+    "query": "Saudi Ministry of Energy East-West pipeline resumed operations statement"
+   },
+   "quotes_odds": false,
+   "sha256": "8164963249aa3f1ee3719eb8732451d670176656dd1a2a64044c7972c4252eab",
+   "tool": "WebSearch"
+  },
+  {
+   "chars": 2854,
+   "input": {
+    "blocked_domains": [
+     "polymarket.com",
+     "kalshi.com",
+     "predictit.org",
+     "manifold.markets",
+     "metaculus.com",
+     "betfair.com",
+     "smarkets.com",
+     "oddschecker.com",
+     "electionbettingodds.com",
+     "polymarketanalytics.com",
+     "gjopen.com",
+     "goodjudgment.com",
+     "insightprediction.com",
+     "limitless.exchange",
+     "myriad.markets",
+     "betmgm.com",
+     "draftkings.com",
+     "fanduel.com",
+     "williamhill.com",
+     "paddypower.com",
+     "bet365.com",
+     "ladbrokes.com",
+     "polymarket.co"
+    ],
+    "query": "Saudi East-West pipeline restart Yanbu loadings resume late September 2026"
+   },
+   "quotes_odds": false,
+   "sha256": "7f521b33536e99e0baaab1c9e608bff155b762784e79800de3dfc64424dd7f85",
+   "tool": "WebSearch"
+  },
+  {
+   "chars": 215,
+   "input": {
+    "prompt": "Date of article and whether any Saudi official (Ministry of Energy, SPA, minister) confirmed the restart. Quote relevant text.",
+    "url": "https://www.agbi.com/oil-and-gas/2026/09/saudi-arabia-restores-oil-flows-through-east-west-pipeline/"
+   },
+   "page_refetch_error": "<HTTPError 405: 'Not Allowed'>",
+   "quotes_odds": false,
+   "sha256": "141ba98ee9752dbbc785a7474a7c5b02bd2b643dc4a46dc2a8a53ebafbe7ee47",
+   "tool": "WebFetch"
+  },
+  {
+   "chars": 579,
+   "input": {
+    "prompt": "What is the date of this article and who said the pipeline is back to full capacity (official Saudi source, Aramco, or unnamed sources)? Quote the relevant text.",
+    "url": "https://www.argusmedia.com/en/news-and-insights/latest-market-news/2813059-saudi-east-west-crude-pipeline-back-to-full-capacity"
+   },
+   "page_refetched_at": 1790868628,
+   "page_sha256": "fdf6c9a9776adfe8b9cc8946d7712bc597e8f015ab54906fd597ca84051e6bb4",
+   "quotes_odds": false,
+   "sha256": "7b96e266ad7bee7cc3b75275d6ccb501c274514e0186a3fe9eab538ae5323eda",
+   "tool": "WebFetch"
+  },
+  {
+   "chars": 3110,
+   "input": {
+    "blocked_domains": [
+     "polymarket.com",
+     "kalshi.com",
+     "predictit.org",
+     "manifold.markets",
+     "metaculus.com",
+     "betfair.com",
+     "smarkets.com",
+     "oddschecker.com",
+     "electionbettingodds.com",
+     "polymarketanalytics.com",
+     "gjopen.com",
+     "goodjudgment.com",
+     "insightprediction.com",
+     "limitless.exchange",
+     "myriad.markets",
+     "betmgm.com",
+     "draftkings.com",
+     "fanduel.com",
+     "williamhill.com",
+     "paddypower.com",
+     "bet365.com",
+     "ladbrokes.com",
+     "polymarket.co"
+    ],
+    "query": "Saudi energy ministry East-West pipeline pumping station attack April 2026 restored"
+   },
+   "quotes_odds": false,
+   "sha256": "325bd2ec0e5367fa3ea6ef406154bfb17567386cebd865ace63c5cf169808627",
+   "tool": "WebSearch"
+  },
+  {
+   "chars": 482,
+   "input": {
+    "blocked_domains": [
+     "polymarket.com",
+     "kalshi.com",
+     "predictit.org",
+     "manifold.markets",
+     "metaculus.com",
+     "betfair.com",
+     "smarkets.com",
+     "oddschecker.com",
+     "electionbettingodds.com",
+     "polymarketanalytics.com",
+     "gjopen.com",
+     "goodjudgment.com",
+     "insightprediction.com",
+     "limitless.exchange",
+     "myriad.markets",
+     "betmgm.com",
+     "draftkings.com",
+     "fanduel.com",
+     "williamhill.com",
+     "paddypower.com",
+     "bet365.com",
+     "ladbrokes.com",
+     "polymarket.co"
+    ],
+    "query": "\"East-West pipeline\" Saudi capacity Kpler Aramco statement"
+   },
+   "quotes_odds": false,
+   "sha256": "1210868bedc0c55a5040f327d1d83d178a3571c95af33f598b06614f68fa8bfe",
+   "tool": "WebSearch"
+  },
+  {
+   "chars": 215,
+   "input": {
+    "prompt": "Summarize: what did Chris Wright say, what is the damage, expected duration of outage, any Saudi official statements.",
+    "url": "https://www.cnbc.com/2026/09/15/saud-arabia-east-west-pipeline-iran-war-chris-wright.html"
+   },
+   "page_refetched_at": 1790868636,
+   "page_sha256": "fa46fca3bf43c1892106776c7339d36da07348078d32da692d43269feed3b491",
+   "quotes_odds": false,
+   "sha256": "141ba98ee9752dbbc785a7474a7c5b02bd2b643dc4a46dc2a8a53ebafbe7ee47",
+   "tool": "WebFetch"
+  },
+  {
+   "chars": 10235,
+   "input": {
+    "prompt": "List all item titles with their pubDate and source, verbatim. Exclude any items from prediction market or betting sites.",
+    "url": "https://news.google.com/rss/search?q=Houthi+ship+Red+Sea+when:10d&hl=en-US&gl=US&ceid=US:en"
+   },
+   "page_refetched_at": 1790868636,
+   "page_sha256": "6971fa3ce51eb9accd45e4615483f4b1d69333e0a92cf9a3c4c1127ea43443bd",
+   "quotes_odds": false,
+   "sha256": "aee771c7382097067acfe2e1771ad6e65acbdd33b9e1a26a4b5ca0b2f6a25bce",
+   "tool": "WebFetch"
+  },
+  {
+   "chars": 3205,
+   "input": {
+    "prompt": "For these items give the exact <link> URL verbatim: \"Iran Tells Houthis to Close Red Sea Gateway\", \"More Ships Change Course in the Red Sea\", \"Three tankers carrying Saudi crude make U-turns\", \"Reuters: 2 Saudi Tankers Turn Back\", \"Houthis reassure EU on European shipping as Bab al-Mandeb traffic climbs\", \"More Red Sea Shipments Disrupted as Rubio\", \"Red Sea War Insurance Costs Rise\", \"Crude flows resume to key Saudi Red Sea tanker port\", \"Oil prices back up as U.S. and Iran trade fresh threats\".",
+    "url": "https://news.google.com/rss/search?q=Houthi+ship+Red+Sea+when:10d&hl=en-US&gl=US&ceid=US:en"
+   },
+   "page_refetched_at": 1790868636,
+   "page_sha256": "6971fa3ce51eb9accd45e4615483f4b1d69333e0a92cf9a3c4c1127ea43443bd",
+   "quotes_odds": false,
+   "sha256": "2945c8a03e782a42383e5036808b3f94f8a07f19d0638c77a545873f105bd22e",
+   "tool": "WebFetch"
+  },
+  {
+   "chars": 1488,
+   "input": {
+    "prompt": "Summarize the article fully: what Iran told Houthis, conditions, dates, Houthi statements on closing Bab el-Mandeb, shipping data.",
+    "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPSTNWbFlzX29KQ2xtSjlwOWRlWi1pejNxaC1ROW0zN2RQbk42eUd1T0JjazI3NjYzaGF1Ynl4R0dQV3BLbUNjSjRtS2NHTnRVbC1hRHpLVktveUo1ODg4UEdKTGM2dnFfa01GeVAtQkxYYUt4UlpVVHJucXJhckFmeWozQWdWTHlDY0xrWWNweTNLVVo0RTM0QTk5TVVqdEdlSkNvTUR5cUVVQUlzZDllUA"
+   },
+   "page_refetched_at": 1790868637,
+   "page_sha256": "8201d3884b04c9bc1d14fcfe9d36e95db6bd1d828710d3648fb141b072fa69cf",
+   "quotes_odds": false,
+   "sha256": "5f1de36969be90d10e0c380aab5bf0cda0d8514c177b3dcbf210149bcc1417fd",
+   "tool": "WebFetch"
+  },
+  {
+   "chars": 751,
+   "input": {
+    "prompt": "List item titles, links (verbatim), dates, and descriptions.",
+    "url": "https://www.bing.com/news/search?q=Iran+tells+Houthis+close+Red+Sea+gateway+power+network&format=rss"
+   },
+   "page_refetched_at": 1790868637,
+   "page_sha256": "14c7ef41234f81d42dff3309811f4dba198b0e09f735c821f4e7ca4071832ab0",
+   "quotes_odds": false,
+   "sha256": "d96963e8c40d8d0b4c631e82eb81106e6b3bf58b4c2863890beffd37fc2052c9",
+   "tool": "WebFetch"
+  },
+  {
+   "chars": 215,
+   "input": {
+    "prompt": "List article titles with links (verbatim URLs) and dates.",
+    "url": "https://energynow.com/?s=Houthis"
+   },
+   "page_refetch_error": "<HTTPError 403: 'Forbidden'>",
+   "quotes_odds": false,
+   "sha256": "141ba98ee9752dbbc785a7474a7c5b02bd2b643dc4a46dc2a8a53ebafbe7ee47",
+   "tool": "WebFetch"
+  },
+  {
+   "chars": 3699,
+   "input": {
+    "prompt": "List all article headlines with their URLs (verbatim) and dates shown, most recent first.",
+    "url": "https://www.aljazeera.com/where/yemen/"
+   },
+   "page_refetched_at": 1790868638,
+   "page_sha256": "beb058fe28b0b4418b824b5bb3ed2e17a699be7a5a9d0ea8ff3cd91786f1dbe6",
+   "quotes_odds": false,
+   "sha256": "a0f3bbecfbfb000fdd1a4ce8fbeac3ea627b4db7c541b22fa7b2219c31b81470",
+   "tool": "WebFetch"
+  },
+  {
+   "chars": 776,
+   "input": {
+    "prompt": "Summarize all items about Yemen, Houthis, Red Sea, Bab el-Mandeb, shipping, Saudi pipeline, US-Iran talks/strikes, with times. Include any Houthi threats to close the strait.",
+    "url": "https://www.aljazeera.com/news/liveblog/2026/10/1/iran-war-live-trump-hints-us-could-strike-iran-warns-time-coming"
+   },
+   "page_refetched_at": 1790868638,
+   "page_sha256": "42de1f5e3147ce8c85ab021333c09add596bda4309ee71f70c5edf1134fd3caf",
+   "quotes_odds": false,
+   "sha256": "bc90dbae2a57b1ae4b2aa41b89594ba18fd1cb2f5d584fa6352eacfb2e86b764",
+   "tool": "WebFetch"
+  },
+  {
+   "chars": 1396,
+   "input": {
+    "prompt": "Summarize the military situation: front lines, Houthi positions near Aden and Lahij, Perim/Dhubab/Mokha counter-attacks, government counter-offensive plans, distances, foreign support.",
+    "url": "https://www.aljazeera.com/news/2026/9/27/yemen-government-forces-widen-attacks-against-houthis-what-we-know"
+   },
+   "page_refetched_at": 1790868638,
+   "page_sha256": "7fea99ce7928b315ce8e59e814aa303af196fff20f1021f55cc90a8fc434894c",
+   "quotes_odds": false,
+   "sha256": "d61590495e6b6ac559d5aafda0d79926238d7f22edda7d18f10d7c8be828c822",
+   "tool": "WebFetch"
+  },
+  {
+   "chars": 528,
+   "input": {
+    "prompt": "Summarize every item mentioning Yemen, Houthis, Red Sea, Bab el-Mandeb, tankers, ships, shipping warnings, Saudi pipeline, and US-Iran negotiations/strikes. Include times and quotes about closing the strait or targeting ships.",
+    "url": "https://www.aljazeera.com/news/liveblog/2026/9/30/iran-war-live-trump-claims-war-will-end-very-soon-provides-no-details"
+   },
+   "page_refetched_at": 1790868638,
+   "page_sha256": "dd37297f1fb437088827fd05d423127dba8a62d306350119ceeefa09005cfc1e",
+   "quotes_odds": false,
+   "sha256": "25336ef7459feeadc2edf049535456660b32624055dea1616d8df0ce4dd993f5",
+   "tool": "WebFetch"
+  },
+  {
+   "chars": 1266,
+   "input": {
+    "prompt": "Summarize all facts: MBS statement, Houthi actions, recent attacks on Saudi Arabia or ships, any tankers turning back, military plans, Aden, Perim, ceasefire talks.",
+    "url": "https://www.aljazeera.com/news/2026/9/30/saudi-crown-prince-says-no-compromise-on-kingdoms-security-against-threats"
+   },
+   "page_refetched_at": 1790868638,
+   "page_sha256": "e5a36b87c86a936258e4d1a1daaf9f906ad94c2dfa8ed2da36474bf38d5714a3",
+   "quotes_odds": false,
+   "sha256": "366901f5b207f7d985082199f5466a356c2d0205a7dbfdf913c1b683bd542d04",
+   "tool": "WebFetch"
+  },
+  {
+   "chars": 2240,
+   "input": {
+    "prompt": "List all article headlines with URLs (verbatim) and dates that relate to the Red Sea, Houthis, Bab el-Mandeb, tankers, Saudi Arabia, Iran, Hormuz.",
+    "url": "https://gcaptain.com/"
+   },
+   "page_refetched_at": 1790868639,
+   "page_sha256": "906a5c3ed51f01463fb9366b11a7f645c85ced600803d90a00e93c215aa59800",
+   "quotes_odds": false,
+   "sha256": "ba5628adbc69163a69c1f6631e7672aedc623a9bf612e6f7cf89f4e6767a6cce",
+   "tool": "WebFetch"
+  },
+  {
+   "chars": 1211,
+   "input": {
+    "prompt": "Summarize all facts relevant to Red Sea / Bab el-Mandeb / Yanbu / Hormuz flows and the war status.",
+    "url": "https://gcaptain.com/jpmorgan-and-goldman-see-mideast-oil-flows-near-pre-war-levels/"
+   },
+   "page_refetched_at": 1790868639,
+   "page_sha256": "c49bb444ab31dcc65b1da70be4b6df27d9b1ad2ed50c4630339198651b41bee7",
+   "quotes_odds": false,
+   "sha256": "c16844b515a71ab008cab8f41faf9ec8cbc0d61b7ab1f69ef44bb2c79cfeb95e",
+   "tool": "WebFetch"
+  },
+  {
+   "chars": 1481,
+   "input": {
+    "prompt": "Summarize all facts: recent Houthi attacks on ships (dates, names, hits), threats, Bab el-Mandeb traffic, Saudi tankers, EU Aspides.",
+    "url": "https://gcaptain.com/eus-kallas-says-two-countries-may-send-ships-to-counter-houthis/"
+   },
+   "page_refetched_at": 1790868639,
+   "page_sha256": "75c95ec9fbc01c76464fa8caee6a45158bcd3bd05a7e22df7bbb61ba0c4b14e0",
+   "quotes_odds": false,
+   "sha256": "c42bc1ffe51c819f57999966377a0a86a08050e50e734e321527be0799e5c5c9",
+   "tool": "WebFetch"
+  },
+  {
+   "chars": 4510,
+   "input": {
+    "prompt": "List all item titles with pubDate and source verbatim, sorted by date descending. Exclude prediction market or betting sites.",
+    "url": "https://news.google.com/rss/search?q=Houthi+tanker+hit+OR+struck+OR+attacked+when:30d&hl=en-US&gl=US&ceid=US:en"
+   },
+   "page_refetched_at": 1790868639,
+   "page_sha256": "03aba0702fd68d7714d64d08263528d7f513bb748c8740bdb6537854ca88154c",
+   "quotes_odds": false,
+   "sha256": "f7bbac100559441f35ba7b32a1af2dbb3125855d73eb395b0f7c4970bf73f836",
+   "tool": "WebFetch"
+  },
+  {
+   "chars": 1397,
+   "input": {
+    "prompt": "Summarize all facts about Houthi maritime activity (attacks on ships, blockade scope, warnings to tankers), Bab el-Mandeb, and Iran-US negotiation status, with dates.",
+    "url": "https://gcaptain.com/trump-rejects-iran-proposal-on-hormuz-as-houthis-target-riyadh/"
+   },
+   "page_refetched_at": 1790868640,
+   "page_sha256": "feb19aeebe3d6d9232510d48ab0ab5bd3b9badd5cab3cb271192a1e83b6b1ff3",
+   "quotes_odds": false,
+   "sha256": "5a62f1e44a1a16664b9be0a0449f7f457ee2ef2ba3ca8940bf43072735825fbd",
+   "tool": "WebFetch"
+  },
+  {
+   "chars": 3283,
+   "input": {
+    "prompt": "Confirm portname. Then list every record: date and n_total, as a compact list \"YYYY-MM-DD:n\". Include all records.",
+    "url": "https://services9.arcgis.com/weJ1QsnbMYJlCHdG/arcgis/rest/services/Daily_Chokepoints_Data/FeatureServer/0/query?where=portid%3D%27chokepoint6%27%20AND%20date%3E%3Dtimestamp%20%272026-02-15%2000:00:00%27&outFields=date,n_total,portname&orderByFields=date%20ASC&resultRecordCount=230&f=json"
+   },
+   "page_refetched_at": 1790868640,
+   "page_sha256": "c26cce32b6cd647a95223a19cbace8bac4ddff3da07e463d31552f2ab4549f3b",
+   "quotes_odds": false,
+   "sha256": "1bb63c24f4dc1dd046ddd6eac3b749ece8435651d14aacc44bbd9be19b8fd12e",
+   "tool": "WebFetch"
+  },
+  {
+   "chars": 1518,
+   "input": {
+    "prompt": "List all item titles with pubDate, source, and the description text verbatim (descriptions may include snippet). Exclude prediction markets/betting sites.",
+    "url": "https://news.google.com/rss/search?q=tankers+U-turn+Red+Sea+Houthi+warning&hl=en-US&gl=US&ceid=US:en"
+   },
+   "page_refetched_at": 1790868640,
+   "page_sha256": "d22732109b1dd266ddd02efd5eacf5653533ce91224ae06153e45793df61306a",
+   "quotes_odds": false,
+   "sha256": "39e6600b62c1629b291715503ddb8caabb983499404de5fc987e64e80c2a80cf",
+   "tool": "WebFetch"
+  },
+  {
+   "chars": 7167,
+   "input": {
+    "prompt": "List all item titles with pubDate, source, and description verbatim. Exclude prediction markets/betting sites.",
+    "url": "https://news.google.com/rss/search?q=%22Iran+tells+Houthis%22+close+Red+Sea&hl=en-US&gl=US&ceid=US:en"
+   },
+   "page_refetched_at": 1790868641,
+   "page_sha256": "36656f711ce7c61eeed98759ee1969f8ce72d1b645efa7ea41ad6f3e24ccf1e5",
+   "quotes_odds": false,
+   "sha256": "79731e282e1d20edcb8087162b020a7df276f87f8eca51a0aea229a2c176af34",
+   "tool": "WebFetch"
+  },
+  {
+   "chars": 3192,
+   "input": {
+    "prompt": "List every record: date and n_total, as a compact list \"YYYY-MM-DD:n\". Include all records, do not skip any.",
+    "url": "https://services9.arcgis.com/weJ1QsnbMYJlCHdG/arcgis/rest/services/Daily_Chokepoints_Data/FeatureServer/0/query?where=portid%3D%27chokepoint4%27%20AND%20date%3E%3Dtimestamp%20%272026-01-01%2000:00:00%27%20AND%20date%3C%3Dtimestamp%20%272026-07-29%2000:00:00%27&outFields=date,n_total&orderByFields=date%20ASC&resultRecordCount=230&f=json"
+   },
+   "page_refetched_at": 1790868641,
+   "page_sha256": "62a650045b4429188c39a21eca78dd55741e6d0eac6057a1a1facb732409db0d",
+   "quotes_odds": false,
+   "sha256": "d3167dbf509e34ef0bcaa0d0472de31082ad33eed1fbf012670959694983431b",
+   "tool": "WebFetch"
+  },
+  {
+   "chars": 61,
+   "input": {
+    "prompt": "List all item titles with pubDate, source, and description verbatim.",
+    "url": "https://news.google.com/rss/search?q=Daisy+tanker+Houthi+Human+Rights+Watch&hl=en-US&gl=US&ceid=US:en"
+   },
+   "page_refetched_at": 1790868642,
+   "page_sha256": "cf78a600f446e99350c6360944712a3917fab61b74ab35c11408df0db09d0052",
+   "quotes_odds": false,
+   "sha256": "630f0704de15021c52335e8a1a913a1c9277434254d2a4c2e9405ce77b889205",
+   "tool": "WebFetch"
+  },
+  {
+   "chars": 61,
+   "input": {
+    "prompt": "Summarize military situation: Houthi positions relative to Aden, Lahij, Al-Anad, Kahboub, threat to Aden, government counter-offensive plans including retaking Perim/Mokha/Dhubab.",
+    "url": "https://www.aljazeera.com/news/2026/9/26/why-has-the-yemen-government-called-for-a-general-mobilisation"
+   },
+   "page_refetched_at": 1790868642,
+   "page_sha256": "c6d599332e6a8ee0119b742ce10113ae42365b315ed0dc3e182718a4d854d35e",
+   "quotes_odds": false,
+   "sha256": "630f0704de15021c52335e8a1a913a1c9277434254d2a4c2e9405ce77b889205",
+   "tool": "WebFetch"
+  }
+ ],
+ "ingested_at": "2026-10-01T15:30:42.396292+00:00",
+ "lock": 1790868617,
+ "lock_prices": {
+  "0x0045c740dca2243373ebedfac538512cd9b887b1830f80933d7e329e0f2c7a81": {
+   "ask_no": {
+    "ask": 0.89,
+    "usd_1c": 4853.5558,
+    "usd_2c": 9834.813900000001
+   },
+   "ask_yes": {
+    "ask": 0.12,
+    "usd_1c": 1550.8457,
+    "usd_2c": 1720.1155
+   }
+  },
+  "0x1b6e6dab8fd75de996a72babb8dcd60a43104a393b05b87583f2f002d3d51784": {
+   "ask_no": {
+    "ask": 0.93,
+    "usd_1c": 438.5307,
+    "usd_2c": 438.5307
+   },
+   "ask_yes": {
+    "ask": 0.11,
+    "usd_1c": 65.0789,
+    "usd_2c": 131.96779999999998
+   }
+  },
+  "0x316f81858751c42d3682698b00968d00d885c37a6d5a37a84bea7306ef3e5a35": {
+   "ask_no": {
+    "ask": 0.72,
+    "usd_1c": 49.88,
+    "usd_2c": 51.2638
+   },
+   "ask_yes": {
+    "ask": 0.32,
+    "usd_1c": 19.2896,
+    "usd_2c": 19.2896
+   }
+  },
+  "0x4611b382e5bea764589d1b889b8ce238b8fa4fbe2c4ab47a88b981f81c476b3a": {
+   "ask_no": {
+    "ask": 0.62,
+    "usd_1c": 116.80179999999999,
+    "usd_2c": 116.80179999999999
+   },
+   "ask_yes": {
+    "ask": 0.45,
+    "usd_1c": 30.9105,
+    "usd_2c": 30.9105
+   }
+  },
+  "0x7a4fd44956a282a1249e2191865f555976e37dd82f48bc783ec04a58a8d0450a": {
+   "ask_no": {
+    "ask": 0.4,
+    "usd_1c": 81.47200000000001,
+    "usd_2c": 81.47200000000001
+   },
+   "ask_yes": {
+    "ask": 0.61,
+    "usd_1c": 734.0713999999999,
+    "usd_2c": 2282.6336
+   }
+  },
+  "0x8d4a460738e6226730629344dbd015a40f5265aad3e12ce08d694c000dde7ba2": {
+   "ask_no": {
+    "ask": 0.68,
+    "usd_1c": 7155.491300000001,
+    "usd_2c": 11133.8223
+   },
+   "ask_yes": {
+    "ask": 0.34,
+    "usd_1c": 1253.3205,
+    "usd_2c": 1569.0837000000001
+   }
+  },
+  "0x9130947a3eae2c95ebd16046738946ba197fa7acdf553b6c9807ed2e268198f0": {
+   "ask_no": {
+    "ask": 0.94,
+    "usd_1c": 264.5,
+    "usd_2c": 1074.5
+   },
+   "ask_yes": {
+    "ask": 0.08,
+    "usd_1c": 10.997,
+    "usd_2c": 15.261999999999999
+   }
+  },
+  "0x9bb80411fb159d9f3798fe125672a61af141f7dc7d5465c14a5936e4ba878e49": {
+   "ask_no": {
+    "ask": 0.94,
+    "usd_1c": 63898.447499999995,
+    "usd_2c": 141309.5067
+   },
+   "ask_yes": {
+    "ask": 0.07,
+    "usd_1c": 3982.2197,
+    "usd_2c": 7599.6095000000005
+   }
+  },
+  "0xa893fbbcf86c37866049086f271208d60b3d312d20cc48133f5e93b8a1d84e44": {
+   "ask_no": {
+    "ask": 0.99,
+    "usd_1c": 768.7879399999999,
+    "usd_2c": 768.7879399999999
+   },
+   "ask_yes": {
+    "ask": 0.067,
+    "usd_1c": 0.24321,
+    "usd_2c": 0.24321
+   }
+  },
+  "0xba737dd3404eb2b79fdd95de5183d658a0cb4760cd411b62d00742540a5b3461": {
+   "ask_no": {
+    "ask": 0.9,
+    "usd_1c": 190.5,
+    "usd_2c": 386.7636
+   },
+   "ask_yes": {
+    "ask": 0.12,
+    "usd_1c": 24.4236,
+    "usd_2c": 33.001400000000004
+   }
+  },
+  "0xbdf69b22ac4367bdacbc2c66effe91bbc404abba447c392bc1736efc913fc13a": {
+   "ask_no": {
+    "ask": 0.72,
+    "usd_1c": 14.399999999999999,
+    "usd_2c": 64.6386
+   },
+   "ask_yes": {
+    "ask": 0.37,
+    "usd_1c": 7.4,
+    "usd_2c": 7.4
+   }
+  },
+  "0xd51d3eeb2009ece22a25f0809ccc294f2dbfc4e89c098b22de5ffe5da64ecb7e": {
+   "ask_no": {
+    "ask": 0.93,
+    "usd_1c": 497.41020000000003,
+    "usd_2c": 497.41020000000003
+   },
+   "ask_yes": {
+    "ask": 0.11,
+    "usd_1c": 68.77,
+    "usd_2c": 68.77
+   }
+  },
+  "0xd8659b58a90d0d69fb1170f25b2b896871a1328115fd11c6f4cfe2b01a2a8ba0": {
+   "ask_no": {
+    "ask": 0.84,
+    "usd_1c": 31001.379799999995,
+    "usd_2c": 81905.571
+   },
+   "ask_yes": {
+    "ask": 0.17,
+    "usd_1c": 5050.0,
+    "usd_2c": 7369.417399999999
+   }
+  },
+  "0xe2e0b16ff746fff2c2d2eb860981fb39c32f046bf7b261058ad8a4545b7dbcdb": {
+   "ask_no": {
+    "ask": 0.68,
+    "usd_1c": 3.4000000000000004,
+    "usd_2c": 3.4000000000000004
+   },
+   "ask_yes": {
+    "ask": 0.44,
+    "usd_1c": 57.049800000000005,
+    "usd_2c": 57.049800000000005
+   }
+  },
+  "0xe7fdcddbf41b9641e0fd636a15e672054cbc61a8b1e0f00c4a4a96430013c7c5": {
+   "ask_no": {
+    "ask": 0.97,
+    "usd_1c": 2800.96412,
+    "usd_2c": 5121.86042
+   },
+   "ask_yes": {
+    "ask": 0.037,
+    "usd_1c": 58.15971,
+    "usd_2c": 117.65727
+   }
+  },
+  "0xf6beb39de7421e0a114ecc1360ca8eabb0af54dc0178a3f4896da9be176a54f8": {
+   "ask_no": {
+    "ask": 0.79,
+    "usd_1c": 1172.2051000000001,
+    "usd_2c": 1789.2145
+   },
+   "ask_yes": {
+    "ask": 0.22,
+    "usd_1c": 319.1818,
+    "usd_2c": 407.2618
+   }
+  },
+  "0xfc590e97a48be4bf641f488d55b361c334de5688bc4cdb41e0201e61ef075a94": {
+   "ask_no": {
+    "ask": 0.84,
+    "usd_1c": 35.699999999999996,
+    "usd_2c": 35.699999999999996
+   },
+   "ask_yes": {
+    "ask": 0.2,
+    "usd_1c": 50.757999999999996,
+    "usd_2c": 50.757999999999996
+   }
+  }
+ },
+ "prompt_sha256": "88e9c0f60ee256d5af5c3aa28ab44386911054531584a869f2d3493b6a0353a1",
+ "session": "C01",
+ "status": "ok"
+}

@@ -672,3 +672,28 @@ Each thesis subgraph is one basket; a basket is which positions, not sizing; lin
   - About 75–115k tokens a session.
   - Hand-backs arrive as messages to the orchestrating session. A transcript contains the word "SubagentHandback" in its system reminder, so readiness is checked by the tool_use, not by text.
 - **Not built yet:** the evidence bundle (`bundle.py`), `world.py`, T3's scorer, the weekly walk-forward batch. T3's packet code (`t3.py`) and draft registration (`T3_prereg.md`, uncommitted) wait on Rob's cluster rule.
+
+## 2026-10-01 (night) — BT-T2 pass 2, edge ledger, E3, T3 authored, forward sweep started
+- **BT-T2 pass 2** (`BT_T2_pass2_RESULT.md`): the registered E1 statistic is +2.6¢ (−2.7 to +8.0), **direction only**.
+  - The money on the model's NO picks replicated: +5.2¢ a share, and +8.6¢ on NOs priced 50¢ or more.
+  - Blind NO earned 0 in both passes.
+- **Ledger and readings.**
+  - `docs/EDGE_LEDGER.md`: E1 (ruling out), E2 (linked events), E3 (mention markets), the non-edges N1–N6, and market facts.
+  - `docs/CAPITAL_READING_2026-10-01.md`: capacity-bound. The planning case is about +5% per dollar, with working capital of $15–30k.
+  - Decisions 9–11 are in `docs/DECISIONS_2026-10.md`.
+  - Post-hoc tools: `bt_t2_anatomy.py`, `edge_no_check.py`, `calibration_methods.py`, `depth_sample.py`.
+- **E3** (`E3_MENTIONS_prereg.md`, `E3_MENTIONS_RESULT.md`): every eligible mention event in the clean window (46).
+  - Registered statistic +7.3¢ (+1.8 to +13.0): **edge shown**.
+  - It survives removing stale and decided prices.
+  - It is concentrated: without the top three events it is +3.8¢ (−0.4 to +8.4).
+  - YES picks also beat the market here, and the log score ties it.
+- **T3 authored** (25 clusters, live retrieval, claims, scale of scale).
+  - 23 sessions passed the audit. C09 was voided twice: its 138 KB prompt was read with Bash both times. C05 was voided once (it read a fetched PDF from the harness's tool-results folder) and re-authored.
+  - **Search budget.** Twenty sessions running at once shared one 200-search budget. Each hit it after 5–20 searches and finished with page fetches only.
+  - Not frozen yet: waiting on C05's re-authoring.
+- **Forward sweep** (`FORWARD_SWEEP_prereg.md` with A1 and A2, `fwd_sweep.py`): E1 and E3 forward, cold and price-blind, read at the ask with depth.
+  - W01 has 102 events (2 of them mention events) in 17 sessions, now running.
+  - A weekly scheduled task needs Rob's word.
+- **Mechanics found tonight:**
+  - Gamma's date-window crawl hits its offset cap on sports events, so mention markets are found by `tag_slug=mention-markets`.
+  - Gamma now tags Trump speech events "pop-culture", so the scope list drops them, as it did in the backtest.
