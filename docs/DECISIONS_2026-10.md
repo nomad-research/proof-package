@@ -511,3 +511,25 @@ Supersedes the starting point's §9 line "nothing is built until the design is a
   - **What the reader is for, now that E1 rests on the forward tests alone.** For Rob.
   - **The mention book's capacity:** the edge is real at the last print, but it lives where little trades.
   - **Whether liquidity is where the reader's NOs work** (the BT-A lead). That would be a new rule, registered before forward data.
+
+## 24. Choose the edge first, then build the system for it; results don't choose what we build (2026-10-02)
+
+- **Rob's words.** "The approach is wrong, we choose the edge we want and we optimize the system for it we don't get guided by our results into what we end up making."
+- **Decision.**
+  - **The order of work:**
+    1. Choose the edge: a mechanism for why the market misprices.
+    2. Design every part of the system to capture that mechanism: the reader's inputs, which markets it reads, which side it takes, cost and size.
+    3. Test the built system with a registered test that can kill it.
+  - **Results decide whether a design works, never what the design is.** A slice found in results is not a design input. Examples:
+    - the losers note's tiers;
+    - the BT-A liquidity lead;
+    - "where the mention edge lives";
+    - A2's thresholds, which were searched on passes 1 to 3.
+  - **Tests that are already registered and running continue unchanged:** forward A2, the sweep's E1, E3 and E3b, and the paper book. They are measurements, not design inputs.
+- **Evidence.** This week's failures were all led by results:
+  - A2's threshold search latched onto empty-book prices (decision 21);
+  - the P5 filter was cut from losing bets (decisions 21 and 22);
+  - the last two proposed next steps followed results (decision 23).
+- **Still open.** Which edge the system is built for. The ledger's mechanisms:
+  - **E1 and E3: base rates against salience.** The crowd prices what is in the news; the reader prices how things usually go and the exact rule.
+  - **E2: linked events.** The market prices each event alone; a reader who sees the link knows more about B once A is known.
