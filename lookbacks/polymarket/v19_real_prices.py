@@ -102,10 +102,11 @@ def real_yes(entry, lock, mode="last", min_usd=0.0):
     return yes(max(ps, key=lambda x: x["timestamp"]))
 
 
-def t2_rows(d, mode, min_usd):
-    """bt_t2.cmd_score's positions, with each contract at its real price; contracts without one are dropped from positions and bases."""
+def t2_rows(d, mode, min_usd, src=None):
+    """bt_t2.cmd_score's positions, with each contract at its real price; contracts without one are dropped from positions and bases.
+    src: the pass whose prints to use, for a re-reading of that pass's events (V19_NEWS_prereg.md)."""
     D = os.path.join(HERE, "bt", d); fdoc = A.jload(os.path.join(D, "frame.json")); frame = {e["id"]: e for e in fdoc["events"]}
-    man = A.jload(os.path.join(D, "manifest.json")); crawl = {e["id"]: e for e in A.jload(os.path.join(HERE, "bt", fdoc["crawl"]))}; got = load(d)
+    man = A.jload(os.path.join(D, "manifest.json")); crawl = {e["id"]: e for e in A.jload(os.path.join(HERE, "bt", fdoc["crawl"]))}; got = load(src or d)
     cov = collections.Counter()
     for ev in frame.values():
         mk = {m["cid"]: m for m in crawl[ev["id"]]["markets"]}
@@ -153,7 +154,7 @@ def t2_rows(d, mode, min_usd):
                     rows.append({"pass": d, "event": f"{d}/{ev['id']}", "kind": ev["kind"], "mention": mtype == "mention", "mtype": mtype,
                                  "side": "YES" if yes else "NO", "cost": cc, "hit": hit, "money": hit - cc,
                                  "skill": (hit - cc) - (float(np.mean(bm)) if bm else 0.0), "skill_side": (hit - cc) - (float(np.mean(bs)) if bs else 0.0),
-                                 "gap": gap, "armed": not yes and mtype != "mention" and cc >= ARM_COST and gap >= ARM_GAP, "orig_armed": orig_arm,
+                                 "gap": gap, "mid": mid, "armed": not yes and mtype != "mention" and cc >= ARM_COST and gap >= ARM_GAP, "orig_armed": orig_arm,
                                  "orig_position": orig, "subject": V.subject_of(ev), "end": V.scheduled_end(ev), "lock": ev["lock"]})
     return rows, cov
 
