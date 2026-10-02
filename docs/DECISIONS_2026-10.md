@@ -448,3 +448,25 @@ Supersedes the starting point's §9 line "nothing is built until the design is a
 - **Still open.**
   - **The forward tests,** which only time advances: A2 forward (first look at 40 occasions), the sweep's E1, E3 and E3b, and fills.
   - **Rob's occasion cap,** and the money limits after paper (decision 17).
+
+## 21. P5: the framework's registered test passes, but the backtest prices under it were mostly not real (2026-10-02)
+
+- **Rob's words.** "run the safety framework on a fresh pass".
+- **Decision.**
+  - **P5's registered verdicts stand as computed.**
+    - Framework skill: +20.8¢ (+12.8 to +27.0). Edge shown.
+    - Framework-passed minus blocked: +20.0¢ (+6.6 to +34.4). Edge shown.
+  - **The registration's follow-on is held.** The framework does not replace A2 in the paper book: 43 of its 51 positions were priced at empty-book midpoints that nobody could trade. Rob decides.
+  - **The backtest edge figures are no longer taken at face value:** A2's +10¢ to +11.5¢, the design simulation's +29.9% per dollar, the losers note's tiers, and the edge and capital table. Each rests largely on those prices.
+- **Evidence** (`lookbacks/polymarket/V19_FRAMEWORK_P5_RESULT.md`, `v19_price_check.py`; exploratory, found after scoring):
+  - **The lock prices.** P5's five crypto ladders had every bracket at 47¢ to 50¢, with YES summing to about 5.1 where one bracket wins.
+  - **How widespread.** 58% of A2's armed positions in passes 1 to 5 sit on such prices. Near the lock, trade prints put those NOs at 91¢ to 100¢.
+  - **On clean prices,** A2 reads:
+    - +4.2¢ skill (−5.4 to +13.4) and +9.8¢ money (+0.7 to +18.2);
+    - −16.9¢ on partitions;
+    - a positive slice on ladders and percent questions.
+  - **The framework on clean prices, out of sample:** 8 positions, +27.8¢ (−11.2 to +49.2). Direction only.
+- **Still open.**
+  - **Re-measure the backtests at prices that were really there,** registered before it runs. These are the trade prints near each lock, or a coherent book. It needs no new sessions, and the frozen files are read, not changed.
+  - **BT-A** gets the same price check.
+  - **The forward test** prices at the live ask, so it is the clean measurement. W01 is mostly election partitions and settles from 4 October.

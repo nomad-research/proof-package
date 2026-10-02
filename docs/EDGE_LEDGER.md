@@ -77,6 +77,17 @@ The money is the model's choosing: a blind always-NO rule earns about 0 in both 
 
 What it blocks earns about nothing, and every NO position together in P4 earned +1.7¢. E1's edge lives in the armed subset.
 
+**After P5 (2026-10-02, `lookbacks/polymarket/V19_FRAMEWORK_P5_RESULT.md`): most of the BT-T2 evidence for A2 rests on prices nobody could trade.**
+- **The flaw.** A BT-T2 lock price is the last prices-history point within 48 hours. On a book with no real quotes, that point is the midpoint of an empty book, about 50¢.
+- **How much it touches.**
+  - 58% of A2's armed positions in passes 1 to 5 are on such prices: partitions whose YES prices sum to more than 1.3, or events priced 40¢ to 55¢ throughout.
+  - Trade prints near the lock put those NOs at 91¢ to 100¢, not the backtest's 53¢ to 79¢.
+- **On clean prices** (exploratory):
+  - A2 reads +4.2¢ skill (−5.4 to +13.4), direction only, and +9.8¢ money (+0.7 to +18.2).
+  - It loses on partitions: −16.9¢ (−28.6 to −5.2).
+- **BT-A** has not been checked with the same rule.
+- **The forward test prices at the live ask, so its cost is real.**
+
 ## E2. Linked events: "if A then B"
 
 **In plain English.** When the session says two events move together and A happens, B holds more often than other contracts of the same kind and price.

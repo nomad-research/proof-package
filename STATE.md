@@ -759,3 +759,8 @@ Each thesis subgraph is one basket; a basket is which positions, not sizing; lin
   - A3 fails with P4 added and stays a label.
   - The out-of-sample book returned +29.9% per dollar (money, last trade + 1¢). Its worst week was one interest-rates occasion, −$900.
   - Forward: A2 has 0 occasions resolved; W01 settles from 4 October.
+- **P5 (decision 21).** 30 cold, audited sessions on 180 fresh events; frozen before scoring.
+  - Registered: framework skill +20.8¢ (+12.8 to +27.0) and passed minus blocked +20.0¢ (+6.6 to +34.4). Both read edge shown.
+  - Found after scoring: 58% of A2's armed backtest positions (passes 1 to 5) were priced at empty-book midpoints, about 50¢, that nobody could trade. Trade prints near the lock show 91¢ to 100¢.
+  - On clean prices: A2 +4.2¢ skill (direction only) and +9.8¢ money; −16.9¢ on partitions. Framework out of sample: 8 positions, direction only.
+  - Framework replacing A2 in the paper book is held for Rob. Proposed: re-measure every backtest at real trade prices.
