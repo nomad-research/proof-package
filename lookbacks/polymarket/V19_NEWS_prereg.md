@@ -94,3 +94,31 @@ Three declared statistics, so the chance of at least one false positive is about
 - `v19_news.py` imports its query, filter and file functions, so there is one implementation. It checks that the fetch's leak pattern is the pipeline's own.
 - Nothing in §1 changes. The first attempt here was stopped before it saved anything.
 - Feasibility probes made before this registration returned a few headlines for test queries. None was kept, and no session saw any.
+
+## Addendum A2 (2026-10-02, before any headline was kept)
+
+**Fewer, larger requests.** GDELT throttled Rob's machine too, at one request every 5.5 seconds. GDELT's article search has no batch endpoint; its bulk routes are BigQuery (a paid Google Cloud account) and raw files of tens of GB. So the requests themselves are batched.
+
+**One request per distinct (term, lock date)** instead of one or more per question: 255 requests across both passes, against 330 to 1,000 before.
+- The request asks for the question's first term, with up to 250 headlines.
+- Questions sharing a term and a lock date share the request (the coin ladders, for instance).
+- A question's second term is requested only if its first leaves fewer than 5 headlines.
+
+**Each question's headlines are then picked locally:**
+- those containing all its terms, dropping the last term until at least 5 remain, down to the first term;
+- at most 25, newest first.
+- This is §1's rule applied to a wider fetch, rather than separate narrower searches.
+
+**Query terms keep names whole:**
+- runs of capitalised words, in title order, joined across connectors ("Strait of Hormuz", "Bab el-Mandeb Strait", "Augusto Cury", "Palo Alto Networks");
+- a name joined by "of" also gives its last word as a later term ("Malta", "Hormuz");
+- a title with no name asks for its longest words together ("jobs added").
+
+**Pace:** one request every 12 seconds. A 429 or "slow down" waits 60, 120, 240 seconds and so on.
+
+**Unchanged:**
+- the 7-day window, English only, seen before the lock;
+- the R6 and leak filters, at most 25 headlines, and the prompt;
+- the scoring and the declared statistics.
+
+**The output is `bt/news/<pass>_news.json`.** Any earlier partial file from the first version is not used.

@@ -59,7 +59,7 @@ def cmd_sessions(d):
         plain = T.PROMPT.format(n=len(evs), body="\n\n".join(T.block(i, ev) for i, ev in enumerate(evs, 1)))
         if plain != open(os.path.join(src, "sessions", f"{sid}.txt"), encoding="utf-8").read():
             raise SystemExit(f"{d}/{sid}: rebuilt prompt differs from the frozen pass")
-        body = "\n\n".join(block(i, ev, heads[str(ev["id"])]["headlines"]) for i, ev in enumerate(evs, 1))
+        body = "\n\n".join(block(i, ev, heads["events"][str(ev["id"])]["headlines"]) for i, ev in enumerate(evs, 1))
         text = T.PROMPT.replace(HEADER_COLD, HEADER_NEWS).format(n=len(evs), body=body)
         if K.leak_flags(text):
             raise SystemExit(f"{d}/{sid}: leak flags {K.leak_flags(text)}")
@@ -237,8 +237,8 @@ def cmd_score():
                "strict_window_from_1_june": {"E1_news": R.read([r for r in nE1 if r["lock"] >= 1780272000], "skill_side", rng),
                                              "E1_cold": R.read([r for r in cE1 if r["lock"] >= 1780272000], "skill_side", rng),
                                              "news_minus_cold_E1": diff([r for r in nE1 if r["lock"] >= 1780272000], [r for r in cE1 if r["lock"] >= 1780272000], "skill_side", rng)},
-               "headline_coverage": {d: {"events": len(h), "none_found": sum(1 for v in h.values() if not v["headlines"]),
-                                         "median_headlines": float(np.median([len(v["headlines"]) for v in h.values()]))} for d, h in heads.items()},
+               "headline_coverage": {d: {"events": len(h["events"]), "requests": len(h["requests"]), "none_found": sum(1 for v in h["events"].values() if not v["headlines"]),
+                                         "median_headlines": float(np.median([len(v["headlines"]) for v in h["events"].values()]))} for d, h in heads.items()},
                "recognised": {"news": sum(1 for d in PASSES for a in readings(d, True).values() if a["recognised"]),
                               "cold": sum(1 for d in PASSES for a in readings(d, False).values() if a["recognised"])}}}
     A.jdump(out, os.path.join(HERE, "v19", "news_result.json")); print(json.dumps(out, indent=1))
