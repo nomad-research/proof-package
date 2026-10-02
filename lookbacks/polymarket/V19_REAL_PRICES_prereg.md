@@ -35,7 +35,10 @@ Rob, 2026-10-02: "yeah go ahead with both" (decision 22, step 1).
 
 ## 2. The declared statistics
 
-All three are at 95%, with 4,000 resamples by occasion (decision 16; `v19_a2.assign_occasions`, made unique per pass).
+All three are at 95%, with 4,000 resamples by occasion (decision 16; `v19_a2.assign_occasions`).
+- Occasions are assigned across each statistic's pooled passes together, so one real-world occasion drawn in two passes counts once.
+- Events stay distinct, since passes never share an event.
+- (Amended before any print was pulled. The first draft said "made unique per pass", which would have counted a shared occasion twice.)
 
 | | Statistic | Positions | Score |
 |---|---|---|---|
