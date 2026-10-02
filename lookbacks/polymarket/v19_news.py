@@ -1,13 +1,13 @@
 """The reader with news (V19_NEWS_prereg.md): BT-T2 passes 4 and 5 re-read with headlines from the 7 days before each lock.
 
-    python lookbacks/polymarket/v19_news.py fetch t2_pass4         # network (GDELT, 5.5 s a request): bt/news/t2_pass4_headlines.json
+    python lookbacks/polymarket/v19_news_fetch.py t2_pass5 t2_pass4   # network (GDELT, 5.5 s a request), on a machine with its own address
     python lookbacks/polymarket/v19_news.py sessions t2_pass4      # bt/news/t2_pass4_N/ (each prompt first rebuilt and checked against the frozen pass)
     python lookbacks/polymarket/v19_news.py publish t2_pass4 S01
     python lookbacks/polymarket/v19_news.py ingest t2_pass4 S01 <agent_id>
     python lookbacks/polymarket/v19_news.py freeze t2_pass4
     python lookbacks/polymarket/v19_news.py score                  # no network: v19/news_result.json
 """
-import collections, datetime as dt, json, math, os, re, shutil, sys, time, urllib.error, urllib.parse, urllib.request
+import collections, datetime as dt, json, math, os, shutil, sys
 HERE = os.path.dirname(os.path.abspath(__file__)); sys.path.insert(0, HERE)
 import numpy as np
 import bt_audit as A
@@ -17,101 +17,16 @@ import v1_run as V1
 import v19_a2 as V
 import v19_real_prices as R
 import v19_design_sim as DS
+import v19_news_fetch as NF
+from v19_news_fetch import NEWS, hpath, terms_of
+assert NF.LEAK.pattern == K.LEAK.pattern, "the fetch's leak check must be the pipeline's"
 
-PASSES = ("t2_pass4", "t2_pass5"); WINDOW_D, KEEP, MIN_HITS, MAX_TERMS, SPACING = 7, 25, 5, 3, 5.5
-NEWS = os.path.join(HERE, "bt", "news"); SEED = 20261016
-STOP = set("""will what who which when where how why whose the a an and or of in on at by for to from with without into over under after before
-during between above below up down than vs versus is are be been was were do does did has have had this that these those it its next
-first second third last highest lowest most least more less any each every other others another price prices close closes closing
-end ends ending finish finishes reach reaches hit hits dip dips win wins winner winners election elections vote votes seats seat party
-how many much number share percent percentage range bucket buckets market markets yes no announce announced announcement say said says
-mention mentions january february march april may june july august september october november december jan feb mar apr jun jul aug sep
-sept oct nov dec monday tuesday wednesday thursday friday saturday sunday week weekly month monthly year yearly today tomorrow q1 q2 q3 q4
-day days daily presidential parliamentary legislative congressional gubernatorial mayoral municipal regional general national
-assembly senate governor round runoff primary primaries place""".split())
-R6 = re.compile(r"polymarket|kalshi|prediction market|betting|\bbets?\b|\bodds\b|sportsbook|bookmaker|manifold", re.I)
-UA = {"User-Agent": "NomadResearch/0.1 (backtest; headlines before a date only)"}
+PASSES = ("t2_pass4", "t2_pass5"); SEED = 20261016
 HEADER_COLD = ("Use only what you already know. Do not search for or look up anything: reading this file is the only tool call you may make. "
                "There are no prices in this file and you should not try to estimate what any market thinks; give your own view.")
 HEADER_NEWS = ("Use what you already know and the news headlines listed under each question, all published in the 7 days before its as-of date. "
                "Do not search for or look up anything else: reading this file is the only tool call you may make. "
                "There are no prices from any prediction market in this file and you should not try to estimate what any market thinks; give your own view.")
-
-
-def terms_of(title):
-    """Up to 3 query terms from the title: capitalised words first, else the longest non-generic words (prereg §1)."""
-    words = re.findall(r"[^\W\d_][\w&'\.-]*", title or "")
-    clean = [w.strip(".'-") for w in words]
-    caps = [w for i, w in enumerate(clean) if w[:1].isupper() and w.lower() not in STOP and len(w) >= 3]
-    rest = sorted({w for w in clean if w.lower() not in STOP and len(w) >= 4 and w not in caps}, key=lambda w: (-len(w), w))
-    seen, out = set(), []
-    for w in caps + rest:
-        if w.lower() not in seen:
-            seen.add(w.lower()); out.append(w)
-    return out[:MAX_TERMS]
-
-
-def gdelt(terms, lock):
-    fmt = lambda t: dt.datetime.fromtimestamp(t, dt.timezone.utc).strftime("%Y%m%d%H%M%S")
-    q = " ".join(f'"{t}"' if " " in t else t for t in terms) + " sourcelang:english"
-    url = ("https://api.gdeltproject.org/api/v2/doc/doc?" + urllib.parse.urlencode(
-        {"query": q, "mode": "ArtList", "maxrecords": 75, "format": "json", "sort": "DateDesc",
-         "startdatetime": fmt(lock - WINDOW_D * 86400), "enddatetime": fmt(lock)}))
-    for i in range(6):
-        time.sleep(SPACING)
-        try:
-            raw = urllib.request.urlopen(urllib.request.Request(url, headers=UA), timeout=60).read().decode("utf-8", "replace")
-        except urllib.error.HTTPError as e:
-            if e.code == 429:
-                time.sleep(15 * (i + 1)); continue
-            return {"query": q, "error": f"HTTP {e.code}", "articles": []}
-        except Exception as e:
-            time.sleep(10 * (i + 1)); err = repr(e)[:120]; continue
-        if not raw.strip().startswith("{"):                  # GDELT answers a bad query with a plain-text message
-            if "limit requests" in raw:
-                time.sleep(15 * (i + 1)); continue
-            return {"query": q, "error": raw.strip()[:160], "articles": []}
-        try:
-            return {"query": q, "articles": json.loads(raw).get("articles", [])}
-        except json.JSONDecodeError:
-            return {"query": q, "error": "bad json", "articles": []}
-    return {"query": q, "error": "gave up after retries", "articles": []}
-
-
-def keep(arts, lock):
-    out, seen = [], set()
-    for a in arts:
-        t = " ".join((a.get("title") or "").split())
-        try:
-            seen_at = dt.datetime.strptime(a.get("seendate", ""), "%Y%m%dT%H%M%SZ").replace(tzinfo=dt.timezone.utc).timestamp()
-        except ValueError:
-            continue
-        if not t or seen_at >= lock or (a.get("language") or "English") != "English" or R6.search(t) or K.leak_flags(t) or t.lower() in seen:
-            continue
-        seen.add(t.lower()); out.append({"seen": dt.datetime.fromtimestamp(seen_at, dt.timezone.utc).strftime("%Y-%m-%d"), "source": a.get("domain"), "title": t, "ts": seen_at})
-    return sorted(out, key=lambda x: -x["ts"])[:KEEP]
-
-
-def hpath(d):
-    return os.path.join(NEWS, f"{d}_headlines.json")
-
-
-def cmd_fetch(d):
-    os.makedirs(NEWS, exist_ok=True); fr = A.jload(os.path.join(HERE, "bt", d, "frame.json"))["events"]
-    got = A.jload(hpath(d)) if os.path.exists(hpath(d)) else {}
-    for i, ev in enumerate(fr):
-        if str(ev["id"]) in got:
-            continue
-        terms = terms_of(ev["title"]); tries = []
-        while terms:
-            r = gdelt(terms, ev["lock"]); hs = keep(r["articles"], ev["lock"]); tries.append({"query": r["query"], "error": r.get("error"), "returned": len(r["articles"]), "kept": len(hs)})
-            if len(hs) >= MIN_HITS or len(terms) == 1:
-                break
-            terms = terms[:-1]
-        got[str(ev["id"])] = {"title": ev["title"], "lock": ev["lock"], "tries": tries, "headlines": hs if tries else []}
-        if (i + 1) % 10 == 0:
-            A.jdump(got, hpath(d)); print(f"{d}: {i + 1}/{len(fr)}", flush=True)
-    A.jdump(got, hpath(d)); print(f"{d}: done, {len(got)} events", flush=True)
 
 
 def ndir(d):
@@ -331,5 +246,5 @@ def cmd_score():
 
 if __name__ == "__main__":
     a = sys.argv[1:]
-    {"fetch": lambda: cmd_fetch(a[1]), "sessions": lambda: cmd_sessions(a[1]), "publish": lambda: cmd_publish(a[1], a[2]),
+    {"sessions": lambda: cmd_sessions(a[1]), "publish": lambda: cmd_publish(a[1], a[2]),
      "ingest": lambda: cmd_ingest(a[1], a[2], a[3]), "freeze": lambda: cmd_freeze(a[1]), "score": lambda: cmd_score()}[a[0]]()

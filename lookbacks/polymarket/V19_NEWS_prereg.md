@@ -85,3 +85,12 @@ Three declared statistics, so the chance of at least one false positive is about
 
 - About 55 sessions at roughly 70,000 to 100,000 tokens each.
 - About 330 to 1,000 GDELT requests, at 5.5 seconds each.
+
+## Addendum A1 (2026-10-02, before any headline was kept)
+
+**The fetch runs on Rob's machine.**
+- GDELT allows one request every 5 seconds per address. This container shares its address, and GDELT refused most requests even 20 seconds apart.
+- The fetch is moved to `v19_news_fetch.py`: standard library only, and it reads each frame's titles and lock times and nothing else. Rob runs it on his own machine.
+- `v19_news.py` imports its query, filter and file functions, so there is one implementation. It checks that the fetch's leak pattern is the pipeline's own.
+- Nothing in §1 changes. The first attempt here was stopped before it saved anything.
+- Feasibility probes made before this registration returned a few headlines for test queries. None was kept, and no session saw any.
