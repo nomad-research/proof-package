@@ -1,0 +1,436 @@
+You will be shown 6 questions from a prediction market. Each has one or more contracts that resolve YES or NO under the rules shown. Each question gives the date your view is "as of": answer as you would on that date.
+
+Use what you already know and the news headlines listed under each question, all published in the 7 days before its as-of date. Do not search for or look up anything else: reading this file is the only tool call you may make. There are no prices from any prediction market in this file and you should not try to estimate what any market thinks; give your own view.
+
+Each question says what to write for it. Whole percents run from 1 to 99. Levels are plain numbers in the units the contracts use (for example 95000 for $95,000, 3.25 for 3.25%). Dates are YYYY-MM-DD.
+
+For each question also say whether you recognise how it actually turned out ("recognised": true only if you believe you remember the real outcome; otherwise false).
+
+Reply with one JSON object and nothing else:
+{"events": [{"label": "E1", "recognised": false, ...the fields that question asks for...}]}
+
+=== E1 (as of 2026-08-26): How many ships transit the Strait of Hormuz week of August 24?
+Rules:
+This market will resolve according to the total number of transit calls that IMF Portwatch reports for the Strait of Hormuz for all days from August 24, 2026, through August 30, 2026, inclusive.
+
+Transit calls include container, dry bulk, roll-on/roll-off, general cargo, and tanker ships. Ships not reported by IMF Portwatch will not be considered.
+
+This market will resolve as soon as all relevant data has been published. If the relevant data is not published within 14 calendar days of the specified date, this market will resolve based on the most recent data published up to that point.
+
+In case of obvious data integrity issues (i.e., erroneous data), the market may remain open until the end of the third calendar day (ET) after the date on which such data is first released to allow for corrections. Data integrity issues refer only to clerical or other similar errors in the underlying data, and do not include cases where IMF Portwatch differs from alternative sources.
+
+Only revisions to previously published data points made before all relevant data has been published will be considered.
+
+The resolution source for this market will be IMF Portwatch, specifically the transit calls data published for the Strait of Hormuz at https://portwatch.imf.org/pages/cb5856222a5b4105adc6ee7e880a1730, both in the chart and through downloadable files.
+Contracts:
+  E1.C1: Will fewer than 25 ships transit the Strait of Hormuz between August 24-August 30?
+  E1.C2: Will 25-49 ships transit the Strait of Hormuz between August 24-August 30?
+  E1.C3: Will 50-74 ships transit the Strait of Hormuz between August 24-August 30?
+  E1.C4: Will 75-99 ships transit the Strait of Hormuz between August 24-August 30?
+  E1.C5: Will 100 or more ships transit the Strait of Hormuz between August 24-August 30?
+News before E1's as-of date (date seen, source, headline):
+  - 2026-08-26 | www.theguardian.com | Iran faces strait of Hormuz paradox as strategic value of chokehold erodes
+  - 2026-08-26 | www.csis.org | Pakistan’s LNG Imports Under Pressure: Impacts of the Strait of Hormuz’s Closure and Pakistan’s Diplomatic Response
+  - 2026-08-26 | www.reuters.com | Gulf ship traffic via Strait of Hormuz hovers below 10-day average, data shows
+  - 2026-08-26 | thehill.com | Iran, Oman planning temporary corridor through Strait of Hormuz
+  - 2026-08-26 | www.reuters.com | Iran and Oman still working on Strait of Hormuz accord, says senior Iranian source
+  - 2026-08-26 | www.washingtontimes.com | Iran says the Strait of Hormuz stays closed until the U.S. meets its terms
+  - 2026-08-26 | www.bloomberg.com | Iran, Oman Agree to Share Strait of Hormuz Revenue
+  - 2026-08-26 | www.jpost.com | Gaps remain between Iran, Oman on Strait of Hormuz deal
+  - 2026-08-26 | 8am.media | Iran and Oman Reach Agreement Over Strait of Hormuz
+  - 2026-08-26 | energynow.com | Oil Prices Slide on Growing Hopes for Strait of Hormuz Reopening
+  - 2026-08-26 | www.cbsnews.com | Iran and Oman near a temporary deal on the Strait of Hormuz
+  - 2026-08-26 | www.africanews.com | Iran, Oman agree temporary Strait of Hormuz corridor
+  - 2026-08-26 | www.aa.com.tr | Top diplomats of Japan, Kuwait discuss reopening Strait of Hormuz amid US-Iran tensions
+  - 2026-08-26 | 8am.media | Iranian Official: Understanding with Oman Does Not Mean the Strait of Hormuz Is Open
+  - 2026-08-26 | www.bloomberg.com | Watch Strait of Hormuz Deal? Iran, Oman Discuss 'Interim' Reopening of Vital Shipping Corridor
+  - 2026-08-26 | www.ndtv.com | Iran And Oman Agree To Share Revenues From Strait Of Hormuz
+  - 2026-08-26 | nypost.com | Iran, Oman to share revenue from Strait of Hormuz deal, IRGC says
+  - 2026-08-26 | 8am.media | Iran and Oman Discuss Establishing Temporary Shipping Route in Strait of Hormuz
+  - 2026-08-25 | www.aljazeera.com | Iran, Oman discuss temporary shipping lane through Strait of Hormuz
+  - 2026-08-25 | apnews.com | Iran and Oman hold talks on managing the Strait of Hormuz and other news from around the Middle East
+  - 2026-08-25 | www.bloomberg.com | Watch Oil Analysis: How the World and Energy Markets Adapted to the Strait of Hormuz Crisis
+  - 2026-08-25 | www.france24.com | Trump says Strait of Hormuz demined, warns of ‘zero tolerance’ for new mines
+  - 2026-08-25 | www.axios.com | Trump: Mines fully removed from Strait of Hormuz
+  - 2026-08-25 | iranwire.com | Tanker Attack and Traffic Collapse Escalate Strait of Hormuz Crisis
+  - 2026-08-25 | www.reuters.com | Trump says Strait of Hormuz has been demined, warns Iran not to plant more
+What to write for E1:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E2 (as of 2026-05-27): NYC Mayor # posts May 26 - June 2, 2026?
+Rules:
+This market will resolve according to the number of times NYC Mayor Zohran Mamdani (@NYCMayor), posts on X between May 26, 12:00 PM ET and June 2, 2026, 12:00 PM ET.
+
+For the purposes of this market, only main feed posts, quote posts and reposts will count.
+
+Replies will NOT count towards the total - however, replies which are recorded on the main feed will be counted by the tracker.
+
+Deleted posts will count as long as they remain available long enough to be captured by the tracker (~5 minutes).
+
+The resolution source for this market is the "Post Counter" figure for posts found at https://xtracker.polymarket.com. Individual posts can be viewed by clicking "Export Data". If the tracker does not update correctly in accordance with the rules, X itself may be used as a secondary resolution source.
+Contracts:
+  E2.C1: Will NYC Mayor post 0-19 posts from May 26 to June 2, 2026?
+  E2.C2: Will NYC Mayor post 20-39 posts from May 26 to June 2, 2026?
+  E2.C3: Will NYC Mayor post 40-59 posts from May 26 to June 2, 2026?
+  E2.C4: Will NYC Mayor post 60-79 posts from May 26 to June 2, 2026?
+  E2.C5: Will NYC Mayor post 80-99 posts from May 26 to June 2, 2026?
+  E2.C6: Will NYC Mayor post 100-119 posts from May 26 to June 2, 2026?
+  E2.C7: Will NYC Mayor post 120-139 posts from May 26 to June 2, 2026?
+  E2.C8: Will NYC Mayor post 140-159 posts from May 26 to June 2, 2026?
+  E2.C9: Will NYC Mayor post 160-179 posts from May 26 to June 2, 2026?
+  E2.C10: Will NYC Mayor post 180-199 posts from May 26 to June 2, 2026?
+  E2.C11: Will NYC Mayor post 200+ posts from May 26 to June 2, 2026?
+News before E2's as-of date (date seen, source, headline):
+  - 2026-05-27 | abc7ny.com | NYC Mayor Zohran Mamdani joins Bronx celebration in prayer for Eid Al-Adha
+  - 2026-05-27 | www.cbsnews.com | NYC Mayor Mamdani launches website to connect kids with free summer programs to curb violence
+  - 2026-05-27 | www.planetizen.com | NYC mayor announces plan to repair, restore and build new public housing
+  - 2026-05-27 | www.jpost.com | NYC Mayor Zohran Mamdani to skip Israel Parade, first absence in six decades
+  - 2026-05-27 | www.foxbusiness.com | NYC Mayor Mamdani unveils public housing plan, faces criticism
+  - 2026-05-27 | pix11.com | NYC Mayor Mamdani joins community for Eid al‑Adha prayers
+  - 2026-05-26 | abc7ny.com | NYC Mayor Zohran Mamdani affordable housing plan promises to build 200,000 more homes, overhaul NYCHA
+  - 2026-05-26 | www.cbsnews.com | NYC Mayor Zohran Mamdani announces plan for 400,000 affordable housing units
+  - 2026-05-26 | www.cbsnews.com | Protesters accuse NYC Mayor Zohran Mamdani of failing to protect Jewish New Yorkers
+  - 2026-05-26 | themortgagepoint.com | NYC Mayor Unveils New Affordable Housing Plan for City
+  - 2026-05-26 | sports.yahoo.com | NYC Mayor Zohran Mamdani roasts Cavaliers after Knicks sweep
+  - 2026-05-26 | www.cbsnews.com | NYC Mayor Mamdani announces "block by block" affordable housing initiative
+  - 2026-05-26 | www.yahoo.com | NYC Mayor Zohran Mamdani Sets New Precedent by Launching Twitch Series
+  - 2026-05-26 | sports.yahoo.com | NYC mayor Zohran Mamdani takes shot at Cavaliers after Knicks complete Eastern Conference Final sweep
+  - 2026-05-26 | nypost.com | NYC Mayor Zohran Mamdani takes jab at Cavaliers after Knicks’ sweep
+  - 2026-05-26 | www.nj.com | NYC Mayor Mamdani already talking trash after Knicks reach NBA Finals
+  - 2026-05-24 | sports.yahoo.com | NYC Mayor Zohran Mamdani Flooded With Requests From Knicks Fans After Cops Cancel Playoff Plans
+  - 2026-05-24 | www.yahoo.com | NYC Mayor’s Office Won’t Release Public Records Related to Taylor Swift’s Wedding Until November
+  - 2026-05-22 | www.foxnews.com | NYC Mayor Zohran Mamdani releases audit accusing federal immigration agents of misleading tactics
+  - 2026-05-22 | sports.yahoo.com | NYC Mayor Zohran Mamdani spotted in MSG nosebleeds after paying $700 for Knicks Game 2 ticket
+  - 2026-05-22 | www.foxnews.com | NYC mayor faces backlash over city-owned grocery stores plan
+  - 2026-05-22 | sports.yahoo.com | NYC Mayor Zohran Mamdani Makes World Cup Announcement After Donald Trump’s Comment
+  - 2026-05-22 | timesofindia.indiatimes.com | 'Ignored for too long': NYC Mayor Zohran Mamdani’s Twitch debut sparks buzz as mayor targets Gen Z audien
+  - 2026-05-21 | www.nyc.gov | Mayor Mamdani and Chancellor Samuels Announce Expansion of NYC Solves and NYC Reads - NYC Mayor's Office
+  - 2026-05-21 | www.nbcnews.com | NYC Mayor Zohran Mamdani is launching a chat show on Twitch
+What to write for E2:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E3 (as of 2026-05-20): What will Amazon.com, Inc. (AMZN) hit Week of May 18 2026?
+Rules:
+What will Amazon.com, Inc. (AMZN) hit Week of May 18 2026?
+Contracts:
+  E3.C1: Will Amazon.com, Inc. (AMZN) hit (HIGH) $288 Week of May 18 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of May 18 2026, any 1-minute candle for Amazon.com, Inc. (AMZN) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Amazon.com, Inc. (AMZN) "High" prices available at https://pythdata.app/explore/Equity.US.AMZN%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.AMZN%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E3.C2: Will Amazon.com, Inc. (AMZN) hit (HIGH) $284 Week of May 18 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of May 18 2026, any 1-minute candle for Amazon.com, Inc. (AMZN) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Amazon.com, Inc. (AMZN) "High" prices available at https://pythdata.app/explore/Equity.US.AMZN%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.AMZN%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E3.C3: Will Amazon.com, Inc. (AMZN) hit (HIGH) $280 Week of May 18 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of May 18 2026, any 1-minute candle for Amazon.com, Inc. (AMZN) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Amazon.com, Inc. (AMZN) "High" prices available at https://pythdata.app/explore/Equity.US.AMZN%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.AMZN%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E3.C4: Will Amazon.com, Inc. (AMZN) hit (HIGH) $276 Week of May 18 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of May 18 2026, any 1-minute candle for Amazon.com, Inc. (AMZN) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Amazon.com, Inc. (AMZN) "High" prices available at https://pythdata.app/explore/Equity.US.AMZN%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.AMZN%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E3.C5: Will Amazon.com, Inc. (AMZN) hit (HIGH) $272 Week of May 18 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of May 18 2026, any 1-minute candle for Amazon.com, Inc. (AMZN) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Amazon.com, Inc. (AMZN) "High" prices available at https://pythdata.app/explore/Equity.US.AMZN%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.AMZN%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E3.C6: Will Amazon.com, Inc. (AMZN) hit (LOW) $252 Week of May 18 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of May 18 2026, any 1-minute candle for Amazon.com, Inc. (AMZN) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Amazon.com, Inc. (AMZN) "Low" prices available at https://pythdata.app/explore/Equity.US.AMZN%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.AMZN%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E3.C7: Will Amazon.com, Inc. (AMZN) hit (LOW) $248 Week of May 18 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of May 18 2026, any 1-minute candle for Amazon.com, Inc. (AMZN) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Amazon.com, Inc. (AMZN) "Low" prices available at https://pythdata.app/explore/Equity.US.AMZN%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.AMZN%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E3.C8: Will Amazon.com, Inc. (AMZN) hit (LOW) $244 Week of May 18 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of May 18 2026, any 1-minute candle for Amazon.com, Inc. (AMZN) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Amazon.com, Inc. (AMZN) "Low" prices available at https://pythdata.app/explore/Equity.US.AMZN%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.AMZN%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E3.C9: Will Amazon.com, Inc. (AMZN) hit (LOW) $240 Week of May 18 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of May 18 2026, any 1-minute candle for Amazon.com, Inc. (AMZN) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Amazon.com, Inc. (AMZN) "Low" prices available at https://pythdata.app/explore/Equity.US.AMZN%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.AMZN%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E3.C10: Will Amazon.com, Inc. (AMZN) hit (LOW) $236 Week of May 18 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of May 18 2026, any 1-minute candle for Amazon.com, Inc. (AMZN) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Amazon.com, Inc. (AMZN) "Low" prices available at https://pythdata.app/explore/Equity.US.AMZN%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.AMZN%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+News before E3's as-of date (date seen, source, headline):
+  - 2026-05-19 | www.tradingkey.com | Amazon.com Inc Stock (AMZN) Moved Down by 3.03% on May 19: What Signal Does It Send?
+  - 2026-05-18 | finance.yahoo.com | Amazon.com Inc. (AMZN): Mark Cuban Remains Bullish in AI Era
+  - 2026-05-18 | www.marketbeat.com | Amazon.com, Inc. $AMZN Stock Holdings Lessened by Vanguard Group Inc.
+  - 2026-05-15 | finance.yahoo.com | Here is What to Know Beyond Why Amazon.com, Inc. (AMZN) is a Trending Stock
+  - 2026-05-13 | finance.yahoo.com | Amazon.com Inc. (AMZN): Chris Rokos Trims Exposure
+What to write for E3:
+  Write "high": for each chance 10, 25, 50, 75 and 90, the level you give that chance of being reached (at or above) within the period. The 10 level is the highest.
+  Write "low": for each chance 10, 25, 50, 75 and 90, the level you give that chance of being reached (at or below) within the period. The 10 level is the lowest.
+
+=== E4 (as of 2026-04-29): Donald Trump # Truth Social posts April 28 - May 5, 2026?
+Rules:
+This market will resolve according to the number of times Donald Trump (@realDonaldTrump), posts on Truth Social between April 28, 12:00 PM ET and May 5, 2026, 12:00 PM ET.
+
+For the purposes of this market, only main feed posts, quote posts and reposts will count.
+
+Replies will NOT count towards the total - however, replies which are recorded on the main feed will be counted by the tracker.
+
+Deleted posts will count as long as they remain available long enough to be captured by the tracker (~5 minutes).
+
+The resolution source for this market is the "Post Counter" figure for posts found at https://xtracker.polymarket.com. Individual posts can be viewed by clicking "Export Data". If the tracker does not update correctly in accordance with the rules, Truth Social itself may be used as a secondary resolution source.
+Contracts:
+  E4.C1: Will Donald Trump post 0-19 Truth Social posts from April 28 to May 5, 2026?
+  E4.C2: Will Donald Trump post 20-39 Truth Social posts from April 28 to May 5, 2026?
+  E4.C3: Will Donald Trump post 40-59 Truth Social posts from April 28 to May 5, 2026?
+  E4.C4: Will Donald Trump post 60-79 Truth Social posts from April 28 to May 5, 2026?
+  E4.C5: Will Donald Trump post 80-99 Truth Social posts from April 28 to May 5, 2026?
+  E4.C6: Will Donald Trump post 100-119 Truth Social posts from April 28 to May 5, 2026?
+  E4.C7: Will Donald Trump post 120-139 Truth Social posts from April 28 to May 5, 2026?
+  E4.C8: Will Donald Trump post 140-159 Truth Social posts from April 28 to May 5, 2026?
+  E4.C9: Will Donald Trump post 160-179 Truth Social posts from April 28 to May 5, 2026?
+  E4.C10: Will Donald Trump post 180-199 Truth Social posts from April 28 to May 5, 2026?
+  E4.C11: Will Donald Trump post 200+ Truth Social posts from April 28 to May 5, 2026?
+News before E4's as-of date (date seen, source, headline):
+  - 2026-04-29 | www.nytimes.com | Opinion | The Loneliness of Donald Trump
+  - 2026-04-29 | jacobin.com | The War on Terror Enabled Donald Trump’s Authoritarianism
+  - 2026-04-28 | www.gov.ca.gov | Happy California Ocean Day to everyone except Donald Trump and his dirty oil enablers
+  - 2026-04-28 | yougov.com | The share of Americans who strongly approve of Donald Trump's job handling hits a new low for his second term
+  - 2026-04-28 | cssh.northeastern.edu | Donald Trump Faces Becoming the President He Ridiculed: Jimmy Carter
+  - 2026-04-28 | yougov.com | Gerrymandering, political parties, and Donald Trump's weakening support: April 24 - 27, 2026 Economist/YouGov Poll
+  - 2026-04-28 | abc7chicago.com | Added security for lawmakers after Cole Allen's alleged Donald Trump assassination attempt at White House correspondents' dinner
+  - 2026-04-27 | nadler.house.gov | Nadler Introduces Bill To Ban Donald Trump’s Name From Federal Buildings
+  - 2026-04-27 | www.newyorker.com | Donald Trump’s Pardon Economy
+  - 2026-04-27 | www.newyorker.com | The Lessons from Jerome Powell’s Defiance of Donald Trump
+  - 2026-04-27 | sports.yahoo.com | Steve Kerr regrets calling President Donald Trump a 'buffoon,' admits comments on Hong Kong were 'weak'
+  - 2026-04-27 | www.courant.com | Opinion: Another vote for John Larson is a gift to Donald Trump
+  - 2026-04-27 | www.newyorker.com | Donald Trump’s Lose-Lose Negotiations with Iran
+  - 2026-04-27 | www.economist.com | Donald Trump is crushing America’s farmers—yet they back him
+  - 2026-04-26 | www.wsj.com | Opinion | Donald Trump, Foreign-Policy Traditionalist
+  - 2026-04-26 | www.newyorker.com | Donald Trump’s Spring Cleaning
+  - 2026-04-26 | www.cbsnews.com | President Donald Trump: The 2026 60 Minutes Interview
+  - 2026-04-25 | www.wsj.com | Why Tucker Carlson Is Turning on Donald Trump: ‘I Feel Betrayed’
+  - 2026-04-24 | www.wsj.com | Opinion | Scott Bessent: Donald Trump’s Economic Engineer
+  - 2026-04-24 | www.bbc.com | Donald Trump says he speaks 'for the UK more than Prince Harry'
+  - 2026-04-24 | www.bbc.com | Donald Trump: India condemns remarks shared on Truth Social calling it a 'hellhole'
+  - 2026-04-24 | theconversation.com | Why Italy’s Giorgia Meloni broke with Donald Trump
+  - 2026-04-24 | www.vox.com | Nobody is laughing at Donald Trump anymore
+  - 2026-04-23 | jeffries.house.gov | LEADER JEFFRIES: “DONALD TRUMP AND REPUBLICANS HAVE FAILED ON THE ECONOMY”
+  - 2026-04-22 | sports.yahoo.com | Why Donald Trump was once told he’d ‘never be allowed to buy an NFL franchise’
+What to write for E4:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E5 (as of 2026-07-08): Solana price on July 13?
+Rules:
+This market will resolve according to the final "Close" price of the Binance 1 minute candle for SOL/USDT 12:00 in the ET timezone (noon) on the date specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the SOL/USDT "Close" prices currently available at https://www.binance.com/en/trade/SOL_USDT with "1m" and "Candles" selected on the top bar.
+
+If the reported value falls exactly between two brackets, then this market will resolve to the higher range bracket.
+
+Please note that this market is about the price according to Binance SOL/USDT, not according to other exchanges or trading pairs.
+Contracts:
+  E5.C1: Will the price of Solana be less than $40 on July 13?
+  E5.C2: Will the price of Solana be between $40 and $50 on July 13?
+  E5.C3: Will the price of Solana be between $50 and $60 on July 13?
+  E5.C4: Will the price of Solana be between $60 and $70 on July 13?
+  E5.C5: Will the price of Solana be between $70 and $80 on July 13?
+  E5.C6: Will the price of Solana be between $80 and $90 on July 13?
+  E5.C7: Will the price of Solana be between $90 and $100 on July 13?
+  E5.C8: Will the price of Solana be between $100 and $110 on July 13?
+  E5.C9: Will the price of Solana be between $110 and $120 on July 13?
+  E5.C10: Will the price of Solana be between $120 and $130 on July 13?
+  E5.C11: Will the price of Solana be greater than $130 on July 13?
+News before E5's as-of date (date seen, source, headline):
+  - 2026-07-08 | fox5sandiego.com | Compound Lifting opens new location in Solana Beach
+  - 2026-07-08 | www.alvarezandmarsal.com | Alvarez & Marsal Accepts Its First Stablecoin Payment on Solana for Professional Services
+  - 2026-07-08 | finance.yahoo.com | Can Solana (SOL) Outpace XRP (Ripple) in Crypto Rankings?
+  - 2026-07-08 | www.fool.com | Perpetual Futures Are Coming to a Popular Solana Crypto Wallet. That's Why I'm Considering Buying Solana Right Now.
+  - 2026-07-08 | www.marketwatch.com | Large cryptocurrencies drop on Solana, Cardano decreases
+  - 2026-07-08 | 99bitcoins.com | Pump.Fun Dumps SOL USD: Can Solana Price Hold $75?
+  - 2026-07-08 | www.tradingview.com | Bitwise Solana ETF Filing Keeps SOL In The Institutional Product Queue
+  - 2026-07-08 | www.tradingview.com | DFDV: Solana volumes surged, costs fell, and new frameworks launched amid strategic refocusing
+  - 2026-07-07 | beincrypto.com | Solana TVL Just Hit a 5-Week High: Should Traders Pay Attention?
+  - 2026-07-07 | www.tradingview.com | Stripe’s Solana Stablecoin Push Brings Another Real Payments Use Case Into View
+  - 2026-07-07 | cryptoslate.com | Solana’s $8.7B RWA surge shows tokenized assets are finally starting to move
+  - 2026-07-07 | 99bitcoins.com | Ansem Solana Price Prediction: Can SOL Hit $150?
+  - 2026-07-07 | ambcrypto.com | Solana activity hits 1 billion milestone – Is a SOL price surge next?
+  - 2026-07-07 | www.tradingview.com | 21Shares Solana ETF Plans FTSE Index Licensing as New Benchmark Provider
+  - 2026-07-07 | cryptoslate.com | ANSEM soars 299% and brings Solana’s memecoin trenches back to life - but do we need it now?
+  - 2026-07-07 | www.tradingkey.com | Solana (SOLUSD) Suddenly Goes down 3.04% on Jul 8: What You Need to Watch
+  - 2026-07-07 | coinmarketcap.com | Solana Drops 4.4% Amid Altcoin Leverage Flush, Resistance
+  - 2026-07-07 | ambcrypto.com | Why 2026 could redefine Ethereum, Solana, Base and Avalanche
+  - 2026-07-06 | finance.yahoo.com | Solana Meme Coin Bonk Treasury Drained of $20 Million in 'Malicious' Governance Attack
+  - 2026-07-06 | yellow.com | Solana Sets $5.77B Tokenized Asset Record As Raydium Leads Q2 Surge
+  - 2026-07-06 | www.tradingview.com | VanEck Solana ETF Filing Pushes Altcoin Fund Race Beyond Bitcoin And Ethereum
+  - 2026-07-06 | coingape.com | SOL Loses 70%, but History Signals a July Rally for Solana Price
+  - 2026-07-06 | www.tradingview.com | 21Shares Solana ETF Filing Turns SOL Into A Crowded Institutional Race
+  - 2026-07-06 | crypto.news | Solana price remains on recovery path as on-chain activity reaches new high
+  - 2026-07-06 | cryptonews.com | Solana Q2 2026: $5.77B Tokenized Asset Volume Record
+What to write for E5:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E6 (as of 2026-05-06): Ethereum price on May 9?
+Rules:
+This market will resolve according to the final "Close" price of the Binance 1 minute candle for ETH/USDT 12:00 in the ET timezone (noon) on the date specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the ETH/USDT "Close" prices currently available at https://www.binance.com/en/trade/ETH_USDT with "1m" and "Candles" selected on the top bar.
+
+If the reported value falls exactly between two brackets, then this market will resolve to the higher range bracket.
+
+Please note that this market is about the price according to Binance ETH/USDT, not according to other exchanges or trading pairs.
+Contracts:
+  E6.C1: Will the price of Ethereum be less than $1,900 on May 9?
+  E6.C2: Will the price of Ethereum be between $1,900 and $2,000 on May 9?
+  E6.C3: Will the price of Ethereum be between $2,000 and $2,100 on May 9?
+  E6.C4: Will the price of Ethereum be between $2,100 and $2,200 on May 9?
+  E6.C5: Will the price of Ethereum be between $2,200 and $2,300 on May 9?
+  E6.C6: Will the price of Ethereum be between $2,300 and $2,400 on May 9?
+  E6.C7: Will the price of Ethereum be between $2,400 and $2,500 on May 9?
+  E6.C8: Will the price of Ethereum be between $2,500 and $2,600 on May 9?
+  E6.C9: Will the price of Ethereum be between $2,600 and $2,700 on May 9?
+  E6.C10: Will the price of Ethereum be between $2,700 and $2,800 on May 9?
+  E6.C11: Will the price of Ethereum be greater than $2,800 on May 9?
+News before E6's as-of date (date seen, source, headline):
+  - 2026-05-06 | fortune.com | Current price of Ethereum for May 6, 2026
+  - 2026-05-06 | finance.yahoo.com | Bitcoin and ethereum prices today, Wednesday, May 6, 2026: Prices up; bitcoin at highest level since January
+  - 2026-05-06 | bitcoinfoundation.org | Europe Crypto Tax Guide 2026: EU Rules, Tax Reporting & Compliance for Bitcoin and Ethereum Investors
+  - 2026-05-06 | www.fxstreet.com | Top 3 Price Prediction: Bitcoin, Ethereum, Ripple – Bitcoin eyes $60,000, Ethereum risks $1,750, XRP could test $1
+  - 2026-05-05 | fortune.com | Current price of Ethereum for May 5, 2026
+  - 2026-05-05 | finance.yahoo.com | Bitcoin and ethereum prices today, Tuesday, May 5, 2026: Bitcoin reaches over $81,000, hitting a high last seen in January
+  - 2026-05-05 | www.tradingview.com | Ethereum Price Coiling Tight, Explosive Move Could Trigger Anytime
+  - 2026-05-05 | cryptoslate.com | Ethereum’s biggest staker has just become a public company with over $10 billion locked up
+  - 2026-05-05 | cryptopotato.com | Ethereum Price Analysis: ETH Shows Breakout Signs but Danger Still Looms
+  - 2026-05-05 | beincrypto.com | The 15% Ethereum Rally Hides a Network Problem That Just Reached Exchanges
+  - 2026-05-05 | www.investmentnews.com | BlackRock strategist makes case for adding Bitcoin, Ethereum to portfolios
+  - 2026-05-05 | finbold.com | Trading expert issues new price target for Ethereum
+  - 2026-05-04 | fortune.com | Current price of Ethereum for May 4, 2026
+  - 2026-05-04 | finance.yahoo.com | Bitcoin and ethereum prices today, Monday, May 4, 2026: Bitcoin tops $80,000, then pulls back
+  - 2026-05-04 | www.dlnews.com | Ethereum devs huddled in the Arctic Circle to fix the network. Here’s what to know
+  - 2026-05-04 | finance.yahoo.com | BitMine Buys $240 Million in Ethereum as Tom Lee Heralds Arrival of 'Crypto Spring'
+  - 2026-05-04 | www.tradingview.com | Ethereum nears $2,400 as BitMine’s Tom Lee signals 'crypto spring'
+  - 2026-05-04 | www.benzinga.com | Bitmine Adds 101,745 ETH: How High Can Ethereum Go?
+  - 2026-05-04 | www.tradingview.com | Ethereum holders are back in profit as ETH price chart targets $3K
+  - 2026-05-04 | www.theblock.co | South Korea’s largest crypto exchange Upbit launches Ethereum blockchain with Optimism Foundation support
+  - 2026-05-04 | www.tradingview.com | Market Analyst Predicts Bitcoin And Ethereum Prices For The Next 3 Quarters
+  - 2026-05-04 | www.globenewswire.com | Crypto News: Ethereum Based Crypto Pepeto Presale Announces
+  - 2026-05-04 | coinpedia.org | Ethereum Fails at $2,400 Again: Will $2,300 Decide the Next ETH Price Move?
+  - 2026-05-03 | finance.yahoo.com | Is Ethereum the Generational Wealth Pick for Real‑World Crypto Use?
+  - 2026-05-03 | finance.yahoo.com | Ethereum Exit Queue Explodes 72,000% After DeFi Hack Wave
+What to write for E6:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).

@@ -1,0 +1,298 @@
+You will be shown 6 questions from a prediction market. Each has one or more contracts that resolve YES or NO under the rules shown. Each question gives the date your view is "as of": answer as you would on that date.
+
+Use what you already know and the news headlines listed under each question, all published in the 7 days before its as-of date. Do not search for or look up anything else: reading this file is the only tool call you may make. There are no prices from any prediction market in this file and you should not try to estimate what any market thinks; give your own view.
+
+Each question says what to write for it. Whole percents run from 1 to 99. Levels are plain numbers in the units the contracts use (for example 95000 for $95,000, 3.25 for 3.25%). Dates are YYYY-MM-DD.
+
+For each question also say whether you recognise how it actually turned out ("recognised": true only if you believe you remember the real outcome; otherwise false).
+
+Reply with one JSON object and nothing else:
+{"events": [{"label": "E1", "recognised": false, ...the fields that question asks for...}]}
+
+=== E1 (as of 2026-07-22): Brazil GDP Growth in Q2 2026 (QoQ)?
+Rules:
+This market will resolve according to Brazil’s gross domestic product growth rate compared to the prior quarter (GDP at market prices, %) in the 2nd quarter of 2026, as reported by the Instituto Brasileiro de Geografia e Estatística’s (IBGE) System of Quarterly National Accounts release for Q2 of 2026, scheduled for release on September 1, 2026.
+
+The GDP release and relevant statistics will be made available here: https://www.ibge.gov.br/en/statistics/economic/national-accounts/17262-quarterly-national-accounts.html
+
+If the specified release is not published, this market will resolve based on the first published figure for the specified quarter’s GDP growth rate compared to the prior quarter If no data for the specified quarter is released by the date the next quarter's data is scheduled to be released, this market will resolve based on data from the last available quarter.
+
+Note: the resolution source for this market reports GDP growth rates compared to the prior quarter to only one decimal point (e.g. 0.8%). Thus, this is the level of precision that will be used when resolving the market.
+
+Note: data from the initial release of the referenced GDP report is what will be used to resolve this market. Data may be revised during the following quarter or as a part of the next estimate's publication, however any revisions to GDP report data made after the initial release will not be considered for this market's resolution. For the full release schedule, see: https://www.ibge.gov.br/en/calendar.html
+Contracts:
+  E1.C1: Will Brazil's Q2 2026 GDP growth rate (QoQ) be less than 0.0%?
+  E1.C2: Will Brazil's Q2 2026 GDP growth rate (QoQ) be between 0.0% and 0.2%?
+  E1.C3: Will Brazil's Q2 2026 GDP growth rate (QoQ) be between 0.3% and 0.5%?
+  E1.C4: Will Brazil's Q2 2026 GDP growth rate (QoQ) be between 0.6% and 0.8%?
+  E1.C5: Will Brazil's Q2 2026 GDP growth rate (QoQ) be between 0.9% and 1.1%?
+  E1.C6: Will Brazil's Q2 2026 GDP growth rate (QoQ) be between 1.2% and 1.4%?
+  E1.C7: Will Brazil's Q2 2026 GDP growth rate (QoQ) be at least 1.5%?
+News before E1's as-of date (date seen, source, headline):
+  - 2026-07-22 | www.tradingview.com | ALPEK/A: EBITDA surged 124% QoQ and leverage improved to 2.2x, prompting a guidance upgrade
+  - 2026-07-22 | www.tradingkey.com | Google Q2 Cloud Revenue Surges 82%: Net Profit Soars 298% YoY, 26% QoQ Capital Expenditure Growth Sparks Sharp Bull-Bear Divide
+  - 2026-07-22 | www.business-standard.com | Sagility slips after Q1 PAT slides 16% QoQ to Rs 217 cr
+  - 2026-07-22 | www.cnbctv18.com | Oracle Financial Services Q1 profit jumps 68% QoQ to ₹1,416 crore
+  - 2026-07-22 | www.sahi.com | BPCL Reports Q1 Standalone Net Loss Of 40 Billion Rupees Vs 31.91 Billion Profit QoQ
+  - 2026-07-22 | www.etnownews.com | Eternal Q1 Results FY27: Zomato parent's profit drops 47% to Rs 92 cr, revenue rises 17% QoQ - Check full quarterly earnings
+  - 2026-07-21 | www.smartkarma.com | SCB X Plc. (SCB): 2Q26 Earnings Down YoY But Up QoQ, In Line With Our Forecast - Neutral (12M FWD Fair Value Bt160.00)
+  - 2026-07-21 | www.fortuneindia.com | Institutional real estate investments rise 16% QoQ to $1.9 billion in Q2; office, data centres lead inflows: Cushman & Wakefield
+  - 2026-07-21 | www.business-standard.com | Kirloskar Pneumatic slips after Q1 PAT falls 77% QoQ to Rs 33 crore
+  - 2026-07-21 | www.business-standard.com | SML Mahindra rallies as Q1 PAT rises 17% QoQ to Rs 64 crore; revenue up 7%
+  - 2026-07-21 | univest.in | Paytm Q1 Results FY27: PAT Rs 220 Cr, Up 20% QoQ
+  - 2026-07-21 | univest.in | ABSL AMC Q1 Results FY27: PAT Rs 310 Cr, Up 65.4% QoQ
+  - 2026-07-21 | www.etnownews.com | Eternal Q1 results preview: Profit seen jumping 71% QoQ, Blinkit to drive growth - Expectations from Zomato parent's quarterly earnings
+  - 2026-07-21 | tradebrains.in | Data Center Stock Hits 5% Upper Circuit After Reporting 582% QoQ Increase in Net Profit
+  - 2026-07-20 | fintech.global | Singaporean FinTech funding soared 3.4x QoQ as investors loosened purse strings in Q2
+  - 2026-07-20 | www.business-standard.com | Oberoi Realty slips after Q1 PAT declines 23% QoQ to Rs 544 crore
+  - 2026-07-19 | upstox.com | Tata Technologies shares decline 3% as Q1 profit falls over 11% QoQ to ₹181 crore, revenue rises 6%
+  - 2026-07-18 | www.businesstoday.in | IDBI Bank Q1 results: Net profit rises 5% to Rs 2,115 crore; NIM falls 54 bps QoQ
+  - 2026-07-17 | www.business-standard.com | Wipro slides after Q1 PAT fall 5% QoQ; revenue rises 1%, declares Rs 2 interim dividend
+  - 2026-07-17 | www.financialexpress.com | 360 One WAM records a 13% QoQ rise in its net profit
+  - 2026-07-17 | www.freepressjournal.in | Pune Office Leasing Surges 54% QoQ As GCCs Drive Demand: Report
+  - 2026-07-17 | tradebrains.in | Chemical Stock Hits 20% Upper Circuit After Reporting 780% QoQ Increase in Net Profit
+  - 2026-07-16 | www.indiainfoline.com | Tech Mahindra Q1 FY27 Results: Profit Rises 8.2% QoQ to ₹1,465 Crore, EBIT Margin Expands to 14.4%
+  - 2026-07-16 | m.thewire.in | Onward Technologies Reports Record Revenue of Rs. 151.2 Crore in Q1 FY27 (Up 11.5% YoY and 8.7% QoQ), EBITDA Grows 7.2% YoY and 20% QoQ to Rs. 18.4 Crore
+  - 2026-07-16 | www.sahi.com | Onward Tech Reports Q1 PAT of ₹11.2 Crore as EBIT Margins Expand to 9.2% QoQ
+What to write for E1:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E2 (as of 2026-07-22): XRP above ___ on July 26?
+Rules:
+This market will resolve to "Yes" if the Binance 1 minute candle for XRP/USDT 12:00 in the ET timezone (noon) on the date specified in the title has a final "Close" price higher than the price specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the XRP/USDT "Close" prices currently available at https://www.binance.com/en/trade/XRP_USDT with "1m" and "Candles" selected on the top bar.
+
+Please note that this market is about the price according to Binance XRP/USDT, not according to other exchanges or trading pairs.
+
+Price precision is determined by the number of decimal places in the source.
+Contracts:
+  E2.C1: Will the price of XRP be above $0.60 on July 26?
+  E2.C2: Will the price of XRP be above $0.70 on July 26?
+  E2.C3: Will the price of XRP be above $0.80 on July 26?
+  E2.C4: Will the price of XRP be above $0.90 on July 26?
+  E2.C5: Will the price of XRP be above $1.00 on July 26?
+  E2.C6: Will the price of XRP be above $1.10 on July 26?
+  E2.C7: Will the price of XRP be above $1.20 on July 26?
+  E2.C8: Will the price of XRP be above $1.30 on July 26?
+  E2.C9: Will the price of XRP be above $1.40 on July 26?
+  E2.C10: Will the price of XRP be above $1.50 on July 26?
+  E2.C11: Will the price of XRP be above $1.60 on July 26?
+News before E2's as-of date (date seen, source, headline):
+  - 2026-07-22 | www.fool.com | Better Altcoin Buy: XRP vs. Stellar (XLM)
+  - 2026-07-22 | 247wallst.com | XRP Surges to a 2-Week High as Whale Buying Stretches Into a Fifth Week
+  - 2026-07-22 | coinpedia.org | XRP Ledger’s Largest Asset Sits Frozen by Design, Analyst Finds
+  - 2026-07-22 | www.theblock.co | Ripple sees XRP Ledger agentic transactions hitting 10-million mark soon
+  - 2026-07-22 | 247wallst.com | The CLARITY Act Is Now One Clause Away From Passing: Should XRP Holders Celebrate?
+  - 2026-07-22 | www.benzinga.com | XRP Whale Inflows to Binance Drop to $23M: Can the Triangle Breakout Hold?
+  - 2026-07-22 | beincrypto.com | XRP Flashes Bullish On-Chain Signals as Rally Builds in Late July
+  - 2026-07-22 | 247wallst.com | XRP Holders Cheer as Bessent Says Major Crypto Bill ‘On the 1-Yard Line’
+  - 2026-07-21 | www.coindesk.com | XRP price news: Ripple-linked token up 4% as traders watch breakout toward $1.35
+  - 2026-07-21 | finance.yahoo.com | XRP Breaks Out on Clarity Act Hopes. The Charts Are Still Cautious
+  - 2026-07-21 | finance.yahoo.com | XRP Holders Have Until July 23 to Find Out if a Key Crypto Bill Survives. Here’s What’s at Stake.
+  - 2026-07-21 | finance.yahoo.com | XRP Price Prediction: Confirmed Breakout Could Push XRP to $1.40
+  - 2026-07-21 | finance.yahoo.com | Veteran Ripple developer regrets selling XRP
+  - 2026-07-21 | finance.yahoo.com | Bitcoin, Ethereum, XRP, Dogecoin Lift Amid Crypto Bill Optimism: Analyst Flags BTC's 'Biggest Test'
+  - 2026-07-21 | finance.yahoo.com | Crypto XRP Forms Bullish ‘Triangle Breakout’
+  - 2026-07-21 | coinpedia.org | XRP Price Prediction Today: Can Bulls Break $1.20 as Whale Buying Continues?
+  - 2026-07-21 | 247wallst.com | XRP Holders Have Until July 23 to Find Out if a Key Crypto Bill Survives. Here's What's at Stake.
+  - 2026-07-21 | 247wallst.com | XRP Flashes TD Sequential Buy Signal: Can It Rally 20%?
+  - 2026-07-21 | www.fxstreet.com | Why is XRP gaining momentum?
+  - 2026-07-21 | coinpedia.org | XRP News : Ripple Linked to 79% of Major Financial Institutions in Crypto
+  - 2026-07-21 | coinpedia.org | XRP Price is Breaking Out—Can Bulls Fuel a 5% Rally to $1.20?
+  - 2026-07-21 | www.tradingview.com | COIN Stock Jumps, XRP Leads Crypto Majors After Scott Bessent Signals CLARITY Act Is On Senate’s ‘One-Yard Line’
+  - 2026-07-21 | dmarketforces.com | XRP Spot ETF Net Inflow Tops $1bn, Price Swings
+  - 2026-07-21 | www.benzinga.com | Ripple Eyes Wall Street 2.0 As Prime Brokerage Revenue Triples - Bitwise XRP ETF (ARCA:XRP)
+  - 2026-07-21 | 247wallst.com | XRP Whale Deposits to Binance Just Hit a 2-Month Low: What’s Going On?
+What to write for E2:
+  Write "levels": for each chance 10, 25, 50, 75 and 90, the level you give that chance of the measured quantity being at or above when it resolves. The 10 level is the highest and the 90 level the lowest. Example: {"10": 120, "25": 110, "50": 100, "75": 92, "90": 85}.
+
+=== E3 (as of 2026-04-15): Bitcoin above ___ on April 21?
+Rules:
+This market will resolve to "Yes" if the Binance 1 minute candle for BTC/USDT 12:00 in the ET timezone (noon) on the date specified in the title has a final "Close" price higher than the price specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the BTC/USDT "Close" prices currently available at https://www.binance.com/en/trade/BTC_USDT with "1m" and "Candles" selected on the top bar.
+
+Please note that this market is about the price according to Binance BTC/USDT, not according to other exchanges or trading pairs.
+
+Price precision is determined by the number of decimal places in the source.
+Contracts:
+  E3.C1: Will the price of Bitcoin be above $68,000 on April 21?
+  E3.C2: Will the price of Bitcoin be above $72,000 on April 21?
+  E3.C3: Will the price of Bitcoin be above $78,000 on April 21?
+  E3.C4: Will the price of Bitcoin be above $80,000 on April 21?
+  E3.C5: Will the price of Bitcoin be above $86,000 on April 21?
+News before E3's as-of date (date seen, source, headline):
+  - 2026-04-15 | www.cato.org | Bitcoin Taxes Make No Sense
+  - 2026-04-15 | www.cnbc.com | Anthropic's Mythos isn't threatening bitcoin. The real AI risk is at crypto exchanges
+  - 2026-04-15 | finance.yahoo.com | When Will Bitcoin Price Bottom Out? Benjamin Cowen Predicts
+  - 2026-04-15 | news.bloombergtax.com | Puerto Rico’s Act 60: When Are Pre-Move Bitcoin Gains Taxed?
+  - 2026-04-15 | fortune.com | Current price of Bitcoin for April 15, 2026
+  - 2026-04-15 | etfdb.com | Cryptocurrencies: Bitcoin Nears $75,000
+  - 2026-04-15 | www.dlnews.com | Iran's Bitcoin toll 'virtually impossible' to collect, says policy institute
+  - 2026-04-15 | www.coindesk.com | ETH, BTC price: What next as Ether/bitcoin ratio bounces from 2026 lows
+  - 2026-04-14 | www.reuters.com | Goldman Sachs files for its first bitcoin ETF product
+  - 2026-04-14 | finance.yahoo.com | Bitcoin Price Will Hit $21M, Claims Michael Saylor, Following Strategy’s Latest $1B Purchase
+  - 2026-04-14 | bitcoinfoundation.org | Bitcoin Cash Price Prediction 2026-2030: Will BCH Skyrocket or Crash?
+  - 2026-04-14 | finance.yahoo.com | Bitcoin jumps to $74,000, but Wall Street is 'cautious' crypto bear market isn't over
+  - 2026-04-14 | www.coindesk.com | Bitcoin (BTC) price analysis: Key levels to watch as the rally gathers steam
+  - 2026-04-14 | finance.yahoo.com | Bitcoin Nears $75K As Risk-on Sentiment, Geopolitical Landscape Improves
+  - 2026-04-14 | fortune.com | Current price of Bitcoin for April 14, 2026
+  - 2026-04-14 | www.cnbc.com | Jordy Visser: Bitcoin will be significantly higher next time I see you
+  - 2026-04-14 | finance.yahoo.com | Bitcoin and ethereum prices today, Tuesday, April 14, 2026: Prices rebound despite U.S. blockade in the Middle East
+  - 2026-04-14 | www.bloomberg.com | Bitcoin (BTC) Climbs to Four-Week High on Hopes of US-Iran Peace Talks
+  - 2026-04-14 | 247wallst.com | Is 2026 a Good Year to Buy Bitcoin (BTC)? Here's the Bull and Bear Case at $75,000 BTC Price
+  - 2026-04-14 | fortune.com | Bitcoin, Ethereum approach two-month highs as markets grow optimistic over U.S.-Iran peace negotiations
+  - 2026-04-14 | fortune.com | Goldman Sachs makes surprise jump into Bitcoin ETFs with a product one analyst dubs ‘boomer candy’
+  - 2026-04-14 | www.coindesk.com | Bitcoin surpasses halfway mark in current halving cycle
+  - 2026-04-14 | www.forbes.com | Russia Crypto Legalization: Bitcoin Price Prediction 2026
+  - 2026-04-14 | www.coindesk.com | Bitcoin price news: BTC completes rebound from Feb. 5 crash
+  - 2026-04-14 | www.investopedia.com | Why Some Experts Say Bitcoin Is Starting to 'Show Signs' of a Recovery
+What to write for E3:
+  Write "levels": for each chance 10, 25, 50, 75 and 90, the level you give that chance of the measured quantity being at or above when it resolves. The 10 level is the highest and the 90 level the lowest. Example: {"10": 120, "25": 110, "50": 100, "75": 92, "90": 85}.
+
+=== E4 (as of 2026-04-29): Israel military action against Yemen by...?
+Rules:
+This market will resolve to "Yes" if Israel initiates a drone, missile, or air strike on Yemeni soil or any official Yemen embassy or consulate by the listed date, 11:59 PM Israeli local time. Otherwise, this market will resolve to "No".
+
+For the purposes of this market, a qualifying "strike" is defined as the use of aerial bombs, drones or missiles (including cruise or ballistic missiles) launched by Israeli military forces that impact Yemen ground territory or any official Yemen embassy or consulate (e.g., if a weapons depot on Yemen soil is hit by an Israeli missile, this market will resolve to "Yes").
+
+Missiles or drones that are intercepted and surface-to-air missile strikes will not be sufficient for a "Yes" resolution, regardless of whether they land on Yemen territory or cause damage.
+
+Actions such as artillery fire, small arms fire, FPV or ATGM strikes directly, ground incursions, naval shelling, cyberattacks, or other operations conducted by Israeli ground operatives will not qualify.
+
+The resolution source will be a consensus of credible reporting.
+Contracts:
+  E4.C1: Israel strike on Yemen by April 30, 2026?
+  E4.C2: Israel strike on Yemen by May 31, 2026?
+  E4.C3: Israel strike on Yemen by June 30, 2026?
+News before E4's as-of date (date seen, source, headline):
+  - 2026-04-29 | www.cato.org | Israel’s Campaign to Remake the Mideast Hurts America
+  - 2026-04-29 | www.jns.org | Who’s to blame for declining American support for Israel?
+  - 2026-04-29 | www.crisisgroup.org | To Salvage the Israel-Lebanon Ceasefire, Work within Its Limits
+  - 2026-04-29 | www.shalomdc.org | Supporting Israel’s Recovery and Resilience
+  - 2026-04-29 | www.npr.org | Ukraine accuses Israel of importing grain ‘stolen’ by Russia
+  - 2026-04-29 | www.jta.org | Israel just quadrupled its PR budget to $730M. Experts say it won’t work.
+  - 2026-04-29 | www.vashonbeachcomber.com | Remembering Israel Shotridge, a beloved Vashon artist
+  - 2026-04-29 | www.bbc.com | Israeli 'double-tap' strike kills three rescue workers in Lebanon, officials say
+  - 2026-04-28 | www.doctorswithoutborders.org | Israel must stop using water as a weapon of collective punishment in Gaza
+  - 2026-04-28 | www.hrw.org | Israel Bankrolls War Crimes in Occupied Syrian Golan
+  - 2026-04-28 | www.politico.com | How Bernie Sanders convinced Democrats to oppose arming Israel
+  - 2026-04-28 | carnegieendowment.org | Where is the Groundwork for Lebanon’s Negotiations With Israel?
+  - 2026-04-28 | www.aljazeera.com | Palestine weekly wrap: Under cover of ceasefire, Israel increases grip
+  - 2026-04-28 | www.reuters.com | Ukraine in diplomatic tussle with Israel over grain Kyiv says 'stolen' by Russia
+  - 2026-04-28 | www.bbc.com | America's special relationship 'probably Israel', says UK ambassador to US
+  - 2026-04-28 | www.amnestyusa.org | Trapped Between Unlawful Attacks by the USA/Israel and Internal Deadly Repression: People in Iran Face Dual Atrocity Risks
+  - 2026-04-28 | www.theguardian.com | Lebanon accuses Israel of committing ‘ecocide’ in country since 2023
+  - 2026-04-28 | www.bbc.com | Ukraine accuses Israel of receiving shipments of grain 'stolen' by Russia
+  - 2026-04-28 | www.cnn.com | Ukraine accuses Israel of aiding Russian trade in stolen grain
+  - 2026-04-28 | www.nytimes.com | Opinion | What Tucker Carlson Means When He Talks About Israel
+  - 2026-04-27 | www.humanrightsresearch.org | Solidarity and Complicity: The Spanish Struggle to Sever Military Ties with Israel
+  - 2026-04-27 | courthousenews.com | Lebanon president hits back at Hezbollah over Israel talks criticism
+  - 2026-04-27 | www.reuters.com | Netanyahu's rivals are joining forces. Would they shift Israel's security policy?
+  - 2026-04-26 | www.reuters.com | Netanyahu's biggest rivals join forces for Israel's next election
+  - 2026-04-26 | www.axios.com | Scoop: Israel sent "Iron Dome" system and troops to UAE during Iran war
+What to write for E4:
+  Write "dates": for each chance 10, 25, 50, 75 and 90, the date by which you give it that chance of having happened, or null if you do not give it that chance by the last date the contracts cover. Dates must not go earlier as the chance rises.
+
+=== E5 (as of 2026-06-24): What price will Dogecoin hit in June?
+Rules:
+What price will Dogecoin hit in June?
+Contracts:
+  E5.C1: Will Dogecoin reach $0.20 in June?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for DOGE/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last), has a final High price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the DOGE/USDT High prices available at https://www.binance.com/en/trade/DOGE_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance DOGE/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E5.C2: Will Dogecoin reach $0.15 in June?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for DOGE/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last), has a final High price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the DOGE/USDT High prices available at https://www.binance.com/en/trade/DOGE_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance DOGE/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E5.C3: Will Dogecoin dip to $0.05 in June?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for DOGE/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last), has a final Low price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the DOGE/USDT Low prices available at https://www.binance.com/en/trade/DOGE_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance DOGE/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+News before E5's as-of date (date seen, source, headline):
+  - 2026-06-24 | finance.yahoo.com | 'Painful' Bitcoin Sell-Off Drags Ethereum, XRP and Dogecoin Lower as Crypto Stocks Dive
+  - 2026-06-24 | finance.yahoo.com | Bitcoin Hits 20-Month Low, Ethereum, Dogecoin, XRP Also Decline: Analyst Identifies 'Genuine Battleground' For Beleaguered BTC Amid 'Extreme Fear'
+  - 2026-06-24 | www.tradingview.com | Hyper Bit Technologies Announces Amended Agreement for Acquisition of Dogecoin Mining Technologies Corp.
+  - 2026-06-24 | www.benzinga.com | Bitcoin Plunges Below $60,000, Ethereum, XRP, Dogecoin Lose 3% In Brutal Crypto Sell-Off
+  - 2026-06-24 | cryptonews.com | Dogecoin Price Analysis: Is DOGE Still King of Meme Coins?
+  - 2026-06-24 | watcher.guru | Dogecoin at $0.07 Today: 4 Risks Investors Should Watch
+  - 2026-06-24 | captainaltcoin.com | Bitcoin Price Analysis Shows Scaramucci Calling a Q4 Rally While Pepeto Could Be the Next Dogecoin
+  - 2026-06-23 | cryptodaily.co.uk | Dogecoin Leads Major Losses: Why Memecoin Weakness Still Matters for Altcoin Risk
+  - 2026-06-23 | www.fxstreet.com | Will Dogecoin hit a fresh yearly lows as bearish pressure mounts?
+  - 2026-06-23 | coinpedia.org | Dogecoin Heads Toward Yearly Lows as Selling Pressure Builds — Can DOGE Price Recover to $0.1?
+  - 2026-06-23 | www.mitrade.com | Dogecoin Price Forecast: DOGE tests a key make-or-break point amid waning retail support
+  - 2026-06-23 | finance.yahoo.com | Elon Musk's Latest Move Could Send Dogecoin Soaring -- But There's a Catch
+  - 2026-06-23 | finance.yahoo.com | Bitcoin, Ethereum, XRP, Dogecoin Drop Further Amid Global Chip Sell-Off: Analyst Flags 'The Most Important Level' For BTC
+  - 2026-06-23 | www.benzinga.com | Bitcoin Hits $62,000, Ethereum, XRP, Dogecoin Slide More Than 4% As Dollar Climbs To Multi-Month High
+  - 2026-06-23 | coinmarketcap.com | Dogecoin Drops 3.5% Amid Broad Risk Off, Bearish Chart
+  - 2026-06-23 | ambcrypto.com | Analyzing Dogecoin’s drop below $0.08: What happens next?
+  - 2026-06-23 | en.cryptonomist.ch | Dogecoin Crypto Analysis June 2026: Bearish Momentum and Oversold RSI
+  - 2026-06-23 | www.digitaltoday.co.kr | Dogecoin layer2 shutdown warning raises risk millions of DOGE could be locked up
+  - 2026-06-23 | u.today | XRP Tests Recovery Ground, Dogecoin (DOGE) Zero Removal Rally, Shiba Inu (SHIB) Risks Are Up: Crypto Market Review
+  - 2026-06-23 | watcher.guru | Dogecoin Down 90% From Peak: When X Money Launch?
+  - 2026-06-23 | www.analyticsinsight.net | Dogecoin’s Long-Term Potential: What Investors Should Know
+  - 2026-06-22 | www.fool.com | Following SpaceX's $2 Trillion IPO, Will Dogecoin Be the Next Elon Musk-Linked Investment to Go Parabolic?
+  - 2026-06-22 | pluang.com | Dogecoin nears key $0.10 level as buyers defend $0.08 support amid weakening sell pressure.
+  - 2026-06-22 | www.benzinga.com | Bitcoin, Ethereum, XRP, Dogecoin Slide As 'Smart Money' Sentiment Weakens: Analyst Says BTC Could Rise In
+  - 2026-06-22 | cryptonews.net | Is the Dogecoin Burn Address Really Safe from Quantum Threat?
+What to write for E5:
+  Write "high": for each chance 10, 25, 50, 75 and 90, the level you give that chance of being reached (at or above) within the period. The 10 level is the highest.
+  Write "low": for each chance 10, 25, 50, 75 and 90, the level you give that chance of being reached (at or below) within the period. The 10 level is the lowest.
+
+=== E6 (as of 2026-08-19): Bitcoin above ___ on August 20?
+Rules:
+This market will resolve to "Yes" if the Binance 1 minute candle for BTC/USDT 12:00 in the ET timezone (noon) on the date specified in the title has a final "Close" price higher than the price specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the BTC/USDT "Close" prices currently available at https://www.binance.com/en/trade/BTC_USDT with "1m" and "Candles" selected on the top bar.
+
+Please note that this market is about the price according to Binance BTC/USDT, not according to other exchanges or trading pairs.
+
+Price precision is determined by the number of decimal places in the source.
+Contracts:
+  E6.C1: Will the price of Bitcoin be above $54,000 on August 20?
+  E6.C2: Will the price of Bitcoin be above $56,000 on August 20?
+  E6.C3: Will the price of Bitcoin be above $58,000 on August 20?
+  E6.C4: Will the price of Bitcoin be above $60,000 on August 20?
+  E6.C5: Will the price of Bitcoin be above $62,000 on August 20?
+  E6.C6: Will the price of Bitcoin be above $64,000 on August 20?
+  E6.C7: Will the price of Bitcoin be above $66,000 on August 20?
+  E6.C8: Will the price of Bitcoin be above $68,000 on August 20?
+  E6.C9: Will the price of Bitcoin be above $70,000 on August 20?
+  E6.C10: Will the price of Bitcoin be above $72,000 on August 20?
+  E6.C11: Will the price of Bitcoin be above $74,000 on August 20?
+News before E6's as-of date (date seen, source, headline):
+  - 2026-08-19 | etfdb.com | Bitcoin Miners Already Owned What the AI Economy Is Short Of
+  - 2026-08-19 | finance.yahoo.com | Will Bitcoin Get Back to $100,000 in 2026? It Could All Hinge on This
+  - 2026-08-19 | bitcoinfoundation.org | Bitcoin Blasts Past $68K as 6% Rally Puts $70,000 Within Reach
+  - 2026-08-19 | bitcoinmagazine.com | Bitcoin Blasts Past $68,000 After US Treasury Doubles Debt Buybacks
+  - 2026-08-19 | www.forbes.com | Bitcoin Approaches $70,000 After Treasury Announces Buyback Expansion
+  - 2026-08-19 | finance.yahoo.com | Bitcoin and ethereum prices today, Wednesday, August 19, 2026: Crypto prices rise after SEC announces proposed regulation
+  - 2026-08-19 | www.investopedia.com | Bitcoin Jumps Above $68,000 For The First Time Since June
+  - 2026-08-19 | finance.yahoo.com | Coinbase Stock Catches a Bid as Bitcoin Climbs
+  - 2026-08-19 | bitcoinfoundation.org | Bitcoin Accumulation Could Begin by November as VanEck Flags Eight Capitulation Signals
+  - 2026-08-19 | finance.yahoo.com | Bitcoin Jumps To $68,000 On News Of Bond Market Intervention
+  - 2026-08-19 | finance.yahoo.com | Crypto Shorts Lose $1.23 Billion in 1 Hour: 3 Bitcoin Whales Wiped Out
+  - 2026-08-19 | www.forbes.com | Bitcoin Price Prediction: Scaramucci Sees $100,000
+  - 2026-08-19 | northeasttimes.com | Fidelity’s bitcoin fund FBTC is down 45 percent in a year
+  - 2026-08-19 | www.moomoo.com | Bitcoin Surges Above $68,000, Liquidating $1.4 Billion Shorts as Treasury Buybacks Boost Risk Appetite
+  - 2026-08-19 | finance.yahoo.com | Bitcoin Mega-Whale Wallets Surge To 6-Month High As Big Buyers Hold $64K Support
+  - 2026-08-19 | www.cnbc.com | Options Action: Bitcoin bulls bite back
+  - 2026-08-19 | www.nbcnews.com | Family of woman missing in Las Vegas says they’ve received strange bitcoin demands
+  - 2026-08-19 | finance.yahoo.com | Treasury Just Drew a Line in the Sand at 5.3%, and Bitcoin Noticed
+  - 2026-08-19 | www.coindesk.com | Bitcoin briefly hits $70,000 for the first time since June. Here is why
+  - 2026-08-19 | fortune.com | Current price of Bitcoin for August 19, 2026
+  - 2026-08-18 | finance.yahoo.com | Bitcoin’s Price Crosses $65K, But Anthony Scaramucci Says $100K Catalyst Could Be 20 Months Away
+  - 2026-08-18 | www.bloomberg.com | Bitcoin Whales End Selling Spree, Adding $2.9 Billion in 60 Days
+  - 2026-08-18 | fortune.com | Current price of Bitcoin for August 18, 2026
+  - 2026-08-18 | bitcoinfoundation.org | Strategy Skips Bitcoin Sales, Buys Back $132M of STRC Instead
+  - 2026-08-18 | www.bloomberg.com | Watch Bitcoin Whales Add 43,000 Bitcoin in 60 Days
+What to write for E6:
+  Write "levels": for each chance 10, 25, 50, 75 and 90, the level you give that chance of the measured quantity being at or above when it resolves. The 10 level is the highest and the 90 level the lowest. Example: {"10": 120, "25": 110, "50": 100, "75": 92, "90": 85}.

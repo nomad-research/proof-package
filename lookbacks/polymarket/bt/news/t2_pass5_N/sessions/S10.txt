@@ -1,0 +1,531 @@
+You will be shown 6 questions from a prediction market. Each has one or more contracts that resolve YES or NO under the rules shown. Each question gives the date your view is "as of": answer as you would on that date.
+
+Use what you already know and the news headlines listed under each question, all published in the 7 days before its as-of date. Do not search for or look up anything else: reading this file is the only tool call you may make. There are no prices from any prediction market in this file and you should not try to estimate what any market thinks; give your own view.
+
+Each question says what to write for it. Whole percents run from 1 to 99. Levels are plain numbers in the units the contracts use (for example 95000 for $95,000, 3.25 for 3.25%). Dates are YYYY-MM-DD.
+
+For each question also say whether you recognise how it actually turned out ("recognised": true only if you believe you remember the real outcome; otherwise false).
+
+Reply with one JSON object and nothing else:
+{"events": [{"label": "E1", "recognised": false, ...the fields that question asks for...}]}
+
+=== E1 (as of 2026-09-23): What will Tesla, Inc. (TSLA) hit Week of September 21 2026?
+Rules:
+What will Tesla, Inc. (TSLA) hit Week of September 21 2026?
+Contracts:
+  E1.C1: Will Tesla, Inc. (TSLA) hit (HIGH) $420 Week of September 21 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of September 21 2026, any 1-minute candle for Tesla, Inc. (TSLA) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Tesla, Inc. (TSLA) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.TSLA%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.TSLA%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E1.C2: Will Tesla, Inc. (TSLA) hit (HIGH) $412.50 Week of September 21 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of September 21 2026, any 1-minute candle for Tesla, Inc. (TSLA) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Tesla, Inc. (TSLA) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.TSLA%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.TSLA%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E1.C3: Will Tesla, Inc. (TSLA) hit (HIGH) $405 Week of September 21 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of September 21 2026, any 1-minute candle for Tesla, Inc. (TSLA) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Tesla, Inc. (TSLA) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.TSLA%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.TSLA%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E1.C4: Will Tesla, Inc. (TSLA) hit (HIGH) $397.50 Week of September 21 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of September 21 2026, any 1-minute candle for Tesla, Inc. (TSLA) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Tesla, Inc. (TSLA) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.TSLA%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.TSLA%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E1.C5: Will Tesla, Inc. (TSLA) hit (HIGH) $390 Week of September 21 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of September 21 2026, any 1-minute candle for Tesla, Inc. (TSLA) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Tesla, Inc. (TSLA) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.TSLA%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.TSLA%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E1.C6: Will Tesla, Inc. (TSLA) hit (LOW) $367.50 Week of September 21 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of September 21 2026, any 1-minute candle for Tesla, Inc. (TSLA) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Tesla, Inc. (TSLA) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.TSLA%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.TSLA%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E1.C7: Will Tesla, Inc. (TSLA) hit (LOW) $360 Week of September 21 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of September 21 2026, any 1-minute candle for Tesla, Inc. (TSLA) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Tesla, Inc. (TSLA) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.TSLA%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.TSLA%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E1.C8: Will Tesla, Inc. (TSLA) hit (LOW) $352.50 Week of September 21 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of September 21 2026, any 1-minute candle for Tesla, Inc. (TSLA) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Tesla, Inc. (TSLA) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.TSLA%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.TSLA%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E1.C9: Will Tesla, Inc. (TSLA) hit (LOW) $345 Week of September 21 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of September 21 2026, any 1-minute candle for Tesla, Inc. (TSLA) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Tesla, Inc. (TSLA) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.TSLA%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.TSLA%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E1.C10: Will Tesla, Inc. (TSLA) hit (LOW) $337.50 Week of September 21 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of September 21 2026, any 1-minute candle for Tesla, Inc. (TSLA) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Tesla, Inc. (TSLA) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.TSLA%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.TSLA%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E1.C11: Will Tesla, Inc. (TSLA) hit (LOW) $330 Week of September 21 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of September 21 2026, any 1-minute candle for Tesla, Inc. (TSLA) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Tesla, Inc. (TSLA) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.TSLA%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.TSLA%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E1.C12: Will Tesla, Inc. (TSLA) hit (LOW) $322.50 Week of September 21 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of September 21 2026, any 1-minute candle for Tesla, Inc. (TSLA) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Tesla, Inc. (TSLA) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.TSLA%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.TSLA%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E1.C13: Will Tesla, Inc. (TSLA) hit (LOW) $315 Week of September 21 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of September 21 2026, any 1-minute candle for Tesla, Inc. (TSLA) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Tesla, Inc. (TSLA) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.TSLA%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.TSLA%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E1.C14: Will Tesla, Inc. (TSLA) hit (HIGH) $382.50 Week of September 21 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of September 21 2026, any 1-minute candle for Tesla, Inc. (TSLA) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Tesla, Inc. (TSLA) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.TSLA%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.TSLA%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E1.C15: Will Tesla, Inc. (TSLA) hit (LOW) $375 Week of September 21 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of September 21 2026, any 1-minute candle for Tesla, Inc. (TSLA) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Tesla, Inc. (TSLA) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.TSLA%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.TSLA%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+News before E1's as-of date (date seen, source, headline):
+  - 2026-09-23 | www.autoevolution.com | Tesla Is Testing FSD V14.2 Lite on HW3 Model S and Model X, and Could Start a Wider Rollout Soon
+  - 2026-09-23 | finance.yahoo.com | Elon Musk Is Teasing a Tesla-SpaceX Merger Again. Terafab Shows Why AI Could Be the Logic
+  - 2026-09-23 | apnews.com | Rivian R2 vs. Tesla Model Y, an Edmunds electric SUV showdown
+  - 2026-09-23 | insideevs.com | The Tesla Semi Just Got A Massive Boost From The Biggest U.S. Electric Truck Order Ever
+  - 2026-09-23 | www.cnbc.com | Tesla Roadster reveal is creating a unique options opportunity, says Mike Khouw
+  - 2026-09-23 | electrek.co | Tesla’s ‘hardcore lawyers’ went a little too hardcore
+  - 2026-09-23 | triblive.com | Golden Tesla ‘cybercabs’ appear in Pittsburgh
+  - 2026-09-23 | ktla.com | Southern California Boy, 6, killed after father backs Tesla Cybertruck into him
+  - 2026-09-23 | finance.yahoo.com | Elon Musk Says Tesla Has Offered FSD to Legacy Automakers, but ‘None’ Have Accepted So Far
+  - 2026-09-23 | www.notateslaapp.com | Tesla Expands Immersive Audio X to Model 3 and Y in China
+  - 2026-09-23 | www.teslarati.com | Tesla Optimus Gen 3 shows off a cleaner, factory-ready design in new app discovery
+  - 2026-09-23 | www.notateslaapp.com | Tesla Starts Rolling Out FSD v14.2 Lite to HW3 Model S and Model X
+  - 2026-09-23 | www.barrons.com | Tesla CEO Elon Musk Confronts China Tariffs at Xi-Trump Dinner
+  - 2026-09-23 | www.notateslaapp.com | 2026.27.11 Official Tesla Release Notes - Software Updates
+  - 2026-09-23 | www.notateslaapp.com | 2026.32.7 Official Tesla Release Notes - Software Updates
+  - 2026-09-23 | finance.yahoo.com | Is Tesla (TSLA) Quietly Shifting From Automaker To Physical AI Platform With FSD Subscriptions?
+  - 2026-09-23 | www.notateslaapp.com | Tesla App Leaks New Optimus Gen 3 Robot Design
+  - 2026-09-23 | www.teslarati.com | Tesla Semi lands the biggest electric truck deal in U.S. history
+  - 2026-09-23 | www.basenor.com | Tesla FSD + Optimus + Grok: How It All Fits Together
+  - 2026-09-22 | www.king5.com | Washington man sues Tesla, alleges car suddenly veered into concrete barrier on I-90
+  - 2026-09-22 | www.teslarati.com | Did Tesla make the perfect car for families? Tesla Model Y L Full Review
+  - 2026-09-22 | www.motortrend.com | Tested: Is the Cheapest New Tesla Model 3 Tesla Enough?
+  - 2026-09-22 | www.roadandtrack.com | Tesla’s $50,000 Deposit List for the New Roadster Is Open Again Ahead of Planned October 1 Reveal
+  - 2026-09-22 | www.thestreet.com | The Robotaxi payday Tesla promised owners isn’t coming
+  - 2026-09-22 | insideevs.com | The Tesla Semi Had This Reviewer Skeptical. Now He Thinks It’s A Game Changer
+What to write for E1:
+  Write "high": for each chance 10, 25, 50, 75 and 90, the level you give that chance of being reached (at or above) within the period. The 10 level is the highest.
+  Write "low": for each chance 10, 25, 50, 75 and 90, the level you give that chance of being reached (at or below) within the period. The 10 level is the lowest.
+
+=== E2 (as of 2026-06-03): How many 6.5 or above earthquakes June 1 - June 7?
+Rules:
+This market will resolve according to the total number of earthquakes with a magnitude of 6.5 or higher that occur anywhere on Earth between June 1, 2026, 12:00 AM ET, and June 7, 2026, 11:59 PM ET.
+
+The resolution source for this market is the United States Geological Survey (USGS) Earthquake Hazards Program (https://earthquake.usgs.gov/earthquakes/browse/significant.php#sigdef).
+
+If an earthquake of substantial size has occurred within this market's timeframe but not yet appeared on the resolution source, this market may remain open until June 30, 2026, 11:59 PM ET, or until the earthquake in question otherwise appears on the resolution source. If such an earthquake has not appeared on the resolution source by that date, another credible resolution source will be used.
+
+This market may not resolve until the timeframe of this market has concluded. If a qualifying earthquake has been recorded on the final day, this market may remain open for 24 hours to allow for revisions to the recorded magnitude. After 24 hours, this market will resolve according to the latest provided data.
+Contracts:
+  E2.C1: Will there be exactly 0 earthquakes of magnitude 6.5 or higher worldwide from June 1 - 7?
+  E2.C2: Will there be exactly 1 earthquake of magnitude 6.5 or higher worldwide from June 1 - 7?
+  E2.C3: Will there be exactly 2 earthquakes of magnitude 6.5 or higher worldwide from June 1 - 7?
+  E2.C4: Will there be exactly 3 earthquakes of magnitude 6.5 or higher worldwide from June 1 - 7?
+  E2.C5: Will there be exactly 4 earthquakes of magnitude 6.5 or higher worldwide from June 1 - 7?
+  E2.C6: Will there be exactly 5 earthquakes of magnitude 6.5 or higher worldwide from June 1 - 7?
+  E2.C7: Will there be more than 5 earthquakes of magnitude 6.5 or higher worldwide from June 1 - 7?
+News before E2's as-of date (date seen, source, headline):
+  - 2026-06-03 | abc7news.com | NorCal earthquakes: Magnitude 5.1, 5.7 quakes felt near Eureka, Crescent City, California-Oregon border: USGS
+  - 2026-06-03 | www.newportnewstimes.com | Two earthquakes off Oregon, California Coast
+  - 2026-06-03 | www.koin.com | 2 sizable earthquakes recorded off Oregon, California coasts
+  - 2026-06-03 | www.khon2.com | Big Island active with earthquakes, record-breaking volcanic eruption
+  - 2026-06-03 | www.nbcbayarea.com | Earthquakes reported off Northern California coast, including M5.7 shaker
+  - 2026-06-03 | www.koin.com | 2 sizable earthquakes recorded off Oregon, California coast
+  - 2026-06-03 | www.newsweek.com | Map Shows 2 Earthquakes Over 5.0 Magnitude Strike California Coast
+  - 2026-06-03 | sfist.com | Pair of Significant Early Morning Earthquakes Strike Off NorCal Coast
+  - 2026-06-03 | www.foxweather.com | Earthquakes shake West Coast, including magnitude 5.7 off Oregon, with no tsunami threat
+  - 2026-06-03 | kymkemp.com | Multiple Offshore Earthquakes Shake North Coast Before Dawn, Triggering ShakeAlerts
+  - 2026-06-03 | www.pressdemocrat.com | Earthquakes’ PayPal Park to host major festival as its first-ever concert
+  - 2026-06-02 | www.kxan.com | MAP: Where have earthquakes been recorded in Texas?
+  - 2026-06-02 | www.vice.com | Scientists Finally Figured Out Why Strange Earthquakes Have Been Hitting Utah for Decades
+  - 2026-06-01 | www.murkowski.senate.gov | Murkowski Leads Senate Passage of Landslides, Earthquakes Reauthorizations
+  - 2026-06-01 | www.sjearthquakes.com | San Jose Earthquakes, CEFCU Announce Goals for Education Community Grant Program to Support Local School Communities
+  - 2026-06-01 | www.wyff4.com | SC: Two earthquakes reported in Upstate, USGS says
+  - 2026-05-31 | www.nytimes.com | After Voting Decision, a Month of Political Earthquakes Across the South
+  - 2026-05-30 | www.nature.com | Elevated in-situ Vp/Vs preceding hydraulic-fracturing-induced earthquakes
+  - 2026-05-30 | weatherboy.com | Pair of Unusual Earthquakes Strike South Carolina After Unexplained Explosion and Other Mysterious Quakes
+  - 2026-05-30 | www.postandcourier.com | Did you feel that, Spartanburg? 2 minor earthquakes recorded near Cross Anchor.
+  - 2026-05-30 | www.foxcarolina.com | USGS: 2 small earthquakes reported in Upstate
+  - 2026-05-29 | www.sjearthquakes.com | Earthquakes Midfielder Edwyn Mendoza Called to Youth International Duty
+  - 2026-05-29 | www.seattlemet.com | The Scientist Who Is the First to Catch Earthquakes
+  - 2026-05-29 | gizmodo.com | ‘Anomalous’ Earthquakes Have Hit Utah for Decades. Geologists Are Finally Closing in on an Answer
+  - 2026-05-28 | www.science.org | Upper-mantle earthquakes beneath East Antarctica
+What to write for E2:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E3 (as of 2026-08-26): Solana above ___ on August 30?
+Rules:
+This market will resolve to "Yes" if the Binance 1 minute candle for SOL/USDT 12:00 in the ET timezone (noon) on the date specified in the title has a final "Close" price higher than the price specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the SOL/USDT "Close" prices currently available at https://www.binance.com/en/trade/SOL_USDT with "1m" and "Candles" selected on the top bar.
+
+Please note that this market is about the price according to Binance SOL/USDT, not according to other exchanges or trading pairs.
+
+Price precision is determined by the number of decimal places in the source.
+Contracts:
+  E3.C1: Will the price of Solana be above $50 on August 30?
+  E3.C2: Will the price of Solana be above $60 on August 30?
+  E3.C3: Will the price of Solana be above $70 on August 30?
+  E3.C4: Will the price of Solana be above $80 on August 30?
+  E3.C5: Will the price of Solana be above $90 on August 30?
+  E3.C6: Will the price of Solana be above $100 on August 30?
+  E3.C7: Will the price of Solana be above $110 on August 30?
+  E3.C8: Will the price of Solana be above $120 on August 30?
+  E3.C9: Will the price of Solana be above $130 on August 30?
+  E3.C10: Will the price of Solana be above $140 on August 30?
+  E3.C11: Will the price of Solana be above $150 on August 30?
+News before E3's as-of date (date seen, source, headline):
+  - 2026-08-26 | www.cbsnews.com | Lincoln Park Zoo announces addition of Solana the Hoffmann's two-toed sloth
+  - 2026-08-26 | finance.yahoo.com | DeFi Development Launches Real-Time Solana Data Platform
+  - 2026-08-26 | finance.yahoo.com | Solana Set a Record in Everything Except the Part Holders Care About
+  - 2026-08-26 | finance.yahoo.com | Solana Treasury Firm Invites Investors to Look 'Beyond the Price of SOL'
+  - 2026-08-26 | www.thecoinrepublic.com | Solana ETF Rakes In $32 Million as SOL Price Jumps 25%, Is $100 Next?
+  - 2026-08-26 | finance.yahoo.com | Galaxy Opens Retail Crypto-Backed Credit Lines on Bitcoin, Ethereum and Solana
+  - 2026-08-25 | www.sandiegouniontribune.com | Solana Beach School District parents petition to restrict student screen time
+  - 2026-08-25 | finance.yahoo.com | Solana Outpaces Bitcoin As Record $1.2B ETF Inflows Fuel SOL Rally Toward $100
+  - 2026-08-25 | finance.yahoo.com | Could Solana Hit $2,000 by 2030? One Institutional Investor Thinks So.
+  - 2026-08-25 | finance.yahoo.com | Solana Mirrors Fractal Setup That Preceded 1,000% SOL Price Rally
+  - 2026-08-25 | www.coindesk.com | Solana ETFs hit record $1.2 billion in cumulative inflows after five-day inflow streak
+  - 2026-08-25 | www.moomoo.com | BTC breaks $80,000 amid overbought conditions; Solana leads gains but faces correction risks
+  - 2026-08-25 | www.moomoo.com | Bitcoin Holds $79,000, Ether, Solana Slip as Traders Bank a Week of Gains
+  - 2026-08-25 | finance.biggo.com | Solana's July Transactions Hit Record 4.2 Billion as SOL Jumps 40% in Eight Days
+  - 2026-08-25 | finance.biggo.com | Bitcoin Nears $80,000 as Solana Leads Broad Crypto Recovery
+  - 2026-08-24 | finance.biggo.com | Solana Holds Above $94 After Best Week in Two Months as $100 Resistance Looms
+  - 2026-08-24 | www.coindesk.com | New Solana vote could ramp daily SOL burns to $800,000 and slow new token creation
+  - 2026-08-24 | finance.yahoo.com | Solana RWA Ecosystem Just Hit $4 Billion Two Days After Cutting Block Times to 350ms
+  - 2026-08-24 | dailycoin.com | Solana Speeds Up Blocks to 350 Milliseconds, Targets 200
+  - 2026-08-24 | www.thestreet.com | Solana sets an all-time record for weekly network activity
+  - 2026-08-24 | www.youhodler.com | Ethereum Has 66 Ideas, Visa Wants Stablecoin Rails, and Solana Cuts Transaction Times
+  - 2026-08-24 | egamers.io | Solana Trims Block Slot Time to 350ms — Its First Speed Cut Ever
+  - 2026-08-24 | cryptonews.net | Solana Network Revenue Tops $1 Million, Hits Six-Month High
+  - 2026-08-24 | finance.biggo.com | Fidelity Allows 100% Staking of Assets in Ethereum and Solana ETPs
+  - 2026-08-23 | yellow.com | Solana Posts 5% Gain After Firedancer Client Launches On Mainnet
+What to write for E3:
+  Write "levels": for each chance 10, 25, 50, 75 and 90, the level you give that chance of the measured quantity being at or above when it resolves. The 10 level is the highest and the 90 level the lowest. Example: {"10": 120, "25": 110, "50": 100, "75": 92, "90": 85}.
+
+=== E4 (as of 2026-08-26): NYC Mayor # posts August 21 - August 28, 2026?
+Rules:
+This market will resolve according to the number of times NYC Mayor Zohran Mamdani (@NYCMayor), posts on X between August 21, 12:00 PM ET and August 28, 2026, 12:00 PM ET.
+
+For the purposes of this market, only main feed posts, quote posts and reposts will count.
+
+Replies will NOT count towards the total - however, replies which are recorded on the main feed will be counted by the tracker.
+
+Deleted posts will count as long as they remain available long enough to be captured by the tracker (~5 minutes).
+
+The resolution source for this market is the "Post Counter" figure for posts found at https://xtracker.polymarket.com. Individual posts can be viewed by clicking "Export Data". If the tracker does not update correctly in accordance with the rules, X itself may be used as a secondary resolution source.
+Contracts:
+  E4.C1: Will NYC Mayor post 20-39 posts from August 21 to August 28, 2026?
+  E4.C2: Will NYC Mayor post 40-59 posts from August 21 to August 28, 2026?
+  E4.C3: Will NYC Mayor post 60-79 posts from August 21 to August 28, 2026?
+  E4.C4: Will NYC Mayor post 80-99 posts from August 21 to August 28, 2026?
+  E4.C5: Will NYC Mayor post 100-119 posts from August 21 to August 28, 2026?
+  E4.C6: Will NYC Mayor post 120-139 posts from August 21 to August 28, 2026?
+  E4.C7: Will NYC Mayor post 140-159 posts from August 21 to August 28, 2026?
+  E4.C8: Will NYC Mayor post 160-179 posts from August 21 to August 28, 2026?
+  E4.C9: Will NYC Mayor post 180-199 posts from August 21 to August 28, 2026?
+  E4.C10: Will NYC Mayor post 200+ posts from August 21 to August 28, 2026?
+News before E4's as-of date (date seen, source, headline):
+  - 2026-08-26 | www.foxnews.com | Harlem bodega owner pleads with NYC Mayor Mamdani to relocate city-run grocery store away from his small business
+  - 2026-08-26 | www.usatoday.com | How NYC Mayor Zohran Mamdani paid tribute to Dolly Parton
+  - 2026-08-26 | www.usatoday.com | NYC Mayor Zohran Mamdani goes to social media to honor Dolly Parton
+  - 2026-08-26 | www.yahoo.com | NYC Mayor Zohran Mamdani Admits to Mistakenly Sending Pied-a-Terre Tax Letter to 1,200 Residents
+  - 2026-08-26 | m.economictimes.com | 'Don't support rally but...': NYC Mayor Zohran Mamdani on RSS chief Bhagwat Madison Square event
+  - 2026-08-26 | www.indiatoday.in | NYC Mayor Zohran Mamdani opposes Mohan Bhagwat's Madison Square Garden event
+  - 2026-08-26 | www.deccanchronicle.com | NYC Mayor Mamdani Opposes Bhagwat’s Madison Square Garden Event
+  - 2026-08-26 | theprint.in | NYC Mayor Mamdani opposes RSS chief Bhagwat’s Madison Square event
+  - 2026-08-26 | www.indiatoday.in | NYC Mayor Opposes RSS Chief's Event At MSG; Cites Lack Of Jurisdiction To Stop Rally - India Today
+  - 2026-08-26 | www.telegraphindia.com | NYC mayor Zohran Mamdani opposes RSS chief Mohan Bhagwat's Madison Square Garden event
+  - 2026-08-25 | www.newindianexpress.com | NYC Mayor Mamdani opposes RSS chief Bhagwat's planned Madison Square Garden event
+  - 2026-08-25 | www.yahoo.com | Dave Portnoy Calls Out NYC Mayor Zohran Mamdani After Wild UberEats Driver Brawl at Barstool HQ
+  - 2026-08-25 | www.silive.com | Will NYC Mayor Zohran Mamdani help Gov. Kathy Hochul in re-election bid?
+  - 2026-08-24 | www.yahoo.com | NYC Mayor Zohran Mamdani Sued by Business Coalition Over City-Owned Grocery Stores Operating Like Walmart
+  - 2026-08-24 | www.yahoo.com | NYC Mayor Zohran Mamdani admin unveils plan for more modest BQE repairs, foregoing fed funds
+  - 2026-08-24 | ca.news.yahoo.com | Grocers sue over NYC Mayor Zohran Mamdani's city-owned grocery store plan
+  - 2026-08-24 | www.yahoo.com | Rudy vs Tucker: Ex-NYC mayor says he’s gonna sue former Fox host over Hunter Biden interview
+  - 2026-08-23 | www.cbsnews.com | NYC Mayor Zohran Mamdani returns from vacation in upstate New York
+  - 2026-08-22 | www.yahoo.com | Retired top cop running for NYC mayor in 2029 vows to make NYPD highest paid department in nation if he’s elected
+  - 2026-08-20 | www.the74million.org | NYC Mayor Sues City Council Over Law Giving $10,000 Bonuses to Paraprofessionals
+  - 2026-08-20 | www.cbsnews.com | Petition from 9/11 families asks NYC Mayor Zohran Mamdani not to attend remembrance ceremony - CBS New York
+  - 2026-08-20 | www.silive.com | What does NYC Mayor Mamdani want for dinner? Job posting for chef offers clues
+  - 2026-08-19 | www.silive.com | After getting earful on this safety issue, NYC Mayor Mamdani responds: ‘I’ve got to do better’
+  - 2026-08-19 | www.yahoo.com | NYC Mayor Zohran Mamdani’s New Pied-a-Terre Tax Prompts Outrage at Packed City Council Hearing
+  - 2026-08-19 | www.chosun.com | NYC Mayor Mamdani Responds to Helmet Criticism with Safety Video
+What to write for E4:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E5 (as of 2026-04-29): Bitcoin above ___ on May 5?
+Rules:
+This market will resolve to "Yes" if the Binance 1 minute candle for BTC/USDT 12:00 in the ET timezone (noon) on the date specified in the title has a final "Close" price higher than the price specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the BTC/USDT "Close" prices currently available at https://www.binance.com/en/trade/BTC_USDT with "1m" and "Candles" selected on the top bar.
+
+Please note that this market is about the price according to Binance BTC/USDT, not according to other exchanges or trading pairs.
+
+Price precision is determined by the number of decimal places in the source.
+Contracts:
+  E5.C1: Will the price of Bitcoin be above $66,000 on May 5?
+  E5.C2: Will the price of Bitcoin be above $68,000 on May 5?
+  E5.C3: Will the price of Bitcoin be above $70,000 on May 5?
+  E5.C4: Will the price of Bitcoin be above $72,000 on May 5?
+  E5.C5: Will the price of Bitcoin be above $74,000 on May 5?
+  E5.C6: Will the price of Bitcoin be above $76,000 on May 5?
+  E5.C7: Will the price of Bitcoin be above $78,000 on May 5?
+  E5.C8: Will the price of Bitcoin be above $80,000 on May 5?
+  E5.C9: Will the price of Bitcoin be above $82,000 on May 5?
+  E5.C10: Will the price of Bitcoin be above $84,000 on May 5?
+  E5.C11: Will the price of Bitcoin be above $86,000 on May 5?
+News before E5's as-of date (date seen, source, headline):
+  - 2026-04-29 | www.coindesk.com | There's a social media groundswell predicting bitcoin above $90,000. That might be a problem.
+  - 2026-04-29 | finance.yahoo.com | What is Bitcoin’s Endgame? MicroStrategy’s Saylor Has a Prediction
+  - 2026-04-29 | finance.yahoo.com | Bitcoin Bottom or May Bust? Top 3 Price Predictions From Experts Highlight Crucial Cost Basis
+  - 2026-04-29 | finance.yahoo.com | Bitcoin Is Moving From Trade to Treasury Asset -- Here's Why That Matters
+  - 2026-04-29 | finance.yahoo.com | Bitcoin and ethereum prices today, Wednesday, April 29, 2026: Values continue to fall this week
+  - 2026-04-29 | fortune.com | Current price of Bitcoin for April 29, 2026
+  - 2026-04-29 | fox17.com | Bitcoin 2027 conference will return to Nashville
+  - 2026-04-29 | www.cnbc.com | Still believe bitcoin will be worth $1 million or more in the long run: Lightspark's David Marcus
+  - 2026-04-29 | www.coindesk.com | Bitcoin (BTC) trading volume is falling fast. That rarely ends smoothly: Crypto Daily
+  - 2026-04-29 | bitcoinmagazine.com | Square Crosses 1 Million Bitcoin-Enabled Merchants as Real-World Adoption Continues to Grow
+  - 2026-04-29 | www.theblock.co | Bitcoin slips to $75,000 as Fed holds rates, dissenters chill Warsh 'pivot party'
+  - 2026-04-29 | www.coindesk.com | Bitcoin's (BTC) greatest days are here, says Eric Trump
+  - 2026-04-29 | www.bloomberg.com | Czech Central Banker Says Bitcoin May Improve Reserve Portfolio
+  - 2026-04-29 | www.fool.com | Bitcoin Whitepaper: Explained
+  - 2026-04-29 | www.bloomberg.com | Option Traders Build ‘Electric Fence’ Around Bitcoin at $80,000
+  - 2026-04-28 | finance.yahoo.com | Bitcoin and ethereum prices today, Tuesday, April 28, 2026: Values falling ahead of Fed meeting
+  - 2026-04-28 | www.coindesk.com | Bitcoin (BTC) price retreat deepens after repeated rejection at $80,000: Crypto Markets Today
+  - 2026-04-28 | www.forbes.com | Eric Trump's Bitcoin Business Is A Disaster
+  - 2026-04-28 | finance.yahoo.com | 'Crypto Godfather' Says Bitcoin Has Further To Fall
+  - 2026-04-28 | fortune.com | Current price of Bitcoin for April 28, 2026
+  - 2026-04-28 | www.coindesk.com | 'Crypto Godfather' says bitcoin has not reached its bottom and a new all-time high is off the table for 2026
+  - 2026-04-28 | www.etftrends.com | Disruptive Theme of the Week: Bitcoin Miner Optionality
+  - 2026-04-28 | www.forbes.com | How Michael Saylor Turned Preferred Stock Into Jet Fuel For Buying Bitcoin
+  - 2026-04-28 | www.wfsb.com | Southington woman loses $14,000 in Bitcoin scam involving fake police officer
+  - 2026-04-28 | www.kioskmarketplace.com | Crypto kiosk chaos: Can the bitcoin ATM industry survive?
+What to write for E5:
+  Write "levels": for each chance 10, 25, 50, 75 and 90, the level you give that chance of the measured quantity being at or above when it resolves. The 10 level is the highest and the 90 level the lowest. Example: {"10": 120, "25": 110, "50": 100, "75": 92, "90": 85}.
+
+=== E6 (as of 2026-09-23): Solana above ___ on September 28?
+Rules:
+This market will resolve to "Yes" if the Binance 1 minute candle for SOL/USDT 12:00 in the ET timezone (noon) on the date specified in the title has a final "Close" price higher than the price specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the SOL/USDT "Close" prices currently available at https://www.binance.com/en/trade/SOL_USDT with "1m" and "Candles" selected on the top bar.
+
+Please note that this market is about the price according to Binance SOL/USDT, not according to other exchanges or trading pairs.
+
+Price precision is determined by the number of decimal places in the source.
+Contracts:
+  E6.C1: Will the price of Solana be above $95 on September 28?
+  E6.C2: Will the price of Solana be above $100 on September 28?
+  E6.C3: Will the price of Solana be above $105 on September 28?
+  E6.C4: Will the price of Solana be above $110 on September 28?
+  E6.C5: Will the price of Solana be above $115 on September 28?
+  E6.C6: Will the price of Solana be above $120 on September 28?
+  E6.C7: Will the price of Solana be above $125 on September 28?
+  E6.C8: Will the price of Solana be above $130 on September 28?
+  E6.C9: Will the price of Solana be above $135 on September 28?
+  E6.C10: Will the price of Solana be above $140 on September 28?
+  E6.C11: Will the price of Solana be above $145 on September 28?
+News before E6's as-of date (date seen, source, headline):
+  - 2026-09-23 | 99bitcoins.com | Solana News Today: $120 Breakout Test Meets Alpenglow Upgrade
+  - 2026-09-23 | cryptonews.com | Solana Begins Testing on Major Speed Upgrade: SOL Price to $150?
+  - 2026-09-23 | newscord.org | Solana’s Alpenglow Upgrade Reaches Second Public Test Network With 150ms Finality Target: 13 outlets compared
+  - 2026-09-23 | forklog.com | Alpenglow Begins Activation Phase in Solana Testnet
+  - 2026-09-23 | www.tradingview.com | Solana Futures (Dec 2026) Trade Ideas — COINBASE:SLCZ2026
+  - 2026-09-23 | www.tradingview.com | FUTURO SOLANA (Nov 2026) Trade Ideas — BMFBOVESPA:SOLX2026
+  - 2026-09-23 | 247wallst.com | Where Will Bitcoin and Solana Be in 2 Years?
+  - 2026-09-23 | finance.yahoo.com | What Would It Take for Solana to Hit $295 Again?
+  - 2026-09-23 | finance.yahoo.com | XRP, Solana, or Zcash: Which Is the Best Crypto to Buy Before the Quarter Ends on September 30?
+  - 2026-09-23 | cryptoslate.com | Solana moves Alpenglow into testnet as SOL nears January highs
+  - 2026-09-23 | www.tradingview.com | Ondo Pushes USDY Deeper Into Solana DeFi
+  - 2026-09-23 | www.investing.com | Forward Industries raises $25M to expand Solana holdings
+  - 2026-09-23 | www.coindesk.com | Solana starts testing upgrade that could cut finality from 12.8 seconds to 150 milliseconds
+  - 2026-09-23 | www.tradingview.com | How High Can Solana Price Go?
+  - 2026-09-22 | thecoastnews.com | Solana Beach Chamber welcomes Torrey Pines senior as marketing intern
+  - 2026-09-22 | www.nbcsandiego.com | Solana Espino
+  - 2026-09-22 | cryptorank.io | Cardano Joins Solana, XRPL in AI Agent Payments Race as ADA Gains 6%
+  - 2026-09-22 | finance.biggo.com | US Spot Solana ETFs Attract Record $26.1 Million Daily Inflow
+  - 2026-09-22 | www.globenewswire.com | Crypto News Today: Remittix Pushes Cross-Border Payment Utility While Solana Price Prediction Points to $702
+  - 2026-09-22 | pluang.com | US spot Solana ETFs attract $26M in one day, le...
+  - 2026-09-22 | www.tradingview.com | Key facts: Solana vs US Dollar, Spot CFD rallies to $117–$119; bullish trigger 240–260
+  - 2026-09-22 | www.marketscreener.com | B. Riley Raises Price Target on Solana to $4 From $3.50, Keeps Buy Rating
+  - 2026-09-22 | www.coindesk.com | Cardano joins Solana, XRP Ledger in race to power AI agent payments
+  - 2026-09-22 | www.thestreet.com | Solana dominates x402 with 23.2M transactions in four weeks
+  - 2026-09-22 | cryptoslate.com | Solana flips Ethereum in fees, while ETH holds the burn lead
+What to write for E6:
+  Write "levels": for each chance 10, 25, 50, 75 and 90, the level you give that chance of the measured quantity being at or above when it resolves. The 10 level is the highest and the 90 level the lowest. Example: {"10": 120, "25": 110, "50": 100, "75": 92, "90": 85}.

@@ -1,0 +1,451 @@
+You will be shown 6 questions from a prediction market. Each has one or more contracts that resolve YES or NO under the rules shown. Each question gives the date your view is "as of": answer as you would on that date.
+
+Use what you already know and the news headlines listed under each question, all published in the 7 days before its as-of date. Do not search for or look up anything else: reading this file is the only tool call you may make. There are no prices from any prediction market in this file and you should not try to estimate what any market thinks; give your own view.
+
+Each question says what to write for it. Whole percents run from 1 to 99. Levels are plain numbers in the units the contracts use (for example 95000 for $95,000, 3.25 for 3.25%). Dates are YYYY-MM-DD.
+
+For each question also say whether you recognise how it actually turned out ("recognised": true only if you believe you remember the real outcome; otherwise false).
+
+Reply with one JSON object and nothing else:
+{"events": [{"label": "E1", "recognised": false, ...the fields that question asks for...}]}
+
+=== E1 (as of 2026-07-29): Best Chinese AI Company end of September?
+Rules:
+This market will resolve according to the company that owns the model that has the highest arena rank among primarily Chinese companies, based on the arena.ai Text Arena (Overall) when the table under the "Leaderboard" tab is checked on September 30, 2026, 12:00 PM ET.
+
+Chinese Companies include but are not limited to Alibaba, Moonshot, Baidu, Z.ai, Xiaomi, DeepSeek, ByteDance, MiniMax, Meituan, Tencent, and StepFun. Companies not headquartered in China or not primarily owned or operating within the Chinese technology ecosystem are not considered primarily Chinese.
+
+Results from the "Rank" column under the "Text Arena | Overall" Leaderboard tab at https://arena.ai/leaderboard/text/overall-no-style-control with style control off (Adjustments: None) and filtered for "Models" will be used to resolve this market.
+
+Qualifying Chinese Models will be ordered primarily by their leaderboard rank at the market’s check time. If two or more models are tied on rank, they will be ordered by their Arena score, including any underlying, unrounded, granular values reflected in the data below the leaderboard. If a tie still remains, alphabetical order of company names as listed in this market group will be used as a final tiebreaker (e.g., if the two models are tied by exact arena score, “Meituan” would be ranked ahead of “Xiaomi”). This market will resolve based on the company that occupies first place under this ranking.
+
+The resolution source for this market is the arena.ai Text Arena (Overall). If this resolution source is unavailable at check time, this market will remain open until the leaderboard comes back online and will resolve based on the first check after it becomes available. If it becomes permanently unavailable, this market will resolve to "Other".
+Contracts:
+  E1.C1: Will Alibaba have the best Chinese AI model at the end of September 2026?
+  E1.C2: Will Moonshot have the best Chinese AI model at the end of September 2026?
+  E1.C3: Will Baidu have the best Chinese AI model at the end of September 2026?
+  E1.C4: Will Z.ai have the best Chinese AI model at the end of September 2026?
+  E1.C5: Will Xiaomi have the best Chinese AI model at the end of September 2026?
+  E1.C6: Will DeepSeek have the best Chinese AI model at the end of September 2026?
+  E1.C7: Will ByteDance have the best Chinese AI model at the end of September 2026?
+  E1.C8: Will MiniMax have the best Chinese AI model at the end of September 2026?
+  E1.C9: Will Meituan have the best Chinese AI model at the end of September 2026?
+  E1.C10: Will Tencent have the best Chinese AI model at the end of September 2026?
+  E1.C11: Will StepFun have the best Chinese AI model at the end of September 2026?
+News before E1's as-of date: none found.
+What to write for E1:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E2 (as of 2026-08-12): Bitcoin above ___ on August 15?
+Rules:
+This market will resolve to "Yes" if the Binance 1 minute candle for BTC/USDT 12:00 in the ET timezone (noon) on the date specified in the title has a final "Close" price higher than the price specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the BTC/USDT "Close" prices currently available at https://www.binance.com/en/trade/BTC_USDT with "1m" and "Candles" selected on the top bar.
+
+Please note that this market is about the price according to Binance BTC/USDT, not according to other exchanges or trading pairs.
+
+Price precision is determined by the number of decimal places in the source.
+Contracts:
+  E2.C1: Will the price of Bitcoin be above $56,000 on August 15?
+  E2.C2: Will the price of Bitcoin be above $58,000 on August 15?
+  E2.C3: Will the price of Bitcoin be above $60,000 on August 15?
+  E2.C4: Will the price of Bitcoin be above $62,000 on August 15?
+  E2.C5: Will the price of Bitcoin be above $64,000 on August 15?
+  E2.C6: Will the price of Bitcoin be above $66,000 on August 15?
+  E2.C7: Will the price of Bitcoin be above $68,000 on August 15?
+  E2.C8: Will the price of Bitcoin be above $70,000 on August 15?
+  E2.C9: Will the price of Bitcoin be above $72,000 on August 15?
+  E2.C10: Will the price of Bitcoin be above $74,000 on August 15?
+  E2.C11: Will the price of Bitcoin be above $76,000 on August 15?
+News before E2's as-of date (date seen, source, headline):
+  - 2026-08-12 | bitcoinmagazine.com | Bitcoin Price May Be Battered, but Structural Adoption Story Still Intact: Grayscale
+  - 2026-08-12 | fortune.com | Current price of Bitcoin for August 12, 2026
+  - 2026-08-12 | finance.yahoo.com | Where Will Bitcoin Be in 2030?
+  - 2026-08-12 | finance.yahoo.com | Bitcoin and ethereum prices today, Wednesday, August 12, 2026: Crypto prices rise with CPI report on deck
+  - 2026-08-12 | finance.yahoo.com | Bitcoin Price Risks Deeper Drop as $174M in Long Positioning Disappears: Analyst
+  - 2026-08-12 | finance.yahoo.com | The First Spot Bitcoin ETF Is Closing Down. Here's Why I'm Not Concerned About Bitcoin Right Now.
+  - 2026-08-12 | www.coindesk.com | Russia moves to restrict retail crypto trading to bitcoin, ether and USDT
+  - 2026-08-12 | www.theblock.co | Bitcoin dips under $64,000 as in-line CPI buys the Fed time, not conviction: analysts
+  - 2026-08-12 | marketwise.com | Strategy’s New Bitcoin-Backed ‘Digital Credit’ Plan: Does the Juiced Preferred Stock Have Upside?
+  - 2026-08-12 | www.coindesk.com | One overlooked group has added $1.78 billion of selling pressure to bitcoin market
+  - 2026-08-12 | finance.yahoo.com | Earnings For Bitcoin Miners Hit 10-Year Low
+  - 2026-08-12 | www.coindesk.com | Bitcoin holds near $64,000 as U.S. inflation data looms, Harmony exploit rattles altcoins
+  - 2026-08-12 | www.coindesk.com | Dogecoin and BNB lead majors higher as bitcoin slips near $63,700
+  - 2026-08-12 | www.inc.com | Bitcoin Miners Have Something Anthropic Desperately Needs. It’s Worth $9.1 Billion
+  - 2026-08-12 | www.pymnts.com | Russia Limits Retail Crypto to Bitcoin, Ether and Tether
+  - 2026-08-12 | bitcoinmagazine.com | Bitcoin Flashes Bottom Signals As "Digital Gold" Narrative Returns
+  - 2026-08-12 | www.coindesk.com | BTC price news: Bitcoin slips near $63,500 as traders look past CPI to Fed’s next tests
+  - 2026-08-11 | finance.yahoo.com | Is Bitcoin Ready To Explode? Here's Why Crypto Is at a 'Major Inflection Point'
+  - 2026-08-11 | fortune.com | Current price of Bitcoin for August. 11, 2026
+  - 2026-08-11 | finance.yahoo.com | Why Strategy Is Selling Bitcoin and How Much It Has Sold So Far
+  - 2026-08-11 | finance.yahoo.com | Russia Approves Trading of Bitcoin, Ethereum and USDT—But No XRP
+  - 2026-08-11 | finance.yahoo.com | Russia to Allow Bitcoin, Ether, Tether Trading on Official Exchanges
+  - 2026-08-11 | finance.yahoo.com | Could Bitcoin really crash to $20,000? Analyst says watch out for 2027
+  - 2026-08-11 | finance.yahoo.com | Bitcoin Price Prediction: BTC Bullish Signals Persist Despite Short-Term Volatility
+  - 2026-08-11 | www.waff.com | Utility work begins at Somerville Bitcoin mining site despite moratorium
+What to write for E2:
+  Write "levels": for each chance 10, 25, 50, 75 and 90, the level you give that chance of the measured quantity being at or above when it resolves. The 10 level is the highest and the 90 level the lowest. Example: {"10": 120, "25": 110, "50": 100, "75": 92, "90": 85}.
+
+=== E3 (as of 2026-06-03): Solana price on June 5?
+Rules:
+This market will resolve according to the final "Close" price of the Binance 1 minute candle for SOL/USDT 12:00 in the ET timezone (noon) on the date specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the SOL/USDT "Close" prices currently available at https://www.binance.com/en/trade/SOL_USDT with "1m" and "Candles" selected on the top bar.
+
+If the reported value falls exactly between two brackets, then this market will resolve to the higher range bracket.
+
+Please note that this market is about the price according to Binance SOL/USDT, not according to other exchanges or trading pairs.
+Contracts:
+  E3.C1: Will the price of Solana be less than $40 on June 5?
+  E3.C2: Will the price of Solana be between $40 and $50 on June 5?
+  E3.C3: Will the price of Solana be between $50 and $60 on June 5?
+  E3.C4: Will the price of Solana be between $60 and $70 on June 5?
+  E3.C5: Will the price of Solana be between $70 and $80 on June 5?
+  E3.C6: Will the price of Solana be between $80 and $90 on June 5?
+  E3.C7: Will the price of Solana be between $90 and $100 on June 5?
+  E3.C8: Will the price of Solana be between $100 and $110 on June 5?
+  E3.C9: Will the price of Solana be between $110 and $120 on June 5?
+  E3.C10: Will the price of Solana be between $120 and $130 on June 5?
+  E3.C11: Will the price of Solana be greater than $130 on June 5?
+News before E3's as-of date (date seen, source, headline):
+  - 2026-06-03 | www.tradingview.com | Solana (SOL) - Mastercard Stablecoin Pay - 03 June 2026
+  - 2026-06-03 | www.theblock.co | Hyperliquid's HYPE overtakes Solana in price as SOL falls to lowest levels since 2023
+  - 2026-06-03 | 99bitcoins.com | Leading Claude AI Predicts the Shocking Solana Price for The Next 30 Days
+  - 2026-06-03 | coinpedia.org | Solana Price Breaks Key Support—Could a 20% Correction Be Next for SOL?
+  - 2026-06-03 | cryptonews.net | Solana price risks deeper losses as bearish patterns signal weakness
+  - 2026-06-03 | 99bitcoins.com | Solana Grows Up: Can Native Subscriptions Replace the Meme Coin Casino?
+  - 2026-06-03 | crypto.news | Hyperliquid price overtakes Solana as HYPE defies crypto market crash
+  - 2026-06-03 | ambcrypto.com | Solana falls below $76 range low: Will SOL fall below $50 in 2026?
+  - 2026-06-03 | www.theblock.co | Solayer rolls out Solana-native onchain perps trading platform Margin Trade mainnet
+  - 2026-06-02 | www.fool.com | Better Altcoin: Cardano vs. Solana
+  - 2026-06-02 | finance.yahoo.com | Solana adds native subscriptions and recurring payments to its blockchain
+  - 2026-06-02 | www.tradingview.com | Solana Just Made History, Could A Massive Recovery Be Next?
+  - 2026-06-02 | thecoastnews.com | Lomas Santa Fe East project to begin in Solana Beach this fall
+  - 2026-06-02 | phemex.com | Solana’s Leap: Firedancer Ignites a New Era for SOL
+  - 2026-06-02 | sherwood.news | Solana falls to a more than 3-month low
+  - 2026-06-02 | coinmarketcap.com | Solana Drops 4.2% Amid Broad Crypto Liquidation Event
+  - 2026-06-02 | www.coindesk.com | Western Union, Visa, PayPal, Meta: why major payments giants are racing to Solana | CoinDesk Videos
+  - 2026-06-02 | startupfortune.com | Solana brings subscription billing to mainnet.
+  - 2026-06-01 | www.fool.com | Is Solana About to Have Its Biggest Year Yet?
+  - 2026-06-01 | www.tradingview.com | Solana (SOL) Risks Slipping Deeper Into The Red As Momentum Fades
+  - 2026-06-01 | coinpedia.org | Solana Price Breaks Key Support as Network Activity Slumps—Will Bears Trigger a Short Squeeze Next?
+  - 2026-06-01 | www.tradingview.com | Solana clings to $80 support as ETF outflows shake crypto markets hard
+  - 2026-06-01 | www.coindesk.com | BTC, ETH price news: Bitcoin, ether, solana slide as AI trade continues to rip higher
+  - 2026-06-01 | ambcrypto.com | Solana crosses 200K tokenized stock holders – Here’s why the timing matters!
+  - 2026-06-01 | unchainedcrypto.com | Solana’s Tokenomics Debate Just Got Two Competing Proposals, and Anatoly Is Actively Shaping Both
+What to write for E3:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E4 (as of 2026-09-02): What will S&P 500 (SPY) hit Week of August 31 2026?
+Rules:
+What will S&P 500 (SPY) hit Week of August 31 2026?
+Contracts:
+  E4.C1: Will S&P 500 (SPY) hit (HIGH) $800 Week of August 31 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of August 31 2026, any 1-minute candle for S&P 500 (SPY) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the S&P 500 (SPY) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.SPY%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.SPY%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E4.C2: Will S&P 500 (SPY) hit (HIGH) $795 Week of August 31 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of August 31 2026, any 1-minute candle for S&P 500 (SPY) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the S&P 500 (SPY) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.SPY%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.SPY%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E4.C3: Will S&P 500 (SPY) hit (HIGH) $790 Week of August 31 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of August 31 2026, any 1-minute candle for S&P 500 (SPY) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the S&P 500 (SPY) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.SPY%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.SPY%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E4.C4: Will S&P 500 (SPY) hit (HIGH) $785 Week of August 31 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of August 31 2026, any 1-minute candle for S&P 500 (SPY) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the S&P 500 (SPY) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.SPY%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.SPY%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E4.C5: Will S&P 500 (SPY) hit (HIGH) $780 Week of August 31 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of August 31 2026, any 1-minute candle for S&P 500 (SPY) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the S&P 500 (SPY) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.SPY%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.SPY%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E4.C6: Will S&P 500 (SPY) hit (HIGH) $775 Week of August 31 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of August 31 2026, any 1-minute candle for S&P 500 (SPY) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the S&P 500 (SPY) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.SPY%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.SPY%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E4.C7: Will S&P 500 (SPY) hit (LOW) $755 Week of August 31 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of August 31 2026, any 1-minute candle for S&P 500 (SPY) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the S&P 500 (SPY) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.SPY%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.SPY%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E4.C8: Will S&P 500 (SPY) hit (LOW) $750 Week of August 31 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of August 31 2026, any 1-minute candle for S&P 500 (SPY) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the S&P 500 (SPY) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.SPY%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.SPY%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E4.C9: Will S&P 500 (SPY) hit (LOW) $745 Week of August 31 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of August 31 2026, any 1-minute candle for S&P 500 (SPY) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the S&P 500 (SPY) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.SPY%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.SPY%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E4.C10: Will S&P 500 (SPY) hit (LOW) $740 Week of August 31 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of August 31 2026, any 1-minute candle for S&P 500 (SPY) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the S&P 500 (SPY) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.SPY%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.SPY%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E4.C11: Will S&P 500 (SPY) hit (LOW) $735 Week of August 31 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of August 31 2026, any 1-minute candle for S&P 500 (SPY) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the S&P 500 (SPY) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.SPY%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.SPY%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E4.C12: Will S&P 500 (SPY) hit (HIGH) $770 Week of August 31 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of August 31 2026, any 1-minute candle for S&P 500 (SPY) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the S&P 500 (SPY) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.SPY%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.SPY%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E4.C13: Will S&P 500 (SPY) hit (HIGH) $765 Week of August 31 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of August 31 2026, any 1-minute candle for S&P 500 (SPY) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the S&P 500 (SPY) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.SPY%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.SPY%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+News before E4's as-of date (date seen, source, headline):
+  - 2026-09-02 | capitolnewsillinois.com | S&P Global upgrades Illinois’ credit rating
+  - 2026-09-02 | finance.yahoo.com | What to expect over the next 12 months from S&P 500 returns
+  - 2026-09-02 | www.cnbc.com | Private equity funds are losing to the S&P 500 of late—why investments for the wealthy aren't necessarily better
+  - 2026-09-02 | www.prnewswire.com | Esquire Bank Named a Top Deposit Franchise by S&P Global Market Intelligence for Third Consecutive Year
+  - 2026-09-02 | www.bloomberg.com | S&P 500 Steadies After Three-Day Skid as Oil Prices Halt Advance
+  - 2026-09-02 | www.bloomberg.com | Watch S&P Weighs Multibillion-Dollar Spinout of Data Unit CapIQ
+  - 2026-09-02 | finance.yahoo.com | September Is Historically One of the Worst Months for the S&P 500. Here's 1 Move Not to Make.
+  - 2026-09-02 | finance.yahoo.com | 2 S&P 500 Stocks with Competitive Advantages and 1 That Underwhelm
+  - 2026-09-02 | www.investors.com | S&P 500: September Is Usually Ugly For Stocks — Why This Year Is Different
+  - 2026-09-02 | www.wbrc.com | University of Montevallo maintains strong S&P credit rating following leadership transitions, program cuts
+  - 2026-09-02 | finance.yahoo.com | US Stock Market Today: S&P 500 Futures Slip As Rising Yields Pressure Equities
+  - 2026-09-01 | www.bloomberg.com | S&P Weighs Multibillion-Dollar Spinout of Data Platform Capital IQ
+  - 2026-09-01 | finance.yahoo.com | S&P Global shares rise on report of possible CapIQ spinoff
+  - 2026-09-01 | finance.yahoo.com | US Stock Market Today: S&P 500 Futures Edge Lower As Inflation Concerns Resurface
+  - 2026-09-01 | www.prnewswire.com | Invesco S&P 500 Equal Weight ETF (RSP) Reaches $100 Billion AUM Milestone
+  - 2026-09-01 | www.prnewswire.com | S&P Global Completes Acquisition of datacenterHawk
+  - 2026-09-01 | qz.com | S&P 500 biggest August 2026 winners: Moderna, software stocks
+  - 2026-09-01 | www.prnewswire.com | S&P Dow Jones Indices and Kaiko Introduce S&P Kaiko Digital Asset Indices
+  - 2026-09-01 | finance.yahoo.com | Is S&P Global Stock Underperforming the S&P 500?
+  - 2026-09-01 | news.wpcarey.asu.edu | RSP vs SPY: Why these S&P 500 ETFs have such different returns over the past 20 years
+  - 2026-09-01 | finance.yahoo.com | ETF Asset Flow of August: S&P 500 Tops
+  - 2026-09-01 | stockstory.org | 2 S&P 500 Stocks for Long-Term Investors and 1 We Turn Down
+  - 2026-09-01 | stockstory.org | 2 S&P 500 Stocks to Target This Week and 1 That Underwhelm
+  - 2026-09-01 | finance.yahoo.com | Is Invesco S&P 500 Equal Weight Industrials ETF (RSPN) a Strong ETF Right Now?
+  - 2026-08-31 | qz.com | S&P 500 September seasonality: What investors should watch
+What to write for E4:
+  Write "high": for each chance 10, 25, 50, 75 and 90, the level you give that chance of being reached (at or above) within the period. The 10 level is the highest.
+  Write "low": for each chance 10, 25, 50, 75 and 90, the level you give that chance of being reached (at or below) within the period. The 10 level is the lowest.
+
+=== E5 (as of 2026-06-24): FL-06 Republican Primary Winner
+Rules:
+This market will resolve according to the candidate who wins the nomination for the Republican Party to contest the FL-06 congressional district seat in the U.S. House of Representatives in the 2026 midterm elections. The Republican primary will take place on August 18, 2026.
+
+If no nominee is announced by November 3, 2026, 11:59 PM ET, this market will resolve to "Other".
+
+The resolution source for this market will be a consensus of official Republican sources, including https://www.rnc.org/.
+
+Any replacement of the nominee before election day will not change the resolution of the market.
+Contracts:
+  E5.C1: Will Alexandra Van Cleef be the Republican nominee for FL-06?
+  E5.C2: Will Joshua Vasquez be the Republican nominee for FL-06?
+  E5.C3: Will Aaron Baker be the Republican nominee for FL-06?
+  E5.C4: Will Dan Bilzerian be the Republican nominee for FL-06?
+  E5.C5: Will Randy Fine be the Republican nominee for FL-06?
+  E5.C6: Will Charles Gambaro be the Republican nominee for FL-06?
+  E5.C7: Will Ernest Audino be the Republican nominee for FL-06?
+News before E5's as-of date: none found.
+What to write for E5:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E6 (as of 2026-07-15): Argentina Monthly Inflation - July
+Rules:
+This is a market about the monthly variation of consumer prices in Argentina, before seasonal adjustment, as reported by the National Institute of Statistics and Census (INDEC) of Argentina.
+
+This market will resolve according to the monthly percentage change in the Consumer Price Index (CPI / IPC) in July 2026 (Variación % mensual Total nacional), according to the monthly INDEC report.
+
+The resolution source for this market will be the INDEC Consumer Price Index report released for July 2026 (https://www.indec.gob.ar/), currently scheduled to be released on August 13, 2026.
+
+Resolution of this market will take place upon release of the aforementioned data. If no data for the specified month is released by the date the next month's data is scheduled to be released, this market will resolve based on data from the last available month.
+
+You can find this report by clicking on the "Precios al Consumidor" option on the home page of https://www.indec.gob.ar/, and searching the PDF for the figure under "Variación % mensual Total nacional".
+
+Note: the resolution source for this market will be the official monthly INDEC CPI (IPC) news release, which reports monthly inflation change to only one decimal point (e.g., 1.9%). Thus, this is the level of precision that will be used when resolving the market.
+Contracts:
+  E6.C1: Will Argentina's monthly inflation in July 2026 be less than or equal to 1.1%?
+  E6.C2: Will Argentina's monthly inflation in July 2026 be between 1.2% and 1.4%?
+  E6.C3: Will Argentina's monthly inflation in July 2026 be between 1.5% and 1.7%?
+  E6.C4: Will Argentina's monthly inflation in July 2026 be between 1.8% and 2.0%?
+  E6.C5: Will Argentina's monthly inflation in July 2026 be between 2.1% and 2.3%?
+  E6.C6: Will Argentina's monthly inflation in July 2026 be between 2.4% and 2.6%?
+  E6.C7: Will Argentina's monthly inflation in July 2026 be between 2.7% and 2.9%?
+  E6.C8: Will Argentina's monthly inflation in July 2026 be at least 3.0%?
+News before E6's as-of date (date seen, source, headline):
+  - 2026-07-15 | www.espn.com | Argentina stun England with late rally to reach World Cup final
+  - 2026-07-15 | jewishjournal.com | Dear England: Don’t Cry for Thee Argentina
+  - 2026-07-15 | www.foxsports.com | Spain vs. Argentina Combined XI: Messi, Yamal Lead World Cup Final Team
+  - 2026-07-15 | www.foxsports.com | Lionel Messi And Argentina Once Again Find Their Way Back From The Brink
+  - 2026-07-15 | www.espn.com | Who is Ismail Elfath, the England vs. Argentina World Cup semifinal referee? Is he Messi's good-luck charm?
+  - 2026-07-15 | www.foxsports.com | Who Are The Referees For England vs. Argentina?
+  - 2026-07-15 | www.foxsports.com | England vs. Argentina History: Every Head to Head Match Between the World Cup Rivals
+  - 2026-07-15 | apnews.com | Defending champion Argentina reaches World Cup final by beating England 2-1
+  - 2026-07-15 | www.espn.com | Argentina risk FIFA punishment as players hold Falklands banner after win vs. England
+  - 2026-07-15 | www.espn.com | Argentina show why they're reigning World Cup champs with epic comeback over England
+  - 2026-07-15 | abc7ny.com | Argentina advances to World Cup final by beating England 2-1, will play Spain for the title
+  - 2026-07-15 | sports.yahoo.com | The FIFA rule Argentina broke with political banner after World Cup semi-final win over England
+  - 2026-07-15 | sports.yahoo.com | Why so many Latin Americans are rooting against Argentina in the World Cup
+  - 2026-07-15 | www.foxsports.com | A Comeback For The Ages: 4 Takeaways From Argentina's Semifinal Win Over England
+  - 2026-07-15 | sports.yahoo.com | Pundits react to Argentina ‘wind-up’ tactics against England: ‘Smack them back’
+  - 2026-07-15 | www.npr.org | Argentina is back in the World Cup final after a thrilling semifinal win over England
+  - 2026-07-15 | sports.yahoo.com | Why Alexis Mac Allister plays for Argentina despite his name with Scottish, Irish roots
+  - 2026-07-15 | www.espn.com | Player ratings: Lionel Messi gets 9/10 as Argentina beat England to reach World Cup final
+  - 2026-07-15 | www.espn.com | Argentina expose England's all-too-familiar World Cup faults
+  - 2026-07-15 | www.nytimes.com | For Argentina, a World Cup Semifinal Against England Isn’t Just Soccer
+  - 2026-07-15 | sports.yahoo.com | Argentina players celebrate beating England with ‘Falklands are Argentinian’ banner
+  - 2026-07-15 | sports.yahoo.com | How Argentina And Messi Keep Pulling Off Miracle Wins In The World Cup
+  - 2026-07-15 | www.nytimes.com | Egypt rages about refereeing, says the World Cup is ‘directed towards Argentina’ - The Athletic
+  - 2026-07-15 | www.mlssoccer.com | Spain vs. Argentina: 2026 FIFA World Cup final is set
+  - 2026-07-15 | www.npr.org | Old rivals, new battle: Argentina and England clash in World Cup Semifinal
+What to write for E6:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).

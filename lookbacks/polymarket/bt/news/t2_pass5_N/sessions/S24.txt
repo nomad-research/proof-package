@@ -1,0 +1,482 @@
+You will be shown 6 questions from a prediction market. Each has one or more contracts that resolve YES or NO under the rules shown. Each question gives the date your view is "as of": answer as you would on that date.
+
+Use what you already know and the news headlines listed under each question, all published in the 7 days before its as-of date. Do not search for or look up anything else: reading this file is the only tool call you may make. There are no prices from any prediction market in this file and you should not try to estimate what any market thinks; give your own view.
+
+Each question says what to write for it. Whole percents run from 1 to 99. Levels are plain numbers in the units the contracts use (for example 95000 for $95,000, 3.25 for 3.25%). Dates are YYYY-MM-DD.
+
+For each question also say whether you recognise how it actually turned out ("recognised": true only if you believe you remember the real outcome; otherwise false).
+
+Reply with one JSON object and nothing else:
+{"events": [{"label": "E1", "recognised": false, ...the fields that question asks for...}]}
+
+=== E1 (as of 2026-04-22): XRP price on April 23?
+Rules:
+This market will resolve according to the final "Close" price of the Binance 1 minute candle for XRP/USDT 12:00 in the ET timezone (noon) on the date specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the XRP/USDT "Close" prices currently available at https://www.binance.com/en/trade/XRP_USDT with "1m" and "Candles" selected on the top bar.
+
+If the reported value falls exactly between two brackets, then this market will resolve to the higher range bracket.
+
+Please note that this market is about the price according to Binance XRP/USDT, not according to other exchanges or trading pairs.
+Contracts:
+  E1.C1: Will the price of XRP be less than $1.00 on April 23?
+  E1.C2: Will the price of XRP be between $1.00 and $1.10 on April 23?
+  E1.C3: Will the price of XRP be between $1.10 and $1.20 on April 23?
+  E1.C4: Will the price of XRP be between $1.20 and $1.30 on April 23?
+  E1.C5: Will the price of XRP be between $1.30 and $1.40 on April 23?
+  E1.C6: Will the price of XRP be between $1.40 and $1.50 on April 23?
+  E1.C7: Will the price of XRP be between $1.50 and $1.60 on April 23?
+  E1.C8: Will the price of XRP be between $1.60 and $1.70 on April 23?
+  E1.C9: Will the price of XRP be between $1.70 and $1.80 on April 23?
+  E1.C10: Will the price of XRP be between $1.80 and $1.90 on April 23?
+  E1.C11: Will the price of XRP be greater than $1.90 on April 23?
+News before E1's as-of date (date seen, source, headline):
+  - 2026-04-22 | finance.yahoo.com | XRP Price Prediction: XRP Just Reclaimed $1.45 — Can It Break Higher?
+  - 2026-04-22 | www.tradingview.com | BlackRock And Mastercard Turn To XRP Ledger In DeFi Power Play
+  - 2026-04-22 | www.tradingview.com | Japan Is Going In On XRP, But Can This Drive The Price To $10?
+  - 2026-04-22 | www.tradingview.com | XRP Eyes Breakout, But Failure At $1.53 Could Trigger Sell-Off
+  - 2026-04-22 | www.tradingview.com | XRP eyes $1.54 EMA: is this make-or-break level for bulls?
+  - 2026-04-22 | www.finextra.com | Ripple targets post-quantum readiness for XRP Ledger by 2028
+  - 2026-04-22 | www.tradingview.com | XRP Price Revisits Support Range, Make-Or-Break Moment For Bulls
+  - 2026-04-21 | finance.yahoo.com | Is Ripple (XRP) Going To $0?
+  - 2026-04-21 | www.coindesk.com | Ripple wants the XRP Ledger to be quantum-proof by 2028. Here is its plan
+  - 2026-04-21 | finance.yahoo.com | XRP vs. Bitcoin: Which Cryptocurrency to Buy Right Now?
+  - 2026-04-21 | finance.yahoo.com | Forget (XRP) Ripple: This Cryptocurrency Has A Real Moat
+  - 2026-04-21 | bitcoinfoundation.org | Ripple Unveils 4-Phase Quantum Protection Plan for XRP Ledger
+  - 2026-04-21 | 247wallst.com | XRP Price Prediction: XRP’s MACD Just Flipped Bullish After Three Months of Sell Signals
+  - 2026-04-21 | www.coindesk.com | XRP price: What next for Ripple linked token as quantum roadmap adds to bullish case
+  - 2026-04-21 | www.tradingview.com | XRP holders back in profit as price eyes potential 55% breakout
+  - 2026-04-21 | 247wallst.com | XRP News: Ripple's New Quantum-Resistant Roadmap Puts XRPL Ahead of Bitcoin and Ethereum
+  - 2026-04-21 | coinpedia.org | XRP Price Struggles at a Key Resistance—Is a Breakdown Now More Likely?
+  - 2026-04-21 | unchainedcrypto.com | Ripple Unveils Four-Phase Roadmap to Make the XRP Ledger Quantum-Resistant by 2028
+  - 2026-04-21 | www.tradingview.com | XRP Poised To Dominate New DeFi Cycle, XRPL Validator Says
+  - 2026-04-20 | ripple.com | Post-Quantum Readiness on the XRP Ledger
+  - 2026-04-20 | finance.yahoo.com | Prediction: The Cryptocurrency XRP Will Be Worth Less Than $1 in 5 Years
+  - 2026-04-20 | finance.yahoo.com | XRP Price: April Is Now XRP’s Best Month Since September 2025 — Here’s What Comes Next
+  - 2026-04-20 | finance.yahoo.com | XRP Price Volatility Falls To Two-Year Low
+  - 2026-04-20 | 247wallst.com | XRP Price: April Is Now XRP's Best Month Since September 2025 — Here's What Comes Next
+  - 2026-04-20 | 247wallst.com | XRP Price Analysis: XRP Fell 6% Over the Weekend After Hitting $1.50 — Is the Rally Done?
+What to write for E1:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E2 (as of 2026-05-13): What will Opendoor Technologies Inc. (OPEN) hit Week of May 11 2026?
+Rules:
+What will Opendoor Technologies Inc. (OPEN) hit Week of May 11 2026?
+Contracts:
+  E2.C1: Will Opendoor Technologies Inc. (OPEN) hit (HIGH) $6.50 Week of May 11 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of May 11 2026, any 1-minute candle for Opendoor Technologies Inc. (OPEN) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Opendoor Technologies Inc. (OPEN) "High" prices available at https://pythdata.app/explore/Equity.US.OPEN%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.OPEN%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E2.C2: Will Opendoor Technologies Inc. (OPEN) hit (HIGH) $6.25 Week of May 11 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of May 11 2026, any 1-minute candle for Opendoor Technologies Inc. (OPEN) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Opendoor Technologies Inc. (OPEN) "High" prices available at https://pythdata.app/explore/Equity.US.OPEN%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.OPEN%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E2.C3: Will Opendoor Technologies Inc. (OPEN) hit (HIGH) $6.00 Week of May 11 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of May 11 2026, any 1-minute candle for Opendoor Technologies Inc. (OPEN) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Opendoor Technologies Inc. (OPEN) "High" prices available at https://pythdata.app/explore/Equity.US.OPEN%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.OPEN%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E2.C4: Will Opendoor Technologies Inc. (OPEN) hit (HIGH) $5.75 Week of May 11 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of May 11 2026, any 1-minute candle for Opendoor Technologies Inc. (OPEN) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Opendoor Technologies Inc. (OPEN) "High" prices available at https://pythdata.app/explore/Equity.US.OPEN%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.OPEN%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E2.C5: Will Opendoor Technologies Inc. (OPEN) hit (HIGH) $5.50 Week of May 11 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of May 11 2026, any 1-minute candle for Opendoor Technologies Inc. (OPEN) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Opendoor Technologies Inc. (OPEN) "High" prices available at https://pythdata.app/explore/Equity.US.OPEN%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.OPEN%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E2.C6: Will Opendoor Technologies Inc. (OPEN) hit (HIGH) $5.25 Week of May 11 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of May 11 2026, any 1-minute candle for Opendoor Technologies Inc. (OPEN) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Opendoor Technologies Inc. (OPEN) "High" prices available at https://pythdata.app/explore/Equity.US.OPEN%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.OPEN%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E2.C7: Will Opendoor Technologies Inc. (OPEN) hit (HIGH) $5.00 Week of May 11 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of May 11 2026, any 1-minute candle for Opendoor Technologies Inc. (OPEN) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Opendoor Technologies Inc. (OPEN) "High" prices available at https://pythdata.app/explore/Equity.US.OPEN%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.OPEN%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E2.C8: Will Opendoor Technologies Inc. (OPEN) hit (LOW) $4.50 Week of May 11 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of May 11 2026, any 1-minute candle for Opendoor Technologies Inc. (OPEN) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Opendoor Technologies Inc. (OPEN) "Low" prices available at https://pythdata.app/explore/Equity.US.OPEN%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.OPEN%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E2.C9: Will Opendoor Technologies Inc. (OPEN) hit (LOW) $4.25 Week of May 11 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of May 11 2026, any 1-minute candle for Opendoor Technologies Inc. (OPEN) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Opendoor Technologies Inc. (OPEN) "Low" prices available at https://pythdata.app/explore/Equity.US.OPEN%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.OPEN%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E2.C10: Will Opendoor Technologies Inc. (OPEN) hit (LOW) $4.00 Week of May 11 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of May 11 2026, any 1-minute candle for Opendoor Technologies Inc. (OPEN) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Opendoor Technologies Inc. (OPEN) "Low" prices available at https://pythdata.app/explore/Equity.US.OPEN%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.OPEN%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E2.C11: Will Opendoor Technologies Inc. (OPEN) hit (LOW) $3.75 Week of May 11 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of May 11 2026, any 1-minute candle for Opendoor Technologies Inc. (OPEN) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Opendoor Technologies Inc. (OPEN) "Low" prices available at https://pythdata.app/explore/Equity.US.OPEN%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.OPEN%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E2.C12: Will Opendoor Technologies Inc. (OPEN) hit (LOW) $3.50 Week of May 11 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of May 11 2026, any 1-minute candle for Opendoor Technologies Inc. (OPEN) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Opendoor Technologies Inc. (OPEN) "Low" prices available at https://pythdata.app/explore/Equity.US.OPEN%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.OPEN%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E2.C13: Will Opendoor Technologies Inc. (OPEN) hit (LOW) $3.25 Week of May 11 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of May 11 2026, any 1-minute candle for Opendoor Technologies Inc. (OPEN) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Opendoor Technologies Inc. (OPEN) "Low" prices available at https://pythdata.app/explore/Equity.US.OPEN%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.OPEN%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+News before E2's as-of date (date seen, source, headline):
+  - 2026-05-08 | finance.yahoo.com | Opendoor Technologies Inc. Q1 2026 Earnings Call Summary
+  - 2026-05-07 | finance.yahoo.com | Opendoor Technologies Inc. (OPEN) Reports Q1 Loss, Tops Revenue Estimates
+What to write for E2:
+  Write "high": for each chance 10, 25, 50, 75 and 90, the level you give that chance of being reached (at or above) within the period. The 10 level is the highest.
+  Write "low": for each chance 10, 25, 50, 75 and 90, the level you give that chance of being reached (at or below) within the period. The 10 level is the lowest.
+
+=== E3 (as of 2026-05-06): NYC Mayor # posts May 5 - May 12, 2026?
+Rules:
+This market will resolve according to the number of times NYC Mayor Zohran Mamdani (@NYCMayor), posts on X between May 5, 12:00 PM ET and May 12, 2026, 12:00 PM ET.
+
+For the purposes of this market, only main feed posts, quote posts and reposts will count.
+
+Replies will NOT count towards the total - however, replies which are recorded on the main feed will be counted by the tracker.
+
+Deleted posts will count as long as they remain available long enough to be captured by the tracker (~5 minutes).
+
+The resolution source for this market is the "Post Counter" figure for posts found at https://xtracker.polymarket.com. Individual posts can be viewed by clicking "Export Data". If the tracker does not update correctly in accordance with the rules, X itself may be used as a secondary resolution source.
+Contracts:
+  E3.C1: Will NYC Mayor post 0-19 posts from May 5 to May 12, 2026?
+  E3.C2: Will NYC Mayor post 20-39 posts from May 5 to May 12, 2026?
+  E3.C3: Will NYC Mayor post 40-59 posts from May 5 to May 12, 2026?
+  E3.C4: Will NYC Mayor post 60-79 posts from May 5 to May 12, 2026?
+  E3.C5: Will NYC Mayor post 80-99 posts from May 5 to May 12, 2026?
+  E3.C6: Will NYC Mayor post 100-119 posts from May 5 to May 12, 2026?
+  E3.C7: Will NYC Mayor post 120-139 posts from May 5 to May 12, 2026?
+  E3.C8: Will NYC Mayor post 140-159 posts from May 5 to May 12, 2026?
+  E3.C9: Will NYC Mayor post 160-179 posts from May 5 to May 12, 2026?
+  E3.C10: Will NYC Mayor post 180-199 posts from May 5 to May 12, 2026?
+  E3.C11: Will NYC Mayor post 200+ posts from May 5 to May 12, 2026?
+News before E3's as-of date (date seen, source, headline):
+  - 2026-05-06 | www.cbsnews.com | Billionaire Ken Griffin says NYC Mayor Zohran Mamdani "put me in harm's way"
+  - 2026-05-06 | brooklyneagle.com | NYC Mayor Zohran Mamdani speaks at Brooklyn church
+  - 2026-05-06 | www.realtor.com | Billionaire Ken Griffin Escalates His Feud With NYC Mayor Mamdani Over Pied-à-Terre Tax
+  - 2026-05-06 | abc7ny.com | Former NYC Mayor Rudy Giuliani remains hospitalized but out of ICU as he recovers from pneumonia, spokesman says
+  - 2026-05-06 | www.cnbc.com | Ken Griffin: Citadel expanding in Miami in response to NYC mayor Mamdani's 'poor taste' tax video
+  - 2026-05-06 | www.cbsnews.com | NYC Mayor Mamdani to announce $31 million won by city's housing department
+  - 2026-05-06 | www.cbsnews.com | Former NYC Mayor Rudy Giuliani out of ICU
+  - 2026-05-06 | www.i24news.tv | Miss Israel Accuses NYC Mayor’s Wife Refused To Speak To Her After Learning She Was Israeli
+  - 2026-05-05 | www.cnbc.com | Ken Griffin: We will create jobs in Miami as a consequence of NYC Mayor Mamdani's wealth tax video
+  - 2026-05-05 | flvoicenews.com | Ken Griffin blasts NYC Mayor Mamdani's 'creepy' penthouse video, expands citadel's Miami footprint
+  - 2026-05-05 | nypost.com | Miss Israel says she randomly bumped into NYC Mayor Zohran Mamdani’s wife in cafe — and it all went horribly wrong
+  - 2026-05-04 | www.dw.com | Ex-NYC Mayor Rudy Giuliani in hospital, condition 'critical'
+  - 2026-05-04 | abc7ny.com | Former NYC Mayor Rudy Giuliani recovering from pneumonia and remains in critical condition, spokesman says
+  - 2026-05-04 | www.aljazeera.com | Former NYC Mayor Giuliani hospitalised in ‘critical condition’
+  - 2026-05-04 | www.nbcnewyork.com | NYC Mayor Zohran Mamdani won't be attending the Met Gala
+  - 2026-05-04 | nypost.com | Ron DeSantis brands NYC mayor Zohran Mamdani 'realtor of the year' for driving taxpayers to Florida
+  - 2026-05-04 | www.wbaltv.com | Former NYC Mayor Rudy Giuliani hospitalized with pneumonia
+  - 2026-05-04 | www.oregonlive.com | Former NYC mayor recovering from pneumonia, in ‘critical but stable condition’
+  - 2026-05-04 | www.kgw.com | Former NYC Mayor Rudy Giuliani hospitalized, now breathing on own
+  - 2026-05-04 | www.nydailynews.com | Former NYC Mayor Rudy Giuliani improves, suffering from pneumonia aggravated by 9/11 illness
+  - 2026-05-04 | www.mercurynews.com | Former NYC Mayor Rudy Giuliani in critical condition at Florida hospital
+  - 2026-05-04 | nypost.com | Ex-NYC Mayor Rudy Giuliani out of coma, talking and alert after hospital scare: close pal
+  - 2026-05-04 | www.silive.com | Mamdani had these words for former NYC Mayor Rudy Giuliani, who remains hospitalized in Fla.
+  - 2026-05-03 | www.cbsnews.com | NYC Mayor Mamdani participates in TD 5 Boro Bike Tour
+  - 2026-05-03 | pix11.com | NYC mayor Mamdani makes history at TD Five Boro Bike Tour
+What to write for E3:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E4 (as of 2026-06-10): White House # posts June 5 - June 12, 2026?
+Rules:
+This market will resolve according to the number of times White House (@WhiteHouse), posts on X between June 5, 12:00 PM ET and June 12, 2026, 12:00 PM ET.
+
+For the purposes of this market, only main feed posts, quote posts and reposts will count.
+
+Replies will NOT count towards the total - however, replies which are recorded on the main feed will be counted by the tracker.
+
+Deleted posts will count as long as they remain available long enough to be captured by the tracker (~5 minutes).
+
+The resolution source for this market is the "Post Counter" figure for posts found at https://xtracker.polymarket.com. Individual posts can be viewed by clicking "Export Data". If the tracker does not update correctly in accordance with the rules, X itself may be used as a secondary resolution source.
+Contracts:
+  E4.C1: Will White House post 100-119 posts from June 5 to June 12, 2026?
+  E4.C2: Will White House post 120-139 posts from June 5 to June 12, 2026?
+  E4.C3: Will White House post 140-159 posts from June 5 to June 12, 2026?
+  E4.C4: Will White House post 160-179 posts from June 5 to June 12, 2026?
+  E4.C5: Will White House post 180-199 posts from June 5 to June 12, 2026?
+  E4.C6: Will White House post 200+ posts from June 5 to June 12, 2026?
+News before E4's as-of date (date seen, source, headline):
+  - 2026-06-10 | www.espn.com | Everything to know about the UFC White House centerpiece: The claw
+  - 2026-06-10 | www.nytimes.com | Inside the White House Freakout Over the Epstein Files
+  - 2026-06-10 | www.reuters.com | Trump administration urges judge to reject bid to block White House UFC event
+  - 2026-06-10 | apnews.com | How to watch UFC Freedom 250 and what to watch for during the card on the White House South Lawn
+  - 2026-06-10 | sports.yahoo.com | Trump’s $60M White House UFC fight night now under legal threat
+  - 2026-06-10 | www.nytimes.com | Trump has not extended White House invitation to 2025 WNBA champion Las Vegas Aces, team says
+  - 2026-06-10 | www.wsj.com | Exclusive | White House Reins In AI-Testing Unit as National-Security Concerns Grow
+  - 2026-06-10 | www.reuters.com | White House defends Cuba sanctions as UN warns of harm
+  - 2026-06-10 | www.reuters.com | White House to meet defense firms to talk about ramping up production, sources say
+  - 2026-06-10 | www.ufc.com | The Octagon's Journey To The White House | UFC Freedom 250
+  - 2026-06-10 | thehill.com | Trump administration asks judge to reject bid to halt White House UFC event
+  - 2026-06-10 | www.nytimes.com | 6 Takeaways From the Story of How the Epstein Files Paralyzed the White House
+  - 2026-06-09 | www.espn.com | UFC's logistical high-wire act: Staging an Octagon fight at the White House
+  - 2026-06-09 | apnews.com | From tennis to T-ball, the White House's South Lawn is no stranger to sports. But not like the UFC
+  - 2026-06-09 | www.sportresolutions.com | Lawsuit filed against UFC White House event
+  - 2026-06-09 | www.politico.com | Another top White House AI policy adviser is leaving
+  - 2026-06-09 | www.espn.com | UFC's White clears air: Strickland not banned from White House event
+  - 2026-06-09 | news.northeastern.edu | Is the White House’s UFC Freedom 250 event in jeopardy?
+  - 2026-06-09 | epic.org | White House Publishes National Security Presidential Memorandum, Removing Guardrails on AI
+  - 2026-06-09 | whyy.org | Documenting corruption in the Trump White House
+  - 2026-06-09 | www.politico.com | The White House is digging in on tariff refunds
+  - 2026-06-09 | www.cnn.com | Trump family promotes coins commemorating White House UFC fight
+  - 2026-06-08 | www.scotusblog.com | White House ballroom battle may soon arrive at the Supreme Court
+  - 2026-06-08 | www.whitehouse.gov | UFC 250 at the White House
+  - 2026-06-08 | time.com | Could a Federal Lawsuit Stop the UFC Fight at White House on Trump's Birthday? Here's What to Know
+What to write for E4:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E5 (as of 2026-08-05): Will Amazon (AMZN) finish week of August 3 above___?
+Rules:
+This market will resolve to "Yes" if the Close price for Amazon.com, Inc. (AMZN) on the final day of trading of the week specified in the title (normally Friday) is higher than the listed price. Otherwise, this market will resolve to "No."
+
+If the two specified prices are exactly equal, this market will resolve to "No".
+
+Closing prices will be used exactly as published by Pyth, without rounding.
+
+If Amazon.com, Inc. (AMZN) does not trade at all during the regular session of the final trading day of the week, the market will resolve 50-50.
+
+For a standard full trading session, the closing price refers to the Pyth "Close" value of the 1-minute candle corresponding to the final minute of regular trading hours on the primary exchange. If the relevant session is shortened (for example, due to a market-holiday schedule), the Pyth "Close" value of the 1-minute candle corresponding to the final minute of that shortened session will be used.
+
+If the relevant day has no valid Pyth Close value for the 1-minute candle corresponding to the end of regular trading hours on the primary exchange, the market will use the last valid Pyth price achieved during the regular trading hours of the primary exchange as the effective closing price. If no valid Pyth price exists for that trading day due to a system outage, data failure, or other technical disruption, the official closing price published by the primary exchange on which the listed security trades will be used to determine the closing price for that day.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed security during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth. The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market will be Pyth, specifically the "Close" values for the relevant 1-minute candle for Amazon.com, Inc. (AMZN) available at https://pythdata.app/explore/Equity.US.AMZN%2FUSD.
+Contracts:
+  E5.C1: Will Amazon (AMZN) finish week of August 3 above $240?
+  E5.C2: Will Amazon (AMZN) finish week of August 3 above $245?
+  E5.C3: Will Amazon (AMZN) finish week of August 3 above $250?
+  E5.C4: Will Amazon (AMZN) finish week of August 3 above $255?
+  E5.C5: Will Amazon (AMZN) finish week of August 3 above $260?
+  E5.C6: Will Amazon (AMZN) finish week of August 3 above $265?
+  E5.C7: Will Amazon (AMZN) finish week of August 3 above $270?
+  E5.C8: Will Amazon (AMZN) finish week of August 3 above $275?
+  E5.C9: Will Amazon (AMZN) finish week of August 3 above $280?
+  E5.C10: Will Amazon (AMZN) finish week of August 3 above $285?
+  E5.C11: Will Amazon (AMZN) finish week of August 3 above $290?
+  E5.C12: Will Amazon (AMZN) finish week of August 3 above $295?
+  E5.C13: Will Amazon (AMZN) finish week of August 3 above $300?
+News before E5's as-of date (date seen, source, headline):
+  - 2026-08-05 | aws.amazon.com | Amazon DynamoDB now supports real-time vector search at any scale
+  - 2026-08-05 | aws.amazon.com | How LendingTree built a multi-agent mortgage assistant on Amazon Bedrock
+  - 2026-08-05 | aws.amazon.com | Run production AI agents in n8n with Amazon Bedrock AgentCore harness | Artificial Intelligence
+  - 2026-08-05 | www.womenshealthmag.com | Is Amazon’s In-House Clothing Brand Actually Good? A Style Pro Tested It for 4 Months
+  - 2026-08-05 | finance.yahoo.com | Amazon says it will share $600 million in Trump tariff refunds with some of its customers — will you get a payout?
+  - 2026-08-05 | www.cnbc.com | Amazon's Zoox to launch paid robotaxi service in Las Vegas on Aug. 10
+  - 2026-08-05 | finance.yahoo.com | Jeff Bezos Just Sold $4.1 Billion in Amazon Stock. Now Shares Are Down.
+  - 2026-08-05 | www.seattletimes.com | Amazon is sued over its seafood products
+  - 2026-08-05 | finance.yahoo.com | Amazon’s AWS CEO Just Sent Shivers Down the Spines of AI Bears. Supply is Mostly ‘Spoken For’ Through 2028.
+  - 2026-08-05 | pitchfork.com | Outside Lands 2026: Amazon Music Livestream Schedule & Details
+  - 2026-08-04 | marylandmatters.org | Amazon abandons plans for data center campus at Calvert Cliffs
+  - 2026-08-04 | www.reuters.com | New Jersey sues Amazon alleging poor pay and conditions for drivers​
+  - 2026-08-04 | aws.amazon.com | Introducing Web Search on Amazon Bedrock for foundation model grounding | Artificial Intelligence
+  - 2026-08-04 | www.reuters.com | Amazon loses US court ban on Perplexity's AI shopping tools
+  - 2026-08-04 | www.cnbc.com | Jeff Bezos just filed to sell $4 billion in Amazon. The shares are falling
+  - 2026-08-04 | www.nature.com | Tiny patch of Amazon probably holds 40,000 insect species — many new to science
+  - 2026-08-04 | www.cnbc.com | New Jersey sues Amazon on antitrust grounds, alleging it unlawfully wielded its power over delivery contractors
+  - 2026-08-04 | www.nytimes.com | In Lawsuit, NJ Accuses Amazon of Suppressing Pay for Delivery Drivers
+  - 2026-08-04 | apnews.com | Five Amazon countries arrest hundreds in major crackdown on environmental crime
+  - 2026-08-04 | www.aarp.org | New Details on Amazon, FedEx Tariff Refunds
+  - 2026-08-04 | www.nbcphiladelphia.com | NJ sues Amazon, claims ‘anticompetitive practices' impact delivery drivers
+  - 2026-08-04 | www.courthousenews.com | New Jersey AG sues Amazon over driver pay, conditions
+  - 2026-08-04 | hondanews.com | Honda Introduces New Amazon Storefront in U.S. for Power Equipment Products
+  - 2026-08-03 | www.reuters.com | Amazon enters $3 trillion club as AI, cloud growth power rally
+  - 2026-08-03 | www.cnbc.com | Amazon tops $3 trillion market cap as stock continues post-earnings surge
+What to write for E5:
+  Write "levels": for each chance 10, 25, 50, 75 and 90, the level you give that chance of the measured quantity being at or above when it resolves. The 10 level is the highest and the 90 level the lowest. Example: {"10": 120, "25": 110, "50": 100, "75": 92, "90": 85}.
+
+=== E6 (as of 2026-04-15): Bitcoin price on April 20?
+Rules:
+This market will resolve according to the final "Close" price of the Binance 1 minute candle for BTC/USDT 12:00 in the ET timezone (noon) on the date specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the BTC/USDT "Close" prices currently available at https://www.binance.com/en/trade/BTC_USDT with "1m" and "Candles" selected on the top bar.
+
+If the reported value falls exactly between two brackets, then this market will resolve to the higher range bracket.
+
+Please note that this market is about the price according to Binance BTC/USDT, not according to other exchanges or trading pairs.
+Contracts:
+  E6.C1: Will the price of Bitcoin be between $62,000 and $64,000 on April 20?
+  E6.C2: Will the price of Bitcoin be between $70,000 and $72,000 on April 20?
+  E6.C3: Will the price of Bitcoin be between $76,000 and $78,000 on April 20?
+  E6.C4: Will the price of Bitcoin be between $78,000 and $80,000 on April 20?
+  E6.C5: Will the price of Bitcoin be greater than $80,000 on April 20?
+News before E6's as-of date (date seen, source, headline):
+  - 2026-04-15 | www.cato.org | Bitcoin Taxes Make No Sense
+  - 2026-04-15 | www.cnbc.com | Anthropic's Mythos isn't threatening bitcoin. The real AI risk is at crypto exchanges
+  - 2026-04-15 | finance.yahoo.com | When Will Bitcoin Price Bottom Out? Benjamin Cowen Predicts
+  - 2026-04-15 | news.bloombergtax.com | Puerto Rico’s Act 60: When Are Pre-Move Bitcoin Gains Taxed?
+  - 2026-04-15 | fortune.com | Current price of Bitcoin for April 15, 2026
+  - 2026-04-15 | etfdb.com | Cryptocurrencies: Bitcoin Nears $75,000
+  - 2026-04-15 | www.dlnews.com | Iran's Bitcoin toll 'virtually impossible' to collect, says policy institute
+  - 2026-04-15 | www.coindesk.com | ETH, BTC price: What next as Ether/bitcoin ratio bounces from 2026 lows
+  - 2026-04-14 | www.reuters.com | Goldman Sachs files for its first bitcoin ETF product
+  - 2026-04-14 | finance.yahoo.com | Bitcoin Price Will Hit $21M, Claims Michael Saylor, Following Strategy’s Latest $1B Purchase
+  - 2026-04-14 | bitcoinfoundation.org | Bitcoin Cash Price Prediction 2026-2030: Will BCH Skyrocket or Crash?
+  - 2026-04-14 | finance.yahoo.com | Bitcoin jumps to $74,000, but Wall Street is 'cautious' crypto bear market isn't over
+  - 2026-04-14 | www.coindesk.com | Bitcoin (BTC) price analysis: Key levels to watch as the rally gathers steam
+  - 2026-04-14 | finance.yahoo.com | Bitcoin Nears $75K As Risk-on Sentiment, Geopolitical Landscape Improves
+  - 2026-04-14 | fortune.com | Current price of Bitcoin for April 14, 2026
+  - 2026-04-14 | www.cnbc.com | Jordy Visser: Bitcoin will be significantly higher next time I see you
+  - 2026-04-14 | finance.yahoo.com | Bitcoin and ethereum prices today, Tuesday, April 14, 2026: Prices rebound despite U.S. blockade in the Middle East
+  - 2026-04-14 | www.bloomberg.com | Bitcoin (BTC) Climbs to Four-Week High on Hopes of US-Iran Peace Talks
+  - 2026-04-14 | 247wallst.com | Is 2026 a Good Year to Buy Bitcoin (BTC)? Here's the Bull and Bear Case at $75,000 BTC Price
+  - 2026-04-14 | fortune.com | Bitcoin, Ethereum approach two-month highs as markets grow optimistic over U.S.-Iran peace negotiations
+  - 2026-04-14 | fortune.com | Goldman Sachs makes surprise jump into Bitcoin ETFs with a product one analyst dubs ‘boomer candy’
+  - 2026-04-14 | www.coindesk.com | Bitcoin surpasses halfway mark in current halving cycle
+  - 2026-04-14 | www.forbes.com | Russia Crypto Legalization: Bitcoin Price Prediction 2026
+  - 2026-04-14 | www.coindesk.com | Bitcoin price news: BTC completes rebound from Feb. 5 crash
+  - 2026-04-14 | www.investopedia.com | Why Some Experts Say Bitcoin Is Starting to 'Show Signs' of a Recovery
+What to write for E6:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).

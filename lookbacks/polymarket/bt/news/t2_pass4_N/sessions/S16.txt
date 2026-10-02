@@ -1,0 +1,767 @@
+You will be shown 6 questions from a prediction market. Each has one or more contracts that resolve YES or NO under the rules shown. Each question gives the date your view is "as of": answer as you would on that date.
+
+Use what you already know and the news headlines listed under each question, all published in the 7 days before its as-of date. Do not search for or look up anything else: reading this file is the only tool call you may make. There are no prices from any prediction market in this file and you should not try to estimate what any market thinks; give your own view.
+
+Each question says what to write for it. Whole percents run from 1 to 99. Levels are plain numbers in the units the contracts use (for example 95000 for $95,000, 3.25 for 3.25%). Dates are YYYY-MM-DD.
+
+For each question also say whether you recognise how it actually turned out ("recognised": true only if you believe you remember the real outcome; otherwise false).
+
+Reply with one JSON object and nothing else:
+{"events": [{"label": "E1", "recognised": false, ...the fields that question asks for...}]}
+
+=== E1 (as of 2026-04-22): Solana price on April 25?
+Rules:
+This market will resolve according to the final "Close" price of the Binance 1 minute candle for SOL/USDT 12:00 in the ET timezone (noon) on the date specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the SOL/USDT "Close" prices currently available at https://www.binance.com/en/trade/SOL_USDT with "1m" and "Candles" selected on the top bar.
+
+If the reported value falls exactly between two brackets, then this market will resolve to the higher range bracket.
+
+Please note that this market is about the price according to Binance SOL/USDT, not according to other exchanges or trading pairs.
+Contracts:
+  E1.C1: Will the price of Solana be less than $40 on April 25?
+  E1.C2: Will the price of Solana be between $40 and $50 on April 25?
+  E1.C3: Will the price of Solana be between $50 and $60 on April 25?
+  E1.C4: Will the price of Solana be between $60 and $70 on April 25?
+  E1.C5: Will the price of Solana be between $70 and $80 on April 25?
+  E1.C6: Will the price of Solana be between $80 and $90 on April 25?
+  E1.C7: Will the price of Solana be between $90 and $100 on April 25?
+  E1.C8: Will the price of Solana be between $100 and $110 on April 25?
+  E1.C9: Will the price of Solana be between $110 and $120 on April 25?
+  E1.C10: Will the price of Solana be between $120 and $130 on April 25?
+  E1.C11: Will the price of Solana be greater than $130 on April 25?
+News before E1's as-of date (date seen, source, headline):
+  - 2026-04-22 | finance.yahoo.com | Solana Forms Bullish ‘Double Bottom’ Trading Pattern
+  - 2026-04-22 | finance.yahoo.com | GSR Launches Actively Managed Bitcoin, Ethereum and Solana Basket ETF on Nasdaq
+  - 2026-04-22 | www.tradingview.com | Solana Price Near $90 Again: Will the 8th Attempt Finally Break Resistance?
+  - 2026-04-22 | www.ccn.com | Solana (SOL) Price Knocks on the $100 Resistance Again, but This Time, It Could Actually Break Through
+  - 2026-04-22 | www.marketwatch.com | Most big cryptocurrencies rise on Ethereum, Solana increases
+  - 2026-04-22 | www.theblock.co | GSR enters crypto ETF field with actively managed multi-asset fund tracking Bitcoin, Ethereum and Solana
+  - 2026-04-22 | crypto.news | Solana price forms bullish double bottom, eyes upside to over $110 on breakout
+  - 2026-04-22 | www.kucoin.com | How Are Ethereum and Solana Preparing for Quantum Threats Compared to Bitcoin?
+  - 2026-04-22 | www.tradingview.com | Market maker GSR launches first ETF tracking Bitcoin, Ether and Solana
+  - 2026-04-22 | startupfortune.com | A meme coin called $ASTRO just became the latest battleground in the Solana versus Ethereum war
+  - 2026-04-22 | cryptonews.com | Solana Price Prediction: SOL Rejected at $89 Three Times in a Row
+  - 2026-04-22 | www.mitrade.com | Solana Price Analysis: SOL tests 50-day EMA with bullish on-chain and derivatives backdrop
+  - 2026-04-21 | www.tradingview.com | Solana nears $87 breakout: will ETF inflows trigger a bigger rally?
+  - 2026-04-21 | www.coindesk.com | Bitget exchange brings pre-IPO tokens to masses starting with SpaceX on Solana
+  - 2026-04-21 | thedefiant.io | USDT Now Live on Solana, Plasma, and Ethereum With 1:1 USD Onramps and Offramps: Privy and Ramp
+  - 2026-04-21 | cryptoslate.com | How P2P.org Built a Solana Transaction Sender for Teams That Cannot Afford to Miss a Slot
+  - 2026-04-20 | www.coindesk.com | Bitcoin, ether, solana slide, oil jumps on renewed U.S.-Iran war risks
+  - 2026-04-20 | www.fool.com | Want To Be A Millionaire? Buy Developer‑Magnet Solana (SOL).
+  - 2026-04-20 | finance.yahoo.com | XRP Expansion onto Solana Draws Fresh Market Attention
+  - 2026-04-20 | www.binance.com | Can Solana Hit $500 In The Next Bull Run?
+  - 2026-04-20 | coingape.com | XRP Trading Goes Live on WhatsApp Following Solana’s wXRP Launch
+  - 2026-04-20 | crypto.news | XRP trading goes live on WhatsApp after Solana integration
+  - 2026-04-20 | yellow.com | Monad Or Solana: Which Fast Layer 1 Wins The 2026 Adoption Race?
+  - 2026-04-20 | www.bitget.com | Solana trader Cooker sells and buys back ASTEROID tokens
+  - 2026-04-19 | 247wallst.com | Solana Price Prediction: Can Solana Overtake Bitcoin? Here’s How Far SOL Has to Go
+What to write for E1:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E2 (as of 2026-07-29): Precipitation in Seoul in July?
+Rules:
+This market will resolve according to the total precipitation in mm in Seoul in July, 2026, according to the Korea Meteorological Administration's information for the region/branch of "Seoul".
+
+If the reported value falls exactly between two brackets, then this market will resolve to the higher range bracket.
+
+The resolution source for this market will be the Korea Meteorological Administration, specifically the figure for monthly precipitation in mm when the classification is set for "ground", the region/branch is set for "Seoul", the element is set for "precipitation", and the period is set for the month of July at the https://data.kma.go.kr/climate/RankState/selectRankStatisticsDivisionList.do link once the figure is finalized for the whole month of July 2026.
+
+If the relevant data is not available by October 7, 2026, 11:59 PM ET, another credible resolution source will be chosen.
+
+The resolution source for this market measures precipitation to 1 decimal place (e.g., 1.5), thus, this is the level of precision that will be used when resolving this market. Any revisions to precipitation recorded after data is finalized for this market's timeframe will not be considered for this market's resolution.
+Contracts:
+  E2.C1: Will Seoul have less than 40mm of precipitation in July?
+  E2.C2: Will Seoul have between 40-50mm of precipitation in July?
+  E2.C3: Will Seoul have between 50-60mm of precipitation in July?
+  E2.C4: Will Seoul have between 60-70mm of precipitation in July?
+  E2.C5: Will Seoul have between 70-80mm of precipitation in July?
+  E2.C6: Will Seoul have between 80-90mm of precipitation in July?
+  E2.C7: Will Seoul have between 90-100mm of precipitation in July?
+  E2.C8: Will Seoul have 100mm or more of precipitation in July?
+News before E2's as-of date (date seen, source, headline):
+  - 2026-07-29 | rutherfordsource.com | 7/29/26: Clear Evening Skies and 85.6, High of 90.7, Low of 75.7; Light Winds with No Precipitation Expected Tonight
+  - 2026-07-29 | cfjctoday.com | Precipitation halts spike in fire behaviour on Pear Lake wildfire
+  - 2026-07-29 | news.inbox.lv | Latvia Awaits a Warm Day Without Precipitation: Where Temperatures Will Rise to +24 Degrees
+  - 2026-07-29 | www.msn.com | 42.270999908447266, -83.72899627685547 Precipitation Map | MSN Weather
+  - 2026-07-28 | www.farmweeknow.com | July brought 12-year low in Corn Belt precipitation
+  - 2026-07-28 | www.nature.com | Assessment of the precipitation deficit for rain-fed winter wheat in the Mediterranean coastal zone using the Agricultural Standardized Precipitation Index
+  - 2026-07-27 | www.dtnpf.com | July Brought a 12-Year Low in US Corn Belt Precipitation
+  - 2026-07-27 | rutherfordsource.com | 7/27/26: Minor Heat Advisory Issued — Clear with High 91, Low 72; Currently 88, Light Wind, No Precipitation
+  - 2026-07-27 | halifax.citynews.ca | Foggy conditions, potential precipitation in Halifax ahead this week
+  - 2026-07-26 | www.wabi.tv | Sunnier skies remain overhead Monday & Tuesday; precipitation chances return midweek
+  - 2026-07-25 | indianexpress.com | UPSC Mains Answer Practice — GS 1: changing precipitation patterns in the Indus River system and increasing risk of Glacial Lake Outburst Floods (Week 164)
+  - 2026-07-24 | climate.copernicus.eu | Precipitation, relative humidity, soil moisture and river flow for July 2026
+  - 2026-07-24 | rutherfordsource.com | 7/24/26: Overcast with a High of 85 and Low of 73; Current Temp 80, Winds 5.5 mph, No Precipitation Expected
+  - 2026-07-24 | davidsoncountysource.com | 7/24/26: Partly Cloudy With Highs Near 88 and Lows Around 77, Light Winds, Minimal Precipitation Expected
+  - 2026-07-24 | www.gazetaexpress.com | Snow in July in Dobërdol, Podujevo, unusual views from the precipitation
+  - 2026-07-23 | www.kaaltv.com | Mild to close the workweek, heating up this weekend with slight precipitation chances here and there
+  - 2026-07-23 | bnrnews.bg | Dangerous precipitation expected in 10 regions of Bulgaria on Friday
+  - 2026-07-23 | rutherfordsource.com | 7/23/26: Mainly Clear With A High Of 83; Current Temp 80.6; Low Tonight 73; Light Wind Up To 9.1 MPH; No Precipitation
+  - 2026-07-22 | reliefweb.int | Locust Watch: Seasonal precipitation predictions in the Desert Locust summer and winter breeding areas (August 2026–January 2027) (21 July 2026)
+  - 2026-07-22 | unn.ua | In Ukraine on July 23, rains in the south and no precipitation in the rest of the territory
+  - 2026-07-22 | 24.kg | Forecast: Precipitation in Central Asia to exceed normal levels in 2026–2027
+  - 2026-07-22 | theins.in | Heavy rains lash J&K, Kathua sees highest precipitation in 24 hours
+What to write for E2:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E3 (as of 2026-04-08): Trump approval rating on April 10?
+Rules:
+This market will resolve according to Silver Bulletin's approval rating for Donald Trump on April 10, 2026.
+
+Note that the approval ratings for this date must be finalized before it is considered for this market (namely, once the next data point is available, the previous one is finalized).
+
+This market's resolution source will be Silver Bulletin's approval rating poll aggregator, https://www.natesilver.net/p/trump-approval-ratings-nate-silver-bulletin, specifically the approval rating indicated by the green trend line for the resolution date. Changes in the methodology by which Silver Bulletin calculates the approval rating will have no bearing on the resolution of this market. If Silver Bulletin's approval rating becomes permanently unavailable, RealClearPolitics will be used.
+
+The resolution source reports the rating value to only one decimal point (e.g., 42.8%, 33.9%, etc.). Thus, this is the level of precision that will be used when resolving the market.
+Contracts:
+  E3.C1: Will Trump’s approval rating be less than 38.5 on April 10, 2026?
+  E3.C2: Will Trump’s approval rating be between 38.5 and 38.9 on April 10, 2026?
+  E3.C3: Will Trump’s approval rating be between 39.0 and 39.4 on April 10, 2026?
+  E3.C4: Will Trump’s approval rating be between 39.5 and 39.9 on April 10, 2026?
+  E3.C5: Will Trump’s approval rating be between 40.0 and 40.4 on April 10, 2026?
+  E3.C6: Will Trump’s approval rating be at least 40.5 on April 10, 2026?
+News before E3's as-of date (date seen, source, headline):
+  - 2026-04-08 | www.pbs.org | Trump says Israeli strikes on Lebanon a 'separate skirmish' not part of Iran ceasefire
+  - 2026-04-08 | larson.house.gov | Trump faces 'unprecedented' bipartisan demand for impeachment
+  - 2026-04-08 | itep.org | Despite Any Refunds, You’re Probably Paying More Taxes Under Trump While Richest Pay Less
+  - 2026-04-08 | larson.house.gov | CT Congressman Files Articles For Third Trump Impeachment
+  - 2026-04-08 | www.cbpp.org | Trump Policies Would Worsen Homelessness, Attack Basic Freedoms of People Who Can’t Afford Rent
+  - 2026-04-08 | bipartisanpolicy.org | President Trump’s FY2027 Budget: Overview of Housing Programs
+  - 2026-04-08 | www.cfr.org | Trump Secured a Ceasefire With Iran. Will It Last?
+  - 2026-04-08 | www.piie.com | What's next for Trump's tariffs?
+  - 2026-04-08 | www.americanprogress.org | Trump’s War May Be Over But the Economic Damage Is Not
+  - 2026-04-08 | www.njspotlightnews.org | Trump wants record-breaking military funding, domestic budget cuts
+  - 2026-04-08 | krishnamoorthi.house.gov | Krishnamoorthi Demands Answers from USPS on Trump EO Threatening Mail Ballot Access Ahead of 2026 Midterms
+  - 2026-04-08 | www.pbs.org | How Trump went from threatening Iran's annihilation to agreeing to a two-week ceasefire in a day
+  - 2026-04-07 | www.astho.org | President Trump Releases FY27 Budget Proposal: April 2026
+  - 2026-04-07 | www.americanprogress.org | Trump’s Budget Request Cuts Programs That Help Ordinary Americans and Sinks That Money Toward War
+  - 2026-04-07 | www.amnesty.org | Iran: President Trump’s apocalyptic threats of large-scale civilian devastation demand urgent global action to prevent atrocity crimes
+  - 2026-04-07 | naacp.org | In an Unprecedented First, NAACP Calls for President Trump to be Removed from Office under 25th Amendment
+  - 2026-04-07 | www.americanprogress.org | Trump’s ‘God Squad’ Is Killing Whales Under the Guise of National Security
+  - 2026-04-07 | jeffries.house.gov | LEADER JEFFRIES ON CNN: “WE NEED A PERMANENT END TO DONALD TRUMP’S RECKLESS WAR OF CHOICE”
+  - 2026-04-07 | americanoversight.org | American Oversight and Historians Sue to Block Trump’s Effort to Evade Presidential Records Law
+  - 2026-04-07 | schakowsky.house.gov | Schakowsky Statement on Trump’s Threats to Iran
+  - 2026-04-07 | www.pbs.org | Trump pulls back on Iran threats after warning a 'civilization will die tonight' if deal isn't reached
+  - 2026-04-07 | larson.house.gov | Larson Files Articles of Impeachment, Calls for 25th Amendment as Trump Becomes More Unhinged
+  - 2026-04-07 | calmatters.org | Could Trump’s Hilton endorsement sabotage GOP chances?
+  - 2026-04-07 | www.thompsonhinesmartrade.com | President Trump Makes Major Changes to Section 232 Tariffs on Aluminum, Steel, and Copper
+  - 2026-04-07 | blog.ucs.org | Smokey Knows: President Trump’s Forest Service Restructuring Is Bad News
+What to write for E3:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E4 (as of 2026-05-13): What will Gold (XAUUSD) hit Week of May 11 2026?
+Rules:
+What will Gold (XAUUSD) hit Week of May 11 2026?
+Contracts:
+  E4.C1: Will Gold (XAUUSD) hit (HIGH) $5,050 Week of May 11 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of May 11 2026, any 1-minute candle for Gold (XAUUSD) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the applicable trading session as listed on Pyth will be considered. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours as listed on Pyth.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If Gold (XAUUSD) does not trade at all during the listed time frame, this market will resolve to "No".
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Gold (XAUUSD) "High" prices available at https://pythdata.app/explore/Metal.XAU%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published for the relevant CME COMEX futures contract for the underlying metal—COMEX Gold Futures (GC)—may be used to determine whether the listed price was reached during the applicable trading session.
+  E4.C2: Will Gold (XAUUSD) hit (HIGH) $5,000 Week of May 11 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of May 11 2026, any 1-minute candle for Gold (XAUUSD) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the applicable trading session as listed on Pyth will be considered. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours as listed on Pyth.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If Gold (XAUUSD) does not trade at all during the listed time frame, this market will resolve to "No".
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Gold (XAUUSD) "High" prices available at https://pythdata.app/explore/Metal.XAU%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published for the relevant CME COMEX futures contract for the underlying metal—COMEX Gold Futures (GC)—may be used to determine whether the listed price was reached during the applicable trading session.
+  E4.C3: Will Gold (XAUUSD) hit (HIGH) $4,950 Week of May 11 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of May 11 2026, any 1-minute candle for Gold (XAUUSD) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the applicable trading session as listed on Pyth will be considered. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours as listed on Pyth.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If Gold (XAUUSD) does not trade at all during the listed time frame, this market will resolve to "No".
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Gold (XAUUSD) "High" prices available at https://pythdata.app/explore/Metal.XAU%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published for the relevant CME COMEX futures contract for the underlying metal—COMEX Gold Futures (GC)—may be used to determine whether the listed price was reached during the applicable trading session.
+  E4.C4: Will Gold (XAUUSD) hit (HIGH) $4,900 Week of May 11 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of May 11 2026, any 1-minute candle for Gold (XAUUSD) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the applicable trading session as listed on Pyth will be considered. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours as listed on Pyth.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If Gold (XAUUSD) does not trade at all during the listed time frame, this market will resolve to "No".
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Gold (XAUUSD) "High" prices available at https://pythdata.app/explore/Metal.XAU%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published for the relevant CME COMEX futures contract for the underlying metal—COMEX Gold Futures (GC)—may be used to determine whether the listed price was reached during the applicable trading session.
+  E4.C5: Will Gold (XAUUSD) hit (HIGH) $4,850 Week of May 11 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of May 11 2026, any 1-minute candle for Gold (XAUUSD) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the applicable trading session as listed on Pyth will be considered. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours as listed on Pyth.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If Gold (XAUUSD) does not trade at all during the listed time frame, this market will resolve to "No".
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Gold (XAUUSD) "High" prices available at https://pythdata.app/explore/Metal.XAU%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published for the relevant CME COMEX futures contract for the underlying metal—COMEX Gold Futures (GC)—may be used to determine whether the listed price was reached during the applicable trading session.
+  E4.C6: Will Gold (XAUUSD) hit (HIGH) $4,800 Week of May 11 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of May 11 2026, any 1-minute candle for Gold (XAUUSD) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the applicable trading session as listed on Pyth will be considered. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours as listed on Pyth.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If Gold (XAUUSD) does not trade at all during the listed time frame, this market will resolve to "No".
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Gold (XAUUSD) "High" prices available at https://pythdata.app/explore/Metal.XAU%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published for the relevant CME COMEX futures contract for the underlying metal—COMEX Gold Futures (GC)—may be used to determine whether the listed price was reached during the applicable trading session.
+  E4.C7: Will Gold (XAUUSD) hit (LOW) $4,600 Week of May 11 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of May 11 2026, any 1-minute candle for Gold (XAUUSD) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the applicable trading session as listed on Pyth will be considered. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours as listed on Pyth.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If Gold (XAUUSD) does not trade at all during the listed time frame, this market will resolve to "No".
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Gold (XAUUSD) "Low" prices available at https://pythdata.app/explore/Metal.XAU%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published for the relevant CME COMEX futures contract for the underlying metal—COMEX Gold Futures (GC)—may be used to determine whether the listed price was reached during the applicable trading session.
+  E4.C8: Will Gold (XAUUSD) hit (LOW) $4,550 Week of May 11 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of May 11 2026, any 1-minute candle for Gold (XAUUSD) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the applicable trading session as listed on Pyth will be considered. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours as listed on Pyth.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If Gold (XAUUSD) does not trade at all during the listed time frame, this market will resolve to "No".
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Gold (XAUUSD) "Low" prices available at https://pythdata.app/explore/Metal.XAU%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published for the relevant CME COMEX futures contract for the underlying metal—COMEX Gold Futures (GC)—may be used to determine whether the listed price was reached during the applicable trading session.
+  E4.C9: Will Gold (XAUUSD) hit (LOW) $4,500 Week of May 11 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of May 11 2026, any 1-minute candle for Gold (XAUUSD) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the applicable trading session as listed on Pyth will be considered. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours as listed on Pyth.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If Gold (XAUUSD) does not trade at all during the listed time frame, this market will resolve to "No".
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Gold (XAUUSD) "Low" prices available at https://pythdata.app/explore/Metal.XAU%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published for the relevant CME COMEX futures contract for the underlying metal—COMEX Gold Futures (GC)—may be used to determine whether the listed price was reached during the applicable trading session.
+  E4.C10: Will Gold (XAUUSD) hit (LOW) $4,450 Week of May 11 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of May 11 2026, any 1-minute candle for Gold (XAUUSD) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the applicable trading session as listed on Pyth will be considered. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours as listed on Pyth.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If Gold (XAUUSD) does not trade at all during the listed time frame, this market will resolve to "No".
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Gold (XAUUSD) "Low" prices available at https://pythdata.app/explore/Metal.XAU%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published for the relevant CME COMEX futures contract for the underlying metal—COMEX Gold Futures (GC)—may be used to determine whether the listed price was reached during the applicable trading session.
+  E4.C11: Will Gold (XAUUSD) hit (LOW) $4,400 Week of May 11 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of May 11 2026, any 1-minute candle for Gold (XAUUSD) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the applicable trading session as listed on Pyth will be considered. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours as listed on Pyth.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If Gold (XAUUSD) does not trade at all during the listed time frame, this market will resolve to "No".
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Gold (XAUUSD) "Low" prices available at https://pythdata.app/explore/Metal.XAU%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published for the relevant CME COMEX futures contract for the underlying metal—COMEX Gold Futures (GC)—may be used to determine whether the listed price was reached during the applicable trading session.
+News before E4's as-of date (date seen, source, headline):
+  - 2026-05-13 | www.nature.com | The source of the gold in Carlin-type gold deposits
+  - 2026-05-13 | www.reuters.com | Gold discounts in India breach $200/ounce record amid profit-taking
+  - 2026-05-13 | phys.org | Gold nanoparticles that behave like a liquid open path to adaptive materials
+  - 2026-05-13 | finance.yahoo.com | Gold and silver prices today, Wednesday, May 13: Silver prices surge again, gold sits tight
+  - 2026-05-13 | global.morningstar.com | Barrick Earnings: Another Strong Quarter Due to the Higher Gold Price
+  - 2026-05-13 | www.cnbc.com | The gold chart looks poised for a bounce. How to play it for less
+  - 2026-05-13 | www.cnbc.com | India hikes bullion import duties as the world's second-largest gold market faces a declining rupee
+  - 2026-05-13 | www.kitco.com | India’s 15% import tariffs on gold and silver will impact precious metals demand, prices, currency - Experts
+  - 2026-05-13 | goldprice.org | Gold Price on 13 May 2026
+  - 2026-05-13 | www.dea.gov | DEA Black and Gold Pipes and Drums Celebrate 25 Years
+  - 2026-05-13 | teamusa.usahockey.com | Team USA is Eager to Defend its World Championship Gold
+  - 2026-05-13 | www.legacy.com | Susan Gold Obituary (2026) - Waukegan, IL - Peterson & Patch Funeral Home
+  - 2026-05-12 | www.cnbc.com | Gold dips as rising oil price adds to interest rate uncertainty
+  - 2026-05-12 | www.reuters.com | Gold dips as oil gains add to rate uncertainty
+  - 2026-05-12 | www.reuters.com | India raises gold and silver tariffs to 15% to curb imports, support rupee
+  - 2026-05-12 | goldsilver.com | Gold Price Outlook May 2026: Why Institutional Forecasters Still See $5,000
+  - 2026-05-12 | finance.yahoo.com | Gold and silver prices today, Tuesday, May 12: Silver surges, gold slips
+  - 2026-05-12 | www.kitco.com | Pierre Lassonde says the $40 trillion U.S. debt crisis is paving the way for gold to reach $17,250 an ounce
+  - 2026-05-12 | www.texasmonthly.com | Texas Is Now Issuing Its Own Gold Coins. That Might Be a Problem.
+  - 2026-05-12 | goldprice.org | Gold Price on 12 May 2026
+  - 2026-05-12 | www.kitco.com | Gold will navigate near-term headwinds to reach $5,000/oz by year-end – ING’s Manthey
+  - 2026-05-12 | sports.yahoo.com | New Reports Indicate That Evan Gold Will Not Be The Next General Manager Of The Vancouver Canucks
+  - 2026-05-12 | www.cnbc.com | Gold steady as markets assess MidEast tensions ahead of U.S. inflation data
+  - 2026-05-11 | finance.yahoo.com | Gold and silver prices today, Monday, May 11: Gold and silver down this morning after Trump rejects Iran's peace plan
+  - 2026-05-11 | wvusports.com | Gold & Blue Enterprises Launches GBE Partner Network
+What to write for E4:
+  Write "high": for each chance 10, 25, 50, 75 and 90, the level you give that chance of being reached (at or above) within the period. The 10 level is the highest.
+  Write "low": for each chance 10, 25, 50, 75 and 90, the level you give that chance of being reached (at or below) within the period. The 10 level is the lowest.
+
+=== E5 (as of 2026-04-01): What price will Ethereum hit March 30-April 5?
+Rules:
+What price will Ethereum hit March 30-April 5?
+Contracts:
+  E5.C1: Will Ethereum reach $2,700 March 30-April 5?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1-minute candle for ETH/USDT during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "High" price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the ETH/USDT "High" prices available at https://www.binance.com/en/trade/ETH_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance ETH/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E5.C2: Will Ethereum reach $2,600 March 30-April 5?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1-minute candle for ETH/USDT during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "High" price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the ETH/USDT "High" prices available at https://www.binance.com/en/trade/ETH_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance ETH/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E5.C3: Will Ethereum reach $2,500 March 30-April 5?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1-minute candle for ETH/USDT during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "High" price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the ETH/USDT "High" prices available at https://www.binance.com/en/trade/ETH_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance ETH/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E5.C4: Will Ethereum reach $2,400 March 30-April 5?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1-minute candle for ETH/USDT during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "High" price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the ETH/USDT "High" prices available at https://www.binance.com/en/trade/ETH_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance ETH/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E5.C5: Will Ethereum reach $2,300 March 30-April 5?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1-minute candle for ETH/USDT during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "High" price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the ETH/USDT "High" prices available at https://www.binance.com/en/trade/ETH_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance ETH/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E5.C6: Will Ethereum reach $2,200 March 30-April 5?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1-minute candle for ETH/USDT during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "High" price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the ETH/USDT "High" prices available at https://www.binance.com/en/trade/ETH_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance ETH/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E5.C7: Will Ethereum dip to $1,900 March 30-April 5?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for Ethereum (ETH/USDT) during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "Low" price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the ETH/USDT "Low" prices available at https://www.binance.com/en/trade/ETH_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance ETH/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E5.C8: Will Ethereum dip to $1,800 March 30-April 5?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for Ethereum (ETH/USDT) during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "Low" price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the ETH/USDT "Low" prices available at https://www.binance.com/en/trade/ETH_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance ETH/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E5.C9: Will Ethereum dip to $1,700 March 30-April 5?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for Ethereum (ETH/USDT) during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "Low" price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the ETH/USDT "Low" prices available at https://www.binance.com/en/trade/ETH_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance ETH/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E5.C10: Will Ethereum dip to $1,600 March 30-April 5?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for Ethereum (ETH/USDT) during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "Low" price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the ETH/USDT "Low" prices available at https://www.binance.com/en/trade/ETH_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance ETH/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E5.C11: Will Ethereum dip to $1,500 March 30-April 5?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for Ethereum (ETH/USDT) during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "Low" price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the ETH/USDT "Low" prices available at https://www.binance.com/en/trade/ETH_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance ETH/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E5.C12: Will Ethereum dip to $1,400 March 30-April 5?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for Ethereum (ETH/USDT) during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "Low" price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the ETH/USDT "Low" prices available at https://www.binance.com/en/trade/ETH_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance ETH/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E5.C13: Will Ethereum dip to $1,300 March 30-April 5?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for Ethereum (ETH/USDT) during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "Low" price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the ETH/USDT "Low" prices available at https://www.binance.com/en/trade/ETH_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance ETH/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+News before E5's as-of date (date seen, source, headline):
+  - 2026-04-01 | www.dlnews.com | Ethereum is trading 60% below its record price. Here’s why Ether ETFs could ‘outperform’ Bitcoin funds
+  - 2026-04-01 | www.tradingview.com | Ethereum Price Recovery Picks Up, Is a Breakout Now Brewing?
+  - 2026-04-01 | www.the-daily-record.com | The Engine that Could: Why Ethereum’s Usage is Bigger than Its Price
+  - 2026-04-01 | beincrypto.com | This 20% Ethereum Price Risk May Explain Why Institutions Keep Choosing Bitcoin
+  - 2026-04-01 | cryptopotato.com | Ethereum Price Prediction: What Does ETH Need to Break Out of Consolidation?
+  - 2026-04-01 | startupfortune.com | Ethereum Users Are Flooding In While Prices Stay Flat
+  - 2026-04-01 | startupfortune.com | Ethereum Faces 20% Correction Risk as Institutions Flee to Bitcoin
+  - 2026-04-01 | www.fxempire.com | Ethereum Price News: ETH Retests Key Resistance But Still Risks Drop to $1.8K
+  - 2026-04-01 | www.ccn.com | Top 10 Biggest Holders of Ethereum and the Billions They Are Worth
+  - 2026-04-01 | incrypted.com | Bitcoin Closed the Month up 1.8%, While Ethereum Gained Nearly 7%
+  - 2026-03-31 | www.nature.com | A deep reinforcement learning approach for dynamic transaction fee adjustment in Ethereum
+  - 2026-03-31 | money.com | Bitcoin, Ethereum or Solana? How Beginners Decide
+  - 2026-03-31 | fortune.com | Current price of Ethereum for March 31, 2026
+  - 2026-03-31 | finance.yahoo.com | Crypto check: How bitcoin & ethereum prices are moving
+  - 2026-03-31 | finance.yahoo.com | Google Warns $100 Billion Of Ethereum Is At Risk From ‘Quantum Attack’
+  - 2026-03-31 | www.marketwatch.com | Large cryptocurrencies mixed as Ethereum climbs
+  - 2026-03-31 | www.coindesk.com | Google warns five quantum attack paths could put $100 billion on Ethereum at risk
+  - 2026-03-31 | www.tradingview.com | Ethereum’s EEZ and the attempt to rebuild one Ethereum
+  - 2026-03-31 | ambcrypto.com | Ethereum price prediction – Is a breakout to $2.1K ahead after ETH shakes out weak hands?
+  - 2026-03-31 | africa.businessinsider.com | Why Ethereum is quietly becoming a key layer of Africa’s digital economy
+  - 2026-03-30 | fortune.com | Current price of Ethereum for March 30, 2026
+  - 2026-03-30 | www.ccn.com | Can Ethereum Price Hit $22,000 By 2030? The Bullish Analysts Who See Mega Growth by End of Decade
+  - 2026-03-30 | www.theblock.co | Ethereum Foundation stakes record $46 million worth of ETH: onchain data
+  - 2026-03-30 | www.coindesk.com | Aave launches v4 on Ethereum, aiming to expand DeFi Into real-world credit markets
+  - 2026-03-30 | www.tradingview.com | Ethereum Could Hit $40,000 And Beat Bitcoin, Standard Chartered Says
+What to write for E5:
+  Write "high": for each chance 10, 25, 50, 75 and 90, the level you give that chance of being reached (at or above) within the period. The 10 level is the highest.
+  Write "low": for each chance 10, 25, 50, 75 and 90, the level you give that chance of being reached (at or below) within the period. The 10 level is the lowest.
+
+=== E6 (as of 2026-05-06): What will Natural Gas (NG) hit Week of May 4 2026?
+Rules:
+What will Natural Gas (NG) hit Week of May 4 2026?
+Contracts:
+  E6.C1: Will Natural Gas (NG) hit (HIGH) $3.40 Week of May 4 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of May 4 2026, any 1-minute candle for the Active Month of Natural Gas futures has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If the Active Month contract does not trade at all during the listed time frame, this market will resolve to "No".
+
+Only prices achieved during the applicable trading session for the underlying market will be considered. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours.
+
+Per CME contract specifications for Natural Gas (NG) futures, the last trading day is defined as the third last business day of the month preceding the contract's delivery month.
+
+The active month changes at the start of the second trading session prior to that contract's last trading session, at which point the next listed contract becomes the active month (i.e., for the final three trading sessions of the nearest listed contract, the contract for the next month is the active month). The trading session for a given business day typically begins at 6:00 PM ET on the prior calendar date.
+
+For example, if the last business day of the month preceding the contract's delivery month is a Thursday, the last trading session is the session for the prior Tuesday, and the next listed contract becomes the active month at the start of the trading session for the Friday of the previous week (6:00 PM ET on Thursday), assuming a standard trading calendar.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published for the Active Month Natural Gas (NG) futures contract by CME Group may be used to determine whether the listed price was reached during the applicable trading session.
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the underlying market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Active Month Natural Gas futures "High" prices available at https://pythdata.app/explore?search=NGD, with the chart settings configured for 1-minute candles. Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+  E6.C2: Will Natural Gas (NG) hit (HIGH) $3.30 Week of May 4 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of May 4 2026, any 1-minute candle for the Active Month of Natural Gas futures has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If the Active Month contract does not trade at all during the listed time frame, this market will resolve to "No".
+
+Only prices achieved during the applicable trading session for the underlying market will be considered. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours.
+
+Per CME contract specifications for Natural Gas (NG) futures, the last trading day is defined as the third last business day of the month preceding the contract's delivery month.
+
+The active month changes at the start of the second trading session prior to that contract's last trading session, at which point the next listed contract becomes the active month (i.e., for the final three trading sessions of the nearest listed contract, the contract for the next month is the active month). The trading session for a given business day typically begins at 6:00 PM ET on the prior calendar date.
+
+For example, if the last business day of the month preceding the contract's delivery month is a Thursday, the last trading session is the session for the prior Tuesday, and the next listed contract becomes the active month at the start of the trading session for the Friday of the previous week (6:00 PM ET on Thursday), assuming a standard trading calendar.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published for the Active Month Natural Gas (NG) futures contract by CME Group may be used to determine whether the listed price was reached during the applicable trading session.
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the underlying market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Active Month Natural Gas futures "High" prices available at https://pythdata.app/explore?search=NGD, with the chart settings configured for 1-minute candles. Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+  E6.C3: Will Natural Gas (NG) hit (HIGH) $3.20 Week of May 4 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of May 4 2026, any 1-minute candle for the Active Month of Natural Gas futures has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If the Active Month contract does not trade at all during the listed time frame, this market will resolve to "No".
+
+Only prices achieved during the applicable trading session for the underlying market will be considered. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours.
+
+Per CME contract specifications for Natural Gas (NG) futures, the last trading day is defined as the third last business day of the month preceding the contract's delivery month.
+
+The active month changes at the start of the second trading session prior to that contract's last trading session, at which point the next listed contract becomes the active month (i.e., for the final three trading sessions of the nearest listed contract, the contract for the next month is the active month). The trading session for a given business day typically begins at 6:00 PM ET on the prior calendar date.
+
+For example, if the last business day of the month preceding the contract's delivery month is a Thursday, the last trading session is the session for the prior Tuesday, and the next listed contract becomes the active month at the start of the trading session for the Friday of the previous week (6:00 PM ET on Thursday), assuming a standard trading calendar.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published for the Active Month Natural Gas (NG) futures contract by CME Group may be used to determine whether the listed price was reached during the applicable trading session.
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the underlying market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Active Month Natural Gas futures "High" prices available at https://pythdata.app/explore?search=NGD, with the chart settings configured for 1-minute candles. Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+  E6.C4: Will Natural Gas (NG) hit (HIGH) $3.10 Week of May 4 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of May 4 2026, any 1-minute candle for the Active Month of Natural Gas futures has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If the Active Month contract does not trade at all during the listed time frame, this market will resolve to "No".
+
+Only prices achieved during the applicable trading session for the underlying market will be considered. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours.
+
+Per CME contract specifications for Natural Gas (NG) futures, the last trading day is defined as the third last business day of the month preceding the contract's delivery month.
+
+The active month changes at the start of the second trading session prior to that contract's last trading session, at which point the next listed contract becomes the active month (i.e., for the final three trading sessions of the nearest listed contract, the contract for the next month is the active month). The trading session for a given business day typically begins at 6:00 PM ET on the prior calendar date.
+
+For example, if the last business day of the month preceding the contract's delivery month is a Thursday, the last trading session is the session for the prior Tuesday, and the next listed contract becomes the active month at the start of the trading session for the Friday of the previous week (6:00 PM ET on Thursday), assuming a standard trading calendar.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published for the Active Month Natural Gas (NG) futures contract by CME Group may be used to determine whether the listed price was reached during the applicable trading session.
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the underlying market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Active Month Natural Gas futures "High" prices available at https://pythdata.app/explore?search=NGD, with the chart settings configured for 1-minute candles. Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+  E6.C5: Will Natural Gas (NG) hit (HIGH) $3.00 Week of May 4 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of May 4 2026, any 1-minute candle for the Active Month of Natural Gas futures has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If the Active Month contract does not trade at all during the listed time frame, this market will resolve to "No".
+
+Only prices achieved during the applicable trading session for the underlying market will be considered. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours.
+
+Per CME contract specifications for Natural Gas (NG) futures, the last trading day is defined as the third last business day of the month preceding the contract's delivery month.
+
+The active month changes at the start of the second trading session prior to that contract's last trading session, at which point the next listed contract becomes the active month (i.e., for the final three trading sessions of the nearest listed contract, the contract for the next month is the active month). The trading session for a given business day typically begins at 6:00 PM ET on the prior calendar date.
+
+For example, if the last business day of the month preceding the contract's delivery month is a Thursday, the last trading session is the session for the prior Tuesday, and the next listed contract becomes the active month at the start of the trading session for the Friday of the previous week (6:00 PM ET on Thursday), assuming a standard trading calendar.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published for the Active Month Natural Gas (NG) futures contract by CME Group may be used to determine whether the listed price was reached during the applicable trading session.
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the underlying market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Active Month Natural Gas futures "High" prices available at https://pythdata.app/explore?search=NGD, with the chart settings configured for 1-minute candles. Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+  E6.C6: Will Natural Gas (NG) hit (HIGH) $2.90 Week of May 4 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of May 4 2026, any 1-minute candle for the Active Month of Natural Gas futures has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If the Active Month contract does not trade at all during the listed time frame, this market will resolve to "No".
+
+Only prices achieved during the applicable trading session for the underlying market will be considered. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours.
+
+Per CME contract specifications for Natural Gas (NG) futures, the last trading day is defined as the third last business day of the month preceding the contract's delivery month.
+
+The active month changes at the start of the second trading session prior to that contract's last trading session, at which point the next listed contract becomes the active month (i.e., for the final three trading sessions of the nearest listed contract, the contract for the next month is the active month). The trading session for a given business day typically begins at 6:00 PM ET on the prior calendar date.
+
+For example, if the last business day of the month preceding the contract's delivery month is a Thursday, the last trading session is the session for the prior Tuesday, and the next listed contract becomes the active month at the start of the trading session for the Friday of the previous week (6:00 PM ET on Thursday), assuming a standard trading calendar.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published for the Active Month Natural Gas (NG) futures contract by CME Group may be used to determine whether the listed price was reached during the applicable trading session.
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the underlying market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Active Month Natural Gas futures "High" prices available at https://pythdata.app/explore?search=NGD, with the chart settings configured for 1-minute candles. Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+  E6.C7: Will Natural Gas (NG) hit (LOW) $2.70 Week of May 4 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of May 4 2026, any 1-minute candle for the Active Month of Natural Gas futures has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If the Active Month contract does not trade at all during the listed time frame, this market will resolve to "No".
+
+Only prices achieved during the applicable trading session for the underlying market will be considered. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours.
+
+Per CME contract specifications for Natural Gas (NG) futures, the last trading day is defined as the third last business day of the month preceding the contract's delivery month.
+
+The active month changes at the start of the second trading session prior to that contract's last trading session, at which point the next listed contract becomes the active month (i.e., for the final three trading sessions of the nearest listed contract, the contract for the next month is the active month). The trading session for a given business day typically begins at 6:00 PM ET on the prior calendar date.
+
+For example, if the last business day of the month preceding the contract's delivery month is a Thursday, the last trading session is the session for the prior Tuesday, and the next listed contract becomes the active month at the start of the trading session for the Friday of the previous week (6:00 PM ET on Thursday), assuming a standard trading calendar.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published for the Active Month Natural Gas (NG) futures contract by CME Group may be used to determine whether the listed price was reached during the applicable trading session.
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the underlying market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Active Month Natural Gas futures "Low" prices available at https://pythdata.app/explore?search=NGD, with the chart settings configured for 1-minute candles. Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+  E6.C8: Will Natural Gas (NG) hit (LOW) $2.60 Week of May 4 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of May 4 2026, any 1-minute candle for the Active Month of Natural Gas futures has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If the Active Month contract does not trade at all during the listed time frame, this market will resolve to "No".
+
+Only prices achieved during the applicable trading session for the underlying market will be considered. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours.
+
+Per CME contract specifications for Natural Gas (NG) futures, the last trading day is defined as the third last business day of the month preceding the contract's delivery month.
+
+The active month changes at the start of the second trading session prior to that contract's last trading session, at which point the next listed contract becomes the active month (i.e., for the final three trading sessions of the nearest listed contract, the contract for the next month is the active month). The trading session for a given business day typically begins at 6:00 PM ET on the prior calendar date.
+
+For example, if the last business day of the month preceding the contract's delivery month is a Thursday, the last trading session is the session for the prior Tuesday, and the next listed contract becomes the active month at the start of the trading session for the Friday of the previous week (6:00 PM ET on Thursday), assuming a standard trading calendar.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published for the Active Month Natural Gas (NG) futures contract by CME Group may be used to determine whether the listed price was reached during the applicable trading session.
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the underlying market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Active Month Natural Gas futures "Low" prices available at https://pythdata.app/explore?search=NGD, with the chart settings configured for 1-minute candles. Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+  E6.C9: Will Natural Gas (NG) hit (LOW) $2.50 Week of May 4 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of May 4 2026, any 1-minute candle for the Active Month of Natural Gas futures has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If the Active Month contract does not trade at all during the listed time frame, this market will resolve to "No".
+
+Only prices achieved during the applicable trading session for the underlying market will be considered. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours.
+
+Per CME contract specifications for Natural Gas (NG) futures, the last trading day is defined as the third last business day of the month preceding the contract's delivery month.
+
+The active month changes at the start of the second trading session prior to that contract's last trading session, at which point the next listed contract becomes the active month (i.e., for the final three trading sessions of the nearest listed contract, the contract for the next month is the active month). The trading session for a given business day typically begins at 6:00 PM ET on the prior calendar date.
+
+For example, if the last business day of the month preceding the contract's delivery month is a Thursday, the last trading session is the session for the prior Tuesday, and the next listed contract becomes the active month at the start of the trading session for the Friday of the previous week (6:00 PM ET on Thursday), assuming a standard trading calendar.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published for the Active Month Natural Gas (NG) futures contract by CME Group may be used to determine whether the listed price was reached during the applicable trading session.
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the underlying market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Active Month Natural Gas futures "Low" prices available at https://pythdata.app/explore?search=NGD, with the chart settings configured for 1-minute candles. Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+  E6.C10: Will Natural Gas (NG) hit (LOW) $2.40 Week of May 4 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of May 4 2026, any 1-minute candle for the Active Month of Natural Gas futures has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If the Active Month contract does not trade at all during the listed time frame, this market will resolve to "No".
+
+Only prices achieved during the applicable trading session for the underlying market will be considered. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours.
+
+Per CME contract specifications for Natural Gas (NG) futures, the last trading day is defined as the third last business day of the month preceding the contract's delivery month.
+
+The active month changes at the start of the second trading session prior to that contract's last trading session, at which point the next listed contract becomes the active month (i.e., for the final three trading sessions of the nearest listed contract, the contract for the next month is the active month). The trading session for a given business day typically begins at 6:00 PM ET on the prior calendar date.
+
+For example, if the last business day of the month preceding the contract's delivery month is a Thursday, the last trading session is the session for the prior Tuesday, and the next listed contract becomes the active month at the start of the trading session for the Friday of the previous week (6:00 PM ET on Thursday), assuming a standard trading calendar.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published for the Active Month Natural Gas (NG) futures contract by CME Group may be used to determine whether the listed price was reached during the applicable trading session.
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the underlying market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Active Month Natural Gas futures "Low" prices available at https://pythdata.app/explore?search=NGD, with the chart settings configured for 1-minute candles. Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+  E6.C11: Will Natural Gas (NG) hit (LOW) $2.30 Week of May 4 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of May 4 2026, any 1-minute candle for the Active Month of Natural Gas futures has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If the Active Month contract does not trade at all during the listed time frame, this market will resolve to "No".
+
+Only prices achieved during the applicable trading session for the underlying market will be considered. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours.
+
+Per CME contract specifications for Natural Gas (NG) futures, the last trading day is defined as the third last business day of the month preceding the contract's delivery month.
+
+The active month changes at the start of the second trading session prior to that contract's last trading session, at which point the next listed contract becomes the active month (i.e., for the final three trading sessions of the nearest listed contract, the contract for the next month is the active month). The trading session for a given business day typically begins at 6:00 PM ET on the prior calendar date.
+
+For example, if the last business day of the month preceding the contract's delivery month is a Thursday, the last trading session is the session for the prior Tuesday, and the next listed contract becomes the active month at the start of the trading session for the Friday of the previous week (6:00 PM ET on Thursday), assuming a standard trading calendar.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published for the Active Month Natural Gas (NG) futures contract by CME Group may be used to determine whether the listed price was reached during the applicable trading session.
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the underlying market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Active Month Natural Gas futures "Low" prices available at https://pythdata.app/explore?search=NGD, with the chart settings configured for 1-minute candles. Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+  E6.C12: Will Natural Gas (NG) hit (LOW) $2.20 Week of May 4 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of May 4 2026, any 1-minute candle for the Active Month of Natural Gas futures has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If the Active Month contract does not trade at all during the listed time frame, this market will resolve to "No".
+
+Only prices achieved during the applicable trading session for the underlying market will be considered. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours.
+
+Per CME contract specifications for Natural Gas (NG) futures, the last trading day is defined as the third last business day of the month preceding the contract's delivery month.
+
+The active month changes at the start of the second trading session prior to that contract's last trading session, at which point the next listed contract becomes the active month (i.e., for the final three trading sessions of the nearest listed contract, the contract for the next month is the active month). The trading session for a given business day typically begins at 6:00 PM ET on the prior calendar date.
+
+For example, if the last business day of the month preceding the contract's delivery month is a Thursday, the last trading session is the session for the prior Tuesday, and the next listed contract becomes the active month at the start of the trading session for the Friday of the previous week (6:00 PM ET on Thursday), assuming a standard trading calendar.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published for the Active Month Natural Gas (NG) futures contract by CME Group may be used to determine whether the listed price was reached during the applicable trading session.
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the underlying market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Active Month Natural Gas futures "Low" prices available at https://pythdata.app/explore?search=NGD, with the chart settings configured for 1-minute candles. Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+  E6.C13: Will Natural Gas (NG) hit (LOW) $2.10 Week of May 4 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of May 4 2026, any 1-minute candle for the Active Month of Natural Gas futures has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If the Active Month contract does not trade at all during the listed time frame, this market will resolve to "No".
+
+Only prices achieved during the applicable trading session for the underlying market will be considered. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours.
+
+Per CME contract specifications for Natural Gas (NG) futures, the last trading day is defined as the third last business day of the month preceding the contract's delivery month.
+
+The active month changes at the start of the second trading session prior to that contract's last trading session, at which point the next listed contract becomes the active month (i.e., for the final three trading sessions of the nearest listed contract, the contract for the next month is the active month). The trading session for a given business day typically begins at 6:00 PM ET on the prior calendar date.
+
+For example, if the last business day of the month preceding the contract's delivery month is a Thursday, the last trading session is the session for the prior Tuesday, and the next listed contract becomes the active month at the start of the trading session for the Friday of the previous week (6:00 PM ET on Thursday), assuming a standard trading calendar.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published for the Active Month Natural Gas (NG) futures contract by CME Group may be used to determine whether the listed price was reached during the applicable trading session.
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the underlying market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Active Month Natural Gas futures "Low" prices available at https://pythdata.app/explore?search=NGD, with the chart settings configured for 1-minute candles. Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+News before E6's as-of date (date seen, source, headline):
+  - 2026-05-06 | www.blm.gov | BLM issues rights-of-way for Green Chile Natural Gas Pipeline
+  - 2026-05-06 | www.cnbc.com | Huge opportunity in oil and natural gas stocks, says Tortoise Capital's Rob Thummel
+  - 2026-05-06 | kfiam640.iheart.com | Bay Area May Ease Natural Gas Heater Ban Amid Cost Concerns
+  - 2026-05-06 | www.fox9.com | Wisconsin town briefly evacuated, Hwy 2 closed after natural gas line break
+  - 2026-05-06 | the-hendersonian.com | HMP&L considers adding natural gas to its energy portfolio
+  - 2026-05-06 | dailydispatch.com | Multiple agencies respond to natural gas fire in southwest Reno
+  - 2026-05-06 | naturalgasintel.com | Peace Deal Hopes, Bearish Forecasts Pushing Natural Gas Futures Lower
+  - 2026-05-06 | kvia.com | Authorized pipeline to deliver natural gas to Project Jupiter: Bureau of Land Management
+  - 2026-05-06 | www.cbsnews.com | Natural gas appliances to be phased out across Bay Area starting next year
+  - 2026-05-05 | www.etftrends.com | Williams (WMB): Opportunity Rich in Power, Natural Gas
+  - 2026-05-05 | www.mercurynews.com | Bay Area ban on new natural gas water heaters, set to take effect in seven months, may be relaxed over cost concerns
+  - 2026-05-05 | abcnews4.com | Emergency crews responding to downtown natural gas leak
+  - 2026-05-05 | www.counton2.com | Natural gas leak on East Bay Street downtown: CFD
+  - 2026-05-05 | www.kgun9.com | Southwest Gas responds to Eastside natural gas line break on Tanque Verde Rd.
+  - 2026-05-05 | www.kwtx.com | New natural gas power plant opens in Freestone County
+  - 2026-05-05 | www.pipeline-journal.net | Kenya & Tanzania Sign Deal for Landmark Natural Gas Pipeline Feasibility Study
+  - 2026-05-05 | bakercityherald.com | Cascade Natural Gas to replace lines in Baker City
+  - 2026-05-05 | naturalgasintel.com | Western Heat Risk Builds as Weak Hydro Raises Late Summer Natural Gas Price Upside
+  - 2026-05-05 | ca.finance.yahoo.com | Competition Bureau challenges Keyera's natural gas deal, says it could harm energy producers
+  - 2026-05-04 | www.americanactionforum.org | AI Data Center Power Surge: Shifting Trends Toward Natural Gas
+  - 2026-05-04 | naturalgasintel.com | Could Production Dips, LNG Demand Finally Push Natural Gas to $3?
+  - 2026-05-04 | www.reuters.com | Williams beats quarterly profit estimates on higher natural gas demand
+  - 2026-05-04 | naturalgasintel.com | Southeast Squeeze, Eastern Chill Set Up Clash in Spot Natural Gas Markets
+  - 2026-05-04 | naturalgasintel.com | NGI Eyes Smaller Storage Build as Declining LNG Feed Gas, Pipe Work Weigh on Natural Gas Prices
+  - 2026-05-04 | investingnews.com | Alvopetro Announces April Sales Volumes, Quarterly Natural Gas Pricing Update and Details for Q1 2026 Earnings Call
+What to write for E6:
+  Write "high": for each chance 10, 25, 50, 75 and 90, the level you give that chance of being reached (at or above) within the period. The 10 level is the highest.
+  Write "low": for each chance 10, 25, 50, 75 and 90, the level you give that chance of being reached (at or below) within the period. The 10 level is the lowest.

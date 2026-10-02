@@ -1,0 +1,272 @@
+You will be shown 6 questions from a prediction market. Each has one or more contracts that resolve YES or NO under the rules shown. Each question gives the date your view is "as of": answer as you would on that date.
+
+Use what you already know and the news headlines listed under each question, all published in the 7 days before its as-of date. Do not search for or look up anything else: reading this file is the only tool call you may make. There are no prices from any prediction market in this file and you should not try to estimate what any market thinks; give your own view.
+
+Each question says what to write for it. Whole percents run from 1 to 99. Levels are plain numbers in the units the contracts use (for example 95000 for $95,000, 3.25 for 3.25%). Dates are YYYY-MM-DD.
+
+For each question also say whether you recognise how it actually turned out ("recognised": true only if you believe you remember the real outcome; otherwise false).
+
+Reply with one JSON object and nothing else:
+{"events": [{"label": "E1", "recognised": false, ...the fields that question asks for...}]}
+
+=== E1 (as of 2026-05-06): Bitcoin above ___ on May 12?
+Rules:
+This market will resolve to "Yes" if the Binance 1 minute candle for BTC/USDT 12:00 in the ET timezone (noon) on the date specified in the title has a final "Close" price higher than the price specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the BTC/USDT "Close" prices currently available at https://www.binance.com/en/trade/BTC_USDT with "1m" and "Candles" selected on the top bar.
+
+Please note that this market is about the price according to Binance BTC/USDT, not according to other exchanges or trading pairs.
+
+Price precision is determined by the number of decimal places in the source.
+Contracts:
+  E1.C1: Will the price of Bitcoin be above $72,000 on May 12?
+  E1.C2: Will the price of Bitcoin be above $74,000 on May 12?
+  E1.C3: Will the price of Bitcoin be above $76,000 on May 12?
+  E1.C4: Will the price of Bitcoin be above $78,000 on May 12?
+  E1.C5: Will the price of Bitcoin be above $80,000 on May 12?
+  E1.C6: Will the price of Bitcoin be above $82,000 on May 12?
+  E1.C7: Will the price of Bitcoin be above $84,000 on May 12?
+  E1.C8: Will the price of Bitcoin be above $86,000 on May 12?
+  E1.C9: Will the price of Bitcoin be above $88,000 on May 12?
+  E1.C10: Will the price of Bitcoin be above $90,000 on May 12?
+  E1.C11: Will the price of Bitcoin be above $92,000 on May 12?
+News before E1's as-of date (date seen, source, headline):
+  - 2026-05-06 | www.blackrock.com | Portfolio Diversification: Bitcoin, Gold & Alternatives
+  - 2026-05-06 | www.prnewswire.com | American Bitcoin Reports First Quarter 2026 Results
+  - 2026-05-06 | www.reuters.com | Trump brothers-backed American Bitcoin narrows loss on stronger mining revenue
+  - 2026-05-06 | www.cnbc.com | Bitcoin to hit $1M in next five years, says VanEck's head of digital assets research
+  - 2026-05-06 | finance.yahoo.com | Bitcoin and ethereum prices today, Wednesday, May 6, 2026: Prices up; bitcoin at highest level since January
+  - 2026-05-06 | finance.yahoo.com | Bitcoin Price Prediction: We Asked ChatGPT About Bitcoin’s Realistic Price by Year-End
+  - 2026-05-06 | fortune.com | Current price of Bitcoin for May 6, 2026
+  - 2026-05-06 | www.coindesk.com | Bitcoin tops $81,000 as Strategy mulls selling its BTC to fund dividend obligations
+  - 2026-05-06 | bitcoinfoundation.org | Colombia’s President Proposes Turning Caribbean Coast Into Bitcoin Mining Hub
+  - 2026-05-06 | www.barrons.com | Strategy Posts $14.5 Billion Loss on Bitcoin Holdings. The ‘Never Sell’ Mantra Fades.
+  - 2026-05-06 | www.theblock.co | VanEck says Bitcoin could hit $1 million in five years, likens adoption to video games
+  - 2026-05-06 | www.coindesk.com | Bitcoin's (BTC) 30% price surge has a hidden rhythm. Here are the hours and days driving gains.
+  - 2026-05-06 | www.fool.com | Here's What Pete Hegseth Just Said About Bitcoin and Why It Matters
+  - 2026-05-06 | www.cnbc.com | Bitcoin's rally is gaining respect. How to trade it using options
+  - 2026-05-05 | www.wsj.com | Strategy Reports Wider First-Quarter Loss on Lower Value of Bitcoin
+  - 2026-05-05 | www.cnbc.com | Bitcoin treasury firm Strategy breaks from 'never sell' approach to the flagship crypto
+  - 2026-05-05 | fortune.com | Current price of Bitcoin for May 5, 2026
+  - 2026-05-05 | finance.yahoo.com | Bitcoin and ethereum prices today, Tuesday, May 5, 2026: Bitcoin reaches over $81,000, hitting a high last seen in January
+  - 2026-05-05 | www.reuters.com | Saylor's Strategy posts wider quarterly loss on bitcoin slump
+  - 2026-05-05 | www.coindesk.com | Strategy weighs selling bitcoin to fund dividends amid Q1 net loss
+  - 2026-05-05 | www.coindesk.com | Bitcoin breaks $80,000 as traders rotate into altcoins amid improving market mood
+  - 2026-05-05 | www.investopedia.com | Bitcoin is Back Above $81,000. Signs of Clarity Act Progress May Be Helping
+  - 2026-05-05 | bitcoinmagazine.com | Bitcoin Price Rockets Past $81,000 for the First Time Since January
+  - 2026-05-05 | uk.finance.yahoo.com | The Smarter Web Company tops up Bitcoin position, shares gain
+  - 2026-05-05 | www.fool.com | Is Bitcoin More Likely to Hit $50,000 or $100,000?
+What to write for E1:
+  Write "levels": for each chance 10, 25, 50, 75 and 90, the level you give that chance of the measured quantity being at or above when it resolves. The 10 level is the highest and the 90 level the lowest. Example: {"10": 120, "25": 110, "50": 100, "75": 92, "90": 85}.
+
+=== E2 (as of 2026-06-10): Google (GOOGL) closes week of Jun 8 at ___?
+Rules:
+This market will resolve according to the official closing price for Google (GOOGL) on the final day of trading of the specified week (normally Friday).
+
+If the reported value falls exactly between two brackets, then this market will resolve to the higher range bracket.
+
+If the final session of the week is shortened (for example, due to a market-holiday schedule), the official closing price published for that shortened session will still be used for resolution.
+
+If no official closing price is published for that session (for example, due to a trading halt into the close, system issue, delisting, or other disruption), the market will use the last valid on-exchange trade price of the regular session as the effective closing price.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Yahoo Finance.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Yahoo Finance after any adjustments have been applied.
+
+The resolution source for this market is Yahoo Finance, specifically the Google (GOOGL) "Close" prices available at https://finance.yahoo.com/quote/GOOGL/history, published under "Historical Prices."
+Contracts:
+  E2.C1: Will Google (GOOGL) close at <$350 on the final day of trading of the week of Jun 8 – Jun 12?
+  E2.C2: Will Google (GOOGL) close at $350-$355 on the final day of trading of the week of Jun 8 – Jun 12?
+  E2.C3: Will Google (GOOGL) close at $355-$360 on the final day of trading of the week of Jun 8 – Jun 12?
+  E2.C4: Will Google (GOOGL) close at $360-$365 on the final day of trading of the week of Jun 8 – Jun 12?
+  E2.C5: Will Google (GOOGL) close at $365-$370 on the final day of trading of the week of Jun 8 – Jun 12?
+  E2.C6: Will Google (GOOGL) close at $370-$375 on the final day of trading of the week of Jun 8 – Jun 12?
+  E2.C7: Will Google (GOOGL) close at $375-$380 on the final day of trading of the week of Jun 8 – Jun 12?
+  E2.C8: Will Google (GOOGL) close at $380-$385 on the final day of trading of the week of Jun 8 – Jun 12?
+  E2.C9: Will Google (GOOGL) close at $385-$390 on the final day of trading of the week of Jun 8 – Jun 12?
+  E2.C10: Will Google (GOOGL) close at $390-$395 on the final day of trading of the week of Jun 8 – Jun 12?
+  E2.C11: Will Google (GOOGL) close at >$395 on the final day of trading of the week of Jun 8 – Jun 12?
+News before E2's as-of date (date seen, source, headline):
+  - 2026-06-10 | variety.com | Google Asserts That YouTube’s Terms of Service Allow It to Train AI Models
+  - 2026-06-10 | www.reuters.com | Google and Meta denied new trial in youth social media addiction case
+  - 2026-06-10 | www.purdue.edu | Google Gemini Pro is available for faculty and staff beginning week of June 15
+  - 2026-06-10 | opensource.googleblog.com | Google joins the Eclipse Foundation as a strategic member to accelerate AI-integrated developer tools
+  - 2026-06-10 | about.gitlab.com | GitLab Expands Collaboration with Google to Deliver a Fully Managed DevSecOps Platform with the Latest Gemini and Gemma Models
+  - 2026-06-10 | garymarcus.substack.com | Breaking: Google liable for hallucinations
+  - 2026-06-10 | blogs.nvidia.com | NVIDIA Accelerates Google DeepMind’s DiffusionGemma for Local AI
+  - 2026-06-10 | finance.yahoo.com | Google Backs $35 Billion Anthropic AI Infrastructure Financing Deal
+  - 2026-06-10 | about.gitlab.com | GitLab on Google Cloud: Fully managed, compliant, and AI-ready
+  - 2026-06-10 | inside.princeton.edu | Action required: Review shared files connected to disabled Princeton Google accounts
+  - 2026-06-09 | www.nyu.edu | NYU Gives Alumni Free Access to Google AI Professional Certificate Program
+  - 2026-06-09 | www.malwarebytes.com | Update Chrome: Google patches actively exploited vulnerability and 73 others
+  - 2026-06-09 | news.aa.com | American Airlines and Google sign record-breaking sustainable aviation fuel agreement
+  - 2026-06-09 | www.nbcnews.com | Inside Google’s AI training for teachers
+  - 2026-06-09 | www.reuters.com | Google Cloud outage in India after third-party data centre fire triggers shutdown
+  - 2026-06-09 | finance.yahoo.com | Prediction: Google Stock Will Hit $500 on This Date
+  - 2026-06-09 | finance.yahoo.com | SpaceX, Google compute deal raises eyebrows ahead of IPO
+  - 2026-06-09 | finance.yahoo.com | Google Parent Alphabet Is Issuing More Shares. Time to Sell?
+  - 2026-06-09 | www.androidpolice.com | I spent an afternoon building custom Google Home routines and finally fixed my broken smart automation setup
+  - 2026-06-09 | techcrunch.com | Google just fired a warning shot in the AI subscription price wars
+  - 2026-06-09 | www.androidpolice.com | I tried to survive a week using only Google Wallet, and one missing feature almost ruined it
+  - 2026-06-09 | thehill.com | Who qualifies for $68 million settlement over Google Assistant?
+  - 2026-06-09 | www.bloomberg.com | Google’s Backstops Underpin $35 Billion Chip Deal for Anthropic
+  - 2026-06-08 | www.datacenterdynamics.com | Google to pay $920 million to SpaceX-xAI monthly for AI data center capacity
+  - 2026-06-08 | digiday.com | Google’s AI opt-out leaves publishers with a choice they can’t safely use
+What to write for E2:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E3 (as of 2026-07-01): How many 5.5 or above earthquakes June 29 - July 5?
+Rules:
+This market will resolve according to the total number of earthquakes with a magnitude of 5.5 or higher that occur anywhere on Earth between June 29, 2026, 12:00 AM ET, and July 5, 2026, 11:59 PM ET.
+
+The resolution source for this market is the United States Geological Survey (USGS) Earthquake Hazards Program, with the minimum magnitude set to 5.5 and the date parameters set to the relevant dates for this market's timeframe (https://earthquake.usgs.gov/earthquakes/search/).
+
+If an earthquake of substantial size has occurred within this market's timeframe but not yet appeared on the resolution source, this market may remain open until July 7, 2026, 11:59 PM ET, or until the earthquake in question otherwise appears on the resolution source. If such an earthquake has not appeared on the resolution source by that date, another credible resolution source will be used.
+
+This market may not resolve until the timeframe of this market has concluded. If a qualifying earthquake has been recorded on the final day, this market may remain open for 24 hours to allow for revisions to the recorded magnitude. After 24 hours, this market will resolve according to the latest provided data.
+Contracts:
+  E3.C1: Will there be 8 or fewer earthquakes of magnitude 5.5 or higher worldwide from June 29 - July 5?
+  E3.C2: Will there be exactly 9 earthquakes of magnitude 5.5 or higher worldwide from June 29 - July 5?
+  E3.C3: Will there be exactly 10 earthquakes of magnitude 5.5 or higher worldwide from June 29 - July 5?
+  E3.C4: Will there be exactly 11 earthquakes of magnitude 5.5 or higher worldwide from June 29 - July 5?
+  E3.C5: Will there be exactly 12 earthquakes of magnitude 5.5 or higher worldwide from June 29 - July 5?
+  E3.C6: Will there be exactly 13 earthquakes of magnitude 5.5 or higher worldwide from June 29 - July 5?
+  E3.C7: Will there be exactly 14 earthquakes of magnitude 5.5 or higher worldwide from June 29 - July 5?
+  E3.C8: Will there be more than 14 earthquakes of magnitude 5.5 or higher worldwide from June 29 - July 5?
+News before E3's as-of date (date seen, source, headline):
+  - 2026-07-01 | www.science.org | Ultralow-angle faults produce giant earthquakes
+  - 2026-07-01 | reliefweb.int | Earthquakes in Venezuela: Situation Report No. 7 (30 June 2026, Time: 07:00 pm)
+  - 2026-07-01 | www.vaticannews.va | Venezuelan priest: Some places unrecognizable after earthquakes
+  - 2026-07-01 | factcheck.afp.com | HAARP conspiracy theory falsely tied to deadly Venezuela earthquakes
+  - 2026-07-01 | reliefweb.int | Venezuela Earthquakes: Situation Report #3 (June 30, 2026)
+  - 2026-07-01 | phys.org | How giant earthquakes can form at fault planes where theory says they should not
+  - 2026-06-30 | reliefweb.int | Earthquakes in Venezuela: Situation Report No. 6 (29 June 2026, Time: 06:00 pm)
+  - 2026-06-30 | www.pbs.org | Aid workers warn of infectious diseases, overwhelmed hospitals after Venezuela earthquakes
+  - 2026-06-30 | www.reuters.com | Venezuela health system strained after earthquakes, WHO says
+  - 2026-06-30 | www.unicef.org | UNICEF aid shipment lands in Venezuela following devastating earthquakes
+  - 2026-06-30 | www.wfp.org | WFP scales up assistance for families hit by Venezuela earthquakes
+  - 2026-06-30 | www.aljazeera.com | Fears for people deported from US to Venezuela hours before earthquakes hit
+  - 2026-06-30 | newsforkids.net | Venezuela Earthquakes & Heat Waves Around the World
+  - 2026-06-29 | news.fiu.edu | Expert explains why some buildings collapse during earthquakes
+  - 2026-06-29 | www.sjearthquakes.com | MATCH RECAP: Earthquakes II 3, Portland Timbers2 2
+  - 2026-06-29 | reliefweb.int | Earthquakes in Venezuela: Situation Report No. 5 (28 June 2026, Time: 5:00 pm)
+  - 2026-06-29 | wgme.com | Earthquakes explained: Why they are more common than you think
+  - 2026-06-29 | healthpolicy-watch.news | Hopes Fade For Survivors Of Venezuela Earthquakes
+  - 2026-06-29 | www.nbcnewyork.com | Soccer star's wife dies saving 1-year-old daughter during Venezuela earthquakes
+  - 2026-06-29 | www.salvationarmy.org | The Salvation Army brings practical help and hope after devastating Venezuelan earthquakes
+  - 2026-06-29 | newsroom.churchofjesuschrist.org | The Church Mobilizes Humanitarian Aid in Wake of Venezuela Earthquakes
+  - 2026-06-29 | abc7.com | Argentine soccer player Lucas Trejo loses wife, 2 children in Venezuela earthquakes
+  - 2026-06-29 | www.wlrn.org | 'Surfside a hundred times over': South Florida journalist witnesses twin earthquakes in Venezuela
+  - 2026-06-28 | reliefweb.int | Earthquakes in Venezuela: Situation Report No. 4 (27 June 2026, Time: 3:00 pm)
+  - 2026-06-28 | www.paho.org | Situation Report No.2: Earthquakes in Venezuela (M7.2 and M7.5)
+What to write for E3:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E4 (as of 2026-09-16): Ethereum price on September 16?
+Rules:
+This market will resolve according to the final "Close" price of the Binance 1 minute candle for ETH/USDT 12:00 in the ET timezone (noon) on the date specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the ETH/USDT "Close" prices currently available at https://www.binance.com/en/trade/ETH_USDT with "1m" and "Candles" selected on the top bar.
+
+If the reported value falls exactly between two brackets, then this market will resolve to the higher range bracket.
+
+Please note that this market is about the price according to Binance ETH/USDT, not according to other exchanges or trading pairs.
+Contracts:
+  E4.C1: Will the price of Ethereum be less than $2,000 on September 16?
+  E4.C2: Will the price of Ethereum be between $2,000 and $2,100 on September 16?
+  E4.C3: Will the price of Ethereum be between $2,100 and $2,200 on September 16?
+  E4.C4: Will the price of Ethereum be between $2,200 and $2,300 on September 16?
+  E4.C5: Will the price of Ethereum be between $2,300 and $2,400 on September 16?
+  E4.C6: Will the price of Ethereum be between $2,400 and $2,500 on September 16?
+  E4.C7: Will the price of Ethereum be between $2,500 and $2,600 on September 16?
+  E4.C8: Will the price of Ethereum be between $2,600 and $2,700 on September 16?
+  E4.C9: Will the price of Ethereum be between $2,700 and $2,800 on September 16?
+  E4.C10: Will the price of Ethereum be between $2,800 and $2,900 on September 16?
+  E4.C11: Will the price of Ethereum be greater than $2,900 on September 16?
+News before E4's as-of date (date seen, source, headline):
+  - 2026-09-16 | finance.yahoo.com | Ethereum Price Prediction: What Could Ethereum Be Worth Before Q4?
+  - 2026-09-16 | bitcoinfoundation.org | Ethereum Fees Are Collapsing as Layer 2 Grows: Can ETH Still Capture Value?
+  - 2026-09-16 | fortune.com | Current price of Ethereum for September 16, 2026
+  - 2026-09-16 | finance.yahoo.com | Ethereum vs Solana: Which Wins When Wall Street Moves Stocks On-Chain?
+  - 2026-09-16 | finance.yahoo.com | This Ethereum Treasury Company Is Close to Owning 5% of All ETH in Circulation. Does That Make It a Buy?
+  - 2026-09-16 | finance.yahoo.com | XRP or Ethereum: Which Could Fall When the Fed Hikes?
+  - 2026-09-16 | www.coindesk.com | Ethereum, Base give up on common wallet standard after months of talks
+  - 2026-09-16 | markets.businessinsider.com | New Crypto: Pepeto Announces $11.01M Raised While the Ethereum Price Prediction Points to $6,000
+  - 2026-09-16 | www.fool.com | Ethereum's Vitalik Buterin Isn't Worried About AI Breaking Crypto. Here's Why That's Fantastic News For Crypto Investors.
+  - 2026-09-16 | finance.yahoo.com | Ethereum Signals 10% Drop Against Bitcoin Amid CLARITY Act Setback
+  - 2026-09-16 | finance.yahoo.com | The Fed Decides at 2 pm ET Wednesday. What a Hike Does to Bitcoin, XRP and Ethereum the Day After Congress Failed.
+  - 2026-09-16 | crypto.com | Ethereum Price Down 7.6% Following CLARITY Act Failure
+  - 2026-09-16 | 247wallst.com | The CLARITY Act Fails 50 to 49: What's Next for XRP, Bitcoin, Ethereum, and Solana Now That Congress Is Done for the Year?
+  - 2026-09-16 | www.coindesk.com | Circle launched its own blockchain. What happens to Ethereum?
+  - 2026-09-16 | www.tradingview.com | Bitcoin, Ethereum, XRP, Dogecoin Gain After BTC Reserve Bill Advances: Analyst Says He's Not 'Panicking' Despite Rate Hikes — 'Ready for Anything'
+  - 2026-09-16 | www.crowdfundinsider.com | Bitcoin, Ethereum, Tron Transfers Can Vary Significantly Depending on How They’re Counted : BIS
+  - 2026-09-16 | finance.biggo.com | Ethereum Slides Below $2,400 After Senate Rejects CLARITY Act, Testing Key Support Ahead of Fed
+  - 2026-09-16 | www.fxstreet.com | Top 3 Price Prediction: Bitcoin, Ethereum, Ripple – BTC, ETH and XRP retreat as Fed rate decision looms
+  - 2026-09-15 | www.crowdfundinsider.com | Zama Extends Confidential Morpho Vaults, Adds Private Swaps On Ethereum
+  - 2026-09-15 | www.forbes.com | Bitcoin, Ethereum And Other Major Cryptocurrencies Tumble As CLARITY Act Fails
+  - 2026-09-15 | 247wallst.com | Ethereum Price Prediction: How High Will Ethereum Go in 2026?
+  - 2026-09-15 | fortune.com | Current price of Ethereum for Sept. 15, 2026
+  - 2026-09-15 | finance.yahoo.com | Ethereum’s Q2 Data Reveals a Widening User Activity Gap
+  - 2026-09-15 | 247wallst.com | Is Ethereum a Good Investment Right Now? It's Down 16% This Year and Up 33% This Month
+  - 2026-09-15 | finance.yahoo.com | Can Ethereum Hit $3,000 This Month? The Last Time This Pattern Formed, It Rallied 31% in Three Days
+What to write for E4:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E5 (as of 2026-06-03): Core CPI (ex food and energy) MoM - May 2026
+Rules:
+This is a market about the one-month percent change in the seasonally adjusted Consumer Price Index for All Urban Consumers excluding food and energy (Core CPI-U) published by the Bureau of Labor Statistics (BLS).
+
+This market will resolve to the one-month percent change in the seasonally adjusted Consumer Price Index for All Urban Consumers excluding food and energy (Core CPI-U) in May 2026 according to the monthly BLS report.
+
+The resolution source for this market will be the BLS Consumer Price Index report released for May 2026 (https://www.bls.gov/bls/news-release/cpi.htm), currently scheduled to be released on June 10, 2026, at 8:30 AM ET. Resolution of this market will take place upon release of the aforementioned data.
+
+Note: the resolution source for this market will be the official monthly BLS CPI news release, which reports one month percent change in core inflation (all items less food and energy) to only one decimal point (e.g., 0.3%). Thus, this is the level of precision that will be used when resolving the market.
+
+If the BLS does not release the relevant figures on the scheduled date, this market may remain open up until the scheduled release time of the next CPI report (https://www.bls.gov/schedule). If the information is not released by that time, this market will resolve according to the figures of the most recent previous month with available data.
+Contracts:
+  E5.C1: Will Core CPI MoM be -0.3% or less in May?
+  E5.C2: Will Core CPI MoM be -0.2% in May?
+  E5.C3: Will Core CPI MoM be -0.1% in May?
+  E5.C4: Will Core CPI MoM be 0.0% in May?
+  E5.C5: Will Core CPI MoM be 0.1% in May?
+  E5.C6: Will Core CPI MoM be 0.2% in May?
+  E5.C7: Will Core CPI MoM be 0.3% in May?
+  E5.C8: Will Core CPI MoM be 0.4% in May?
+  E5.C9: Will Core CPI MoM be 0.5% in May?
+  E5.C10: Will Core CPI MoM be 0.6% or more in May?
+News before E5's as-of date (date seen, source, headline):
+  - 2026-05-28 | www.tradingview.com | Tokyo core CPI misses forecasts in May, complicating case for BOJ June rate hike
+What to write for E5:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E6 (as of 2026-06-17): 2026 June 1st, 2nd, 3rd hottest on record?
+Rules:
+This market will resolve based on the data for the Global Land-Ocean Temperature Index for June 2026 versus the data points available for all other Junes on record. 
+
+Note: If June 2026 is tied for first, second, or third hottest with another year, it will qualify for the bracket it ties with.
+
+The primary resolution source for this market will be the figures found in the table titled "GLOBAL Land-Ocean Temperature Index in 0.01 degrees Celsius" under the column "Jun" (https://data.giss.nasa.gov/gistemp/tabledata_v4/GLB.Ts+dSST.txt). If NASA's "Global Temperature Index" is rendered permanently unavailable, other information from NASA may be used.
+If no information for June 2026 is provided by NASA by July 31, 2026, 11:59 PM ET, a consensus of credible sources will be used to resolve this market.
+Contracts:
+  E6.C1: Will June 2026 be the 1st hottest on record?
+  E6.C2: Will June 2026 be the 2nd hottest on record?
+  E6.C3: Will June 2026 be the 3rd hottest on record?
+  E6.C4: Will June 2026 be the 4th or lower hottest on record?
+News before E6's as-of date (date seen, source, headline):
+  - 2026-06-16 | www.southcarolinapublicradio.org | See the hottest temperatures ever recorded across South Carolina
+  - 2026-06-16 | www.deccanchronicle.com | May Was The World's Second-Hottest On Record, EU Scientists Say
+  - 2026-06-15 | www.fpren.org | See the hottest temperatures ever recorded in Florida
+  - 2026-06-15 | weather.com | Will 2026 be the hottest year on record? Here's how it's going
+  - 2026-06-15 | www.kxan.com | Austin’s weather extremes: Hottest, coldest and wettest June records
+  - 2026-06-15 | www.ctvnews.ca | It was the hottest June 14 on record for 26 B.C. communities
+  - 2026-06-14 | www.mid-day.com | Mumbai records hottest June night in 57 years as minimum temperature hits 30.2 degrees Celsius
+  - 2026-06-13 | bringmethenews.com | Twin Cities experiencing one of hottest starts to June on record
+  - 2026-06-11 | timeskuwait.com | Europe records second hottest May on record amid early heatwave
+  - 2026-06-11 | www.uniladtech.com | NOAA issues warning as 'Super El Niño' officially begins as hottest year on record approaches
+  - 2026-06-10 | www.8newsnow.com | Las Vegas records season’s hottest day, more heat ahead
+  - 2026-06-10 | unn.ua | This May became the second hottest on record
+  - 2026-06-10 | www.rfi.fr | European heatwave drives world's second-hottest May on record
+  - 2026-06-10 | www.ekathimerini.com | May was the world’s second-hottest on record, EU scientists say
+  - 2026-06-10 | www.downtoearth.org.in | Extreme heat cost India’s farm workers 54 days of labour in the hottest year on record
+What to write for E6:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).

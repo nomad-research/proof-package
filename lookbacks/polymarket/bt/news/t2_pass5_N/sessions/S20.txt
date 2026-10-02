@@ -1,0 +1,448 @@
+You will be shown 6 questions from a prediction market. Each has one or more contracts that resolve YES or NO under the rules shown. Each question gives the date your view is "as of": answer as you would on that date.
+
+Use what you already know and the news headlines listed under each question, all published in the 7 days before its as-of date. Do not search for or look up anything else: reading this file is the only tool call you may make. There are no prices from any prediction market in this file and you should not try to estimate what any market thinks; give your own view.
+
+Each question says what to write for it. Whole percents run from 1 to 99. Levels are plain numbers in the units the contracts use (for example 95000 for $95,000, 3.25 for 3.25%). Dates are YYYY-MM-DD.
+
+For each question also say whether you recognise how it actually turned out ("recognised": true only if you believe you remember the real outcome; otherwise false).
+
+Reply with one JSON object and nothing else:
+{"events": [{"label": "E1", "recognised": false, ...the fields that question asks for...}]}
+
+=== E1 (as of 2026-07-29): What will Alphabet Inc. (GOOGL) hit Week of July 27 2026?
+Rules:
+What will Alphabet Inc. (GOOGL) hit Week of July 27 2026?
+Contracts:
+  E1.C1: Will Alphabet Inc. (GOOGL) hit (HIGH) $350 Week of July 27 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of July 27 2026, any 1-minute candle for Alphabet Inc. (GOOGL) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Alphabet Inc. (GOOGL) "High" prices available at https://pythdata.app/explore/Equity.US.GOOGL%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.GOOGL%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E1.C2: Will Alphabet Inc. (GOOGL) hit (HIGH) $345 Week of July 27 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of July 27 2026, any 1-minute candle for Alphabet Inc. (GOOGL) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Alphabet Inc. (GOOGL) "High" prices available at https://pythdata.app/explore/Equity.US.GOOGL%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.GOOGL%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E1.C3: Will Alphabet Inc. (GOOGL) hit (HIGH) $340 Week of July 27 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of July 27 2026, any 1-minute candle for Alphabet Inc. (GOOGL) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Alphabet Inc. (GOOGL) "High" prices available at https://pythdata.app/explore/Equity.US.GOOGL%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.GOOGL%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E1.C4: Will Alphabet Inc. (GOOGL) hit (LOW) $315 Week of July 27 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of July 27 2026, any 1-minute candle for Alphabet Inc. (GOOGL) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Alphabet Inc. (GOOGL) "Low" prices available at https://pythdata.app/explore/Equity.US.GOOGL%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.GOOGL%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E1.C5: Will Alphabet Inc. (GOOGL) hit (LOW) $310 Week of July 27 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of July 27 2026, any 1-minute candle for Alphabet Inc. (GOOGL) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Alphabet Inc. (GOOGL) "Low" prices available at https://pythdata.app/explore/Equity.US.GOOGL%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.GOOGL%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E1.C6: Will Alphabet Inc. (GOOGL) hit (LOW) $305 Week of July 27 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of July 27 2026, any 1-minute candle for Alphabet Inc. (GOOGL) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Alphabet Inc. (GOOGL) "Low" prices available at https://pythdata.app/explore/Equity.US.GOOGL%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.GOOGL%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E1.C7: Will Alphabet Inc. (GOOGL) hit (LOW) $300 Week of July 27 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of July 27 2026, any 1-minute candle for Alphabet Inc. (GOOGL) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Alphabet Inc. (GOOGL) "Low" prices available at https://pythdata.app/explore/Equity.US.GOOGL%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.GOOGL%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E1.C8: Will Alphabet Inc. (GOOGL) hit (LOW) $295 Week of July 27 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of July 27 2026, any 1-minute candle for Alphabet Inc. (GOOGL) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Alphabet Inc. (GOOGL) "Low" prices available at https://pythdata.app/explore/Equity.US.GOOGL%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.GOOGL%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E1.C9: Will Alphabet Inc. (GOOGL) hit (LOW) $290 Week of July 27 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of July 27 2026, any 1-minute candle for Alphabet Inc. (GOOGL) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Alphabet Inc. (GOOGL) "Low" prices available at https://pythdata.app/explore/Equity.US.GOOGL%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.GOOGL%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E1.C10: Will Alphabet Inc. (GOOGL) hit (LOW) $285 Week of July 27 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of July 27 2026, any 1-minute candle for Alphabet Inc. (GOOGL) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Alphabet Inc. (GOOGL) "Low" prices available at https://pythdata.app/explore/Equity.US.GOOGL%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.GOOGL%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+News before E1's as-of date (date seen, source, headline):
+  - 2026-07-28 | www.stocktitan.net | Alphabet Inc. (NASDAQ: GOOG) CAO details GSU vesting and tax share withholding
+  - 2026-07-27 | finance.yahoo.com | Investors Heavily Search Alphabet Inc. (GOOGL): Here is What You Need to Know
+  - 2026-07-27 | finance.yahoo.com | Alphabet Inc. (GOOG) is Attracting Investor Attention: Here is What You Should Know
+  - 2026-07-27 | www.opensecrets.org | Alphabet Inc Hired Firms, 2024
+  - 2026-07-24 | www.wboc.com | Securities Fraud Investigation Into Alphabet Inc. (GOOG) Continues – Shareholders Who Lost Money Urged to Contact Glancy Prongay Wolke & Rotter LLP, a Leading Securities Fraud Law Firm
+  - 2026-07-23 | finance.yahoo.com | Alphabet Inc (GOOG) Q2 2026 Earnings Call Highlights: Record Revenue Growth and AI Innovations ...
+  - 2026-07-23 | www.tradingkey.com | Alphabet Inc Class A Stock (GOOGL) Moved Down by 6.17% on Jul 23: What Investors Need To Know
+  - 2026-07-23 | www.moomoo.com | Alphabet Inc. Cl A, Amazon.Com Inc. Share Losses Contribute To Dow's 387-Point Fall
+  - 2026-07-23 | www.chartmill.com | Alphabet Inc. (NASDAQ:GOOG): A Growth at a Reasonable Price (GARP) Stock Aligned with the Peter Lynch Strategy
+  - 2026-07-23 | www.moomoo.com | Dow Drops 525 Points On Losses In Alphabet Inc. Cl A, Amazon.Com Inc. Stocks
+  - 2026-07-23 | www.moomoo.com | Alphabet Inc. (GOOGL.US) hit by simultaneous stock and bond sell-off! AI spending fears crush share price, while its 'century bond' drops below 90% of par value.
+  - 2026-07-23 | www.tradingkey.com | Alphabet Inc Class C Stock (GOOG) Moved Down by 6.34% on Jul 23: Facts Behind the Movement
+  - 2026-07-22 | finance.yahoo.com | Alphabet Inc. (GOOG) Q2 Earnings and Revenues Top Estimates
+  - 2026-07-22 | finance.yahoo.com | Alphabet Inc. (GOOG) Q2 FY2026 earnings call transcript
+  - 2026-07-22 | seekingalpha.com | Alphabet Inc. 2026 Q2 - Results - Earnings Call Presentation (NASDAQ:GOOGL) 2026-07-22
+What to write for E1:
+  Write "high": for each chance 10, 25, 50, 75 and 90, the level you give that chance of being reached (at or above) within the period. The 10 level is the highest.
+  Write "low": for each chance 10, 25, 50, 75 and 90, the level you give that chance of being reached (at or below) within the period. The 10 level is the lowest.
+
+=== E2 (as of 2026-04-29): Solana above ___ on May 2?
+Rules:
+This market will resolve to "Yes" if the Binance 1 minute candle for SOL/USDT 12:00 in the ET timezone (noon) on the date specified in the title has a final "Close" price higher than the price specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the SOL/USDT "Close" prices currently available at https://www.binance.com/en/trade/SOL_USDT with "1m" and "Candles" selected on the top bar.
+
+Please note that this market is about the price according to Binance SOL/USDT, not according to other exchanges or trading pairs.
+
+Price precision is determined by the number of decimal places in the source.
+Contracts:
+  E2.C1: Will the price of Solana be above $40 on May 2?
+  E2.C2: Will the price of Solana be above $50 on May 2?
+  E2.C3: Will the price of Solana be above $60 on May 2?
+  E2.C4: Will the price of Solana be above $70 on May 2?
+  E2.C5: Will the price of Solana be above $80 on May 2?
+  E2.C6: Will the price of Solana be above $90 on May 2?
+  E2.C7: Will the price of Solana be above $100 on May 2?
+  E2.C8: Will the price of Solana be above $110 on May 2?
+  E2.C9: Will the price of Solana be above $120 on May 2?
+  E2.C10: Will the price of Solana be above $130 on May 2?
+  E2.C11: Will the price of Solana be above $140 on May 2?
+News before E2's as-of date (date seen, source, headline):
+  - 2026-04-29 | www.fool.com | What Is Solana (SOL)?
+  - 2026-04-29 | www.theblock.co | Meta begins offering USDC creator payouts to crypto wallets on Solana and Polygon blockchains
+  - 2026-04-29 | www.tradingview.com | SOL price drops towards $83 as Solana ETF flows dwindle
+  - 2026-04-29 | www.theblock.co | Solana Ventures leads $18 million round in Squads to scale its stablecoin platform Altitude
+  - 2026-04-29 | www.tradingview.com | Western Union’s Solana Move Signals A Shift In Global Payment Infrastructure
+  - 2026-04-29 | yellow.com | SOL Slides Below $85 As $2.1B In Stablecoins Sit Idle On Solana Network
+  - 2026-04-29 | 99bitcoins.com | Solana Price Forecast: SOL USD Trading Below $85 – What Next?
+  - 2026-04-29 | www.coindesk.com | Meta (META) starts stablecoin payout to creators in Circle's USDC on Polygon, Solana via Stripe
+  - 2026-04-29 | 247wallst.com | Why Are Bitcoin, XRP, Ethereum, and Solana Sliding This Week?
+  - 2026-04-29 | cryptonews.com | Solana Is Failing to Reclaim $86 as ETF Flows Dry Up: Is the Channel Floor at $77 the Next Stop?
+  - 2026-04-29 | decrypt.co | Meta Launches USDC Stablecoin Creator Payouts on Solana and Polygon via Stripe
+  - 2026-04-29 | www.blockhead.co | Solana's Degenerate Season Fades as ETF Dreams Face Regulatory Headwinds
+  - 2026-04-29 | startupfortune.com | Solana Mobile and RadiantsDAO just showed what crypto-native apps can do on a phone
+  - 2026-04-29 | cryptonews.net | Solana multisig protocol Squads raises 18M USD to scale stablecoin platform Altitude
+  - 2026-04-29 | startupfortune.com | Solana's Pudgy Penguins post turned a meme brand into a live token marketing moment
+  - 2026-04-29 | crypto.news | Meta taps USDC to power creator payments through Solana and Polygon
+  - 2026-04-28 | bitcoinfoundation.org | Israel Clears First Regulated Shekel Stablecoin on Solana
+  - 2026-04-28 | thecoastnews.com | Solana Beach outlines projects, goals for upcoming work plan
+  - 2026-04-28 | bitcoinfoundation.org | Chiliz Coin Declines 5% Amid Expansion to Base, Solana
+  - 2026-04-28 | thecoastnews.com | Del Mar, Solana Beach name joint fire chief, establish management deal
+  - 2026-04-28 | www.coindesk.com | Bitcoin loses $77,000, ether, solana slide as Hormuz standoff lifts oil to 3-week high
+  - 2026-04-28 | www.tradingview.com | Solana Nears Triangle Apex: Is A 10% Breakout Move Coming?
+  - 2026-04-28 | www.coindesk.com | World Cup fever: Chiliz expands to Solana and Base to supercharge fan token trading
+  - 2026-04-28 | www.kucoin.com | Best Solana Memecoins 2026 – High-Potential 100x Crypto Coins to Watch
+  - 2026-04-28 | www.globenewswire.com | Crypto News Today: Varntix Adds 19.7% Fixed Income Pools As Solana (SOL) Price Predictions Underwhelm
+What to write for E2:
+  Write "levels": for each chance 10, 25, 50, 75 and 90, the level you give that chance of the measured quantity being at or above when it resolves. The 10 level is the highest and the 90 level the lowest. Example: {"10": 120, "25": 110, "50": 100, "75": 92, "90": 85}.
+
+=== E3 (as of 2026-05-13): Solana price on May 13?
+Rules:
+This market will resolve according to the final "Close" price of the Binance 1 minute candle for SOL/USDT 12:00 in the ET timezone (noon) on the date specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the SOL/USDT "Close" prices currently available at https://www.binance.com/en/trade/SOL_USDT with "1m" and "Candles" selected on the top bar.
+
+If the reported value falls exactly between two brackets, then this market will resolve to the higher range bracket.
+
+Please note that this market is about the price according to Binance SOL/USDT, not according to other exchanges or trading pairs.
+Contracts:
+  E3.C1: Will the price of Solana be less than $40 on May 13?
+  E3.C2: Will the price of Solana be between $40 and $50 on May 13?
+  E3.C3: Will the price of Solana be between $50 and $60 on May 13?
+  E3.C4: Will the price of Solana be between $60 and $70 on May 13?
+  E3.C5: Will the price of Solana be between $70 and $80 on May 13?
+  E3.C6: Will the price of Solana be between $80 and $90 on May 13?
+  E3.C7: Will the price of Solana be between $90 and $100 on May 13?
+  E3.C8: Will the price of Solana be between $100 and $110 on May 13?
+  E3.C9: Will the price of Solana be between $110 and $120 on May 13?
+  E3.C10: Will the price of Solana be between $120 and $130 on May 13?
+  E3.C11: Will the price of Solana be greater than $130 on May 13?
+News before E3's as-of date (date seen, source, headline):
+  - 2026-05-13 | www.tradingview.com | Can Solana bulls push SOL above $100 after latest ETF inflows?
+  - 2026-05-13 | www.theblock.co | Ethereum closes gap with Solana as DEX volumes converge near $45 billion
+  - 2026-05-13 | www.theblock.co | Korean won stablecoin KRWQ expands to Solana following March EDX Markets listing
+  - 2026-05-13 | www.theblock.co | Anthropic, OpenAI tokenized PreStocks on Solana plunge after unauthorized equity transfer warnings
+  - 2026-05-13 | cryptoslate.com | JPMorgan taps both Ethereum and Solana for separate reasons for its institutional cash stack
+  - 2026-05-13 | 247wallst.com | Solana Price Prediction: SOL Just Posted Its Best Week of 2026, Can the Momentum Hold?
+  - 2026-05-13 | www.tradingview.com | Grayscale Solana Staking ETF Expands AP Agreement With Jane Street for In-Kind Creations, Redemptions
+  - 2026-05-13 | www.theblock.co | Solana treasury firm DeFi Development Corp reports 108% yearly growth in SOL per share
+  - 2026-05-13 | 247wallst.com | Solana Price Prediction: Is SOL About to Break $100 — or Repeat May’s -6% Average?
+  - 2026-05-13 | crypto.news | Solana launches P-Token upgrade with 20x efficiency boost on mainnet, price to $150?
+  - 2026-05-13 | www.theblock.co | Jupiter taps Bitwise to curate institutional-grade Solana-based USDe lending market
+  - 2026-05-13 | startupfortune.com | Solana's P-Token upgrade brings token efficiency to mainnet
+  - 2026-05-13 | finbold.com | AI predicts Solana price for May 31, 2026
+  - 2026-05-12 | www.sandiegouniontribune.com | 100 years of learning and discovery: Solana Beach School District marks centennial anniversary
+  - 2026-05-12 | www.pymnts.com | Coinbase and Morpho Unveil Solana-Backed Loans
+  - 2026-05-12 | www.theblock.co | Coinbase adds Solana-backed loans through Morpho, letting users borrow up to $100,000
+  - 2026-05-12 | www.tradingview.com | Solana Activates Alpenglow Upgrade: What It Means for SOL
+  - 2026-05-12 | crypto.news | Solana price retreats from $100 after rejection, will upcoming SMA crossover trigger rebound?
+  - 2026-05-12 | www.tradingview.com | Solana (SOL) Dips Modestly, But Traders Still Expect Bigger Move
+  - 2026-05-12 | thecoastnews.com | Solana Beach sets outdoor dining fee, clarifies allowed structures
+  - 2026-05-12 | startupfortune.com | Solana is turning hackathons into a startup pipeline
+  - 2026-05-12 | www.banklesstimes.com | Solana Price Prediction: ETF Inflows Converge With Weak On-Chain Metrics
+  - 2026-05-12 | stocktwits.com | Ethereum Drops Harder Than Bitcoin Ahead Of CPI Report While XRP, Solana Retail Sentiment Climbs
+  - 2026-05-12 | cryptonews.com | Leading AI Claude Predicts the Shocking Price of Solana by the End of 2026
+  - 2026-05-12 | cryptonews.com | 13 Best Solana Wallets to Store SOL and Trade in 2026
+What to write for E3:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E4 (as of 2026-07-22): Ethereum price on July 28?
+Rules:
+This market will resolve according to the final "Close" price of the Binance 1 minute candle for ETH/USDT 12:00 in the ET timezone (noon) on the date specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the ETH/USDT "Close" prices currently available at https://www.binance.com/en/trade/ETH_USDT with "1m" and "Candles" selected on the top bar.
+
+If the reported value falls exactly between two brackets, then this market will resolve to the higher range bracket.
+
+Please note that this market is about the price according to Binance ETH/USDT, not according to other exchanges or trading pairs.
+Contracts:
+  E4.C1: Will the price of Ethereum be less than $1,500 on July 28?
+  E4.C2: Will the price of Ethereum be between $1,500 and $1,600 on July 28?
+  E4.C3: Will the price of Ethereum be between $1,600 and $1,700 on July 28?
+  E4.C4: Will the price of Ethereum be between $1,700 and $1,800 on July 28?
+  E4.C5: Will the price of Ethereum be between $1,800 and $1,900 on July 28?
+  E4.C6: Will the price of Ethereum be between $1,900 and $2,000 on July 28?
+  E4.C7: Will the price of Ethereum be between $2,000 and $2,100 on July 28?
+  E4.C8: Will the price of Ethereum be between $2,100 and $2,200 on July 28?
+  E4.C9: Will the price of Ethereum be between $2,200 and $2,300 on July 28?
+  E4.C10: Will the price of Ethereum be between $2,300 and $2,400 on July 28?
+  E4.C11: Will the price of Ethereum be greater than $2,400 on July 28?
+News before E4's as-of date (date seen, source, headline):
+  - 2026-07-22 | finance.yahoo.com | Bitcoin, Ethereum, XRP, Dogecoin Flat Despite Crypto Bill Getting Ethics Provisions: Analyst Highlights Level to 'Watch' for BTC
+  - 2026-07-22 | bitcoinfoundation.org | Ethereum ETFs Are Back: Could Institutional Money Finally Ignite the Next ETH Rally?
+  - 2026-07-22 | finance.yahoo.com | Ethereum News: Builder Activity & Leverage Data Align, $2k Next?
+  - 2026-07-22 | www.tradingview.com | Ethereum Foundation Publishes Policy Guide For Governments And Institutions
+  - 2026-07-22 | www.thestreet.com | Ethereum just closed three consecutive red quarters for the first time, what happens next
+  - 2026-07-22 | info.arkm.com | Ethereum Validator Exit Queue Clears to Zero, Signaling Strong Staking Conviction
+  - 2026-07-22 | www.nny360.com | Crypto News Today: AlphaPepe Nears Tier-1 CEX Partnership Reveal as Ethereum Price Prediction Eyes $8,500
+  - 2026-07-21 | fortune.com | Current price of Ethereum for July 21, 2026
+  - 2026-07-21 | finance.yahoo.com | Bitcoin, Ethereum, XRP, Dogecoin Lift Amid Crypto Bill Optimism: Analyst Flags BTC's 'Biggest Test'
+  - 2026-07-21 | finance.yahoo.com | Bitcoin and ethereum prices today, Tuesday, July 21, 2026: Crypto prices rise as investors' risk appetite returns
+  - 2026-07-21 | www.financemagnates.com | Ethereum Price Prediction: ETH Chart Clears Its Year-Long Downtrend as Standard Chartered and Citi Split on 2026 Targets
+  - 2026-07-21 | cryptoslate.com | BitMine is now $484 million away from completing its 5% Ethereum target
+  - 2026-07-21 | crypto.news | Retail left Ethereum. Wall Street moved in. The price ignored both
+  - 2026-07-21 | eciks.org | Ethereum bounces back to $1,930 after dipping to $1,551 early in July, showing signs of recovery
+  - 2026-07-21 | cryptorank.io | Tom Lee and Ethereum: Why He’s So Bullish, Explained
+  - 2026-07-21 | es.tradingview.com | Ethereum’s Next Move: How High Can ETH Price Go?
+  - 2026-07-20 | finance.yahoo.com | Ethereum Price Forecast: Confirmed Bullish Pattern Sets Stage for 25% Gain
+  - 2026-07-20 | finance.yahoo.com | Ethereum Could Lead the Next Bull Market: Is Hayes Preparing with More Buys?
+  - 2026-07-20 | finance.yahoo.com | Bitcoin and ethereum prices today, Monday, July 20, 2026: Crypto prices mixed as second half 2026 outlooks conflict
+  - 2026-07-20 | crypto.news | Ethereum price nears key resistance/support line, is $2,000 back in sight?
+  - 2026-07-20 | www.benzinga.com | Jordi Visser Says More People Will Get 'Focused' on Ethereum, Reveals His ETH Trading Strategy
+  - 2026-07-20 | www.ccn.com | Ethereum Price to $40,000? 4 AI Models Assess Standard Chartered’s Call as Tom Lee Remains Bullish
+  - 2026-07-20 | stocktwits.com | Grayscale Locks In Quarterly Staking Payouts For Ethereum, Solana ETFs
+  - 2026-07-20 | cryptonews.com | Ethereum Bulls are Preparing for a Major Price Breakout Above the 100-day EMA
+  - 2026-07-20 | www.theblock.co | Bitmine expands Ethereum treasury to 5.78 million ETH, repurchases 5.5 million shares
+What to write for E4:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E5 (as of 2026-04-15): Will Google (GOOGL) finish week of April 13 above___?
+Rules:
+This market will resolve to "Yes" if the official closing price for Alphabet Inc. (GOOGL) on the final day of trading of the specified week (normally Friday) is higher than the listed price. Otherwise, this market will resolve to "No."
+
+If the final session is shortened (for example, due to a market-holiday schedule), the official closing price published for that shortened session will still be used for resolution.
+
+If no official closing price is published for that session (for example, due to a trading halt into the close, system issue, delisting, or other disruption), the market will use the last valid on-exchange trade price of the regular session as the effective closing price.
+
+The resolution source for this market is Yahoo Finance, specifically the Alphabet Inc. (GOOGL) "Close" prices available at https://finance.yahoo.com/quote/GOOGL/history, published under "Historical Prices."
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Yahoo Finance.
+Contracts:
+  E5.C1: Will Google (GOOGL) finish week of April 13 above $290?
+  E5.C2: Will Google (GOOGL) finish week of April 13 above $295?
+  E5.C3: Will Google (GOOGL) finish week of April 13 above $300?
+  E5.C4: Will Google (GOOGL) finish week of April 13 above $305?
+  E5.C5: Will Google (GOOGL) finish week of April 13 above $310?
+  E5.C6: Will Google (GOOGL) finish week of April 13 above $315?
+  E5.C7: Will Google (GOOGL) finish week of April 13 above $320?
+  E5.C8: Will Google (GOOGL) finish week of April 13 above $325?
+  E5.C9: Will Google (GOOGL) finish week of April 13 above $330?
+  E5.C10: Will Google (GOOGL) finish week of April 13 above $335?
+  E5.C11: Will Google (GOOGL) finish week of April 13 above $340?
+  E5.C12: Will Google (GOOGL) finish week of April 13 above $345?
+  E5.C13: Will Google (GOOGL) finish week of April 13 above $350?
+News before E5's as-of date (date seen, source, headline):
+  - 2026-04-15 | www.netapp.com | NetApp Collaborates with Google Cloud to Power Data Infrastructure for Distributed Cloud
+  - 2026-04-15 | www.bbc.com | Back button hijacking to be penalised in Google crackdown
+  - 2026-04-15 | developers.googleblog.com | New enhancements for merchant initiated transactions with the Google Pay API
+  - 2026-04-15 | www.googlecloudpresscorner.com | Thoma Bravo and Google Cloud Launch Strategic Partnership to Deliver on the Promise of AI for Enterprise Software
+  - 2026-04-15 | www.coursera.org | How to Use Google Sheets Query
+  - 2026-04-15 | www.usatoday.com | Need an answer? Google it! How Google became part of our daily lives
+  - 2026-04-15 | www.edtechinnovationhub.com | Google.org commits $4.6 million to AI education rollout across Latin America
+  - 2026-04-15 | arstechnica.com | Google releases new apps for Windows and MacOS
+  - 2026-04-15 | www.adweek.com | Google is Migrating Dynamic Search Ads to AI Max
+  - 2026-04-15 | www.wane.com | Zoning board denies Google’s construction offices in Allen County
+  - 2026-04-14 | www.eff.org | Google Broke Its Promise to Me. Now ICE Has My Data.
+  - 2026-04-14 | blog.google | The Google app for desktop is now available for Windows users around the world.
+  - 2026-04-14 | www.reuters.com | Google sued by rival app store Aptoide over alleged monopoly
+  - 2026-04-14 | www.axios.com | Exclusive: Google launches AI jobs push
+  - 2026-04-14 | developers.googleblog.com | Get ready for Google I/O: Livestream schedule revealed
+  - 2026-04-14 | www.eff.org | EFF to State AGs: Investigate Google's Broken Promise to Users Targeted by the Government
+  - 2026-04-14 | www.latimes.com | Advertisers demand billions of dollars from Google in escalating monopoly battle
+  - 2026-04-14 | www.googlecloudpresscorner.com | CIMB Niaga, Google Cloud, and Artefact Debut Enterprise AI Agents to Deliver Life-Centric Banking for Millions of Indonesians
+  - 2026-04-14 | www.cbsnews.com | Android users could get money under $135 million Google settlement. Here's how.
+  - 2026-04-14 | spectrum.ieee.org | Boston Dynamics and Google DeepMind Unveil a Smarter Spot
+  - 2026-04-14 | www.livenowfox.com | Meta, Google found negligent in social media trial
+  - 2026-04-14 | techcrunch.com | Google adds AI Skills to Chrome to help you save favorite workflows
+  - 2026-04-14 | www.theverge.com | Google’s Spotlight-like desktop search bar for Windows is available for everyone
+  - 2026-04-14 | www.marketingdive.com | Meta to shoot past Google in digital ad revenue for first time: Emarketer
+  - 2026-04-14 | www.engadget.com | What To Expect From Google I/O 2026
+What to write for E5:
+  Write "levels": for each chance 10, 25, 50, 75 and 90, the level you give that chance of the measured quantity being at or above when it resolves. The 10 level is the highest and the 90 level the lowest. Example: {"10": 120, "25": 110, "50": 100, "75": 92, "90": 85}.
+
+=== E6 (as of 2026-04-29): Ethereum price on April 29?
+Rules:
+This market will resolve according to the final "Close" price of the Binance 1 minute candle for ETH/USDT 12:00 in the ET timezone (noon) on the date specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the ETH/USDT "Close" prices currently available at https://www.binance.com/en/trade/ETH_USDT with "1m" and "Candles" selected on the top bar.
+
+If the reported value falls exactly between two brackets, then this market will resolve to the higher range bracket.
+
+Please note that this market is about the price according to Binance ETH/USDT, not according to other exchanges or trading pairs.
+Contracts:
+  E6.C1: Will the price of Ethereum be less than $2,000 on April 29?
+  E6.C2: Will the price of Ethereum be between $2,000 and $2,100 on April 29?
+  E6.C3: Will the price of Ethereum be between $2,100 and $2,200 on April 29?
+  E6.C4: Will the price of Ethereum be between $2,200 and $2,300 on April 29?
+  E6.C5: Will the price of Ethereum be between $2,300 and $2,400 on April 29?
+  E6.C6: Will the price of Ethereum be between $2,400 and $2,500 on April 29?
+  E6.C7: Will the price of Ethereum be between $2,500 and $2,600 on April 29?
+  E6.C8: Will the price of Ethereum be between $2,600 and $2,700 on April 29?
+  E6.C9: Will the price of Ethereum be between $2,700 and $2,800 on April 29?
+  E6.C10: Will the price of Ethereum be between $2,800 and $2,900 on April 29?
+  E6.C11: Will the price of Ethereum be greater than $2,900 on April 29?
+News before E6's as-of date (date seen, source, headline):
+  - 2026-04-29 | finance.yahoo.com | Bitcoin and ethereum prices today, Wednesday, April 29, 2026: Values continue to fall this week
+  - 2026-04-29 | www.theblock.co | Ethereum ICO whale moves $23 million in ETH after 10-year dormancy
+  - 2026-04-29 | www.forbes.com | 'Removes Supply'—Ethereum Suddenly Faces BlackRock $500M Stake Shock
+  - 2026-04-29 | chain.link | Understanding EIP-4844 Blob Storage on Ethereum
+  - 2026-04-29 | 247wallst.com | Why Are Bitcoin, XRP, Ethereum, and Solana Sliding This Week?
+  - 2026-04-29 | decrypt.co | Ethereum ICO Whale Who Turned $3,100 Into $23M Wakes Up After a Decade
+  - 2026-04-29 | www.thestreet.com | Mysterious 10 year dormant Ethereum whale moves $23 million
+  - 2026-04-29 | decrypt.co | Bitcoin, Ethereum Dip as Fed Holds Rates Steady for Third Straight Time
+  - 2026-04-29 | cryptonews.net | Ethereum Price Forecast: ETH falters at resistance following strong retail selling
+  - 2026-04-29 | cryptonews.com | Dormant Ethereum Whale Awoke After 10 Years and Dumped $23M
+  - 2026-04-28 | fortune.com | Current price of Ethereum for April 28, 2026
+  - 2026-04-28 | finance.yahoo.com | Bitcoin and ethereum prices today, Tuesday, April 28, 2026: Values falling ahead of Fed meeting
+  - 2026-04-28 | finance.yahoo.com | How Bitmine's Tom Lee is becoming the Michael Saylor of ethereum
+  - 2026-04-28 | www.fool.com | Ethereum Staking: A Quiet Generational Wealth Engine?
+  - 2026-04-28 | coinpedia.org | Ethereum Price Hit 2021 Levels After Five Years: Is It Time to Sell ETH?
+  - 2026-04-28 | www.tradingview.com | Is Ethereum safe above $2K? Traders are watching these ETH price levels
+  - 2026-04-28 | fortune.com | Ten years after Ethereum’s DAO disaster, it’s time to try again
+  - 2026-04-28 | cryptonews.net | Ethereum price prediction as whales signal dumping ETH in mass
+  - 2026-04-28 | coinpedia.org | Why Are Bitcoin & Ethereum Prices Dropping? What’s Behind Today’s Crypto Market Correction?
+  - 2026-04-28 | crypto.news | Ethereum Price Hits Week Low on April 28
+  - 2026-04-27 | fortune.com | Current price of Ethereum for April 27, 2026
+  - 2026-04-27 | finance.yahoo.com | Bitcoin and ethereum price today, Monday, April 27, 2026: Prices hold ahead of potential peace talks and Fed meeting
+  - 2026-04-27 | www.tradingview.com | ETH price up 10% in April, so why is Ethereum Foundation selling?
+  - 2026-04-27 | www.investing.com | Ethereum Price Lags Despite Strong ETF Flows and Treasury Buying
+  - 2026-04-27 | decrypt.co | Tom Lee's BitMine Makes Biggest Ethereum Buy So Far in 2026, Hitting 5 Million ETH Milestone
+What to write for E6:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).

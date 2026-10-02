@@ -1,0 +1,457 @@
+You will be shown 6 questions from a prediction market. Each has one or more contracts that resolve YES or NO under the rules shown. Each question gives the date your view is "as of": answer as you would on that date.
+
+Use what you already know and the news headlines listed under each question, all published in the 7 days before its as-of date. Do not search for or look up anything else: reading this file is the only tool call you may make. There are no prices from any prediction market in this file and you should not try to estimate what any market thinks; give your own view.
+
+Each question says what to write for it. Whole percents run from 1 to 99. Levels are plain numbers in the units the contracts use (for example 95000 for $95,000, 3.25 for 3.25%). Dates are YYYY-MM-DD.
+
+For each question also say whether you recognise how it actually turned out ("recognised": true only if you believe you remember the real outcome; otherwise false).
+
+Reply with one JSON object and nothing else:
+{"events": [{"label": "E1", "recognised": false, ...the fields that question asks for...}]}
+
+=== E1 (as of 2026-08-26): What will Coinbase Global, Inc. (COIN) hit Week of August 24 2026?
+Rules:
+What will Coinbase Global, Inc. (COIN) hit Week of August 24 2026?
+Contracts:
+  E1.C1: Will Coinbase Global, Inc. (COIN) hit (HIGH) $205 Week of August 24 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of August 24 2026, any 1-minute candle for Coinbase Global, Inc. (COIN) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Coinbase Global, Inc. (COIN) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.COIN%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.COIN%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E1.C2: Will Coinbase Global, Inc. (COIN) hit (HIGH) $202.50 Week of August 24 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of August 24 2026, any 1-minute candle for Coinbase Global, Inc. (COIN) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Coinbase Global, Inc. (COIN) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.COIN%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.COIN%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E1.C3: Will Coinbase Global, Inc. (COIN) hit (HIGH) $200 Week of August 24 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of August 24 2026, any 1-minute candle for Coinbase Global, Inc. (COIN) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Coinbase Global, Inc. (COIN) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.COIN%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.COIN%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E1.C4: Will Coinbase Global, Inc. (COIN) hit (HIGH) $197.50 Week of August 24 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of August 24 2026, any 1-minute candle for Coinbase Global, Inc. (COIN) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Coinbase Global, Inc. (COIN) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.COIN%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.COIN%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E1.C5: Will Coinbase Global, Inc. (COIN) hit (HIGH) $195 Week of August 24 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of August 24 2026, any 1-minute candle for Coinbase Global, Inc. (COIN) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Coinbase Global, Inc. (COIN) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.COIN%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.COIN%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E1.C6: Will Coinbase Global, Inc. (COIN) hit (LOW) $175 Week of August 24 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of August 24 2026, any 1-minute candle for Coinbase Global, Inc. (COIN) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Coinbase Global, Inc. (COIN) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.COIN%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.COIN%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E1.C7: Will Coinbase Global, Inc. (COIN) hit (LOW) $172.50 Week of August 24 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of August 24 2026, any 1-minute candle for Coinbase Global, Inc. (COIN) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Coinbase Global, Inc. (COIN) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.COIN%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.COIN%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E1.C8: Will Coinbase Global, Inc. (COIN) hit (HIGH) $192.50 Week of August 24 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of August 24 2026, any 1-minute candle for Coinbase Global, Inc. (COIN) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Coinbase Global, Inc. (COIN) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.COIN%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.COIN%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+News before E1's as-of date (date seen, source, headline):
+  - 2026-08-25 | www.moomoo.com | Goldman Sachs Adjusts Price Target on Coinbase Global to $196 From $173
+  - 2026-08-24 | finance.yahoo.com | Coinbase Global (COIN) Adds 290 Plus Leveraged Markets To Base App
+  - 2026-08-24 | finance.yahoo.com | Coinbase Global Selects Chainlink to Provide Pricing Data for Tokenized Stocks
+  - 2026-08-21 | finance.yahoo.com | Coinbase Global (COIN) Could Be 25% Undervalued After Its Abu Dhabi Tokenization Push
+  - 2026-08-20 | www.trefis.com | Coinbase Global Stock Carries A Premium Multiple And A Shrinking Top Line
+  - 2026-08-20 | www.benzinga.com | Deere, Coinbase Global, Nordson And Other Big Stocks Moving Higher On Wednesday
+  - 2026-08-19 | finance.yahoo.com | Bear of the Day: Coinbase Global (COIN)
+  - 2026-08-19 | www.theglobeandmail.com | Valero Energy and Coinbase Global have been highlighted as Zacks Bull and Bear of the Day
+  - 2026-08-19 | finance.yahoo.com | Coinbase Global (COIN) Will Attend A White House Crypto Summit
+What to write for E1:
+  Write "high": for each chance 10, 25, 50, 75 and 90, the level you give that chance of being reached (at or above) within the period. The 10 level is the highest.
+  Write "low": for each chance 10, 25, 50, 75 and 90, the level you give that chance of being reached (at or below) within the period. The 10 level is the lowest.
+
+=== E2 (as of 2026-06-03): Ethereum above ___ on June 5?
+Rules:
+This market will resolve to "Yes" if the Binance 1 minute candle for ETH/USDT 12:00 in the ET timezone (noon) on the date specified in the title has a final "Close" price higher than the price specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the ETH/USDT "Close" prices currently available at https://www.binance.com/en/trade/ETH_USDT with "1m" and "Candles" selected on the top bar.
+
+Please note that this market is about the price according to Binance ETH/USDT, not according to other exchanges or trading pairs.
+
+Price precision is determined by the number of decimal places in the source.
+Contracts:
+  E2.C1: Will the price of Ethereum be above $1,500 on June 5?
+  E2.C2: Will the price of Ethereum be above $1,600 on June 5?
+  E2.C3: Will the price of Ethereum be above $1,700 on June 5?
+  E2.C4: Will the price of Ethereum be above $1,800 on June 5?
+  E2.C5: Will the price of Ethereum be above $1,900 on June 5?
+  E2.C6: Will the price of Ethereum be above $2,000 on June 5?
+  E2.C7: Will the price of Ethereum be above $2,100 on June 5?
+  E2.C8: Will the price of Ethereum be above $2,200 on June 5?
+  E2.C9: Will the price of Ethereum be above $2,300 on June 5?
+  E2.C10: Will the price of Ethereum be above $2,400 on June 5?
+  E2.C11: Will the price of Ethereum be above $2,500 on June 5?
+News before E2's as-of date (date seen, source, headline):
+  - 2026-06-03 | finance.yahoo.com | Why Ethereum Could Tank Another 25% Before Finding a Bottom: Analysis
+  - 2026-06-03 | finance.yahoo.com | Ethereum Price to $250,000, Claims Tom Lee — Says Traders Are Bearish at Wrong Time
+  - 2026-06-03 | finance.yahoo.com | Bitcoin and ethereum prices today, June 3, 2026: BTC opens below $67,000; ETH opens below $2,000
+  - 2026-06-03 | finance.yahoo.com | Bitcoin and ethereum prices today, June 2, 2026: Bitcoin slides below $66,000
+  - 2026-06-03 | finance.yahoo.com | Tom Lee: 'ETH's Price Doesn't Reflect The Strengthening Of Ethereum's Fundamentals'
+  - 2026-06-03 | www.tradingview.com | Can Ethereum price reclaim $2000?
+  - 2026-06-03 | www.tradingview.com | Ethereum Price Plunges Under $1,800, Leaving Bulls On The Ropes
+  - 2026-06-03 | www.financemagnates.com | Why Is Crypto Going Down Today? Bitcoin, Ethereum, XRP and Dogecoin Sink as Crypto Decouples From Record-High Stocks
+  - 2026-06-03 | www.tradingview.com | Ethereum drops to 14-week lows: Can ETH price hold $1.8K support?
+  - 2026-06-03 | www.coindesk.com | Ethereum news: ETH falling below $1,800 leaves Tom Lee's Bitmine (BMNR) with $8.9 billion paper loss
+  - 2026-06-03 | www.tradingview.com | CoinShares Bull Case Sees Ethereum Hitting $14,135 By 2031
+  - 2026-06-02 | www.etftrends.com | How Cheaper Fees Could Drive Ethereum Growth
+  - 2026-06-02 | fortune.com | Current price of Ethereum for June 2, 2026
+  - 2026-06-02 | www.coindesk.com | Bitcoin, Ethereum price news: MSTR's BTC sale could kickstart ETH outperformance
+  - 2026-06-02 | www.tradingview.com | Ethereum Price $2,000 Floor Gives Way As Selling Pressure Persists
+  - 2026-06-02 | www.coindesk.com | Ethereum (ETH) news: Movement pivots to stablecoin payments as the layer-2 boom loses momentum
+  - 2026-06-02 | www.tradingview.com | Ethereum Ready For The ‘Final Dip’? Analysts Call For New Lows As Price Retests $1,900
+  - 2026-06-02 | www.coindesk.com | Hyperliquid is beating ethereum in trading volume on some days as big money rotates, says FalconX
+  - 2026-06-02 | www.tradingview.com | Ethereum defends $1900 as BitMine slows buying and ETF outflows grow
+  - 2026-06-02 | www.tradingview.com | Ethereum Coinbase Premium Hits Lowest Level Since February – Traders Are Watching
+  - 2026-06-01 | fortune.com | Current price of Ethereum for June 1, 2026
+  - 2026-06-01 | www.coindesk.com | Ethereum's Vitalik Buterin is rethinking how DeFi handles market crashes
+  - 2026-06-01 | www.fool.com | Could Buying Ethereum Today Set You Up for a 20X Return? One Top Bank Thinks So
+  - 2026-06-01 | www.coindesk.com | Ethereum news: Bitmine (BMNR) slows purchase pace, buying $53 million in ETH
+  - 2026-06-01 | cryptoticker.io | Ethereum Price Breaks $2,000 Support While Bearish Sentiment Drives ETH to Lower Targets
+What to write for E2:
+  Write "levels": for each chance 10, 25, 50, 75 and 90, the level you give that chance of the measured quantity being at or above when it resolves. The 10 level is the highest and the 90 level the lowest. Example: {"10": 120, "25": 110, "50": 100, "75": 92, "90": 85}.
+
+=== E3 (as of 2026-06-03): XRP above ___ on June 9?
+Rules:
+This market will resolve to "Yes" if the Binance 1 minute candle for XRP/USDT 12:00 in the ET timezone (noon) on the date specified in the title has a final "Close" price higher than the price specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the XRP/USDT "Close" prices currently available at https://www.binance.com/en/trade/XRP_USDT with "1m" and "Candles" selected on the top bar.
+
+Please note that this market is about the price according to Binance XRP/USDT, not according to other exchanges or trading pairs.
+
+Price precision is determined by the number of decimal places in the source.
+Contracts:
+  E3.C1: Will the price of XRP be above $0.70 on June 9?
+  E3.C2: Will the price of XRP be above $0.80 on June 9?
+  E3.C3: Will the price of XRP be above $0.90 on June 9?
+  E3.C4: Will the price of XRP be above $1.00 on June 9?
+  E3.C5: Will the price of XRP be above $1.10 on June 9?
+  E3.C6: Will the price of XRP be above $1.20 on June 9?
+  E3.C7: Will the price of XRP be above $1.30 on June 9?
+  E3.C8: Will the price of XRP be above $1.40 on June 9?
+  E3.C9: Will the price of XRP be above $1.50 on June 9?
+  E3.C10: Will the price of XRP be above $1.60 on June 9?
+  E3.C11: Will the price of XRP be above $1.70 on June 9?
+News before E3's as-of date (date seen, source, headline):
+  - 2026-06-03 | www.coindesk.com | XRP price news: Ripple-linked token drops 5% even as bullish signals pile up
+  - 2026-06-03 | finance.yahoo.com | Prediction: XRP Could Hit $5 by 2030. Here's Why.
+  - 2026-06-03 | finance.yahoo.com | Here's How Much $1,000 in XRP Could Be Worth in 5 Years
+  - 2026-06-03 | finance.yahoo.com | XRP Slides 10% in a Week: Will XRP Drop Again Before the Senate CLARITY Act Vote?
+  - 2026-06-03 | finance.yahoo.com | XRP Bullish Price Forecasts Gain Traction Amid ‘Biggest Bear Trap' Warning
+  - 2026-06-03 | 247wallst.com | XRP Price Prediction for June 2026
+  - 2026-06-03 | coinpedia.org | XRP Price Prediction For June 4
+  - 2026-06-03 | www.tradingview.com | The Rapid XRP Growth Trajectory That Investors Should Be Aware Of
+  - 2026-06-03 | www.financemagnates.com | Why Is Crypto Going Down Today? Bitcoin, Ethereum, XRP and Dogecoin Sink as Crypto Decouples From Record-High Stocks
+  - 2026-06-03 | cryptonews.com | XRP Price Loses Key Support: The Drawdown May Not Be Over Yet
+  - 2026-06-02 | finance.yahoo.com | XRP Slides 4% As Bitcoin Pulls Down Altcoins
+  - 2026-06-02 | www.coindesk.com | XRP price analysis: Ripple-linked token falls 4% on bitcoin-led market weakness
+  - 2026-06-02 | www.tradingview.com | Pundit Reveals Why RLUSD Will Make XRP More Valuable, Not Less
+  - 2026-06-02 | 247wallst.com | AI Ran 10,000 Simulations on XRP Through 2027: Here’s the Most Likely Price
+  - 2026-06-02 | www.tradingview.com | Here’s why the XRP price just lost a crucial support level today (June 3)
+  - 2026-06-02 | www.tradingview.com | XRP Is The Clear Winner For Transactions, According To Peter Brandt
+  - 2026-06-02 | www.tradingview.com | Trader says XRP price setting ‘biggest bear trap’ after June monthly open
+  - 2026-06-01 | bitcoinfoundation.org | XRP Price Prediction April 2026
+  - 2026-06-01 | finance.yahoo.com | XRP Ledger Activity Is Booming, Yet The Price Is Down 27%
+  - 2026-06-01 | www.fool.com | Is XRP a Buy if It Drops Below $1?
+  - 2026-06-01 | www.tradingview.com | Ripple: Did Peter Brandt Just Say, “XRP Is The Best”?
+  - 2026-06-01 | www.coindesk.com | XRP price news: Ripple-linked token hits 15-week low
+  - 2026-06-01 | 247wallst.com | We Asked ChatGPT, Claude, Grok, and Gemini About XRP’s Price by July 4
+  - 2026-06-01 | phemex.com | XRP Soars to $1.30: Ripple Rallies on Hope and Major Breakthroughs
+  - 2026-06-01 | www.coindesk.com | Crypto funds suffer second-largest outflows of 2026 while XRP and HYPE attract inflows
+What to write for E3:
+  Write "levels": for each chance 10, 25, 50, 75 and 90, the level you give that chance of the measured quantity being at or above when it resolves. The 10 level is the highest and the 90 level the lowest. Example: {"10": 120, "25": 110, "50": 100, "75": 92, "90": 85}.
+
+=== E4 (as of 2026-07-08): United Airlines (UAL) Q2 consolidated passenger load factor?
+Rules:
+This market will resolve according to United Airlines' consolidated passenger load factor, for the upcoming second fiscal quarter, as reported in its official company earnings materials.
+
+The specified metric will be considered as reported in the company's official earnings materials. Subsequent revisions will not be considered.
+
+If the specified company's official earnings materials for the specified quarter are released, and the specified metric is not included, this market will resolve to the lowest bracket.
+
+If the specified company does not release quarterly earnings materials for the specified quarter by August 31, 2026, 11:59 PM ET, this market will resolve to the lowest bracket.
+
+If the reported value falls exactly between two brackets, this market will resolve to the higher range bracket.
+
+If the specified metric is reported as a range rather than a specific number, the midpoint of the range will be used for resolution of this market.
+
+The resolution source for this market is United Airlines' official company earnings materials, including press releases, investor presentations, and regulatory filings. If the specified metric is not reported in these materials, recordings or transcripts of the company's earnings webcast may also be used.
+
+Note: This market will resolve based on the most numerically precise version of the specified metric reported in the company's official earnings materials. Only the specified metric will be considered; alternate versions that differ in definition or scope from the specified metric will not be considered.
+Contracts:
+  E4.C1: United Airlines (UAL) Q2 consolidated passenger load factor <83%?
+  E4.C2: United Airlines (UAL) Q2 consolidated passenger load factor 83%-84%?
+  E4.C3: United Airlines (UAL) Q2 consolidated passenger load factor 84%-85%?
+  E4.C4: United Airlines (UAL) Q2 consolidated passenger load factor 85%-86%?
+  E4.C5: United Airlines (UAL) Q2 consolidated passenger load factor 86%+?
+News before E4's as-of date (date seen, source, headline):
+  - 2026-07-08 | finance.yahoo.com | United Airlines (UAL) Expected to Beat Earnings Estimates: Can the Stock Move Higher?
+  - 2026-07-08 | finance.yahoo.com | United Airlines Holdings (UAL) Could Be 8% Undervalued As New Colombia Flights Begin
+  - 2026-07-08 | finance.yahoo.com | United Airlines (UAL) Falls More Steeply Than Broader Market: What Investors Need to Know
+  - 2026-07-06 | simpleflying.com | United Airlines Froze Its 2026 Premier Status Thresholds, But Quietly Rewired Who Actually Earns Miles
+  - 2026-07-02 | finance.yahoo.com | United Airlines (UAL) Stock Moves -1.34%: What You Should Know
+  - 2026-07-01 | finance.yahoo.com | Is United Airlines Holdings (UAL) Reasonable Or Stretched On Cash Flow And Earnings?
+What to write for E4:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E5 (as of 2026-07-22): Solana price on July 24?
+Rules:
+This market will resolve according to the final "Close" price of the Binance 1 minute candle for SOL/USDT 12:00 in the ET timezone (noon) on the date specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the SOL/USDT "Close" prices currently available at https://www.binance.com/en/trade/SOL_USDT with "1m" and "Candles" selected on the top bar.
+
+If the reported value falls exactly between two brackets, then this market will resolve to the higher range bracket.
+
+Please note that this market is about the price according to Binance SOL/USDT, not according to other exchanges or trading pairs.
+Contracts:
+  E5.C1: Will the price of Solana be less than $30 on July 24?
+  E5.C2: Will the price of Solana be between $30 and $40 on July 24?
+  E5.C3: Will the price of Solana be between $40 and $50 on July 24?
+  E5.C4: Will the price of Solana be between $50 and $60 on July 24?
+  E5.C5: Will the price of Solana be between $60 and $70 on July 24?
+  E5.C6: Will the price of Solana be between $70 and $80 on July 24?
+  E5.C7: Will the price of Solana be between $80 and $90 on July 24?
+  E5.C8: Will the price of Solana be between $90 and $100 on July 24?
+  E5.C9: Will the price of Solana be between $100 and $110 on July 24?
+  E5.C10: Will the price of Solana be between $110 and $120 on July 24?
+  E5.C11: Will the price of Solana be greater than $120 on July 24?
+News before E5's as-of date (date seen, source, headline):
+  - 2026-07-22 | finance.yahoo.com | Solana Prepares for the Alpenglow Upgrade. How Will SOL React?
+  - 2026-07-22 | www.fool.com | Where Will Solana Be in 3 Years?
+  - 2026-07-22 | www.globenewswire.com | Only a Few Hours Remain: Solana Unchained Nears the End of
+  - 2026-07-22 | www.tradingview.com | Grayscale Solana Trust Amendment Would Add Quarterly Staking Reward Payouts
+  - 2026-07-21 | www.audacy.com | Will LeBron James Return To The Miami Heat? | Hoch, Crowder & Solana
+  - 2026-07-21 | www.theblock.co | Solana, Hyperliquid ETFs dominate altcoin fund flows despite flying under the radar
+  - 2026-07-21 | finance.yahoo.com | Ramp opens stablecoin accounts to every business, settling on Solana
+  - 2026-07-21 | www.moomoo.com | SpaceX (SPCX.US) IPO sparks $3.3 billion; Solana (HSDT.US) RWA quarterly trading exceeds $5.8 billion
+  - 2026-07-21 | www.theblock.co | Jito rolls out JTX self-custodial trading platform for Solana tokens and RWAs
+  - 2026-07-21 | coinpedia.org | Solana (SOL) Price Prediction: Will Bulls Reclaim $80 This Week?
+  - 2026-07-21 | cryptonews.net | Machine learning algorithm sets Solana price for August 1, 2026
+  - 2026-07-21 | www.sandiegouniontribune.com | Compound Lifting Club opens second location in Solana Beach
+  - 2026-07-21 | www.tradingkey.com | Solana (SOLUSD) Volatility Intensified on Jul 22: What You Should Know
+  - 2026-07-21 | www.streetinsider.com | Solana Price Prediction Gains Momentum While Remittix Expands RTX Utility With Perps Trading
+  - 2026-07-20 | finance.yahoo.com | Where Could Solana Be Headed Over the Next 3 Years?
+  - 2026-07-20 | finance.yahoo.com | Solana Price Forecast: SOL Signals a 40% Breakout Move Ahead
+  - 2026-07-20 | finance.yahoo.com | Solana Co-Founder Anatoly Yakovenko Once Highlighted the Need for Decisive Leadership: Somebody Has to 'Wear the Crown' No Matter How 'Heavy' It Is
+  - 2026-07-20 | coinpedia.org | Solana Eyes $93 Rally: Why Current Consolidation Signals Next Big Buy
+  - 2026-07-20 | crypto.news | Solana price stalls below $80 as exploits test fragile recovery
+  - 2026-07-20 | stocktwits.com | Grayscale Locks In Quarterly Staking Payouts For Ethereum, Solana ETFs
+  - 2026-07-20 | thecapitolforum.com | Clarity Act Shields Trump-Linked Solana From Legal Action
+  - 2026-07-20 | www.tradingview.com | Grayscale Staking Payout Proposal Could Reshape Ethereum And Solana Trusts
+  - 2026-07-20 | www.fxstreet.com | Where is Solana price heading now?
+  - 2026-07-20 | cryptorank.io | Solana’s Non-USDC, Non-USDT Stablecoin Supply Hits Record $4.81 Billion
+  - 2026-07-20 | cryptorank.io | Grayscale to Distribute Staking Rewards as Cash from Ethereum and Solana ETFs
+What to write for E5:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E6 (as of 2026-08-12): What price will Bitcoin hit August 10-16?
+Rules:
+What price will Bitcoin hit August 10-16?
+Contracts:
+  E6.C1: Will Bitcoin reach $78,000 August 10-16?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1-minute candle for BTC/USDT during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "High" price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the BTC/USDT "High" prices available at https://www.binance.com/en/trade/BTC_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance BTC/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E6.C2: Will Bitcoin reach $76,000 August 10-16?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1-minute candle for BTC/USDT during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "High" price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the BTC/USDT "High" prices available at https://www.binance.com/en/trade/BTC_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance BTC/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E6.C3: Will Bitcoin reach $74,000 August 10-16?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1-minute candle for BTC/USDT during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "High" price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the BTC/USDT "High" prices available at https://www.binance.com/en/trade/BTC_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance BTC/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E6.C4: Will Bitcoin reach $72,000 August 10-16?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1-minute candle for BTC/USDT during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "High" price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the BTC/USDT "High" prices available at https://www.binance.com/en/trade/BTC_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance BTC/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E6.C5: Will Bitcoin reach $70,000 August 10-16?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1-minute candle for BTC/USDT during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "High" price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the BTC/USDT "High" prices available at https://www.binance.com/en/trade/BTC_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance BTC/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E6.C6: Will Bitcoin reach $68,000 August 10-16?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1-minute candle for BTC/USDT during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "High" price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the BTC/USDT "High" prices available at https://www.binance.com/en/trade/BTC_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance BTC/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E6.C7: Will Bitcoin reach $66,000 August 10-16?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1-minute candle for BTC/USDT during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "High" price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the BTC/USDT "High" prices available at https://www.binance.com/en/trade/BTC_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance BTC/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E6.C8: Will Bitcoin dip to $62,000 August 10-16?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for Bitcoin (BTC/USDT) during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "Low" price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the BTC/USDT "Low" prices available at https://www.binance.com/en/trade/BTC_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance BTC/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E6.C9: Will Bitcoin dip to $60,000 August 10-16?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for Bitcoin (BTC/USDT) during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "Low" price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the BTC/USDT "Low" prices available at https://www.binance.com/en/trade/BTC_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance BTC/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E6.C10: Will Bitcoin dip to $58,000 August 10-16?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for Bitcoin (BTC/USDT) during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "Low" price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the BTC/USDT "Low" prices available at https://www.binance.com/en/trade/BTC_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance BTC/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E6.C11: Will Bitcoin dip to $56,000 August 10-16?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for Bitcoin (BTC/USDT) during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "Low" price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the BTC/USDT "Low" prices available at https://www.binance.com/en/trade/BTC_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance BTC/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E6.C12: Will Bitcoin dip to $54,000 August 10-16?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for Bitcoin (BTC/USDT) during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "Low" price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the BTC/USDT "Low" prices available at https://www.binance.com/en/trade/BTC_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance BTC/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E6.C13: Will Bitcoin dip to $52,000 August 10-16?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for Bitcoin (BTC/USDT) during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "Low" price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the BTC/USDT "Low" prices available at https://www.binance.com/en/trade/BTC_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance BTC/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E6.C14: Will Bitcoin dip to $50,000 August 10-16?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for Bitcoin (BTC/USDT) during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "Low" price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the BTC/USDT "Low" prices available at https://www.binance.com/en/trade/BTC_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance BTC/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+News before E6's as-of date (date seen, source, headline):
+  - 2026-08-12 | bitcoinmagazine.com | Bitcoin Price May Be Battered, but Structural Adoption Story Still Intact: Grayscale
+  - 2026-08-12 | fortune.com | Current price of Bitcoin for August 12, 2026
+  - 2026-08-12 | finance.yahoo.com | Where Will Bitcoin Be in 2030?
+  - 2026-08-12 | finance.yahoo.com | Bitcoin and ethereum prices today, Wednesday, August 12, 2026: Crypto prices rise with CPI report on deck
+  - 2026-08-12 | finance.yahoo.com | Bitcoin Price Risks Deeper Drop as $174M in Long Positioning Disappears: Analyst
+  - 2026-08-12 | finance.yahoo.com | The First Spot Bitcoin ETF Is Closing Down. Here's Why I'm Not Concerned About Bitcoin Right Now.
+  - 2026-08-12 | www.coindesk.com | Russia moves to restrict retail crypto trading to bitcoin, ether and USDT
+  - 2026-08-12 | www.theblock.co | Bitcoin dips under $64,000 as in-line CPI buys the Fed time, not conviction: analysts
+  - 2026-08-12 | marketwise.com | Strategy’s New Bitcoin-Backed ‘Digital Credit’ Plan: Does the Juiced Preferred Stock Have Upside?
+  - 2026-08-12 | www.coindesk.com | One overlooked group has added $1.78 billion of selling pressure to bitcoin market
+  - 2026-08-12 | finance.yahoo.com | Earnings For Bitcoin Miners Hit 10-Year Low
+  - 2026-08-12 | www.coindesk.com | Bitcoin holds near $64,000 as U.S. inflation data looms, Harmony exploit rattles altcoins
+  - 2026-08-12 | www.coindesk.com | Dogecoin and BNB lead majors higher as bitcoin slips near $63,700
+  - 2026-08-12 | www.inc.com | Bitcoin Miners Have Something Anthropic Desperately Needs. It’s Worth $9.1 Billion
+  - 2026-08-12 | www.pymnts.com | Russia Limits Retail Crypto to Bitcoin, Ether and Tether
+  - 2026-08-12 | bitcoinmagazine.com | Bitcoin Flashes Bottom Signals As "Digital Gold" Narrative Returns
+  - 2026-08-12 | www.coindesk.com | BTC price news: Bitcoin slips near $63,500 as traders look past CPI to Fed’s next tests
+  - 2026-08-11 | finance.yahoo.com | Is Bitcoin Ready To Explode? Here's Why Crypto Is at a 'Major Inflection Point'
+  - 2026-08-11 | fortune.com | Current price of Bitcoin for August. 11, 2026
+  - 2026-08-11 | finance.yahoo.com | Why Strategy Is Selling Bitcoin and How Much It Has Sold So Far
+  - 2026-08-11 | finance.yahoo.com | Russia Approves Trading of Bitcoin, Ethereum and USDT—But No XRP
+  - 2026-08-11 | finance.yahoo.com | Russia to Allow Bitcoin, Ether, Tether Trading on Official Exchanges
+  - 2026-08-11 | finance.yahoo.com | Could Bitcoin really crash to $20,000? Analyst says watch out for 2027
+  - 2026-08-11 | finance.yahoo.com | Bitcoin Price Prediction: BTC Bullish Signals Persist Despite Short-Term Volatility
+  - 2026-08-11 | www.waff.com | Utility work begins at Somerville Bitcoin mining site despite moratorium
+What to write for E6:
+  Write "high": for each chance 10, 25, 50, 75 and 90, the level you give that chance of being reached (at or above) within the period. The 10 level is the highest.
+  Write "low": for each chance 10, 25, 50, 75 and 90, the level you give that chance of being reached (at or below) within the period. The 10 level is the lowest.

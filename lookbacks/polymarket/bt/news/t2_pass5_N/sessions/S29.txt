@@ -1,0 +1,467 @@
+You will be shown 6 questions from a prediction market. Each has one or more contracts that resolve YES or NO under the rules shown. Each question gives the date your view is "as of": answer as you would on that date.
+
+Use what you already know and the news headlines listed under each question, all published in the 7 days before its as-of date. Do not search for or look up anything else: reading this file is the only tool call you may make. There are no prices from any prediction market in this file and you should not try to estimate what any market thinks; give your own view.
+
+Each question says what to write for it. Whole percents run from 1 to 99. Levels are plain numbers in the units the contracts use (for example 95000 for $95,000, 3.25 for 3.25%). Dates are YYYY-MM-DD.
+
+For each question also say whether you recognise how it actually turned out ("recognised": true only if you believe you remember the real outcome; otherwise false).
+
+Reply with one JSON object and nothing else:
+{"events": [{"label": "E1", "recognised": false, ...the fields that question asks for...}]}
+
+=== E1 (as of 2026-07-22): Total commitments for the TownSquare public sale on Sonar
+Rules:
+This market will resolve to "Yes" if total commitments for the TownSquare raise on Sonar exceeds the number specified in the title before the raise closes. Otherwise, it will resolve to "No".
+
+The resolution source for this market is the “committed” figure displayed on the official TownSquare sale page at https://www.townsq.xyz/sale. If the displayed figure reaches the threshold at any point before August 31, 2026, 11:59 PM ET, this market will resolve to "Yes" regardless of subsequent refunds or cancellations. If the sale is on hold and no commitment total is verifiable by August 31, 2026, 11:59 PM ET, or if the raise event is otherwise cancelled or rescheduled to a time past that date, this market resolves to "No". If requisite information for this market’s resolution becomes permanently unavailable within this market’s timeframe, this market will resolve to “No”.
+
+If the sale begins and is extended before the official closing time, commitments made during the extended period will count toward resolution.
+Contracts:
+  E1.C1: Over $500k committed to the TownSquare public sale?
+  E1.C2: Over $750k committed to the TownSquare public sale?
+  E1.C3: Over $1M committed to the TownSquare public sale?
+  E1.C4: Over $1.25M committed to the TownSquare public sale?
+  E1.C5: Over $1.5M committed to the TownSquare public sale?
+  E1.C6: Over $2M committed to the TownSquare public sale?
+  E1.C7: Over $2.5M committed to the TownSquare public sale?
+  E1.C8: Over $3M committed to the TownSquare public sale?
+  E1.C9: Over $4M committed to the TownSquare public sale?
+  E1.C10: Over $5M committed to the TownSquare public sale?
+  E1.C11: Over $7.5M committed to the TownSquare public sale?
+News before E1's as-of date (date seen, source, headline):
+  - 2026-07-22 | warontherocks.com | Total War on Taipei: China Explores Elevating Cognitive Effects into Its Vision of Warfare
+  - 2026-07-22 | www.nature.com | Youth lead current dietary emissions while seniors increasingly drive total emission growth
+  - 2026-07-22 | business.adobe.com | The Total Economic Impact™ of Adobe Acrobat Studio
+  - 2026-07-22 | www.thescore.com | Over or under? Sizing up all 32 NFL teams' 2026 win total projections
+  - 2026-07-22 | snapnetwork.org | Remains of 22 more babies increases total to 99 found at Ireland site: authorities
+  - 2026-07-22 | www.si.com | Hawks Get Updated Win Total Projection For Next Season Following Lu Dort Trade
+  - 2026-07-22 | www.si.com | Can Suns Exceed Projected Win Total Once Again in 2026-27 Season?
+  - 2026-07-22 | www.kltv.com | Dr. Ed Dominguez on measles cases surpassing 2025 total; promising new pancreatic cancer vaccine
+  - 2026-07-22 | finance.yahoo.com | Lazard Global Total Return and Income Fund Declares Monthly Distribution and Issues Estimated Sources of the Distribution Announced in June
+  - 2026-07-22 | nordic.ign.com | Total War: Warhammer 40,000 Named Character List Swells With Another Ork Warboss — and a Hint at How They Will Work in the Game
+  - 2026-07-21 | www.axios.com | U.S. measles cases surpass last year's total: Tracker
+  - 2026-07-21 | onlinelibrary.wiley.com | Spatial Total RNA Sequencing of Formalin-Fixed Paraffin-Embedded Tissue by spRandom-seq
+  - 2026-07-21 | theweek.com | Best places to watch August’s total solar eclipse
+  - 2026-07-21 | www.cureus.com | Bilateral Revision for Periprosthetic Osteolysis Around Primary Total Knee Prostheses: A Case Report
+  - 2026-07-21 | nielseniq.com | July Total Till Release - UK
+  - 2026-07-21 | www.reuters.com | Chess-Carlsen to headline FIDE-backed Total Chess World Championship pilot
+  - 2026-07-21 | www.forbes.com | Why No Brit Or European Can Ignore August’s Total Solar Eclipse
+  - 2026-07-21 | www.phonearena.com | Total Wireless: Awesome value plans with a 5-year price guarantee
+  - 2026-07-21 | arkansasrazorbacks.com | 24 Razorbacks total 29 entries at USATF Outdoor Championships
+  - 2026-07-21 | www.wispolitics.com | Wisconsin GOP posts highest fundraising total through federal account since '24 general election, lags Dem Party
+  - 2026-07-21 | www.cbsnews.com | Hegseth says Iran war has cost $37.5 billion. Sources say the total price tag could be far more.
+  - 2026-07-21 | www.cureus.com | Total Ophthalmoplegia as an Early Manifestation of Herpes Zoster Ophthalmicus in an Elderly Patient With Asthma: A Case Report
+  - 2026-07-21 | www.invenglobal.com | 'Total War: Warhammer 40K' Live Stream Set for the 23rd, Featuring Combat Demo
+  - 2026-07-21 | mexicobusiness.news | Mexican FIBRAs Surpass MX$1 Trillion in Total Assets
+  - 2026-07-21 | www.wnem.com | OK2SAY program sees surge in tips, second-highest total since launch
+What to write for E1:
+  Write "levels": for each chance 10, 25, 50, 75 and 90, the level you give that chance of the measured quantity being at or above when it resolves. The 10 level is the highest and the 90 level the lowest. Example: {"10": 120, "25": 110, "50": 100, "75": 92, "90": 85}.
+
+=== E2 (as of 2026-04-15): What will S&P 500 (SPY) hit Week of April 13 2026?
+Rules:
+What will S&P 500 (SPY) hit Week of April 13 2026?
+Contracts:
+  E2.C1: Will S&P 500 (SPY) hit (HIGH) $715 Week of April 13 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of April 13 2026, any 1-minute candle for S&P 500 (SPY) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the S&P 500 (SPY) "High" prices available at https://pythdata.app/explore/Equity.US.SPY%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.SPY%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E2.C2: Will S&P 500 (SPY) hit (HIGH) $710 Week of April 13 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of April 13 2026, any 1-minute candle for S&P 500 (SPY) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the S&P 500 (SPY) "High" prices available at https://pythdata.app/explore/Equity.US.SPY%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.SPY%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E2.C3: Will S&P 500 (SPY) hit (HIGH) $705 Week of April 13 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of April 13 2026, any 1-minute candle for S&P 500 (SPY) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the S&P 500 (SPY) "High" prices available at https://pythdata.app/explore/Equity.US.SPY%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.SPY%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E2.C4: Will S&P 500 (SPY) hit (HIGH) $700 Week of April 13 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of April 13 2026, any 1-minute candle for S&P 500 (SPY) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the S&P 500 (SPY) "High" prices available at https://pythdata.app/explore/Equity.US.SPY%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.SPY%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E2.C5: Will S&P 500 (SPY) hit (HIGH) $695 Week of April 13 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of April 13 2026, any 1-minute candle for S&P 500 (SPY) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the S&P 500 (SPY) "High" prices available at https://pythdata.app/explore/Equity.US.SPY%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.SPY%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E2.C6: Will S&P 500 (SPY) hit (LOW) $675 Week of April 13 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of April 13 2026, any 1-minute candle for S&P 500 (SPY) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the S&P 500 (SPY) "Low" prices available at https://pythdata.app/explore/Equity.US.SPY%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.SPY%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E2.C7: Will S&P 500 (SPY) hit (LOW) $670 Week of April 13 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of April 13 2026, any 1-minute candle for S&P 500 (SPY) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the S&P 500 (SPY) "Low" prices available at https://pythdata.app/explore/Equity.US.SPY%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.SPY%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E2.C8: Will S&P 500 (SPY) hit (LOW) $665 Week of April 13 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of April 13 2026, any 1-minute candle for S&P 500 (SPY) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the S&P 500 (SPY) "Low" prices available at https://pythdata.app/explore/Equity.US.SPY%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.SPY%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E2.C9: Will S&P 500 (SPY) hit (LOW) $660 Week of April 13 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of April 13 2026, any 1-minute candle for S&P 500 (SPY) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the S&P 500 (SPY) "Low" prices available at https://pythdata.app/explore/Equity.US.SPY%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.SPY%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E2.C10: Will S&P 500 (SPY) hit (LOW) $655 Week of April 13 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of April 13 2026, any 1-minute candle for S&P 500 (SPY) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the S&P 500 (SPY) "Low" prices available at https://pythdata.app/explore/Equity.US.SPY%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.SPY%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E2.C11: Will S&P 500 (SPY) hit (LOW) $650 Week of April 13 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of April 13 2026, any 1-minute candle for S&P 500 (SPY) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the S&P 500 (SPY) "Low" prices available at https://pythdata.app/explore/Equity.US.SPY%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.SPY%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+News before E2's as-of date (date seen, source, headline):
+  - 2026-04-15 | temaetfs.com | S&P 500 Concentration: The Equal Weight Fix That Isn’t
+  - 2026-04-15 | www.pbs.org | Wall Street hits record as S&P 500 continues 2-week rally, boosted by hopes for Iran war's end
+  - 2026-04-15 | www.reuters.com | S&P 500 closes at fresh record, recovering all losses since start of US-Iran war
+  - 2026-04-15 | www.cnn.com | S&P and Nasdaq hit record highs, continuing remarkable recovery from war shock | CNN Business
+  - 2026-04-15 | www.nbcnews.com | S&P 500 hits all-time high as investors shrug off Iran war oil price spike
+  - 2026-04-15 | www.forbes.com | Why You Shouldn’t Just Invest In The S&P 500
+  - 2026-04-15 | www.reuters.com | S&P Global downgrades ASX after Australian regulator finds governance, risk failures
+  - 2026-04-15 | www.reuters.com | S&P 500, Nasdaq push to closing records on optimism around Middle East talks, earnings
+  - 2026-04-15 | www.cbsnews.com | S&P 500, Nasdaq hit record highs as investors shrug off Iran war fears
+  - 2026-04-15 | www.bloomberg.com | S&P 500, Nasdaq 100 Hit Records as Ceasefire Hopes Fuel Rally
+  - 2026-04-15 | pro.thestreet.com | Meta-Broadcom Deal Can Push S&P 500 to Milestone All-Time High
+  - 2026-04-15 | www.detroitnews.com | S&P 500, Nasdaq push to closing records on earnings and Iran optimism
+  - 2026-04-15 | finance.yahoo.com | S&P 500 Sits 0.5% From All-Time High as Capital Floods Back Into Equities
+  - 2026-04-15 | www.investmentnews.com | S&P 500 closes at record as ceasefire optimism, bank earnings power rally
+  - 2026-04-15 | www.cnbc.com | Stock futures are little changed as S&P 500 approaches its all-time high
+  - 2026-04-15 | www.bloomberg.com | Indonesia’s Rating Most at Risk in Southeast Asia Amid War, S&P Says
+  - 2026-04-15 | www.customerexperiencedive.com | Companies with best-in-class CX outperform the S&P 500
+  - 2026-04-15 | www.reuters.com | COMMENTARY: Trading Day: S&P 500, Nasdaq nab all-time closing highs, buoyed by Middle East optimism
+  - 2026-04-15 | www.investors.com | 11 S&P 500 Stocks' Earnings To Skyrocket 200% In Three Months
+  - 2026-04-15 | www.reuters.com | VIEW S&P 500, Nasdaq notch fresh records, casting aside war fears
+  - 2026-04-15 | www.axios.com | S&P 7,000: Why stocks surged to a new record
+  - 2026-04-15 | www.fool.com | After Turmoil in March, Will the S&P 500 Tumble in April? Here's What History Says.
+  - 2026-04-15 | www.barrons.com | The S&P 500 Just Surged to a Record High Despite a War. Why It May Keep Rising. .
+  - 2026-04-15 | www.businessinsider.com | The S&P 500 just closed above 7,000 for the first time. It shows investors are done with the Iran war.
+  - 2026-04-14 | www.cnbc.com | CNBC Daily Open: S&P stages a comeback, erasing all Iran war losses
+What to write for E2:
+  Write "high": for each chance 10, 25, 50, 75 and 90, the level you give that chance of being reached (at or above) within the period. The 10 level is the highest.
+  Write "low": for each chance 10, 25, 50, 75 and 90, the level you give that chance of being reached (at or below) within the period. The 10 level is the lowest.
+
+=== E3 (as of 2026-06-03): Solana price on June 3?
+Rules:
+This market will resolve according to the final "Close" price of the Binance 1 minute candle for SOL/USDT 12:00 in the ET timezone (noon) on the date specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the SOL/USDT "Close" prices currently available at https://www.binance.com/en/trade/SOL_USDT with "1m" and "Candles" selected on the top bar.
+
+If the reported value falls exactly between two brackets, then this market will resolve to the higher range bracket.
+
+Please note that this market is about the price according to Binance SOL/USDT, not according to other exchanges or trading pairs.
+Contracts:
+  E3.C1: Will the price of Solana be less than $40 on June 3?
+  E3.C2: Will the price of Solana be between $40 and $50 on June 3?
+  E3.C3: Will the price of Solana be between $50 and $60 on June 3?
+  E3.C4: Will the price of Solana be between $60 and $70 on June 3?
+  E3.C5: Will the price of Solana be between $70 and $80 on June 3?
+  E3.C6: Will the price of Solana be between $80 and $90 on June 3?
+  E3.C7: Will the price of Solana be between $90 and $100 on June 3?
+  E3.C8: Will the price of Solana be between $100 and $110 on June 3?
+  E3.C9: Will the price of Solana be between $110 and $120 on June 3?
+  E3.C10: Will the price of Solana be between $120 and $130 on June 3?
+  E3.C11: Will the price of Solana be greater than $130 on June 3?
+News before E3's as-of date (date seen, source, headline):
+  - 2026-06-03 | www.tradingview.com | Solana (SOL) - Mastercard Stablecoin Pay - 03 June 2026
+  - 2026-06-03 | www.theblock.co | Hyperliquid's HYPE overtakes Solana in price as SOL falls to lowest levels since 2023
+  - 2026-06-03 | 99bitcoins.com | Leading Claude AI Predicts the Shocking Solana Price for The Next 30 Days
+  - 2026-06-03 | coinpedia.org | Solana Price Breaks Key Support—Could a 20% Correction Be Next for SOL?
+  - 2026-06-03 | cryptonews.net | Solana price risks deeper losses as bearish patterns signal weakness
+  - 2026-06-03 | 99bitcoins.com | Solana Grows Up: Can Native Subscriptions Replace the Meme Coin Casino?
+  - 2026-06-03 | crypto.news | Hyperliquid price overtakes Solana as HYPE defies crypto market crash
+  - 2026-06-03 | ambcrypto.com | Solana falls below $76 range low: Will SOL fall below $50 in 2026?
+  - 2026-06-03 | www.theblock.co | Solayer rolls out Solana-native onchain perps trading platform Margin Trade mainnet
+  - 2026-06-02 | www.fool.com | Better Altcoin: Cardano vs. Solana
+  - 2026-06-02 | finance.yahoo.com | Solana adds native subscriptions and recurring payments to its blockchain
+  - 2026-06-02 | www.tradingview.com | Solana Just Made History, Could A Massive Recovery Be Next?
+  - 2026-06-02 | thecoastnews.com | Lomas Santa Fe East project to begin in Solana Beach this fall
+  - 2026-06-02 | phemex.com | Solana’s Leap: Firedancer Ignites a New Era for SOL
+  - 2026-06-02 | sherwood.news | Solana falls to a more than 3-month low
+  - 2026-06-02 | coinmarketcap.com | Solana Drops 4.2% Amid Broad Crypto Liquidation Event
+  - 2026-06-02 | www.coindesk.com | Western Union, Visa, PayPal, Meta: why major payments giants are racing to Solana | CoinDesk Videos
+  - 2026-06-02 | startupfortune.com | Solana brings subscription billing to mainnet.
+  - 2026-06-01 | www.fool.com | Is Solana About to Have Its Biggest Year Yet?
+  - 2026-06-01 | www.tradingview.com | Solana (SOL) Risks Slipping Deeper Into The Red As Momentum Fades
+  - 2026-06-01 | coinpedia.org | Solana Price Breaks Key Support as Network Activity Slumps—Will Bears Trigger a Short Squeeze Next?
+  - 2026-06-01 | www.tradingview.com | Solana clings to $80 support as ETF outflows shake crypto markets hard
+  - 2026-06-01 | www.coindesk.com | BTC, ETH price news: Bitcoin, ether, solana slide as AI trade continues to rip higher
+  - 2026-06-01 | ambcrypto.com | Solana crosses 200K tokenized stock holders – Here’s why the timing matters!
+  - 2026-06-01 | unchainedcrypto.com | Solana’s Tokenomics Debate Just Got Two Competing Proposals, and Anatoly Is Actively Shaping Both
+What to write for E3:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E4 (as of 2026-05-06): Georgia Governor Republican Primary Winner
+Rules:
+This market will resolve according to the winner of the Republican Primary for Governor of Georgia, scheduled to take place on May 19, 2026. Resolution will be based on the overall winner of the primary, including any potential second round or run-off.
+
+If no 2026 Georgia Gubernatorial Republican Primary takes place, this market will resolve to “Other.”
+
+The resolution source for this market will be the first official announcement of the results from the Georgia Republican Party; however, an overwhelming consensus of credible reporting may suffice.
+Contracts:
+  E4.C1: Will Chris Carr win the 2026 Georgia Governor Republican primary election?
+  E4.C2: Will Clark Dean win the 2026 Georgia Governor Republican primary election?
+  E4.C3: Will Burt Jones win the 2026 Georgia Governor Republican primary election?
+  E4.C4: Will Brad Raffensperger win the 2026 Georgia Governor Republican primary election?
+  E4.C5: Will Ken Yasger win the 2026 Georgia Governor Republican primary election?
+  E4.C6: Will Gregg Kirkpatrick win the 2026 Georgia Governor Republican primary election?
+  E4.C7: Will Leland Olinger II win the 2026 Georgia Governor Republican primary election?
+  E4.C8: Will Rick Jackson win the 2026 Georgia Governor Republican primary election?
+News before E4's as-of date (date seen, source, headline):
+  - 2026-05-06 | www.gatech.edu | Georgia Tech Adds Gemini and Notebook LM to AI Service Offerings
+  - 2026-05-06 | sunbeltsports.org | Arkansas State, Southern Miss, Georgia Southern & Four Individuals Set to Compete in NCAA Men's Golf Regionals
+  - 2026-05-06 | press.pirelli.com | PIRELLI WILL START CYBER™ TYRE PRODUCTION IN GEORGIA UNDERLINING THE STRATEGIC IMPORTANCE OF THE U.S. MARKET
+  - 2026-05-06 | uclabruins.com | Women's Tennis Faces No. 1 Georgia in NCAA Super Regional
+  - 2026-05-06 | www.cbsnews.com | Flood Watch issued for Atlanta, North Georgia: tornadoes and damaging winds possible overnight Wednesday
+  - 2026-05-06 | teamster.org | Pepsi-Cola Workers in Georgia Join Teamsters
+  - 2026-05-06 | www.cbsnews.com | 2 Georgia residents monitored after cruise ship hantavirus outbreak, health officials say
+  - 2026-05-05 | www.wabe.org | Georgia governor signs high school cell phone ban, K-3 literacy bills into law
+  - 2026-05-05 | ramblinwreck.com | Sixty-Three Student-Athletes to Graduate from Georgia Tech
+  - 2026-05-05 | georgiarecorder.com | Governor signs off on literacy push, ban on cell phones in Georgia high schools
+  - 2026-05-05 | georgiarecorder.com | Voter guide: Democratic candidates for Georgia Secretary of State
+  - 2026-05-05 | www.theguardian.com | Georgia county poll workers targeted by subpoena seeking their contact details
+  - 2026-05-05 | www.pbs.org | Justice Department seeks the names of 2020 election workers in Georgia's Fulton County
+  - 2026-05-05 | georgiadogs.com | Ellison Enjoying Breakout Final Season - University of Georgia Athletics
+  - 2026-05-05 | www.reuters.com | AI errors in US murder case lead to discipline for Georgia prosecutor
+  - 2026-05-05 | www.wabe.org | Five Georgia GOP Senate candidates debate path to defeating Ossoff in November
+  - 2026-05-05 | www.redandblack.com | Wynn, Georgia baseball dominate Missouri 13-3, clinch another SEC series
+  - 2026-05-05 | lsusports.net | No. 18 LSU Challenges No. 17 Georgia to Begin 2026 SEC Tournament
+  - 2026-05-05 | www.gpb.org | A brief break in Georgia's drought grants a window for peanut farmers to push into the field
+  - 2026-05-05 | ramblinwreck.com | Georgia Tech Nears Perfection in Academic Progress Rate
+  - 2026-05-05 | www.cbsnews.com | Gov. Kemp signs bill banning cellphones in class for Georgia high school students into law
+  - 2026-05-04 | thecurrentga.org | Georgia Veterans home operator fights state decision to switch $177 million contract
+  - 2026-05-04 | news.gsu.edu | Georgia State University Appoints Tyrell Warren-Burnett New Associate Vice President for Alumni Engagement and Annual Giving
+  - 2026-05-04 | www.nytimes.com | Trump Administration Demands Names of 2020 Election Workers in Georgia
+  - 2026-05-04 | www.wabe.org | Georgia is issuing $250-$500 tax refunds in the next few weeks
+What to write for E4:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E5 (as of 2026-06-17): Which countries will sign the US x Iran deal by June 30?
+Rules:
+On June 14, 2026, the US and Iran announced a written diplomatic agreement between the two countries, with an announced signing ceremony on June 19.
+
+This market will resolve to “Yes” if an authorized representative of the listed country signs the agreement announced by the United States and Iran on June 14, 2026 by June 30, 2026, 11:59 PM ET. Otherwise, this market will resolve to “No”.
+
+The “agreement announced by the United States and Iran on June 14, 2026” includes any later-modified version that is publicly identified by credible reporting as a successor version of the same agreement.
+
+The agreement must be signed by an authorized representative of the listed country, acting on behalf of the listed country, including by signing a copy of the agreement or another signature page that forms part of the agreement.
+
+Both physical signatures and officially issued electronic signatures will qualify as signing.
+
+The primary resolution source for this market will be official information from the relevant governments and parties to the agreement; however, a consensus of credible reporting may also be used.
+Contracts:
+  E5.C1: Will Oman sign the US x Iran memorandum of understanding?
+  E5.C2: Will Kuwait sign the US x Iran memorandum of understanding?
+  E5.C3: Will Syria sign the US x Iran memorandum of understanding?
+  E5.C4: Will Lebanon sign the US x Iran memorandum of understanding?
+  E5.C5: Will Saudi Arabia sign the US x Iran memorandum of understanding?
+  E5.C6: Will Pakistan sign the US x Iran memorandum of understanding?
+  E5.C7: Will Qatar sign the US x Iran memorandum of understanding?
+  E5.C8: Will Turkey sign the US x Iran memorandum of understanding?
+  E5.C9: Will Egypt sign the US x Iran memorandum of understanding?
+  E5.C10: Will Jordan sign the US x Iran memorandum of understanding?
+  E5.C11: Will Israel sign the US x Iran memorandum of understanding?
+News before E5's as-of date (date seen, source, headline):
+  - 2026-06-17 | www.cfr.org | Trump’s Iran Deal: What We Know So Far
+  - 2026-06-17 | www.atlanticcouncil.org | What the US-Iran deal means for the rest of the Middle East (and beyond)
+  - 2026-06-17 | missilethreat.csis.org | Missiles of Iran
+  - 2026-06-17 | www.pbs.org | What's in the agreement to end the U.S. war in Iran, according to a U.S. official
+  - 2026-06-17 | www.wpr.org | Wisconsin’s Ron Johnson and Tammy Baldwin uneasy about deal to end Iran war
+  - 2026-06-17 | democrats-foreignaffairs.house.gov | Meeks, Smith, Himes Demand Briefing on U.S.-Iran Memorandum of Understanding
+  - 2026-06-17 | www.npr.org | Trump signs preliminary agreement with Iran, after releasing details
+  - 2026-06-17 | www.politico.com | Trump goes after critics who want a more comprehensive deal with Iran
+  - 2026-06-17 | www.pbs.org | Middle East experts weigh terms of U.S.-Iran deal and who came out ahead
+  - 2026-06-17 | www.pbs.org | U.S. officials reveal key terms of agreement to end Iran war
+  - 2026-06-17 | www.npr.org | Here's how much the Iran war cost — and how its effects will linger
+  - 2026-06-17 | www.vaticannews.va | Pope welcomes US-Iran agreement, calls for mutual trust in Middle East
+  - 2026-06-17 | www.reuters.com | Trump: unfair for Iran to lack ballistic missiles if other countries have them
+  - 2026-06-16 | www.nytimes.com | Opinion | Iran Found Trump’s Bone Spur
+  - 2026-06-16 | www.stimson.org | A Lesson on Maximalism from the War with Iran
+  - 2026-06-16 | apnews.com | Iran says the initial deal to end the war with the US requires Israel to withdraw from Lebanon
+  - 2026-06-16 | www.washingtoninstitute.org | The Middle East Power Paradox: How the Iran War Will Transform America’s Military Role
+  - 2026-06-16 | www.washingtoninstitute.org | Trump Told Iranians to Keep Protesting. Then He Abandoned Their Cause.
+  - 2026-06-16 | www.reuters.com | US-Iran ceasefire agreement to be public soon, permanent truce still awaits negotiation
+  - 2026-06-16 | www.aljazeera.com | Hardliners and moderates: What do Iran’s factions think of deal with US?
+  - 2026-06-15 | www.gov.ca.gov | Over 3 months later: Donald Trump’s Iran war continues to drain American wallets
+  - 2026-06-15 | www.stimson.org | Trump Takes the Deal and Claims Victory in the Iran War
+  - 2026-06-15 | www.csis.org | Trump's Iran Deal: What Comes Next? | State of Play
+  - 2026-06-15 | www.reuters.com | What the US and Iran say is in the memorandum to end the war
+  - 2026-06-15 | www.pbs.org | Iran and U.S. reach an initial deal to extend the ceasefire and open the Strait of Hormuz but challenges remain
+What to write for E5:
+  Write "p": a whole percent for every contract label, your chance that it resolves YES.
+
+=== E6 (as of 2026-06-03): Bitcoin above ___ on June 8?
+Rules:
+This market will resolve to "Yes" if the Binance 1 minute candle for BTC/USDT 12:00 in the ET timezone (noon) on the date specified in the title has a final "Close" price higher than the price specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the BTC/USDT "Close" prices currently available at https://www.binance.com/en/trade/BTC_USDT with "1m" and "Candles" selected on the top bar.
+
+Please note that this market is about the price according to Binance BTC/USDT, not according to other exchanges or trading pairs.
+
+Price precision is determined by the number of decimal places in the source.
+Contracts:
+  E6.C1: Will the price of Bitcoin be above $62,000 on June 8?
+  E6.C2: Will the price of Bitcoin be above $64,000 on June 8?
+  E6.C3: Will the price of Bitcoin be above $66,000 on June 8?
+  E6.C4: Will the price of Bitcoin be above $68,000 on June 8?
+  E6.C5: Will the price of Bitcoin be above $70,000 on June 8?
+  E6.C6: Will the price of Bitcoin be above $72,000 on June 8?
+  E6.C7: Will the price of Bitcoin be above $74,000 on June 8?
+  E6.C8: Will the price of Bitcoin be above $76,000 on June 8?
+  E6.C9: Will the price of Bitcoin be above $78,000 on June 8?
+  E6.C10: Will the price of Bitcoin be above $80,000 on June 8?
+  E6.C11: Will the price of Bitcoin be above $82,000 on June 8?
+News before E6's as-of date (date seen, source, headline):
+  - 2026-06-03 | www.cnbc.com | Bitcoin hits lowest since February as crypto competes for liquidity with blockbuster IPOs
+  - 2026-06-03 | finance.yahoo.com | Should You Buy Bitcoin While It's Below $70,000?
+  - 2026-06-03 | www.cnbc.com | Bitcoin trails stocks by most since 2019 as traders get their kicks elsewhere
+  - 2026-06-03 | www.cnbc.com | Bitcoin's high-conviction holders are turning into sellers as the crypto's price hits new lows
+  - 2026-06-03 | www.cnbc.com | Bitcoin set to slump to new lows for 2026 after recent sell-off, traders forecast
+  - 2026-06-03 | www.axios.com | Bitcoin faces mounting pressure beyond Strategy sale
+  - 2026-06-03 | finance.yahoo.com | Bitcoin Is No Longer a Top 10 Global Asset. The Real Story Is What Replaced It
+  - 2026-06-03 | finance.yahoo.com | Bitcoin Sell-Off Fears Rise as BlackRock and Winklevoss Twins Move 7,000 BTC
+  - 2026-06-03 | fortune.com | Current price of Bitcoin for June 3, 2026
+  - 2026-06-03 | bitcoinfoundation.org | BTC Price Slides Below $67K as Analysts Debate Why Bitcoin Is Dropping
+  - 2026-06-03 | finance.yahoo.com | Should You Buy Bitcoin While It's Under $80,000? The Answer Might Surprise You.
+  - 2026-06-03 | www.coindesk.com | Bitcoin briefly drops below $62,000 as $1.5 billion in crypto longs get wiped out
+  - 2026-06-03 | www.wsj.com | The Crypto Winter Turns Colder as Bitcoin Extends Its Slide
+  - 2026-06-03 | bitcoinfoundation.org | Why Is Crypto Crashing? Bitcoin Falls Below $70K After Strategy's First BTC Sale in Four Years
+  - 2026-06-03 | marketwise.com | Strategy Sells Bitcoin: Why Michael Saylor Did the Unthinkable
+  - 2026-06-03 | finance.yahoo.com | Bitcoin falls 4% to over three-month low
+  - 2026-06-03 | uk.finance.yahoo.com | Citi says weak sentiment to persist for Bitcoin as key price drivers deteriorate
+  - 2026-06-03 | www.coindesk.com | Bitcoin selloff continues as prices slide below $63,000 for the first time since February
+  - 2026-06-03 | www.coindesk.com | Bitcoin falls to lowest Power Law valuation zone since FTX collapse
+  - 2026-06-03 | www.moomoo.com | Bitcoin’s 'most steadfast' holders begin selling—analysts suggest this could signal a turning point in the current downturn
+  - 2026-06-02 | www.cnbc.com | Bitcoin drops back under $70,000, Strategy extends its slide
+  - 2026-06-02 | finance.yahoo.com | Where Does Bitcoin Go From Here? This Is What the Charts Say
+  - 2026-06-02 | bitcoinfoundation.org | Mt. Gox Bitcoin Transfer Revives $731M Repayment Risk
+  - 2026-06-02 | www.forbes.com | What Strategy's 32-Bitcoin Sale Means For The Company
+  - 2026-06-02 | finance.yahoo.com | Should You Double Down on Bitcoin After the Dip?
+What to write for E6:
+  Write "levels": for each chance 10, 25, 50, 75 and 90, the level you give that chance of the measured quantity being at or above when it resolves. The 10 level is the highest and the 90 level the lowest. Example: {"10": 120, "25": 110, "50": 100, "75": 92, "90": 85}.

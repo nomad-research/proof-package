@@ -1,0 +1,486 @@
+You will be shown 6 questions from a prediction market. Each has one or more contracts that resolve YES or NO under the rules shown. Each question gives the date your view is "as of": answer as you would on that date.
+
+Use what you already know and the news headlines listed under each question, all published in the 7 days before its as-of date. Do not search for or look up anything else: reading this file is the only tool call you may make. There are no prices from any prediction market in this file and you should not try to estimate what any market thinks; give your own view.
+
+Each question says what to write for it. Whole percents run from 1 to 99. Levels are plain numbers in the units the contracts use (for example 95000 for $95,000, 3.25 for 3.25%). Dates are YYYY-MM-DD.
+
+For each question also say whether you recognise how it actually turned out ("recognised": true only if you believe you remember the real outcome; otherwise false).
+
+Reply with one JSON object and nothing else:
+{"events": [{"label": "E1", "recognised": false, ...the fields that question asks for...}]}
+
+=== E1 (as of 2026-07-15): XRP above ___ on July 17?
+Rules:
+This market will resolve to "Yes" if the Binance 1 minute candle for XRP/USDT 12:00 in the ET timezone (noon) on the date specified in the title has a final "Close" price higher than the price specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the XRP/USDT "Close" prices currently available at https://www.binance.com/en/trade/XRP_USDT with "1m" and "Candles" selected on the top bar.
+
+Please note that this market is about the price according to Binance XRP/USDT, not according to other exchanges or trading pairs.
+
+Price precision is determined by the number of decimal places in the source.
+Contracts:
+  E1.C1: Will the price of XRP be above $0.60 on July 17?
+  E1.C2: Will the price of XRP be above $0.70 on July 17?
+  E1.C3: Will the price of XRP be above $0.80 on July 17?
+  E1.C4: Will the price of XRP be above $0.90 on July 17?
+  E1.C5: Will the price of XRP be above $1.00 on July 17?
+  E1.C6: Will the price of XRP be above $1.10 on July 17?
+  E1.C7: Will the price of XRP be above $1.20 on July 17?
+  E1.C8: Will the price of XRP be above $1.30 on July 17?
+  E1.C9: Will the price of XRP be above $1.40 on July 17?
+  E1.C10: Will the price of XRP be above $1.50 on July 17?
+  E1.C11: Will the price of XRP be above $1.60 on July 17?
+News before E1's as-of date (date seen, source, headline):
+  - 2026-07-15 | finance.yahoo.com | XRP Price Prediction: XRP Could Gain 20% If This Bullish Pattern Plays Out
+  - 2026-07-15 | uk.finance.yahoo.com | XRP Power Introduces Automated AI Trading System Following Shift in US Macroeconomic Data
+  - 2026-07-15 | 247wallst.com | AI Models Predict Where XRP Price Closes By End of July
+  - 2026-07-15 | www.financemagnates.com | XRP Price Breaks Its Year-Long Trend Line, but $1.18 Decides the Next Move
+  - 2026-07-15 | www.fxstreet.com | Here's why traders are watching XRP amid cooling US inflation
+  - 2026-07-15 | www.ccn.com | Ripple Joins x402 Foundation to Advance XRP and RLUSD AI Payments
+  - 2026-07-15 | coinpedia.org | XRP Price Prediction: Could XRP Hit $9 as Institutional Adoption Grows?
+  - 2026-07-14 | finance.yahoo.com | Ripple Crowned: UK Treasury Just Changed Everything for XRP
+  - 2026-07-14 | finance.yahoo.com | XRP Holders Just Got Their Strongest Utility Signal Since the Lawsuit Ended
+  - 2026-07-14 | finance.yahoo.com | Ripple’s Biggest Shareholder Is Building Institutional XRP Lending in Japan
+  - 2026-07-14 | www.coindesk.com | Retail traders are hyping up XRP and ether during a dip, but history says a crash could be next
+  - 2026-07-14 | www.prnewswire.com | XRP Healthcare, the First AI Healthcare Platform Built on the XRP Ledger, Announces BitMart Listing of XRPHAI
+  - 2026-07-14 | www.theblock.co | What Is RLUSD? Ripple's XRP-Native Stablecoin Explained
+  - 2026-07-14 | uk.finance.yahoo.com | XRP Power Launches Advanced AI-Driven Platform Upgrades to Elevate Digital Asset Analytics and Enterprise Security
+  - 2026-07-14 | www.ccn.com | CLARITY Act Nears Vote: Trump Pushes Bill, Claude Says 'XRP Wins Most' as White House Crypto Chief Takes Leave
+  - 2026-07-14 | www.tradingview.com | XRP Utility Debate Returns As Ripple Stablecoin Migration Plans Draw Attention
+  - 2026-07-14 | cryptonews.com | Perplexity AI Predicts XRP Will Hit This XRP Price by End of 2026
+  - 2026-07-14 | www.ccn.com | XRP Price to $0.54? 50% Crash Warning as SBI and Solana Partnership Hits Japan
+  - 2026-07-14 | beincrypto.com | XRP and Ethereum Share a Bearish Signal, But There’s a Catch
+  - 2026-07-13 | finance.yahoo.com | Prediction: XRP Will Lose 50% of Its Value -- Here's Why
+  - 2026-07-13 | finance.yahoo.com | Got $1,000 to Invest? Here’s What XRP vs Bitcoin Could Be Worth by 2027
+  - 2026-07-13 | finance.yahoo.com | XRP Price To $13? Rare 1,100% Growth Signal Flashes as XRP Tops Forbes Ranking
+  - 2026-07-13 | cryptorank.io | XRP Price Drops to 10-Day Low as Whale Demand and ETF Flows Fade
+  - 2026-07-13 | www.tradingview.com | XRP sell-off intensifies as bears close in on the crucial $1 level
+  - 2026-07-13 | 247wallst.com | Will XRP Fall Below $1 as the CLARITY Act Stalls in the Senate?
+What to write for E1:
+  Write "levels": for each chance 10, 25, 50, 75 and 90, the level you give that chance of the measured quantity being at or above when it resolves. The 10 level is the highest and the 90 level the lowest. Example: {"10": 120, "25": 110, "50": 100, "75": 92, "90": 85}.
+
+=== E2 (as of 2026-09-02): What will Micron Technology, Inc. (MU) hit Week of August 31 2026?
+Rules:
+What will Micron Technology, Inc. (MU) hit Week of August 31 2026?
+Contracts:
+  E2.C1: Will Micron Technology, Inc. (MU) hit (HIGH) $1,140 Week of August 31 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of August 31 2026, any 1-minute candle for Micron Technology, Inc. (MU) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Micron Technology, Inc. (MU) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.MU%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.MU%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E2.C2: Will Micron Technology, Inc. (MU) hit (HIGH) $1,110 Week of August 31 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of August 31 2026, any 1-minute candle for Micron Technology, Inc. (MU) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Micron Technology, Inc. (MU) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.MU%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.MU%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E2.C3: Will Micron Technology, Inc. (MU) hit (HIGH) $1,080 Week of August 31 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of August 31 2026, any 1-minute candle for Micron Technology, Inc. (MU) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Micron Technology, Inc. (MU) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.MU%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.MU%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E2.C4: Will Micron Technology, Inc. (MU) hit (HIGH) $1,050 Week of August 31 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of August 31 2026, any 1-minute candle for Micron Technology, Inc. (MU) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Micron Technology, Inc. (MU) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.MU%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.MU%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E2.C5: Will Micron Technology, Inc. (MU) hit (HIGH) $1,020 Week of August 31 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of August 31 2026, any 1-minute candle for Micron Technology, Inc. (MU) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Micron Technology, Inc. (MU) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.MU%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.MU%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E2.C6: Will Micron Technology, Inc. (MU) hit (LOW) $900 Week of August 31 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of August 31 2026, any 1-minute candle for Micron Technology, Inc. (MU) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Micron Technology, Inc. (MU) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.MU%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.MU%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E2.C7: Will Micron Technology, Inc. (MU) hit (LOW) $870 Week of August 31 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of August 31 2026, any 1-minute candle for Micron Technology, Inc. (MU) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Micron Technology, Inc. (MU) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.MU%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.MU%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E2.C8: Will Micron Technology, Inc. (MU) hit (LOW) $840 Week of August 31 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of August 31 2026, any 1-minute candle for Micron Technology, Inc. (MU) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Micron Technology, Inc. (MU) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.MU%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.MU%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E2.C9: Will Micron Technology, Inc. (MU) hit (LOW) $810 Week of August 31 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of August 31 2026, any 1-minute candle for Micron Technology, Inc. (MU) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Micron Technology, Inc. (MU) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.MU%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.MU%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E2.C10: Will Micron Technology, Inc. (MU) hit (LOW) $780 Week of August 31 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of August 31 2026, any 1-minute candle for Micron Technology, Inc. (MU) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Micron Technology, Inc. (MU) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.MU%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.MU%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E2.C11: Will Micron Technology, Inc. (MU) hit (LOW) $750 Week of August 31 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of August 31 2026, any 1-minute candle for Micron Technology, Inc. (MU) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Micron Technology, Inc. (MU) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.MU%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.MU%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E2.C12: Will Micron Technology, Inc. (MU) hit (HIGH) $990 Week of August 31 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of August 31 2026, any 1-minute candle for Micron Technology, Inc. (MU) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Micron Technology, Inc. (MU) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.MU%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.MU%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E2.C13: Will Micron Technology, Inc. (MU) hit (HIGH) $960 Week of August 31 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of August 31 2026, any 1-minute candle for Micron Technology, Inc. (MU) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Micron Technology, Inc. (MU) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.MU%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.MU%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+News before E2's as-of date (date seen, source, headline):
+  - 2026-09-02 | www.moomoo.com | Micron Technology Options Spot-On: On September 2nd, 959.98K Contracts Were Traded, With 3.29 Million Open Interest
+  - 2026-09-01 | finance.yahoo.com | Micron Technology (MU) Could Be 53% Undervalued As AI Demand Builds Ahead Of Earnings
+  - 2026-09-01 | finance.yahoo.com | Micron Technology (MU) Faces Taiwan Strike Threat As 80% Back Worker Action
+  - 2026-09-01 | finance.yahoo.com | Is Micron Technology Stock Outperforming the Nasdaq?
+  - 2026-09-01 | finance.yahoo.com | Social Buzz: Wallstreetbets Stocks Decline Premarket Tuesday; Sandisk, Micron Technology to Open Lower
+  - 2026-09-01 | www.moomoo.com | Bernstein Maintains Micron Technology(MU.US) With Buy Rating, Maintains Target Price $1,300
+  - 2026-08-31 | finance.yahoo.com | Micron Technology (MU) Gains Driven by Earnings Upgrades
+  - 2026-08-31 | finance.yahoo.com | Micron Technology Stock Finally Looks Like a Contrarian Opportunity
+  - 2026-08-31 | www.moomoo.com | Micron Technology Options Spot-On: On August 31st, 952.2K Contracts Were Traded, With 3.47 Million Open Interest
+  - 2026-08-30 | www.moomoo.com | $Micron Technology (MU.US)$
+  - 2026-08-30 | www.moomoo.com | $Micron Technology (MU.US)$ despite my put loss, glad its still positive overall. 😇
+  - 2026-08-28 | finance.yahoo.com | Jim Cramer Shared Why Micron Technology, Inc. (NASDAQ:MU)’s Shares Didn’t Rise On Shortage News
+  - 2026-08-28 | finance.yahoo.com | Jim Cramer Said Micron Technology, Inc. (NASDAQ:MU) Fell Because Of Samsung’s Share Buybacks
+  - 2026-08-28 | www.moomoo.com | Micron Technology Options Spot-On: On August 28th, 1.12 Million Contracts Were Traded, With 3.33 Million Open Interest
+  - 2026-08-27 | finance.yahoo.com | How Micron’s New AI Research Push And Leadership Shuffle At Micron Technology (MU) Has Changed Its Investment Story
+  - 2026-08-27 | www.moomoo.com | Micron Technology, a standout stock, reported strong results but still fell short of sky-high market expectations, plunging nearly 8% in after-hours trading.
+  - 2026-08-26 | finance.yahoo.com | Micron Technology Has Fantastic News for Memory Stock Investors
+  - 2026-08-26 | www.moomoo.com | Don't Ignore The Insider Selling In Micron Technology
+  - 2026-08-26 | www.moomoo.com | Micron Technology Options Spot-On: On August 26th, 595.22K Contracts Were Traded, With 3.21 Million Open Interest
+  - 2026-08-26 | finance.yahoo.com | Micron Technology Insider Sold Shares Worth $38,756,162, According to a Recent SEC Filing
+  - 2026-08-26 | finance.yahoo.com | Micron Technology Names Manish Bhatia as COO
+  - 2026-08-26 | www.moomoo.com | Micron Technology | 8-K: Current report
+What to write for E2:
+  Write "high": for each chance 10, 25, 50, 75 and 90, the level you give that chance of being reached (at or above) within the period. The 10 level is the highest.
+  Write "low": for each chance 10, 25, 50, 75 and 90, the level you give that chance of being reached (at or below) within the period. The 10 level is the lowest.
+
+=== E3 (as of 2026-04-29): What will Trump post this week? (April 27 - May 3)
+Rules:
+This market will resolve to "Yes" if @realDonaldTrump posts/truths the listed term between April 27, 2026, 12:00 AM ET and May 3, 2026, 11:59 PM ET. Otherwise, this market will resolve to "No".
+
+For the purposes of this market, all text posted by the listed account in quote and reply posts/truths count toward a "Yes" resolution, but quoted posts/truths and reposts/reTruths will not count.
+
+Text posted in images, memes, or other non-animated, non-video media that are not strictly text will qualify towards a "Yes" resolution only if the listed term is spelled out clearly and in full. (e.g., words spelled out in a letter posted as a .jpg will qualify, however a word posted as part of an animated .gif will not.)
+
+Any plural or possessive forms of a listed term, as well as variance in capitalizations, will count toward the resolution of this market, regardless of context. Other forms of the listed term will NOT count.
+
+Extraneous symbols being inserted into a word (ex: r@d1cal, for "radical") will disqualify it from counting toward a "Yes" resolution. Sigils at the beginnings of words, such as hashtags, "@" symbols, or denotations of currency, will not disqualify a term from counting towards a "Yes" resolution.
+
+Misspellings or iterations of the listed term, including all grammatical or slang forms, or misspellings with extra, missing, or incorrect letters (ex: helloooooooo or heoll, for ‘hello’), will not count toward a “Yes” resolution, regardless of context or intent.
+
+Instances where the term is used in a compound word will count regardless of context (e.g. joyful is not a compound word for "joy," however "killjoy" is a compounding of the words "kill" and "joy").
+
+The resolution source for this market will be Donald Trumps's verified Truth Social account: @realDonaldTrump
+
+Please note, only the @realDonaldTrump verified Truth Social account counts for this market, regardless of the URL for this profile. If Donald Trump posts/truths from another account, it has no bearing on the resolution of this market.
+Contracts:
+  E3.C1: Will Trump post "Hell" on Truth Social this week?
+  E3.C2: Will Trump post "Book" on Truth Social this week?
+  E3.C3: Will Trump post "I love King" or "I love the King" on Truth Social this week?
+  E3.C4: Will Trump post "Make Iran Great Again" or "MIGA" on Truth Social this week?
+  E3.C5: Will Trump post "Franklin Graham" on Truth Social this week?
+  E3.C6: Will Trump post "POTUS" on Truth Social this week?
+  E3.C7: Will Trump post "Trust Trump" or "Trust in Trump" on Truth Social this week?
+  E3.C8: Will Trump post "TrumpRX" on Truth Social this week?
+  E3.C9: Will Trump post "Prince Harry" on Truth Social this week?
+  E3.C10: Will Trump post "UFO" on Truth Social this week?
+  E3.C11: Will Trump post "AI" or "Artificial Intelligence" on Truth Social this week?
+  E3.C12: Will Trump post "Third rate" on Truth Social this week?
+  E3.C13: Will Trump post "Free Tina Peters" on Truth Social this week?
+  E3.C14: Will Trump post "Triumphal Arc" or "Triumphal Arch" on Truth Social this week?
+  E3.C15: Will Trump post "Crypto" or "Bitcoin" on Truth Social this week?
+  E3.C16: Will Trump post "Landslide" on Truth Social this week?
+  E3.C17: Will Trump post "Midterm" on Truth Social this week?
+  E3.C18: Will Trump post "Prosecute" or "Prosecution" on Truth Social this week?
+  E3.C19: Will Trump post "Hoax" or "Scam" on Truth Social this week?
+  E3.C20: Will Trump post "Blockade" on Truth Social this week?
+  E3.C21: Will Trump post "Ammo" or "Ammunition" on Truth Social this week?
+  E3.C22: Will Trump post "Poll" or "Polling" on Truth Social this week?
+  E3.C23: Will Trump post "Elon" or "Musk" on Truth Social this week?
+News before E3's as-of date (date seen, source, headline):
+  - 2026-04-29 | www.scotusblog.com | Court considers whether Trump administration properly ended temporary protected status for Haitian and Syrian nationals
+  - 2026-04-29 | www.science.org | Trump fires every member of the U.S. National Science Foundation’s governing body
+  - 2026-04-29 | democrats-appropriations.house.gov | House Republican Bill to Fund Legislative Branch Continues to Allow Trump Administration Corruption
+  - 2026-04-29 | www.whitehouse.gov | President Trump and the First Lady Welcome King Charles III and Queen Camilla for State Visit Honoring 250 Years of Shared Heritage
+  - 2026-04-29 | democrats-energycommerce.house.gov | Pallone: Trump Promised to "Make America Healthy Again" Before Caving to Chemical Industry and Corporate Interests
+  - 2026-04-29 | www.whitehouse.gov | President Trump and the First Lady Greet the King and Queen of the UK, Apr. 28, 2026
+  - 2026-04-29 | www.vanhollen.senate.gov | “Our president will start a war with Iran because he has absolutely no ability to negotiate," -Trump
+  - 2026-04-29 | democrats-naturalresources.house.gov | Huffman, Raskin Launch Investigation into Trump’s Billion-Dollar Taxpayer-Funded Settlement to TotalEnergies
+  - 2026-04-29 | www.bbc.com | 'Numbskull, moron and too stupid': Trump and Powell's biggest clashes
+  - 2026-04-29 | www.whitehouse.gov | President Trump Participates in a Greeting with Artemis II Astronauts
+  - 2026-04-29 | www.axios.com | Exclusive: Trump rejects Iran's offer, says blockade stays until nuclear deal
+  - 2026-04-29 | www.bbc.com | Former FBI director James Comey charged with threatening Trump's life in Instagram post
+  - 2026-04-29 | www.reuters.com | EXCLUSIVE: Trump approval sinks to new low as war with Iran drives cost-of-living concerns
+  - 2026-04-29 | www.reuters.com | Trump, unhappy with latest peace proposal, says Iran 'figuring out its leadership'
+  - 2026-04-29 | www.axios.com | Scoop: Commanders to brief Trump on new Iran military options Thursday
+  - 2026-04-28 | www.epw.senate.gov | Whitehouse Investigates Trump’s ‘God Squad’ Waiving Endangered Species Protections to Expand Oil Drilling
+  - 2026-04-28 | www.transportation.gov | Trump’s Transportation Department Invests $20 Million to Deliver Regional Transportation Infrastructure at the Speed of Trump | US Department of Transportation
+  - 2026-04-28 | democrats-naturalresources.house.gov | Huffman Demands Answers on Trump Scheme to Ship North Coast Water to SoCal District
+  - 2026-04-28 | www.pbs.org | WATCH: Trump welcomes King Charles to the White House on his day of diplomacy in Washington
+  - 2026-04-28 | www.brookings.edu | GOP midterm prospects darken as Trump approval falls
+  - 2026-04-28 | boebert.house.gov | CONGRESSWOMAN LAUREN BOEBERT INTRODUCES THE TRUMP BALLROOM ACT
+  - 2026-04-28 | www.npr.org | Scientists see Trump's firing of the National Science Board as an attack on research
+  - 2026-04-28 | www.transportation.gov | Trump’s Transportation Secretary Sean P. Duffy Invests Nearly $800 Million into American Ports to Strengthen Supply Chains | US Department of Transportation
+  - 2026-04-28 | www.lw.com | Trump Administration Shifts Policy to Accelerate Access to Psychedelic Drugs for Mental Illness
+  - 2026-04-28 | www.reuters.com | Trump administration fires entire National Science Board
+What to write for E3:
+  Write "p": a whole percent for every contract label, your chance that it resolves YES.
+
+=== E4 (as of 2026-09-02): What percent of U.S. cattle inventory area will be in drought? (week of September 1)
+Rules:
+This market will resolve based on the "D1-D4" value reported for "Percent of Cattle Inventory Affected by Drought" on the U.S. Agricultural Commodities in Drought Livestock and Forage Data Table (https://agindrought.unl.edu/Table.aspx?2), maintained by the National Drought Mitigation Center at the University of Nebraska-Lincoln in partnership with the USDA.
+
+This market will resolve to the bracket containing the reported percentage for the U.S. Drought Monitor week of September 1, 2026. Each U.S. Drought Monitor release covers the seven-day period ending Tuesday at 8:00 AM ET and is published the following Thursday. The first value published for that week is final and will resolve this market independently of any later revisions or corrections.
+
+If the source reports a value with decimals, it is rounded to the nearest whole number (a value of exactly 0.5 rounds up) before the bracket is selected. The brackets are inclusive of their stated endpoints and do not overlap.
+
+If no value for the week of September 1, 2026 is published by September 10, 2026, 11:59 PM ET, this market will resolve based on the most recently published "D1-D4" value for cattle inventory with an effective date on or before September 1, 2026.
+Contracts:
+  E4.C1: What percent of U.S. cattle inventory area will be in drought? (week of September 1)
+  E4.C2: What percent of U.S. cattle inventory area will be in drought? (week of September 1)
+  E4.C3: What percent of U.S. cattle inventory area will be in drought? (week of September 1)
+  E4.C4: What percent of U.S. cattle inventory area will be in drought? (week of September 1)
+News before E4's as-of date (date seen, source, headline):
+  - 2026-09-02 | news.gallup.com | Record-High 89% in U.S. Say Government Corruption Widespread
+  - 2026-09-02 | www.war.gov | One Year In, U.S. Space Command Headquarters Relocation Moving Expeditiously to 'Rocket City, USA'
+  - 2026-09-02 | www.pbs.org | U.S. strikes Iran again as Tehran targets American allies in Gulf region
+  - 2026-09-02 | www.cfr.org | The Shifting Composition of Treasury Buyers Threatens to Worsen the U.S. Debt Trajectory
+  - 2026-09-02 | www.ajc.org | Is the U.S. "Merging" With Israel's Military? What the NDAA Really Says About U.S.-Israel Defense Cooperation
+  - 2026-09-02 | www.npr.org | Israel bars U.S. citizens over criticism and ties to Palestinian activists, lawyers say
+  - 2026-09-02 | www.nbcnews.com | Tehran targets U.S. allies in Gulf after U.S. launched ‘large and powerful’ strikes on Iran
+  - 2026-09-01 | www.eia.gov | U.S. LNG exports rose 23% in the first half of 2026 because of higher capacity
+  - 2026-09-01 | www.axios.com | U.S. strikes Iran tankers under new "tanker for tanker" policy
+  - 2026-09-01 | www.nytimes.com | Allies Grumble That U.S. Is Hindering Global Economic Growth
+  - 2026-08-31 | www.transportation.gov | U.S. Transportation Secretary Duffy, U.S. Homeland Security Secretary Mullin, White House Fraud Task Force, & Top U.S. Attorneys Launch Historic Interagency Effort to Crack Down on Fraud in Trucking Industry | US Department of Transportation
+  - 2026-08-31 | www.nytimes.com | Opinion | The U.S. Open Can’t Go On Like This
+  - 2026-08-31 | www.npr.org | Attacks flare between the U.S. and Iran after a monthlong pause
+  - 2026-08-31 | www.pbs.org | Analyst breaks down challenges U.S. will face to unlock Venezuela's oil
+  - 2026-08-31 | www.npr.org | The U.S.-Venezuela oil deal won’t lower your gas prices. Here’s what you need to know
+  - 2026-08-30 | www.doi.gov | U.S. Fish and Wildlife Service Mourns Loss of Federal Wildlife Officer in Oklahoma Fire | U.S. Department of the Interior
+  - 2026-08-30 | www.axios.com | U.S. strikes Iran to prevent Hormuz mine threat
+  - 2026-08-29 | ussoccer.com | U.S. Soccer and US Youth Soccer Announce Historic Integration to Strengthen Soccer in America
+  - 2026-08-29 | www.pbs.org | What we know about Trump's deal giving U.S. access to vast oil reserves in Venezuela
+  - 2026-08-28 | www.pbs.org | U.S. targets Egyptian bank's UAE branches under new push for Iran's economic isolation
+  - 2026-08-28 | www.pewresearch.org | International views of the U.S. and its president are increasingly correlated
+  - 2026-08-27 | www.pbs.org | As U.S. goals shift after 6 months of Iran war, Strait of Hormuz is now a top concern
+  - 2026-08-27 | www.cfr.org | The Real Cost of the U.S.-Canada Trade Breakdown
+  - 2026-08-27 | www.usgs.gov | 2026 Nepal Debris Avalanche and Flash Flood | U.S. Geological Survey
+  - 2026-08-27 | www.axios.com | Scoop: U.S. close to striking "massive" deal for Venezuelan oil fields
+What to write for E4:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E5 (as of 2026-05-20): Flu Hospitalization Rate Week 19, 2026?
+Rules:
+This market will resolve according to the cumulative influenza-associated hospitalization rate per 100,000 population for the United States, as reported for the specified week.
+
+If the recorded data falls exactly between two brackets, this market will resolve to the higher bracket.
+
+The resolution source for this market will be CDC FluView / FluSurv-NET (see: https://www.cdc.gov/fluview/index.html). If the FluSurv-NET hospitalization rate for the specified week is not released by 11:59 PM ET on the tenth calendar day following the date of the prior FluView weekly report release, this market will resolve to the lowest bracket.
+
+Note: Only the CDC FluSurv-NET cumulative hospitalization rate per 100,000 population for the specified week will qualify, regardless of estimates, projections, state-level reports, or other influenza surveillance metrics published by the CDC or other sources.
+Contracts:
+  E5.C1: Will the U.S. flu hospitalization rate per 100,000 in Week 19 be less than 80?
+  E5.C2: Will the U.S. flu hospitalization rate per 100,000 in Week 19 be between 80 and 85?
+  E5.C3: Will the U.S. flu hospitalization rate per 100,000 in Week 19 be between 85 and 90?
+  E5.C4: Will the U.S. flu hospitalization rate per 100,000 in Week 19 be between 90 and 95?
+  E5.C5: Will the U.S. flu hospitalization rate per 100,000 in Week 19 be between 95 and 100?
+  E5.C6: Will the U.S. flu hospitalization rate per 100,000 in Week 19 be at least 100?
+News before E5's as-of date: none found.
+What to write for E5:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E6 (as of 2026-04-29): CZ # posts April 28 - May 5, 2026?
+Rules:
+This market will resolve according to the number of times CZ (@cz_binance), posts on X between April 28, 12:00 PM ET and May 5, 2026, 12:00 PM ET.
+
+For the purposes of this market, only main feed posts, quote posts and reposts will count.
+
+Replies will NOT count towards the total - however, replies which are recorded on the main feed will be counted by the tracker.
+
+Deleted posts will count as long as they remain available long enough to be captured by the tracker (~5 minutes).
+
+The resolution source for this market is the "Post Counter" figure for posts found at https://xtracker.polymarket.com. Individual posts can be viewed by clicking "Export Data". If the tracker does not update correctly in accordance with the rules, X itself may be used as a secondary resolution source.
+Contracts:
+  E6.C1: Will CZ post 0-19 posts from April 28 to May 5, 2026?
+  E6.C2: Will CZ post 20-39 posts from April 28 to May 5, 2026?
+  E6.C3: Will CZ post 40-59 posts from April 28 to May 5, 2026?
+  E6.C4: Will CZ post 60-79 posts from April 28 to May 5, 2026?
+  E6.C5: Will CZ post 80-99 posts from April 28 to May 5, 2026?
+  E6.C6: Will CZ post 100-119 posts from April 28 to May 5, 2026?
+  E6.C7: Will CZ post 120-139 posts from April 28 to May 5, 2026?
+  E6.C8: Will CZ post 140-159 posts from April 28 to May 5, 2026?
+  E6.C9: Will CZ post 160-179 posts from April 28 to May 5, 2026?
+  E6.C10: Will CZ post 180-199 posts from April 28 to May 5, 2026?
+  E6.C11: Will CZ post 200+ posts from April 28 to May 5, 2026?
+News before E6's as-of date (date seen, source, headline):
+  - 2026-04-29 | www.usforacle.com | OPINION: Discussion posts feel more like busy work than real learning
+  - 2026-04-29 | www.bloomberg.com | Builder China Vanke Posts $871 Million Loss in First Quarter
+  - 2026-04-29 | firstwordpharma.com | AstraZeneca posts 20% jump in cancer drug sales, but suffers pipeline blips
+  - 2026-04-29 | apnews.com | Pakistani troops destroy Afghan Taliban posts amid rising tensions
+  - 2026-04-29 | michiganadvance.com | As McMorrow X posts resurface with complaints about Michigan, California love — opponents pounce
+  - 2026-04-29 | www.reuters.com | Phillips 66 posts surprise profit on higher refining margins
+  - 2026-04-29 | www.reuters.com | Indian broadcaster NDTV posts 10th straight quarterly loss as costs rise
+  - 2026-04-29 | www.wsj.com | The Cheesecake Factory Posts Higher Profit As Comparable Sales Tick Up
+  - 2026-04-29 | www.wsj.com | Hong Kong Exchange Operator Posts Record Profit on Listings, Trading Growth
+  - 2026-04-29 | www.azfamily.com | Queen Creek woman builds massive online following through Costco posts
+  - 2026-04-29 | www.reuters.com | Garmin posts upbeat quarterly results as demand for premium wearables holds up
+  - 2026-04-29 | www.reuters.com | Poland's Bank Pekao posts 27% drop in Q1 profit, but beats market view
+  - 2026-04-29 | www.firstcoastnews.com | Gang detective details alleged 'celebratory' posts from defendant in day 5 of trial for Foolio's murder
+  - 2026-04-29 | www.regent.edu | Regent Law Posts Record Employment Outcomes, Ranks Among Nation’s Leaders
+  - 2026-04-29 | stockstory.org | Plexus (NASDAQ:PLXS) Posts Better-Than-Expected Sales In Q1 CY2026
+  - 2026-04-28 | ofdollarsanddata.com | What I've Learned Writing 500 Blog Posts
+  - 2026-04-28 | gousfbulls.com | USF's Stewart Posts Season-Best Round on Second Day of American Men's Golf Championship
+  - 2026-04-28 | www.reuters.com | Coca-Cola Europacific Partners posts quarterly revenue rise on pricing, Easter lift
+  - 2026-04-28 | www.reuters.com | ⁠Novartis posts earnings miss as generic rivals hurt blockbuster drug Entresto
+  - 2026-04-28 | www.reuters.com | Miner Vale posts 36% rise in Q1 profit on more sales, higher prices
+  - 2026-04-28 | www.cbsnews.com | Alex Cora posts farewell message after being fired as Boston Red Sox manager
+  - 2026-04-28 | www.reuters.com | BYD posts steepest profit drop in six years as China sales falter
+  - 2026-04-28 | dentonrc.com | Sanger ISD hit with ethics complaint over Facebook posts on bond election
+  - 2026-04-28 | www.jsonline.com | FBI says it's aware of Wisconsin liberal's Trump assassination 'free beer' posts
+  - 2026-04-28 | www.reuters.com | Edison International posts steady profit growth on rising electricity rates
+What to write for E6:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).

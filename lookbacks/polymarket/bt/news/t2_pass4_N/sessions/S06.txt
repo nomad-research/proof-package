@@ -1,0 +1,510 @@
+You will be shown 6 questions from a prediction market. Each has one or more contracts that resolve YES or NO under the rules shown. Each question gives the date your view is "as of": answer as you would on that date.
+
+Use what you already know and the news headlines listed under each question, all published in the 7 days before its as-of date. Do not search for or look up anything else: reading this file is the only tool call you may make. There are no prices from any prediction market in this file and you should not try to estimate what any market thinks; give your own view.
+
+Each question says what to write for it. Whole percents run from 1 to 99. Levels are plain numbers in the units the contracts use (for example 95000 for $95,000, 3.25 for 3.25%). Dates are YYYY-MM-DD.
+
+For each question also say whether you recognise how it actually turned out ("recognised": true only if you believe you remember the real outcome; otherwise false).
+
+Reply with one JSON object and nothing else:
+{"events": [{"label": "E1", "recognised": false, ...the fields that question asks for...}]}
+
+=== E1 (as of 2026-09-23): What will Apple (AAPL) hit Week of September 21 2026?
+Rules:
+What will Apple (AAPL) hit Week of September 21 2026?
+Contracts:
+  E1.C1: Will Apple (AAPL) hit (HIGH) $364 Week of September 21 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of September 21 2026, any 1-minute candle for Apple (AAPL) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Apple (AAPL) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.AAPL%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.AAPL%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E1.C2: Will Apple (AAPL) hit (HIGH) $360 Week of September 21 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of September 21 2026, any 1-minute candle for Apple (AAPL) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Apple (AAPL) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.AAPL%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.AAPL%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E1.C3: Will Apple (AAPL) hit (HIGH) $356 Week of September 21 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of September 21 2026, any 1-minute candle for Apple (AAPL) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Apple (AAPL) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.AAPL%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.AAPL%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E1.C4: Will Apple (AAPL) hit (HIGH) $352 Week of September 21 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of September 21 2026, any 1-minute candle for Apple (AAPL) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Apple (AAPL) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.AAPL%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.AAPL%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E1.C5: Will Apple (AAPL) hit (HIGH) $348 Week of September 21 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of September 21 2026, any 1-minute candle for Apple (AAPL) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Apple (AAPL) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.AAPL%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.AAPL%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E1.C6: Will Apple (AAPL) hit (HIGH) $344 Week of September 21 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of September 21 2026, any 1-minute candle for Apple (AAPL) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Apple (AAPL) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.AAPL%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.AAPL%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E1.C7: Will Apple (AAPL) hit (LOW) $332 Week of September 21 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of September 21 2026, any 1-minute candle for Apple (AAPL) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Apple (AAPL) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.AAPL%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.AAPL%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E1.C8: Will Apple (AAPL) hit (LOW) $328 Week of September 21 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of September 21 2026, any 1-minute candle for Apple (AAPL) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Apple (AAPL) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.AAPL%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.AAPL%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E1.C9: Will Apple (AAPL) hit (LOW) $324 Week of September 21 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of September 21 2026, any 1-minute candle for Apple (AAPL) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Apple (AAPL) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.AAPL%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.AAPL%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E1.C10: Will Apple (AAPL) hit (LOW) $320 Week of September 21 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of September 21 2026, any 1-minute candle for Apple (AAPL) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Apple (AAPL) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.AAPL%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.AAPL%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E1.C11: Will Apple (AAPL) hit (LOW) $316 Week of September 21 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of September 21 2026, any 1-minute candle for Apple (AAPL) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Apple (AAPL) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.AAPL%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.AAPL%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E1.C12: Will Apple (AAPL) hit (LOW) $312 Week of September 21 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of September 21 2026, any 1-minute candle for Apple (AAPL) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Apple (AAPL) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.AAPL%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.AAPL%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E1.C13: Will Apple (AAPL) hit (LOW) $308 Week of September 21 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of September 21 2026, any 1-minute candle for Apple (AAPL) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Apple (AAPL) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.AAPL%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.AAPL%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E1.C14: Will Apple (AAPL) hit (LOW) $336 Week of September 21 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of September 21 2026, any 1-minute candle for Apple (AAPL) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Apple (AAPL) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.AAPL%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.AAPL%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+News before E1's as-of date (date seen, source, headline):
+  - 2026-09-23 | www.tomsguide.com | I raced a half marathon with the Apple Watch Ultra 4 vs Apple Watch Series 12 to test accuracy — here’s what happened
+  - 2026-09-23 | www.forbes.com | ‘Brothers’ Review: Matthew McConaughey And Woody Harrelson Pal Around In Charming Apple TV Comedy
+  - 2026-09-23 | global.morningstar.com | Apple Stock Is Trading Near Record Highs. Can It Climb Further?
+  - 2026-09-23 | www.simplyrecipes.com | Baking With This Popular Apple Will Make Your Pie Mushy and Watery
+  - 2026-09-23 | www.pcmag.com | I Tested Every Apple Intelligence Feature: Is It Actually Useful, or Just Hype?
+  - 2026-09-23 | finance.yahoo.com | Apple’s iPhone 18 Demand Improves At The Margin, China Remains Weak Spot, Says UBS — Latest Target Implies 13% Downside Potential
+  - 2026-09-23 | www.cnbc.com | Inside India newsletter: Apple set to take a bigger bite of the world’s second-largest smartphone market
+  - 2026-09-23 | www.macrumors.com | Apple Intelligence Taking Up 30GB+ on Some Macs Running macOS 27
+  - 2026-09-23 | finance.yahoo.com | Apple Settlement Over Siri Intelligence Features Means Eligible iPhone Owners Can Receive Up to $95
+  - 2026-09-22 | 9to5mac.com | Apple Watch Series 12: My three favorite new features so far
+  - 2026-09-22 | www.reuters.com | With new Macs, Apple aims to take on Microsoft, Nvidia in a rush to lower AI costs
+  - 2026-09-22 | www.reuters.com | US opposes part of Apple contempt finding in Epic Games case at US Supreme Court
+  - 2026-09-22 | finance.yahoo.com | Apple May Return to Servers With Its Own AI Chips. Nvidia Could Still Get Paid
+  - 2026-09-22 | www.nbcnews.com | Amazon Prime Day hasn’t started yet, but you can find early deals on Apple products now
+  - 2026-09-22 | www.kcra.com | Apple settlement offers some iPhone owners up to $95. How to file a claim
+  - 2026-09-22 | techcrunch.com | Apple could take on Whoop with a new fitness tracker, report says
+  - 2026-09-22 | www.cbsnews.com | Apple settlement offers eligible iPhone owners up to $95. Here is how to file a claim.
+  - 2026-09-22 | www.bloomberg.com | Apple Is Developing New Fitness Tracker Aimed at Rivaling Whoop
+  - 2026-09-22 | www.macrumors.com | Apple Will Soon Announce an All-New Operating System
+  - 2026-09-22 | medium.com | Apple Blocks Downgrading From iOS 27 to iOS 26 | by Michael Swengel | Sep, 2026
+  - 2026-09-22 | mashable.com | If you have an iPhone, Apple might owe you money. Here's how to claim it.
+  - 2026-09-22 | www.outsideonline.com | I Tested the New Apple Ultra 4’s Readiness Score and Battery Life. Here’s Why It's Worth the Upgrade.
+  - 2026-09-22 | www.wired.com | How to Claim Your Cut of Apple’s $250 Million Siri Settlement
+  - 2026-09-22 | deadline.com | J.K. Simmons Joins Will Poulter In Apple TV’s ‘Beat The Reaper’; Tim Van Patten To Direct & EP
+  - 2026-09-22 | www.today.com | Kentucky Mom Thought a Caramel Apple Would Cost $7. Then She Saw the Receipt
+What to write for E1:
+  Write "high": for each chance 10, 25, 50, 75 and 90, the level you give that chance of being reached (at or above) within the period. The 10 level is the highest.
+  Write "low": for each chance 10, 25, 50, 75 and 90, the level you give that chance of being reached (at or below) within the period. The 10 level is the lowest.
+
+=== E2 (as of 2026-08-19): Ethereum above ___ on August 25?
+Rules:
+This market will resolve to "Yes" if the Binance 1 minute candle for ETH/USDT 12:00 in the ET timezone (noon) on the date specified in the title has a final "Close" price higher than the price specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the ETH/USDT "Close" prices currently available at https://www.binance.com/en/trade/ETH_USDT with "1m" and "Candles" selected on the top bar.
+
+Please note that this market is about the price according to Binance ETH/USDT, not according to other exchanges or trading pairs.
+
+Price precision is determined by the number of decimal places in the source.
+Contracts:
+  E2.C1: Will the price of Ethereum be above $1,400 on August 25?
+  E2.C2: Will the price of Ethereum be above $1,500 on August 25?
+  E2.C3: Will the price of Ethereum be above $1,600 on August 25?
+  E2.C4: Will the price of Ethereum be above $1,700 on August 25?
+  E2.C5: Will the price of Ethereum be above $1,800 on August 25?
+  E2.C6: Will the price of Ethereum be above $1,900 on August 25?
+  E2.C7: Will the price of Ethereum be above $2,000 on August 25?
+  E2.C8: Will the price of Ethereum be above $2,100 on August 25?
+  E2.C9: Will the price of Ethereum be above $2,200 on August 25?
+  E2.C10: Will the price of Ethereum be above $2,300 on August 25?
+  E2.C11: Will the price of Ethereum be above $2,400 on August 25?
+News before E2's as-of date (date seen, source, headline):
+  - 2026-08-19 | fortune.com | Current price of Ethereum for August 19, 2026
+  - 2026-08-19 | finance.yahoo.com | Better Altcoin Buy: XRP vs. Ethereum
+  - 2026-08-19 | finance.yahoo.com | Bitcoin and ethereum prices today, Wednesday, August 19, 2026: Crypto prices rise after SEC announces proposed regulation
+  - 2026-08-19 | finance.yahoo.com | Tom Lee Eyes Ethereum AI Growth as Peter Brandt’s September Bitcoin Bottom Window Nears
+  - 2026-08-19 | finance.yahoo.com | Bitcoin Hits $69,000, Ethereum Goes on 20% Bull Rampage, XRP, SOL Pump 10% on Historic Crypto Day
+  - 2026-08-19 | info.arkm.com | Bitcoin Hits $69K, Ethereum Hits $2K After Treasury Announcement
+  - 2026-08-19 | cryptonews.net | Ethereum Price Explodes 9.5% and Stops 1% Short of THE Level
+  - 2026-08-19 | www.mitrade.com | Ethereum Price Forecast: ETH jumps 18%, sparks over $1 billion in liquidations
+  - 2026-08-19 | cryptonews.net | Ethereum outpaces Bitcoin in Q3 – Can ETH lead the next altcoin season?
+  - 2026-08-19 | stockstotrade.com | SBET Stock Climbs As Ethereum Treasury Strategy Draws Big Money
+  - 2026-08-19 | finance.yahoo.com | Ethereum vs. Bitcoin: ETH/BTC Setup Points to 40% Relative Upside
+  - 2026-08-18 | fortune.com | Current price of Ethereum for August 18, 2026
+  - 2026-08-18 | bitcoinfoundation.org | Ethereum Bull Run Incoming? Tom Lee Sees ETH/BTC Breaking Higher
+  - 2026-08-18 | finance.yahoo.com | Ethereum Price Prediction 2026: Glamsterdam Upgrade Could Kickstart ETH’s Next Bull Market
+  - 2026-08-18 | www.altcoinbuzz.io | Tom Lee Says Ethereum Could Pull Ahead of Bitcoin as ETH/BTC Breaks Long-Term Downtrend
+  - 2026-08-18 | finance.yahoo.com | Bitcoin and ethereum prices today, Tuesday, August 18, 2026: Crypto prices mixed as Iran stalemate continues
+  - 2026-08-18 | finance.yahoo.com | Tom Lee Uses BlackRock’s Bitcoin Report to Pitch Ethereum as AI’s Verification Layer
+  - 2026-08-18 | finance.yahoo.com | Securitize Adds Neuberger High-Yield Credit Fund to Ethereum, Solana, Avalanche and Sui
+  - 2026-08-18 | www.coindesk.com | ETH news: Ethereum’s next upgrade breaks the '21,000 gas' rule wallets rely on
+  - 2026-08-18 | beincrypto.com | Tom Lee Sees Ethereum Pulling Ahead of Bitcoin — and Names 2 Reasons
+  - 2026-08-18 | info.arkm.com | Top ETH Holders: Who Owns The Most Ethereum (2026)
+  - 2026-08-18 | coinpedia.org | Ethereum’s Biggest Upgrade Is Coming: Glamsterdam Testnet Goes Live
+  - 2026-08-18 | augustafreepress.com | How Modern Crypto Trading Is Changing Ethereum Price Movements
+  - 2026-08-18 | www.globenewswire.com | Crypto News: Ethereum Based Crypto Pepeto Sells Out Another
+  - 2026-08-17 | www.bitnovo.com | Ethereum’s plan to make privacy no longer optional.
+What to write for E2:
+  Write "levels": for each chance 10, 25, 50, 75 and 90, the level you give that chance of the measured quantity being at or above when it resolves. The 10 level is the highest and the 90 level the lowest. Example: {"10": 120, "25": 110, "50": 100, "75": 92, "90": 85}.
+
+=== E3 (as of 2026-08-26): Solana above ___ on September 1?
+Rules:
+This market will resolve to "Yes" if the Binance 1 minute candle for SOL/USDT 12:00 in the ET timezone (noon) on the date specified in the title has a final "Close" price higher than the price specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the SOL/USDT "Close" prices currently available at https://www.binance.com/en/trade/SOL_USDT with "1m" and "Candles" selected on the top bar.
+
+Please note that this market is about the price according to Binance SOL/USDT, not according to other exchanges or trading pairs.
+
+Price precision is determined by the number of decimal places in the source.
+Contracts:
+  E3.C1: Will the price of Solana be above $50 on September 1?
+  E3.C2: Will the price of Solana be above $60 on September 1?
+  E3.C3: Will the price of Solana be above $70 on September 1?
+  E3.C4: Will the price of Solana be above $80 on September 1?
+  E3.C5: Will the price of Solana be above $90 on September 1?
+  E3.C6: Will the price of Solana be above $100 on September 1?
+  E3.C7: Will the price of Solana be above $110 on September 1?
+  E3.C8: Will the price of Solana be above $120 on September 1?
+  E3.C9: Will the price of Solana be above $130 on September 1?
+  E3.C10: Will the price of Solana be above $140 on September 1?
+  E3.C11: Will the price of Solana be above $150 on September 1?
+News before E3's as-of date (date seen, source, headline):
+  - 2026-08-26 | www.cbsnews.com | Lincoln Park Zoo announces addition of Solana the Hoffmann's two-toed sloth
+  - 2026-08-26 | finance.yahoo.com | DeFi Development Launches Real-Time Solana Data Platform
+  - 2026-08-26 | finance.yahoo.com | Solana Set a Record in Everything Except the Part Holders Care About
+  - 2026-08-26 | finance.yahoo.com | Solana Treasury Firm Invites Investors to Look 'Beyond the Price of SOL'
+  - 2026-08-26 | www.thecoinrepublic.com | Solana ETF Rakes In $32 Million as SOL Price Jumps 25%, Is $100 Next?
+  - 2026-08-26 | finance.yahoo.com | Galaxy Opens Retail Crypto-Backed Credit Lines on Bitcoin, Ethereum and Solana
+  - 2026-08-25 | www.sandiegouniontribune.com | Solana Beach School District parents petition to restrict student screen time
+  - 2026-08-25 | finance.yahoo.com | Solana Outpaces Bitcoin As Record $1.2B ETF Inflows Fuel SOL Rally Toward $100
+  - 2026-08-25 | finance.yahoo.com | Could Solana Hit $2,000 by 2030? One Institutional Investor Thinks So.
+  - 2026-08-25 | finance.yahoo.com | Solana Mirrors Fractal Setup That Preceded 1,000% SOL Price Rally
+  - 2026-08-25 | www.coindesk.com | Solana ETFs hit record $1.2 billion in cumulative inflows after five-day inflow streak
+  - 2026-08-25 | www.moomoo.com | BTC breaks $80,000 amid overbought conditions; Solana leads gains but faces correction risks
+  - 2026-08-25 | www.moomoo.com | Bitcoin Holds $79,000, Ether, Solana Slip as Traders Bank a Week of Gains
+  - 2026-08-25 | finance.biggo.com | Solana's July Transactions Hit Record 4.2 Billion as SOL Jumps 40% in Eight Days
+  - 2026-08-25 | finance.biggo.com | Bitcoin Nears $80,000 as Solana Leads Broad Crypto Recovery
+  - 2026-08-24 | finance.biggo.com | Solana Holds Above $94 After Best Week in Two Months as $100 Resistance Looms
+  - 2026-08-24 | www.coindesk.com | New Solana vote could ramp daily SOL burns to $800,000 and slow new token creation
+  - 2026-08-24 | finance.yahoo.com | Solana RWA Ecosystem Just Hit $4 Billion Two Days After Cutting Block Times to 350ms
+  - 2026-08-24 | dailycoin.com | Solana Speeds Up Blocks to 350 Milliseconds, Targets 200
+  - 2026-08-24 | www.thestreet.com | Solana sets an all-time record for weekly network activity
+  - 2026-08-24 | www.youhodler.com | Ethereum Has 66 Ideas, Visa Wants Stablecoin Rails, and Solana Cuts Transaction Times
+  - 2026-08-24 | egamers.io | Solana Trims Block Slot Time to 350ms — Its First Speed Cut Ever
+  - 2026-08-24 | cryptonews.net | Solana Network Revenue Tops $1 Million, Hits Six-Month High
+  - 2026-08-24 | finance.biggo.com | Fidelity Allows 100% Staking of Assets in Ethereum and Solana ETPs
+  - 2026-08-23 | yellow.com | Solana Posts 5% Gain After Firedancer Client Launches On Mainnet
+What to write for E3:
+  Write "levels": for each chance 10, 25, 50, 75 and 90, the level you give that chance of the measured quantity being at or above when it resolves. The 10 level is the highest and the 90 level the lowest. Example: {"10": 120, "25": 110, "50": 100, "75": 92, "90": 85}.
+
+=== E4 (as of 2026-06-17): Ethereum above ___ on June 20?
+Rules:
+This market will resolve to "Yes" if the Binance 1 minute candle for ETH/USDT 12:00 in the ET timezone (noon) on the date specified in the title has a final "Close" price higher than the price specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the ETH/USDT "Close" prices currently available at https://www.binance.com/en/trade/ETH_USDT with "1m" and "Candles" selected on the top bar.
+
+Please note that this market is about the price according to Binance ETH/USDT, not according to other exchanges or trading pairs.
+
+Price precision is determined by the number of decimal places in the source.
+Contracts:
+  E4.C1: Will the price of Ethereum be above $1,200 on June 20?
+  E4.C2: Will the price of Ethereum be above $1,300 on June 20?
+  E4.C3: Will the price of Ethereum be above $1,400 on June 20?
+  E4.C4: Will the price of Ethereum be above $1,500 on June 20?
+  E4.C5: Will the price of Ethereum be above $1,600 on June 20?
+  E4.C6: Will the price of Ethereum be above $1,700 on June 20?
+  E4.C7: Will the price of Ethereum be above $1,800 on June 20?
+  E4.C8: Will the price of Ethereum be above $1,900 on June 20?
+  E4.C9: Will the price of Ethereum be above $2,000 on June 20?
+  E4.C10: Will the price of Ethereum be above $2,100 on June 20?
+  E4.C11: Will the price of Ethereum be above $2,200 on June 20?
+News before E4's as-of date (date seen, source, headline):
+  - 2026-06-17 | crypto.news | Ethereum price analysis: wallet growth clashes with leverage risk
+  - 2026-06-17 | finance.yahoo.com | Bitcoin and ethereum prices today, Wednesday,June 17, 2026: Much higher this week compared to last
+  - 2026-06-17 | www.ibtimes.com | Ethereum Price Prediction: ETH is Frozen at $1,770 Waiting on Fed Chair Kevin Warsh
+  - 2026-06-17 | www.fxstreet.com | Ethereum Price Forecast: Derivatives sentiment remains weak after open interest and funding rates reset
+  - 2026-06-17 | thedefiant.io | Ethereum's Glamsterdam Upgrade Enters Final Devnet Phase With 200M Gas-Limit Target
+  - 2026-06-17 | cryptoticker.io | SpaceX or Ethereum: Which Delivered the Better Return?
+  - 2026-06-17 | 247wallst.com | Is Crypto Back in the Green? Bitcoin, Ethereum, and XRP Sentiment Is Rising Again
+  - 2026-06-17 | seekingalpha.com | Bitmine Immersion: BMNP Preferred Capital And The Cost Of Ethereum Treasury Expansion
+  - 2026-06-17 | www.benzinga.com | Solana Beats Bitcoin And Ethereum As SpaceX IPO Drives Tokenized Trading Boom
+  - 2026-06-17 | coinpedia.org | Exclusive: Bitcoin, Ethereum, and XRP Price Predictions – Key Levels to Watch
+  - 2026-06-17 | www.benzinga.com | Bitcoin, Ethereum, XRP, Dogecoin Stay Rangebound As Kevin Warsh Takes Helm At The Fed
+  - 2026-06-16 | fortune.com | Current price of Ethereum for June 16, 2026
+  - 2026-06-16 | bitcoinfoundation.org | Ethereum Developer Community Tops 1M Builders as Crypto’s Largest Dev Base
+  - 2026-06-16 | finance.yahoo.com | Ethereum to $5,000 if CLARITY Act Passes? Bullish Theories Fly as Senator Predicts Ten-Fold Crypto Increase
+  - 2026-06-16 | finance.yahoo.com | Ethereum Whales Add $950 Million as Bottom Hopes Build, but the Story Has a Hole
+  - 2026-06-16 | www.moomoo.com | Sharplink CEO Dives Deep Into Ethereum's Future Potential, Millions of Developers Validate the Unstoppable Ecosystem
+  - 2026-06-16 | cryptoslate.com | XRP just beat Ethereum, Solana and others in 90-Day RWA flows as traders pile back into the token
+  - 2026-06-16 | www.coindesk.com | Ethereum (ETH) news: Glamsterdam upgrade moves into its final development stage
+  - 2026-06-16 | www.moomoo.com | Exodus Movement's Digital Assets Rise in May, Ethereum Holdings Declines
+  - 2026-06-16 | cryptonews.net | Ethereum price stuck at $1,774: range of only $44, breakout is near
+  - 2026-06-16 | www.fxstreet.com | Ethereum Price Forecast: Whales buy the dip, but institutional and US demand remain absent
+  - 2026-06-16 | stocktwits.com | Ethereum’s Strongest Moat May Be Impossible To ‘Fork’, Says Sharplink CEO
+  - 2026-06-16 | www.investing.com | Ethereum’s 33% Staking Ratio Strengthens the Bullish Supply Shock Thesis
+  - 2026-06-16 | www.tradingkey.com | Ethereum (ETHUSD) Suddenly Goes down 1.28% on Jun 16: What You Need to Watch
+  - 2026-06-16 | coinpedia.org | Ethereum Exchange Reserves Hit a 10-Year Low—Is a Supply Shock Brewing?
+What to write for E4:
+  Write "levels": for each chance 10, 25, 50, 75 and 90, the level you give that chance of the measured quantity being at or above when it resolves. The 10 level is the highest and the 90 level the lowest. Example: {"10": 120, "25": 110, "50": 100, "75": 92, "90": 85}.
+
+=== E5 (as of 2026-07-22): White House # posts July 21 - July 28, 2026?
+Rules:
+This market will resolve according to the number of times White House (@WhiteHouse), posts on X between July 21, 12:00 PM ET and July 28, 2026, 12:00 PM ET.
+
+For the purposes of this market, only main feed posts, quote posts and reposts will count.
+
+Replies will NOT count towards the total - however, replies which are recorded on the main feed will be counted by the tracker.
+
+Deleted posts will count as long as they remain available long enough to be captured by the tracker (~5 minutes).
+
+The resolution source for this market is the "Post Counter" figure for posts found at https://xtracker.polymarket.com. Individual posts can be viewed by clicking "Export Data". If the tracker does not update correctly in accordance with the rules, X itself may be used as a secondary resolution source.
+Contracts:
+  E5.C1: Will White House post 20-39 posts from July 21 to July 28, 2026?
+  E5.C2: Will White House post 40-59 posts from July 21 to July 28, 2026?
+  E5.C3: Will White House post 60-79 posts from July 21 to July 28, 2026?
+  E5.C4: Will White House post 80-99 posts from July 21 to July 28, 2026?
+  E5.C5: Will White House post 100-119 posts from July 21 to July 28, 2026?
+  E5.C6: Will White House post 120-139 posts from July 21 to July 28, 2026?
+  E5.C7: Will White House post 140-159 posts from July 21 to July 28, 2026?
+  E5.C8: Will White House post 160-179 posts from July 21 to July 28, 2026?
+  E5.C9: Will White House post 180-199 posts from July 21 to July 28, 2026?
+  E5.C10: Will White House post 200+ posts from July 21 to July 28, 2026?
+News before E5's as-of date (date seen, source, headline):
+  - 2026-07-22 | sports.yahoo.com | Sports Teams Who Skip White House Visits Receive Harsh Message
+  - 2026-07-22 | www.theguardian.com | As Dodgers head to White House, loyal fans are conflicted: ‘Trump is tearing this city apart’
+  - 2026-07-22 | spectrumlocalnews.com | Trump fetes Dodgers at the White House again
+  - 2026-07-22 | fedscoop.com | OSTP’s Kratsios denies White House influence over NSF grants decisions
+  - 2026-07-22 | marylandmatters.org | Judge agrees with states that White House misused policy to revoke grant funding
+  - 2026-07-22 | www.c-span.org | Secret Service Prepares for Rescheduled White House Correspondents' Association Dinner
+  - 2026-07-22 | apnews.com | White House admits it used keywords to kill billions worth of California research grants
+  - 2026-07-22 | www.insideprivacy.com | White House Launches “Gold Eagle” AI Cybersecurity Clearinghouse
+  - 2026-07-21 | sports.yahoo.com | Knicks Star Jalen Brunson Has Telling Reaction to Trump’s White House Invitation
+  - 2026-07-21 | apnews.com | Smithsonian history museum chief rejects White House criticism of its leaders as radical activists
+  - 2026-07-21 | www.reuters.com | Bystander wounded near White House to sue Secret Service, lawyer says
+  - 2026-07-21 | www.reuters.com | White House lawyer confirmed to judgeship after bashing Republican senators
+  - 2026-07-21 | www.nytimes.com | Jalen Brunson says Knicks haven’t discussed visiting White House yet
+  - 2026-07-21 | www.nytimes.com | G.O.P. Lawmakers Join White House in Challenging a Smithsonian Museum
+  - 2026-07-21 | www.politico.com | Cornyn and Tillis in discussions with White House to get Blanche across the finish line
+  - 2026-07-20 | www.c-span.org | Trump Admin. Officials Speak to White House Reporters | July 20, 2026 | Video
+  - 2026-07-20 | www.nytimes.com | White House Adds Jefferson Statue to the Rose Garden
+  - 2026-07-19 | www.reuters.com | Lebanon's Aoun to meet Trump at White House, hoping to generate pressure on Israel
+  - 2026-07-18 | www.politico.com | ‘Pulte got really scared’: Inside the White House debate over Trump’s elections speech
+  - 2026-07-18 | sports.yahoo.com | Letters to Sports: Planned White House visit causing a stir among Dodger fans
+  - 2026-07-17 | www.reuters.com | Trump to attend World Cup final on Sunday, White House says
+  - 2026-07-17 | www.nytimes.com | Late Night Is Amused by Alleged White House Teleprompter Grift
+  - 2026-07-17 | www.transportation.gov | Trump’s Transportation Secretary Duffy, White House OMB Director Vought Celebrate Christening of ‘Lone Star State,’ Announce $2 Billion Investment to Build Two New Military Ships in Philadelphia | US Department of Transportation
+  - 2026-07-17 | www.reuters.com | White House confirms President Trump will attend World Cup final
+  - 2026-07-17 | www.npr.org | White House teleprompter operator suspected of profiting off Trump's words
+What to write for E5:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E6 (as of 2026-06-10): Colorado Governor Democratic Primary Winner
+Rules:
+This market will resolve according to the winner of the Democratic Primary for Governor of Colorado, scheduled to take place on June 30, 2026. Resolution will be based on the overall winner of the primary, including any potential second round or run-off.
+
+If no 2026 Colorado Gubernatorial Democratic Primary takes place, this market will resolve to “Other.”
+
+The resolution source for this market will be the first official announcement of the results from the Colorado Democratic Party; however, an overwhelming consensus of credible reporting may suffice.
+Contracts:
+  E6.C1: Will Michael Bennet win the 2026 Colorado Governor Democratic primary election?
+  E6.C2: Will Phil Weiser win the 2026 Colorado Governor Democratic primary election?
+  E6.C3: Will David Hughes win the 2026 Colorado Governor Democratic primary election?
+  E6.C4: Will William Moses win the 2026 Colorado Governor Democratic primary election?
+News before E6's as-of date (date seen, source, headline):
+  - 2026-06-10 | www.jacksonlewis.com | Colorado Mandates State EEO-1 Data Reports — Even if Federal Reporting Ends
+  - 2026-06-10 | coloradonewsline.com | Record-breaking fundraising, billionaire-backed super PACs shape Colorado governor's race
+  - 2026-06-10 | www.coloradopolitics.com | Flat or graduated income tax? Colorado groups push dueling measures for November election
+  - 2026-06-10 | neguse.house.gov | Neguse Joins Bennet, Colorado Delegation in Demanding Information on U.S. Forest Service Reorganization
+  - 2026-06-10 | www.mlb.com | Chicago Cubs at Colorado Rockies Game Story, Scores/Highlights - 06/10/2026
+  - 2026-06-09 | www.aspenpublicradio.org | The Colorado River is at a tipping point, as states, feds look for a way forward
+  - 2026-06-09 | coloradonewsline.com | GEO Group sues over new Colorado law requiring immigration detention center safety inspections
+  - 2026-06-09 | coloradonewsline.com | Candidate Q&A: Colorado’s 5th Congressional District
+  - 2026-06-09 | coloradonewsline.com | Candidate Q&A: Colorado’s 8th Congressional District
+  - 2026-06-09 | www.blm.gov | BLM Seeks Initial Input for December 2026 Sale of Oil And Gas Leases in Colorado
+  - 2026-06-09 | www.consumerfinancemonitor.com | Twenty-One States File Amicus Brief Supporting Challenge to Colorado’s Effort to Regulate Interest Rates Charged by Out-of-State State Banks
+  - 2026-06-09 | www.consumerfinancemonitor.com | FDIC Files Amicus Brief Supporting Challenge to Colorado’s Opt-Out Interest Rate Law
+  - 2026-06-09 | source.colostate.edu | Drone show, concert to highlight America 250 and Colorado 150 celebrations at CSU
+  - 2026-06-09 | www.coloradorapids.com | Colorado Rapids goalkeeper Zack Steffen undergoes successful shoulder surgery
+  - 2026-06-09 | coloradosun.com | With no deal in sight, Colorado road funding spat may be headed to voters in November
+  - 2026-06-09 | www.blm.gov | BLM Colorado River Valley Field Office implements Stage 1 fire restrictions
+  - 2026-06-09 | coloradonewsline.com | Candidate Q&A: Colorado’s 4th Congressional District
+  - 2026-06-09 | cronkitenews.azpbs.org | Arizona faces 77% cut in share of Colorado River as states remain deadlocked over water allocation
+  - 2026-06-09 | www.eenews.net | Key Utah, Wyoming Republicans plot their next Colorado River move
+  - 2026-06-09 | www.skyhinews.com | Colorado officially declares statewide emergency due to ongoing drought conditions
+  - 2026-06-09 | www.ncsl.org | New Colorado Wildlife Crossing Shines as Bipartisan Case Study
+  - 2026-06-08 | csurams.com | Colorado State Hires Michelle Gascoigne as Softball Coach
+  - 2026-06-08 | coloradonewsline.com | Colorado county clerks to mail out 2026 primary ballots this week
+  - 2026-06-08 | coloradonewsline.com | Candidate Q&A: Colorado secretary of state
+  - 2026-06-08 | www.cpr.org | GEO Group sues Colorado to stop law requiring health and safety inspections of immigrant detention facilities
+What to write for E6:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).

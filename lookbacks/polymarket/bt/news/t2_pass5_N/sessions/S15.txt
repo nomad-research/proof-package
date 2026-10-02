@@ -1,0 +1,555 @@
+You will be shown 6 questions from a prediction market. Each has one or more contracts that resolve YES or NO under the rules shown. Each question gives the date your view is "as of": answer as you would on that date.
+
+Use what you already know and the news headlines listed under each question, all published in the 7 days before its as-of date. Do not search for or look up anything else: reading this file is the only tool call you may make. There are no prices from any prediction market in this file and you should not try to estimate what any market thinks; give your own view.
+
+Each question says what to write for it. Whole percents run from 1 to 99. Levels are plain numbers in the units the contracts use (for example 95000 for $95,000, 3.25 for 3.25%). Dates are YYYY-MM-DD.
+
+For each question also say whether you recognise how it actually turned out ("recognised": true only if you believe you remember the real outcome; otherwise false).
+
+Reply with one JSON object and nothing else:
+{"events": [{"label": "E1", "recognised": false, ...the fields that question asks for...}]}
+
+=== E1 (as of 2026-07-29): Solana price on July 29?
+Rules:
+This market will resolve according to the final "Close" price of the Binance 1 minute candle for SOL/USDT 12:00 in the ET timezone (noon) on the date specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the SOL/USDT "Close" prices currently available at https://www.binance.com/en/trade/SOL_USDT with "1m" and "Candles" selected on the top bar.
+
+If the reported value falls exactly between two brackets, then this market will resolve to the higher range bracket.
+
+Please note that this market is about the price according to Binance SOL/USDT, not according to other exchanges or trading pairs.
+Contracts:
+  E1.C1: Will the price of Solana be less than $30 on July 29?
+  E1.C2: Will the price of Solana be between $30 and $40 on July 29?
+  E1.C3: Will the price of Solana be between $40 and $50 on July 29?
+  E1.C4: Will the price of Solana be between $50 and $60 on July 29?
+  E1.C5: Will the price of Solana be between $60 and $70 on July 29?
+  E1.C6: Will the price of Solana be between $70 and $80 on July 29?
+  E1.C7: Will the price of Solana be between $80 and $90 on July 29?
+  E1.C8: Will the price of Solana be between $90 and $100 on July 29?
+  E1.C9: Will the price of Solana be between $100 and $110 on July 29?
+  E1.C10: Will the price of Solana be between $110 and $120 on July 29?
+  E1.C11: Will the price of Solana be greater than $120 on July 29?
+News before E1's as-of date (date seen, source, headline):
+  - 2026-07-29 | finance.yahoo.com | XRP vs Solana vs Ethereum: Which Turns $5,000 Into $10,000 by the End of 2027?
+  - 2026-07-29 | www.coindesk.com | SpaceX is a battleground Solana must win
+  - 2026-07-29 | beincrypto.com | One Pattern That Predicted the 21% Solana Price Drop Has Returned
+  - 2026-07-29 | www.tradingview.com | Solana: 100M CU blocks go live on mainnet - 29 Jul 2026
+  - 2026-07-29 | www.theblock.co | 'The moment to act is now': Solana Policy Institute urges Senate to move on crypto bill as time dwindles
+  - 2026-07-29 | www.crowdfundinsider.com | Morgan Stanley Unveils Lowest-Cost Ethereum (ETH) And Solana (SOL) ETFs
+  - 2026-07-29 | bitcoinke.io | INSTITUTIONAL | World’s Largest Wealth Management Firm to Offer All Ether, Solana Staking Rewards Directly to Investors
+  - 2026-07-29 | ambcrypto.com | Traders accumulate 50M SOL at $73.75: How does this change Solana’s road ahead?
+  - 2026-07-29 | thedefiant.io | Morgan Stanley Launches Spot Ether, Solana ETPs on NYSE Arca
+  - 2026-07-29 | www.altcoinbuzz.io | SOL Price Solana TA SOL Technical Analysis July 2026
+  - 2026-07-29 | ffnews.com | Solflare Launches 'Bridge' to Enable Seamless Multi-Chain Transfers to Solana via Aurora Intents
+  - 2026-07-29 | www.tradingview.com | Solana: PayBox enables conversational trading - 29 Jul 2026
+  - 2026-07-29 | cryptorank.io | Solana Crypto Launches Major Upgrade on Mainnet as Bulls Target $80 SOL Price Retest
+  - 2026-07-29 | www.ccn.com | Solflare Launches Solana Bridge for Seamless Bitcoin and Ethereum Transfers
+  - 2026-07-29 | ambcrypto.com | Robinhood Chain surpasses Solana on memecoins, RWA growth: Can it hold the lead?
+  - 2026-07-28 | www.morganstanley.com | Morgan Stanley Launches Ethereum and Solana ETPs
+  - 2026-07-28 | www.coindesk.com | Morgan Stanley debuts ether, solana exchange-traded products after bitcoin fund success
+  - 2026-07-28 | finance.yahoo.com | MSOL: Morgan Stanley’s 0.14% Solana ETF Enters the Crypto Market
+  - 2026-07-28 | finance.yahoo.com | Solana Price Forecast: Drop to $60 Seems Likely After Bearish Trend Line Break
+  - 2026-07-28 | finance.yahoo.com | Ethereum and solana are getting busier — and cheaper. What's going on?
+  - 2026-07-28 | finance.yahoo.com | Morgan Stanley Launches Ethereum and Solana ETPs With 0.14% Fees
+  - 2026-07-28 | finance.yahoo.com | Morgan Stanley Launches 0.14% Ethereum and Solana ETFs: Will Flows Follow?
+  - 2026-07-28 | finance.yahoo.com | Morgan Stanley Expands Crypto ETF Suite With New Ethereum & Solana Trusts
+  - 2026-07-28 | www.theblock.co | Morgan Stanley debuts Ethereum and Solana ETFs with market's lowest fee, staking rewards
+  - 2026-07-28 | finance.yahoo.com | Morgan Stanley Expands Crypto Push With Ethereum and Solana ETPs
+What to write for E1:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E2 (as of 2026-07-01): Iran successfully targets shipping by...?
+Rules:
+This market will resolve to "Yes" if Iranian forces conduct a kinetic strike on or seize control of a commercial ship between market creation and the specified date, 11:59 PM IRST (UTC +3:30). Otherwise, this market will resolve to "No".
+
+Attacks on military vessels will not be considered.
+
+Only military actions by Iranian forces explicitly claimed by the Islamic Republic of Iran or confirmed to have originated from Iranian territory or been carried out by Iranian forces will count toward the resolution of this market. Attacks by proxy forces (i.e. Hezbollah, Houthis, etc.) will not count toward the resolution of this market.
+
+Missile/drone strikes targeting a ship that are intercepted or otherwise do not directly impact the vessel will not be considered, regardless of damage through debris.
+
+Seize control refers to Iranian forces forcefully boarding and taking control of a commercial ship.
+
+Qualifying incidents include, but are not limited to, drone and missile strikes, aerial bombings, and kinetic actions carried out by Iranian operatives in person, such as seizing a ship by force.
+
+The primary resolution source for this market will be a consensus of credible reporting.
+
+If a kinetic incident occurs, but, on the specified date, 11:59 PM IRST, material ambiguity remains as to whether the incident can be attributed to Iran, this market may remain open for an additional 3 calendar days, IRST. If, at such time, attribution of the incident still cannot be confirmed, this market will resolve to “No”.
+Contracts:
+  E2.C1: Iran successfully targets shipping by July 1?
+  E2.C2: Iran successfully targets shipping by July 7?
+  E2.C3: Iran successfully targets shipping by July 15?
+  E2.C4: Iran successfully targets shipping by July 31?
+  E2.C5: Iran successfully targets shipping by August 31?
+News before E2's as-of date (date seen, source, headline):
+  - 2026-07-01 | www.csis.org | What a Fragile U.S.-Iran Ceasefire Means for Energy and Beyond
+  - 2026-07-01 | www.reuters.com | COMMENTARY: The next Iran war may come sooner than you think
+  - 2026-07-01 | www.reuters.com | Iran says it won't meet with U.S. envoys, clouding prospects for peace deal
+  - 2026-07-01 | www.aljazeera.com | What military capabilities does Iran possess as it negotiates with US?
+  - 2026-07-01 | www.reuters.com | Iran insists on keeping control over Hormuz, senior Iranian sources say
+  - 2026-07-01 | apnews.com | US and Iran hold separate meetings in Qatar and agree to continue discussions
+  - 2026-07-01 | www.nytimes.com | How the Iran War Ignited a Clash Between Trump and the Saudi Crown Prince
+  - 2026-07-01 | www.aljazeera.com | US-Iran negotiations: What’s the latest?
+  - 2026-07-01 | www.cbsnews.com | How Iran could try to control the Strait of Hormuz - and profit from it
+  - 2026-07-01 | www.iranintl.com | How Trump decided to strike Iran: new book reveals final hours
+  - 2026-07-01 | www.axios.com | U.S. tries to talk Iran out of tolls as talks resume in Doha
+  - 2026-06-30 | democrats-foreignaffairs.house.gov | Meeks Statement Following Administration Briefing on Iran MOU - Press Releases
+  - 2026-06-30 | www.cbsnews.com | Iran's top negotiator says country ready for war as peace talks inch along
+  - 2026-06-30 | www.aljazeera.com | Evolution under fire: Iran’s ‘axis of resistance’ in a post-war era
+  - 2026-06-30 | www.reuters.com | US and Iran negotiators head to Doha, but meeting uncertain
+  - 2026-06-30 | www.wsj.com | Exclusive | Trump Briefed on All-Out War Options in Iran but Opts to Stick With Talks
+  - 2026-06-30 | www.espn.com | U.S. Homeland Security Secretary 'so happy' Iran made World Cup exit
+  - 2026-06-29 | www.pbs.org | Trump says Iran has requested a meeting with U.S., but Iranian officials say nothing has been scheduled
+  - 2026-06-29 | www.cfr.org | Trump’s Iran Food Deal Could End Up Helping the Regime, Not Its People
+  - 2026-06-29 | www.reuters.com | How 5 weeks of war shattered some of Iran’s cherished monuments
+  - 2026-06-29 | understandingwar.org | Iran Update Special Report, June 29, 2026 | ISW
+  - 2026-06-29 | www.cbsnews.com | Iran calls Strait of Hormuz situation "sensitive and complex" as U.S. sends officials to Qatar for talks
+  - 2026-06-29 | www.npr.org | U.S. and Iran exchange fire despite ceasefire. And, Trump nominates a new head of ICE
+  - 2026-06-29 | apnews.com | Iran says this. The US says that. A look at the trickiest issues in the unresolved conflict
+  - 2026-06-29 | www.npr.org | Trump says the U.S. and Iran will meet in Qatar after weekend attacks
+What to write for E2:
+  Write "dates": for each chance 10, 25, 50, 75 and 90, the date by which you give it that chance of having happened, or null if you do not give it that chance by the last date the contracts cover. Dates must not go earlier as the chance rises.
+
+=== E3 (as of 2026-09-23): Ethereum above ___ on September 23?
+Rules:
+This market will resolve to "Yes" if the Binance 1 minute candle for ETH/USDT 12:00 in the ET timezone (noon) on the date specified in the title has a final "Close" price higher than the price specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the ETH/USDT "Close" prices currently available at https://www.binance.com/en/trade/ETH_USDT with "1m" and "Candles" selected on the top bar.
+
+Please note that this market is about the price according to Binance ETH/USDT, not according to other exchanges or trading pairs.
+
+Price precision is determined by the number of decimal places in the source.
+Contracts:
+  E3.C1: Will the price of Ethereum be above $1,900 on September 23?
+  E3.C2: Will the price of Ethereum be above $2,000 on September 23?
+  E3.C3: Will the price of Ethereum be above $2,100 on September 23?
+  E3.C4: Will the price of Ethereum be above $2,200 on September 23?
+  E3.C5: Will the price of Ethereum be above $2,300 on September 23?
+  E3.C6: Will the price of Ethereum be above $2,400 on September 23?
+  E3.C7: Will the price of Ethereum be above $2,500 on September 23?
+  E3.C8: Will the price of Ethereum be above $2,600 on September 23?
+  E3.C9: Will the price of Ethereum be above $2,700 on September 23?
+  E3.C10: Will the price of Ethereum be above $2,800 on September 23?
+  E3.C11: Will the price of Ethereum be above $2,900 on September 23?
+News before E3's as-of date (date seen, source, headline):
+  - 2026-09-23 | cryptorank.io | Ethereum (ETH) Soars 15% Weekly and Now Enters an ‘Interesting Zone:’ Analyst
+  - 2026-09-23 | cryptorank.io | Ethereum Price Prediction: ETH Outpaces Bitcoin With a 75% Three-Month Rally
+  - 2026-09-23 | finance.yahoo.com | Ethereum, Circle’s Arc Set To Gain With Stablecoins Powering AI, Says BlackRock
+  - 2026-09-23 | www.fxstreet.com | What's next as Bitcoin, Ethereum pause rally while XRP ticks higher?
+  - 2026-09-23 | www.tradingview.com | Ethereum ETFs Pull In $270M As BlackRock Leads September 21 Rebound
+  - 2026-09-23 | www.moomoo.com | 🚨𝗝𝗨𝗦𝗧 𝗜𝗡:🇺🇸 Ethereum spot ETFs recorded a net inflow of $162.2M on September 22.
+  - 2026-09-23 | 247wallst.com | Ethereum vs. Chainlink: Which Will Benefit More From Tokenization?
+  - 2026-09-23 | 247wallst.com | What Would It Take for Ethereum to Hit $5,000?
+  - 2026-09-23 | www.fxstreet.com | Ethereum Price Forecast: ETH holds above $2,700 as investors continue bullish positioning
+  - 2026-09-23 | coinmarketcap.com | Ethereum Classic's 3.48% Drop Explained by Crypto Pullback
+  - 2026-09-23 | www.fxstreet.com | Top 3 Price Prediction: Bitcoin, Ethereum, Ripple – BTC steadies after strong rally, ETH and XRP ease into consolidation
+  - 2026-09-23 | es.tradingview.com | Bitcoin, Ethereum, XRP, Dogecoin Gain as Trump Touts 'Good Meeting' With Iran: Analyst Says BTC 'Sitting' Above Strong Support
+  - 2026-09-23 | cryptonews.net | BitMine’s Ethereum treasury crosses 5M as Tom Lee predicts ‘a stronger move up’ for ETH
+  - 2026-09-23 | www.globenewswire.com | New Crypto: AlphaPepe Presale Nears 12,000 Holders as Ethereum Price Prediction Points to $8,000
+  - 2026-09-22 | www.moomoo.com | Ethereum Lost 1.28% to $2748.68 -- Data Talk
+  - 2026-09-22 | cryptorank.io | Ethereum (ETH) Price Analysis: Bulls Eye $3K Following Breakout Above $2.7K Resistance
+  - 2026-09-22 | stocktwits.com | Ethereum Hits 7-Month High, Marks First Close Above $2,750 Since Late January
+  - 2026-09-22 | cryptonews.net | Ethereum buyers defended the dip but one bearish signal is building under rally
+  - 2026-09-22 | incrypted.com | Trueo Will Move From Base to Ethereum — Buterin Backed the Project’s Decision
+  - 2026-09-22 | www.fxstreet.com | What's next Bitcoin, Ethereum and XRP's rally cools?
+  - 2026-09-22 | finance.yahoo.com | Ethereum $15,000 Price Prediction Gains Traction as Wallets Hit 207M — Does the Demand Add Up?
+  - 2026-09-22 | fortune.com | Current price of Ethereum for September 22, 2026
+  - 2026-09-22 | finance.yahoo.com | Ethereum Price Prediction: ETH Breakout Targets $3,400
+  - 2026-09-22 | finance.yahoo.com | Kevin O'Leary Is Certain Ethereum Won't Be the 'Standard' Across Industry Sectors — The 'Shark' Says These Coins Could Gain Interest
+  - 2026-09-22 | cryptoslate.com | Solana flips Ethereum in fees, while ETH holds the burn lead
+What to write for E3:
+  Write "levels": for each chance 10, 25, 50, 75 and 90, the level you give that chance of the measured quantity being at or above when it resolves. The 10 level is the highest and the 90 level the lowest. Example: {"10": 120, "25": 110, "50": 100, "75": 92, "90": 85}.
+
+=== E4 (as of 2026-06-17): Bitcoin price on June 20?
+Rules:
+This market will resolve according to the final "Close" price of the Binance 1 minute candle for BTC/USDT 12:00 in the ET timezone (noon) on the date specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the BTC/USDT "Close" prices currently available at https://www.binance.com/en/trade/BTC_USDT with "1m" and "Candles" selected on the top bar.
+
+If the reported value falls exactly between two brackets, then this market will resolve to the higher range bracket.
+
+Please note that this market is about the price according to Binance BTC/USDT, not according to other exchanges or trading pairs.
+Contracts:
+  E4.C1: Will the price of Bitcoin be less than $56,000 on June 20?
+  E4.C2: Will the price of Bitcoin be between $56,000 and $58,000 on June 20?
+  E4.C3: Will the price of Bitcoin be between $58,000 and $60,000 on June 20?
+  E4.C4: Will the price of Bitcoin be between $60,000 and $62,000 on June 20?
+  E4.C5: Will the price of Bitcoin be between $62,000 and $64,000 on June 20?
+  E4.C6: Will the price of Bitcoin be between $64,000 and $66,000 on June 20?
+  E4.C7: Will the price of Bitcoin be between $66,000 and $68,000 on June 20?
+  E4.C8: Will the price of Bitcoin be between $68,000 and $70,000 on June 20?
+  E4.C9: Will the price of Bitcoin be between $70,000 and $72,000 on June 20?
+  E4.C10: Will the price of Bitcoin be between $72,000 and $74,000 on June 20?
+  E4.C11: Will the price of Bitcoin be greater than $74,000 on June 20?
+News before E4's as-of date (date seen, source, headline):
+  - 2026-06-17 | finance.yahoo.com | Should You Buy Bitcoin While It's Under $69,000?
+  - 2026-06-17 | bitcoinfoundation.org | Elon Musk Net Worth More Than Bitcoin — Could Musk Actually Buy Every BTC on Earth?
+  - 2026-06-17 | bitcoinfoundation.org | Bitcoin Price Could Still Fall, But Bitwise CIO Says Top Matters More
+  - 2026-06-17 | marketwise.com | Bitcoin's Peace Deal Rally Hits Bears Hard as Price Surges Higher
+  - 2026-06-17 | www.wate.com | ‘Getting louder’: Winfield residents frustrated by Bitcoin mine’s persistent noise
+  - 2026-06-17 | www.cnbc.com | 'Passive' investors who dodged bitcoin are now forced to own SpaceX, which is three times more volatile
+  - 2026-06-17 | bitcoinmagazine.com | 79% of Bitcoin Supply Now Locked by Long-Term Holders. Analyst Sees Bear Market Nearing Exhaustion
+  - 2026-06-17 | www.trefis.com | Will Kevin Warsh Trigger a Bitcoin Selloff Today?
+  - 2026-06-17 | www.coindesk.com | Bitcoin options traders brace for pivotal $10.6 billion June expiry
+  - 2026-06-16 | www.vaneck.com | A Framework for Valuing Bitcoin Miners as AI Infrastructure
+  - 2026-06-16 | finance.yahoo.com | Bitcoin and ethereum prices today, Tuesday, June 16, 2026: Highest opening values in two weeks
+  - 2026-06-16 | fortune.com | Current price of Bitcoin for June 16, 2026
+  - 2026-06-16 | bitcoinfoundation.org | Bitcoin Price Risks Pullback as Institutions Hold Back, Analysts Warn
+  - 2026-06-16 | www.coindesk.com | BlackRock launches bitcoin income fund as investors seek cash flow from crypto
+  - 2026-06-16 | www.kens5.com | SAPD warns against Bitcoin scams
+  - 2026-06-16 | bitcoinfoundation.org | Strategy’s Saylor Unveils Five-Layer Bitcoin Economy Model — How It Works
+  - 2026-06-16 | www.americanbanker.com | Bitcoin is not a scarce asset
+  - 2026-06-16 | www.coindesk.com | BTC, ETH, SOL price news: Bitcoin back under $67,000 as traders warn of Trump reversal
+  - 2026-06-15 | www.theblock.co | Strategy supporters rebut 'death spiral' fears as bitcoin price wobbles
+  - 2026-06-15 | www.cnbc.com | Looking beyond bitcoin: The next frontier for crypto ETFs
+  - 2026-06-15 | finance.yahoo.com | Strategy Buys $100 Million Of Bitcoin Ahead Of Price Surge
+  - 2026-06-15 | www.forbes.com | It’s ‘Over’—Crypto Is Quietly Braced For A ‘Critical’ BlackRock Bitcoin Price Earthquake
+  - 2026-06-15 | www.cnbc.com | ETF Edge: Bitcoin kicks off the week with gains as ‘crypto winter’ looks to thaw
+  - 2026-06-15 | bitcoinmagazine.com | Bitcoin Price Claws Back From the Brink as Iran Deal, Saylor, and Armstrong Signal a Turning Tide
+  - 2026-06-15 | www.forbes.com | Bitcoin, Near The Bottom: This Chart Tells All
+What to write for E4:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E5 (as of 2026-04-22): Which banks will fail by June 30?
+Rules:
+This market will resolve to “Yes” if the listed bank fails between market creation and June 30, 2026, 11:59 PM ET. Otherwise, this market will resolve to “No.”
+
+For the purposes of this market, the listed bank will be considered to have “failed” if any of the following occurs under the bank’s applicable legal or regulatory framework, within the listed date range:
+
+- The listed bank’s primary banking regulator formally declares the institution insolvent or non-viable, or withdraws or revokes the bank’s license or authorization, and such determination initiates or directly results in resolution, liquidation, wind-down, or transfer actions.
+- The listed bank enters a court-ordered liquidation, statutory resolution regime, or regulator-mandated wind-down, including the use of resolution tools such as bail-ins, forced asset transfers, or the establishment of a bridge bank.
+- A government or resolution authority intervenes in a manner that wipes out or subordinates existing equity of the listed bank and transfers effective control of the bank to the state or a designated resolution authority, with continued operations dependent on official intervention.
+- The listed bank publicly defaults on a payment obligation, including derivatives margin, repo, or physical commodity delivery, and such default is formally acknowledged by the bank’s primary regulator or resolution authority and directly results in the initiation of resolution, liquidation, license withdrawal, or regulator-mandated transfer of the bank.
+- The listed bank is subject to a compulsory merger, acquisition, or transfer of all or substantially all of its assets and liabilities ordered or directed by its primary banking regulator or resolution authority due to the bank’s financial condition or to prevent failure, regardless of whether a formal insolvency declaration or immediate equity wipeout is publicly announced at the time of transfer.
+
+If there is a potential failure of the listed bank within this market’s date range and a qualifying regulatory or court action has occurred but has not yet been fully published by the relevant authority, this market may remain open until September 30, 2026, 11:59 PM ET to allow for confirmation. If no qualifying failure is confirmed by that date, this market will resolve to “No.”
+
+The primary resolution source for this market will be official statements, filings, or actions by the listed bank’s primary banking regulator or resolution authority; however, a consensus of credible reporting may also be used.
+Contracts:
+  E5.C1: Will JPMorgan Chase fail by June 30, 2026?
+    Contract rules: This market will resolve to “Yes” if the listed bank fails between market creation and June 30, 2026, 11:59 PM ET. Otherwise, this market will resolve to “No.”
+
+For the purposes of this market, the listed bank will be considered to have “failed” if, within the listed date range, any of the following occurs under the bank’s applicable legal or regulatory framework:
+
+- The listed bank’s primary banking regulator formally declares the institution insolvent or non-viable, or withdraws or revokes the bank’s license or authorization, and such determination initiates or directly results in resolution, liquidation, wind-down, or transfer actions.
+- The listed bank enters a court-ordered liquidation, statutory resolution regime, or regulator-mandated wind-down, including the use of resolution tools such as bail-ins, forced asset transfers, or the establishment of a bridge bank.
+- A government or resolution authority intervenes in a manner that wipes out or subordinates existing equity of the listed bank and transfers effective control of the bank to the state or a designated resolution authority, with continued operations dependent on official intervention.
+- The listed bank publicly defaults on a payment obligation, including derivatives margin, repo, or physical commodity delivery, and such default is formally acknowledged by the bank’s primary regulator or resolution authority and directly results in the initiation of resolution, liquidation, license withdrawal, or regulator-mandated transfer of the bank.
+- The listed bank is subject to a compulsory merger, acquisition, or transfer of all or substantially all of its assets and liabilities ordered or directed by its primary banking regulator or resolution authority due to the bank’s financial condition or to prevent failure, regardless of whether a formal insolvency declaration or immediate equity wipeout is publicly announced at the time of transfer.
+
+If there is a potential failure of the listed bank within this market’s date range and a qualifying regulatory or court action has occurred but has not yet been fully published by the relevant authority, this market may remain open  to allow for confirmation. If no qualifying failure is confirmed by that date, this market will resolve to “No.”
+
+The primary resolution source for this market will be official statements, filings, or actions by the listed bank’s primary banking regulator or resolution authority; however, a consensus of credible reporting may also be used.
+  E5.C2: Will HSBC fail by June 30, 2026?
+    Contract rules: This market will resolve to “Yes” if the listed bank fails between market creation and June 30, 2026, 11:59 PM ET. Otherwise, this market will resolve to “No.”
+
+For the purposes of this market, the listed bank will be considered to have “failed” if, within the listed date range, any of the following occurs under the bank’s applicable legal or regulatory framework:
+
+- The listed bank’s primary banking regulator formally declares the institution insolvent or non-viable, or withdraws or revokes the bank’s license or authorization, and such determination initiates or directly results in resolution, liquidation, wind-down, or transfer actions.
+- The listed bank enters a court-ordered liquidation, statutory resolution regime, or regulator-mandated wind-down, including the use of resolution tools such as bail-ins, forced asset transfers, or the establishment of a bridge bank.
+- A government or resolution authority intervenes in a manner that wipes out or subordinates existing equity of the listed bank and transfers effective control of the bank to the state or a designated resolution authority, with continued operations dependent on official intervention.
+- The listed bank publicly defaults on a payment obligation, including derivatives margin, repo, or physical commodity delivery, and such default is formally acknowledged by the bank’s primary regulator or resolution authority and directly results in the initiation of resolution, liquidation, license withdrawal, or regulator-mandated transfer of the bank.
+- The listed bank is subject to a compulsory merger, acquisition, or transfer of all or substantially all of its assets and liabilities ordered or directed by its primary banking regulator or resolution authority due to the bank’s financial condition or to prevent failure, regardless of whether a formal insolvency declaration or immediate equity wipeout is publicly announced at the time of transfer.
+
+If there is a potential failure of the listed bank within this market’s date range and a qualifying regulatory or court action has occurred but has not yet been fully published by the relevant authority, this market may remain open  to allow for confirmation. If no qualifying failure is confirmed by that date, this market will resolve to “No.”
+
+The primary resolution source for this market will be official statements, filings, or actions by the listed bank’s primary banking regulator or resolution authority; however, a consensus of credible reporting may also be used.
+  E5.C3: Will Scotiabank fail by June 30, 2026?
+    Contract rules: This market will resolve to “Yes” if the listed bank fails between market creation and June 30, 2026, 11:59 PM ET. Otherwise, this market will resolve to “No.”
+
+For the purposes of this market, the listed bank will be considered to have “failed” if, within the listed date range, any of the following occurs under the bank’s applicable legal or regulatory framework:
+
+- The listed bank’s primary banking regulator formally declares the institution insolvent or non-viable, or withdraws or revokes the bank’s license or authorization, and such determination initiates or directly results in resolution, liquidation, wind-down, or transfer actions.
+- The listed bank enters a court-ordered liquidation, statutory resolution regime, or regulator-mandated wind-down, including the use of resolution tools such as bail-ins, forced asset transfers, or the establishment of a bridge bank.
+- A government or resolution authority intervenes in a manner that wipes out or subordinates existing equity of the listed bank and transfers effective control of the bank to the state or a designated resolution authority, with continued operations dependent on official intervention.
+- The listed bank publicly defaults on a payment obligation, including derivatives margin, repo, or physical commodity delivery, and such default is formally acknowledged by the bank’s primary regulator or resolution authority and directly results in the initiation of resolution, liquidation, license withdrawal, or regulator-mandated transfer of the bank.
+- The listed bank is subject to a compulsory merger, acquisition, or transfer of all or substantially all of its assets and liabilities ordered or directed by its primary banking regulator or resolution authority due to the bank’s financial condition or to prevent failure, regardless of whether a formal insolvency declaration or immediate equity wipeout is publicly announced at the time of transfer.
+
+If there is a potential failure of the listed bank within this market’s date range and a qualifying regulatory or court action has occurred but has not yet been fully published by the relevant authority, this market may remain open  to allow for confirmation. If no qualifying failure is confirmed by that date, this market will resolve to “No.”
+
+The primary resolution source for this market will be official statements, filings, or actions by the listed bank’s primary banking regulator or resolution authority; however, a consensus of credible reporting may also be used.
+  E5.C4: Will BNP Paribas fail by June 30, 2026?
+    Contract rules: This market will resolve to “Yes” if the listed bank fails between market creation and June 30, 2026, 11:59 PM ET. Otherwise, this market will resolve to “No.”
+
+For the purposes of this market, the listed bank will be considered to have “failed” if, within the listed date range, any of the following occurs under the bank’s applicable legal or regulatory framework:
+
+- The listed bank’s primary banking regulator formally declares the institution insolvent or non-viable, or withdraws or revokes the bank’s license or authorization, and such determination initiates or directly results in resolution, liquidation, wind-down, or transfer actions.
+- The listed bank enters a court-ordered liquidation, statutory resolution regime, or regulator-mandated wind-down, including the use of resolution tools such as bail-ins, forced asset transfers, or the establishment of a bridge bank.
+- A government or resolution authority intervenes in a manner that wipes out or subordinates existing equity of the listed bank and transfers effective control of the bank to the state or a designated resolution authority, with continued operations dependent on official intervention.
+- The listed bank publicly defaults on a payment obligation, including derivatives margin, repo, or physical commodity delivery, and such default is formally acknowledged by the bank’s primary regulator or resolution authority and directly results in the initiation of resolution, liquidation, license withdrawal, or regulator-mandated transfer of the bank.
+- The listed bank is subject to a compulsory merger, acquisition, or transfer of all or substantially all of its assets and liabilities ordered or directed by its primary banking regulator or resolution authority due to the bank’s financial condition or to prevent failure, regardless of whether a formal insolvency declaration or immediate equity wipeout is publicly announced at the time of transfer.
+
+If there is a potential failure of the listed bank within this market’s date range and a qualifying regulatory or court action has occurred but has not yet been fully published by the relevant authority, this market may remain open  to allow for confirmation. If no qualifying failure is confirmed by that date, this market will resolve to “No.”
+
+The primary resolution source for this market will be official statements, filings, or actions by the listed bank’s primary banking regulator or resolution authority; however, a consensus of credible reporting may also be used.
+  E5.C5: Will UBS fail by June 30, 2026?
+    Contract rules: This market will resolve to “Yes” if the listed bank fails between market creation and June 30, 2026, 11:59 PM ET. Otherwise, this market will resolve to “No.”
+
+For the purposes of this market, the listed bank will be considered to have “failed” if, within the listed date range, any of the following occurs under the bank’s applicable legal or regulatory framework:
+
+- The listed bank’s primary banking regulator formally declares the institution insolvent or non-viable, or withdraws or revokes the bank’s license or authorization, and such determination initiates or directly results in resolution, liquidation, wind-down, or transfer actions.
+- The listed bank enters a court-ordered liquidation, statutory resolution regime, or regulator-mandated wind-down, including the use of resolution tools such as bail-ins, forced asset transfers, or the establishment of a bridge bank.
+- A government or resolution authority intervenes in a manner that wipes out or subordinates existing equity of the listed bank and transfers effective control of the bank to the state or a designated resolution authority, with continued operations dependent on official intervention.
+- The listed bank publicly defaults on a payment obligation, including derivatives margin, repo, or physical commodity delivery, and such default is formally acknowledged by the bank’s primary regulator or resolution authority and directly results in the initiation of resolution, liquidation, license withdrawal, or regulator-mandated transfer of the bank.
+- The listed bank is subject to a compulsory merger, acquisition, or transfer of all or substantially all of its assets and liabilities ordered or directed by its primary banking regulator or resolution authority due to the bank’s financial condition or to prevent failure, regardless of whether a formal insolvency declaration or immediate equity wipeout is publicly announced at the time of transfer.
+
+If there is a potential failure of the listed bank within this market’s date range and a qualifying regulatory or court action has occurred but has not yet been fully published by the relevant authority, this market may remain open  to allow for confirmation. If no qualifying failure is confirmed by that date, this market will resolve to “No.”
+
+The primary resolution source for this market will be official statements, filings, or actions by the listed bank’s primary banking regulator or resolution authority; however, a consensus of credible reporting may also be used.
+  E5.C6: Will Deutsche Bank fail by June 30, 2026?
+    Contract rules: This market will resolve to “Yes” if the listed bank fails between market creation and June 30, 2026, 11:59 PM ET. Otherwise, this market will resolve to “No.”
+
+For the purposes of this market, the listed bank will be considered to have “failed” if, within the listed date range, any of the following occurs under the bank’s applicable legal or regulatory framework:
+
+- The listed bank’s primary banking regulator formally declares the institution insolvent or non-viable, or withdraws or revokes the bank’s license or authorization, and such determination initiates or directly results in resolution, liquidation, wind-down, or transfer actions.
+- The listed bank enters a court-ordered liquidation, statutory resolution regime, or regulator-mandated wind-down, including the use of resolution tools such as bail-ins, forced asset transfers, or the establishment of a bridge bank.
+- A government or resolution authority intervenes in a manner that wipes out or subordinates existing equity of the listed bank and transfers effective control of the bank to the state or a designated resolution authority, with continued operations dependent on official intervention.
+- The listed bank publicly defaults on a payment obligation, including derivatives margin, repo, or physical commodity delivery, and such default is formally acknowledged by the bank’s primary regulator or resolution authority and directly results in the initiation of resolution, liquidation, license withdrawal, or regulator-mandated transfer of the bank.
+- The listed bank is subject to a compulsory merger, acquisition, or transfer of all or substantially all of its assets and liabilities ordered or directed by its primary banking regulator or resolution authority due to the bank’s financial condition or to prevent failure, regardless of whether a formal insolvency declaration or immediate equity wipeout is publicly announced at the time of transfer.
+
+If there is a potential failure of the listed bank within this market’s date range and a qualifying regulatory or court action has occurred but has not yet been fully published by the relevant authority, this market may remain open  to allow for confirmation. If no qualifying failure is confirmed by that date, this market will resolve to “No.”
+
+The primary resolution source for this market will be official statements, filings, or actions by the listed bank’s primary banking regulator or resolution authority; however, a consensus of credible reporting may also be used.
+  E5.C7: Will Citigroup fail by June 30, 2026?
+    Contract rules: This market will resolve to “Yes” if the listed bank fails between market creation and June 30, 2026, 11:59 PM ET. Otherwise, this market will resolve to “No.”
+
+For the purposes of this market, the listed bank will be considered to have “failed” if, within the listed date range, any of the following occurs under the bank’s applicable legal or regulatory framework:
+
+- The listed bank’s primary banking regulator formally declares the institution insolvent or non-viable, or withdraws or revokes the bank’s license or authorization, and such determination initiates or directly results in resolution, liquidation, wind-down, or transfer actions.
+- The listed bank enters a court-ordered liquidation, statutory resolution regime, or regulator-mandated wind-down, including the use of resolution tools such as bail-ins, forced asset transfers, or the establishment of a bridge bank.
+- A government or resolution authority intervenes in a manner that wipes out or subordinates existing equity of the listed bank and transfers effective control of the bank to the state or a designated resolution authority, with continued operations dependent on official intervention.
+- The listed bank publicly defaults on a payment obligation, including derivatives margin, repo, or physical commodity delivery, and such default is formally acknowledged by the bank’s primary regulator or resolution authority and directly results in the initiation of resolution, liquidation, license withdrawal, or regulator-mandated transfer of the bank.
+- The listed bank is subject to a compulsory merger, acquisition, or transfer of all or substantially all of its assets and liabilities ordered or directed by its primary banking regulator or resolution authority due to the bank’s financial condition or to prevent failure, regardless of whether a formal insolvency declaration or immediate equity wipeout is publicly announced at the time of transfer.
+
+If there is a potential failure of the listed bank within this market’s date range and a qualifying regulatory or court action has occurred but has not yet been fully published by the relevant authority, this market may remain open  to allow for confirmation. If no qualifying failure is confirmed by that date, this market will resolve to “No.”
+
+The primary resolution source for this market will be official statements, filings, or actions by the listed bank’s primary banking regulator or resolution authority; however, a consensus of credible reporting may also be used.
+  E5.C8: Will Goldman Sachs fail by June 30, 2026?
+    Contract rules: This market will resolve to “Yes” if the listed bank fails between market creation and June 30, 2026, 11:59 PM ET. Otherwise, this market will resolve to “No.”
+
+For the purposes of this market, the listed bank will be considered to have “failed” if, within the listed date range, any of the following occurs under the bank’s applicable legal or regulatory framework:
+
+- The listed bank’s primary banking regulator formally declares the institution insolvent or non-viable, or withdraws or revokes the bank’s license or authorization, and such determination initiates or directly results in resolution, liquidation, wind-down, or transfer actions.
+- The listed bank enters a court-ordered liquidation, statutory resolution regime, or regulator-mandated wind-down, including the use of resolution tools such as bail-ins, forced asset transfers, or the establishment of a bridge bank.
+- A government or resolution authority intervenes in a manner that wipes out or subordinates existing equity of the listed bank and transfers effective control of the bank to the state or a designated resolution authority, with continued operations dependent on official intervention.
+- The listed bank publicly defaults on a payment obligation, including derivatives margin, repo, or physical commodity delivery, and such default is formally acknowledged by the bank’s primary regulator or resolution authority and directly results in the initiation of resolution, liquidation, license withdrawal, or regulator-mandated transfer of the bank.
+- The listed bank is subject to a compulsory merger, acquisition, or transfer of all or substantially all of its assets and liabilities ordered or directed by its primary banking regulator or resolution authority due to the bank’s financial condition or to prevent failure, regardless of whether a formal insolvency declaration or immediate equity wipeout is publicly announced at the time of transfer.
+
+If there is a potential failure of the listed bank within this market’s date range and a qualifying regulatory or court action has occurred but has not yet been fully published by the relevant authority, this market may remain open  to allow for confirmation. If no qualifying failure is confirmed by that date, this market will resolve to “No.”
+
+The primary resolution source for this market will be official statements, filings, or actions by the listed bank’s primary banking regulator or resolution authority; however, a consensus of credible reporting may also be used.
+  E5.C9: Will Morgan Stanley fail by June 30, 2026?
+    Contract rules: This market will resolve to “Yes” if the listed bank fails between market creation and June 30, 2026, 11:59 PM ET. Otherwise, this market will resolve to “No.”
+
+For the purposes of this market, the listed bank will be considered to have “failed” if, within the listed date range, any of the following occurs under the bank’s applicable legal or regulatory framework:
+
+- The listed bank’s primary banking regulator formally declares the institution insolvent or non-viable, or withdraws or revokes the bank’s license or authorization, and such determination initiates or directly results in resolution, liquidation, wind-down, or transfer actions.
+- The listed bank enters a court-ordered liquidation, statutory resolution regime, or regulator-mandated wind-down, including the use of resolution tools such as bail-ins, forced asset transfers, or the establishment of a bridge bank.
+- A government or resolution authority intervenes in a manner that wipes out or subordinates existing equity of the listed bank and transfers effective control of the bank to the state or a designated resolution authority, with continued operations dependent on official intervention.
+- The listed bank publicly defaults on a payment obligation, including derivatives margin, repo, or physical commodity delivery, and such default is formally acknowledged by the bank’s primary regulator or resolution authority and directly results in the initiation of resolution, liquidation, license withdrawal, or regulator-mandated transfer of the bank.
+- The listed bank is subject to a compulsory merger, acquisition, or transfer of all or substantially all of its assets and liabilities ordered or directed by its primary banking regulator or resolution authority due to the bank’s financial condition or to prevent failure, regardless of whether a formal insolvency declaration or immediate equity wipeout is publicly announced at the time of transfer.
+
+If there is a potential failure of the listed bank within this market’s date range and a qualifying regulatory or court action has occurred but has not yet been fully published by the relevant authority, this market may remain open  to allow for confirmation. If no qualifying failure is confirmed by that date, this market will resolve to “No.”
+
+The primary resolution source for this market will be official statements, filings, or actions by the listed bank’s primary banking regulator or resolution authority; however, a consensus of credible reporting may also be used.
+  E5.C10: Will Bank of America fail by June 30, 2026?
+    Contract rules: This market will resolve to “Yes” if the listed bank fails between market creation and June 30, 2026, 11:59 PM ET. Otherwise, this market will resolve to “No.”
+
+For the purposes of this market, the listed bank will be considered to have “failed” if, within the listed date range, any of the following occurs under the bank’s applicable legal or regulatory framework:
+
+- The listed bank’s primary banking regulator formally declares the institution insolvent or non-viable, or withdraws or revokes the bank’s license or authorization, and such determination initiates or directly results in resolution, liquidation, wind-down, or transfer actions.
+- The listed bank enters a court-ordered liquidation, statutory resolution regime, or regulator-mandated wind-down, including the use of resolution tools such as bail-ins, forced asset transfers, or the establishment of a bridge bank.
+- A government or resolution authority intervenes in a manner that wipes out or subordinates existing equity of the listed bank and transfers effective control of the bank to the state or a designated resolution authority, with continued operations dependent on official intervention.
+- The listed bank publicly defaults on a payment obligation, including derivatives margin, repo, or physical commodity delivery, and such default is formally acknowledged by the bank’s primary regulator or resolution authority and directly results in the initiation of resolution, liquidation, license withdrawal, or regulator-mandated transfer of the bank.
+- The listed bank is subject to a compulsory merger, acquisition, or transfer of all or substantially all of its assets and liabilities ordered or directed by its primary banking regulator or resolution authority due to the bank’s financial condition or to prevent failure, regardless of whether a formal insolvency declaration or immediate equity wipeout is publicly announced at the time of transfer.
+
+If there is a potential failure of the listed bank within this market’s date range and a qualifying regulatory or court action has occurred but has not yet been fully published by the relevant authority, this market may remain open  to allow for confirmation. If no qualifying failure is confirmed by that date, this market will resolve to “No.”
+
+The primary resolution source for this market will be official statements, filings, or actions by the listed bank’s primary banking regulator or resolution authority; however, a consensus of credible reporting may also be used.
+  E5.C11: Will Wells Fargo fail by June 30, 2026?
+    Contract rules: This market will resolve to “Yes” if the listed bank fails between market creation and June 30, 2026, 11:59 PM ET. Otherwise, this market will resolve to “No.”
+
+For the purposes of this market, the listed bank will be considered to have “failed” if, within the listed date range, any of the following occurs under the bank’s applicable legal or regulatory framework:
+
+- The listed bank’s primary banking regulator formally declares the institution insolvent or non-viable, or withdraws or revokes the bank’s license or authorization, and such determination initiates or directly results in resolution, liquidation, wind-down, or transfer actions.
+- The listed bank enters a court-ordered liquidation, statutory resolution regime, or regulator-mandated wind-down, including the use of resolution tools such as bail-ins, forced asset transfers, or the establishment of a bridge bank.
+- A government or resolution authority intervenes in a manner that wipes out or subordinates existing equity of the listed bank and transfers effective control of the bank to the state or a designated resolution authority, with continued operations dependent on official intervention.
+- The listed bank publicly defaults on a payment obligation, including derivatives margin, repo, or physical commodity delivery, and such default is formally acknowledged by the bank’s primary regulator or resolution authority and directly results in the initiation of resolution, liquidation, license withdrawal, or regulator-mandated transfer of the bank.
+- The listed bank is subject to a compulsory merger, acquisition, or transfer of all or substantially all of its assets and liabilities ordered or directed by its primary banking regulator or resolution authority due to the bank’s financial condition or to prevent failure, regardless of whether a formal insolvency declaration or immediate equity wipeout is publicly announced at the time of transfer.
+
+If there is a potential failure of the listed bank within this market’s date range and a qualifying regulatory or court action has occurred but has not yet been fully published by the relevant authority, this market may remain open  to allow for confirmation. If no qualifying failure is confirmed by that date, this market will resolve to “No.”
+
+The primary resolution source for this market will be official statements, filings, or actions by the listed bank’s primary banking regulator or resolution authority; however, a consensus of credible reporting may also be used.
+  E5.C12: Will US Bank fail by June 30, 2026?
+    Contract rules: This market will resolve to “Yes” if the listed bank fails between market creation and June 30, 2026, 11:59 PM ET. Otherwise, this market will resolve to “No.”
+
+For the purposes of this market, the listed bank will be considered to have “failed” if, within the listed date range, any of the following occurs under the bank’s applicable legal or regulatory framework:
+
+- The listed bank’s primary banking regulator formally declares the institution insolvent or non-viable, or withdraws or revokes the bank’s license or authorization, and such determination initiates or directly results in resolution, liquidation, wind-down, or transfer actions.
+- The listed bank enters a court-ordered liquidation, statutory resolution regime, or regulator-mandated wind-down, including the use of resolution tools such as bail-ins, forced asset transfers, or the establishment of a bridge bank.
+- A government or resolution authority intervenes in a manner that wipes out or subordinates existing equity of the listed bank and transfers effective control of the bank to the state or a designated resolution authority, with continued operations dependent on official intervention.
+- The listed bank publicly defaults on a payment obligation, including derivatives margin, repo, or physical commodity delivery, and such default is formally acknowledged by the bank’s primary regulator or resolution authority and directly results in the initiation of resolution, liquidation, license withdrawal, or regulator-mandated transfer of the bank.
+- The listed bank is subject to a compulsory merger, acquisition, or transfer of all or substantially all of its assets and liabilities ordered or directed by its primary banking regulator or resolution authority due to the bank’s financial condition or to prevent failure, regardless of whether a formal insolvency declaration or immediate equity wipeout is publicly announced at the time of transfer.
+
+If there is a potential failure of the listed bank within this market’s date range and a qualifying regulatory or court action has occurred but has not yet been fully published by the relevant authority, this market may remain open  to allow for confirmation. If no qualifying failure is confirmed by that date, this market will resolve to “No.”
+
+The primary resolution source for this market will be official statements, filings, or actions by the listed bank’s primary banking regulator or resolution authority; however, a consensus of credible reporting may also be used.
+  E5.C13: Will Truist fail by June 30, 2026?
+    Contract rules: This market will resolve to “Yes” if the listed bank fails between market creation and June 30, 2026, 11:59 PM ET. Otherwise, this market will resolve to “No.”
+
+For the purposes of this market, the listed bank will be considered to have “failed” if, within the listed date range, any of the following occurs under the bank’s applicable legal or regulatory framework:
+
+- The listed bank’s primary banking regulator formally declares the institution insolvent or non-viable, or withdraws or revokes the bank’s license or authorization, and such determination initiates or directly results in resolution, liquidation, wind-down, or transfer actions.
+- The listed bank enters a court-ordered liquidation, statutory resolution regime, or regulator-mandated wind-down, including the use of resolution tools such as bail-ins, forced asset transfers, or the establishment of a bridge bank.
+- A government or resolution authority intervenes in a manner that wipes out or subordinates existing equity of the listed bank and transfers effective control of the bank to the state or a designated resolution authority, with continued operations dependent on official intervention.
+- The listed bank publicly defaults on a payment obligation, including derivatives margin, repo, or physical commodity delivery, and such default is formally acknowledged by the bank’s primary regulator or resolution authority and directly results in the initiation of resolution, liquidation, license withdrawal, or regulator-mandated transfer of the bank.
+- The listed bank is subject to a compulsory merger, acquisition, or transfer of all or substantially all of its assets and liabilities ordered or directed by its primary banking regulator or resolution authority due to the bank’s financial condition or to prevent failure, regardless of whether a formal insolvency declaration or immediate equity wipeout is publicly announced at the time of transfer.
+
+If there is a potential failure of the listed bank within this market’s date range and a qualifying regulatory or court action has occurred but has not yet been fully published by the relevant authority, this market may remain open  to allow for confirmation. If no qualifying failure is confirmed by that date, this market will resolve to “No.”
+
+The primary resolution source for this market will be official statements, filings, or actions by the listed bank’s primary banking regulator or resolution authority; however, a consensus of credible reporting may also be used.
+  E5.C14: Will BNY fail by June 30, 2026?
+    Contract rules: This market will resolve to “Yes” if the listed bank fails between market creation and June 30, 2026, 11:59 PM ET. Otherwise, this market will resolve to “No.”
+
+For the purposes of this market, the listed bank will be considered to have “failed” if, within the listed date range, any of the following occurs under the bank’s applicable legal or regulatory framework:
+
+- The listed bank’s primary banking regulator formally declares the institution insolvent or non-viable, or withdraws or revokes the bank’s license or authorization, and such determination initiates or directly results in resolution, liquidation, wind-down, or transfer actions.
+- The listed bank enters a court-ordered liquidation, statutory resolution regime, or regulator-mandated wind-down, including the use of resolution tools such as bail-ins, forced asset transfers, or the establishment of a bridge bank.
+- A government or resolution authority intervenes in a manner that wipes out or subordinates existing equity of the listed bank and transfers effective control of the bank to the state or a designated resolution authority, with continued operations dependent on official intervention.
+- The listed bank publicly defaults on a payment obligation, including derivatives margin, repo, or physical commodity delivery, and such default is formally acknowledged by the bank’s primary regulator or resolution authority and directly results in the initiation of resolution, liquidation, license withdrawal, or regulator-mandated transfer of the bank.
+- The listed bank is subject to a compulsory merger, acquisition, or transfer of all or substantially all of its assets and liabilities ordered or directed by its primary banking regulator or resolution authority due to the bank’s financial condition or to prevent failure, regardless of whether a formal insolvency declaration or immediate equity wipeout is publicly announced at the time of transfer.
+
+If there is a potential failure of the listed bank within this market’s date range and a qualifying regulatory or court action has occurred but has not yet been fully published by the relevant authority, this market may remain open  to allow for confirmation. If no qualifying failure is confirmed by that date, this market will resolve to “No.”
+
+The primary resolution source for this market will be official statements, filings, or actions by the listed bank’s primary banking regulator or resolution authority; however, a consensus of credible reporting may also be used.
+  E5.C15: Will RBC fail by June 30, 2026?
+    Contract rules: This market will resolve to “Yes” if the listed bank fails between market creation and June 30, 2026, 11:59 PM ET. Otherwise, this market will resolve to “No.”
+
+For the purposes of this market, the listed bank will be considered to have “failed” if, within the listed date range, any of the following occurs under the bank’s applicable legal or regulatory framework:
+
+- The listed bank’s primary banking regulator formally declares the institution insolvent or non-viable, or withdraws or revokes the bank’s license or authorization, and such determination initiates or directly results in resolution, liquidation, wind-down, or transfer actions.
+- The listed bank enters a court-ordered liquidation, statutory resolution regime, or regulator-mandated wind-down, including the use of resolution tools such as bail-ins, forced asset transfers, or the establishment of a bridge bank.
+- A government or resolution authority intervenes in a manner that wipes out or subordinates existing equity of the listed bank and transfers effective control of the bank to the state or a designated resolution authority, with continued operations dependent on official intervention.
+- The listed bank publicly defaults on a payment obligation, including derivatives margin, repo, or physical commodity delivery, and such default is formally acknowledged by the bank’s primary regulator or resolution authority and directly results in the initiation of resolution, liquidation, license withdrawal, or regulator-mandated transfer of the bank.
+- The listed bank is subject to a compulsory merger, acquisition, or transfer of all or substantially all of its assets and liabilities ordered or directed by its primary banking regulator or resolution authority due to the bank’s financial condition or to prevent failure, regardless of whether a formal insolvency declaration or immediate equity wipeout is publicly announced at the time of transfer.
+
+If there is a potential failure of the listed bank within this market’s date range and a qualifying regulatory or court action has occurred but has not yet been fully published by the relevant authority, this market may remain open  to allow for confirmation. If no qualifying failure is confirmed by that date, this market will resolve to “No.”
+
+The primary resolution source for this market will be official statements, filings, or actions by the listed bank’s primary banking regulator or resolution authority; however, a consensus of credible reporting may also be used.
+  E5.C16: Will Santander fail by June 30, 2026?
+    Contract rules: This market will resolve to “Yes” if the listed bank fails between market creation and June 30, 2026, 11:59 PM ET. Otherwise, this market will resolve to “No.”
+
+For the purposes of this market, the listed bank will be considered to have “failed” if, within the listed date range, any of the following occurs under the bank’s applicable legal or regulatory framework:
+
+- The listed bank’s primary banking regulator formally declares the institution insolvent or non-viable, or withdraws or revokes the bank’s license or authorization, and such determination initiates or directly results in resolution, liquidation, wind-down, or transfer actions.
+- The listed bank enters a court-ordered liquidation, statutory resolution regime, or regulator-mandated wind-down, including the use of resolution tools such as bail-ins, forced asset transfers, or the establishment of a bridge bank.
+- A government or resolution authority intervenes in a manner that wipes out or subordinates existing equity of the listed bank and transfers effective control of the bank to the state or a designated resolution authority, with continued operations dependent on official intervention.
+- The listed bank publicly defaults on a payment obligation, including derivatives margin, repo, or physical commodity delivery, and such default is formally acknowledged by the bank’s primary regulator or resolution authority and directly results in the initiation of resolution, liquidation, license withdrawal, or regulator-mandated transfer of the bank.
+- The listed bank is subject to a compulsory merger, acquisition, or transfer of all or substantially all of its assets and liabilities ordered or directed by its primary banking regulator or resolution authority due to the bank’s financial condition or to prevent failure, regardless of whether a formal insolvency declaration or immediate equity wipeout is publicly announced at the time of transfer.
+
+If there is a potential failure of the listed bank within this market’s date range and a qualifying regulatory or court action has occurred but has not yet been fully published by the relevant authority, this market may remain open  to allow for confirmation. If no qualifying failure is confirmed by that date, this market will resolve to “No.”
+
+The primary resolution source for this market will be official statements, filings, or actions by the listed bank’s primary banking regulator or resolution authority; however, a consensus of credible reporting may also be used.
+  E5.C17: Will Lloyds fail by June 30, 2026?
+    Contract rules: This market will resolve to “Yes” if the listed bank fails between market creation and June 30, 2026, 11:59 PM ET. Otherwise, this market will resolve to “No.”
+
+For the purposes of this market, the listed bank will be considered to have “failed” if, within the listed date range, any of the following occurs under the bank’s applicable legal or regulatory framework:
+
+- The listed bank’s primary banking regulator formally declares the institution insolvent or non-viable, or withdraws or revokes the bank’s license or authorization, and such determination initiates or directly results in resolution, liquidation, wind-down, or transfer actions.
+- The listed bank enters a court-ordered liquidation, statutory resolution regime, or regulator-mandated wind-down, including the use of resolution tools such as bail-ins, forced asset transfers, or the establishment of a bridge bank.
+- A government or resolution authority intervenes in a manner that wipes out or subordinates existing equity of the listed bank and transfers effective control of the bank to the state or a designated resolution authority, with continued operations dependent on official intervention.
+- The listed bank publicly defaults on a payment obligation, including derivatives margin, repo, or physical commodity delivery, and such default is formally acknowledged by the bank’s primary regulator or resolution authority and directly results in the initiation of resolution, liquidation, license withdrawal, or regulator-mandated transfer of the bank.
+- The listed bank is subject to a compulsory merger, acquisition, or transfer of all or substantially all of its assets and liabilities ordered or directed by its primary banking regulator or resolution authority due to the bank’s financial condition or to prevent failure, regardless of whether a formal insolvency declaration or immediate equity wipeout is publicly announced at the time of transfer.
+
+If there is a potential failure of the listed bank within this market’s date range and a qualifying regulatory or court action has occurred but has not yet been fully published by the relevant authority, this market may remain open  to allow for confirmation. If no qualifying failure is confirmed by that date, this market will resolve to “No.”
+
+The primary resolution source for this market will be official statements, filings, or actions by the listed bank’s primary banking regulator or resolution authority; however, a consensus of credible reporting may also be used.
+  E5.C18: Will BMO fail by June 30, 2026?
+    Contract rules: This market will resolve to “Yes” if the listed bank fails between market creation and June 30, 2026, 11:59 PM ET. Otherwise, this market will resolve to “No.”
+
+For the purposes of this market, the listed bank will be considered to have “failed” if, within the listed date range, any of the following occurs under the bank’s applicable legal or regulatory framework:
+
+- The listed bank’s primary banking regulator formally declares the institution insolvent or non-viable, or withdraws or revokes the bank’s license or authorization, and such determination initiates or directly results in resolution, liquidation, wind-down, or transfer actions.
+- The listed bank enters a court-ordered liquidation, statutory resolution regime, or regulator-mandated wind-down, including the use of resolution tools such as bail-ins, forced asset transfers, or the establishment of a bridge bank.
+- A government or resolution authority intervenes in a manner that wipes out or subordinates existing equity of the listed bank and transfers effective control of the bank to the state or a designated resolution authority, with continued operations dependent on official intervention.
+- The listed bank publicly defaults on a payment obligation, including derivatives margin, repo, or physical commodity delivery, and such default is formally acknowledged by the bank’s primary regulator or resolution authority and directly results in the initiation of resolution, liquidation, license withdrawal, or regulator-mandated transfer of the bank.
+- The listed bank is subject to a compulsory merger, acquisition, or transfer of all or substantially all of its assets and liabilities ordered or directed by its primary banking regulator or resolution authority due to the bank’s financial condition or to prevent failure, regardless of whether a formal insolvency declaration or immediate equity wipeout is publicly announced at the time of transfer.
+
+If there is a potential failure of the listed bank within this market’s date range and a qualifying regulatory or court action has occurred but has not yet been fully published by the relevant authority, this market may remain open  to allow for confirmation. If no qualifying failure is confirmed by that date, this market will resolve to “No.”
+
+The primary resolution source for this market will be official statements, filings, or actions by the listed bank’s primary banking regulator or resolution authority; however, a consensus of credible reporting may also be used.
+  E5.C19: Will KeyBank fail by June 30, 2026?
+    Contract rules: This market will resolve to “Yes” if the listed bank fails between market creation and June 30, 2026, 11:59 PM ET. Otherwise, this market will resolve to “No.”
+
+For the purposes of this market, the listed bank will be considered to have “failed” if, within the listed date range, any of the following occurs under the bank’s applicable legal or regulatory framework:
+
+- The listed bank’s primary banking regulator formally declares the institution insolvent or non-viable, or withdraws or revokes the bank’s license or authorization, and such determination initiates or directly results in resolution, liquidation, wind-down, or transfer actions.
+- The listed bank enters a court-ordered liquidation, statutory resolution regime, or regulator-mandated wind-down, including the use of resolution tools such as bail-ins, forced asset transfers, or the establishment of a bridge bank.
+- A government or resolution authority intervenes in a manner that wipes out or subordinates existing equity of the listed bank and transfers effective control of the bank to the state or a designated resolution authority, with continued operations dependent on official intervention.
+- The listed bank publicly defaults on a payment obligation, including derivatives margin, repo, or physical commodity delivery, and such default is formally acknowledged by the bank’s primary regulator or resolution authority and directly results in the initiation of resolution, liquidation, license withdrawal, or regulator-mandated transfer of the bank.
+- The listed bank is subject to a compulsory merger, acquisition, or transfer of all or substantially all of its assets and liabilities ordered or directed by its primary banking regulator or resolution authority due to the bank’s financial condition or to prevent failure, regardless of whether a formal insolvency declaration or immediate equity wipeout is publicly announced at the time of transfer.
+
+If there is a potential failure of the listed bank within this market’s date range and a qualifying regulatory or court action has occurred but has not yet been fully published by the relevant authority, this market may remain open  to allow for confirmation. If no qualifying failure is confirmed by that date, this market will resolve to “No.”
+
+The primary resolution source for this market will be official statements, filings, or actions by the listed bank’s primary banking regulator or resolution authority; however, a consensus of credible reporting may also be used.
+News before E5's as-of date (date seen, source, headline):
+  - 2026-04-21 | www.legit.ng | CBN releases statement on 5 Nigerian banks that failed to meet recap target
+  - 2026-04-17 | www.newagebd.net | 17 banks fail to generate net profit in 2024: BB
+  - 2026-04-16 | impact-investor.com | Banks failing to address methane emission from agri-food sector, report finds — article includes a paywall
+  - 2026-04-16 | businessday.ng | NDIC begins wind-up of 89 failed microfinance, mortgage banks
+  - 2026-04-16 | dailytrust.com | NDIC to conclude final liquidation on 89 failed microfinance banks, others
+  - 2026-04-16 | www.legit.ng | Full List: NDIC moves to dissolve multiple failed banks as new owners take over
+  - 2026-04-15 | nairametrics.com | NDIC moves to conclude liquidation of 89 failed microfinance, mortgage banks
+What to write for E5:
+  Write "p": a whole percent for every contract label, your chance that it resolves YES.
+
+=== E6 (as of 2026-04-22): Bitcoin price on April 28?
+Rules:
+This market will resolve according to the final "Close" price of the Binance 1 minute candle for BTC/USDT 12:00 in the ET timezone (noon) on the date specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the BTC/USDT "Close" prices currently available at https://www.binance.com/en/trade/BTC_USDT with "1m" and "Candles" selected on the top bar.
+
+If the reported value falls exactly between two brackets, then this market will resolve to the higher range bracket.
+
+Please note that this market is about the price according to Binance BTC/USDT, not according to other exchanges or trading pairs.
+Contracts:
+  E6.C1: Will the price of Bitcoin be less than $66,000 on April 28?
+  E6.C2: Will the price of Bitcoin be between $66,000 and $68,000 on April 28?
+  E6.C3: Will the price of Bitcoin be between $68,000 and $70,000 on April 28?
+  E6.C4: Will the price of Bitcoin be between $70,000 and $72,000 on April 28?
+  E6.C5: Will the price of Bitcoin be between $72,000 and $74,000 on April 28?
+  E6.C6: Will the price of Bitcoin be between $74,000 and $76,000 on April 28?
+  E6.C7: Will the price of Bitcoin be between $76,000 and $78,000 on April 28?
+  E6.C8: Will the price of Bitcoin be between $78,000 and $80,000 on April 28?
+  E6.C9: Will the price of Bitcoin be between $80,000 and $82,000 on April 28?
+  E6.C10: Will the price of Bitcoin be between $82,000 and $84,000 on April 28?
+  E6.C11: Will the price of Bitcoin be greater than $84,000 on April 28?
+News before E6's as-of date (date seen, source, headline):
+  - 2026-04-22 | www.bloomberg.com | Bitcoin Rises on Optimism Over Trump’s Extended Iran Ceasefire
+  - 2026-04-22 | finance.yahoo.com | Bitcoin Price Prediction as BTC Hits $78K Again: Can It Clear $80K?
+  - 2026-04-22 | www.investopedia.com | Why Bitcoin Is Flirting With $80,000 Again—And Why Experts Say It Might Cool Off
+  - 2026-04-22 | finance.yahoo.com | Bitcoin and ethereum prices today, Wednesday, April 22, 2026: Prices rising following ceasefire extension
+  - 2026-04-22 | finance.yahoo.com | Bitcoin's Price Without Michael Saylor? Grok Thinks Strategy Responsible For 'Real Upward Pressure And Sentiment Tailwinds'
+  - 2026-04-22 | fortune.com | Current price of Bitcoin for April 22, 2026
+  - 2026-04-22 | www.forbes.com | Is Adam Back Satoshi? The $80 Billion Bitcoin Risk Premium
+  - 2026-04-22 | finance.yahoo.com | Trader predicts Satoshi could move Bitcoin in 2026
+  - 2026-04-22 | www.etftrends.com | Cryptocurrencies: Bitcoin Reaches 11-Week High
+  - 2026-04-22 | www.coindesk.com | Bitcoin's Coinbase premium just posted its strongest bullish signal since October's record price of $126,000
+  - 2026-04-22 | www.forbes.com | 'Popped In October'—Crypto 'Godfather' Eyes $57K Bitcoin Bottom
+  - 2026-04-22 | www.coindesk.com | The signal bitcoin (BTC) price momentum traders have been waiting for is here
+  - 2026-04-22 | www.coindesk.com | Bitcoin price tops $78,000 on Trump ceasefire extension, Strategy's $2.5 billion buy
+  - 2026-04-21 | bitcoinfoundation.org | Will Bitcoin Hit $100K in 2026?
+  - 2026-04-21 | finance.yahoo.com | Coinbase vs. Bitcoin: Why the Crypto Stock Is a Better Buy
+  - 2026-04-21 | finance.yahoo.com | Bitcoin and ethereum prices today, Tuesday, April 21, 2026: Prices on the rise this morning
+  - 2026-04-21 | www.reuters.com | Chinese crypto tycoon eyes Hong Kong capital with bitcoin asset management push
+  - 2026-04-21 | fortune.com | Current price of Bitcoin for April 21, 2026
+  - 2026-04-21 | finance.yahoo.com | Bitcoin Could Run To $95,000 Or Crash To $70,000: Here's What Technical Analysis Says
+  - 2026-04-21 | www.coindesk.com | Bitcoin price news: What next as BTC reclaims $75,000
+  - 2026-04-21 | www.hsfkramer.com | Digital property and the limits of conversion: High Court strikes out conversion claim for misappropriation of Bitcoin
+  - 2026-04-20 | fortune.com | Current price of Bitcoin for April 20, 2026
+  - 2026-04-20 | finance.yahoo.com | Bitcoin's comeback won't happen in 2026: Deutsche Bank survey of consumers
+  - 2026-04-20 | bitcoinfoundation.org | Bitcoin vs El Salvador: How the Country’s BTC Investment Strategy Changed in 2026
+  - 2026-04-20 | www.coindesk.com | Bitcoin bounces above $76,000 as DeFi suffers $14 billion exodus after KelpDAO hack
+What to write for E6:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).

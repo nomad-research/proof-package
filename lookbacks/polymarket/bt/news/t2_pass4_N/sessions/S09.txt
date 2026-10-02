@@ -1,0 +1,410 @@
+You will be shown 6 questions from a prediction market. Each has one or more contracts that resolve YES or NO under the rules shown. Each question gives the date your view is "as of": answer as you would on that date.
+
+Use what you already know and the news headlines listed under each question, all published in the 7 days before its as-of date. Do not search for or look up anything else: reading this file is the only tool call you may make. There are no prices from any prediction market in this file and you should not try to estimate what any market thinks; give your own view.
+
+Each question says what to write for it. Whole percents run from 1 to 99. Levels are plain numbers in the units the contracts use (for example 95000 for $95,000, 3.25 for 3.25%). Dates are YYYY-MM-DD.
+
+For each question also say whether you recognise how it actually turned out ("recognised": true only if you believe you remember the real outcome; otherwise false).
+
+Reply with one JSON object and nothing else:
+{"events": [{"label": "E1", "recognised": false, ...the fields that question asks for...}]}
+
+=== E1 (as of 2026-09-09): How high will 5-year Treasury yield go in September?
+Rules:
+This market will resolve to "Yes" if the Treasury 5-year yield reaches or is higher than the listed value for any date between September 3, 2026 and September 30, 2026. Otherwise this market will resolve to "No".
+
+This market will resolve as soon as the Treasury 5-year yield reaches or is higher than the listed value, or once data is available for September 30, 2026. If no qualifying value is published and data is not available for September 30, 2026 by October 14, 11:59 PM ET, this market will resolve to "No".
+
+The resolution source for this market is the Department of the treasury, specifically the data listed under "Daily Treasury Par Yield Curve Rates" for the column "5 Yr" (see: https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve&field_tdr_date_value=2026).
+Contracts:
+  E1.C1: Will the 5-year Treasury yield hit 4.58% in September?
+  E1.C2: Will the 5-year Treasury yield hit 4.61% in September?
+  E1.C3: Will the 5-year Treasury yield hit 4.64% in September?
+  E1.C4: Will the 5-year Treasury yield hit 4.67% in September?
+  E1.C5: Will the 5-year Treasury yield hit 4.70% in September?
+  E1.C6: Will the 5-year Treasury yield hit 4.73% in September?
+  E1.C7: Will the 5-year Treasury yield hit 4.78% in September?
+  E1.C8: Will the 5-year Treasury yield hit 4.83% in September?
+  E1.C9: Will the 5-year Treasury yield hit 4.90% in September?
+News before E1's as-of date (date seen, source, headline):
+  - 2026-09-09 | www.cnbc.com | 10-year Treasury yield touches highest since 2023 despite Bessent's $6 billion bond buyback plan
+  - 2026-09-09 | www.crfb.org | 10-Year Treasury Yield Hit 4.8%, Highest Since 2023-2026-09-09
+  - 2026-09-09 | thehill.com | 10-year Treasury yields hit multiyear high after buyback increase
+  - 2026-09-09 | www.foxbusiness.com | Treasury to buy back up to $6B in longer-term debt as bond yields hit highest level since 2023
+  - 2026-09-02 | www.cnbc.com | 10-year U.S. Treasury yield hits highest level since November 2023
+What to write for E1:
+  Write "high": for each chance 10, 25, 50, 75 and 90, the level you give that chance of being reached (at or above) within the period. The 10 level is the highest.
+
+=== E2 (as of 2026-05-27): XRP above ___ on May 27?
+Rules:
+This market will resolve to "Yes" if the Binance 1 minute candle for XRP/USDT 12:00 in the ET timezone (noon) on the date specified in the title has a final "Close" price higher than the price specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the XRP/USDT "Close" prices currently available at https://www.binance.com/en/trade/XRP_USDT with "1m" and "Candles" selected on the top bar.
+
+Please note that this market is about the price according to Binance XRP/USDT, not according to other exchanges or trading pairs.
+
+Price precision is determined by the number of decimal places in the source.
+Contracts:
+  E2.C1: Will the price of XRP be above $0.90 on May 27?
+  E2.C2: Will the price of XRP be above $1.00 on May 27?
+  E2.C3: Will the price of XRP be above $1.10 on May 27?
+  E2.C4: Will the price of XRP be above $1.20 on May 27?
+  E2.C5: Will the price of XRP be above $1.30 on May 27?
+  E2.C6: Will the price of XRP be above $1.40 on May 27?
+  E2.C7: Will the price of XRP be above $1.50 on May 27?
+  E2.C8: Will the price of XRP be above $1.60 on May 27?
+  E2.C9: Will the price of XRP be above $1.70 on May 27?
+  E2.C10: Will the price of XRP be above $1.80 on May 27?
+  E2.C11: Will the price of XRP be above $1.90 on May 27?
+News before E2's as-of date (date seen, source, headline):
+  - 2026-05-27 | finance.yahoo.com | Will XRP Ever Skyrocket? What Conditions Would Trigger It
+  - 2026-05-27 | 247wallst.com | How Will the CLARITY Act Actually Change XRP’s Long-Term Price?
+  - 2026-05-27 | 247wallst.com | Is XRP (Ripple) Worth Buying Right Now?
+  - 2026-05-27 | www.coindesk.com | XRP price analysis: Ripple-linked token steadies near $1.32 after failed breakout
+  - 2026-05-27 | www.tradingview.com | XRP Pushing To $100: The Market Cap Conversation Will Go Out The Window If This Happens
+  - 2026-05-27 | www.tradingview.com | Here’s why the XRP price is in a deep dive today
+  - 2026-05-27 | 247wallst.com | XRP Price Analysis: XRP’s Liquidity on Binance Just Hit a 5-Year Low
+  - 2026-05-27 | cryptoslate.com | Ripple is expanding institutional finance ambitions while XRP traders are losing confidence
+  - 2026-05-27 | www.tradingview.com | Hedging With XRP: The Trillion-Dollar Push That Could Send Price Above $300
+  - 2026-05-27 | www.tradingview.com | Will XRP Price Ever Reach $200? Top Expert Discloses What Must Happen First
+  - 2026-05-27 | 247wallst.com | XRP ETF Inflows Just Hit a 2026 High: Is a Price Surge Coming?
+  - 2026-05-27 | www.thestreet.com | XRP traders withdraw millions of dollars in 24 hours
+  - 2026-05-27 | coinpedia.org | XRP Price Prediction: Why a Surprise Rebound Could Be Near
+  - 2026-05-26 | 247wallst.com | Can XRP Hit $200? What Has To Change In Crypto For It To Happen
+  - 2026-05-26 | finance.yahoo.com | Is XRP Still Worth Buying at Today's Price?
+  - 2026-05-26 | finance.yahoo.com | RLUSD Just Crossed $1.6 Billion Market Cap: Here’s Why It’s Not Helping XRP
+  - 2026-05-26 | www.coindesk.com | XRP news: Ripple-linked blockchain could close its biggest DeFi gap if new proposal passes
+  - 2026-05-26 | www.coindesk.com | XRP slips below $1.35 after triangle breakdown puts focus on $1.30 support
+  - 2026-05-26 | 247wallst.com | What 10,000 XRP Could Be Worth by 2028
+  - 2026-05-26 | www.tradingview.com | XRP’s Utility Narrative Extends Beyond Conventional Market Cap Metrics
+  - 2026-05-26 | 247wallst.com | Ripple (XRP) Just Filed Trademarks That Show It’s Becoming a Full Financial Institution
+  - 2026-05-26 | cryptonews.com | Sam Altman ChatGPT AI Predicts XRP Price By End of June 2026
+  - 2026-05-26 | www.tradingview.com | Pundit Points Out Major Mistake Being Made With The XRP Pricing
+  - 2026-05-26 | cryptoticker.io | XRP Price Prediction: Ripple Signals a Violent Reversal Toward the $2.50 Target
+  - 2026-05-26 | 247wallst.com | We Asked 4 AI Models If $10,000 In XRP Beats $10,000 In Nvidia by 2030
+What to write for E2:
+  Write "levels": for each chance 10, 25, 50, 75 and 90, the level you give that chance of the measured quantity being at or above when it resolves. The 10 level is the highest and the 90 level the lowest. Example: {"10": 120, "25": 110, "50": 100, "75": 92, "90": 85}.
+
+=== E3 (as of 2026-08-19): Donald Trump # Truth Social posts August 21 - August 28, 2026?
+Rules:
+This market will resolve according to the number of times Donald Trump (@realDonaldTrump), posts on Truth Social between August 21, 12:00 PM ET and August 28, 2026, 12:00 PM ET.
+
+For the purposes of this market, only main feed posts, quote posts and reposts will count.
+
+Replies will NOT count towards the total - however, replies which are recorded on the main feed will be counted by the tracker.
+
+Deleted posts will count as long as they remain available long enough to be captured by the tracker (~5 minutes).
+
+The resolution source for this market is the "Post Counter" figure for posts found at https://xtracker.polymarket.com. Individual posts can be viewed by clicking "Export Data". If the tracker does not update correctly in accordance with the rules, Truth Social itself may be used as a secondary resolution source.
+Contracts:
+  E3.C1: Will Donald Trump post 0-19 Truth Social posts from August 21 to August 28, 2026?
+  E3.C2: Will Donald Trump post 20-39 Truth Social posts from August 21 to August 28, 2026?
+  E3.C3: Will Donald Trump post 40-59 Truth Social posts from August 21 to August 28, 2026?
+  E3.C4: Will Donald Trump post 60-79 Truth Social posts from August 21 to August 28, 2026?
+  E3.C5: Will Donald Trump post 80-99 Truth Social posts from August 21 to August 28, 2026?
+  E3.C6: Will Donald Trump post 100-119 Truth Social posts from August 21 to August 28, 2026?
+  E3.C7: Will Donald Trump post 120-139 Truth Social posts from August 21 to August 28, 2026?
+  E3.C8: Will Donald Trump post 140-159 Truth Social posts from August 21 to August 28, 2026?
+  E3.C9: Will Donald Trump post 160-179 Truth Social posts from August 21 to August 28, 2026?
+  E3.C10: Will Donald Trump post 180-199 Truth Social posts from August 21 to August 28, 2026?
+  E3.C11: Will Donald Trump post 200+ Truth Social posts from August 21 to August 28, 2026?
+News before E3's as-of date (date seen, source, headline):
+  - 2026-08-17 | jacobin.com | Donald Trump’s Coalition Is Coming Apart
+  - 2026-08-17 | danieldrezner.substack.com | Donald Trump Gives Up on American Foreign Policy
+  - 2026-08-17 | sports.yahoo.com | ‘Everybody knows the deal’: Donald Trump’s cheating tactics on golf course exposed
+  - 2026-08-17 | theweek.com | Why is Donald Trump punishing South Korea?
+  - 2026-08-17 | www.economist.com | Donald Trump abruptly scales back an exercise with South Korea
+  - 2026-08-16 | abc11.com | Donald Trump, BBC news: Broadcaster asks US court for help in getting testimony from Trump family in defamation lawsuit
+  - 2026-08-16 | www.newyorker.com | Donald Trump Is Still Trying to Make It Harder to Vote
+  - 2026-08-16 | www.ms.now | Can American democracy SURVIVE Donald Trump? Here’s what Katy Tur thinks
+  - 2026-08-14 | www.facebook.com | DW News. . US President Donald Trump has threatened to declare the Strait of Hormuz "a territory of the United States" after defeating Iran. The comments come as peace talks remain stalled, with Tehran refusing to reopen the key waterway. #dwnews
+  - 2026-08-14 | www.banks.senate.gov | ICYMI: Sen. Banks Joins Triggered with Donald Trump Jr.
+  - 2026-08-13 | www.theguardian.com | Donald Trump empowers US private companies to conduct cyber-attacks
+  - 2026-08-13 | www.theguardian.com | Trump has amassed staggering wealth in ‘most openly corrupt’ presidency | Donald Trump
+  - 2026-08-12 | prospect.org | Aftermath: Donald Trump Invented a New Forever War
+  - 2026-08-12 | www.ft.com | US press groups sue Donald Trump over fast access to Truth Social posts
+What to write for E3:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E4 (as of 2026-05-20): How many ships transit the Strait of Hormuz week of May 18?
+Rules:
+This market will resolve according to the total number of transit calls that IMF Portwatch reports for the Strait of Hormuz for all days from May 18, 2026, through May 24, 2026, inclusive.
+
+Transit calls include container, dry bulk, roll-on/roll-off, general cargo, and tanker ships. Ships not reported by IMF Portwatch will not be considered.
+
+This market will resolve as soon as data has been published for the final date in the specified period. If no data has been published for the final date of the specified period within 14 calendar days (ET) after the end of that period, this market will resolve based on data published up to that point.
+
+Revisions to previously published data points made within this market’s timeframe will be considered. Revisions to previously published data points after data is published for the final date of the specified period, however, will not be considered.
+
+The resolution source for this market will be IMF Portwatch, specifically the transit calls data published for the Strait of Hormuz at https://portwatch.imf.org/pages/cb5856222a5b4105adc6ee7e880a1730, both in the chart and through downloadable files.
+Contracts:
+  E4.C1: Will fewer than 20 ships transit the Strait of Hormuz between May 18-May 24?
+  E4.C2: Will 20-39 ships transit the Strait of Hormuz between May 18-May 24?
+  E4.C3: Will 40-59 ships transit the Strait of Hormuz between May 18-May 24?
+  E4.C4: Will 60-79 ships transit the Strait of Hormuz between May 18-May 24?
+  E4.C5: Will 80 or more ships transit the Strait of Hormuz between May 18-May 24?
+News before E4's as-of date (date seen, source, headline):
+  - 2026-05-19 | www.aa.com.tr | US says 88 commercial vessels redirected from transiting Strait of Hormuz
+  - 2026-05-18 | www.icis.com | Strait of Hormuz transits increase slightly as Iran, US negotiations continue
+  - 2026-05-15 | www.insurancejournal.com | Oil Tankers Transiting Strait of Hormuz Since Start of Iran War
+  - 2026-05-15 | www.aa.com.tr | US military says it redirected 72 ships from transiting Strait of Hormuz
+  - 2026-05-14 | www.aljazeera.com | Trump, Xi discuss Strait of Hormuz as Chinese vessels transit key waterway
+  - 2026-05-14 | www.reuters.com | Iran allowing transit of Chinese vessels in Strait of Hormuz, Fars news reports
+  - 2026-05-14 | www.aa.com.tr | US says it redirects 70 ships from transiting Strait of Hormuz, disables 4 others
+  - 2026-05-13 | www.aa.com.tr | China-linked vessels transit Strait of Hormuz via Iran’s ‘safe’ corridor as Trump visits China
+What to write for E4:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E5 (as of 2026-07-22): What will Microsoft Corporation (MSFT) hit Week of July 20 2026?
+Rules:
+What will Microsoft Corporation (MSFT) hit Week of July 20 2026?
+Contracts:
+  E5.C1: Will Microsoft Corporation (MSFT) hit (HIGH) $442.50 Week of July 20 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of July 20 2026, any 1-minute candle for Microsoft Corporation (MSFT) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Microsoft Corporation (MSFT) "High" prices available at https://pythdata.app/explore/Equity.US.MSFT%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.MSFT%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E5.C2: Will Microsoft Corporation (MSFT) hit (HIGH) $435 Week of July 20 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of July 20 2026, any 1-minute candle for Microsoft Corporation (MSFT) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Microsoft Corporation (MSFT) "High" prices available at https://pythdata.app/explore/Equity.US.MSFT%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.MSFT%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E5.C3: Will Microsoft Corporation (MSFT) hit (HIGH) $427.50 Week of July 20 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of July 20 2026, any 1-minute candle for Microsoft Corporation (MSFT) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Microsoft Corporation (MSFT) "High" prices available at https://pythdata.app/explore/Equity.US.MSFT%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.MSFT%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E5.C4: Will Microsoft Corporation (MSFT) hit (HIGH) $420 Week of July 20 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of July 20 2026, any 1-minute candle for Microsoft Corporation (MSFT) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Microsoft Corporation (MSFT) "High" prices available at https://pythdata.app/explore/Equity.US.MSFT%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.MSFT%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E5.C5: Will Microsoft Corporation (MSFT) hit (HIGH) $412.50 Week of July 20 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of July 20 2026, any 1-minute candle for Microsoft Corporation (MSFT) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Microsoft Corporation (MSFT) "High" prices available at https://pythdata.app/explore/Equity.US.MSFT%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.MSFT%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E5.C6: Will Microsoft Corporation (MSFT) hit (HIGH) $405 Week of July 20 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of July 20 2026, any 1-minute candle for Microsoft Corporation (MSFT) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Microsoft Corporation (MSFT) "High" prices available at https://pythdata.app/explore/Equity.US.MSFT%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.MSFT%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E5.C7: Will Microsoft Corporation (MSFT) hit (LOW) $382.50 Week of July 20 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of July 20 2026, any 1-minute candle for Microsoft Corporation (MSFT) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Microsoft Corporation (MSFT) "Low" prices available at https://pythdata.app/explore/Equity.US.MSFT%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.MSFT%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E5.C8: Will Microsoft Corporation (MSFT) hit (LOW) $375 Week of July 20 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of July 20 2026, any 1-minute candle for Microsoft Corporation (MSFT) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Microsoft Corporation (MSFT) "Low" prices available at https://pythdata.app/explore/Equity.US.MSFT%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.MSFT%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E5.C9: Will Microsoft Corporation (MSFT) hit (LOW) $367.50 Week of July 20 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of July 20 2026, any 1-minute candle for Microsoft Corporation (MSFT) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Microsoft Corporation (MSFT) "Low" prices available at https://pythdata.app/explore/Equity.US.MSFT%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.MSFT%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E5.C10: Will Microsoft Corporation (MSFT) hit (LOW) $360 Week of July 20 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of July 20 2026, any 1-minute candle for Microsoft Corporation (MSFT) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Microsoft Corporation (MSFT) "Low" prices available at https://pythdata.app/explore/Equity.US.MSFT%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.MSFT%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E5.C11: Will Microsoft Corporation (MSFT) hit (LOW) $352.50 Week of July 20 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of July 20 2026, any 1-minute candle for Microsoft Corporation (MSFT) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Microsoft Corporation (MSFT) "Low" prices available at https://pythdata.app/explore/Equity.US.MSFT%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.MSFT%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E5.C12: Will Microsoft Corporation (MSFT) hit (LOW) $345 Week of July 20 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of July 20 2026, any 1-minute candle for Microsoft Corporation (MSFT) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Microsoft Corporation (MSFT) "Low" prices available at https://pythdata.app/explore/Equity.US.MSFT%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.MSFT%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+News before E5's as-of date (date seen, source, headline):
+  - 2026-07-22 | www.prnewswire.com | MSFT Shareholder Alert: Microsoft Corporation Securities Class Action Lawsuit - Investors With Losses May Contact Levi & Korsinsky
+  - 2026-07-21 | www.morningstar.com | Lost Money on Microsoft Corporation (MSFT)? Join Class Action Suit Seeking Recovery - Contact The Gross Law Firm
+  - 2026-07-21 | www.globenewswire.com | Deadline Alert: Microsoft Corporation (MSFT) Shareholders
+  - 2026-07-21 | www.globenewswire.com | MSFT Investors Have Opportunity to Lead Microsoft Corporation Securities Fraud Lawsuit with the Schall Law Firm
+  - 2026-07-20 | www.prnewswire.com | MSFT Investors Have Opportunity to Lead Microsoft Corporation Securities Fraud Lawsuit
+  - 2026-07-17 | www.prnewswire.com | Microsoft Investigation Initiated: Kahn Swick & Foti, LLC Investigates the Officers and Directors of Microsoft Corporation - MSFT
+  - 2026-07-16 | www.businesswire.com | MSFT Shareholder Alert: Investors With Losses May Seek to Lead the Class Action in Microsoft Corporation Securities Lawsuit - Contact Levi & Korsinsky
+  - 2026-07-16 | www.prnewswire.com | MSFT Shareholder Alert: August 11, 2026 Lead Plaintiff Deadline in Microsoft Corporation Securities Class Action - Contact SueWallSt
+  - 2026-07-16 | www.prnewswire.com | Microsoft Corporation (MSFT) Shareholders Who Lost Money Have Opportunity to Lead Securities Fraud Lawsuit
+  - 2026-07-15 | www.prnewswire.com | Lost Money on Microsoft Corporation (MSFT)? Join Class Action Suit Seeking Recovery - Contact Levi & Korsinsky
+What to write for E5:
+  Write "high": for each chance 10, 25, 50, 75 and 90, the level you give that chance of being reached (at or above) within the period. The 10 level is the highest.
+  Write "low": for each chance 10, 25, 50, 75 and 90, the level you give that chance of being reached (at or below) within the period. The 10 level is the lowest.
+
+=== E6 (as of 2026-09-16): Khamenei # posts September 15 - September 22, 2026?
+Rules:
+This market will resolve according to the number of times Khamenei (@khamenei_ir), posts on X between September 15, 12:00 PM ET and September 22, 2026, 12:00 PM ET.
+
+For the purposes of this market, only main feed posts, quote posts and reposts will count.
+
+Replies will NOT count towards the total - however, replies which are recorded on the main feed will be counted by the tracker.
+
+Deleted posts will count as long as they remain available long enough to be captured by the tracker (~5 minutes).
+
+The resolution source for this market is the "Post Counter" figure for posts found at https://xtracker.polymarket.com. Individual posts can be viewed by clicking "Export Data". If the tracker does not update correctly in accordance with the rules, X itself may be used as a secondary resolution source.
+Contracts:
+  E6.C1: Will Khamenei post 0-4 posts from September 15 to September 22, 2026?
+  E6.C2: Will Khamenei post 5-9 posts from September 15 to September 22, 2026?
+  E6.C3: Will Khamenei post 10-14 posts from September 15 to September 22, 2026?
+  E6.C4: Will Khamenei post 15-19 posts from September 15 to September 22, 2026?
+  E6.C5: Will Khamenei post 20-24 posts from September 15 to September 22, 2026?
+  E6.C6: Will Khamenei post 25-29 posts from September 15 to September 22, 2026?
+  E6.C7: Will Khamenei post 30-34 posts from September 15 to September 22, 2026?
+  E6.C8: Will Khamenei post 35-39 posts from September 15 to September 22, 2026?
+  E6.C9: Will Khamenei post 40-44 posts from September 15 to September 22, 2026?
+  E6.C10: Will Khamenei post 45-49 posts from September 15 to September 22, 2026?
+  E6.C11: Will Khamenei post 50-54 posts from September 15 to September 22, 2026?
+  E6.C12: Will Khamenei post 55-59 posts from September 15 to September 22, 2026?
+  E6.C13: Will Khamenei post 60+ posts from September 15 to September 22, 2026?
+News before E6's as-of date (date seen, source, headline):
+  - 2026-09-16 | en.abna24.com | Grand conference on Thought of Martyr Seyyed Ali Khamenei held in Hyderabad, Pakistan
+  - 2026-09-16 | www.ncr-iran.org | From Oman to State TV: Rival Factions in Iran Defy Mojtaba Khamenei’s Call for Unity
+  - 2026-09-16 | www.mk.co.kr | Iran's new supreme leader Ayatollah Seyed Moztava Khamenei is a film lover who enjoys Hollywood film..
+  - 2026-09-14 | www.jpost.com | Iranian leadership divided as hard-liners sabotage negotiations, Khamenei still unseen - report
+  - 2026-09-13 | www.ynetnews.com | Israel sees deepening fractures in Iran as injured Khamenei leans on hard-line commanders
+  - 2026-09-13 | www.news18.com | Where Is Mojtaba Khamenei? Iran's Pezeshkian Dismisses Speculation On Supreme Leader's Whereabouts
+  - 2026-09-12 | www.indiatoday.in | Iran Ties With India, Supreme Leader Mojtaba Khamenei Well-Being & US-Israel Action - India Today
+  - 2026-09-12 | www.indiatoday.in | Iran President Pezeshkian Exclusive Interview | Trump, Hormuz, India Ties, Mojtaba Khamenei & BRICS - India Today
+  - 2026-09-12 | www.indiatoday.in | 'Thank God Supreme Leader Is Alive': Iran's Pezeshkian On Rumours Regarding Mojtaba Khamenei - India Today
+  - 2026-09-11 | www.naharnet.com | Houthi advance a 'resounding victory', says Khamenei adviser
+  - 2026-09-11 | www.voiceofemirates.com | The inner workings of the caliphate and the absence of the Supreme Leader: How will the Assembly of Experts elections determine the fate of Mojtaba Khamenei?
+  - 2026-09-11 | www.siasat.com | Iran used Claude to track US warships, plan Khamenei’s funeral
+  - 2026-09-10 | www.newvision.co.ug | World: Iran's Khamenei says enemy 'defeated' in defiant message
+  - 2026-09-09 | www.news24.com.au | Khamenei-linked London properties seized and set for auction
+What to write for E6:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).

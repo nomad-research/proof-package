@@ -1,0 +1,567 @@
+You will be shown 6 questions from a prediction market. Each has one or more contracts that resolve YES or NO under the rules shown. Each question gives the date your view is "as of": answer as you would on that date.
+
+Use what you already know and the news headlines listed under each question, all published in the 7 days before its as-of date. Do not search for or look up anything else: reading this file is the only tool call you may make. There are no prices from any prediction market in this file and you should not try to estimate what any market thinks; give your own view.
+
+Each question says what to write for it. Whole percents run from 1 to 99. Levels are plain numbers in the units the contracts use (for example 95000 for $95,000, 3.25 for 3.25%). Dates are YYYY-MM-DD.
+
+For each question also say whether you recognise how it actually turned out ("recognised": true only if you believe you remember the real outcome; otherwise false).
+
+Reply with one JSON object and nothing else:
+{"events": [{"label": "E1", "recognised": false, ...the fields that question asks for...}]}
+
+=== E1 (as of 2026-07-22): What price will XRP hit July 20-26?
+Rules:
+What price will XRP hit July 20-26?
+Contracts:
+  E1.C1: Will XRP reach $1.80 July 20-26?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1-minute candle for XRP/USDT during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "High" price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the XRP/USDT "High" prices available at https://www.binance.com/en/trade/XRP_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance XRP/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E1.C2: Will XRP reach $1.70 July 20-26?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1-minute candle for XRP/USDT during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "High" price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the XRP/USDT "High" prices available at https://www.binance.com/en/trade/XRP_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance XRP/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E1.C3: Will XRP reach $1.60 July 20-26?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1-minute candle for XRP/USDT during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "High" price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the XRP/USDT "High" prices available at https://www.binance.com/en/trade/XRP_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance XRP/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E1.C4: Will XRP reach $1.50 July 20-26?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1-minute candle for XRP/USDT during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "High" price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the XRP/USDT "High" prices available at https://www.binance.com/en/trade/XRP_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance XRP/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E1.C5: Will XRP reach $1.40 July 20-26?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1-minute candle for XRP/USDT during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "High" price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the XRP/USDT "High" prices available at https://www.binance.com/en/trade/XRP_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance XRP/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E1.C6: Will XRP reach $1.30 July 20-26?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1-minute candle for XRP/USDT during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "High" price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the XRP/USDT "High" prices available at https://www.binance.com/en/trade/XRP_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance XRP/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E1.C7: Will XRP reach $1.20 July 20-26?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1-minute candle for XRP/USDT during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "High" price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the XRP/USDT "High" prices available at https://www.binance.com/en/trade/XRP_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance XRP/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E1.C8: Will XRP dip to $1.00 July 20-26?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for XRP (XRP/USDT) during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "Low" price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the XRP/USDT "Low" prices available at https://www.binance.com/en/trade/XRP_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance XRP/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E1.C9: Will XRP dip to $0.90 July 20-26?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for XRP (XRP/USDT) during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "Low" price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the XRP/USDT "Low" prices available at https://www.binance.com/en/trade/XRP_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance XRP/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E1.C10: Will XRP dip to $0.80 July 20-26?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for XRP (XRP/USDT) during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "Low" price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the XRP/USDT "Low" prices available at https://www.binance.com/en/trade/XRP_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance XRP/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E1.C11: Will XRP dip to $0.70 July 20-26?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for XRP (XRP/USDT) during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "Low" price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the XRP/USDT "Low" prices available at https://www.binance.com/en/trade/XRP_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance XRP/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E1.C12: Will XRP dip to $0.60 July 20-26?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for XRP (XRP/USDT) during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "Low" price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the XRP/USDT "Low" prices available at https://www.binance.com/en/trade/XRP_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance XRP/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E1.C13: Will XRP dip to $0.50 July 20-26?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for XRP (XRP/USDT) during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "Low" price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the XRP/USDT "Low" prices available at https://www.binance.com/en/trade/XRP_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance XRP/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E1.C14: Will XRP dip to $0.40 July 20-26?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for XRP (XRP/USDT) during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "Low" price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the XRP/USDT "Low" prices available at https://www.binance.com/en/trade/XRP_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance XRP/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+News before E1's as-of date (date seen, source, headline):
+  - 2026-07-22 | www.fool.com | Better Altcoin Buy: XRP vs. Stellar (XLM)
+  - 2026-07-22 | 247wallst.com | XRP Surges to a 2-Week High as Whale Buying Stretches Into a Fifth Week
+  - 2026-07-22 | coinpedia.org | XRP Ledger’s Largest Asset Sits Frozen by Design, Analyst Finds
+  - 2026-07-22 | www.theblock.co | Ripple sees XRP Ledger agentic transactions hitting 10-million mark soon
+  - 2026-07-22 | 247wallst.com | The CLARITY Act Is Now One Clause Away From Passing: Should XRP Holders Celebrate?
+  - 2026-07-22 | www.benzinga.com | XRP Whale Inflows to Binance Drop to $23M: Can the Triangle Breakout Hold?
+  - 2026-07-22 | beincrypto.com | XRP Flashes Bullish On-Chain Signals as Rally Builds in Late July
+  - 2026-07-22 | 247wallst.com | XRP Holders Cheer as Bessent Says Major Crypto Bill ‘On the 1-Yard Line’
+  - 2026-07-21 | www.coindesk.com | XRP price news: Ripple-linked token up 4% as traders watch breakout toward $1.35
+  - 2026-07-21 | finance.yahoo.com | XRP Breaks Out on Clarity Act Hopes. The Charts Are Still Cautious
+  - 2026-07-21 | finance.yahoo.com | XRP Holders Have Until July 23 to Find Out if a Key Crypto Bill Survives. Here’s What’s at Stake.
+  - 2026-07-21 | finance.yahoo.com | XRP Price Prediction: Confirmed Breakout Could Push XRP to $1.40
+  - 2026-07-21 | finance.yahoo.com | Veteran Ripple developer regrets selling XRP
+  - 2026-07-21 | finance.yahoo.com | Bitcoin, Ethereum, XRP, Dogecoin Lift Amid Crypto Bill Optimism: Analyst Flags BTC's 'Biggest Test'
+  - 2026-07-21 | finance.yahoo.com | Crypto XRP Forms Bullish ‘Triangle Breakout’
+  - 2026-07-21 | coinpedia.org | XRP Price Prediction Today: Can Bulls Break $1.20 as Whale Buying Continues?
+  - 2026-07-21 | 247wallst.com | XRP Holders Have Until July 23 to Find Out if a Key Crypto Bill Survives. Here's What's at Stake.
+  - 2026-07-21 | 247wallst.com | XRP Flashes TD Sequential Buy Signal: Can It Rally 20%?
+  - 2026-07-21 | www.fxstreet.com | Why is XRP gaining momentum?
+  - 2026-07-21 | coinpedia.org | XRP News : Ripple Linked to 79% of Major Financial Institutions in Crypto
+  - 2026-07-21 | coinpedia.org | XRP Price is Breaking Out—Can Bulls Fuel a 5% Rally to $1.20?
+  - 2026-07-21 | www.tradingview.com | COIN Stock Jumps, XRP Leads Crypto Majors After Scott Bessent Signals CLARITY Act Is On Senate’s ‘One-Yard Line’
+  - 2026-07-21 | dmarketforces.com | XRP Spot ETF Net Inflow Tops $1bn, Price Swings
+  - 2026-07-21 | www.benzinga.com | Ripple Eyes Wall Street 2.0 As Prime Brokerage Revenue Triples - Bitwise XRP ETF (ARCA:XRP)
+  - 2026-07-21 | 247wallst.com | XRP Whale Deposits to Binance Just Hit a 2-Month Low: What’s Going On?
+What to write for E1:
+  Write "high": for each chance 10, 25, 50, 75 and 90, the level you give that chance of being reached (at or above) within the period. The 10 level is the highest.
+  Write "low": for each chance 10, 25, 50, 75 and 90, the level you give that chance of being reached (at or below) within the period. The 10 level is the lowest.
+
+=== E2 (as of 2026-08-26): What will SpaceX (SPCX) hit in August 2026?
+Rules:
+What will SpaceX (SPCX) hit in August 2026?
+Contracts:
+  E2.C1: Will SpaceX (SPCX) hit (LOW) $100 in August?
+    Contract rules: This market will resolve to "Yes" if, at any point during August 2026, any 1-minute candle for SpaceX (SPCX) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the SpaceX (SPCX) "Low" prices available at https://pythdata.app/explore/Equity.US.SPCX%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.SPCX%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E2.C2: Will SpaceX (SPCX) hit (LOW) $95 in August?
+    Contract rules: This market will resolve to "Yes" if, at any point during August 2026, any 1-minute candle for SpaceX (SPCX) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the SpaceX (SPCX) "Low" prices available at https://pythdata.app/explore/Equity.US.SPCX%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.SPCX%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E2.C3: Will SpaceX (SPCX) hit (LOW) $90 in August?
+    Contract rules: This market will resolve to "Yes" if, at any point during August 2026, any 1-minute candle for SpaceX (SPCX) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the SpaceX (SPCX) "Low" prices available at https://pythdata.app/explore/Equity.US.SPCX%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.SPCX%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E2.C4: Will SpaceX (SPCX) hit (LOW) $85 in August?
+    Contract rules: This market will resolve to "Yes" if, at any point during August 2026, any 1-minute candle for SpaceX (SPCX) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the SpaceX (SPCX) "Low" prices available at https://pythdata.app/explore/Equity.US.SPCX%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.SPCX%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E2.C5: Will SpaceX (SPCX) hit (LOW) $80 in August?
+    Contract rules: This market will resolve to "Yes" if, at any point during August 2026, any 1-minute candle for SpaceX (SPCX) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the SpaceX (SPCX) "Low" prices available at https://pythdata.app/explore/Equity.US.SPCX%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.SPCX%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+News before E2's as-of date (date seen, source, headline):
+  - 2026-08-26 | spacenews.com | SpaceX to develop Starship launch site in Louisiana
+  - 2026-08-26 | payloadspace.com | SpaceX Announces New Starbase, Louisiana Spaceport
+  - 2026-08-26 | www.bbc.com | Musk's SpaceX to build $100bn launch facility in Louisiana
+  - 2026-08-26 | www.fox35orlando.com | SpaceX launches final Falcon 9 Starlink mission from Florida
+  - 2026-08-26 | finance.yahoo.com | This Hedge Fund Has Billions Invested in SpaceX
+  - 2026-08-26 | finance.yahoo.com | JPMorgan Eases SpaceX Lending Rules to Capture AI Wealth
+  - 2026-08-26 | www.space.com | SpaceX sends Starlink satellites to orbit on predawn launch from California
+  - 2026-08-26 | www.workboat.com | SpaceX unveils plans for new spaceport on Louisiana Gulf Coast
+  - 2026-08-26 | finance.yahoo.com | Trump Snapped Up SpaceX Shares 11 Days After $1.77 Trillion IPO: Here's What Else He Purchased
+  - 2026-08-26 | www.france24.com | SpaceX to build $100 billion rocket launch facility in southern Louisiana
+  - 2026-08-26 | finance.yahoo.com | Cathie Wood Isn't Backing Away From SpaceX Stock
+  - 2026-08-26 | people.com | SpaceX Set to Build ‘Biggest Launch Site on Earth’ Costing $100 Billion in Louisiana
+  - 2026-08-26 | finance.yahoo.com | SpaceX Just Announced a $100 Billion Starship Spaceport in Louisiana. Here's What It Means for Investors.
+  - 2026-08-26 | finance.yahoo.com | SpaceX Stock Has Pulled Back 39% From Its Peak and Could Be Worth as Little as $95 by 2028
+  - 2026-08-26 | www.upi.com | SpaceX to build $100M launch facility in Louisiana
+  - 2026-08-26 | thehill.com | Louisiana governor ‘not concerned’ about environmental impact of Gulf Coast SpaceX facility
+  - 2026-08-26 | www.foxbusiness.com | SpaceX unveils $100B Louisiana launch site expected to create thousands of jobs
+  - 2026-08-25 | www.wboc.com | Record-setting SpaceX launch captivates Delmarva
+  - 2026-08-25 | www.eenews.net | SpaceX unveils plans for massive Louisiana launch site
+  - 2026-08-25 | lailluminator.com | Musk plans $100 billion SpaceX launch site in coastal Louisiana
+  - 2026-08-25 | louisiana.edu | With historic SpaceX announcement, UL Lafayette is prepared to power Louisiana’s space future
+  - 2026-08-25 | www.opportunitylouisiana.gov | SpaceX Launches New Era of Commercial Spaceflight with $100 Billion Louisiana Campus - LED
+  - 2026-08-25 | www.forbes.com | What To Know About SpaceX’s Plans For ‘Biggest Launch Site On Earth’
+  - 2026-08-25 | www.nbcnews.com | SpaceX to build major spaceport in Louisiana for Starship rocket launches
+  - 2026-08-25 | www.cnbc.com | SpaceX plans to build a $100 billion spaceport in Louisiana
+What to write for E2:
+  Write "low": for each chance 10, 25, 50, 75 and 90, the level you give that chance of being reached (at or below) within the period. The 10 level is the lowest.
+
+=== E3 (as of 2026-05-20): What will NVIDIA (NVDA) hit Week of May 18 2026?
+Rules:
+What will NVIDIA (NVDA) hit Week of May 18 2026?
+Contracts:
+  E3.C1: Will NVIDIA (NVDA) hit (HIGH) $252 Week of May 18 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of May 18 2026, any 1-minute candle for NVIDIA (NVDA) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the NVIDIA (NVDA) "High" prices available at https://pythdata.app/explore/Equity.US.NVDA%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.NVDA%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E3.C2: Will NVIDIA (NVDA) hit (HIGH) $248 Week of May 18 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of May 18 2026, any 1-minute candle for NVIDIA (NVDA) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the NVIDIA (NVDA) "High" prices available at https://pythdata.app/explore/Equity.US.NVDA%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.NVDA%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E3.C3: Will NVIDIA (NVDA) hit (HIGH) $244 Week of May 18 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of May 18 2026, any 1-minute candle for NVIDIA (NVDA) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the NVIDIA (NVDA) "High" prices available at https://pythdata.app/explore/Equity.US.NVDA%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.NVDA%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E3.C4: Will NVIDIA (NVDA) hit (HIGH) $240 Week of May 18 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of May 18 2026, any 1-minute candle for NVIDIA (NVDA) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the NVIDIA (NVDA) "High" prices available at https://pythdata.app/explore/Equity.US.NVDA%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.NVDA%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E3.C5: Will NVIDIA (NVDA) hit (HIGH) $236 Week of May 18 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of May 18 2026, any 1-minute candle for NVIDIA (NVDA) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the NVIDIA (NVDA) "High" prices available at https://pythdata.app/explore/Equity.US.NVDA%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.NVDA%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E3.C6: Will NVIDIA (NVDA) hit (HIGH) $232 Week of May 18 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of May 18 2026, any 1-minute candle for NVIDIA (NVDA) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the NVIDIA (NVDA) "High" prices available at https://pythdata.app/explore/Equity.US.NVDA%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.NVDA%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E3.C7: Will NVIDIA (NVDA) hit (LOW) $216 Week of May 18 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of May 18 2026, any 1-minute candle for NVIDIA (NVDA) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the NVIDIA (NVDA) "Low" prices available at https://pythdata.app/explore/Equity.US.NVDA%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.NVDA%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E3.C8: Will NVIDIA (NVDA) hit (LOW) $212 Week of May 18 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of May 18 2026, any 1-minute candle for NVIDIA (NVDA) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the NVIDIA (NVDA) "Low" prices available at https://pythdata.app/explore/Equity.US.NVDA%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.NVDA%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E3.C9: Will NVIDIA (NVDA) hit (LOW) $208 Week of May 18 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of May 18 2026, any 1-minute candle for NVIDIA (NVDA) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the NVIDIA (NVDA) "Low" prices available at https://pythdata.app/explore/Equity.US.NVDA%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.NVDA%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E3.C10: Will NVIDIA (NVDA) hit (LOW) $204 Week of May 18 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of May 18 2026, any 1-minute candle for NVIDIA (NVDA) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the NVIDIA (NVDA) "Low" prices available at https://pythdata.app/explore/Equity.US.NVDA%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.NVDA%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E3.C11: Will NVIDIA (NVDA) hit (LOW) $200 Week of May 18 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of May 18 2026, any 1-minute candle for NVIDIA (NVDA) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the NVIDIA (NVDA) "Low" prices available at https://pythdata.app/explore/Equity.US.NVDA%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.NVDA%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+News before E3's as-of date (date seen, source, headline):
+  - 2026-05-20 | nvidianews.nvidia.com | NVIDIA Announces Financial Results for First Quarter Fiscal 2027
+  - 2026-05-20 | www.nytimes.com | Nvidia’s Profit Hits $58.3 Billion as A.I. Boom Gathers More Steam
+  - 2026-05-20 | www.cnbc.com | Nvidia says it has ‘largely conceded’ China’s AI chip market to Huawei
+  - 2026-05-20 | apnews.com | Nvidia Q1 results surpass Wall Street expectations thanks to massive AI chip demand
+  - 2026-05-20 | finance.yahoo.com | Nvidia's cash machine is now funding both sides of the AI trade
+  - 2026-05-20 | finance.yahoo.com | Nvidia tops Q1 estimates, offers upbeat outlook on strong chip sales
+  - 2026-05-20 | finance.yahoo.com | 4 important takeaways from Nvidia's earnings
+  - 2026-05-20 | www.cnbc.com | Something very unusual is happening with Nvidia options
+  - 2026-05-20 | www.axios.com | Nvidia's AI boom keeps getting bigger
+  - 2026-05-20 | www.investopedia.com | Here's How Much Traders Expect Nvidia's Stock to Move After Earnings
+  - 2026-05-20 | qz.com | Nvidia Q1 FY2027 earnings: record revenue, dividend hike
+  - 2026-05-20 | taekim.substack.com | An Interview with NVIDIA CFO Colette Kress: $1 Trillion Shareholder Return Is on the 'Horizon'
+  - 2026-05-20 | www.reuters.com | As stocks slump, cue Nvidia
+  - 2026-05-20 | www.wsj.com | Nvidia Rides Blistering Chip Sales to Another Record Quarter
+  - 2026-05-20 | www.theguardian.com | Nvidia’s revenue blows past Wall Street expectations as AI boom accelerates
+  - 2026-05-20 | abcnews.com | Chip giant Nvidia beats revenue expectations, defying AI bubble fears
+  - 2026-05-20 | www.xda-developers.com | Nvidia's RTX HDR does more for my old games than DLSS ever will
+  - 2026-05-20 | www.cnbc.com | Here's how Nvidia has traded each of the last 16 quarters
+  - 2026-05-20 | www.axios.com | Why Nvidia lost some of its luster
+  - 2026-05-20 | fortune.com | Nvidia Q1 earnings: Chipmaker beats on earnings and boosts dividend, but forecasts disappoint
+  - 2026-05-20 | www.cnbc.com | CNBC Daily Open: Nvidia posts strong quarter, as AI leaders race to IPO
+  - 2026-05-20 | www.reuters.com | Wall St climbs 1% with chip stocks rallying before Nvidia results
+  - 2026-05-20 | techcrunch.com | Nvidia posts another record quarter, reveals $43B of holdings in startups
+  - 2026-05-20 | techcrunch.com | Jensen Huang says he’s found a ‘brand new’ $200B market for Nvidia
+  - 2026-05-20 | www.reuters.com | COMMENTARY: Morning Bid: Nvidia vigil
+What to write for E3:
+  Write "high": for each chance 10, 25, 50, 75 and 90, the level you give that chance of being reached (at or above) within the period. The 10 level is the highest.
+  Write "low": for each chance 10, 25, 50, 75 and 90, the level you give that chance of being reached (at or below) within the period. The 10 level is the lowest.
+
+=== E4 (as of 2026-04-22): Ethereum price on April 24?
+Rules:
+This market will resolve according to the final "Close" price of the Binance 1 minute candle for ETH/USDT 12:00 in the ET timezone (noon) on the date specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the ETH/USDT "Close" prices currently available at https://www.binance.com/en/trade/ETH_USDT with "1m" and "Candles" selected on the top bar.
+
+If the reported value falls exactly between two brackets, then this market will resolve to the higher range bracket.
+
+Please note that this market is about the price according to Binance ETH/USDT, not according to other exchanges or trading pairs.
+Contracts:
+  E4.C1: Will the price of Ethereum be less than $2,000 on April 24?
+  E4.C2: Will the price of Ethereum be between $2,000 and $2,100 on April 24?
+  E4.C3: Will the price of Ethereum be between $2,100 and $2,200 on April 24?
+  E4.C4: Will the price of Ethereum be between $2,200 and $2,300 on April 24?
+  E4.C5: Will the price of Ethereum be between $2,300 and $2,400 on April 24?
+  E4.C6: Will the price of Ethereum be between $2,400 and $2,500 on April 24?
+  E4.C7: Will the price of Ethereum be between $2,500 and $2,600 on April 24?
+  E4.C8: Will the price of Ethereum be between $2,600 and $2,700 on April 24?
+  E4.C9: Will the price of Ethereum be between $2,700 and $2,800 on April 24?
+  E4.C10: Will the price of Ethereum be between $2,800 and $2,900 on April 24?
+  E4.C11: Will the price of Ethereum be greater than $2,900 on April 24?
+News before E4's as-of date (date seen, source, headline):
+  - 2026-04-22 | finance.yahoo.com | Bitcoin and ethereum prices today, Wednesday, April 22, 2026: Prices rising following ceasefire extension
+  - 2026-04-22 | finance.yahoo.com | BitMine Stakes $142 Million Worth Of Ethereum
+  - 2026-04-22 | finance.yahoo.com | 1 Cryptocurrency to Buy Before It Goes Parabolic and Overtakes Ethereum's Market Cap
+  - 2026-04-22 | marketwise.com | Bitmine’s Ethereum Strategy & The Rise of Self-Repaying Loans
+  - 2026-04-22 | www.tradingview.com | Ethereum Price Rejected Above $2,400, Upside Momentum Starts To Fade
+  - 2026-04-22 | www.investing.com | Ethereum ETFs Experience 9 Days of Inflows - A Signal for Price Surge?
+  - 2026-04-22 | www.marketwatch.com | Most big cryptocurrencies rise on Ethereum, Solana increases
+  - 2026-04-22 | crypto.news | Three reasons why Ethereum price could surge to $3,000 soon
+  - 2026-04-22 | cryptopotato.com | Ethereum Price Prediction: $2,500 Seems Imminent as ETH Gains 14% Monthly
+  - 2026-04-22 | www.ccn.com | These 3 Ethereum On-Chain Metrics Could Seal the Deal for ETH Price To Breeze Past $2,700
+  - 2026-04-22 | www.globenewswire.com | Crypto News: Ethereum Based Crypto Pepeto Presale Stage Update Whilst Ethereum Price Prediction Hits $250,000
+  - 2026-04-22 | www.ccn.com | Ethereum Price To $250,000? Etherealize Explains Why They Believe Their Bullish Outlook Is ‘Conservative’
+  - 2026-04-22 | www.tradingview.com | Can Ethereum hit $2,746 as whales accumulate 700K tokens this week?
+  - 2026-04-21 | bitcoinfoundation.org | Etherealize Lowers Ethereum Price Target to $250,000
+  - 2026-04-21 | fortune.com | Current price of Ethereum for April 21, 2026
+  - 2026-04-21 | finance.yahoo.com | Can Ethereum Make a Giant Comeback? Here’s the Bull Case.
+  - 2026-04-21 | finance.yahoo.com | Bitcoin and ethereum prices today, Tuesday, April 21, 2026: Prices on the rise this morning
+  - 2026-04-21 | finance.yahoo.com | SharpLink (SBET) Just Fired Its Ethereum Managers, and That May Be a Good Sign
+  - 2026-04-21 | incrypted.com | Ethereum’s Growth Potential Estimated at Up to $250,000 Due to a New Monetary Model
+  - 2026-04-21 | finance.yahoo.com | Ethereum's Wall Street cheerleaders see rise to $250,000, call Bitcoin and gold 'dead capital'
+  - 2026-04-21 | www.tradingview.com | Ethereum Price Struggles To Gain Pace, Recovery Remains Fragile
+  - 2026-04-21 | coinpedia.org | Ethereum Price Rises, But On-Chain Data Signals Weak Demand —What’s Next for ETH?
+  - 2026-04-21 | www.ccn.com | Bitmine Buys 4.97M ETH as Tom Lee Targets $60,000: Could This Fuel an Ethereum (ETH) Price Rise?
+  - 2026-04-20 | fortune.com | Current price of Ethereum for April 20, 2026
+  - 2026-04-20 | finance.yahoo.com | Bitcoin and ethereum price today, Monday, April 20, 2026: Prices rising this morning despite U.S.-Iranian tensions
+What to write for E4:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E5 (as of 2026-08-05): How many ships transit the Strait of Hormuz week of August 3?
+Rules:
+This market will resolve according to the total number of transit calls that IMF Portwatch reports for the Strait of Hormuz for all days from August 3, 2026, through August 9, 2026, inclusive.
+
+Transit calls include container, dry bulk, roll-on/roll-off, general cargo, and tanker ships. Ships not reported by IMF Portwatch will not be considered.
+
+This market will resolve as soon as all relevant data has been published. If the relevant data is not published within 14 calendar days of the specified date, this market will resolve based on the most recent data published up to that point.
+
+In case of obvious data integrity issues (i.e., erroneous data), the market may remain open until the end of the third calendar day (ET) after the date on which such data is first released to allow for corrections. Data integrity issues refer only to clerical or other similar errors in the underlying data, and do not include cases where IMF Portwatch differs from alternative sources.
+
+Only revisions to previously published data points made before all relevant data has been published will be considered.
+
+The resolution source for this market will be IMF Portwatch, specifically the transit calls data published for the Strait of Hormuz at https://portwatch.imf.org/pages/cb5856222a5b4105adc6ee7e880a1730, both in the chart and through downloadable files.
+Contracts:
+  E5.C1: Will fewer than 25 ships transit the Strait of Hormuz between August 3-August 9?
+  E5.C2: Will 25-49 ships transit the Strait of Hormuz between August 3-August 9?
+  E5.C3: Will 50-74 ships transit the Strait of Hormuz between August 3-August 9?
+  E5.C4: Will 75-99 ships transit the Strait of Hormuz between August 3-August 9?
+  E5.C5: Will 100 or more ships transit the Strait of Hormuz between August 3-August 9?
+News before E5's as-of date (date seen, source, headline):
+  - 2026-08-05 | www.washingtoninstitute.org | Reaching Viable Management Arrangements in the Strait of Hormuz
+  - 2026-08-05 | www.pbs.org | Trump says deal to reopen the Strait of Hormuz could come as early as Wednesday
+  - 2026-08-05 | www.nytimes.com | Iran Says It Is Nearing Final Agreement With Oman on Strait of Hormuz
+  - 2026-08-05 | apnews.com | Iran and the US say a Strait of Hormuz deal is close, but one or both would have to back down
+  - 2026-08-05 | www.lloydslistintelligence.com | Strait of Hormuz Brief: 5 August 2026
+  - 2026-08-05 | www.cnbcafrica.com | U.S. says Strait of Hormuz is ‘free and open’ as Bessent signals deal with Iran is close
+  - 2026-08-05 | www.cnn.com | An agreement on the Strait of Hormuz is taking shape – but not one Trump wants
+  - 2026-08-05 | www.cbsnews.com | Rubio says progress made in Strait of Hormuz talks after Trump threatens "decapitation"
+  - 2026-08-05 | sentinelcolorado.com | Iran and Oman could control Strait of Hormuz as Trump says deal to reopen could come today
+  - 2026-08-05 | www.kcra.com | President Trump hints at Iran deal over the Strait of Hormuz this week
+  - 2026-08-05 | thehill.com | Strait of Hormuz ​fight continues to evolve with Iran-Oman talks
+  - 2026-08-05 | www.ms.now | Trump says deal to reopen Strait of Hormuz could come as early as Wednesday
+  - 2026-08-05 | abc3340.com | Deal to reopen Strait of Hormuz coming, Trump says 'a lot of progress' made
+  - 2026-08-05 | www.timesofisrael.com | Shipping traffic through Strait of Hormuz remains steady, with just 8 vessels transiting
+  - 2026-08-05 | www.bloomberg.com | Watch Trump Says Strait of Hormuz Will Be Open 'Very Soon'
+  - 2026-08-05 | www.cnbc.com | Oil prices little changed on negotiations to manage ship traffic in Strait of Hormuz
+  - 2026-08-05 | www.euronews.com | Iran and Oman agree route for ships in Strait of Hormuz, Tehran says
+  - 2026-08-04 | news.un.org | Strait of Hormuz disruption hits energy, fertilizer and industrial trade
+  - 2026-08-04 | www.nationalreview.com | Iran Owns the Strait of Hormuz
+  - 2026-08-04 | apnews.com | Iran and Oman make progress on a deal to reopen the Strait of Hormuz, officials say
+  - 2026-08-04 | www.wsj.com | Iran Is Staking Everything on Controlling the Strait of Hormuz
+  - 2026-08-04 | www.cnbc.com | Bessent says there may be deal Tuesday or Wednesday to open Strait of Hormuz with 'freedom of movement'
+  - 2026-08-04 | iranwire.com | US Claims Full Control of Strait of Hormuz, Reroutes 44 Ships
+  - 2026-08-04 | apnews.com | Iran and Oman are working on a plan to reopen the Strait of Hormuz, and other Mideast developments
+  - 2026-08-04 | www.nbcsandiego.com | Cargo ship reports being struck in Strait of Hormuz as U.S. and Iran dispute talks
+What to write for E5:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E6 (as of 2026-04-22): NY-15 Democratic Primary Winner
+Rules:
+This market will resolve according to the candidate who wins the nomination for the Democratic Party to contest the NY-15 congressional district seat in the U.S. House of Representatives in the 2026 midterm elections. The Democratic primary will take place on June 23, 2026.
+
+If no nominee is announced by November 3, 2026, 11:59PM ET, this market will resolve to "Other".
+
+The resolution source for this market will be a consensus of official Democrat sources, including https://democrats.org/.
+
+Any replacement of the nominee before election day will not change the resolution of the market.
+Contracts:
+  E6.C1: Will Ritchie Torres be the Democratic nominee for NY-15?
+  E6.C2: Will Michael Blake be the Democratic nominee for NY-15?
+  E6.C3: Will Amanda Septimo be the Democratic nominee for NY-15?
+  E6.C4: Will Dalourny Nemorin be the Democratic nominee for NY-15?
+News before E6's as-of date: none found.
+What to write for E6:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).

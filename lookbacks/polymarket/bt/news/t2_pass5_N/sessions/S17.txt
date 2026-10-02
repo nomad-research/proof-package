@@ -1,0 +1,466 @@
+You will be shown 6 questions from a prediction market. Each has one or more contracts that resolve YES or NO under the rules shown. Each question gives the date your view is "as of": answer as you would on that date.
+
+Use what you already know and the news headlines listed under each question, all published in the 7 days before its as-of date. Do not search for or look up anything else: reading this file is the only tool call you may make. There are no prices from any prediction market in this file and you should not try to estimate what any market thinks; give your own view.
+
+Each question says what to write for it. Whole percents run from 1 to 99. Levels are plain numbers in the units the contracts use (for example 95000 for $95,000, 3.25 for 3.25%). Dates are YYYY-MM-DD.
+
+For each question also say whether you recognise how it actually turned out ("recognised": true only if you believe you remember the real outcome; otherwise false).
+
+Reply with one JSON object and nothing else:
+{"events": [{"label": "E1", "recognised": false, ...the fields that question asks for...}]}
+
+=== E1 (as of 2026-08-19): What will Meta Platforms, Inc. (META) hit Week of August 17 2026?
+Rules:
+What will Meta Platforms, Inc. (META) hit Week of August 17 2026?
+Contracts:
+  E1.C1: Will Meta Platforms, Inc. (META) hit (HIGH) $660 Week of August 17 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of August 17 2026, any 1-minute candle for Meta Platforms, Inc. (META) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Meta Platforms, Inc. (META) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.META%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.META%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E1.C2: Will Meta Platforms, Inc. (META) hit (HIGH) $650 Week of August 17 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of August 17 2026, any 1-minute candle for Meta Platforms, Inc. (META) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Meta Platforms, Inc. (META) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.META%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.META%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E1.C3: Will Meta Platforms, Inc. (META) hit (HIGH) $640 Week of August 17 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of August 17 2026, any 1-minute candle for Meta Platforms, Inc. (META) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Meta Platforms, Inc. (META) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.META%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.META%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E1.C4: Will Meta Platforms, Inc. (META) hit (HIGH) $630 Week of August 17 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of August 17 2026, any 1-minute candle for Meta Platforms, Inc. (META) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Meta Platforms, Inc. (META) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.META%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.META%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E1.C5: Will Meta Platforms, Inc. (META) hit (HIGH) $620 Week of August 17 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of August 17 2026, any 1-minute candle for Meta Platforms, Inc. (META) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Meta Platforms, Inc. (META) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.META%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.META%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E1.C6: Will Meta Platforms, Inc. (META) hit (HIGH) $610 Week of August 17 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of August 17 2026, any 1-minute candle for Meta Platforms, Inc. (META) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Meta Platforms, Inc. (META) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.META%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.META%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E1.C7: Will Meta Platforms, Inc. (META) hit (HIGH) $600 Week of August 17 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of August 17 2026, any 1-minute candle for Meta Platforms, Inc. (META) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Meta Platforms, Inc. (META) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.META%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.META%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E1.C8: Will Meta Platforms, Inc. (META) hit (LOW) $540 Week of August 17 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of August 17 2026, any 1-minute candle for Meta Platforms, Inc. (META) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Meta Platforms, Inc. (META) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.META%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.META%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E1.C9: Will Meta Platforms, Inc. (META) hit (LOW) $530 Week of August 17 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of August 17 2026, any 1-minute candle for Meta Platforms, Inc. (META) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Meta Platforms, Inc. (META) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.META%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.META%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+News before E1's as-of date (date seen, source, headline):
+  - 2026-08-19 | www.facebook.com | Washington Post. . Dozens of states are suing Meta Platforms Inc. for harming young people and contributing to the youth mental health crisis by designing features on Instagram and Facebook that addict children to its platforms. Meta has rejected the states’ cl
+  - 2026-08-19 | www.fool.com | Prediction: The Child Safety Trial Will Have Minimal Impact on Meta Platforms Stock in the Long Run. Here's Why
+  - 2026-08-19 | sg.finance.yahoo.com | Meta Platforms vs OCBC: Which Stock Creates More Value for Shareholders?
+  - 2026-08-18 | www.moomoo.com | Meta Platforms Slides After Child Safety Trial Kicks Off
+  - 2026-08-18 | finance.yahoo.com | Meta Platforms’ (META) Strong Growth Backdrop Highlights Valuation Disconnect
+  - 2026-08-18 | www.fool.com | Why Meta Platforms Stock Crashed Today
+  - 2026-08-18 | seekingalpha.com | Hedge funds take contrasting calls on Meta Platforms (META:NASDAQ)
+  - 2026-08-18 | www.cnbc.com | What the Meta Platforms trial means for investors
+  - 2026-08-18 | finance.yahoo.com | Meta Platforms (META) Heads To Trial, Is The Stock 44% Undervalued?
+  - 2026-08-18 | finance.yahoo.com | Big Investors Send Conflicting Signal on Meta Platforms Stock
+  - 2026-08-18 | finance.yahoo.com | Alphabet vs. Meta Platforms: Which Is the Better AI Advertising Stock to Own for the Next 5 Years?
+  - 2026-08-18 | www.benzinga.com | What's Going On With Meta Platforms Stock Tuesday?
+  - 2026-08-18 | www.stocktitan.net | Meta Platforms (META) director now holds 1,504 shares after RSU
+  - 2026-08-18 | www.benzinga.com | Meta AI Spending: Eisman Asks Where's The Return? - Meta Platforms (NASDAQ:META)
+  - 2026-08-17 | www.aol.com | Meta Platforms Drops 4%, Pinterest Falls 4% as Social Media Legal Risk Resurfaces
+  - 2026-08-13 | finance.yahoo.com | Market Chatter: Meta Platforms to Sell Manus Stake to Tencent
+  - 2026-08-12 | finance.yahoo.com | The Zacks Analyst Blog Highlights Meta Platforms, Texas Instruments, CrowdStrike and Weyco
+What to write for E1:
+  Write "high": for each chance 10, 25, 50, 75 and 90, the level you give that chance of being reached (at or above) within the period. The 10 level is the highest.
+  Write "low": for each chance 10, 25, 50, 75 and 90, the level you give that chance of being reached (at or below) within the period. The 10 level is the lowest.
+
+=== E2 (as of 2026-08-19): Saint Petersburg Parliament Election: Party Winner
+Rules:
+Parliamentary elections to elect the Legislative Assembly of Saint Petersburg, Russia are scheduled to take place on September 20, 2026.
+
+This market will resolve to the political party that wins the greatest number of seats in the Legislative Assembly of Saint Petersburg as a result of this election.
+
+The number of seats will include all members of the Legislative Assembly of Saint Petersburg serving as a result of this election, including members elected in a single- or multiple-member constituency or by proportional representation, where applicable.
+
+If the results of the specified election are not definitively known by July 31, 2027, this market will resolve to "Other".
+
+In the event of a tie between multiple parties for the most seats won, this market will resolve in favor of the party whose party list received a greater number of valid votes in the specified region’s proportional representation system. Aggregate votes received in constituencies will have no bearing on resolution in a tie. In the event that results in a tie, this market will resolve in favor of the party whose name as listed in this market appears first in alphabetical order.
+
+A constituency-elected member will count towards the party they registered to contest the election with. A member elected by proportional representation will count towards the party whose list they were elected from.
+
+This market's resolution will be based solely on the number of seats won by the named party. Independents will not count towards any party.
+
+This market will resolve based on the results of this election, as indicated by a consensus of credible reporting. If there is ambiguity, this market will resolve solely based on official results as reported by government sources of Saint Petersburg and Russia, including the Election Commission of Saint Petersburg and the Central Election Commission of Russia.
+Contracts:
+  E2.C1: Will United Russia win the next Saint Petersburg Parliament elections?
+  E2.C2: Will CPRF win the next Saint Petersburg Parliament elections?
+  E2.C3: Will LDPR win the next Saint Petersburg Parliament elections?
+  E2.C4: Will A Just Russia win the next Saint Petersburg Parliament elections?
+  E2.C5: Will New People win the next Saint Petersburg Parliament elections?
+  E2.C6: Will The Greens win the next Saint Petersburg Parliament elections?
+News before E2's as-of date: none found.
+What to write for E2:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E3 (as of 2026-08-19): Ethereum price on August 25?
+Rules:
+This market will resolve according to the final "Close" price of the Binance 1 minute candle for ETH/USDT 12:00 in the ET timezone (noon) on the date specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the ETH/USDT "Close" prices currently available at https://www.binance.com/en/trade/ETH_USDT with "1m" and "Candles" selected on the top bar.
+
+If the reported value falls exactly between two brackets, then this market will resolve to the higher range bracket.
+
+Please note that this market is about the price according to Binance ETH/USDT, not according to other exchanges or trading pairs.
+Contracts:
+  E3.C1: Will the price of Ethereum be less than $1,500 on August 25?
+  E3.C2: Will the price of Ethereum be between $1,500 and $1,600 on August 25?
+  E3.C3: Will the price of Ethereum be between $1,600 and $1,700 on August 25?
+  E3.C4: Will the price of Ethereum be between $1,700 and $1,800 on August 25?
+  E3.C5: Will the price of Ethereum be between $1,800 and $1,900 on August 25?
+  E3.C6: Will the price of Ethereum be between $1,900 and $2,000 on August 25?
+  E3.C7: Will the price of Ethereum be between $2,000 and $2,100 on August 25?
+  E3.C8: Will the price of Ethereum be between $2,100 and $2,200 on August 25?
+  E3.C9: Will the price of Ethereum be between $2,200 and $2,300 on August 25?
+  E3.C10: Will the price of Ethereum be between $2,300 and $2,400 on August 25?
+  E3.C11: Will the price of Ethereum be greater than $2,400 on August 25?
+News before E3's as-of date (date seen, source, headline):
+  - 2026-08-19 | fortune.com | Current price of Ethereum for August 19, 2026
+  - 2026-08-19 | finance.yahoo.com | Better Altcoin Buy: XRP vs. Ethereum
+  - 2026-08-19 | finance.yahoo.com | Bitcoin and ethereum prices today, Wednesday, August 19, 2026: Crypto prices rise after SEC announces proposed regulation
+  - 2026-08-19 | finance.yahoo.com | Tom Lee Eyes Ethereum AI Growth as Peter Brandt’s September Bitcoin Bottom Window Nears
+  - 2026-08-19 | finance.yahoo.com | Bitcoin Hits $69,000, Ethereum Goes on 20% Bull Rampage, XRP, SOL Pump 10% on Historic Crypto Day
+  - 2026-08-19 | info.arkm.com | Bitcoin Hits $69K, Ethereum Hits $2K After Treasury Announcement
+  - 2026-08-19 | cryptonews.net | Ethereum Price Explodes 9.5% and Stops 1% Short of THE Level
+  - 2026-08-19 | www.mitrade.com | Ethereum Price Forecast: ETH jumps 18%, sparks over $1 billion in liquidations
+  - 2026-08-19 | cryptonews.net | Ethereum outpaces Bitcoin in Q3 – Can ETH lead the next altcoin season?
+  - 2026-08-19 | stockstotrade.com | SBET Stock Climbs As Ethereum Treasury Strategy Draws Big Money
+  - 2026-08-19 | finance.yahoo.com | Ethereum vs. Bitcoin: ETH/BTC Setup Points to 40% Relative Upside
+  - 2026-08-18 | fortune.com | Current price of Ethereum for August 18, 2026
+  - 2026-08-18 | bitcoinfoundation.org | Ethereum Bull Run Incoming? Tom Lee Sees ETH/BTC Breaking Higher
+  - 2026-08-18 | finance.yahoo.com | Ethereum Price Prediction 2026: Glamsterdam Upgrade Could Kickstart ETH’s Next Bull Market
+  - 2026-08-18 | www.altcoinbuzz.io | Tom Lee Says Ethereum Could Pull Ahead of Bitcoin as ETH/BTC Breaks Long-Term Downtrend
+  - 2026-08-18 | finance.yahoo.com | Bitcoin and ethereum prices today, Tuesday, August 18, 2026: Crypto prices mixed as Iran stalemate continues
+  - 2026-08-18 | finance.yahoo.com | Tom Lee Uses BlackRock’s Bitcoin Report to Pitch Ethereum as AI’s Verification Layer
+  - 2026-08-18 | finance.yahoo.com | Securitize Adds Neuberger High-Yield Credit Fund to Ethereum, Solana, Avalanche and Sui
+  - 2026-08-18 | www.coindesk.com | ETH news: Ethereum’s next upgrade breaks the '21,000 gas' rule wallets rely on
+  - 2026-08-18 | beincrypto.com | Tom Lee Sees Ethereum Pulling Ahead of Bitcoin — and Names 2 Reasons
+  - 2026-08-18 | info.arkm.com | Top ETH Holders: Who Owns The Most Ethereum (2026)
+  - 2026-08-18 | coinpedia.org | Ethereum’s Biggest Upgrade Is Coming: Glamsterdam Testnet Goes Live
+  - 2026-08-18 | augustafreepress.com | How Modern Crypto Trading Is Changing Ethereum Price Movements
+  - 2026-08-18 | www.globenewswire.com | Crypto News: Ethereum Based Crypto Pepeto Sells Out Another
+  - 2026-08-17 | www.bitnovo.com | Ethereum’s plan to make privacy no longer optional.
+What to write for E3:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E4 (as of 2026-05-06): Ted Cruz # posts May 8 - May 15, 2026?
+Rules:
+This market will resolve according to the number of times Ted Cruz (@tedcruz), posts on X between May 8, 12:00 PM ET and May 15, 2026, 12:00 PM ET.
+
+For the purposes of this market, only main feed posts, quote posts and reposts will count.
+
+Replies will NOT count towards the total - however, replies which are recorded on the main feed will be counted by the tracker.
+
+Deleted posts will count as long as they remain available long enough to be captured by the tracker (~5 minutes).
+
+The resolution source for this market is the "Post Counter" figure for posts found at https://xtracker.polymarket.com. Individual posts can be viewed by clicking "Export Data". If the tracker does not update correctly in accordance with the rules, X itself may be used as a secondary resolution source.
+Contracts:
+  E4.C1: Will Ted Cruz post 0-19 posts from May 8 to May 15, 2026?
+  E4.C2: Will Ted Cruz post 20-39 posts from May 8 to May 15, 2026?
+  E4.C3: Will Ted Cruz post 40-59 posts from May 8 to May 15, 2026?
+  E4.C4: Will Ted Cruz post 60-79 posts from May 8 to May 15, 2026?
+  E4.C5: Will Ted Cruz post 80-99 posts from May 8 to May 15, 2026?
+  E4.C6: Will Ted Cruz post 100-119 posts from May 8 to May 15, 2026?
+  E4.C7: Will Ted Cruz post 120-139 posts from May 8 to May 15, 2026?
+  E4.C8: Will Ted Cruz post 140-159 posts from May 8 to May 15, 2026?
+  E4.C9: Will Ted Cruz post 160-179 posts from May 8 to May 15, 2026?
+  E4.C10: Will Ted Cruz post 180-199 posts from May 8 to May 15, 2026?
+  E4.C11: Will Ted Cruz post 200+ posts from May 8 to May 15, 2026?
+News before E4's as-of date (date seen, source, headline):
+  - 2026-05-05 | www.houstonchronicle.com | Tucker Carlson calls Ted Cruz 'morally repulsive' as drama between the two grows
+  - 2026-05-05 | www.usatoday.com | Tucker Carlson compares Ted Cruz to extremist, feud escalates
+  - 2026-05-05 | www.jfeed.com | Ted Cruz vs Tucker Carlson: GOP Feud Over Israel Remarks
+  - 2026-05-04 | www.ktiv.com | What Sen. Ted Cruz said to Iowans about 2026 election
+  - 2026-05-04 | www.kwtx.com | Sen. Ted Cruz addresses 2028 presidential bid while in Iowa
+  - 2026-05-04 | www.nytimes.com | ‘Who Do You Think Is More Morally Repulsive: Ted Cruz or Nick Fuentes?’
+  - 2026-05-04 | spectrumlocalnews.com | Sen. Ted Cruz pushes Trey's Law to void NDAs in child sex abuse cases
+  - 2026-05-03 | attackofthefanboy.com | Tucker Carlson wishes he never interviewed Nick Fuentes, then said Ted Cruz is 'far worse' than Fuentes and called him 'just so repulsive'
+  - 2026-05-02 | www.texastribune.org | Sen. Ted Cruz makes Iowa appearance, fueling speculation about another presidential bid
+  - 2026-05-02 | www.kcci.com | Iowa politics: Ted Cruz warns of high stakes during Iowa visit as 2026 midterms loom
+  - 2026-05-02 | www.cbsnews.com | Sen. Ted Cruz discusses SCOTUS decisions on redistricting, third attempted assassination of Trump
+  - 2026-05-02 | www.kentucky.com | Sen. Ted Cruz at Churchill Downs for the 2026 Kentucky Derby (Video) (Video)
+  - 2026-05-02 | www.foxnews.com | Sen Ted Cruz: The Democratic Party is defined by hatred for Trump
+  - 2026-05-02 | www.foreignpolicyjournal.com | JD Vance Heads to Iowa as VP While Ted Cruz Positions for 2028 Republican Race That Is Already Quietly Under Way
+  - 2026-05-02 | www.mediaite.com | Tucker Carlson Regrets Interviewing Nick Fuentes — Then Says He’s Talked to ‘Far Worse’ People Like Ted Cruz, Mike Huckabee
+  - 2026-05-01 | iowacapitaldispatch.com | Sen. Ted Cruz rallies Republicans at Iowa Faith & Freedom dinner
+  - 2026-05-01 | www.elpasotimes.com | Ted Cruz introduces bill to stop federal land expansion in West Texas
+  - 2026-05-01 | www.desmoinesregister.com | 'They're coming after Iowa': U.S. Sen. Ted Cruz talks Iowa midterms
+  - 2026-05-01 | www.wideopencountry.com | Ted Cruz Defends Jimmy Kimmel Amid Backlash Over Trump Joke
+  - 2026-04-30 | au.rollingstone.com | Ted Cruz Bashes Trump Administration for Going After Jimmy Kimmel
+  - 2026-04-30 | people.com | Ted Cruz Becomes Unlikely Ally of Jimmy Kimmel and The View After Slamming FCC as 'Speech Police'
+  - 2026-04-30 | www.usmagazine.com | Ted Cruz Defends Jimmy Kimmel Over Potential Repercussions From FCC Over Donald Trump Feud
+  - 2026-04-30 | www.wonderwall.com | Ted Cruz became an unlikely ally of Jimmy Kimmel
+  - 2026-04-30 | atlantablackstar.com | ‘King Is Brutal’: King Charles III Doesn’t Flinch as He Insults Trump to His Face Then Makes Ted Cruz Stand There and Watch His Kids Get Roasted
+  - 2026-04-29 | variety.com | Ted Cruz Rips FCC Over ABC Broadcast License Review Following Kimmel Joke
+What to write for E4:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E5 (as of 2026-09-23): Bitcoin above ___ on September 23?
+Rules:
+This market will resolve to "Yes" if the Binance 1 minute candle for BTC/USDT 12:00 in the ET timezone (noon) on the date specified in the title has a final "Close" price higher than the price specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the BTC/USDT "Close" prices currently available at https://www.binance.com/en/trade/BTC_USDT with "1m" and "Candles" selected on the top bar.
+
+Please note that this market is about the price according to Binance BTC/USDT, not according to other exchanges or trading pairs.
+
+Price precision is determined by the number of decimal places in the source.
+Contracts:
+  E5.C1: Will the price of Bitcoin be above $66,000 on September 23?
+  E5.C2: Will the price of Bitcoin be above $68,000 on September 23?
+  E5.C3: Will the price of Bitcoin be above $70,000 on September 23?
+  E5.C4: Will the price of Bitcoin be above $72,000 on September 23?
+  E5.C5: Will the price of Bitcoin be above $74,000 on September 23?
+  E5.C6: Will the price of Bitcoin be above $76,000 on September 23?
+  E5.C7: Will the price of Bitcoin be above $78,000 on September 23?
+  E5.C8: Will the price of Bitcoin be above $80,000 on September 23?
+  E5.C9: Will the price of Bitcoin be above $82,000 on September 23?
+  E5.C10: Will the price of Bitcoin be above $84,000 on September 23?
+  E5.C11: Will the price of Bitcoin be above $86,000 on September 23?
+News before E5's as-of date (date seen, source, headline):
+  - 2026-09-23 | finance.yahoo.com | Where Will Bitcoin and Solana Be in 2 Years?
+  - 2026-09-23 | www.coindesk.com | Bitcoin consolidates near $86,000 as rally narrows and Brent slips below $100
+  - 2026-09-23 | www.coindesk.com | Bitcoin news: The last time this happened to BTC, it was 2012
+  - 2026-09-23 | www.coindesk.com | Coinbase users can now borrow USDC against bitcoin at a fixed rate
+  - 2026-09-23 | finance.yahoo.com | Should You Buy Bitcoin While It's Under $100,000? The Answer Might Surprise You.
+  - 2026-09-23 | finance.yahoo.com | $15.6 Billion in Bitcoin Options Expire Friday—Here's What It Means
+  - 2026-09-23 | finance.yahoo.com | How Bitcoin Climbed From Below $75,000 to Over $87,000 in Just Six Days
+  - 2026-09-23 | finance.yahoo.com | Bitcoin Is Down Just 1.2% for 2026 After Clearing $86,000. Can It End the Year Green?
+  - 2026-09-23 | www.coindesk.com | Bitcoin trades near $85,000 ahead of one of deribit’s largest options expiries of the year
+  - 2026-09-23 | fortune.com | Current price of Bitcoin for September 23, 2026
+  - 2026-09-23 | www.investing.com | Analyst says Bitcoin bull market is underway and sets 2029 target
+  - 2026-09-23 | www.bloomberg.com | Bitcoin Bulls Eye Next Leg as $15 Billion Options Expiry Nears
+  - 2026-09-23 | www.barrons.com | Why Is Bitcoin Cash’s Price Rising After a 30% Surge?
+  - 2026-09-23 | www.tradingview.com | Bitcoin breaks below $84,000 as $237M in longs get liquidated in a single hour
+  - 2026-09-23 | www.tradingview.com | Deribit sees $16B in Bitcoin options expire Friday
+  - 2026-09-23 | finance.yahoo.com | Analyst who predicted 2021 crash admits he was wrong about Bitcoin
+  - 2026-09-23 | finance.yahoo.com | Bitcoin Set for Its First Q3 Winning Streak Since 2012: What Can History Teach Us?
+  - 2026-09-23 | www.coindesk.com | Bitcoin nears $87,000, Zcash zooms 10% as U.S. bitcoin reserve bill clears committee
+  - 2026-09-22 | www.stonex.com | Bitcoin Analysis: Are Buyers Back in Control?
+  - 2026-09-22 | global.morningstar.com | Why Is the Bitcoin Price Soaring Again?
+  - 2026-09-22 | www.inc.com | Bitcoin Is Roaring Back and Crypto-Linked Stocks Are Taking Notice
+  - 2026-09-22 | finance.yahoo.com | 'Crypto winter is over,' analyst says as bitcoin tops $86,000: Chart of the Day
+  - 2026-09-22 | finance.yahoo.com | History Says This Is What Will Happen With Bitcoin in 2027
+  - 2026-09-22 | www.bloomberg.com | Bitcoin Retreats From Eight-Month High After Dizzying 13% Rally
+  - 2026-09-22 | finance.yahoo.com | Elon Musk's X adds Bitcoin trading links as crypto push expands
+What to write for E5:
+  Write "levels": for each chance 10, 25, 50, 75 and 90, the level you give that chance of the measured quantity being at or above when it resolves. The 10 level is the highest and the 90 level the lowest. Example: {"10": 120, "25": 110, "50": 100, "75": 92, "90": 85}.
+
+=== E6 (as of 2026-04-08): What price will Bitcoin hit April 6-12?
+Rules:
+What price will Bitcoin hit April 6-12?
+Contracts:
+  E6.C1: Will Bitcoin reach $84,000 April 6-12?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1-minute candle for BTC/USDT during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "High" price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the BTC/USDT "High" prices available at https://www.binance.com/en/trade/BTC_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance BTC/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E6.C2: Will Bitcoin reach $82,000 April 6-12?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1-minute candle for BTC/USDT during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "High" price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the BTC/USDT "High" prices available at https://www.binance.com/en/trade/BTC_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance BTC/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E6.C3: Will Bitcoin reach $80,000 April 6-12?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1-minute candle for BTC/USDT during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "High" price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the BTC/USDT "High" prices available at https://www.binance.com/en/trade/BTC_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance BTC/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E6.C4: Will Bitcoin reach $78,000 April 6-12?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1-minute candle for BTC/USDT during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "High" price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the BTC/USDT "High" prices available at https://www.binance.com/en/trade/BTC_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance BTC/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E6.C5: Will Bitcoin reach $76,000 April 6-12?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1-minute candle for BTC/USDT during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "High" price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the BTC/USDT "High" prices available at https://www.binance.com/en/trade/BTC_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance BTC/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E6.C6: Will Bitcoin reach $74,000 April 6-12?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1-minute candle for BTC/USDT during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "High" price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the BTC/USDT "High" prices available at https://www.binance.com/en/trade/BTC_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance BTC/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E6.C7: Will Bitcoin dip to $66,000 April 6-12?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for Bitcoin (BTC/USDT) during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "Low" price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the BTC/USDT "Low" prices available at https://www.binance.com/en/trade/BTC_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance BTC/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E6.C8: Will Bitcoin dip to $64,000 April 6-12?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for Bitcoin (BTC/USDT) during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "Low" price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the BTC/USDT "Low" prices available at https://www.binance.com/en/trade/BTC_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance BTC/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E6.C9: Will Bitcoin dip to $62,000 April 6-12?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for Bitcoin (BTC/USDT) during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "Low" price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the BTC/USDT "Low" prices available at https://www.binance.com/en/trade/BTC_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance BTC/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E6.C10: Will Bitcoin dip to $60,000 April 6-12?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for Bitcoin (BTC/USDT) during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "Low" price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the BTC/USDT "Low" prices available at https://www.binance.com/en/trade/BTC_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance BTC/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E6.C11: Will Bitcoin dip to $58,000 April 6-12?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for Bitcoin (BTC/USDT) during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "Low" price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the BTC/USDT "Low" prices available at https://www.binance.com/en/trade/BTC_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance BTC/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E6.C12: Will Bitcoin dip to $56,000 April 6-12?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for Bitcoin (BTC/USDT) during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "Low" price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the BTC/USDT "Low" prices available at https://www.binance.com/en/trade/BTC_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance BTC/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+News before E6's as-of date (date seen, source, headline):
+  - 2026-04-08 | www.morganstanley.com | Bitcoin Fundamentals: Structure, Scarcity and Use
+  - 2026-04-08 | www.nytimes.com | Video: Unraveling the Mystery Behind Bitcoin’s Creator
+  - 2026-04-08 | www.fintechweekly.com | Morgan Stanley Launched the First Bank-Issued Bitcoin ETF Today
+  - 2026-04-08 | www.bbc.com | Adam Back says he is not Bitcoin founder Satoshi Nakamoto
+  - 2026-04-08 | www.morganstanley.com | Morgan Stanley Investment Management Enters Digital Investments Universe With Launch of Morgan Stanley Bitcoin Trust
+  - 2026-04-08 | finance.yahoo.com | Bitcoin Is Down 45% From Its All-Time High -- Here's What History Says Happens Next
+  - 2026-04-08 | www.21shares.com | New report: Bitcoin’s role within an institutional portfolio
+  - 2026-04-08 | www.bloomberg.com | Bitcoin Jumps to Three-Week High on US-Iran Ceasefire Plan
+  - 2026-04-08 | www.forbes.com | How The Trumps Blew $1 Billion On Bitcoin
+  - 2026-04-08 | www.cnbc.com | Latest investigation into bitcoin founder ties identity to Blockstream CEO Adam Back
+  - 2026-04-08 | www.forbes.com | Bitcoin Blockchain Hack Alarm Sounded By Google
+  - 2026-04-08 | www.forbes.com | ‘Will Be Destroyed’—Iran’s Bitcoin Toll Sparks $100K Price Prediction
+  - 2026-04-08 | www.bostonglobe.com | Bitcoin ATMs are enabling scams, critics say. The AARP wants them gone.
+  - 2026-04-08 | finance.yahoo.com | Bitcoin and ethereum price today, Wednesday, April 8, 2026: Prices rise after U.S.-Iran ceasefire announcement
+  - 2026-04-08 | www.bloomberg.com | New Bitcoin ETF Chases Gains That Come While Wall Street Sleeps
+  - 2026-04-08 | fortune.com | Morgan Stanley’s Bitcoin ETF began trading. An analyst put it in the top 1% of ETF launches
+  - 2026-04-08 | fortune.com | The New York Times says it found Satoshi Nakamoto, the inventor of Bitcoin. Not so fast
+  - 2026-04-08 | www.morningbrew.com | NYT thinks it solved Bitcoin’s biggest mystery
+  - 2026-04-08 | etfdb.com | Morgan Stanley Enters Bitcoin World With Low-Cost ETF
+  - 2026-04-08 | www.coindesk.com | Bitcoin price analysis: BTC is rallying, but caution warranted
+  - 2026-04-08 | ca.finance.yahoo.com | Trump’s Billion-Dollar Bitcoin Blowout Exposed
+  - 2026-04-07 | intelligentcollector.com | Tangible Bitcoin: Holding Millions in Your Hand
+  - 2026-04-07 | www.cnbc.com | Bitcoin has been the 'shining light' during the Iran war, says Anthony Pompliano
+  - 2026-04-07 | fortune.com | Current price of Bitcoin for April 7, 2026
+  - 2026-04-07 | www.bloomberg.com | Bitcoin Slides With Risk Assets as Trump’s Iran Ultimatum Looms
+What to write for E6:
+  Write "high": for each chance 10, 25, 50, 75 and 90, the level you give that chance of being reached (at or above) within the period. The 10 level is the highest.
+  Write "low": for each chance 10, 25, 50, 75 and 90, the level you give that chance of being reached (at or below) within the period. The 10 level is the lowest.

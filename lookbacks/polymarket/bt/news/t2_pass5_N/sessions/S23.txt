@@ -1,0 +1,500 @@
+You will be shown 6 questions from a prediction market. Each has one or more contracts that resolve YES or NO under the rules shown. Each question gives the date your view is "as of": answer as you would on that date.
+
+Use what you already know and the news headlines listed under each question, all published in the 7 days before its as-of date. Do not search for or look up anything else: reading this file is the only tool call you may make. There are no prices from any prediction market in this file and you should not try to estimate what any market thinks; give your own view.
+
+Each question says what to write for it. Whole percents run from 1 to 99. Levels are plain numbers in the units the contracts use (for example 95000 for $95,000, 3.25 for 3.25%). Dates are YYYY-MM-DD.
+
+For each question also say whether you recognise how it actually turned out ("recognised": true only if you believe you remember the real outcome; otherwise false).
+
+Reply with one JSON object and nothing else:
+{"events": [{"label": "E1", "recognised": false, ...the fields that question asks for...}]}
+
+=== E1 (as of 2026-09-09): Bitcoin price on September 15?
+Rules:
+This market will resolve according to the final "Close" price of the Binance 1 minute candle for BTC/USDT 12:00 in the ET timezone (noon) on the date specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the BTC/USDT "Close" prices currently available at https://www.binance.com/en/trade/BTC_USDT with "1m" and "Candles" selected on the top bar.
+
+If the reported value falls exactly between two brackets, then this market will resolve to the higher range bracket.
+
+Please note that this market is about the price according to Binance BTC/USDT, not according to other exchanges or trading pairs.
+Contracts:
+  E1.C1: Will the price of Bitcoin be less than $70,000 on September 15?
+  E1.C2: Will the price of Bitcoin be between $70,000 and $72,000 on September 15?
+  E1.C3: Will the price of Bitcoin be between $72,000 and $74,000 on September 15?
+  E1.C4: Will the price of Bitcoin be between $74,000 and $76,000 on September 15?
+  E1.C5: Will the price of Bitcoin be between $76,000 and $78,000 on September 15?
+  E1.C6: Will the price of Bitcoin be between $78,000 and $80,000 on September 15?
+  E1.C7: Will the price of Bitcoin be between $80,000 and $82,000 on September 15?
+  E1.C8: Will the price of Bitcoin be between $82,000 and $84,000 on September 15?
+  E1.C9: Will the price of Bitcoin be between $84,000 and $86,000 on September 15?
+  E1.C10: Will the price of Bitcoin be between $86,000 and $88,000 on September 15?
+  E1.C11: Will the price of Bitcoin be greater than $88,000 on September 15?
+News before E1's as-of date (date seen, source, headline):
+  - 2026-09-09 | finance.yahoo.com | Bitcoin Is Down for 2026. Here Is the Exact Price It Has to Reclaim by December 31 to Break Even
+  - 2026-09-09 | ktla.com | California crypto ‘Godfather’ gets 15 years for Bitcoin kidnapping plot
+  - 2026-09-09 | www.nytimes.com | ‘Ferris Bueller Gone Bad’: 22-Year-Old Pleads Guilty in Giant Bitcoin Heist
+  - 2026-09-09 | www.coindesk.com | Bitcoin and Ethereum race quantum clock as U.S. backs $300 million hardware push
+  - 2026-09-09 | finance.yahoo.com | Bitcoin Price Resistance at $82K Ceiling Faces Profit-Taking Risk
+  - 2026-09-09 | www.bloomberg.com | AI Boom Wrecks Trump’s Plan for ‘Made-in-America’ Bitcoin Mining
+  - 2026-09-09 | www.businessinsider.com | Bitcoin just flashed a bullish golden cross signal. Here's what that means for the top crypto.
+  - 2026-09-09 | www.scmp.com | Singapore man pleads guilty after massive US bitcoin heist and spending spree
+  - 2026-09-09 | www.forbes.com | How Bitcoin Mortgages Work: Bitcoin Backs The American Dream
+  - 2026-09-09 | www.etf.com | Crypto ETFs in 2026: Bitcoin, Ethereum and the Altcoin Wave Explained
+  - 2026-09-09 | bitcoinfoundation.org | Bitcoin ETFs Just Sent a $1B Signal: Are Institutions Buying the Dip or Repositioning for the Fed?
+  - 2026-09-09 | www.fox10phoenix.com | ‘Ferris Bueller gone bad’ helps unravel $240M bitcoin theft
+  - 2026-09-09 | finance.yahoo.com | Bitcoin analyst spots two signals of a bear market bottom
+  - 2026-09-09 | www.yahoo.com | Mexican Musician and Family Killed Over Bitcoin Cold Wallet Believed to Hold Millions
+  - 2026-09-09 | 247wallst.com | Strive Added 1,375 Bitcoin While Strategy Added None. Their Preferred Shares Explain Why.
+  - 2026-09-09 | www.xtb.com | Bitcoin fights to reclaim $80,000 - this data could shape the trend 📈 What’s next for crypto?
+  - 2026-09-08 | finance.yahoo.com | Bitcoin Forms Bullish Golden Cross
+  - 2026-09-08 | finance.yahoo.com | Bitcoin and ethereum prices today, Tuesday, September 8, 2026: Crypto prices sliding as U.S.-Iran fighting continues
+  - 2026-09-08 | thehackernews.com | Liquid Hackers Return 3,400 Bitcoin Taken via Elements Bug, Still Holding $47M in BTC
+  - 2026-09-08 | www.coindesk.com | Bitcoin's (BTC) golden cross is here. What next?
+  - 2026-09-08 | finance.yahoo.com | 4,000 BTC Left Liquid Network Without Stolen Keys Exposing a Bigger Bitcoin Bridge Problem
+  - 2026-09-08 | finance.yahoo.com | Strategy Holds Off On Bitcoin Purchases As It Buys Preferred Stock
+  - 2026-09-08 | fortune.com | Current price of Bitcoin for September 8, 2026
+  - 2026-09-08 | www.coindesk.com | Liquid Network gets back 3,400 bitcoin from whitehat hackers; talks underway for the rest
+  - 2026-09-08 | 247wallst.com | Bitcoin Price Prediction: We Asked ChatGPT if BTC Can Reclaim $87,500 by December 31
+What to write for E1:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E2 (as of 2026-04-29): What will WTI Crude Oil (WTI) hit Week of April 27 2026?
+Rules:
+What will WTI Crude Oil (WTI) hit Week of April 27 2026?
+Contracts:
+  E2.C1: Will WTI Crude Oil (WTI) hit (HIGH) $125 Week of April 27 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of April 27 2026, any 1-minute candle for the Active Month of WTI Crude Oil futures has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+For WTI futures, the active month refers to the nearest listed contract month. The active month changes at 6:00:00 PM ET at the start of the trading session two business days prior to that contract's last trading day, at which point the next listed contract becomes the active month.
+
+For WTI Crude Oil (CL) futures, the last trading day is defined as three business days prior to the 25th calendar day of the month preceding the contract's delivery month (or four business days prior if the 25th calendar day is not a business day), consistent with CME contract specifications.
+
+Only prices achieved during the applicable trading session for the underlying market will be considered. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours as listed on Pyth.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If the Active Month contract does not trade at all during the listed time frame, this market will resolve to "No".
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the underlying market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Active Month WTI Crude Oil futures "High" prices available at https://pythdata.app/explore?search=WTI, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published for the Active Month WTI Crude Oil (CL) futures contract by CME Group may be used to determine whether the listed price was reached during the applicable trading session.
+  E2.C2: Will WTI Crude Oil (WTI) hit (HIGH) $120 Week of April 27 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of April 27 2026, any 1-minute candle for the Active Month of WTI Crude Oil futures has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+For WTI futures, the active month refers to the nearest listed contract month. The active month changes at 6:00:00 PM ET at the start of the trading session two business days prior to that contract's last trading day, at which point the next listed contract becomes the active month.
+
+For WTI Crude Oil (CL) futures, the last trading day is defined as three business days prior to the 25th calendar day of the month preceding the contract's delivery month (or four business days prior if the 25th calendar day is not a business day), consistent with CME contract specifications.
+
+Only prices achieved during the applicable trading session for the underlying market will be considered. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours as listed on Pyth.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If the Active Month contract does not trade at all during the listed time frame, this market will resolve to "No".
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the underlying market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Active Month WTI Crude Oil futures "High" prices available at https://pythdata.app/explore?search=WTI, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published for the Active Month WTI Crude Oil (CL) futures contract by CME Group may be used to determine whether the listed price was reached during the applicable trading session.
+  E2.C3: Will WTI Crude Oil (WTI) hit (HIGH) $115 Week of April 27 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of April 27 2026, any 1-minute candle for the Active Month of WTI Crude Oil futures has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+For WTI futures, the active month refers to the nearest listed contract month. The active month changes at 6:00:00 PM ET at the start of the trading session two business days prior to that contract's last trading day, at which point the next listed contract becomes the active month.
+
+For WTI Crude Oil (CL) futures, the last trading day is defined as three business days prior to the 25th calendar day of the month preceding the contract's delivery month (or four business days prior if the 25th calendar day is not a business day), consistent with CME contract specifications.
+
+Only prices achieved during the applicable trading session for the underlying market will be considered. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours as listed on Pyth.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If the Active Month contract does not trade at all during the listed time frame, this market will resolve to "No".
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the underlying market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Active Month WTI Crude Oil futures "High" prices available at https://pythdata.app/explore?search=WTI, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published for the Active Month WTI Crude Oil (CL) futures contract by CME Group may be used to determine whether the listed price was reached during the applicable trading session.
+  E2.C4: Will WTI Crude Oil (WTI) hit (HIGH) $110 Week of April 27 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of April 27 2026, any 1-minute candle for the Active Month of WTI Crude Oil futures has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+For WTI futures, the active month refers to the nearest listed contract month. The active month changes at 6:00:00 PM ET at the start of the trading session two business days prior to that contract's last trading day, at which point the next listed contract becomes the active month.
+
+For WTI Crude Oil (CL) futures, the last trading day is defined as three business days prior to the 25th calendar day of the month preceding the contract's delivery month (or four business days prior if the 25th calendar day is not a business day), consistent with CME contract specifications.
+
+Only prices achieved during the applicable trading session for the underlying market will be considered. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours as listed on Pyth.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If the Active Month contract does not trade at all during the listed time frame, this market will resolve to "No".
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the underlying market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Active Month WTI Crude Oil futures "High" prices available at https://pythdata.app/explore?search=WTI, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published for the Active Month WTI Crude Oil (CL) futures contract by CME Group may be used to determine whether the listed price was reached during the applicable trading session.
+  E2.C5: Will WTI Crude Oil (WTI) hit (HIGH) $105 Week of April 27 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of April 27 2026, any 1-minute candle for the Active Month of WTI Crude Oil futures has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+For WTI futures, the active month refers to the nearest listed contract month. The active month changes at 6:00:00 PM ET at the start of the trading session two business days prior to that contract's last trading day, at which point the next listed contract becomes the active month.
+
+For WTI Crude Oil (CL) futures, the last trading day is defined as three business days prior to the 25th calendar day of the month preceding the contract's delivery month (or four business days prior if the 25th calendar day is not a business day), consistent with CME contract specifications.
+
+Only prices achieved during the applicable trading session for the underlying market will be considered. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours as listed on Pyth.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If the Active Month contract does not trade at all during the listed time frame, this market will resolve to "No".
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the underlying market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Active Month WTI Crude Oil futures "High" prices available at https://pythdata.app/explore?search=WTI, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published for the Active Month WTI Crude Oil (CL) futures contract by CME Group may be used to determine whether the listed price was reached during the applicable trading session.
+  E2.C6: Will WTI Crude Oil (WTI) hit (LOW) $90 Week of April 27 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of April 27 2026, any 1-minute candle for the Active Month of WTI Crude Oil futures has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+For WTI futures, the active month refers to the nearest listed contract month. The active month changes at 6:00:00 PM ET at the start of the trading session two business days prior to that contract's last trading day, at which point the next listed contract becomes the active month.
+
+For WTI Crude Oil (CL) futures, the last trading day is defined as three business days prior to the 25th calendar day of the month preceding the contract's delivery month (or four business days prior if the 25th calendar day is not a business day), consistent with CME contract specifications.
+
+Only prices achieved during the applicable trading session for the underlying market will be considered. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours as listed on Pyth.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If the Active Month contract does not trade at all during the listed time frame, this market will resolve to "No".
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the underlying market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Active Month WTI Crude Oil futures "Low" prices available at https://pythdata.app/explore?search=WTI, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published for the Active Month WTI Crude Oil (CL) futures contract by CME Group may be used to determine whether the listed price was reached during the applicable trading session.
+  E2.C7: Will WTI Crude Oil (WTI) hit (LOW) $85 Week of April 27 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of April 27 2026, any 1-minute candle for the Active Month of WTI Crude Oil futures has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+For WTI futures, the active month refers to the nearest listed contract month. The active month changes at 6:00:00 PM ET at the start of the trading session two business days prior to that contract's last trading day, at which point the next listed contract becomes the active month.
+
+For WTI Crude Oil (CL) futures, the last trading day is defined as three business days prior to the 25th calendar day of the month preceding the contract's delivery month (or four business days prior if the 25th calendar day is not a business day), consistent with CME contract specifications.
+
+Only prices achieved during the applicable trading session for the underlying market will be considered. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours as listed on Pyth.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If the Active Month contract does not trade at all during the listed time frame, this market will resolve to "No".
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the underlying market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Active Month WTI Crude Oil futures "Low" prices available at https://pythdata.app/explore?search=WTI, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published for the Active Month WTI Crude Oil (CL) futures contract by CME Group may be used to determine whether the listed price was reached during the applicable trading session.
+  E2.C8: Will WTI Crude Oil (WTI) hit (LOW) $80 Week of April 27 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of April 27 2026, any 1-minute candle for the Active Month of WTI Crude Oil futures has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+For WTI futures, the active month refers to the nearest listed contract month. The active month changes at 6:00:00 PM ET at the start of the trading session two business days prior to that contract's last trading day, at which point the next listed contract becomes the active month.
+
+For WTI Crude Oil (CL) futures, the last trading day is defined as three business days prior to the 25th calendar day of the month preceding the contract's delivery month (or four business days prior if the 25th calendar day is not a business day), consistent with CME contract specifications.
+
+Only prices achieved during the applicable trading session for the underlying market will be considered. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours as listed on Pyth.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If the Active Month contract does not trade at all during the listed time frame, this market will resolve to "No".
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the underlying market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Active Month WTI Crude Oil futures "Low" prices available at https://pythdata.app/explore?search=WTI, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published for the Active Month WTI Crude Oil (CL) futures contract by CME Group may be used to determine whether the listed price was reached during the applicable trading session.
+  E2.C9: Will WTI Crude Oil (WTI) hit (LOW) $75 Week of April 27 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of April 27 2026, any 1-minute candle for the Active Month of WTI Crude Oil futures has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+For WTI futures, the active month refers to the nearest listed contract month. The active month changes at 6:00:00 PM ET at the start of the trading session two business days prior to that contract's last trading day, at which point the next listed contract becomes the active month.
+
+For WTI Crude Oil (CL) futures, the last trading day is defined as three business days prior to the 25th calendar day of the month preceding the contract's delivery month (or four business days prior if the 25th calendar day is not a business day), consistent with CME contract specifications.
+
+Only prices achieved during the applicable trading session for the underlying market will be considered. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours as listed on Pyth.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If the Active Month contract does not trade at all during the listed time frame, this market will resolve to "No".
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the underlying market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Active Month WTI Crude Oil futures "Low" prices available at https://pythdata.app/explore?search=WTI, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published for the Active Month WTI Crude Oil (CL) futures contract by CME Group may be used to determine whether the listed price was reached during the applicable trading session.
+  E2.C10: Will WTI Crude Oil (WTI) hit (LOW) $70 Week of April 27 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of April 27 2026, any 1-minute candle for the Active Month of WTI Crude Oil futures has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+For WTI futures, the active month refers to the nearest listed contract month. The active month changes at 6:00:00 PM ET at the start of the trading session two business days prior to that contract's last trading day, at which point the next listed contract becomes the active month.
+
+For WTI Crude Oil (CL) futures, the last trading day is defined as three business days prior to the 25th calendar day of the month preceding the contract's delivery month (or four business days prior if the 25th calendar day is not a business day), consistent with CME contract specifications.
+
+Only prices achieved during the applicable trading session for the underlying market will be considered. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours as listed on Pyth.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If the Active Month contract does not trade at all during the listed time frame, this market will resolve to "No".
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the underlying market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Active Month WTI Crude Oil futures "Low" prices available at https://pythdata.app/explore?search=WTI, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published for the Active Month WTI Crude Oil (CL) futures contract by CME Group may be used to determine whether the listed price was reached during the applicable trading session.
+  E2.C11: Will WTI Crude Oil (WTI) hit (LOW) $65 Week of April 27 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of April 27 2026, any 1-minute candle for the Active Month of WTI Crude Oil futures has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+For WTI futures, the active month refers to the nearest listed contract month. The active month changes at 6:00:00 PM ET at the start of the trading session two business days prior to that contract's last trading day, at which point the next listed contract becomes the active month.
+
+For WTI Crude Oil (CL) futures, the last trading day is defined as three business days prior to the 25th calendar day of the month preceding the contract's delivery month (or four business days prior if the 25th calendar day is not a business day), consistent with CME contract specifications.
+
+Only prices achieved during the applicable trading session for the underlying market will be considered. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours as listed on Pyth.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If the Active Month contract does not trade at all during the listed time frame, this market will resolve to "No".
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the underlying market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Active Month WTI Crude Oil futures "Low" prices available at https://pythdata.app/explore?search=WTI, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published for the Active Month WTI Crude Oil (CL) futures contract by CME Group may be used to determine whether the listed price was reached during the applicable trading session.
+  E2.C12: Will WTI Crude Oil (WTI) hit (LOW) $60 Week of April 27 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of April 27 2026, any 1-minute candle for the Active Month of WTI Crude Oil futures has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+For WTI futures, the active month refers to the nearest listed contract month. The active month changes at 6:00:00 PM ET at the start of the trading session two business days prior to that contract's last trading day, at which point the next listed contract becomes the active month.
+
+For WTI Crude Oil (CL) futures, the last trading day is defined as three business days prior to the 25th calendar day of the month preceding the contract's delivery month (or four business days prior if the 25th calendar day is not a business day), consistent with CME contract specifications.
+
+Only prices achieved during the applicable trading session for the underlying market will be considered. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours as listed on Pyth.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If the Active Month contract does not trade at all during the listed time frame, this market will resolve to "No".
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the underlying market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Active Month WTI Crude Oil futures "Low" prices available at https://pythdata.app/explore?search=WTI, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published for the Active Month WTI Crude Oil (CL) futures contract by CME Group may be used to determine whether the listed price was reached during the applicable trading session.
+News before E2's as-of date (date seen, source, headline):
+  - 2026-04-28 | www.fxempire.com | Oil News: WTI Crude Oil Punches Through $100 as Iran Deadlock Chokes Supply
+  - 2026-04-28 | www.marketscreener.com | WTI Crude Oil Futures Jump 3.5% to $99.72 Pre-Bell; Brent Futures Rise 2.9% to $111.39
+  - 2026-04-27 | www.marketscreener.com | CME : WTI Crude Oil futures hit 3-week highs on unresolved talks.
+  - 2026-04-24 | www.litefinance.org | WTI Crude Oil: Elliott Wave Analysis and Forecast for 24.04.26–01.05.26
+  - 2026-04-23 | seekingalpha.com | WTI Crude Oil At Risk Of Mean Reversion Decline Below $102.25 After 5% Spike
+  - 2026-04-23 | www.marketscreener.com | WTI Crude Oil Futures Rise 1.7% to $94.54 Pre-Bell; Brent Futures Climb 1.7% to $103.60
+  - 2026-04-23 | cryptobriefing.com | WTI Crude Oil unlikely to hit $160 by April amid US-Iran tensions
+  - 2026-04-22 | www.marketscreener.com | WTI Crude Oil Futures Rise 0.8% to $90.39 Pre-Bell; Brent Futures Advance 0.9% to $99.38
+  - 2026-04-22 | hdfcsky.com | Brent, WTI Crude Oil Price Surges as US-Iran Ceasefire Sends Mixed Signals
+What to write for E2:
+  Write "high": for each chance 10, 25, 50, 75 and 90, the level you give that chance of being reached (at or above) within the period. The 10 level is the highest.
+  Write "low": for each chance 10, 25, 50, 75 and 90, the level you give that chance of being reached (at or below) within the period. The 10 level is the lowest.
+
+=== E3 (as of 2026-09-02): Ethereum above ___ on September 4?
+Rules:
+This market will resolve to "Yes" if the Binance 1 minute candle for ETH/USDT 12:00 in the ET timezone (noon) on the date specified in the title has a final "Close" price higher than the price specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the ETH/USDT "Close" prices currently available at https://www.binance.com/en/trade/ETH_USDT with "1m" and "Candles" selected on the top bar.
+
+Please note that this market is about the price according to Binance ETH/USDT, not according to other exchanges or trading pairs.
+
+Price precision is determined by the number of decimal places in the source.
+Contracts:
+  E3.C1: Will the price of Ethereum be above $2,000 on September 4?
+  E3.C2: Will the price of Ethereum be above $2,100 on September 4?
+  E3.C3: Will the price of Ethereum be above $2,200 on September 4?
+  E3.C4: Will the price of Ethereum be above $2,300 on September 4?
+  E3.C5: Will the price of Ethereum be above $2,400 on September 4?
+  E3.C6: Will the price of Ethereum be above $2,500 on September 4?
+  E3.C7: Will the price of Ethereum be above $2,600 on September 4?
+  E3.C8: Will the price of Ethereum be above $2,700 on September 4?
+  E3.C9: Will the price of Ethereum be above $2,800 on September 4?
+  E3.C10: Will the price of Ethereum be above $2,900 on September 4?
+  E3.C11: Will the price of Ethereum be above $3,000 on September 4?
+News before E3's as-of date (date seen, source, headline):
+  - 2026-09-02 | www.altcoinbuzz.io | Bitcoin could hit $1M by 2030, but Arthur Hayes prefers Ethereum
+  - 2026-09-02 | www.tradingview.com | Elon Musk Grok AI Predicts Ethereum Price by January 1, 2027
+  - 2026-09-02 | crypto.com | Ethereum (ETH) Price Rises to $2,458: What’s Driving the Move?
+  - 2026-09-02 | finance.yahoo.com | Japan’s Remixpoint Dumps Ethereum, XRP in Shift to Bitcoin-Only Treasury
+  - 2026-09-02 | eciks.org | Cryptocurrency trading slows as Bitcoin, Ethereum fall on inflation concerns
+  - 2026-09-02 | www.moomoo.com | COINBASE: ETHEREUM NETWORK SENDS AND RECEIVES EXPERIENCING DELAYS - STATUS PAGE
+  - 2026-09-02 | www.linkedin.com | #CryptoCorner Season 2 | Cryptocurrencies Surge In August; Solana Up 40% - Bitcoin posts a 23.5% gain & Ethereum rallies 31% - Citi and Goldman Sachs partner to launch a collaborative stablecoin project - SEC proposes rules to accommodate blockchain
+  - 2026-09-01 | logos-pres.md | Ethereum Could Outpace Bitcoin: Tom Lee Gives Two Reasons
+  - 2026-09-01 | finance.yahoo.com | Bitcoin and ethereum prices today, Tuesday, September 1, 2026: Crypto prices falling as inflation concerns persist
+  - 2026-09-01 | finance.yahoo.com | What to Expect From Ethereum Price in September 2026
+  - 2026-09-01 | finance.yahoo.com | Ethereum Price Risks 40% Drop as Historic Resistance Returns
+  - 2026-09-01 | finance.yahoo.com | Crypto Stocks Slide as Bitcoin and Ethereum Hold Flat: Circle Internet and Bitmine Fall 4%, Coinbase Drops 3%
+  - 2026-09-01 | crypto.news | Bitcoin leads Ethereum and Solana in decentralization, ARK finds
+  - 2026-09-01 | markets.businessinsider.com | Apeing Set to Launch Its Upcoming Crypto Presale in 8 Days, Ethereum’s 30% Weekly Rally Keeps Bullish Market Sentiment Alive
+  - 2026-09-01 | yellow.com | BitMine Strengthens Ethereum Treasury With $131M Acquisition
+  - 2026-09-01 | incrypted.com | Bitcoin Closed the Month Up Nearly 25%, While Ethereum Gained 32%
+  - 2026-09-01 | crypto.news | Ethereum price risks pullback as MACD flattens
+  - 2026-09-01 | www.tradingview.com | ARK, Glassnode Rank Bitcoin Most Decentralized – Ethereum, Solana Face Different Trade-Offs
+  - 2026-09-01 | www.globenewswire.com | New Crypto Pepeto Announces Its Cross-Chain Bridge Linking Ethereum, BNB Chain, and Solana
+  - 2026-09-01 | cryptonews.net | Is Ethereum's August Rally Over? 2 Sets of Data Give Opposite Answers
+  - 2026-08-31 | www.moomoo.com | Ethereum Push Back From $2,500 Resistance Level -- Market Talk
+  - 2026-08-31 | finance.yahoo.com | Ethereum Will Hit $6,000 as CLARITY Act ‘Supercharges’ Wall Street Demand, Says Tom Lee
+  - 2026-08-31 | fortune.com | Current price of Ethereum for August 31, 2026
+  - 2026-08-31 | finance.yahoo.com | Bitmine Accelerates Ethereum Purchases To Close Out August
+  - 2026-08-31 | finance.yahoo.com | Mark Cuban Got 'Really Disappointed' by Ethereum: Here's Why the Second-Largest Crypto Failed to Live Up to the Former Shark's Hopes
+What to write for E3:
+  Write "levels": for each chance 10, 25, 50, 75 and 90, the level you give that chance of the measured quantity being at or above when it resolves. The 10 level is the highest and the 90 level the lowest. Example: {"10": 120, "25": 110, "50": 100, "75": 92, "90": 85}.
+
+=== E4 (as of 2026-08-26): Meta (META) closes week of Aug 24 at ___?
+Rules:
+This market will resolve according to the Close price for Meta Platforms, Inc. (META) on the final day of trading of the week specified in the title (normally Friday).
+
+If the reported value falls exactly between two brackets, then this market will resolve to the higher range bracket.
+
+Closing prices will be used exactly as published by Pyth, without rounding.
+
+For a standard full trading session, the closing price refers to the Pyth "Close" value of the 1-minute candle corresponding to the final minute of regular trading hours on the primary exchange. If the relevant session is shortened (for example, due to a market-holiday schedule), the Pyth "Close" value of the 1-minute candle corresponding to the final minute of that shortened session will be used.
+
+If the relevant day has no valid Pyth Close value for the 1-minute candle corresponding to the end of regular trading hours on the primary exchange, the market will use the last valid Pyth price achieved during the regular trading hours of the primary exchange as the effective closing price. If no valid Pyth price exists for that trading day due to a system outage, data failure, or other technical disruption, the official closing price published by the primary exchange on which the listed security trades will be used to determine the closing price for that day.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed security during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth. The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market will be Pyth, specifically the "Close" values for the relevant 1-minute candle for Meta Platforms, Inc. (META) available at https://pythdata.app/explore/Equity.US.META%2FUSD.
+Contracts:
+  E4.C1: Will Meta (META) close at <$510 on the final day of trading of the week of Aug 24 – Aug 28?
+  E4.C2: Will Meta (META) close at $510-$520 on the final day of trading of the week of Aug 24 – Aug 28?
+  E4.C3: Will Meta (META) close at $520-$530 on the final day of trading of the week of Aug 24 – Aug 28?
+  E4.C4: Will Meta (META) close at $530-$540 on the final day of trading of the week of Aug 24 – Aug 28?
+  E4.C5: Will Meta (META) close at $540-$550 on the final day of trading of the week of Aug 24 – Aug 28?
+  E4.C6: Will Meta (META) close at $550-$560 on the final day of trading of the week of Aug 24 – Aug 28?
+  E4.C7: Will Meta (META) close at $560-$570 on the final day of trading of the week of Aug 24 – Aug 28?
+  E4.C8: Will Meta (META) close at $570-$580 on the final day of trading of the week of Aug 24 – Aug 28?
+  E4.C9: Will Meta (META) close at $580-$590 on the final day of trading of the week of Aug 24 – Aug 28?
+  E4.C10: Will Meta (META) close at $590-$600 on the final day of trading of the week of Aug 24 – Aug 28?
+  E4.C11: Will Meta (META) close at >$600 on the final day of trading of the week of Aug 24 – Aug 28?
+News before E4's as-of date (date seen, source, headline):
+  - 2026-08-26 | coag.gov | Attorney General Weiser announces historic settlement with Meta Platforms
+  - 2026-08-26 | ncdoj.gov | Attorney General Jeff Jackson Secures up to $645 Million for North Carolina in Landmark Child Safety Settlement with Meta
+  - 2026-08-26 | investor.atmeta.com | Meta's Agreement With Bipartisan Attorneys General: Calling on TikTok and YouTube to Join Us in Supporting Teens
+  - 2026-08-26 | oag.dc.gov | Attorney General Schwalb Announces That Meta Will Pay Up to $17.1 Billion for Exploiting Kids with Intentionally Addictive Social Media Platforms
+  - 2026-08-26 | www.attorneygeneral.gov | AG Sunday Announces Historic Settlement with Meta that Assures Protections on Social Media Platforms, Brings $500M+ to Pennsylvania
+  - 2026-08-26 | www.wbaltv.com | Map: Here's how much each state will receive in Meta settlement
+  - 2026-08-26 | www.texastribune.org | Meta to pay Texas $1 billion in child safety case
+  - 2026-08-26 | calmatters.org | Meta to pay $17 billion — and limit ‘likes’ for teens — in social media settlement with states
+  - 2026-08-26 | www.pbs.org | $17B Meta settlement puts focus on youth mental health crisis, Colorado AG says
+  - 2026-08-26 | stateline.org | Meta to pay 47 states up to $17.1B in landmark child safety settlement
+  - 2026-08-26 | www.pbs.org | Meta reaches $17 billion settlement with states in landmark trial over teen social media addiction
+  - 2026-08-26 | www.eff.org | EFF Statement on Meta Settlement
+  - 2026-08-26 | finance.yahoo.com | Meta Platforms Almost Slashed 60% of Jobs in AI Push. What Comes Next for META Stock.
+  - 2026-08-26 | www.reuters.com | What Meta agreed to in US teen safety settlement
+  - 2026-08-26 | www.reuters.com | Mark Zuckerberg had a bold plan to replace Meta staff with AI. Here’s how it imploded.
+  - 2026-08-26 | fortune.com | Meta's $17.1 billion settlement is 12x the second largest big tech privacy settlement
+  - 2026-08-26 | abcnews.com | Meta settlement sparks social media changes for teens: What parents need to know
+  - 2026-08-26 | www.latimes.com | Meta to pay $17 billion, overhaul Facebook and Instagram in teen addiction settlement
+  - 2026-08-26 | www.wral.com | Meta settles lawsuit, promising NC up to $645M and changes to Instagram and Facebook apps, AG says
+  - 2026-08-26 | virginiamercury.com | Virginia to receive $353 million in landmark Meta child-safety settlement
+  - 2026-08-26 | www.nytimes.com | What Does $17.1 Billion Mean for Meta?
+  - 2026-08-26 | www.wowt.com | Nebraska to receive $201 million in Meta settlement
+  - 2026-08-26 | www.reuters.com | NEWSLETTER: How Meta’s AI layoff plans went kaput
+  - 2026-08-26 | www.wired.com | The Meta Settlement Will Put Limits on Instagram for Teens. They’re Still Vulnerable
+  - 2026-08-26 | techcrunch.com | Meta’s $18B child-safety deal hinges on age-verification tech that doesn’t work well
+What to write for E4:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E5 (as of 2026-09-16): Bitcoin above ___ on September 22?
+Rules:
+This market will resolve to "Yes" if the Binance 1 minute candle for BTC/USDT 12:00 in the ET timezone (noon) on the date specified in the title has a final "Close" price higher than the price specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the BTC/USDT "Close" prices currently available at https://www.binance.com/en/trade/BTC_USDT with "1m" and "Candles" selected on the top bar.
+
+Please note that this market is about the price according to Binance BTC/USDT, not according to other exchanges or trading pairs.
+
+Price precision is determined by the number of decimal places in the source.
+Contracts:
+  E5.C1: Will the price of Bitcoin be above $66,000 on September 22?
+  E5.C2: Will the price of Bitcoin be above $68,000 on September 22?
+  E5.C3: Will the price of Bitcoin be above $70,000 on September 22?
+  E5.C4: Will the price of Bitcoin be above $72,000 on September 22?
+  E5.C5: Will the price of Bitcoin be above $74,000 on September 22?
+  E5.C6: Will the price of Bitcoin be above $76,000 on September 22?
+  E5.C7: Will the price of Bitcoin be above $78,000 on September 22?
+  E5.C8: Will the price of Bitcoin be above $80,000 on September 22?
+  E5.C9: Will the price of Bitcoin be above $82,000 on September 22?
+  E5.C10: Will the price of Bitcoin be above $84,000 on September 22?
+  E5.C11: Will the price of Bitcoin be above $86,000 on September 22?
+News before E5's as-of date (date seen, source, headline):
+  - 2026-09-16 | www.prnewswire.com | Hyperscale Data Holds Approximately $51 Million of Bitcoin, Cash, and Restricted Cash as of September 13, 2026; Bitcoin, Cash, and Restricted Cash Represents Approximately 136% of Market Capitalization of Common Stock
+  - 2026-09-16 | finance.yahoo.com | Strategy Is Buying Bitcoin Again. Here's What That Means for the Price of Bitcoin.
+  - 2026-09-16 | www.stonex.com | Bitcoin Forecast: What's Next for BTC After the Fed Decision?
+  - 2026-09-16 | finance.yahoo.com | The Bitcoin Price That Could Completely Change the MSTR Story, We See 97% Upside
+  - 2026-09-16 | finance.yahoo.com | Why Is Bitcoin Dropping Today?
+  - 2026-09-16 | fortune.com | Current price of Bitcoin for September 16, 2026
+  - 2026-09-16 | 247wallst.com | Bitcoin Price Prediction: What Could Bitcoin Be Worth Before Q4?
+  - 2026-09-16 | finance.yahoo.com | Bitcoin ETFs Are Coming Off Their Best 3-Week Stretch of the Year. What's Next for Bitcoin?
+  - 2026-09-16 | finance.yahoo.com | The CLARITY Act Fails 50 to 49: What’s Next for XRP, Bitcoin, Ethereum, and Solana Now That Congress Is Done for the Year?
+  - 2026-09-16 | finance.yahoo.com | Bitcoin Price Prediction: Failed Clarity Act Vote Will Put BTC’s Rally to the Test
+  - 2026-09-16 | finance.yahoo.com | Bitcoin Hovers at $76K as Analysts Argue the Fed Matters More Than Clarity Act
+  - 2026-09-16 | finance.yahoo.com | Top Cryptocurrencies Mixed; Bitcoin Holds Above $75,000 Level
+  - 2026-09-16 | www.coindesk.com | Heaviest bitcoin ETF outflow since June follows Senate defeat: Crypto Markets Today
+  - 2026-09-15 | www.law360.com | Bitcoin Biz Vies For Proxy Fight Win Amid Data Center Pivot
+  - 2026-09-15 | www.bloomberg.com | Bitcoin Rally Stalls as Optimism About US Crypto Bill Wanes
+  - 2026-09-15 | www.forbes.com | Bitcoin, Ethereum And Other Major Cryptocurrencies Tumble As CLARITY Act Fails
+  - 2026-09-15 | www.reuters.com | Bitcoin and crypto stocks remain down after US senate fails to advance regulatory bill
+  - 2026-09-15 | finance.yahoo.com | Bitcoin tumbles 4% to $75,000 as hopes of CLARITY Act passage this year fade
+  - 2026-09-15 | finance.yahoo.com | Why Is Bitcoin Down Today?
+  - 2026-09-15 | finance.yahoo.com | What Is the Strategic Bitcoin Reserve Bill? What Wednesday’s House Vote Means for Bitcoin
+  - 2026-09-15 | finance.yahoo.com | Is It Too Late to Buy Bitcoin at $75,900?
+  - 2026-09-15 | finance.yahoo.com | Crypto Stocks Fall as Bitcoin Drops Ahead of Clarity Act Vote and Fed Decision
+  - 2026-09-15 | finance.yahoo.com | Bitcoin’s Correlation With Gold Just Hit a Six-Year High. Is BTC Finally Digital Gold?
+  - 2026-09-15 | www.barrons.com | Bitcoin Falls as Senate Blocks Clarity Act. Why Cathie Wood’s Dumping Crypto Stocks.
+  - 2026-09-15 | www.coindesk.com | A hacker turned 25 cents of bitcoin into 46 billion fake BTC tokens on a DeFi bridge
+What to write for E5:
+  Write "levels": for each chance 10, 25, 50, 75 and 90, the level you give that chance of the measured quantity being at or above when it resolves. The 10 level is the highest and the 90 level the lowest. Example: {"10": 120, "25": 110, "50": 100, "75": 92, "90": 85}.
+
+=== E6 (as of 2026-04-29): NJ-12 Democratic Primary Winner
+Rules:
+This market will resolve according to the candidate who wins the nomination for the Democratic Party to contest the NJ-12 congressional district seat in the U.S. House of Representatives in the 2026 midterm elections. The Democratic primary will take place on June 2, 2026.
+
+If no nominee is announced by November 3, 2026, 11:59 PM ET, this market will resolve to "Other".
+
+The resolution source for this market will be a consensus of official Democrat sources, including https://democrats.org/.
+
+Any replacement of the nominee before election day will not change the resolution of the market.
+Contracts:
+  E6.C1: Will Matthew Adams be the Democratic Nominee for NJ-12?
+  E6.C2: Will Susan Altman be the Democratic Nominee for NJ-12?
+  E6.C3: Will Michael Anderson be the Democratic Nominee for NJ-12?
+  E6.C4: Will Brad Cohen be the Democratic Nominee for NJ-12?
+  E6.C5: Will Elijah Dixon be the Democratic Nominee for NJ-12?
+  E6.C6: Will Adam Hamawy be the Democratic Nominee for NJ-12?
+  E6.C7: Will Raymond Heck be the Democratic Nominee for NJ-12?
+  E6.C8: Will Kyle Little be the Democratic Nominee for NJ-12?
+  E6.C9: Will Adrian Mapp be the Democratic Nominee for NJ-12?
+  E6.C10: Will Tennille R. McCoy be the Democratic Nominee for NJ-12?
+  E6.C11: Will Verlina Reynolds-Jackson be the Democratic Nominee for NJ-12?
+News before E6's as-of date (date seen, source, headline):
+  - 2026-04-26 | newjerseyglobe.com | NJ-12 Democratic Debate at 7 PM tonight
+What to write for E6:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).

@@ -1,0 +1,358 @@
+You will be shown 6 questions from a prediction market. Each has one or more contracts that resolve YES or NO under the rules shown. Each question gives the date your view is "as of": answer as you would on that date.
+
+Use what you already know and the news headlines listed under each question, all published in the 7 days before its as-of date. Do not search for or look up anything else: reading this file is the only tool call you may make. There are no prices from any prediction market in this file and you should not try to estimate what any market thinks; give your own view.
+
+Each question says what to write for it. Whole percents run from 1 to 99. Levels are plain numbers in the units the contracts use (for example 95000 for $95,000, 3.25 for 3.25%). Dates are YYYY-MM-DD.
+
+For each question also say whether you recognise how it actually turned out ("recognised": true only if you believe you remember the real outcome; otherwise false).
+
+Reply with one JSON object and nothing else:
+{"events": [{"label": "E1", "recognised": false, ...the fields that question asks for...}]}
+
+=== E1 (as of 2026-08-19): Alphabet’s Market Cap end of September 2026?
+Rules:
+This market will resolve according to Alphabet's public market capitalization at the close of regular trading on the final trading day of the specified month.
+
+If the determined value falls exactly on the boundary between two brackets, this market will resolve to the higher bracket.
+
+Public market capitalization will be determined through appropriate calculation using the final official regular-hours closing prices published for the company's listed equities on its primary exchange for the last trading day of the specified month, multiplied by the company's total number of shares outstanding at the relevant time. If necessary, to accurately capture the company’s total market capitalization, rather than a stock-class-specific market capitalization, the calculation will include all outstanding share classes and apply any stated conversion ratios to the publicly traded class. Where no conversion right exists, such shares will be counted at their stated outstanding amount without discount, unless official filings explicitly specify differently. The number of outstanding shares will be determined from official company filings or disclosures (e.g., SEC filings).
+
+If the listed company merges with or acquires another entity and remains the parent company, no change to resolution methodology applies.
+
+If the listed company is acquired, merges into another entity and is no longer the surviving parent company, or otherwise ceases to exist as an independent entity prior to the end of the period, the public market capitalizations achieved prior to completion of the transaction will be considered for resolution. No transaction, acquisition, or merger consideration will be considered for resolution.
+
+The resolution source for this market is official exchange trading data and publicly reported share counts.
+Contracts:
+  E1.C1: Will Alphabet’s market capitalization be less than $3.50T at the end of September 2026?
+  E1.C2: Will Alphabet’s market capitalization be between $3.50T and $4.00T at the end of September 2026?
+  E1.C3: Will Alphabet’s market capitalization be between $4.00T and $4.50T at the end of September 2026?
+  E1.C4: Will Alphabet’s market capitalization be between $4.50T and $5.00T at the end of September 2026?
+  E1.C5: Will Alphabet’s market capitalization be between $5.00T and $5.50T at the end of September 2026?
+  E1.C6: Will Alphabet’s market capitalization be between $5.50T and $6.00T at the end of September 2026?
+  E1.C7: Will Alphabet’s market capitalization be at least $6.00T at the end of September 2026?
+News before E1's as-of date (date seen, source, headline):
+  - 2026-08-19 | www.reuters.com | Alphabet raises $3.9 billion in inaugural Australian dollar bond
+  - 2026-08-19 | www.bloomberg.com | Alphabet’s 7% Aussie Bond Debut Underscores the Sky-High Cost of AI Debt
+  - 2026-08-19 | finance.yahoo.com | Alphabet’s (GOOGL) Small Data Deal Hints At A Bigger AI Appetite
+  - 2026-08-19 | finance.yahoo.com | A $3.5 billion Reason Why Alphabet Stock In Focus
+  - 2026-08-19 | finance.yahoo.com | The Zacks Analyst Blog Highlights Oracle, Microsoft, Amazon and Alphabet
+  - 2026-08-19 | finance.yahoo.com | Alphabet's $12.2 Billion Marvell Option Reshapes Its AI Chip Strategy
+  - 2026-08-19 | www.trefis.com | Alphabet Stock Surged When Its AI Spending Found Customers
+  - 2026-08-19 | seekingalpha.com | Alphabet Stock: A Berkshire Hathaway-Style Compounder Hiding In Plain Sight (NASDAQ:GOOG)
+  - 2026-08-19 | www.cnbc.com | Marvell surges after deal allows Alphabet to buy up to $12.2 billion in shares
+  - 2026-08-19 | seekingalpha.com | Marvell Won Alphabet’s Deal; Everything Changes (Upgrade) (NASDAQ:MRVL)
+  - 2026-08-19 | finance.yahoo.com | Alphabet's AI Spending Push Comes With a Higher Price
+  - 2026-08-19 | www.cnbc.com | Trade Tracker: Kevin Simpson buys more Alphabet and trims IBM
+  - 2026-08-19 | www.marketscale.com | Alphabet’s $5.9B Q2 cash burn is turning AI infrastructure into a CFO-led capex fight in 2026
+  - 2026-08-19 | www.investing.com | Rosenblatt initiates Alphabet stock coverage with buy rating on cloud
+  - 2026-08-19 | www.fool.com | 3 Stocks That Warren Buffett's Successor, Greg Abel, Bought (Besides Alphabet). Should You?
+  - 2026-08-18 | finance.yahoo.com | Alphabet (GOOGL) Faces An AI Funding Test, Is The 20% Upside Still Real?
+  - 2026-08-18 | finance.yahoo.com | Alphabet Stock Holds Firm as Cloud Revenue Explodes 82%
+  - 2026-08-18 | finance.yahoo.com | Why Alphabet and Microsoft Suffer Less If AI CapEx Goes Wrong
+  - 2026-08-18 | finance.yahoo.com | What Berkshire's huge wager on Alphabet says about Warren Buffett's post-CEO role
+  - 2026-08-18 | finance.yahoo.com | Alphabet vs. Meta Platforms: Which Is the Better AI Advertising Stock to Own for the Next 5 Years?
+  - 2026-08-18 | www.inc.com | Alphabet’s $205 Billion Spending Plan Tests a Leadership Trap That Has Doomed Many Companies
+  - 2026-08-18 | www.fool.com | Billionaire Investor Bill Ackman Just Sold Alphabet and Piled Into Another Tech Stock That's Up 65,100% Since Its IPO
+  - 2026-08-17 | finance.yahoo.com | Berkshire Hathaway adds $17 billion to Alphabet stake in Q2 2026
+  - 2026-08-17 | www.investopedia.com | Berkshire Hathaway Boosted Its Alphabet Stake 83%—Buffett Said the Investment Was His Idea
+  - 2026-08-17 | www.bloomberg.com | Alphabet Seeks $3.6 Billion in First Australian Bond Sale
+What to write for E1:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E2 (as of 2026-05-13): Malta Parliamentary Election Winner
+Rules:
+General elections are scheduled to be held in Malta on May 30, 2026.
+
+This market will resolve according to the political party that wins the greatest number of seats in the House of Representatives (parliament of Malta) as a result of the 2026 Maltese general election.
+
+If the results of this election are not known definitively by March 31, 2027, 11:59 PM ET, this market will resolve to "Other".
+
+Parties will primarily be ranked by the number of seats won. In the event of a tie, the party with the greater number of valid votes will rank higher. If a tie persists, the party whose name appears first in alphabetical order will rank higher. This market will resolve to the party that occupies the highest finishing position after applying this ranking.
+
+This market’s resolution will be based solely on the number of seats won by the named party in the House of Representatives in the 2026 Maltese general election, not any coalition it may be a part of.
+
+This market will resolve based on the results of the 2026 Maltese general election, as indicated by a consensus of credible reporting. If there is ambiguity, this market will resolve solely on the official results reported by the Government of Malta, such as those published by the Electoral Commission of Malta (https://electoral.gov.mt/).
+Contracts:
+  E2.C1: Will Labour Party win the most seats in the House of Representatives in the 2026 Maltese general election?
+  E2.C2: Will Nationalist Party win the most seats in the House of Representatives in the 2026 Maltese general election?
+  E2.C3: Will AD+PD win the most seats in the House of Representatives in the 2026 Maltese general election?
+  E2.C4: Will Momentum win the most seats in the House of Representatives in the 2026 Maltese general election?
+  E2.C5: Will Imperium Europa win the most seats in the House of Representatives in the 2026 Maltese general election?
+  E2.C6: Will Aħwa Maltin win the most seats in the House of Representatives in the 2026 Maltese general election?
+News before E2's as-of date (date seen, source, headline):
+  - 2026-05-13 | www.worldofinteriors.com | Dust muster: made from debris, limestone’s clever looky-likey is being put to a host of uses in Malta
+  - 2026-05-13 | wnyt.com | Malta Drive-In to honor longtime manager Patricia "Patti" Howard
+  - 2026-05-13 | aviationweek.com | Fast 5: KM Malta Airlines Taps New Supply Chain Strategies
+  - 2026-05-13 | www.boatinternational.com | Acquera Yachting announces partnership with Mariner Shipping in Malta
+  - 2026-05-13 | libyaobserver.ly | Dbeibeh meets with Malta’s Ambassador to strengthen bilateral cooperation
+  - 2026-05-13 | malta-festival.pl | WOMEN TALKING RETURNS TO MALTA FESTIVAL
+  - 2026-05-13 | tvmnews.mt | PN leader proposes that Transport Malta and LESA officers also receive pension if they continue working
+  - 2026-05-13 | www.maltatoday.com.mt | The best places to play bingo in Malta
+  - 2026-05-13 | newsbook.com.mt | One in four in Malta say housing costs are a heavy financial burden
+  - 2026-05-13 | newsbook.com.mt | Xjenza Malta and ESA host 4th PECS Call Information Day
+  - 2026-05-13 | newsbook.com.mt | Malta Red Cross launches WENS: A new 24/7 health monitoring and support service for independent living
+  - 2026-05-12 | www.news10.com | Malta Drive-In to hold memorial for longtime manager
+  - 2026-05-12 | www.ilga-europe.org | Spain breaks Malta’s decade-long hold on Europe’s LGBTI rights top spot
+  - 2026-05-12 | comeaufuneral.com | Sarah A. (Malta) McGuirk, 85
+  - 2026-05-12 | www.facebook.com | DW News. . Spain has overtaken Malta as the European country with the strongest legal protections for queer people. But ILGA Europe's new Rainbow Map also shows a growing divide. #DWNews
+  - 2026-05-12 | total-waterpolo.com | Pro Recco and Ferencvaros confirm their places at Malta F4
+  - 2026-05-12 | www.routesonline.com | Summer Off To A Strong Start At Malta International Airport
+  - 2026-05-12 | lovinmalta.com | These Are The MPs Who Won’t Be Contesting Malta’s Upcoming General Election
+  - 2026-05-12 | theshiftnews.com | Tender for third interconnector puts Malta’s energy gap into sharp relief
+  - 2026-05-12 | tvmnews.mt | First Eurovision semi-final this evening – Malta and Aidan on Thursday
+  - 2026-05-12 | tvmnews.mt | Malta to introduce new medicines and expand treatment access for thousands of patients
+  - 2026-05-12 | www.maltatoday.com.mt | Malta loses first place in ILGA Rainbow Map as Spain edges ahead in 2026
+  - 2026-05-12 | lovinmalta.com | Robert Abela Unveils Long-Term Plan For Malta In Motion
+  - 2026-05-12 | www.maltatoday.com.mt | Investing in minds, securing Malta’s future
+  - 2026-05-11 | www.cor.europa.eu | Tsunami Simulation: Testing Preparedness in Malta's Coastal Communities
+What to write for E2:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E3 (as of 2026-04-01): Will Audemars Piguet prices hit __ by April 30?
+Rules:
+This market will resolve to “Yes” if, for any day between market creation and April 30, 2026, the Bloomberg x Subdial Watch Index for Audemars Piguet price is equal to or above the listed price. Otherwise, this market will resolve to “No.”
+
+The resolution source for this market is Subdial — specifically, the Audemars Piguet Index chart available at https://subdial.com/market. The daily values in USD shown on the chart will be used for resolution. 
+
+This market refers to prices displayed in USD. To switch the display currency, use the currency toggle located at the left beneath the graph and select “USD” instead of “GBP”.
+
+This market will resolve as soon as the price shown on the Bloomberg x Subdial Watch Index for Audemars Piguet chart reaches the listed price, or once the value for April 30, 2026, is published, and the listed price has not been reached. If no data for April 30, 2026, has been published by May 14, 2026, this market will resolve based on the data available at that time.
+
+Revisions made to published data points on the Bloomberg x Subdial Watch Index for Audemars Piguet chart before the April 30, 2026 data point has been published will be considered; however, they will not disqualify a previously published data point from resolving this market. Revisions made after the April 30, 2026, data point has been finalized will not be considered.
+Contracts:
+  E3.C1: Will the Audemars Piguet Index hit $44,000 (HIGH) by April 30?
+  E3.C2: Will the Audemars Piguet Index hit $43,000 (HIGH) by April 30?
+  E3.C3: Will the Audemars Piguet Index hit $42,500 (HIGH) by April 30?
+  E3.C4: Will the Audemars Piguet Index hit $42,250 (HIGH) by April 30?
+  E3.C5: Will the Audemars Piguet Index hit $42,000 (HIGH) by April 30?
+  E3.C6: Will the Audemars Piguet Index hit $41,750 (HIGH) by April 30?
+  E3.C7: Will the Audemars Piguet Index hit $41,500 (HIGH) by April 30?
+  E3.C8: Will the Audemars Piguet Index hit $41,000 (LOW) by April 30?
+    Contract rules: This market will resolve to “Yes” if, for any day between market creation and April 30, 2026, the Bloomberg x Subdial Watch Index for Audemars Piguet price is equal to or below the listed price. Otherwise, this market will resolve to “No.”
+
+The resolution source for this market is Subdial — specifically, the Audemars Piguet Index chart available at https://subdial.com/market. The daily values in USD shown on the chart will be used for resolution. 
+
+This market refers to prices displayed in USD. To switch the display currency, use the currency toggle located at the left beneath the graph and select “USD” instead of “GBP”.
+
+This market will resolve as soon as the price shown on the Bloomberg x Subdial Watch Index for Audemars Piguet chart reaches the listed price, or once the value for April 30, 2026, is published, and the listed price has not been reached. If no data for April 30, 2026, has been published by May 14, 2026, this market will resolve based on the data available at that time.
+
+Revisions made to published data points on the Bloomberg x Subdial Watch Index for Audemars Piguet chart before the April 30, 2026 data point has been published will be considered; however, they will not disqualify a previously published data point from resolving this market. Revisions made after the April 30, 2026, data point has been finalized will not be considered.
+  E3.C9: Will the Audemars Piguet Index hit $40,750 (LOW) by April 30?
+    Contract rules: This market will resolve to “Yes” if, for any day between market creation and April 30, 2026, the Bloomberg x Subdial Watch Index for Audemars Piguet price is equal to or below the listed price. Otherwise, this market will resolve to “No.”
+
+The resolution source for this market is Subdial — specifically, the Audemars Piguet Index chart available at https://subdial.com/market. The daily values in USD shown on the chart will be used for resolution. 
+
+This market refers to prices displayed in USD. To switch the display currency, use the currency toggle located at the left beneath the graph and select “USD” instead of “GBP”.
+
+This market will resolve as soon as the price shown on the Bloomberg x Subdial Watch Index for Audemars Piguet chart reaches the listed price, or once the value for April 30, 2026, is published, and the listed price has not been reached. If no data for April 30, 2026, has been published by May 14, 2026, this market will resolve based on the data available at that time.
+
+Revisions made to published data points on the Bloomberg x Subdial Watch Index for Audemars Piguet chart before the April 30, 2026 data point has been published will be considered; however, they will not disqualify a previously published data point from resolving this market. Revisions made after the April 30, 2026, data point has been finalized will not be considered.
+  E3.C10: Will the Audemars Piguet Index hit $40,500 (LOW) by April 30?
+    Contract rules: This market will resolve to “Yes” if, for any day between market creation and April 30, 2026, the Bloomberg x Subdial Watch Index for Audemars Piguet price is equal to or below the listed price. Otherwise, this market will resolve to “No.”
+
+The resolution source for this market is Subdial — specifically, the Audemars Piguet Index chart available at https://subdial.com/market. The daily values in USD shown on the chart will be used for resolution. 
+
+This market refers to prices displayed in USD. To switch the display currency, use the currency toggle located at the left beneath the graph and select “USD” instead of “GBP”.
+
+This market will resolve as soon as the price shown on the Bloomberg x Subdial Watch Index for Audemars Piguet chart reaches the listed price, or once the value for April 30, 2026, is published, and the listed price has not been reached. If no data for April 30, 2026, has been published by May 14, 2026, this market will resolve based on the data available at that time.
+
+Revisions made to published data points on the Bloomberg x Subdial Watch Index for Audemars Piguet chart before the April 30, 2026 data point has been published will be considered; however, they will not disqualify a previously published data point from resolving this market. Revisions made after the April 30, 2026, data point has been finalized will not be considered.
+  E3.C11: Will the Audemars Piguet Index hit $40,250 (LOW) by April 30?
+    Contract rules: This market will resolve to “Yes” if, for any day between market creation and April 30, 2026, the Bloomberg x Subdial Watch Index for Audemars Piguet price is equal to or below the listed price. Otherwise, this market will resolve to “No.”
+
+The resolution source for this market is Subdial — specifically, the Audemars Piguet Index chart available at https://subdial.com/market. The daily values in USD shown on the chart will be used for resolution. 
+
+This market refers to prices displayed in USD. To switch the display currency, use the currency toggle located at the left beneath the graph and select “USD” instead of “GBP”.
+
+This market will resolve as soon as the price shown on the Bloomberg x Subdial Watch Index for Audemars Piguet chart reaches the listed price, or once the value for April 30, 2026, is published, and the listed price has not been reached. If no data for April 30, 2026, has been published by May 14, 2026, this market will resolve based on the data available at that time.
+
+Revisions made to published data points on the Bloomberg x Subdial Watch Index for Audemars Piguet chart before the April 30, 2026 data point has been published will be considered; however, they will not disqualify a previously published data point from resolving this market. Revisions made after the April 30, 2026, data point has been finalized will not be considered.
+  E3.C12: Will the Audemars Piguet Index hit $40,000 (LOW) by April 30?
+    Contract rules: This market will resolve to “Yes” if, for any day between market creation and April 30, 2026, the Bloomberg x Subdial Watch Index for Audemars Piguet price is equal to or below the listed price. Otherwise, this market will resolve to “No.”
+
+The resolution source for this market is Subdial — specifically, the Audemars Piguet Index chart available at https://subdial.com/market. The daily values in USD shown on the chart will be used for resolution. 
+
+This market refers to prices displayed in USD. To switch the display currency, use the currency toggle located at the left beneath the graph and select “USD” instead of “GBP”.
+
+This market will resolve as soon as the price shown on the Bloomberg x Subdial Watch Index for Audemars Piguet chart reaches the listed price, or once the value for April 30, 2026, is published, and the listed price has not been reached. If no data for April 30, 2026, has been published by May 14, 2026, this market will resolve based on the data available at that time.
+
+Revisions made to published data points on the Bloomberg x Subdial Watch Index for Audemars Piguet chart before the April 30, 2026 data point has been published will be considered; however, they will not disqualify a previously published data point from resolving this market. Revisions made after the April 30, 2026, data point has been finalized will not be considered.
+  E3.C13: Will the Audemars Piguet Index hit $39,000 (LOW) by April 30?
+    Contract rules: This market will resolve to “Yes” if, for any day between market creation and April 30, 2026, the Bloomberg x Subdial Watch Index for Audemars Piguet price is equal to or below the listed price. Otherwise, this market will resolve to “No.”
+
+The resolution source for this market is Subdial — specifically, the Audemars Piguet Index chart available at https://subdial.com/market. The daily values in USD shown on the chart will be used for resolution. 
+
+This market refers to prices displayed in USD. To switch the display currency, use the currency toggle located at the left beneath the graph and select “USD” instead of “GBP”.
+
+This market will resolve as soon as the price shown on the Bloomberg x Subdial Watch Index for Audemars Piguet chart reaches the listed price, or once the value for April 30, 2026, is published, and the listed price has not been reached. If no data for April 30, 2026, has been published by May 14, 2026, this market will resolve based on the data available at that time.
+
+Revisions made to published data points on the Bloomberg x Subdial Watch Index for Audemars Piguet chart before the April 30, 2026 data point has been published will be considered; however, they will not disqualify a previously published data point from resolving this market. Revisions made after the April 30, 2026, data point has been finalized will not be considered.
+News before E3's as-of date (date seen, source, headline):
+  - 2026-03-31 | cnaluxury.channelnewsasia.com | Why Audemars Piguet’s Royal Oak Offshore continues to hold its own in 2026
+  - 2026-03-31 | www.optionstheedge.com | Audemars Piguet Social Club sets the tone for 2026 with new calibres, openworked design and a Universal Calendar pocket watch
+  - 2026-03-30 | www.scmp.com | Style Edit: Audemars Piguet’s new Royal Oak and Code 11.59 watches, and more
+  - 2026-03-30 | www.maxim.com | Inside Miami’s Stylish New Audemars Piguet ‘AP House’
+  - 2026-03-26 | stupiddope.com | Audemars Piguet Code 11.59 Natural Stone Models Expand Material Complexity
+  - 2026-03-26 | www.watchpro.com | Audemars Piguet Opens AP House Miami Beach
+  - 2026-03-26 | stupiddope.com | Audemars Piguet AP House Miami Beach Expands Experiential Watch Retail
+  - 2026-03-25 | galeriemagazine.com | Audemars Piguet Opens the Doors to AP House in Miami
+  - 2026-03-25 | www.jckonline.com | Audemars Piguet Opens AP House in Miami Beach
+  - 2026-03-25 | news.dupontregistry.com | Inside Audemars Piguet's New AP House in Miami
+  - 2026-03-25 | vogue.sg | Wrist Candy: The Audemars Piguet Royal Oak Offshore
+What to write for E3:
+  Write "high": for each chance 10, 25, 50, 75 and 90, the level you give that chance of being reached (at or above) within the period. The 10 level is the highest.
+  Write "low": for each chance 10, 25, 50, 75 and 90, the level you give that chance of being reached (at or below) within the period. The 10 level is the lowest.
+
+=== E4 (as of 2026-04-29): NYC Mayor # posts April 28 - May 5, 2026?
+Rules:
+This market will resolve according to the number of times NYC Mayor Zohran Mamdani (@NYCMayor), posts on X between April 28, 12:00 PM ET and May 5, 2026, 12:00 PM ET.
+
+For the purposes of this market, only main feed posts, quote posts and reposts will count.
+
+Replies will NOT count towards the total - however, replies which are recorded on the main feed will be counted by the tracker.
+
+Deleted posts will count as long as they remain available long enough to be captured by the tracker (~5 minutes).
+
+The resolution source for this market is the "Post Counter" figure for posts found at https://xtracker.polymarket.com. Individual posts can be viewed by clicking "Export Data". If the tracker does not update correctly in accordance with the rules, X itself may be used as a secondary resolution source.
+Contracts:
+  E4.C1: Will NYC Mayor post 0-19 posts from April 28 to May 5, 2026?
+  E4.C2: Will NYC Mayor post 20-39 posts from April 28 to May 5, 2026?
+  E4.C3: Will NYC Mayor post 40-59 posts from April 28 to May 5, 2026?
+  E4.C4: Will NYC Mayor post 60-79 posts from April 28 to May 5, 2026?
+  E4.C5: Will NYC Mayor post 80-99 posts from April 28 to May 5, 2026?
+  E4.C6: Will NYC Mayor post 100-119 posts from April 28 to May 5, 2026?
+  E4.C7: Will NYC Mayor post 120-139 posts from April 28 to May 5, 2026?
+  E4.C8: Will NYC Mayor post 140-159 posts from April 28 to May 5, 2026?
+  E4.C9: Will NYC Mayor post 160-179 posts from April 28 to May 5, 2026?
+  E4.C10: Will NYC Mayor post 180-199 posts from April 28 to May 5, 2026?
+  E4.C11: Will NYC Mayor post 200+ posts from April 28 to May 5, 2026?
+News before E4's as-of date (date seen, source, headline):
+  - 2026-04-29 | abc7ny.com | NYC Mayor Zohran Mamdani releases proposed Park Avenue median expansion project concepts
+  - 2026-04-29 | www.reuters.com | Fact Check: NYC Mayor Mamdani has not banned all large July 4 celebrations
+  - 2026-04-29 | www.nbcnews.com | NYC Mayor Mamdani on what he would say to King Charles
+  - 2026-04-29 | www.cbsnews.com | NYC Mayor Mamdani encourages King Charles to return Koh-i-Noor diamond. Here's why the jewel is controversial.
+  - 2026-04-29 | www.cbsnews.com | King Charles, Queen Camilla meet NYC Mayor Mamdani, N.Y. Gov. Hochul and N.J. Gov. Sherrill
+  - 2026-04-29 | www.foxbusiness.com | NYC Mayor Mamdani pushes new business tax as budget crisis spirals out of control
+  - 2026-04-28 | abc7ny.com | John Chell, former NYPD chief of department, announces run for NYC mayor 2029
+  - 2026-04-28 | www.cbsnews.com | NYC Mayor Mamdani's latest pitch to tax the rich "not happening," Gov. Kathy Hochul says
+  - 2026-04-28 | www.lohud.com | Watch NYC Mayor Zohran Mamdani condemn violence after WHCD shooting
+  - 2026-04-28 | pix11.com | Former NYPD chief of department to run for NYC mayor
+  - 2026-04-28 | patch.com | Ex-NYPD Chief Of Dept. Set To Run For NYC Mayor In 2029
+  - 2026-04-28 | www.cnbc.com | NYC Mayor Mamdani should work with the business community to solve problems, says Bill Daley
+  - 2026-04-28 | www.foxbusiness.com | NYC mayor’s ‘racial equity’ plan sparks outrage as critics warn of massive government expansion
+  - 2026-04-28 | www.usatoday.com | Mamdani responds after billionaire slams NYC mayor's rich tax video
+  - 2026-04-28 | brooklyn.news12.com | Former Nypd Chief Of Department Announces Run For Nyc Mayor
+  - 2026-04-28 | www.thegistsports.com | Gotham FC teams up with NYC mayor Zohran Mamdani on shared message of affordability
+  - 2026-04-28 | www.silive.com | From top cop to City Hall? Ex-NYPD chief from Staten Island eyes 2029 NYC mayoral run
+  - 2026-04-27 | www.allforxi.com | NJ/NY Gotham FC and NYC Mayor Zohran Mamdani’s $5 ticket collaboration sells out in under an hour
+  - 2026-04-27 | nypost.com | Mamdani fanboys over Fiorello La Guardia -- but experts warn against comparisons with iconic NYC mayor
+  - 2026-04-27 | www.nydailynews.com | NYC Mayor Mamdani leaves door open to delaying city budget release amid inaction in Albany
+  - 2026-04-27 | nsjonline.com | Pay Z: NYC Mayor Zohran Mamdani still earning rap music royalties, tax filings show
+  - 2026-04-26 | www.nytimes.com | NYC Mayor Mamdani, Gotham FC partner to offer $5 tickets in affordability push - The Athletic
+  - 2026-04-25 | finance.yahoo.com | Ken Griffin's COO fires back at NYC mayor over $238M penthouse tax video — and a $6B project hangs in the balance
+  - 2026-04-25 | www.foxnews.com | NYC Mayor Mamdani calls out billionaire in 'Tax The Rich' video
+  - 2026-04-24 | www.cbsnews.com | NYC Mayor Zohran Mamdani catching heat for social media video attacking CEO of large hedge fund firm. Here's why.
+What to write for E4:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E5 (as of 2026-05-20): Will Palo Alto Networks Q3 Next-Generation Security ARR be above __?
+Rules:
+This market will resolve to "Yes" if Palo Alto Networks' Next Generation-Security ARR for the third fiscal quarter of 2026, as reported in its official company earnings materials, is above the listed amount. Otherwise, this market will resolve to "No".
+
+The specified metric will be considered as reported in the company's official earnings materials. Subsequent revisions will not be considered.
+
+If the specified company's official earnings materials for the specified quarter are released, and the specified metric is not included, this market will resolve to "No".
+
+If the specified company does not release quarterly earnings materials for the specified quarter by July 31, 2026, 11:59 PM ET, this market will resolve to "No".
+
+If the specified metric is reported as a range rather than a specific number, the midpoint of the range will be used for resolution of this market.
+
+The resolution source for this market is Palo Alto Networks' official company earnings materials, including press releases, investor presentations, and regulatory filings. If the specified metric is not reported in these materials, recordings or transcripts of the company's earnings webcast may also be used.
+
+Note: This market will resolve based on the most numerically precise version of the specified metric reported in the company's official earnings materials. Only the specified metric will be considered; alternate versions that differ in definition or scope from the specified metric will not be considered.
+Contracts:
+  E5.C1: Will Palo Alto Networks Q3 Next-Generation Security ARR be above $7.5B?
+  E5.C2: Will Palo Alto Networks Q3 Next-Generation Security ARR be above $8.0B?
+  E5.C3: Will Palo Alto Networks Q3 Next-Generation Security ARR be above $8.5B?
+News before E5's as-of date (date seen, source, headline):
+  - 2026-05-20 | finance.yahoo.com | Palo Alto Networks (PANW) Gets Major Price Target Boost from Truist Ahead of Q1 Results
+  - 2026-05-20 | seekingalpha.com | Palo Alto Networks in spotlight as Stifel ups price target ahead of Q3 results (PANW:NASDAQ)
+  - 2026-05-20 | www.marketbeat.com | Palo Alto Networks Up 70%: Can the Rally Last Into June?
+  - 2026-05-20 | www.marketbeat.com | Morgan Stanley Issues Positive Forecast for Palo Alto Networks (NASDAQ:PANW) Stock Price
+  - 2026-05-20 | www.investing.com | Cantor Fitzgerald raises Palo Alto Networks price target on demand
+  - 2026-05-20 | www.investing.com | Stifel raises Palo Alto Networks stock price target on demand
+  - 2026-05-19 | finance.yahoo.com | Insiders of Palo Alto Networks Getting Good Value On Their US$10.00m Investment
+  - 2026-05-19 | www.businessinsider.com | Palo Alto Networks CEO says AI won't mean fewer engineers: 'I need more'
+  - 2026-05-19 | www.tradingkey.com | Palo Alto Networks Stock Outlook: Can PANW Stock Keep Climbing After Hitting New Highs?
+  - 2026-05-19 | www.tradingkey.com | Palo Alto Networks Inc Stock (PANW) Closed Down by 3.01% on May 19: What Signal Does It Send?
+  - 2026-05-19 | www.marketbeat.com | Capital One Financial Forecasts Strong Price Appreciation for Palo Alto Networks (NASDAQ:PANW) Stock
+  - 2026-05-19 | www.investing.com | Palo Alto Networks stock rating reiterated at Buy by TD Cowen
+  - 2026-05-19 | winbuzzer.com | Palo Alto Networks Launches Idira for AI Identity Security
+  - 2026-05-19 | sbr.com.sg | Palo Alto Networks launches identity security platform Idira
+  - 2026-05-18 | www.crn.com | Nutanix Is Hiring For New Agentic AI Center, Forms Palo Alto Networks Partnership As Client Adoption Increases
+  - 2026-05-18 | www.marketwatch.com | Palo Alto Networks hits a big milestone. Why cybersecurity stocks are so hot right now.
+  - 2026-05-18 | www.digitimes.com | Palo Alto Networks integrates CyberArk, Koi and Portkey and launches Idira to bolster AI and identity security
+  - 2026-05-18 | seekingalpha.com | Snowflake, Palo Alto Networks, CrowdStrike see favorable checks ahead of results: Mizuho (SNOW:NYSE)
+  - 2026-05-16 | www.trefis.com | Palo Alto Networks Stock 7-Day Winning Spree: Stock Climbs 32%
+  - 2026-05-16 | www.exchange4media.com | Simon Green exits Palo Alto Networks, joins Cursor as President
+  - 2026-05-15 | finance.yahoo.com | Oppenheimer Hikes Palo Alto Networks Price Target to $275: CyberArk Becomes Idira, Identity Security Just Got Real
+  - 2026-05-15 | www.marketbeat.com | Royal Bank Of Canada Issues Positive Forecast for Palo Alto Networks (NASDAQ:PANW) Stock Price
+  - 2026-05-15 | www.cnbc.com | Final Trades: eBay, Invesco, Palo Alto Networks, Microchip Technology
+  - 2026-05-15 | pluang.com | Oppenheimer raises Palo Alto Networks price tar...
+  - 2026-05-14 | www.rapid7.com | CVE-2026-0265: Authentication Bypass in Palo Alto Networks PAN-OS
+What to write for E5:
+  Write "levels": for each chance 10, 25, 50, 75 and 90, the level you give that chance of the measured quantity being at or above when it resolves. The 10 level is the highest and the 90 level the lowest. Example: {"10": 120, "25": 110, "50": 100, "75": 92, "90": 85}.
+
+=== E6 (as of 2026-04-01): Will Meta (META) finish week of March 30 above___?
+Rules:
+This market will resolve to "Yes" if the official closing price for Meta Platforms, Inc. (META) on the final day of trading of the specified week (normally Friday) is higher than the listed price. Otherwise, this market will resolve to "No."
+
+If the final session is shortened (for example, due to a market-holiday schedule), the official closing price published for that shortened session will still be used for resolution.
+
+If no official closing price is published for that session (for example, due to a trading halt into the close, system issue, delisting, or other disruption), the market will use the last valid on-exchange trade price of the regular session as the effective closing price.
+
+The resolution source for this market is Yahoo Finance, specifically the Meta Platforms, Inc. (META) "Close" prices available at https://finance.yahoo.com/quote/META/history, published under "Historical Prices."
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Yahoo Finance.
+Contracts:
+  E6.C1: Will Meta (META) finish week of March 30 above $490?
+  E6.C2: Will Meta (META) finish week of March 30 above $500?
+  E6.C3: Will Meta (META) finish week of March 30 above $510?
+  E6.C4: Will Meta (META) finish week of March 30 above $520?
+  E6.C5: Will Meta (META) finish week of March 30 above $530?
+  E6.C6: Will Meta (META) finish week of March 30 above $540?
+  E6.C7: Will Meta (META) finish week of March 30 above $550?
+  E6.C8: Will Meta (META) finish week of March 30 above $560?
+  E6.C9: Will Meta (META) finish week of March 30 above $570?
+  E6.C10: Will Meta (META) finish week of March 30 above $580?
+  E6.C11: Will Meta (META) finish week of March 30 above $590?
+  E6.C12: Will Meta (META) finish week of March 30 above $600?
+  E6.C13: Will Meta (META) finish week of March 30 above $610?
+News before E6's as-of date (date seen, source, headline):
+  - 2026-04-01 | www.scientificamerican.com | What the Meta and Google verdict means for social media design
+  - 2026-04-01 | www.businessinsider.com | Meta has a new elite AI unit. Find out who joined.
+  - 2026-04-01 | www.fool.com | Can Meta Platforms Reach a $9 Trillion Valuation in 5 Years? Here's What It Would Take
+  - 2026-04-01 | www.theguardian.com | I wore Meta’s smartglasses for a month – and it left me feeling like a creep
+  - 2026-04-01 | techcrunch.com | Meta’s natural gas binge could power South Dakota
+  - 2026-04-01 | builtin.com | Meta Glasses: What They Are and How They Work
+  - 2026-03-31 | www.meta.com | Introducing a New Line of Ray-Ban Meta Glasses Built for Prescriptions and All-Day Comfort — Plus More Colors, Lenses, and Software Updates Across Our Collection
+  - 2026-03-31 | engineering.fb.com | Meta Adaptive Ranking Model: Bending the Inference Scaling Curve to Serve LLM-Scale Models for Ads
+  - 2026-03-31 | about.fb.com | How AI Is Ushering in the Next Era of Risk Review at Meta
+  - 2026-03-31 | www.meta.com | Fire Up Five New Games With Your Meta Horizon+ Subscription in April!
+  - 2026-03-31 | www.forbes.com | Meta Funds Ten Natural Gas Plants To Power Its Largest AI Campus
+  - 2026-03-31 | www.reuters.com | Meta unveils two $499 Ray-Ban smart glasses for prescription users
+  - 2026-03-31 | www.reuters.com | Indonesia summons Meta and Google over non-compliance with child social media curbs, minister says
+  - 2026-03-31 | www.reuters.com | Meta to limit PG-13 rating use for teen accounts in Motion Picture Association deal
+  - 2026-03-31 | www.bloomberg.com | CoreWeave Raises $8.5 Billion GPU Loan Backed by Meta Deal
+  - 2026-03-31 | investor.corning.com | Corning and Meta Celebrate Start of Construction on Cable Manufacturing Expansion in North Carolina to Support AI Buildout
+  - 2026-03-31 | www.reuters.com | Meta must face antitrust suit from shuttered app Phhhoto, US judge rules
+  - 2026-03-30 | www.crowell.com | Landmark Verdicts Against Meta and YouTube Signal New Era of Social Media Platform Liability
+  - 2026-03-29 | www.cnbc.com | Meta's court losses spell potential trouble for AI research, consumer safety
+  - 2026-03-29 | www.barrons.com | Meta Set a $9 Trillion Target. Then Came a Wave of Bad News.
+  - 2026-03-29 | elpasomatters.org | El Paso Electric filings detail power plant impact behind Meta’s $10 billion data center
+  - 2026-03-28 | fortune.com | Meta executives could earn nearly $1 billion each if they hit goals in pursuit of a $9 trillion valuation
+  - 2026-03-27 | www.reuters.com | Meta ordered to pay $375 million in New Mexico trial over child exploitation, user safety claims
+  - 2026-03-27 | www.entergy.com | Entergy Louisiana announces a new agreement with Meta that will deliver an additional $2B in customer savings
+  - 2026-03-27 | www.businessinsider.com | Meta is running intensive AI training weeks to get employees testing agents and coding with Claude
+What to write for E6:
+  Write "levels": for each chance 10, 25, 50, 75 and 90, the level you give that chance of the measured quantity being at or above when it resolves. The 10 level is the highest and the 90 level the lowest. Example: {"10": 120, "25": 110, "50": 100, "75": 92, "90": 85}.

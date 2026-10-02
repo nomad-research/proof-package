@@ -1,0 +1,746 @@
+You will be shown 6 questions from a prediction market. Each has one or more contracts that resolve YES or NO under the rules shown. Each question gives the date your view is "as of": answer as you would on that date.
+
+Use what you already know and the news headlines listed under each question, all published in the 7 days before its as-of date. Do not search for or look up anything else: reading this file is the only tool call you may make. There are no prices from any prediction market in this file and you should not try to estimate what any market thinks; give your own view.
+
+Each question says what to write for it. Whole percents run from 1 to 99. Levels are plain numbers in the units the contracts use (for example 95000 for $95,000, 3.25 for 3.25%). Dates are YYYY-MM-DD.
+
+For each question also say whether you recognise how it actually turned out ("recognised": true only if you believe you remember the real outcome; otherwise false).
+
+Reply with one JSON object and nothing else:
+{"events": [{"label": "E1", "recognised": false, ...the fields that question asks for...}]}
+
+=== E1 (as of 2026-07-22): What will Netflix, Inc. (NFLX) hit Week of July 20 2026?
+Rules:
+What will Netflix, Inc. (NFLX) hit Week of July 20 2026?
+Contracts:
+  E1.C1: Will Netflix, Inc. (NFLX) hit (HIGH) $85 Week of July 20 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of July 20 2026, any 1-minute candle for Netflix, Inc. (NFLX) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Netflix, Inc. (NFLX) "High" prices available at https://pythdata.app/explore/Equity.US.NFLX%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.NFLX%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E1.C2: Will Netflix, Inc. (NFLX) hit (HIGH) $82.50 Week of July 20 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of July 20 2026, any 1-minute candle for Netflix, Inc. (NFLX) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Netflix, Inc. (NFLX) "High" prices available at https://pythdata.app/explore/Equity.US.NFLX%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.NFLX%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E1.C3: Will Netflix, Inc. (NFLX) hit (HIGH) $80 Week of July 20 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of July 20 2026, any 1-minute candle for Netflix, Inc. (NFLX) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Netflix, Inc. (NFLX) "High" prices available at https://pythdata.app/explore/Equity.US.NFLX%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.NFLX%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E1.C4: Will Netflix, Inc. (NFLX) hit (HIGH) $77.50 Week of July 20 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of July 20 2026, any 1-minute candle for Netflix, Inc. (NFLX) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Netflix, Inc. (NFLX) "High" prices available at https://pythdata.app/explore/Equity.US.NFLX%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.NFLX%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E1.C5: Will Netflix, Inc. (NFLX) hit (HIGH) $75 Week of July 20 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of July 20 2026, any 1-minute candle for Netflix, Inc. (NFLX) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Netflix, Inc. (NFLX) "High" prices available at https://pythdata.app/explore/Equity.US.NFLX%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.NFLX%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E1.C6: Will Netflix, Inc. (NFLX) hit (HIGH) $72.50 Week of July 20 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of July 20 2026, any 1-minute candle for Netflix, Inc. (NFLX) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Netflix, Inc. (NFLX) "High" prices available at https://pythdata.app/explore/Equity.US.NFLX%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.NFLX%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E1.C7: Will Netflix, Inc. (NFLX) hit (HIGH) $70 Week of July 20 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of July 20 2026, any 1-minute candle for Netflix, Inc. (NFLX) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Netflix, Inc. (NFLX) "High" prices available at https://pythdata.app/explore/Equity.US.NFLX%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.NFLX%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E1.C8: Will Netflix, Inc. (NFLX) hit (LOW) $65 Week of July 20 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of July 20 2026, any 1-minute candle for Netflix, Inc. (NFLX) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Netflix, Inc. (NFLX) "Low" prices available at https://pythdata.app/explore/Equity.US.NFLX%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.NFLX%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E1.C9: Will Netflix, Inc. (NFLX) hit (LOW) $62.50 Week of July 20 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of July 20 2026, any 1-minute candle for Netflix, Inc. (NFLX) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Netflix, Inc. (NFLX) "Low" prices available at https://pythdata.app/explore/Equity.US.NFLX%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.NFLX%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E1.C10: Will Netflix, Inc. (NFLX) hit (LOW) $60 Week of July 20 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of July 20 2026, any 1-minute candle for Netflix, Inc. (NFLX) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Netflix, Inc. (NFLX) "Low" prices available at https://pythdata.app/explore/Equity.US.NFLX%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.NFLX%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E1.C11: Will Netflix, Inc. (NFLX) hit (LOW) $57.50 Week of July 20 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of July 20 2026, any 1-minute candle for Netflix, Inc. (NFLX) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Netflix, Inc. (NFLX) "Low" prices available at https://pythdata.app/explore/Equity.US.NFLX%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.NFLX%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E1.C12: Will Netflix, Inc. (NFLX) hit (LOW) $55 Week of July 20 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of July 20 2026, any 1-minute candle for Netflix, Inc. (NFLX) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Netflix, Inc. (NFLX) "Low" prices available at https://pythdata.app/explore/Equity.US.NFLX%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.NFLX%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E1.C13: Will Netflix, Inc. (NFLX) hit (LOW) $52.50 Week of July 20 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of July 20 2026, any 1-minute candle for Netflix, Inc. (NFLX) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Netflix, Inc. (NFLX) "Low" prices available at https://pythdata.app/explore/Equity.US.NFLX%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.NFLX%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+News before E1's as-of date (date seen, source, headline):
+  - 2026-07-22 | www.vogue.com | Here’s Everything Coming to Netflix in August 2026
+  - 2026-07-22 | www.instagram.com | @netflix we know we’re late to this trend but feel free to call us it sounds like you have a lot of documentaries to make
+  - 2026-07-22 | finance.yahoo.com | Should You Buy Netflix Stock After Its Recent 48% Plunge?
+  - 2026-07-22 | www.tvguide.com | New Netflix Shows and Movies in July 2026
+  - 2026-07-22 | mashable.com | 'A Toxic Love Story' is the wildest true crime doc Netflix has released in years
+  - 2026-07-21 | www.opensecrets.org | Netflix Inc Lobbying Profile, 2026
+  - 2026-07-21 | www.purewow.com | Netflix's #2 Show Is Climbing the Charts But the Reviews Tell a Different Story
+  - 2026-07-21 | www.usm.edu | Southern Miss Professor Provides Voiceover for Netflix’s “The American Experiment”
+  - 2026-07-21 | entertainment.substack.com | A Q2 Bright Spot for Netflix…But Two More Returning Shows Lose Their Audiences
+  - 2026-07-21 | deadline.com | 'Swapped' Lands On Netflix Most Popular Movies List
+  - 2026-07-21 | finance.yahoo.com | Netflix Stock Is Down 26% in 2026. Is This the Ultimate Buying Opportunity, or Is More Downside Ahead?
+  - 2026-07-21 | finance.yahoo.com | Netflix (NFLX) Stock Still Looks Cheap On Cash Flow And Earnings
+  - 2026-07-21 | nofilmschool.com | 97 Billion Hours: Netflix’s Biggest Hits of 2026 Revealed
+  - 2026-07-20 | www.thetradedesk.com | Access Netflix inventory in Sellers and Publishers 500+
+  - 2026-07-20 | www.netflix.com | The Rest Is Football Comes to Netflix as Daily Show During Summer Soccer Action
+  - 2026-07-20 | www.cnbc.com | The last time Netflix was this cheap it ended up being a great buying opportunity, says Jim Cramer
+  - 2026-07-20 | www.whats-on-netflix.com | What’s Coming to Netflix This Week: July 20th to 26th, 2026
+  - 2026-07-20 | www.hollywoodreporter.com | Here’s Just How Top-Heavy Netflix Is Right Now
+  - 2026-07-20 | www.cnbc.com | I don't think Netflix is a broken company, says Jim Cramer
+  - 2026-07-19 | about.netflix.com | Netflix Releases the Trailer for the Spin-Off 'Nando Between Two Worlds - A Sintonia Film,' Premiering August 12
+  - 2026-07-19 | finance.yahoo.com | Netflix's growth slowdown exposes a classic shareholder trap: Chart of the Day
+  - 2026-07-19 | www.bloomberg.com | The Brewing Battle Between Netflix and YouTube Over Creators
+  - 2026-07-19 | finance.yahoo.com | Netflix: Down Nearly 50% Over the Past Year, Is the Stock a Buy on This Latest Dip? Here's the Real Issue Behind the Stock's Decline.
+  - 2026-07-19 | www.themarysue.com | I Played Netflix's ‘Unhinged,’ And It Made My Phone Feel Like The Scariest Part Of The Game
+  - 2026-07-18 | www.whats-on-netflix.com | New Releases on Netflix This Week and Top 10 Movies & Series: July 18, 2026
+What to write for E1:
+  Write "high": for each chance 10, 25, 50, 75 and 90, the level you give that chance of being reached (at or above) within the period. The 10 level is the highest.
+  Write "low": for each chance 10, 25, 50, 75 and 90, the level you give that chance of being reached (at or below) within the period. The 10 level is the lowest.
+
+=== E2 (as of 2026-08-05): Bitcoin above ___ on August 8?
+Rules:
+This market will resolve to "Yes" if the Binance 1 minute candle for BTC/USDT 12:00 in the ET timezone (noon) on the date specified in the title has a final "Close" price higher than the price specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the BTC/USDT "Close" prices currently available at https://www.binance.com/en/trade/BTC_USDT with "1m" and "Candles" selected on the top bar.
+
+Please note that this market is about the price according to Binance BTC/USDT, not according to other exchanges or trading pairs.
+
+Price precision is determined by the number of decimal places in the source.
+Contracts:
+  E2.C1: Will the price of Bitcoin be above $54,000 on August 8?
+  E2.C2: Will the price of Bitcoin be above $56,000 on August 8?
+  E2.C3: Will the price of Bitcoin be above $58,000 on August 8?
+  E2.C4: Will the price of Bitcoin be above $60,000 on August 8?
+  E2.C5: Will the price of Bitcoin be above $62,000 on August 8?
+  E2.C6: Will the price of Bitcoin be above $64,000 on August 8?
+  E2.C7: Will the price of Bitcoin be above $66,000 on August 8?
+  E2.C8: Will the price of Bitcoin be above $68,000 on August 8?
+  E2.C9: Will the price of Bitcoin be above $70,000 on August 8?
+  E2.C10: Will the price of Bitcoin be above $72,000 on August 8?
+  E2.C11: Will the price of Bitcoin be above $74,000 on August 8?
+News before E2's as-of date (date seen, source, headline):
+  - 2026-08-05 | finance.yahoo.com | Bitcoin and ethereum prices today, Wednesday, August 5, 2026: Crypto prices rise as investors watch Hormuz negotiations and jobs report closely
+  - 2026-08-05 | finance.yahoo.com | Peter Schiff says a ‘much bigger selloff’ in Bitcoin is coming. Here’s why — and how investors can prepare
+  - 2026-08-05 | finance.yahoo.com | Where Will Bitcoin Be in 3 Years?
+  - 2026-08-05 | www.wect.com | ‘Just hang up’: NC attorney general issues warning as bitcoin kiosk scams spread statewide
+  - 2026-08-05 | www.etftrends.com | Cryptocurrencies: Bitcoin Roughly Flat This Week
+  - 2026-08-05 | www.bloomberg.com | Keeping Your Bitcoin Riches Safe Has Never Been Harder
+  - 2026-08-04 | www.wect.com | $10,000 and a phone call: How a Wilmington officer stopped a bitcoin scam in its tracks
+  - 2026-08-04 | finance.yahoo.com | Eric Trump-Led American Bitcoin To Adopt Michael Saylor’s Approach of Selling BTC to Support Economics? CEO Says…
+  - 2026-08-04 | fortune.com | Current price of Bitcoin for August 4, 2026
+  - 2026-08-04 | www.coindesk.com | Bitcoin (BTC) price analysis: $63,000 level is key
+  - 2026-08-04 | bitcoinfoundation.org | Crypto Is Down Again — When Bitcoin Price Finally Go Back Up?
+  - 2026-08-04 | marketwise.com | Strategy’s New Bitcoin-Backed ‘Digital Credit’ Plan: Will It Rescue the Flailing Stock?
+  - 2026-08-04 | english.elpais.com | A $116 million bitcoin theft: hackers break into one of the safest places to store cryptocurrencies
+  - 2026-08-04 | www.coindesk.com | Bitcoin nears $64,000 as traders look past Strategy's BTC sales and Coldcard sweeps
+  - 2026-08-04 | thequantuminsider.com | Did IBM CEO’s Quantum Timeline Prompt Jim Cramer to Exit Bitcoin?
+  - 2026-08-04 | www.forbes.com | Trump-Linked American Bitcoin Settles Improper PPP Loan Allegation For $2.5 Million
+  - 2026-08-04 | www.forbes.com | Hackers Stole $100 Million in Bitcoin—Here’s How
+  - 2026-08-04 | www.fox61.com | 3 Missouri men charged in same Bitcoin theft scheme that 6 Florida men already pleaded guilty to
+  - 2026-08-04 | www.bloomberg.com | Watch Hackers Steal Bitcoin, Visa Outlines Stablecoin Plans | Bloomberg Crypto 8/4/2026 - Bloomberg
+  - 2026-08-04 | www.bloomberg.com | Watch Hackers Hit Bitcoin’s Safest Hiding Place
+  - 2026-08-04 | www.coindesk.com | Bhutan's GMC puts part of its bitcoin treasury to work after 10,000 BTC pledge
+  - 2026-08-04 | chain.link | What Is Bitcoin DeFi (BTCFi)?
+  - 2026-08-04 | bitcoinfoundation.org | Bitcoin Search Interest in the US Plunges to a Five-Year Low Despite Crypto’s Political Momentum
+  - 2026-08-04 | www.investing.com | Bitcoin remains rangebound around $64k as Strategy discloses more sales
+  - 2026-08-03 | www.reuters.com | Trump brothers-backed American Bitcoin swings to second-quarter loss
+What to write for E2:
+  Write "levels": for each chance 10, 25, 50, 75 and 90, the level you give that chance of the measured quantity being at or above when it resolves. The 10 level is the highest and the 90 level the lowest. Example: {"10": 120, "25": 110, "50": 100, "75": 92, "90": 85}.
+
+=== E3 (as of 2026-07-29): What will Gold (XAUUSD) hit Week of July 27 2026?
+Rules:
+What will Gold (XAUUSD) hit Week of July 27 2026?
+Contracts:
+  E3.C1: Will Gold (XAUUSD) hit (HIGH) $4,400 Week of July 27 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during a trading session of the week of July 27 2026, any 1-minute candle for Gold (XAUUSD) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during an applicable trading session of the specified timeframe's business days will be considered. The trading session for a given business day typically begins at 6:00 PM ET on the prior calendar date. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If Gold (XAUUSD) does not trade at all during the listed time frame, this market will resolve to "No".
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Gold (XAUUSD) "High" and "Low" prices available at https://pythdata.app/explore/Metal.XAU%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published for the relevant CME COMEX futures contract for the underlying metal—COMEX Gold Futures (GC)—may be used to determine whether the listed price was reached during the applicable trading session.
+  E3.C2: Will Gold (XAUUSD) hit (HIGH) $4,350 Week of July 27 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during a trading session of the week of July 27 2026, any 1-minute candle for Gold (XAUUSD) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during an applicable trading session of the specified timeframe's business days will be considered. The trading session for a given business day typically begins at 6:00 PM ET on the prior calendar date. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If Gold (XAUUSD) does not trade at all during the listed time frame, this market will resolve to "No".
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Gold (XAUUSD) "High" and "Low" prices available at https://pythdata.app/explore/Metal.XAU%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published for the relevant CME COMEX futures contract for the underlying metal—COMEX Gold Futures (GC)—may be used to determine whether the listed price was reached during the applicable trading session.
+  E3.C3: Will Gold (XAUUSD) hit (HIGH) $4,300 Week of July 27 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during a trading session of the week of July 27 2026, any 1-minute candle for Gold (XAUUSD) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during an applicable trading session of the specified timeframe's business days will be considered. The trading session for a given business day typically begins at 6:00 PM ET on the prior calendar date. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If Gold (XAUUSD) does not trade at all during the listed time frame, this market will resolve to "No".
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Gold (XAUUSD) "High" and "Low" prices available at https://pythdata.app/explore/Metal.XAU%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published for the relevant CME COMEX futures contract for the underlying metal—COMEX Gold Futures (GC)—may be used to determine whether the listed price was reached during the applicable trading session.
+  E3.C4: Will Gold (XAUUSD) hit (HIGH) $4,250 Week of July 27 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during a trading session of the week of July 27 2026, any 1-minute candle for Gold (XAUUSD) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during an applicable trading session of the specified timeframe's business days will be considered. The trading session for a given business day typically begins at 6:00 PM ET on the prior calendar date. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If Gold (XAUUSD) does not trade at all during the listed time frame, this market will resolve to "No".
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Gold (XAUUSD) "High" and "Low" prices available at https://pythdata.app/explore/Metal.XAU%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published for the relevant CME COMEX futures contract for the underlying metal—COMEX Gold Futures (GC)—may be used to determine whether the listed price was reached during the applicable trading session.
+  E3.C5: Will Gold (XAUUSD) hit (HIGH) $4,200 Week of July 27 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during a trading session of the week of July 27 2026, any 1-minute candle for Gold (XAUUSD) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during an applicable trading session of the specified timeframe's business days will be considered. The trading session for a given business day typically begins at 6:00 PM ET on the prior calendar date. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If Gold (XAUUSD) does not trade at all during the listed time frame, this market will resolve to "No".
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Gold (XAUUSD) "High" and "Low" prices available at https://pythdata.app/explore/Metal.XAU%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published for the relevant CME COMEX futures contract for the underlying metal—COMEX Gold Futures (GC)—may be used to determine whether the listed price was reached during the applicable trading session.
+  E3.C6: Will Gold (XAUUSD) hit (HIGH) $4,150 Week of July 27 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during a trading session of the week of July 27 2026, any 1-minute candle for Gold (XAUUSD) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during an applicable trading session of the specified timeframe's business days will be considered. The trading session for a given business day typically begins at 6:00 PM ET on the prior calendar date. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If Gold (XAUUSD) does not trade at all during the listed time frame, this market will resolve to "No".
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Gold (XAUUSD) "High" and "Low" prices available at https://pythdata.app/explore/Metal.XAU%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published for the relevant CME COMEX futures contract for the underlying metal—COMEX Gold Futures (GC)—may be used to determine whether the listed price was reached during the applicable trading session.
+  E3.C7: Will Gold (XAUUSD) hit (LOW) $4,000 Week of July 27 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during a trading session of the week of July 27 2026, any 1-minute candle for Gold (XAUUSD) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during an applicable trading session of the specified timeframe's business days will be considered. The trading session for a given business day typically begins at 6:00 PM ET on the prior calendar date. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If Gold (XAUUSD) does not trade at all during the listed time frame, this market will resolve to "No".
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Gold (XAUUSD) "High" and "Low" prices available at https://pythdata.app/explore/Metal.XAU%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published for the relevant CME COMEX futures contract for the underlying metal—COMEX Gold Futures (GC)—may be used to determine whether the listed price was reached during the applicable trading session.
+  E3.C8: Will Gold (XAUUSD) hit (LOW) $3,950 Week of July 27 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during a trading session of the week of July 27 2026, any 1-minute candle for Gold (XAUUSD) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during an applicable trading session of the specified timeframe's business days will be considered. The trading session for a given business day typically begins at 6:00 PM ET on the prior calendar date. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If Gold (XAUUSD) does not trade at all during the listed time frame, this market will resolve to "No".
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Gold (XAUUSD) "High" and "Low" prices available at https://pythdata.app/explore/Metal.XAU%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published for the relevant CME COMEX futures contract for the underlying metal—COMEX Gold Futures (GC)—may be used to determine whether the listed price was reached during the applicable trading session.
+  E3.C9: Will Gold (XAUUSD) hit (LOW) $3,900 Week of July 27 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during a trading session of the week of July 27 2026, any 1-minute candle for Gold (XAUUSD) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during an applicable trading session of the specified timeframe's business days will be considered. The trading session for a given business day typically begins at 6:00 PM ET on the prior calendar date. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If Gold (XAUUSD) does not trade at all during the listed time frame, this market will resolve to "No".
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Gold (XAUUSD) "High" and "Low" prices available at https://pythdata.app/explore/Metal.XAU%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published for the relevant CME COMEX futures contract for the underlying metal—COMEX Gold Futures (GC)—may be used to determine whether the listed price was reached during the applicable trading session.
+  E3.C10: Will Gold (XAUUSD) hit (LOW) $3,850 Week of July 27 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during a trading session of the week of July 27 2026, any 1-minute candle for Gold (XAUUSD) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during an applicable trading session of the specified timeframe's business days will be considered. The trading session for a given business day typically begins at 6:00 PM ET on the prior calendar date. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If Gold (XAUUSD) does not trade at all during the listed time frame, this market will resolve to "No".
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Gold (XAUUSD) "High" and "Low" prices available at https://pythdata.app/explore/Metal.XAU%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published for the relevant CME COMEX futures contract for the underlying metal—COMEX Gold Futures (GC)—may be used to determine whether the listed price was reached during the applicable trading session.
+  E3.C11: Will Gold (XAUUSD) hit (LOW) $3,800 Week of July 27 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during a trading session of the week of July 27 2026, any 1-minute candle for Gold (XAUUSD) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during an applicable trading session of the specified timeframe's business days will be considered. The trading session for a given business day typically begins at 6:00 PM ET on the prior calendar date. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If Gold (XAUUSD) does not trade at all during the listed time frame, this market will resolve to "No".
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Gold (XAUUSD) "High" and "Low" prices available at https://pythdata.app/explore/Metal.XAU%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published for the relevant CME COMEX futures contract for the underlying metal—COMEX Gold Futures (GC)—may be used to determine whether the listed price was reached during the applicable trading session.
+  E3.C12: Will Gold (XAUUSD) hit (LOW) $3,750 Week of July 27 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during a trading session of the week of July 27 2026, any 1-minute candle for Gold (XAUUSD) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during an applicable trading session of the specified timeframe's business days will be considered. The trading session for a given business day typically begins at 6:00 PM ET on the prior calendar date. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If Gold (XAUUSD) does not trade at all during the listed time frame, this market will resolve to "No".
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Gold (XAUUSD) "High" and "Low" prices available at https://pythdata.app/explore/Metal.XAU%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published for the relevant CME COMEX futures contract for the underlying metal—COMEX Gold Futures (GC)—may be used to determine whether the listed price was reached during the applicable trading session.
+News before E3's as-of date (date seen, source, headline):
+  - 2026-07-29 | www.reuters.com | Gold rises 2% as Fed holds rates steady, markets parse Warsh's comments
+  - 2026-07-29 | www.reuters.com | India's gold tariff hike boosts grey market, hurts organised trade, says WGC
+  - 2026-07-29 | www.cnbc.com | Gold rises on weaker U.S. dollar, soft inflation data
+  - 2026-07-29 | www.nature.com | High efficiency gold extraction by 2D metallic 1T/1T′ phase transition metal dichalcogenides
+  - 2026-07-29 | finance.yahoo.com | Gold prices today, Wednesday, July 29, 2026: Gold prices hold firm ahead of Fed rate decision
+  - 2026-07-29 | www.reuters.com | Allied Gold's $4 billion sale to China's Zijin collapses, lands $295 million investment
+  - 2026-07-29 | www.kitco.com | Gold price jumps as Federal Reserve leaves interest rates unchanged
+  - 2026-07-29 | www.klgates.com | GOLD EAGLE Takes Flight: White House Launches AI-Enabled Cybersecurity Clearinghouse
+  - 2026-07-29 | provincetownmagazine.com | The Life & Times of Judy Gold
+  - 2026-07-29 | finance.yahoo.com | Gold Price Prediction for August 2026: Bear Market or Cycle Low?
+  - 2026-07-29 | www.on3.com | Horka bids goodbye to Blue & Gold and Notre Dame football after unforgettable five years
+  - 2026-07-29 | www.cnbc.com | The price of gold today, July 29, 2026 — and the best places to buy
+  - 2026-07-29 | www.mayerbrown.com | White House Launches Gold Eagle Initiative for Cybersecurity Vulnerability Coordination
+  - 2026-07-29 | sg.finance.yahoo.com | Gold Prices Are Falling. Should You Invest in Stocks Instead?
+  - 2026-07-28 | www.reuters.com | Gold forecasts fall, but central bank buying expected to cushion retreat
+  - 2026-07-28 | www.reuters.com | Gold falls as dollar hovers near one-month peak, Fed meet in focus
+  - 2026-07-28 | gomarquette.com | VB To Host Annual Blue & Gold Scrimmage on August 8
+  - 2026-07-28 | finance.yahoo.com | Gold prices today, Tuesday, July 28, 2026: Gold remains below $4,100 ahead of Fed meeting
+  - 2026-07-28 | www.kitco.com | Fed will hold until at least September, gold likely stuck in neutral for 3-6 months – SIA’s Cieszynski
+  - 2026-07-28 | www.bloomberg.com | Gold Flows to Hong Kong Hit Decade-High Before Clearing Launch
+  - 2026-07-28 | www.cnbc.com | Gold holds steady ahead of Fed's rate decision
+  - 2026-07-28 | www.kitco.com | Commerzbank downgrades gold and silver prices as Middle East conflict takes its toll
+  - 2026-07-27 | ucirvinesports.com | UC Irvine Alum Tara Prentice Wins Gold with Team USA at 2026 World Cup Final
+  - 2026-07-27 | www.cbsnews.com | Where will silver and gold prices head this August? Experts weigh in
+  - 2026-07-27 | www.reuters.com | Gold rises as oil retreats on pause in US-Iran strikes; Fed rate decision in focus
+What to write for E3:
+  Write "high": for each chance 10, 25, 50, 75 and 90, the level you give that chance of being reached (at or above) within the period. The 10 level is the highest.
+  Write "low": for each chance 10, 25, 50, 75 and 90, the level you give that chance of being reached (at or below) within the period. The 10 level is the lowest.
+
+=== E4 (as of 2026-05-06): Bitcoin price on May 7?
+Rules:
+This market will resolve according to the final "Close" price of the Binance 1 minute candle for BTC/USDT 12:00 in the ET timezone (noon) on the date specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the BTC/USDT "Close" prices currently available at https://www.binance.com/en/trade/BTC_USDT with "1m" and "Candles" selected on the top bar.
+
+If the reported value falls exactly between two brackets, then this market will resolve to the higher range bracket.
+
+Please note that this market is about the price according to Binance BTC/USDT, not according to other exchanges or trading pairs.
+Contracts:
+  E4.C1: Will the price of Bitcoin be less than $68,000 on May 7?
+  E4.C2: Will the price of Bitcoin be between $68,000 and $70,000 on May 7?
+  E4.C3: Will the price of Bitcoin be between $70,000 and $72,000 on May 7?
+  E4.C4: Will the price of Bitcoin be between $72,000 and $74,000 on May 7?
+  E4.C5: Will the price of Bitcoin be between $74,000 and $76,000 on May 7?
+  E4.C6: Will the price of Bitcoin be between $76,000 and $78,000 on May 7?
+  E4.C7: Will the price of Bitcoin be between $78,000 and $80,000 on May 7?
+  E4.C8: Will the price of Bitcoin be between $80,000 and $82,000 on May 7?
+  E4.C9: Will the price of Bitcoin be between $82,000 and $84,000 on May 7?
+  E4.C10: Will the price of Bitcoin be between $84,000 and $86,000 on May 7?
+  E4.C11: Will the price of Bitcoin be greater than $86,000 on May 7?
+News before E4's as-of date (date seen, source, headline):
+  - 2026-05-06 | www.blackrock.com | Portfolio Diversification: Bitcoin, Gold & Alternatives
+  - 2026-05-06 | www.prnewswire.com | American Bitcoin Reports First Quarter 2026 Results
+  - 2026-05-06 | www.reuters.com | Trump brothers-backed American Bitcoin narrows loss on stronger mining revenue
+  - 2026-05-06 | www.cnbc.com | Bitcoin to hit $1M in next five years, says VanEck's head of digital assets research
+  - 2026-05-06 | finance.yahoo.com | Bitcoin and ethereum prices today, Wednesday, May 6, 2026: Prices up; bitcoin at highest level since January
+  - 2026-05-06 | finance.yahoo.com | Bitcoin Price Prediction: We Asked ChatGPT About Bitcoin’s Realistic Price by Year-End
+  - 2026-05-06 | fortune.com | Current price of Bitcoin for May 6, 2026
+  - 2026-05-06 | www.coindesk.com | Bitcoin tops $81,000 as Strategy mulls selling its BTC to fund dividend obligations
+  - 2026-05-06 | bitcoinfoundation.org | Colombia’s President Proposes Turning Caribbean Coast Into Bitcoin Mining Hub
+  - 2026-05-06 | www.barrons.com | Strategy Posts $14.5 Billion Loss on Bitcoin Holdings. The ‘Never Sell’ Mantra Fades.
+  - 2026-05-06 | www.theblock.co | VanEck says Bitcoin could hit $1 million in five years, likens adoption to video games
+  - 2026-05-06 | www.coindesk.com | Bitcoin's (BTC) 30% price surge has a hidden rhythm. Here are the hours and days driving gains.
+  - 2026-05-06 | www.fool.com | Here's What Pete Hegseth Just Said About Bitcoin and Why It Matters
+  - 2026-05-06 | www.cnbc.com | Bitcoin's rally is gaining respect. How to trade it using options
+  - 2026-05-05 | www.wsj.com | Strategy Reports Wider First-Quarter Loss on Lower Value of Bitcoin
+  - 2026-05-05 | www.cnbc.com | Bitcoin treasury firm Strategy breaks from 'never sell' approach to the flagship crypto
+  - 2026-05-05 | fortune.com | Current price of Bitcoin for May 5, 2026
+  - 2026-05-05 | finance.yahoo.com | Bitcoin and ethereum prices today, Tuesday, May 5, 2026: Bitcoin reaches over $81,000, hitting a high last seen in January
+  - 2026-05-05 | www.reuters.com | Saylor's Strategy posts wider quarterly loss on bitcoin slump
+  - 2026-05-05 | www.coindesk.com | Strategy weighs selling bitcoin to fund dividends amid Q1 net loss
+  - 2026-05-05 | www.coindesk.com | Bitcoin breaks $80,000 as traders rotate into altcoins amid improving market mood
+  - 2026-05-05 | www.investopedia.com | Bitcoin is Back Above $81,000. Signs of Clarity Act Progress May Be Helping
+  - 2026-05-05 | bitcoinmagazine.com | Bitcoin Price Rockets Past $81,000 for the First Time Since January
+  - 2026-05-05 | uk.finance.yahoo.com | The Smarter Web Company tops up Bitcoin position, shares gain
+  - 2026-05-05 | www.fool.com | Is Bitcoin More Likely to Hit $50,000 or $100,000?
+What to write for E4:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E5 (as of 2026-05-20): What price will Bitcoin hit May 18-24?
+Rules:
+What price will Bitcoin hit May 18-24?
+Contracts:
+  E5.C1: Will Bitcoin reach $90,000 May 18-24?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1-minute candle for BTC/USDT during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "High" price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the BTC/USDT "High" prices available at https://www.binance.com/en/trade/BTC_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance BTC/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E5.C2: Will Bitcoin reach $88,000 May 18-24?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1-minute candle for BTC/USDT during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "High" price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the BTC/USDT "High" prices available at https://www.binance.com/en/trade/BTC_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance BTC/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E5.C3: Will Bitcoin reach $86,000 May 18-24?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1-minute candle for BTC/USDT during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "High" price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the BTC/USDT "High" prices available at https://www.binance.com/en/trade/BTC_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance BTC/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E5.C4: Will Bitcoin reach $84,000 May 18-24?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1-minute candle for BTC/USDT during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "High" price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the BTC/USDT "High" prices available at https://www.binance.com/en/trade/BTC_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance BTC/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E5.C5: Will Bitcoin reach $82,000 May 18-24?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1-minute candle for BTC/USDT during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "High" price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the BTC/USDT "High" prices available at https://www.binance.com/en/trade/BTC_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance BTC/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E5.C6: Will Bitcoin reach $80,000 May 18-24?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1-minute candle for BTC/USDT during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "High" price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the BTC/USDT "High" prices available at https://www.binance.com/en/trade/BTC_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance BTC/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E5.C7: Will Bitcoin reach $78,000 May 18-24?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1-minute candle for BTC/USDT during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "High" price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the BTC/USDT "High" prices available at https://www.binance.com/en/trade/BTC_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance BTC/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E5.C8: Will Bitcoin dip to $74,000 May 18-24?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for Bitcoin (BTC/USDT) during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "Low" price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the BTC/USDT "Low" prices available at https://www.binance.com/en/trade/BTC_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance BTC/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E5.C9: Will Bitcoin dip to $72,000 May 18-24?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for Bitcoin (BTC/USDT) during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "Low" price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the BTC/USDT "Low" prices available at https://www.binance.com/en/trade/BTC_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance BTC/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E5.C10: Will Bitcoin dip to $70,000 May 18-24?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for Bitcoin (BTC/USDT) during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "Low" price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the BTC/USDT "Low" prices available at https://www.binance.com/en/trade/BTC_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance BTC/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E5.C11: Will Bitcoin dip to $68,000 May 18-24?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for Bitcoin (BTC/USDT) during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "Low" price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the BTC/USDT "Low" prices available at https://www.binance.com/en/trade/BTC_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance BTC/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E5.C12: Will Bitcoin dip to $66,000 May 18-24?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for Bitcoin (BTC/USDT) during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "Low" price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the BTC/USDT "Low" prices available at https://www.binance.com/en/trade/BTC_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance BTC/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E5.C13: Will Bitcoin dip to $64,000 May 18-24?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for Bitcoin (BTC/USDT) during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "Low" price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the BTC/USDT "Low" prices available at https://www.binance.com/en/trade/BTC_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance BTC/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E5.C14: Will Bitcoin dip to $62,000 May 18-24?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for Bitcoin (BTC/USDT) during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "Low" price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the BTC/USDT "Low" prices available at https://www.binance.com/en/trade/BTC_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance BTC/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+News before E5's as-of date (date seen, source, headline):
+  - 2026-05-20 | www.bankingdive.com | Bitcoin Depot files for bankruptcy as crypto ATMs go offline
+  - 2026-05-20 | fortune.com | Current price of Bitcoin for May 20, 2026
+  - 2026-05-20 | www.bloomberg.com | Bitcoin Grows More Dependent on Michael Saylor’s Buying Machine
+  - 2026-05-20 | finance.yahoo.com | How High Could Bitcoin (BTC) Realistically Go This Cycle?
+  - 2026-05-20 | finance.yahoo.com | Bitcoin and ethereum prices today, Wednesday, May 20, 2026: Opened lower but moving higher
+  - 2026-05-20 | www.coindesk.com | Elon Musk's SpaceX held 18,712 bitcoin at fair value of $1.29 billion at end of Q1, IPO filing shows
+  - 2026-05-20 | bitcoinfoundation.org | JPMorgan: Ethereum and Altcoins Will Continue to Lag Behind Bitcoin
+  - 2026-05-20 | bitcoinmagazine.com | South Carolina Enacts Bitcoin-Friendly Law, Bans CBDC Use by State Entities
+  - 2026-05-20 | www.devere-group.com | Bitcoin Price Predictions: Weighing the 2026 Liquidity Squeeze Against 2030 Bull Targets
+  - 2026-05-20 | research.glassnode.com | Measuring Bitcoin's Quantum-Exposed Supply
+  - 2026-05-20 | cybersecurityventures.com | Small Biz Owner Hacked, Suffers Massive Bitcoin Loss
+  - 2026-05-20 | www.moomoo.com | A single company propping up Bitcoin prices! Despite weak market demand, Strategy (MSTR.US) continues large-scale purchases.
+  - 2026-05-20 | www.bizjournals.com | Cryptocurrency ATM operator Bitcoin Depot files for bankruptcy, lays off workforce
+  - 2026-05-19 | www.icij.org | Crypto ATM operator Bitcoin Depot files for bankruptcy
+  - 2026-05-19 | bitcoinfoundation.org | BlackRock vs Fidelity: Who Controls the Future of Bitcoin ETFs?
+  - 2026-05-19 | www.wbay.com | North America’s largest Bitcoin ATM operator shuts down network, files for bankruptcy
+  - 2026-05-19 | www.forbes.com | Bitcoin Stuck In Limbo As Gold Outshines Crypto
+  - 2026-05-19 | bridgemi.com | Michigan governor hopeful got $800k Bitcoin gift. Won’t say from whom
+  - 2026-05-19 | fortune.com | Current price of Bitcoin for May 19, 2026
+  - 2026-05-19 | bitcoinfoundation.org | Crypto Holidays Calendar 2026: Complete List of Important Bitcoin and Blockchain Dates
+  - 2026-05-19 | finance.yahoo.com | Bitcoin and ethereum prices today, Tuesday, May 19, 2026: Prices slide lower after Trump calls off attacks
+  - 2026-05-19 | bitcoinfoundation.org | How Federal Reserve Policy in 2026 Is Shaping Bitcoin’s Next Move
+  - 2026-05-19 | finance.yahoo.com | Why Is Bitcoin Price Not Rising? Whales Surge 11% as Saylor’s Strategy $2B Buy Fuels Concern
+  - 2026-05-19 | www.cmegroup.com | Bitcoin's Nasdaq Connection and the CLARITY Act
+  - 2026-05-19 | bitcoinmagazine.com | Bitcoin Price Slides Below $77,000 as ETF Exodus Tops $1 Billion
+What to write for E5:
+  Write "high": for each chance 10, 25, 50, 75 and 90, the level you give that chance of being reached (at or above) within the period. The 10 level is the highest.
+  Write "low": for each chance 10, 25, 50, 75 and 90, the level you give that chance of being reached (at or below) within the period. The 10 level is the lowest.
+
+=== E6 (as of 2026-04-29): Bitcoin above ___ on April 29?
+Rules:
+This market will resolve to "Yes" if the Binance 1 minute candle for BTC/USDT 12:00 in the ET timezone (noon) on the date specified in the title has a final "Close" price higher than the price specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the BTC/USDT "Close" prices currently available at https://www.binance.com/en/trade/BTC_USDT with "1m" and "Candles" selected on the top bar.
+
+Please note that this market is about the price according to Binance BTC/USDT, not according to other exchanges or trading pairs.
+
+Price precision is determined by the number of decimal places in the source.
+Contracts:
+  E6.C1: Will the price of Bitcoin be above $70,000 on April 29?
+  E6.C2: Will the price of Bitcoin be above $72,000 on April 29?
+  E6.C3: Will the price of Bitcoin be above $74,000 on April 29?
+  E6.C4: Will the price of Bitcoin be above $76,000 on April 29?
+  E6.C5: Will the price of Bitcoin be above $78,000 on April 29?
+  E6.C6: Will the price of Bitcoin be above $80,000 on April 29?
+  E6.C7: Will the price of Bitcoin be above $82,000 on April 29?
+  E6.C8: Will the price of Bitcoin be above $84,000 on April 29?
+  E6.C9: Will the price of Bitcoin be above $86,000 on April 29?
+  E6.C10: Will the price of Bitcoin be above $88,000 on April 29?
+  E6.C11: Will the price of Bitcoin be above $90,000 on April 29?
+News before E6's as-of date (date seen, source, headline):
+  - 2026-04-29 | www.coindesk.com | There's a social media groundswell predicting bitcoin above $90,000. That might be a problem.
+  - 2026-04-29 | finance.yahoo.com | What is Bitcoin’s Endgame? MicroStrategy’s Saylor Has a Prediction
+  - 2026-04-29 | finance.yahoo.com | Bitcoin Bottom or May Bust? Top 3 Price Predictions From Experts Highlight Crucial Cost Basis
+  - 2026-04-29 | finance.yahoo.com | Bitcoin Is Moving From Trade to Treasury Asset -- Here's Why That Matters
+  - 2026-04-29 | finance.yahoo.com | Bitcoin and ethereum prices today, Wednesday, April 29, 2026: Values continue to fall this week
+  - 2026-04-29 | fortune.com | Current price of Bitcoin for April 29, 2026
+  - 2026-04-29 | fox17.com | Bitcoin 2027 conference will return to Nashville
+  - 2026-04-29 | www.cnbc.com | Still believe bitcoin will be worth $1 million or more in the long run: Lightspark's David Marcus
+  - 2026-04-29 | www.coindesk.com | Bitcoin (BTC) trading volume is falling fast. That rarely ends smoothly: Crypto Daily
+  - 2026-04-29 | bitcoinmagazine.com | Square Crosses 1 Million Bitcoin-Enabled Merchants as Real-World Adoption Continues to Grow
+  - 2026-04-29 | www.theblock.co | Bitcoin slips to $75,000 as Fed holds rates, dissenters chill Warsh 'pivot party'
+  - 2026-04-29 | www.coindesk.com | Bitcoin's (BTC) greatest days are here, says Eric Trump
+  - 2026-04-29 | www.bloomberg.com | Czech Central Banker Says Bitcoin May Improve Reserve Portfolio
+  - 2026-04-29 | www.fool.com | Bitcoin Whitepaper: Explained
+  - 2026-04-29 | www.bloomberg.com | Option Traders Build ‘Electric Fence’ Around Bitcoin at $80,000
+  - 2026-04-28 | finance.yahoo.com | Bitcoin and ethereum prices today, Tuesday, April 28, 2026: Values falling ahead of Fed meeting
+  - 2026-04-28 | www.coindesk.com | Bitcoin (BTC) price retreat deepens after repeated rejection at $80,000: Crypto Markets Today
+  - 2026-04-28 | www.forbes.com | Eric Trump's Bitcoin Business Is A Disaster
+  - 2026-04-28 | finance.yahoo.com | 'Crypto Godfather' Says Bitcoin Has Further To Fall
+  - 2026-04-28 | fortune.com | Current price of Bitcoin for April 28, 2026
+  - 2026-04-28 | www.coindesk.com | 'Crypto Godfather' says bitcoin has not reached its bottom and a new all-time high is off the table for 2026
+  - 2026-04-28 | www.etftrends.com | Disruptive Theme of the Week: Bitcoin Miner Optionality
+  - 2026-04-28 | www.forbes.com | How Michael Saylor Turned Preferred Stock Into Jet Fuel For Buying Bitcoin
+  - 2026-04-28 | www.wfsb.com | Southington woman loses $14,000 in Bitcoin scam involving fake police officer
+  - 2026-04-28 | www.kioskmarketplace.com | Crypto kiosk chaos: Can the bitcoin ATM industry survive?
+What to write for E6:
+  Write "levels": for each chance 10, 25, 50, 75 and 90, the level you give that chance of the measured quantity being at or above when it resolves. The 10 level is the highest and the 90 level the lowest. Example: {"10": 120, "25": 110, "50": 100, "75": 92, "90": 85}.

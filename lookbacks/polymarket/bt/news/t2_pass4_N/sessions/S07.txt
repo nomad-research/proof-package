@@ -1,0 +1,528 @@
+You will be shown 6 questions from a prediction market. Each has one or more contracts that resolve YES or NO under the rules shown. Each question gives the date your view is "as of": answer as you would on that date.
+
+Use what you already know and the news headlines listed under each question, all published in the 7 days before its as-of date. Do not search for or look up anything else: reading this file is the only tool call you may make. There are no prices from any prediction market in this file and you should not try to estimate what any market thinks; give your own view.
+
+Each question says what to write for it. Whole percents run from 1 to 99. Levels are plain numbers in the units the contracts use (for example 95000 for $95,000, 3.25 for 3.25%). Dates are YYYY-MM-DD.
+
+For each question also say whether you recognise how it actually turned out ("recognised": true only if you believe you remember the real outcome; otherwise false).
+
+Reply with one JSON object and nothing else:
+{"events": [{"label": "E1", "recognised": false, ...the fields that question asks for...}]}
+
+=== E1 (as of 2026-04-01): Palantir (PLTR) closes week of Mar 30 at ___?
+Rules:
+This market will resolve according to the official closing price for Palantir (PLTR) on the final day of trading of the specified week (normally Friday).
+
+If the reported value falls exactly between two brackets, then this market will resolve to the higher range bracket.
+
+If the final session of the week is shortened (for example, due to a market-holiday schedule), the official closing price published for that shortened session will still be used for resolution.
+
+If no official closing price is published for that session (for example, due to a trading halt into the close, system issue, delisting, or other disruption), the market will use the last valid on-exchange trade price of the regular session as the effective closing price.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Yahoo Finance.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Yahoo Finance after any adjustments have been applied.
+
+The resolution source for this market is Yahoo Finance, specifically the Palantir (PLTR) "Close" prices available at https://finance.yahoo.com/quote/PLTR/history, published under "Historical Prices."
+Contracts:
+  E1.C1: Will Palantir (PLTR) close at <$138 on the final day of trading of the week of Mar 30 – Apr 3?
+  E1.C2: Will Palantir (PLTR) close at $138-$140 on the final day of trading of the week of Mar 30 – Apr 3?
+  E1.C3: Will Palantir (PLTR) close at $140-$142 on the final day of trading of the week of Mar 30 – Apr 3?
+  E1.C4: Will Palantir (PLTR) close at $142-$144 on the final day of trading of the week of Mar 30 – Apr 3?
+  E1.C5: Will Palantir (PLTR) close at $144-$146 on the final day of trading of the week of Mar 30 – Apr 3?
+  E1.C6: Will Palantir (PLTR) close at $146-$148 on the final day of trading of the week of Mar 30 – Apr 3?
+  E1.C7: Will Palantir (PLTR) close at $148-$150 on the final day of trading of the week of Mar 30 – Apr 3?
+  E1.C8: Will Palantir (PLTR) close at $150-$152 on the final day of trading of the week of Mar 30 – Apr 3?
+  E1.C9: Will Palantir (PLTR) close at $152-$154 on the final day of trading of the week of Mar 30 – Apr 3?
+  E1.C10: Will Palantir (PLTR) close at $154-$156 on the final day of trading of the week of Mar 30 – Apr 3?
+  E1.C11: Will Palantir (PLTR) close at >$156 on the final day of trading of the week of Mar 30 – Apr 3?
+News before E1's as-of date (date seen, source, headline):
+  - 2026-04-01 | finance.yahoo.com | Palantir Technologies (PLTR) Is Down 5.5% After Stellantis, Pentagon Deepen AI Ties Has The Bull Case Changed?
+  - 2026-04-01 | finance.yahoo.com | 3 Big Reasons to Love Palantir Technologies (PLTR)
+  - 2026-03-31 | finance.yahoo.com | Why Is Palantir Technologies (PLTR) Stock Rocketing Higher Today
+  - 2026-03-31 | finance.yahoo.com | Is Palantir Technologies Inc. (PLTR) Among the Best Goldman Sachs AI Stocks: Top 12 Stocks to Buy?
+  - 2026-03-30 | www.tikr.com | Palantir Has Fallen 31% From Its Peak. Is PLTR Stock a Buy in 2026?
+  - 2026-03-30 | seekingalpha.com | Palantir Is Becoming The System Behind Decisions (NASDAQ:PLTR)
+  - 2026-03-28 | finance.yahoo.com | Rosenblatt Reiterates Palantir (PLTR) Rating After Golden Dome Win
+  - 2026-03-26 | finance.yahoo.com | Palantir Stock (PLTR) Rises as it Joins Anduril in $185B Golden Dome Project
+  - 2026-03-26 | seekingalpha.com | Palantir's Old Narrative Is Falling Apart (NASDAQ:PLTR)
+  - 2026-03-25 | seekingalpha.com | Palantir: Defending Its High-Growth Premium (NASDAQ:PLTR)
+What to write for E1:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E2 (as of 2026-06-24): What will Microsoft Corporation (MSFT) hit in June 2026?
+Rules:
+What will Microsoft Corporation (MSFT) hit in June 2026?
+Contracts:
+  E2.C1: Will Microsoft Corporation (MSFT) hit (HIGH) $510 in June?
+    Contract rules: This market will resolve to "Yes" if, at any point during June 2026, any 1-minute candle for Microsoft Corporation (MSFT) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Microsoft Corporation (MSFT) "High" prices available at https://pythdata.app/explore/Equity.US.MSFT%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.MSFT%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E2.C2: Will Microsoft Corporation (MSFT) hit (HIGH) $495 in June?
+    Contract rules: This market will resolve to "Yes" if, at any point during June 2026, any 1-minute candle for Microsoft Corporation (MSFT) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Microsoft Corporation (MSFT) "High" prices available at https://pythdata.app/explore/Equity.US.MSFT%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.MSFT%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E2.C3: Will Microsoft Corporation (MSFT) hit (HIGH) $480 in June?
+    Contract rules: This market will resolve to "Yes" if, at any point during June 2026, any 1-minute candle for Microsoft Corporation (MSFT) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Microsoft Corporation (MSFT) "High" prices available at https://pythdata.app/explore/Equity.US.MSFT%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.MSFT%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E2.C4: Will Microsoft Corporation (MSFT) hit (LOW) $360 in June?
+    Contract rules: This market will resolve to "Yes" if, at any point during June 2026, any 1-minute candle for Microsoft Corporation (MSFT) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Microsoft Corporation (MSFT) "Low" prices available at https://pythdata.app/explore/Equity.US.MSFT%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.MSFT%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E2.C5: Will Microsoft Corporation (MSFT) hit (LOW) $345 in June?
+    Contract rules: This market will resolve to "Yes" if, at any point during June 2026, any 1-minute candle for Microsoft Corporation (MSFT) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Microsoft Corporation (MSFT) "Low" prices available at https://pythdata.app/explore/Equity.US.MSFT%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.MSFT%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E2.C6: Will Microsoft Corporation (MSFT) hit (LOW) $330 in June?
+    Contract rules: This market will resolve to "Yes" if, at any point during June 2026, any 1-minute candle for Microsoft Corporation (MSFT) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Microsoft Corporation (MSFT) "Low" prices available at https://pythdata.app/explore/Equity.US.MSFT%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.MSFT%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E2.C7: Will Microsoft Corporation (MSFT) hit (LOW) $315 in June?
+    Contract rules: This market will resolve to "Yes" if, at any point during June 2026, any 1-minute candle for Microsoft Corporation (MSFT) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Microsoft Corporation (MSFT) "Low" prices available at https://pythdata.app/explore/Equity.US.MSFT%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.MSFT%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+News before E2's as-of date (date seen, source, headline):
+  - 2026-06-24 | www.prnewswire.com | MSFT UPCOMING DEADLINE: Levi & Korsinsky Alerts Microsoft Corporation Stockholders of Securities Class Action - Contact the Firm
+  - 2026-06-24 | finance.yahoo.com | Microsoft Corporation (MSFT) Is One Of Billionaire David Tepper’s Oldest AI Stocks
+  - 2026-06-23 | www.globenewswire.com | MSFT Investors Have Opportunity to Lead Microsoft Corporation Securities Fraud Lawsuit with the Schall Law Firm
+  - 2026-06-22 | www.prnewswire.com | MSFT Stockholder Alert: Shareholder Rights Law Firm Robbins LLP Reminds Investors of the Securities Class Action Lawsuit Against Microsoft Corporation
+  - 2026-06-21 | www.accessnewswire.com | Securities Lawsuit Alert: Microsoft Corporation (MSFT) Investors – Contact Levi & Korsinsky Before August 11, 2026
+  - 2026-06-20 | finance.yahoo.com | Microsoft Corporation (MSFT): One of the Best Falling Stocks Despite Getting Out of Oracle Data Center Deal
+  - 2026-06-19 | www.globenewswire.com | MSFT Shareholder Alert: Microsoft Corporation Securities
+  - 2026-06-18 | www.businesswire.com | MSFT Shareholder Alert: Microsoft Corporation Securities Class Action Lawsuit - Investors With Losses May Contact Levi & Korsinsky
+  - 2026-06-18 | www.prnewswire.com | SueWallSt Reminds Shareholders of a Lead Plaintiff Deadline of August 11, 2026 in Microsoft Corporation Lawsuit - MSFT
+  - 2026-06-17 | finance.yahoo.com | Microsoft Corporation (MSFT) Fell as Azure Growth Fell Short of Expectations
+  - 2026-06-17 | www.mycarrollcountynews.com | Law Offices of Howard G. Smith Encourages Microsoft Corporation (MSFT) Shareholders To Inquire About Securities Fraud Class Action
+What to write for E2:
+  Write "high": for each chance 10, 25, 50, 75 and 90, the level you give that chance of being reached (at or above) within the period. The 10 level is the highest.
+  Write "low": for each chance 10, 25, 50, 75 and 90, the level you give that chance of being reached (at or below) within the period. The 10 level is the lowest.
+
+=== E3 (as of 2026-08-26): Bitcoin price on August 26?
+Rules:
+This market will resolve according to the final "Close" price of the Binance 1 minute candle for BTC/USDT 12:00 in the ET timezone (noon) on the date specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the BTC/USDT "Close" prices currently available at https://www.binance.com/en/trade/BTC_USDT with "1m" and "Candles" selected on the top bar.
+
+If the reported value falls exactly between two brackets, then this market will resolve to the higher range bracket.
+
+Please note that this market is about the price according to Binance BTC/USDT, not according to other exchanges or trading pairs.
+Contracts:
+  E3.C1: Will the price of Bitcoin be less than $60,000 on August 26?
+  E3.C2: Will the price of Bitcoin be between $60,000 and $62,000 on August 26?
+  E3.C3: Will the price of Bitcoin be between $62,000 and $64,000 on August 26?
+  E3.C4: Will the price of Bitcoin be between $64,000 and $66,000 on August 26?
+  E3.C5: Will the price of Bitcoin be between $66,000 and $68,000 on August 26?
+  E3.C6: Will the price of Bitcoin be between $68,000 and $70,000 on August 26?
+  E3.C7: Will the price of Bitcoin be between $70,000 and $72,000 on August 26?
+  E3.C8: Will the price of Bitcoin be between $72,000 and $74,000 on August 26?
+  E3.C9: Will the price of Bitcoin be between $74,000 and $76,000 on August 26?
+  E3.C10: Will the price of Bitcoin be between $76,000 and $78,000 on August 26?
+  E3.C11: Will the price of Bitcoin be greater than $78,000 on August 26?
+News before E3's as-of date (date seen, source, headline):
+  - 2026-08-26 | finance.yahoo.com | Here's when bitcoin may hit $500,000
+  - 2026-08-26 | bitcoinfoundation.org | Trump Pushes CLARITY Act as Bitcoin Surges: Is Crypto Finally Getting the Rules It Needs?
+  - 2026-08-26 | finance.yahoo.com | Bernstein Forecasts Bitcoin Will Reach $150,000 By Mid-2027
+  - 2026-08-26 | finance.yahoo.com | Bitcoin and ethereum prices today, Wednesday, August 26, 2026: 'Bitcoin is having a price gusher to close out August'
+  - 2026-08-26 | www.cnbc.com | Bitcoin’s macro case is strengthening even as regulation takes a back seat, says BlackRock’s digital assets head
+  - 2026-08-26 | www.cnbc.com | Bitcoin rebound comes at pivotal moment as debasement trade gains steam
+  - 2026-08-26 | www.bloomberg.com | Bitcoin Rally Stalls at $80,000 as Traders Await Inflation Data
+  - 2026-08-26 | www.ft.com | Bitcoin treasury companies shed $80bn in value as business model unwinds
+  - 2026-08-26 | www.reuters.com | Crypto Weekly: Bitcoin's rise, crypto-backed midterms
+  - 2026-08-26 | finance.yahoo.com | Hackers Just Stole $130 Million Worth of Bitcoin From Cold Storage. Here's Why That Matters for Bitcoin Investors.
+  - 2026-08-26 | www.bloomberg.com | Bitcoin’s Bessent Bounce Doesn’t Tell the Full Story
+  - 2026-08-25 | finance.yahoo.com | Bitcoin Jumps Above $80,000 as ‘Debasement Trade’ Pressures Dollar
+  - 2026-08-25 | finance.yahoo.com | Bitcoin has just wiped out three months of losses in 1 week
+  - 2026-08-25 | finance.yahoo.com | Traders price a one-in-100 chance that Bitcoin reaches $100,000 this month
+  - 2026-08-25 | fortune.com | Current price of Bitcoin for August 25, 2026
+  - 2026-08-25 | finance.yahoo.com | Owning a Whole Bitcoin Is 70-Times Rarer Than Being a Millionaire
+  - 2026-08-25 | www.forbes.com | Bitcoin Crosses $80,000 For The First Time Since May Amid Crypto Bounce Back
+  - 2026-08-25 | finance.yahoo.com | Bitcoin and ethereum prices today, Tuesday, August 25, 2026: Highest opening for bitcoin in over three months
+  - 2026-08-25 | www.bloomberg.com | BlackRock Helps Pull More Bitcoin Wealth Deeper Into Wall Street
+  - 2026-08-25 | finance.yahoo.com | Bitcoin Bull Run Is Here: Arthur Hayes Says Treasury Buybacks Will Send BTC Soaring
+  - 2026-08-25 | www.cnbc.com | CNBC Daily Open: China in the crosshairs, Bitcoin is back and Dragon Ball Z diplomacy
+  - 2026-08-25 | www.prnewswire.com | Canaan Inc. to Exhibit at Bitcoin Asia 2026: Company to Showcase Bitcoin Computing Solutions Across a Range of Applications
+  - 2026-08-25 | www.foxbusiness.com | Anthony Pompliano breaks down Bitcoin rally
+  - 2026-08-25 | www.etf.com | Gold & Bitcoin Rally Together as the Debasement Trade Returns
+  - 2026-08-25 | www.scmp.com | Bitcoin tops US$80,000 for first time since May as US moves boost crypto
+What to write for E3:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E4 (as of 2026-08-12): What intensity will Typhoon Dolphin have at landfall in Japan?
+Rules:
+This market resolves to the intensity category corresponding to the maximum sustained wind speed (10-minute average) shown in the applicable JMA advisory as defined below. The outcome categories are: "Tropical Storm" (34–47 kt), "Severe Tropical Storm" (48–63 kt), "Typhoon" (64–84 kt), "Very Strong Typhoon" (85–104 kt), and "Violent Typhoon" (105+ kt). Landfall is defined as the center of Dolphin's circulation physically crossing the coastline of any Japanese territory (including Okinawa, the Ryukyu Islands, and all main islands) on or before August 15, 2026.
+
+Resolution is determined by the Japan Meteorological Agency's (JMA) position advisories placing the storm over Japanese land (https://www.jma.go.jp/bosai/map.html#contents=typhoon&lang=en), or by credible international news reporting confirming the storm hitting Japanese territory. The applicable advisory is selected as follows: if a JMA advisory plots the center on Japanese land, that advisory's wind speed resolves the market; if no JMA advisory plots the center on land but credible reporting confirms a crossing occurred between discrete advisory fixes, the intensity is taken from the most recently issued JMA advisory prior to the confirmed crossing time. Once the applicable advisory is identified, its intensity fixes the outcome; no subsequent real-time advisory, reclassification, or post-season best-track reanalysis may retroactively change the outcome.
+
+Archival evidence of JMA advisory data is maintained by the Digital Typhoon database (National Institute of Informatics, Japan) at its Typhoon Images and Charts page for Typhoon 202613 (DOLPHIN). In the event of a resolution dispute, the intensity value recorded by Digital Typhoon for the applicable advisory fix shall be treated as conclusive evidence of what JMA reported.
+
+JMA position advisories are the primary resolution source. If a JMA advisory plots the center on Japanese land, the market resolves based on that advisory's wind speed regardless of what other sources say. If no JMA advisory plots the center on land but credible reporting confirms a crossing occurred between discrete advisory fixes, the market still resolves, with intensity taken from the most recently issued JMA advisory prior to the confirmed crossing time. A disagreement exists only when a JMA advisory and credible reporting make contradictory claims about the storm's position at the same point in time; in that case, JMA is the default resolution source. Only the first qualifying landfall on Japanese territory resolves the market; subsequent landfalls are disregarded.
+
+This is a purely geographic criterion: the storm's center must pass over Japanese land, regardless of whether JMA formally designates the event as "landfall" or "passage." The applicable JMA advisory (as selected above) must show maximum sustained winds of 34 knots or higher, classifying Dolphin as a tropical storm or above. If the applicable advisory classifies the system as a tropical depression (below 34 kt), extratropical, dissipated, or absorbed, the crossing does not count and the market resolves to "No Qualifying Landfall."
+
+This market resolves "No Qualifying Landfall" if Dolphin has been declared extratropical, dissipated, or absorbed on or before August 15 without having made landfall on Japanese territory, if the applicable advisory at the time of crossing shows winds below 34 knots, or if no landfall has physically occurred by the close of August 15, 2026.
+Contracts:
+  E4.C1: Will Typhoon Dolphin be a "Tropical Storm" at Japan landfall?
+  E4.C2: Will Typhoon Dolphin be a "Severe Tropical Storm" at Japan landfall?
+  E4.C3: Will Typhoon Dolphin be a "Typhoon" at Japan landfall?
+  E4.C4: Will Typhoon Dolphin be a "Very Strong Typhoon" at Japan landfall?
+  E4.C5: Will Typhoon Dolphin be a "Violent Typhoon" at Japan landfall?
+News before E4's as-of date (date seen, source, headline):
+  - 2026-08-08 | www.aljazeera.com | Typhoon Dolphin hits Japan, heads towards China
+  - 2026-08-08 | www.reuters.com | Typhoon Dolphin hits Japan's Okinawa, China shuts ports ahead of landfall
+  - 2026-08-08 | www.arabnews.com | Typhoon Dolphin hits Japan’s Okinawa, China shuts ports ahead of landfall
+  - 2026-08-08 | www.scmp.com | Typhoon Dolphin grounds Hong Kong flights, disrupts trips and business in Japan
+  - 2026-08-07 | www.reuters.com | Japan orders evacuations as Typhoon Dolphin approaches, cancels 500 flights
+  - 2026-08-06 | apnews.com | Airport closes in Okinawa as Typhoon Dolphin hits parts of southern Japan
+What to write for E4:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E5 (as of 2026-04-15): Bitcoin above ___ on April 20?
+Rules:
+This market will resolve to "Yes" if the Binance 1 minute candle for BTC/USDT 12:00 in the ET timezone (noon) on the date specified in the title has a final "Close" price higher than the price specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the BTC/USDT "Close" prices currently available at https://www.binance.com/en/trade/BTC_USDT with "1m" and "Candles" selected on the top bar.
+
+Please note that this market is about the price according to Binance BTC/USDT, not according to other exchanges or trading pairs.
+
+Price precision is determined by the number of decimal places in the source.
+Contracts:
+  E5.C1: Will the price of Bitcoin be above $74,000 on April 20?
+  E5.C2: Will the price of Bitcoin be above $76,000 on April 20?
+  E5.C3: Will the price of Bitcoin be above $80,000 on April 20?
+News before E5's as-of date (date seen, source, headline):
+  - 2026-04-15 | www.cato.org | Bitcoin Taxes Make No Sense
+  - 2026-04-15 | www.cnbc.com | Anthropic's Mythos isn't threatening bitcoin. The real AI risk is at crypto exchanges
+  - 2026-04-15 | finance.yahoo.com | When Will Bitcoin Price Bottom Out? Benjamin Cowen Predicts
+  - 2026-04-15 | news.bloombergtax.com | Puerto Rico’s Act 60: When Are Pre-Move Bitcoin Gains Taxed?
+  - 2026-04-15 | fortune.com | Current price of Bitcoin for April 15, 2026
+  - 2026-04-15 | etfdb.com | Cryptocurrencies: Bitcoin Nears $75,000
+  - 2026-04-15 | www.dlnews.com | Iran's Bitcoin toll 'virtually impossible' to collect, says policy institute
+  - 2026-04-15 | www.coindesk.com | ETH, BTC price: What next as Ether/bitcoin ratio bounces from 2026 lows
+  - 2026-04-14 | www.reuters.com | Goldman Sachs files for its first bitcoin ETF product
+  - 2026-04-14 | finance.yahoo.com | Bitcoin Price Will Hit $21M, Claims Michael Saylor, Following Strategy’s Latest $1B Purchase
+  - 2026-04-14 | bitcoinfoundation.org | Bitcoin Cash Price Prediction 2026-2030: Will BCH Skyrocket or Crash?
+  - 2026-04-14 | finance.yahoo.com | Bitcoin jumps to $74,000, but Wall Street is 'cautious' crypto bear market isn't over
+  - 2026-04-14 | www.coindesk.com | Bitcoin (BTC) price analysis: Key levels to watch as the rally gathers steam
+  - 2026-04-14 | finance.yahoo.com | Bitcoin Nears $75K As Risk-on Sentiment, Geopolitical Landscape Improves
+  - 2026-04-14 | fortune.com | Current price of Bitcoin for April 14, 2026
+  - 2026-04-14 | www.cnbc.com | Jordy Visser: Bitcoin will be significantly higher next time I see you
+  - 2026-04-14 | finance.yahoo.com | Bitcoin and ethereum prices today, Tuesday, April 14, 2026: Prices rebound despite U.S. blockade in the Middle East
+  - 2026-04-14 | www.bloomberg.com | Bitcoin (BTC) Climbs to Four-Week High on Hopes of US-Iran Peace Talks
+  - 2026-04-14 | 247wallst.com | Is 2026 a Good Year to Buy Bitcoin (BTC)? Here's the Bull and Bear Case at $75,000 BTC Price
+  - 2026-04-14 | fortune.com | Bitcoin, Ethereum approach two-month highs as markets grow optimistic over U.S.-Iran peace negotiations
+  - 2026-04-14 | fortune.com | Goldman Sachs makes surprise jump into Bitcoin ETFs with a product one analyst dubs ‘boomer candy’
+  - 2026-04-14 | www.coindesk.com | Bitcoin surpasses halfway mark in current halving cycle
+  - 2026-04-14 | www.forbes.com | Russia Crypto Legalization: Bitcoin Price Prediction 2026
+  - 2026-04-14 | www.coindesk.com | Bitcoin price news: BTC completes rebound from Feb. 5 crash
+  - 2026-04-14 | www.investopedia.com | Why Some Experts Say Bitcoin Is Starting to 'Show Signs' of a Recovery
+What to write for E5:
+  Write "levels": for each chance 10, 25, 50, 75 and 90, the level you give that chance of the measured quantity being at or above when it resolves. The 10 level is the highest and the 90 level the lowest. Example: {"10": 120, "25": 110, "50": 100, "75": 92, "90": 85}.
+
+=== E6 (as of 2026-08-26): What will Palantir Technologies Inc. (PLTR) hit Week of August 24 2026?
+Rules:
+What will Palantir Technologies Inc. (PLTR) hit Week of August 24 2026?
+Contracts:
+  E6.C1: Will Palantir Technologies Inc. (PLTR) hit (HIGH) $198 Week of August 24 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of August 24 2026, any 1-minute candle for Palantir Technologies Inc. (PLTR) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Palantir Technologies Inc. (PLTR) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.PLTR%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.PLTR%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E6.C2: Will Palantir Technologies Inc. (PLTR) hit (HIGH) $195 Week of August 24 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of August 24 2026, any 1-minute candle for Palantir Technologies Inc. (PLTR) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Palantir Technologies Inc. (PLTR) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.PLTR%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.PLTR%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E6.C3: Will Palantir Technologies Inc. (PLTR) hit (HIGH) $192 Week of August 24 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of August 24 2026, any 1-minute candle for Palantir Technologies Inc. (PLTR) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Palantir Technologies Inc. (PLTR) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.PLTR%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.PLTR%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E6.C4: Will Palantir Technologies Inc. (PLTR) hit (HIGH) $189 Week of August 24 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of August 24 2026, any 1-minute candle for Palantir Technologies Inc. (PLTR) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Palantir Technologies Inc. (PLTR) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.PLTR%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.PLTR%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E6.C5: Will Palantir Technologies Inc. (PLTR) hit (LOW) $168 Week of August 24 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of August 24 2026, any 1-minute candle for Palantir Technologies Inc. (PLTR) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Palantir Technologies Inc. (PLTR) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.PLTR%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.PLTR%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E6.C6: Will Palantir Technologies Inc. (PLTR) hit (LOW) $165 Week of August 24 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of August 24 2026, any 1-minute candle for Palantir Technologies Inc. (PLTR) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Palantir Technologies Inc. (PLTR) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.PLTR%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.PLTR%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E6.C7: Will Palantir Technologies Inc. (PLTR) hit (LOW) $162 Week of August 24 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of August 24 2026, any 1-minute candle for Palantir Technologies Inc. (PLTR) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Palantir Technologies Inc. (PLTR) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.PLTR%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.PLTR%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E6.C8: Will Palantir Technologies Inc. (PLTR) hit (LOW) $159 Week of August 24 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of August 24 2026, any 1-minute candle for Palantir Technologies Inc. (PLTR) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Palantir Technologies Inc. (PLTR) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.PLTR%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.PLTR%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E6.C9: Will Palantir Technologies Inc. (PLTR) hit (HIGH) $186 Week of August 24 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of August 24 2026, any 1-minute candle for Palantir Technologies Inc. (PLTR) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Palantir Technologies Inc. (PLTR) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.PLTR%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.PLTR%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E6.C10: Will Palantir Technologies Inc. (PLTR) hit (HIGH) $183 Week of August 24 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of August 24 2026, any 1-minute candle for Palantir Technologies Inc. (PLTR) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Palantir Technologies Inc. (PLTR) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.PLTR%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.PLTR%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E6.C11: Will Palantir Technologies Inc. (PLTR) hit (HIGH) $180 Week of August 24 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of August 24 2026, any 1-minute candle for Palantir Technologies Inc. (PLTR) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Palantir Technologies Inc. (PLTR) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.PLTR%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.PLTR%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E6.C12: Will Palantir Technologies Inc. (PLTR) hit (LOW) $171 Week of August 24 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of August 24 2026, any 1-minute candle for Palantir Technologies Inc. (PLTR) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Palantir Technologies Inc. (PLTR) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.PLTR%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.PLTR%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+News before E6's as-of date (date seen, source, headline):
+  - 2026-08-26 | finance.yahoo.com | 3 Reasons Growth Investors Will Love Palantir Technologies (PLTR)
+  - 2026-08-26 | finance.yahoo.com | Wall Street Analysts Think Palantir Technologies (PLTR) Is a Good Investment: Is It?
+  - 2026-08-26 | finance.yahoo.com | Jim Cramer on Palantir (PLTR): “It’s a Great Spec, But It Is a Spec”
+  - 2026-08-26 | finance.yahoo.com | How Pentagon Maven Deal And Raised Guidance At Palantir Technologies (PLTR) Has Changed Its Investment Story
+  - 2026-08-26 | finance.yahoo.com | PLTR Stock Gains Nearly 2% After William Blair Flags Palantir’s Maven System To Hit $1B ARR
+  - 2026-08-26 | finance.yahoo.com | Why Is Palantir (PLTR) In Focus After Thiel Turned To AI Power Assets?
+  - 2026-08-26 | stocktwits.com | Michael Burry Buys NVDA Calls As A ‘Hedge,’ Adds To ORCL, PLTR, NBIS Shorts — Why He Thinks ‘Nvidia Will Not Distribute Enough To Shareholders’
+  - 2026-08-26 | www.moomoo.com | William Blair Maintains Palantir(PLTR.US) With Buy Rating
+  - 2026-08-25 | finance.yahoo.com | Bull of the Day: Palantir Technologies (PLTR)
+  - 2026-08-24 | parameter.io | Palantir (PLTR) Stock Soars 46% in August: Should You Invest Now?
+  - 2026-08-24 | www.stocktitan.net | Palantir (NYSE: PLTR) accounting chief sells 3,305 shares via preset, tax-cover plan
+  - 2026-08-24 | www.moomoo.com | $Palantir (PLTR.US)$
+  - 2026-08-23 | www.foreignpolicyjournal.com | Palantir (NASDAQ: PLTR) Converts 55% Of Revenue Into Net Income As AI Demand Surges
+  - 2026-08-21 | seekingalpha.com | Palantir Stock: Buy Before The Next Leg Higher (NASDAQ:PLTR)
+  - 2026-08-21 | www.quiverquant.com | Palantir Rises as Strong AI Demand and Raised Outlook Keep Momentum Going | PLTR Stock News
+  - 2026-08-21 | www.quiverquant.com | VOO is up 0.6% today, on PLTR stock price movement
+  - 2026-08-20 | www.stocktitan.net | Alexander Karp targets 2026 Palantir (NASDAQ: PLTR) stock sale
+  - 2026-08-20 | finance.yahoo.com | Is Mercury Systems (MRCY)’s Partnership With Palantir Technologies (PLTR) the Catalyst for a Hardware Turnaround?
+  - 2026-08-20 | www.moomoo.com | $Palantir (PLTR.US)$ $Tesla (TSLA.US)$$Invesco QQQ Trust (QQQ.US)$ MOST SHORT VOLUME
+  - 2026-08-19 | www.stocktitan.net | Palantir (NYSE: PLTR) director sells 16,000 shares at ~$175
+  - 2026-08-19 | seekingalpha.com | Palantir: Why I'm Not Buying This Rally (NASDAQ:PLTR)
+  - 2026-08-19 | seekingalpha.com | Why Wall Street Still Underestimates Palantir (NASDAQ:PLTR)
+  - 2026-08-19 | finance.yahoo.com | Is Palantir Technologies (PLTR) Overvalued As Revenue Growth And 2026 Outlook Jump?
+What to write for E6:
+  Write "high": for each chance 10, 25, 50, 75 and 90, the level you give that chance of being reached (at or above) within the period. The 10 level is the highest.
+  Write "low": for each chance 10, 25, 50, 75 and 90, the level you give that chance of being reached (at or below) within the period. The 10 level is the lowest.

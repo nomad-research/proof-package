@@ -1,0 +1,494 @@
+You will be shown 6 questions from a prediction market. Each has one or more contracts that resolve YES or NO under the rules shown. Each question gives the date your view is "as of": answer as you would on that date.
+
+Use what you already know and the news headlines listed under each question, all published in the 7 days before its as-of date. Do not search for or look up anything else: reading this file is the only tool call you may make. There are no prices from any prediction market in this file and you should not try to estimate what any market thinks; give your own view.
+
+Each question says what to write for it. Whole percents run from 1 to 99. Levels are plain numbers in the units the contracts use (for example 95000 for $95,000, 3.25 for 3.25%). Dates are YYYY-MM-DD.
+
+For each question also say whether you recognise how it actually turned out ("recognised": true only if you believe you remember the real outcome; otherwise false).
+
+Reply with one JSON object and nothing else:
+{"events": [{"label": "E1", "recognised": false, ...the fields that question asks for...}]}
+
+=== E1 (as of 2026-07-29): What will Rocket Lab USA, Inc. (RKLB) hit Week of July 27 2026?
+Rules:
+What will Rocket Lab USA, Inc. (RKLB) hit Week of July 27 2026?
+Contracts:
+  E1.C1: Will Rocket Lab USA, Inc. (RKLB) hit (HIGH) $78 Week of July 27 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of July 27 2026, any 1-minute candle for Rocket Lab USA, Inc. (RKLB) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Rocket Lab USA, Inc. (RKLB) "High" prices available at https://pythdata.app/explore/Equity.US.RKLB%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.RKLB%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E1.C2: Will Rocket Lab USA, Inc. (RKLB) hit (HIGH) $76 Week of July 27 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of July 27 2026, any 1-minute candle for Rocket Lab USA, Inc. (RKLB) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Rocket Lab USA, Inc. (RKLB) "High" prices available at https://pythdata.app/explore/Equity.US.RKLB%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.RKLB%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E1.C3: Will Rocket Lab USA, Inc. (RKLB) hit (HIGH) $74 Week of July 27 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of July 27 2026, any 1-minute candle for Rocket Lab USA, Inc. (RKLB) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Rocket Lab USA, Inc. (RKLB) "High" prices available at https://pythdata.app/explore/Equity.US.RKLB%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.RKLB%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E1.C4: Will Rocket Lab USA, Inc. (RKLB) hit (HIGH) $72 Week of July 27 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of July 27 2026, any 1-minute candle for Rocket Lab USA, Inc. (RKLB) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Rocket Lab USA, Inc. (RKLB) "High" prices available at https://pythdata.app/explore/Equity.US.RKLB%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.RKLB%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E1.C5: Will Rocket Lab USA, Inc. (RKLB) hit (HIGH) $70 Week of July 27 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of July 27 2026, any 1-minute candle for Rocket Lab USA, Inc. (RKLB) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Rocket Lab USA, Inc. (RKLB) "High" prices available at https://pythdata.app/explore/Equity.US.RKLB%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.RKLB%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E1.C6: Will Rocket Lab USA, Inc. (RKLB) hit (LOW) $60 Week of July 27 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of July 27 2026, any 1-minute candle for Rocket Lab USA, Inc. (RKLB) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Rocket Lab USA, Inc. (RKLB) "Low" prices available at https://pythdata.app/explore/Equity.US.RKLB%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.RKLB%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E1.C7: Will Rocket Lab USA, Inc. (RKLB) hit (LOW) $58 Week of July 27 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of July 27 2026, any 1-minute candle for Rocket Lab USA, Inc. (RKLB) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Rocket Lab USA, Inc. (RKLB) "Low" prices available at https://pythdata.app/explore/Equity.US.RKLB%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.RKLB%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E1.C8: Will Rocket Lab USA, Inc. (RKLB) hit (LOW) $56 Week of July 27 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of July 27 2026, any 1-minute candle for Rocket Lab USA, Inc. (RKLB) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Rocket Lab USA, Inc. (RKLB) "Low" prices available at https://pythdata.app/explore/Equity.US.RKLB%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.RKLB%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E1.C9: Will Rocket Lab USA, Inc. (RKLB) hit (LOW) $54 Week of July 27 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of July 27 2026, any 1-minute candle for Rocket Lab USA, Inc. (RKLB) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Rocket Lab USA, Inc. (RKLB) "Low" prices available at https://pythdata.app/explore/Equity.US.RKLB%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.RKLB%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E1.C10: Will Rocket Lab USA, Inc. (RKLB) hit (LOW) $52 Week of July 27 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of July 27 2026, any 1-minute candle for Rocket Lab USA, Inc. (RKLB) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Rocket Lab USA, Inc. (RKLB) "Low" prices available at https://pythdata.app/explore/Equity.US.RKLB%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.RKLB%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+News before E1's as-of date (date seen, source, headline):
+  - 2026-07-24 | kalkinemedia.com | Why Rocket Lab USA (NASDAQ:RKLB) Remains A Space Economy Focus?
+  - 2026-07-23 | www.theglobeandmail.com | Analysts Are Bullish on These Industrial Goods Stocks: Equifax (EFX), Rocket Lab USA (RKLB)
+What to write for E1:
+  Write "high": for each chance 10, 25, 50, 75 and 90, the level you give that chance of being reached (at or above) within the period. The 10 level is the highest.
+  Write "low": for each chance 10, 25, 50, 75 and 90, the level you give that chance of being reached (at or below) within the period. The 10 level is the lowest.
+
+=== E2 (as of 2026-07-15): Ethereum above ___ on July 21?
+Rules:
+This market will resolve to "Yes" if the Binance 1 minute candle for ETH/USDT 12:00 in the ET timezone (noon) on the date specified in the title has a final "Close" price higher than the price specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the ETH/USDT "Close" prices currently available at https://www.binance.com/en/trade/ETH_USDT with "1m" and "Candles" selected on the top bar.
+
+Please note that this market is about the price according to Binance ETH/USDT, not according to other exchanges or trading pairs.
+
+Price precision is determined by the number of decimal places in the source.
+Contracts:
+  E2.C1: Will the price of Ethereum be above $1,400 on July 21?
+  E2.C2: Will the price of Ethereum be above $1,500 on July 21?
+  E2.C3: Will the price of Ethereum be above $1,600 on July 21?
+  E2.C4: Will the price of Ethereum be above $1,700 on July 21?
+  E2.C5: Will the price of Ethereum be above $1,800 on July 21?
+  E2.C6: Will the price of Ethereum be above $1,900 on July 21?
+  E2.C7: Will the price of Ethereum be above $2,000 on July 21?
+  E2.C8: Will the price of Ethereum be above $2,100 on July 21?
+  E2.C9: Will the price of Ethereum be above $2,200 on July 21?
+  E2.C10: Will the price of Ethereum be above $2,300 on July 21?
+  E2.C11: Will the price of Ethereum be above $2,400 on July 21?
+News before E2's as-of date (date seen, source, headline):
+  - 2026-07-15 | bitcoinfoundation.org | Ethereum Staking Generated $45.7M for Bitmine in Q2 — Revenue Surged 22x
+  - 2026-07-15 | fortune.com | Current price of Ethereum for July 15, 2026
+  - 2026-07-15 | finance.yahoo.com | Bitcoin and ethereum prices today, Wednesday, July 15, 2026: Prices surge after softer inflation report
+  - 2026-07-15 | finance.yahoo.com | Ethereum Foundation Spinoff Targets Banks With Blockchain Privacy
+  - 2026-07-15 | finance.yahoo.com | Ethereum Staking Generates 98% Of Bitmine’s Quarterly Revenue
+  - 2026-07-15 | finance.yahoo.com | Tom Lee Says Ethereum Has Broken Out Against Bitcoin — Bulls Predict $5,000 Surge in 10 Days
+  - 2026-07-15 | www.coindesk.com | Ethereum (ETH) news): A timeline of the Ethereum Foundation's ongoing shakeup
+  - 2026-07-15 | finance.yahoo.com | Fresh Ethereum Wallets Buy 50,000 ETH as ETH/BTC Ratio Jumps 6%
+  - 2026-07-15 | finance.yahoo.com | Ethereum Has a Bold New Plan for 2029. What Will Be the Impact on the Price of ETH?
+  - 2026-07-15 | ffnews.com | EthSystems Debuts to Deliver Institutional-Grade Privacy Solutions on Ethereum
+  - 2026-07-15 | www.blockhead.co | EthSystems Launches Privacy Layer for Institutional Ethereum
+  - 2026-07-14 | fortune.com | Current price of Ethereum for July 14, 2026
+  - 2026-07-14 | finance.yahoo.com | Prediction: This Cryptocurrency Could Overtake Bitcoin and Ethereum Combined in Total Value
+  - 2026-07-14 | finance.yahoo.com | Robinhood Chain Makes the Case That Ethereum Is Far From Dead
+  - 2026-07-14 | finance.yahoo.com | Bitcoin and ethereum prices today, Tuesday, July 14, 2026:
+  - 2026-07-14 | bitcoinfoundation.org | Social Media Buzz for Bitcoin and Ethereum Drops to 2020 Lows
+  - 2026-07-14 | www.coindesk.com | Ethereum Foundation spinout EthSystems targets banks with blockchain privacy technology
+  - 2026-07-14 | www.investing.com | Ethereum Is Showing Resilience, but a Key Test at $1,850 Lies Ahead
+  - 2026-07-14 | thedefiant.io | EthSystems Launches Privacy Tools for Institutional Ethereum
+  - 2026-07-14 | www.fool.com | Crypto Market Today, July 14: Ethereum Soars 6% on Cooler Inflation Data
+  - 2026-07-14 | www.tradingview.com | Tom Lee Says Ethereum Needs More Privacy Before '$100 Trillion' Moves On-Chain — New Startup Aims To Deliver It
+  - 2026-07-14 | www.prnewswire.com | EthSystems Launches to Build Privacy Solutions for Institutions on Ethereum
+  - 2026-07-14 | www.marketwatch.com | Ethereum leads way as large cryptocurrencies post advances
+  - 2026-07-14 | www.investing.com | Bitmine ETH Holdings Hit 5.77M, Tom Lee Argues Ethereum Could Become a $5T Network
+  - 2026-07-14 | www.theblock.co | Ethereum Foundation privacy team spins out as for-profit EthSystems to serve institutions with Lubin, Bitmine backing
+What to write for E2:
+  Write "levels": for each chance 10, 25, 50, 75 and 90, the level you give that chance of the measured quantity being at or above when it resolves. The 10 level is the highest and the 90 level the lowest. Example: {"10": 120, "25": 110, "50": 100, "75": 92, "90": 85}.
+
+=== E3 (as of 2026-06-10): 2026 Aberdeen South By-Election Winner
+Rules:
+A by-election for the United Kingdom parliamentary constituency of Aberdeen South is currently scheduled to be held on June 18, 2026.
+
+This market will resolve according to the candidate who wins the 2026 Aberdeen South parliamentary by-election.
+
+If the election results are not known definitively by December 31, 2026, 11:59 PM ET, this market will resolve to "Other".
+
+The resolution source for this market will be a consensus of credible reporting. In case of ambiguity, this market will resolve solely based on official election results as published by Aberdeen City Council (https://www.aberdeencity.gov.uk/).
+Contracts:
+  E3.C1: Will Nurul Hoque Ali win the 2026 Aberdeen South by-election?
+  E3.C2: Will David Ballantine win the 2026 Aberdeen South by-election?
+  E3.C3: Will Jo Hart win the 2026 Aberdeen South by-election?
+  E3.C4: Will Douglas Lumsden win the 2026 Aberdeen South by-election?
+  E3.C5: Will Jorg Shelton-Eckstein win the 2026 Aberdeen South by-election?
+  E3.C6: Will Mel Sullivan win the 2026 Aberdeen South by-election?
+  E3.C7: Will Richard Gordon Thomson win the 2026 Aberdeen South by-election?
+News before E3's as-of date (date seen, source, headline):
+  - 2026-06-09 | www.thenational.scot | John Curtice verdict on Aberdeen South by-election as Tories push to oust SNP
+  - 2026-06-08 | www.pressandjournal.co.uk | EXCLUSIVE: Aberdeen South by-election candidate accuses Ed Miliband of pushing oil and gas 'into extinction'
+  - 2026-06-04 | www.lbc.co.uk | When is the Aberdeen South by-election, why has it been called and who are the candidates?
+  - 2026-06-03 | www.bbc.com | Aberdeen South by-election: What next for oil and gas?
+What to write for E3:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E4 (as of 2026-04-01): Will iShares MSCI South Korea ETF (EWY) hit Week of March 30 2026?
+Rules:
+Will iShares MSCI South Korea ETF (EWY) hit Week of March 30 2026?
+Contracts:
+  E4.C1: Will iShares MSCI South Korea ETF (EWY) hit (HIGH) $127 Week of March 30 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of March 30 2026, any 1-minute candle for iShares MSCI South Korea ETF (EWY) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the iShares MSCI South Korea ETF (EWY) "High" prices available at https://pythdata.app/explore/Equity.US.EWY%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.EWY%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E4.C2: Will iShares MSCI South Korea ETF (EWY) hit (HIGH) $126 Week of March 30 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of March 30 2026, any 1-minute candle for iShares MSCI South Korea ETF (EWY) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the iShares MSCI South Korea ETF (EWY) "High" prices available at https://pythdata.app/explore/Equity.US.EWY%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.EWY%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E4.C3: Will iShares MSCI South Korea ETF (EWY) hit (HIGH) $125 Week of March 30 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of March 30 2026, any 1-minute candle for iShares MSCI South Korea ETF (EWY) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the iShares MSCI South Korea ETF (EWY) "High" prices available at https://pythdata.app/explore/Equity.US.EWY%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.EWY%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E4.C4: Will iShares MSCI South Korea ETF (EWY) hit (HIGH) $124 Week of March 30 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of March 30 2026, any 1-minute candle for iShares MSCI South Korea ETF (EWY) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the iShares MSCI South Korea ETF (EWY) "High" prices available at https://pythdata.app/explore/Equity.US.EWY%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.EWY%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E4.C5: Will iShares MSCI South Korea ETF (EWY) hit (HIGH) $123 Week of March 30 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of March 30 2026, any 1-minute candle for iShares MSCI South Korea ETF (EWY) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the iShares MSCI South Korea ETF (EWY) "High" prices available at https://pythdata.app/explore/Equity.US.EWY%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.EWY%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E4.C6: Will iShares MSCI South Korea ETF (EWY) hit (HIGH) $122 Week of March 30 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of March 30 2026, any 1-minute candle for iShares MSCI South Korea ETF (EWY) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the iShares MSCI South Korea ETF (EWY) "High" prices available at https://pythdata.app/explore/Equity.US.EWY%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.EWY%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E4.C7: Will iShares MSCI South Korea ETF (EWY) hit (LOW) $115 Week of March 30 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of March 30 2026, any 1-minute candle for iShares MSCI South Korea ETF (EWY) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the iShares MSCI South Korea ETF (EWY) "Low" prices available at https://pythdata.app/explore/Equity.US.EWY%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.EWY%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E4.C8: Will iShares MSCI South Korea ETF (EWY) hit (LOW) $114 Week of March 30 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of March 30 2026, any 1-minute candle for iShares MSCI South Korea ETF (EWY) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the iShares MSCI South Korea ETF (EWY) "Low" prices available at https://pythdata.app/explore/Equity.US.EWY%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.EWY%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+News before E4's as-of date (date seen, source, headline):
+  - 2026-03-30 | www.legacy.com | Shirley Ann Ewy
+  - 2026-03-26 | finance.yahoo.com | The Zacks Analyst Blog Highlights SPY, QQQ, DXJ, CPER and EWY
+What to write for E4:
+  Write "high": for each chance 10, 25, 50, 75 and 90, the level you give that chance of being reached (at or above) within the period. The 10 level is the highest.
+  Write "low": for each chance 10, 25, 50, 75 and 90, the level you give that chance of being reached (at or below) within the period. The 10 level is the lowest.
+
+=== E5 (as of 2026-05-06): Ethereum above ___ on May 9?
+Rules:
+This market will resolve to "Yes" if the Binance 1 minute candle for ETH/USDT 12:00 in the ET timezone (noon) on the date specified in the title has a final "Close" price higher than the price specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the ETH/USDT "Close" prices currently available at https://www.binance.com/en/trade/ETH_USDT with "1m" and "Candles" selected on the top bar.
+
+Please note that this market is about the price according to Binance ETH/USDT, not according to other exchanges or trading pairs.
+
+Price precision is determined by the number of decimal places in the source.
+Contracts:
+  E5.C1: Will the price of Ethereum be above $1,900 on May 9?
+  E5.C2: Will the price of Ethereum be above $2,000 on May 9?
+  E5.C3: Will the price of Ethereum be above $2,100 on May 9?
+  E5.C4: Will the price of Ethereum be above $2,200 on May 9?
+  E5.C5: Will the price of Ethereum be above $2,300 on May 9?
+  E5.C6: Will the price of Ethereum be above $2,400 on May 9?
+  E5.C7: Will the price of Ethereum be above $2,500 on May 9?
+  E5.C8: Will the price of Ethereum be above $2,600 on May 9?
+  E5.C9: Will the price of Ethereum be above $2,700 on May 9?
+  E5.C10: Will the price of Ethereum be above $2,800 on May 9?
+News before E5's as-of date (date seen, source, headline):
+  - 2026-05-06 | fortune.com | Current price of Ethereum for May 6, 2026
+  - 2026-05-06 | finance.yahoo.com | Bitcoin and ethereum prices today, Wednesday, May 6, 2026: Prices up; bitcoin at highest level since January
+  - 2026-05-06 | bitcoinfoundation.org | Europe Crypto Tax Guide 2026: EU Rules, Tax Reporting & Compliance for Bitcoin and Ethereum Investors
+  - 2026-05-06 | www.fxstreet.com | Top 3 Price Prediction: Bitcoin, Ethereum, Ripple – Bitcoin eyes $60,000, Ethereum risks $1,750, XRP could test $1
+  - 2026-05-05 | fortune.com | Current price of Ethereum for May 5, 2026
+  - 2026-05-05 | finance.yahoo.com | Bitcoin and ethereum prices today, Tuesday, May 5, 2026: Bitcoin reaches over $81,000, hitting a high last seen in January
+  - 2026-05-05 | www.tradingview.com | Ethereum Price Coiling Tight, Explosive Move Could Trigger Anytime
+  - 2026-05-05 | cryptoslate.com | Ethereum’s biggest staker has just become a public company with over $10 billion locked up
+  - 2026-05-05 | cryptopotato.com | Ethereum Price Analysis: ETH Shows Breakout Signs but Danger Still Looms
+  - 2026-05-05 | beincrypto.com | The 15% Ethereum Rally Hides a Network Problem That Just Reached Exchanges
+  - 2026-05-05 | www.investmentnews.com | BlackRock strategist makes case for adding Bitcoin, Ethereum to portfolios
+  - 2026-05-05 | finbold.com | Trading expert issues new price target for Ethereum
+  - 2026-05-04 | fortune.com | Current price of Ethereum for May 4, 2026
+  - 2026-05-04 | finance.yahoo.com | Bitcoin and ethereum prices today, Monday, May 4, 2026: Bitcoin tops $80,000, then pulls back
+  - 2026-05-04 | www.dlnews.com | Ethereum devs huddled in the Arctic Circle to fix the network. Here’s what to know
+  - 2026-05-04 | finance.yahoo.com | BitMine Buys $240 Million in Ethereum as Tom Lee Heralds Arrival of 'Crypto Spring'
+  - 2026-05-04 | www.tradingview.com | Ethereum nears $2,400 as BitMine’s Tom Lee signals 'crypto spring'
+  - 2026-05-04 | www.benzinga.com | Bitmine Adds 101,745 ETH: How High Can Ethereum Go?
+  - 2026-05-04 | www.tradingview.com | Ethereum holders are back in profit as ETH price chart targets $3K
+  - 2026-05-04 | www.theblock.co | South Korea’s largest crypto exchange Upbit launches Ethereum blockchain with Optimism Foundation support
+  - 2026-05-04 | www.tradingview.com | Market Analyst Predicts Bitcoin And Ethereum Prices For The Next 3 Quarters
+  - 2026-05-04 | www.globenewswire.com | Crypto News: Ethereum Based Crypto Pepeto Presale Announces
+  - 2026-05-04 | coinpedia.org | Ethereum Fails at $2,400 Again: Will $2,300 Decide the Next ETH Price Move?
+  - 2026-05-03 | finance.yahoo.com | Is Ethereum the Generational Wealth Pick for Real‑World Crypto Use?
+  - 2026-05-03 | finance.yahoo.com | Ethereum Exit Queue Explodes 72,000% After DeFi Hack Wave
+What to write for E5:
+  Write "levels": for each chance 10, 25, 50, 75 and 90, the level you give that chance of the measured quantity being at or above when it resolves. The 10 level is the highest and the 90 level the lowest. Example: {"10": 120, "25": 110, "50": 100, "75": 92, "90": 85}.
+
+=== E6 (as of 2026-08-05): Ethereum price on August 8?
+Rules:
+This market will resolve according to the final "Close" price of the Binance 1 minute candle for ETH/USDT 12:00 in the ET timezone (noon) on the date specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the ETH/USDT "Close" prices currently available at https://www.binance.com/en/trade/ETH_USDT with "1m" and "Candles" selected on the top bar.
+
+If the reported value falls exactly between two brackets, then this market will resolve to the higher range bracket.
+
+Please note that this market is about the price according to Binance ETH/USDT, not according to other exchanges or trading pairs.
+Contracts:
+  E6.C1: Will the price of Ethereum be less than $1,400 on August 8?
+  E6.C2: Will the price of Ethereum be between $1,400 and $1,500 on August 8?
+  E6.C3: Will the price of Ethereum be between $1,500 and $1,600 on August 8?
+  E6.C4: Will the price of Ethereum be between $1,600 and $1,700 on August 8?
+  E6.C5: Will the price of Ethereum be between $1,700 and $1,800 on August 8?
+  E6.C6: Will the price of Ethereum be between $1,800 and $1,900 on August 8?
+  E6.C7: Will the price of Ethereum be between $1,900 and $2,000 on August 8?
+  E6.C8: Will the price of Ethereum be between $2,000 and $2,100 on August 8?
+  E6.C9: Will the price of Ethereum be between $2,100 and $2,200 on August 8?
+  E6.C10: Will the price of Ethereum be between $2,200 and $2,300 on August 8?
+  E6.C11: Will the price of Ethereum be greater than $2,300 on August 8?
+News before E6's as-of date (date seen, source, headline):
+  - 2026-08-05 | finance.yahoo.com | Bitcoin and ethereum prices today, Wednesday, August 5, 2026: Crypto prices rise as investors watch Hormuz negotiations and jobs report closely
+  - 2026-08-05 | bitcoinfoundation.org | The Ethereum Developer Exodus: Why Builders Are Looking Beyond ETH in 2026
+  - 2026-08-05 | www.altcoinbuzz.io | Ethereum Proposal Could Cut Staking Rewards by 50%
+  - 2026-08-05 | socprime.com | NullReceiver Hides C2 in Blank Ethereum Transfers
+  - 2026-08-05 | www.coindesk.com | New Ethereum proposal would cut issuance to zero if staked ETH reaches $112 billion
+  - 2026-08-05 | cryptorank.io | Why Ethereum Is Underperforming Despite Falling Exchange Reserves
+  - 2026-08-05 | cryptoslate.com | If Ethereum’s proposed 54% reward cut passes, DeFi's favorite loop threatens to become a daily loss machine
+  - 2026-08-05 | 247wallst.com | Why Hasn't XRP Hit New Highs Like Bitcoin and Ethereum Despite Ripple Becoming a Top Financial Institution
+  - 2026-08-04 | www.stepsecurity.io | ChainDrop npm Worm: Bun-loaded CI/CD credential harvester with Ethereum dead-drop C2
+  - 2026-08-04 | fortune.com | Current price of Ethereum for August 4, 2026
+  - 2026-08-04 | finance.yahoo.com | Bitcoin and ethereum prices today, Tuesday, August 4, 2026: Investors closely monitoring Clarity Act progress
+  - 2026-08-04 | www.coindesk.com | XRP holders can now borrow RLUSD on Ethereum through $280 million lending pool
+  - 2026-08-04 | www.theblock.co | Ethereum researchers propose burning validator rewards to cap staking at 50%
+  - 2026-08-04 | www.ccn.com | Ethereum Price at Make-or-Break Point: Will ETH Hold $1,850 or Decline Toward $1,780?
+  - 2026-08-04 | www.theblock.co | BlackRock’s spot Ethereum ETF to undergo 1-for-3 reverse share split in October
+  - 2026-08-04 | www.ccn.com | Ethereum Beat Nasdaq 100 and BTC in July, Tom Lee Highlights — Here’s What He Says Happens in August
+  - 2026-08-04 | www.tradingview.com | Ethereum researchers want to rein in staking; critics say it could backfire
+  - 2026-08-04 | bravenewcoin.com | Ethereum (ETH) Price Prediction: Can Ethereum Clear $1,900 and Extend Its Recovery Towards $1,935?
+  - 2026-08-04 | cryptonews.com | Ethereum Price Prediction: Can ETH USD Break $2,000 In August?
+  - 2026-08-04 | www.crowdfundinsider.com | Bitmine ($BMNR) Reports Ethereum (ETH) Holdings Climb to 5.8 Million Tokens as Combined Crypto, Cash Holdings Hit $11.3B
+  - 2026-08-04 | www.tradingview.com | Ethereum EIP-8361 Targets Staking Growth With New Issuance Burn Proposal
+  - 2026-08-04 | thedefiant.io | New Ethereum Proposal Would Burn Validator Rewards to Kill the Incentive to Stake More
+  - 2026-08-04 | www.fxstreet.com | Ethereum Price Forecast: Open Interest recovers following US-Iran ceasefire
+  - 2026-08-04 | www.tradingview.com | iShares Ethereum Trust ETF approves 1-for-3 reverse split effective Oct. 6, 2026
+  - 2026-08-03 | fortune.com | Current price of Ethereum for August 3, 2026
+What to write for E6:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).

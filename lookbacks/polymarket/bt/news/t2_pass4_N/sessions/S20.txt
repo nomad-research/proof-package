@@ -1,0 +1,802 @@
+You will be shown 6 questions from a prediction market. Each has one or more contracts that resolve YES or NO under the rules shown. Each question gives the date your view is "as of": answer as you would on that date.
+
+Use what you already know and the news headlines listed under each question, all published in the 7 days before its as-of date. Do not search for or look up anything else: reading this file is the only tool call you may make. There are no prices from any prediction market in this file and you should not try to estimate what any market thinks; give your own view.
+
+Each question says what to write for it. Whole percents run from 1 to 99. Levels are plain numbers in the units the contracts use (for example 95000 for $95,000, 3.25 for 3.25%). Dates are YYYY-MM-DD.
+
+For each question also say whether you recognise how it actually turned out ("recognised": true only if you believe you remember the real outcome; otherwise false).
+
+Reply with one JSON object and nothing else:
+{"events": [{"label": "E1", "recognised": false, ...the fields that question asks for...}]}
+
+=== E1 (as of 2026-05-06): What will Airbnb, Inc. (ABNB) hit Week of May 4 2026?
+Rules:
+What will Airbnb, Inc. (ABNB) hit Week of May 4 2026?
+Contracts:
+  E1.C1: Will Airbnb, Inc. (ABNB) hit (HIGH) $154 Week of May 4 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of May 4 2026, any 1-minute candle for Airbnb, Inc. (ABNB) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Airbnb, Inc. (ABNB) "High" prices available at https://pythdata.app/explore/Equity.US.ABNB%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.ABNB%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E1.C2: Will Airbnb, Inc. (ABNB) hit (HIGH) $152 Week of May 4 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of May 4 2026, any 1-minute candle for Airbnb, Inc. (ABNB) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Airbnb, Inc. (ABNB) "High" prices available at https://pythdata.app/explore/Equity.US.ABNB%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.ABNB%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E1.C3: Will Airbnb, Inc. (ABNB) hit (HIGH) $150 Week of May 4 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of May 4 2026, any 1-minute candle for Airbnb, Inc. (ABNB) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Airbnb, Inc. (ABNB) "High" prices available at https://pythdata.app/explore/Equity.US.ABNB%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.ABNB%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E1.C4: Will Airbnb, Inc. (ABNB) hit (HIGH) $148 Week of May 4 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of May 4 2026, any 1-minute candle for Airbnb, Inc. (ABNB) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Airbnb, Inc. (ABNB) "High" prices available at https://pythdata.app/explore/Equity.US.ABNB%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.ABNB%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E1.C5: Will Airbnb, Inc. (ABNB) hit (HIGH) $146 Week of May 4 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of May 4 2026, any 1-minute candle for Airbnb, Inc. (ABNB) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Airbnb, Inc. (ABNB) "High" prices available at https://pythdata.app/explore/Equity.US.ABNB%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.ABNB%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E1.C6: Will Airbnb, Inc. (ABNB) hit (HIGH) $144 Week of May 4 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of May 4 2026, any 1-minute candle for Airbnb, Inc. (ABNB) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Airbnb, Inc. (ABNB) "High" prices available at https://pythdata.app/explore/Equity.US.ABNB%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.ABNB%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E1.C7: Will Airbnb, Inc. (ABNB) hit (LOW) $138 Week of May 4 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of May 4 2026, any 1-minute candle for Airbnb, Inc. (ABNB) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Airbnb, Inc. (ABNB) "Low" prices available at https://pythdata.app/explore/Equity.US.ABNB%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.ABNB%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E1.C8: Will Airbnb, Inc. (ABNB) hit (LOW) $136 Week of May 4 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of May 4 2026, any 1-minute candle for Airbnb, Inc. (ABNB) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Airbnb, Inc. (ABNB) "Low" prices available at https://pythdata.app/explore/Equity.US.ABNB%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.ABNB%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E1.C9: Will Airbnb, Inc. (ABNB) hit (LOW) $134 Week of May 4 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of May 4 2026, any 1-minute candle for Airbnb, Inc. (ABNB) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Airbnb, Inc. (ABNB) "Low" prices available at https://pythdata.app/explore/Equity.US.ABNB%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.ABNB%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E1.C10: Will Airbnb, Inc. (ABNB) hit (LOW) $132 Week of May 4 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of May 4 2026, any 1-minute candle for Airbnb, Inc. (ABNB) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Airbnb, Inc. (ABNB) "Low" prices available at https://pythdata.app/explore/Equity.US.ABNB%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.ABNB%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E1.C11: Will Airbnb, Inc. (ABNB) hit (LOW) $130 Week of May 4 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of May 4 2026, any 1-minute candle for Airbnb, Inc. (ABNB) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Airbnb, Inc. (ABNB) "Low" prices available at https://pythdata.app/explore/Equity.US.ABNB%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.ABNB%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E1.C12: Will Airbnb, Inc. (ABNB) hit (LOW) $128 Week of May 4 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of May 4 2026, any 1-minute candle for Airbnb, Inc. (ABNB) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Airbnb, Inc. (ABNB) "Low" prices available at https://pythdata.app/explore/Equity.US.ABNB%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.ABNB%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+News before E1's as-of date (date seen, source, headline):
+  - 2026-05-06 | www.businessinsider.com | Airbnb CEO Latest Exec to Say AI Will Eliminate 'People Managers'
+  - 2026-05-06 | www.upworthy.com | Airbnb host ditches the cleaning fee and finds unexpected benefits
+  - 2026-05-06 | finance.yahoo.com | Ahead of Airbnb Earnings, Here Is What Barchart Options Data Shows for ABNB Stock
+  - 2026-05-06 | shorttermrentalz.com | Airbnb warns EU states are unprepared for incoming STR data rules
+  - 2026-05-06 | www.rentalscaleup.com | Airbnb 2026 Summer Release: 6 Predictions from Hiring Data
+  - 2026-05-06 | www.barchart.com | Are Wall Street Analysts Bullish on Airbnb Stock?
+  - 2026-05-06 | www.vogue.com | Frescoes, Limewash, and So Much Terracotta—The Best Airbnbs in Florence Are Peak Tuscan Charm
+  - 2026-05-06 | northernvirginiamag.com | A Loudoun County Boutique Winery and Airbnb Is on the Market
+  - 2026-05-05 | news.delta.com | From where you go to what you do: More ways to earn miles with Airbnb
+  - 2026-05-05 | www.imsa.com | IMSA Airbnb Endurance Challenge Heads to Austin
+  - 2026-05-05 | www.cntraveler.com | You Can Now Earn Delta SkyMiles by Booking on Airbnb—Here's How
+  - 2026-05-05 | www.nerdwallet.com | You Can Now Earn Delta Miles on Airbnb Experiences, Services
+  - 2026-05-05 | thriftytraveler.com | New: Earn 3x Delta SkyMiles on Airbnb Experiences & More
+  - 2026-05-05 | www.cntraveler.com | Airbnb Just Released One-of-a-Kind World Cup Fan Experiences
+  - 2026-05-05 | seekingalpha.com | Airbnb: At $140 Into Q1 Earnings I Would Sell (NASDAQ:ABNB)
+  - 2026-05-05 | www.hollywoodreporter.com | Cortis Experience Draws Fans to Seoul as Airbnb Doubles Down on K-pop Strategy
+  - 2026-05-05 | sfstandard.com | SF Airbnb hosts are hoping the Aussies show up to save World Cup travel
+  - 2026-05-05 | news.delta.com | Delta x Airbnb
+  - 2026-05-05 | matadornetwork.com | Train With Pros and Meet Soccer Stars: All About Airbnb’s World Cup Experiences
+  - 2026-05-05 | techcrunch.com | Airbnb co-founder taps Peter Arnell as first US chief brand architect
+  - 2026-05-05 | upgradedpoints.com | Delta and Airbnb Expand Partnership: More Earnings, New Setup
+  - 2026-05-05 | www.palmbeachpost.com | Airbnb offers Miami World Cup host bonuses
+  - 2026-05-04 | www.cntraveler.com | My Favorite Airbnb: A Marrakech Villa Perfect for Traveling With Kids
+  - 2026-05-04 | www.nerdwallet.com | Is It Better to Book an Airbnb Early or Late?
+  - 2026-05-04 | finance.yahoo.com | AMD downgraded, Airbnb upgraded: Wall Street's top analyst calls
+What to write for E1:
+  Write "high": for each chance 10, 25, 50, 75 and 90, the level you give that chance of being reached (at or above) within the period. The 10 level is the highest.
+  Write "low": for each chance 10, 25, 50, 75 and 90, the level you give that chance of being reached (at or below) within the period. The 10 level is the lowest.
+
+=== E2 (as of 2026-04-22): What will Silver (XAGUSD) hit Week of April 20 2026?
+Rules:
+What will Silver (XAGUSD) hit Week of April 20 2026?
+Contracts:
+  E2.C1: Will Silver (XAGUSD) hit (HIGH) $87 Week of April 20 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of April 20 2026, any 1-minute candle for Silver (XAGUSD) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the applicable trading session as listed on Pyth will be considered. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours as listed on Pyth.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If Silver (XAGUSD) does not trade at all during the listed time frame, this market will resolve to "No".
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Silver (XAGUSD) "High" prices available at https://pythdata.app/explore/Metal.XAG%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published for the relevant CME COMEX futures contract for the underlying metal—COMEX Silver Futures (SI)—may be used to determine whether the listed price was reached during the applicable trading session.
+  E2.C2: Will Silver (XAGUSD) hit (HIGH) $86 Week of April 20 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of April 20 2026, any 1-minute candle for Silver (XAGUSD) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the applicable trading session as listed on Pyth will be considered. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours as listed on Pyth.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If Silver (XAGUSD) does not trade at all during the listed time frame, this market will resolve to "No".
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Silver (XAGUSD) "High" prices available at https://pythdata.app/explore/Metal.XAG%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published for the relevant CME COMEX futures contract for the underlying metal—COMEX Silver Futures (SI)—may be used to determine whether the listed price was reached during the applicable trading session.
+  E2.C3: Will Silver (XAGUSD) hit (HIGH) $85 Week of April 20 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of April 20 2026, any 1-minute candle for Silver (XAGUSD) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the applicable trading session as listed on Pyth will be considered. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours as listed on Pyth.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If Silver (XAGUSD) does not trade at all during the listed time frame, this market will resolve to "No".
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Silver (XAGUSD) "High" prices available at https://pythdata.app/explore/Metal.XAG%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published for the relevant CME COMEX futures contract for the underlying metal—COMEX Silver Futures (SI)—may be used to determine whether the listed price was reached during the applicable trading session.
+  E2.C4: Will Silver (XAGUSD) hit (HIGH) $84 Week of April 20 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of April 20 2026, any 1-minute candle for Silver (XAGUSD) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the applicable trading session as listed on Pyth will be considered. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours as listed on Pyth.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If Silver (XAGUSD) does not trade at all during the listed time frame, this market will resolve to "No".
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Silver (XAGUSD) "High" prices available at https://pythdata.app/explore/Metal.XAG%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published for the relevant CME COMEX futures contract for the underlying metal—COMEX Silver Futures (SI)—may be used to determine whether the listed price was reached during the applicable trading session.
+  E2.C5: Will Silver (XAGUSD) hit (HIGH) $83 Week of April 20 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of April 20 2026, any 1-minute candle for Silver (XAGUSD) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the applicable trading session as listed on Pyth will be considered. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours as listed on Pyth.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If Silver (XAGUSD) does not trade at all during the listed time frame, this market will resolve to "No".
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Silver (XAGUSD) "High" prices available at https://pythdata.app/explore/Metal.XAG%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published for the relevant CME COMEX futures contract for the underlying metal—COMEX Silver Futures (SI)—may be used to determine whether the listed price was reached during the applicable trading session.
+  E2.C6: Will Silver (XAGUSD) hit (HIGH) $82 Week of April 20 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of April 20 2026, any 1-minute candle for Silver (XAGUSD) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the applicable trading session as listed on Pyth will be considered. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours as listed on Pyth.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If Silver (XAGUSD) does not trade at all during the listed time frame, this market will resolve to "No".
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Silver (XAGUSD) "High" prices available at https://pythdata.app/explore/Metal.XAG%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published for the relevant CME COMEX futures contract for the underlying metal—COMEX Silver Futures (SI)—may be used to determine whether the listed price was reached during the applicable trading session.
+  E2.C7: Will Silver (XAGUSD) hit (HIGH) $81 Week of April 20 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of April 20 2026, any 1-minute candle for Silver (XAGUSD) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the applicable trading session as listed on Pyth will be considered. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours as listed on Pyth.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If Silver (XAGUSD) does not trade at all during the listed time frame, this market will resolve to "No".
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Silver (XAGUSD) "High" prices available at https://pythdata.app/explore/Metal.XAG%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published for the relevant CME COMEX futures contract for the underlying metal—COMEX Silver Futures (SI)—may be used to determine whether the listed price was reached during the applicable trading session.
+  E2.C8: Will Silver (XAGUSD) hit (LOW) $75 Week of April 20 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of April 20 2026, any 1-minute candle for Silver (XAGUSD) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the applicable trading session as listed on Pyth will be considered. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours as listed on Pyth.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If Silver (XAGUSD) does not trade at all during the listed time frame, this market will resolve to "No".
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Silver (XAGUSD) "Low" prices available at https://pythdata.app/explore/Metal.XAG%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published for the relevant CME COMEX futures contract for the underlying metal—COMEX Silver Futures (SI)—may be used to determine whether the listed price was reached during the applicable trading session.
+  E2.C9: Will Silver (XAGUSD) hit (LOW) $74 Week of April 20 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of April 20 2026, any 1-minute candle for Silver (XAGUSD) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the applicable trading session as listed on Pyth will be considered. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours as listed on Pyth.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If Silver (XAGUSD) does not trade at all during the listed time frame, this market will resolve to "No".
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Silver (XAGUSD) "Low" prices available at https://pythdata.app/explore/Metal.XAG%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published for the relevant CME COMEX futures contract for the underlying metal—COMEX Silver Futures (SI)—may be used to determine whether the listed price was reached during the applicable trading session.
+News before E2's as-of date (date seen, source, headline):
+  - 2026-04-22 | finance.yahoo.com | Bank of America has stark message for Silver investors
+  - 2026-04-22 | www.espn.com | Silver: NBA committed to Memphis; suggests Nashville games
+  - 2026-04-22 | www.usgoldbureau.com | Kilo of Silver Price Today: 2026 Market Rates & Trends
+  - 2026-04-22 | goldsilver.com | Why Chinese Silver Imports Hit a Record in 2026
+  - 2026-04-22 | www.articobits.com | Jamison L. Silver Obituary in Rocky Mount at Hunter-Odom Funeral Services
+  - 2026-04-22 | uhcougars.com | Houston Wins Fifth Consecutive Silver Glove Series
+  - 2026-04-22 | finance.yahoo.com | Gold and silver prices today, Wednesday, April 22: Prices open at their lowest levels in a week
+  - 2026-04-22 | www.nyra.com | ﻿Ultimate Love back in action in Listed Memories of Silver
+  - 2026-04-22 | www.wsj.com | Fresnillo’s Quarterly Silver Production Slips
+  - 2026-04-22 | weissratings.com | Are You Ready for $200 Silver?
+  - 2026-04-22 | www.bullionvault.com | Gold, Silver Cut 'Trump Taco' Rally After Warsh Boosts Dollar, Rate Expectations
+  - 2026-04-22 | www.nytimes.com | Adam Silver on Tom Dundon’s cost-cutting with Trail Blazers: ‘He knows what he’s doing’
+  - 2026-04-22 | www.southernliving.com | 6 Ways To Style Vintage Silver In Your Home
+  - 2026-04-22 | goldsilver.com | The Gold-Silver Ratio Signal: What Silver’s Lead Means
+  - 2026-04-22 | finance.yahoo.com | AG vs. HL: Which Silver Mining Stock Has Greater Upside Now?
+  - 2026-04-22 | finance.yahoo.com | A Look At First Majestic Silver (TSX:AG) Valuation After Strong Long Term Gains And Recent Pullbacks
+  - 2026-04-22 | seekingalpha.com | Silver: Uncovering A Market In A Revolutionary Transitioning (Commodity:XAGUSD:CUR)
+  - 2026-04-21 | www.hendersonsilverknights.com | SILVER KNIGHTS SIGN FORWARD MITCH McLAIN TO CONTRACT EXTENSION
+  - 2026-04-21 | www.kitco.com | Silver’s fair value is closer to $40, but remains supported by higher gold prices - Commerzbank
+  - 2026-04-21 | finance.yahoo.com | Gold and silver prices today: Prices drop Tuesday, April 21
+  - 2026-04-21 | investingnews.com | Silver Market Faces Sixth Year of Supply Deficit
+  - 2026-04-21 | goldsilver.com | Silver Price Predictions for the Next 5 Years: Data-Backed Scenarios
+  - 2026-04-21 | finance.yahoo.com | Pan American Silver vs. SSR Mining: Which Mining Stock Wins Now?
+  - 2026-04-21 | abc7.com | Two women say they were groped by man at Silver Lake Reservoir; police investigation underway
+  - 2026-04-21 | finance.yahoo.com | Is Pan American Silver (PAAS) One of the Best Canadian Stocks to Buy for Long Term?
+What to write for E2:
+  Write "high": for each chance 10, 25, 50, 75 and 90, the level you give that chance of being reached (at or above) within the period. The 10 level is the highest.
+  Write "low": for each chance 10, 25, 50, 75 and 90, the level you give that chance of being reached (at or below) within the period. The 10 level is the lowest.
+
+=== E3 (as of 2026-07-22): What will S&P 500 (SPY) hit Week of July 20 2026?
+Rules:
+What will S&P 500 (SPY) hit Week of July 20 2026?
+Contracts:
+  E3.C1: Will S&P 500 (SPY) hit (HIGH) $775 Week of July 20 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of July 20 2026, any 1-minute candle for S&P 500 (SPY) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the S&P 500 (SPY) "High" prices available at https://pythdata.app/explore/Equity.US.SPY%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.SPY%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E3.C2: Will S&P 500 (SPY) hit (HIGH) $770 Week of July 20 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of July 20 2026, any 1-minute candle for S&P 500 (SPY) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the S&P 500 (SPY) "High" prices available at https://pythdata.app/explore/Equity.US.SPY%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.SPY%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E3.C3: Will S&P 500 (SPY) hit (HIGH) $765 Week of July 20 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of July 20 2026, any 1-minute candle for S&P 500 (SPY) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the S&P 500 (SPY) "High" prices available at https://pythdata.app/explore/Equity.US.SPY%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.SPY%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E3.C4: Will S&P 500 (SPY) hit (HIGH) $760 Week of July 20 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of July 20 2026, any 1-minute candle for S&P 500 (SPY) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the S&P 500 (SPY) "High" prices available at https://pythdata.app/explore/Equity.US.SPY%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.SPY%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E3.C5: Will S&P 500 (SPY) hit (HIGH) $755 Week of July 20 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of July 20 2026, any 1-minute candle for S&P 500 (SPY) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the S&P 500 (SPY) "High" prices available at https://pythdata.app/explore/Equity.US.SPY%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.SPY%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E3.C6: Will S&P 500 (SPY) hit (HIGH) $750 Week of July 20 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of July 20 2026, any 1-minute candle for S&P 500 (SPY) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the S&P 500 (SPY) "High" prices available at https://pythdata.app/explore/Equity.US.SPY%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.SPY%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E3.C7: Will S&P 500 (SPY) hit (LOW) $740 Week of July 20 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of July 20 2026, any 1-minute candle for S&P 500 (SPY) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the S&P 500 (SPY) "Low" prices available at https://pythdata.app/explore/Equity.US.SPY%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.SPY%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E3.C8: Will S&P 500 (SPY) hit (LOW) $735 Week of July 20 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of July 20 2026, any 1-minute candle for S&P 500 (SPY) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the S&P 500 (SPY) "Low" prices available at https://pythdata.app/explore/Equity.US.SPY%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.SPY%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E3.C9: Will S&P 500 (SPY) hit (LOW) $730 Week of July 20 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of July 20 2026, any 1-minute candle for S&P 500 (SPY) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the S&P 500 (SPY) "Low" prices available at https://pythdata.app/explore/Equity.US.SPY%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.SPY%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E3.C10: Will S&P 500 (SPY) hit (LOW) $725 Week of July 20 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of July 20 2026, any 1-minute candle for S&P 500 (SPY) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the S&P 500 (SPY) "Low" prices available at https://pythdata.app/explore/Equity.US.SPY%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.SPY%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E3.C11: Will S&P 500 (SPY) hit (LOW) $720 Week of July 20 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of July 20 2026, any 1-minute candle for S&P 500 (SPY) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the S&P 500 (SPY) "Low" prices available at https://pythdata.app/explore/Equity.US.SPY%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.SPY%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E3.C12: Will S&P 500 (SPY) hit (LOW) $715 Week of July 20 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of July 20 2026, any 1-minute candle for S&P 500 (SPY) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the S&P 500 (SPY) "Low" prices available at https://pythdata.app/explore/Equity.US.SPY%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.SPY%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E3.C13: Will S&P 500 (SPY) hit (LOW) $710 Week of July 20 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of July 20 2026, any 1-minute candle for S&P 500 (SPY) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the S&P 500 (SPY) "Low" prices available at https://pythdata.app/explore/Equity.US.SPY%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.SPY%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+News before E3's as-of date (date seen, source, headline):
+  - 2026-07-22 | www.reuters.com | Mapping the Market: S&P 500 flirts with support after wobbly month
+  - 2026-07-22 | www.reuters.com | S&P lifts Pakistan's credit rating to 'B' on institutional stability, IMF reform progress
+  - 2026-07-22 | finance.yahoo.com | Last Time the S&P 500 Crossed This Valuation Milestone, the Stock Market Crashed by 49%. Will History Repeat?
+  - 2026-07-22 | www.reuters.com | S&P 500, Nasdaq close lower ahead of technology earnings
+  - 2026-07-22 | finance.yahoo.com | 2 S&P 500 Stocks to Keep an Eye On and 1 We Avoid
+  - 2026-07-22 | www.bloomberg.com | S&P 500 Fluctuates as Traders Brace for Alphabet, Tesla Results
+  - 2026-07-22 | www.marketsmedia.com | S&P Dow Jones, Pantera Launch Digital Assets Index
+  - 2026-07-22 | www.tradingview.com | S&P 500 Q2 Earnings Beats Hit 5-Year Highs as Growth Accelerates
+  - 2026-07-22 | www.investing.com | Foreign buying surge may signal trouble ahead for the S&P 500
+  - 2026-07-22 | www.bloomberg.com | S&P Lifts Pakistan Credit Rating to Highest Level in Seven Years
+  - 2026-07-22 | seekingalpha.com | S&P 500 following a familiar script. Here's how the ending looks (SPY:NYSEARCA)
+  - 2026-07-21 | www.chase.com | The ‘Magnificent Seven’ effect: How the top handful of stocks reshaped the S&P 500
+  - 2026-07-21 | panteracapital.com | Introducing The S&P Pantera Digital Asset Index
+  - 2026-07-21 | www.cmegroup.com | S&P 500 futures rose as chip stocks led tech rally.
+  - 2026-07-21 | finance.yahoo.com | US Stock Market Today: S&P 500 Futures Edge Higher As Inflation Pressure Eases
+  - 2026-07-21 | www.kiplinger.com | Warren Buffett Loves the S&P 500 — But Could It Endanger Your Retirement Strategy?
+  - 2026-07-21 | sg.finance.yahoo.com | Top 8 S&P 500 Performers Year-to-Date (And What’s Driving Them)
+  - 2026-07-21 | www.fool.com | 3 Best S&P 500 Index Funds to Buy in 2026
+  - 2026-07-21 | www.cnbc.com | UBS hikes its year-end S&P 500 target to 8,100. Here's why
+  - 2026-07-21 | finance.yahoo.com | 1 S&P 500 Stock to Research Further and 2 We Ignore
+  - 2026-07-21 | www.investors.com | S&P 500: $170,660 Invested In This Stock In January Is Now Worth $1 Million
+  - 2026-07-21 | www.bloomberg.com | Economic Momentum Flips From Blessing to Curse for S&P 500 Bulls
+  - 2026-07-21 | seekingalpha.com | S&P 500 is 1.5% from ATH after nearly two months of sideways action
+  - 2026-07-21 | www.businesswire.com | S&P Affirms Assured Guaranty’s AA Financial Strength Ratings With Stable Outlook
+  - 2026-07-21 | www.fool.com | Meet the Unstoppable Dividend Stock Crushing the S&P 500 in 2026
+What to write for E3:
+  Write "high": for each chance 10, 25, 50, 75 and 90, the level you give that chance of being reached (at or above) within the period. The 10 level is the highest.
+  Write "low": for each chance 10, 25, 50, 75 and 90, the level you give that chance of being reached (at or below) within the period. The 10 level is the lowest.
+
+=== E4 (as of 2026-04-15): Georgia Governor Democratic Primary Winner
+Rules:
+This market will resolve according to the winner of the Democratic Primary for Governor of Georgia, scheduled to take place on May 19, 2026. Resolution will be based on the overall winner of the primary, including any potential second round or run-off.
+
+If no 2026 Georgia Gubernatorial Democratic Primary takes place, this market will resolve to “Other.”
+
+The resolution source for this market will be the first official announcement of the results from the Georgia Democratic Party; however, an overwhelming consensus of credible reporting may suffice.
+Contracts:
+  E4.C1: Will Olujimi Brown win the 2026 Georgia Governor Democratic primary election?
+  E4.C2: Will Geoff Duncan win the 2026 Georgia Governor Democratic primary election?
+  E4.C3: Will Jason Esteves win the 2026 Georgia Governor Democratic primary election?
+  E4.C4: Will Derrick Jackson win the 2026 Georgia Governor Democratic primary election?
+  E4.C5: Will Keisha Lance Bottoms win the 2026 Georgia Governor Democratic primary election?
+  E4.C6: Will Ruwa Romman win the 2026 Georgia Governor Democratic primary election?
+  E4.C7: Will Mike Thurmond win the 2026 Georgia Governor Democratic primary election?
+News before E4's as-of date (date seen, source, headline):
+  - 2026-04-15 | www.acluga.org | Georgia’s Legislative Session Ends, but Election Risks Remain
+  - 2026-04-15 | calbears.com | Cal Tops Georgia Tech in Round 1 of the ACC Championships
+  - 2026-04-15 | georgiadogs.com | SEC-Leading Georgia Faces No. 14 Arkansas Starting Thursday
+  - 2026-04-15 | www.wabe.org | As Vance rallies with Turning Point in Georgia, some supporters bristle at Trump's war, memes and feuds
+  - 2026-04-15 | georgiadogs.com | Georgia Places 77 Student-Athletes on the SEC Winter Honor Roll - University of Georgia Athletics
+  - 2026-04-15 | georgiadogs.com | No. 6- Seed Georgia Set to Face No. 11- Seed Kentucky in Second Round of SEC Tournament
+  - 2026-04-15 | ramblinwreck.com | Jackets Host Georgia Tech Invitational
+  - 2026-04-15 | georgiadogs.com | Georgia to Open NCEA Championships Against Oklahoma State
+  - 2026-04-15 | georgiarecorder.com | Chancellor Sonny Perdue announces retirement as head of Georgia’s university system
+  - 2026-04-15 | www.theguardian.com | Georgia man charged over attacks that killed DHS worker and another woman
+  - 2026-04-15 | georgiarecorder.com | Commentary: Georgia protesters could face severe penalties under new legislation
+  - 2026-04-15 | atlanta.urbanize.city | Georgia Tech to acquire building, park space long owned by Coca-Cola
+  - 2026-04-15 | gseagles.com | Eagles Fall to Georgia Tech in Road Contest
+  - 2026-04-15 | www.wabe.org | University System of Georgia Chancellor Sonny Perdue is retiring
+  - 2026-04-14 | www.gatech.edu | Georgia Tech, The Coca-Cola Company Finalizing Agreement on North Avenue Property
+  - 2026-04-14 | reproductivefreedomforall.org | Reproductive Freedom for All Endorses Miracle Rankin and Jen Jordan in Georgia Supreme Court Race
+  - 2026-04-14 | georgiastatesports.com | Georgia State Athletics Hosts a Basketball Introductory Presser, Spring Game Preview
+  - 2026-04-14 | thecurrentga.org | Georgia students urge Oreo maker, others to protect Okefenokee Swamp
+  - 2026-04-14 | www.utilitydive.com | Regulators approve Georgia Power’s BYO clean resources plan for large loads
+  - 2026-04-14 | georgiadogs.com | Georgia Track and Field Collects Four SEC Weekly Awards for Second Consecutive Week
+  - 2026-04-14 | www.reuters.com | Georgia overhauls higher education as it shifts away from the West
+  - 2026-04-14 | www.gpb.org | Georgia lawmakers pass bill to create Georgia Music Office to promote local music
+  - 2026-04-14 | www.gpb.org | Georgia is expecting spike in wildfires in 2026. Here’s why
+  - 2026-04-14 | georgiarecorder.com | Georgia woman sues law enforcement officers after accidental raid at her home in 2023
+  - 2026-04-14 | news.gatech.edu | Georgia Tech Selected for Upcoming EcoCAR Challenge
+What to write for E4:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E5 (as of 2026-08-19): CZ # posts August 14 - August 21, 2026?
+Rules:
+This market will resolve according to the number of times CZ (@cz_binance), posts on X between August 14, 12:00 PM ET and August 21, 2026, 12:00 PM ET.
+
+For the purposes of this market, only main feed posts, quote posts and reposts will count.
+
+Replies will NOT count towards the total - however, replies which are recorded on the main feed will be counted by the tracker.
+
+Deleted posts will count as long as they remain available long enough to be captured by the tracker (~5 minutes).
+
+The resolution source for this market is the "Post Counter" figure for posts found at https://xtracker.polymarket.com. Individual posts can be viewed by clicking "Export Data". If the tracker does not update correctly in accordance with the rules, X itself may be used as a secondary resolution source.
+Contracts:
+  E5.C1: Will CZ post 0-19 posts from August 14 to August 21, 2026?
+  E5.C2: Will CZ post 20-39 posts from August 14 to August 21, 2026?
+  E5.C3: Will CZ post 40-59 posts from August 14 to August 21, 2026?
+  E5.C4: Will CZ post 60-79 posts from August 14 to August 21, 2026?
+  E5.C5: Will CZ post 80-99 posts from August 14 to August 21, 2026?
+  E5.C6: Will CZ post 100-119 posts from August 14 to August 21, 2026?
+  E5.C7: Will CZ post 120-139 posts from August 14 to August 21, 2026?
+  E5.C8: Will CZ post 140-159 posts from August 14 to August 21, 2026?
+  E5.C9: Will CZ post 160-179 posts from August 14 to August 21, 2026?
+  E5.C10: Will CZ post 180-199 posts from August 14 to August 21, 2026?
+  E5.C11: Will CZ post 200+ posts from August 14 to August 21, 2026?
+News before E5's as-of date (date seen, source, headline):
+  - 2026-08-19 | www.seafoodsource.com | Mowi posts record revenues in Q2, assures Canada East sale won’t impact BC operations
+  - 2026-08-19 | finance.yahoo.com | Bitcoin posts surprise rally as currency nears $70,000 for the first time since June
+  - 2026-08-19 | www.bloomberg.com | Hudson River Trading Posts Record $11.4 Billion Trading Revenue
+  - 2026-08-19 | www.scmp.com | Trump posts map with Hormuz as ‘new US territory’, says no Iran talks planned
+  - 2026-08-19 | www.jsonline.com | Milwaukee alderman posts fake photo of storm damage 'to grab attention'
+  - 2026-08-19 | news.bloomberglaw.com | DHS Lawyer Faces Ethics Complaint Over ‘Worst’ Judges Posts (1)
+  - 2026-08-19 | www.yahoo.com | The 34 Funniest Posts By Women On The Internet This Week
+  - 2026-08-19 | www.wsj.com | Hong Kong’s Exchange Operator Posts Record Quarter on Surging IPOs, Trading Activity
+  - 2026-08-19 | www.ft.com | Hudson River posts $11.4bn trading windfall as it seizes on market tumult
+  - 2026-08-19 | finance.yahoo.com | GEE Group Posts Q3 Earnings Due to Higher Direct-Hire Revenues
+  - 2026-08-19 | www.reuters.com | Insurer AIA Group posts 10% jump in half-year new business value
+  - 2026-08-19 | www.latimes.com | Beverly Hills substitute teacher said she was fired over anti-Trump posts. Now she's suing the district
+  - 2026-08-19 | finance.yahoo.com | TJX (NYSE:TJX) Posts Q2 CY2026 Sales In Line With Estimates
+  - 2026-08-19 | www.yahoo.com | 'Supergirl' actor posts, then deletes, about being 'fed up' with Hollywood
+  - 2026-08-19 | www.mi-reporter.com | King County Elections posts final LD 41 primary results
+  - 2026-08-18 | thehill.com | Trump posts map labeling Strait of Hormuz as US territory
+  - 2026-08-18 | www.bloomberg.com | Hong Kong Bourse Posts Record Earnings on IPO, Trading Boom
+  - 2026-08-18 | www.newarab.com | Trump posts map declaring Strait of Hormuz 'new US territory'
+  - 2026-08-18 | www.wsj.com | Home Depot Posts Higher Sales, Backs Outlook
+  - 2026-08-18 | variety.com | ‘Supergirl’ Star David Krumholtz Posts and Deletes Plans to Retire From Acting: ‘And Now, New Life’
+  - 2026-08-18 | www.aei.org | Trump’s Posts May Prove Comey’s Vindictive and Selective Prosecution Claims
+  - 2026-08-18 | www.nbcnews.com | Trump posts that 'no talks or conversations' are scheduled with Iran
+  - 2026-08-18 | gizmodo.com | Trump’s Unhinged Truth Social Posts Are at the Heart of ABC’s Lawsuit Against the FCC
+  - 2026-08-18 | nypost.com | Trump posts map labeling Strait of Hormuz 'new US territory' before announcing no talks with Iran planned
+  - 2026-08-18 | finance.yahoo.com | TLF Stock Up 7% as It Posts Q2 Earnings on Pricing Gains
+What to write for E5:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E6 (as of 2026-08-19): Bitcoin price on August 19?
+Rules:
+This market will resolve according to the final "Close" price of the Binance 1 minute candle for BTC/USDT 12:00 in the ET timezone (noon) on the date specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the BTC/USDT "Close" prices currently available at https://www.binance.com/en/trade/BTC_USDT with "1m" and "Candles" selected on the top bar.
+
+If the reported value falls exactly between two brackets, then this market will resolve to the higher range bracket.
+
+Please note that this market is about the price according to Binance BTC/USDT, not according to other exchanges or trading pairs.
+Contracts:
+  E6.C1: Will the price of Bitcoin be less than $54,000 on August 19?
+  E6.C2: Will the price of Bitcoin be between $54,000 and $56,000 on August 19?
+  E6.C3: Will the price of Bitcoin be between $56,000 and $58,000 on August 19?
+  E6.C4: Will the price of Bitcoin be between $58,000 and $60,000 on August 19?
+  E6.C5: Will the price of Bitcoin be between $60,000 and $62,000 on August 19?
+  E6.C6: Will the price of Bitcoin be between $62,000 and $64,000 on August 19?
+  E6.C7: Will the price of Bitcoin be between $64,000 and $66,000 on August 19?
+  E6.C8: Will the price of Bitcoin be between $66,000 and $68,000 on August 19?
+  E6.C9: Will the price of Bitcoin be between $68,000 and $70,000 on August 19?
+  E6.C10: Will the price of Bitcoin be between $70,000 and $72,000 on August 19?
+  E6.C11: Will the price of Bitcoin be greater than $72,000 on August 19?
+News before E6's as-of date (date seen, source, headline):
+  - 2026-08-19 | etfdb.com | Bitcoin Miners Already Owned What the AI Economy Is Short Of
+  - 2026-08-19 | finance.yahoo.com | Will Bitcoin Get Back to $100,000 in 2026? It Could All Hinge on This
+  - 2026-08-19 | bitcoinfoundation.org | Bitcoin Blasts Past $68K as 6% Rally Puts $70,000 Within Reach
+  - 2026-08-19 | bitcoinmagazine.com | Bitcoin Blasts Past $68,000 After US Treasury Doubles Debt Buybacks
+  - 2026-08-19 | www.forbes.com | Bitcoin Approaches $70,000 After Treasury Announces Buyback Expansion
+  - 2026-08-19 | finance.yahoo.com | Bitcoin and ethereum prices today, Wednesday, August 19, 2026: Crypto prices rise after SEC announces proposed regulation
+  - 2026-08-19 | www.investopedia.com | Bitcoin Jumps Above $68,000 For The First Time Since June
+  - 2026-08-19 | finance.yahoo.com | Coinbase Stock Catches a Bid as Bitcoin Climbs
+  - 2026-08-19 | bitcoinfoundation.org | Bitcoin Accumulation Could Begin by November as VanEck Flags Eight Capitulation Signals
+  - 2026-08-19 | finance.yahoo.com | Bitcoin Jumps To $68,000 On News Of Bond Market Intervention
+  - 2026-08-19 | finance.yahoo.com | Crypto Shorts Lose $1.23 Billion in 1 Hour: 3 Bitcoin Whales Wiped Out
+  - 2026-08-19 | www.forbes.com | Bitcoin Price Prediction: Scaramucci Sees $100,000
+  - 2026-08-19 | northeasttimes.com | Fidelity’s bitcoin fund FBTC is down 45 percent in a year
+  - 2026-08-19 | www.moomoo.com | Bitcoin Surges Above $68,000, Liquidating $1.4 Billion Shorts as Treasury Buybacks Boost Risk Appetite
+  - 2026-08-19 | finance.yahoo.com | Bitcoin Mega-Whale Wallets Surge To 6-Month High As Big Buyers Hold $64K Support
+  - 2026-08-19 | www.cnbc.com | Options Action: Bitcoin bulls bite back
+  - 2026-08-19 | www.nbcnews.com | Family of woman missing in Las Vegas says they’ve received strange bitcoin demands
+  - 2026-08-19 | finance.yahoo.com | Treasury Just Drew a Line in the Sand at 5.3%, and Bitcoin Noticed
+  - 2026-08-19 | www.coindesk.com | Bitcoin briefly hits $70,000 for the first time since June. Here is why
+  - 2026-08-19 | fortune.com | Current price of Bitcoin for August 19, 2026
+  - 2026-08-18 | finance.yahoo.com | Bitcoin’s Price Crosses $65K, But Anthony Scaramucci Says $100K Catalyst Could Be 20 Months Away
+  - 2026-08-18 | www.bloomberg.com | Bitcoin Whales End Selling Spree, Adding $2.9 Billion in 60 Days
+  - 2026-08-18 | fortune.com | Current price of Bitcoin for August 18, 2026
+  - 2026-08-18 | bitcoinfoundation.org | Strategy Skips Bitcoin Sales, Buys Back $132M of STRC Instead
+  - 2026-08-18 | www.bloomberg.com | Watch Bitcoin Whales Add 43,000 Bitcoin in 60 Days
+What to write for E6:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).

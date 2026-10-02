@@ -1,0 +1,499 @@
+You will be shown 6 questions from a prediction market. Each has one or more contracts that resolve YES or NO under the rules shown. Each question gives the date your view is "as of": answer as you would on that date.
+
+Use what you already know and the news headlines listed under each question, all published in the 7 days before its as-of date. Do not search for or look up anything else: reading this file is the only tool call you may make. There are no prices from any prediction market in this file and you should not try to estimate what any market thinks; give your own view.
+
+Each question says what to write for it. Whole percents run from 1 to 99. Levels are plain numbers in the units the contracts use (for example 95000 for $95,000, 3.25 for 3.25%). Dates are YYYY-MM-DD.
+
+For each question also say whether you recognise how it actually turned out ("recognised": true only if you believe you remember the real outcome; otherwise false).
+
+Reply with one JSON object and nothing else:
+{"events": [{"label": "E1", "recognised": false, ...the fields that question asks for...}]}
+
+=== E1 (as of 2026-08-12): What will Airbnb, Inc. (ABNB) hit Week of August 10 2026?
+Rules:
+What will Airbnb, Inc. (ABNB) hit Week of August 10 2026?
+Contracts:
+  E1.C1: Will Airbnb, Inc. (ABNB) hit (HIGH) $190 Week of August 10 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of August 10 2026, any 1-minute candle for Airbnb, Inc. (ABNB) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Airbnb, Inc. (ABNB) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.ABNB%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.ABNB%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E1.C2: Will Airbnb, Inc. (ABNB) hit (HIGH) $188 Week of August 10 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of August 10 2026, any 1-minute candle for Airbnb, Inc. (ABNB) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Airbnb, Inc. (ABNB) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.ABNB%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.ABNB%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E1.C3: Will Airbnb, Inc. (ABNB) hit (LOW) $176 Week of August 10 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of August 10 2026, any 1-minute candle for Airbnb, Inc. (ABNB) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Airbnb, Inc. (ABNB) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.ABNB%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.ABNB%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E1.C4: Will Airbnb, Inc. (ABNB) hit (LOW) $174 Week of August 10 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of August 10 2026, any 1-minute candle for Airbnb, Inc. (ABNB) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Airbnb, Inc. (ABNB) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.ABNB%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.ABNB%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E1.C5: Will Airbnb, Inc. (ABNB) hit (LOW) $172 Week of August 10 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of August 10 2026, any 1-minute candle for Airbnb, Inc. (ABNB) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Airbnb, Inc. (ABNB) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.ABNB%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.ABNB%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E1.C6: Will Airbnb, Inc. (ABNB) hit (LOW) $170 Week of August 10 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of August 10 2026, any 1-minute candle for Airbnb, Inc. (ABNB) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Airbnb, Inc. (ABNB) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.ABNB%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.ABNB%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E1.C7: Will Airbnb, Inc. (ABNB) hit (LOW) $168 Week of August 10 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of August 10 2026, any 1-minute candle for Airbnb, Inc. (ABNB) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Airbnb, Inc. (ABNB) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.ABNB%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.ABNB%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E1.C8: Will Airbnb, Inc. (ABNB) hit (LOW) $166 Week of August 10 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of August 10 2026, any 1-minute candle for Airbnb, Inc. (ABNB) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Airbnb, Inc. (ABNB) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.ABNB%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.ABNB%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E1.C9: Will Airbnb, Inc. (ABNB) hit (LOW) $164 Week of August 10 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of August 10 2026, any 1-minute candle for Airbnb, Inc. (ABNB) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Airbnb, Inc. (ABNB) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.ABNB%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.ABNB%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+News before E1's as-of date (date seen, source, headline):
+  - 2026-08-12 | www.forbes.com | Jennie’s ‘Less Than A Lover’ Video Villa Is Open For Airbnb Bookings
+  - 2026-08-12 | kutv.com | Mother sues Airbnb, others after murder at alleged party house, citing ignored red flags
+  - 2026-08-12 | finance.yahoo.com | Airbnb vs. PepsiCo: Which Stock Is a Better Buy in 2026?
+  - 2026-08-12 | finance.yahoo.com | Airbnb, Inc. (ABNB)’s AI Strategy and Hotel Expansion Could Unlock New Growth
+  - 2026-08-12 | www.fool.com | Airbnb vs. Opendoor Technologies: Which Stock Is a Better Buy in 2026?
+  - 2026-08-12 | www.theguardian.com | Gangs using Airbnb-type rentals as drug stash houses, top Belgian official says
+  - 2026-08-12 | finance.yahoo.com | Is It Too Late to Buy Airbnb After Its Monster Rally? What the Numbers Say
+  - 2026-08-12 | www.fool.com | Airbnb vs. Roblox: Which Stock Is a Better Buy in 2026?
+  - 2026-08-12 | www.businessinsider.com | Airbnb CEO Brian Chesky says there's one thing Silicon Valley needs to do to change Americans' minds on AI
+  - 2026-08-12 | stockstory.org | 5 Insightful Analyst Questions From Airbnb’s Q2 Earnings Call
+  - 2026-08-12 | www.politico.com | Executive Insights with Airbnb
+  - 2026-08-12 | www.tikr.com | Airbnb Stock Slips After PhillipCapital Downgrade Offsets Recent Earnings Rally
+  - 2026-08-12 | www.marketwatch.com | Airbnb Inc. Cl A stock falls Wednesday, underperforms market
+  - 2026-08-11 | www.phocuswire.com | Airbnb partners with Tripadvisor amid plans to scale Experiences
+  - 2026-08-11 | finance.yahoo.com | Airbnb CEO Brian Chesky on AI's future: One person can be a billion-dollar company
+  - 2026-08-11 | www.cnbc.com | Final Trades: Snowflake, KLA Corp, Gilead Sciences and Airbnb
+  - 2026-08-11 | skift.com | Airbnb Partners With Tripadvisor Experiences, Drops Build-Your-Own Strategy
+  - 2026-08-11 | www.cntraveler.com | The Best St. Louis Airbnbs for Trips Full of Barbecue, Baseball, and Beer
+  - 2026-08-11 | www.marketwatch.com | Airbnb has added thousands of new hotel listings. Will that damage the brand’s identity?
+  - 2026-08-11 | www.travelweekly.com | Airbnb partners with Tripadvisor to scale experiences
+  - 2026-08-10 | finance.yahoo.com | Airbnb CEO Brian Chesky on his AI lab, building a super app, and how travel will change forever
+  - 2026-08-10 | finance.yahoo.com | Why Airbnb (ABNB) Stock Is Up Today
+  - 2026-08-10 | finance.yahoo.com | Airbnb’s (ABNB) Breakout Quarter Reopens Its Growth Story
+  - 2026-08-10 | finance.yahoo.com | Airbnb Stock Jumps Despite BMO Target Trailing Market Price
+  - 2026-08-10 | finance.yahoo.com | Airbnb shares jump 17% after quarterly results beat expectations
+What to write for E1:
+  Write "high": for each chance 10, 25, 50, 75 and 90, the level you give that chance of being reached (at or above) within the period. The 10 level is the highest.
+  Write "low": for each chance 10, 25, 50, 75 and 90, the level you give that chance of being reached (at or below) within the period. The 10 level is the lowest.
+
+=== E2 (as of 2026-07-29): What price will Bitcoin hit July 27-August 2?
+Rules:
+What price will Bitcoin hit July 27-August 2?
+Contracts:
+  E2.C1: Will Bitcoin reach $78,000 July 27-August 2?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1-minute candle for BTC/USDT during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "High" price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the BTC/USDT "High" prices available at https://www.binance.com/en/trade/BTC_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance BTC/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E2.C2: Will Bitcoin reach $76,000 July 27-August 2?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1-minute candle for BTC/USDT during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "High" price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the BTC/USDT "High" prices available at https://www.binance.com/en/trade/BTC_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance BTC/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E2.C3: Will Bitcoin reach $74,000 July 27-August 2?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1-minute candle for BTC/USDT during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "High" price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the BTC/USDT "High" prices available at https://www.binance.com/en/trade/BTC_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance BTC/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E2.C4: Will Bitcoin reach $72,000 July 27-August 2?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1-minute candle for BTC/USDT during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "High" price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the BTC/USDT "High" prices available at https://www.binance.com/en/trade/BTC_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance BTC/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E2.C5: Will Bitcoin reach $70,000 July 27-August 2?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1-minute candle for BTC/USDT during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "High" price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the BTC/USDT "High" prices available at https://www.binance.com/en/trade/BTC_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance BTC/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E2.C6: Will Bitcoin reach $68,000 July 27-August 2?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1-minute candle for BTC/USDT during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "High" price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the BTC/USDT "High" prices available at https://www.binance.com/en/trade/BTC_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance BTC/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E2.C7: Will Bitcoin reach $66,000 July 27-August 2?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1-minute candle for BTC/USDT during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "High" price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the BTC/USDT "High" prices available at https://www.binance.com/en/trade/BTC_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance BTC/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E2.C8: Will Bitcoin dip to $62,000 July 27-August 2?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for Bitcoin (BTC/USDT) during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "Low" price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the BTC/USDT "Low" prices available at https://www.binance.com/en/trade/BTC_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance BTC/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E2.C9: Will Bitcoin dip to $60,000 July 27-August 2?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for Bitcoin (BTC/USDT) during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "Low" price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the BTC/USDT "Low" prices available at https://www.binance.com/en/trade/BTC_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance BTC/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E2.C10: Will Bitcoin dip to $58,000 July 27-August 2?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for Bitcoin (BTC/USDT) during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "Low" price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the BTC/USDT "Low" prices available at https://www.binance.com/en/trade/BTC_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance BTC/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E2.C11: Will Bitcoin dip to $56,000 July 27-August 2?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for Bitcoin (BTC/USDT) during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "Low" price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the BTC/USDT "Low" prices available at https://www.binance.com/en/trade/BTC_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance BTC/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E2.C12: Will Bitcoin dip to $54,000 July 27-August 2?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for Bitcoin (BTC/USDT) during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "Low" price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the BTC/USDT "Low" prices available at https://www.binance.com/en/trade/BTC_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance BTC/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E2.C13: Will Bitcoin dip to $52,000 July 27-August 2?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for Bitcoin (BTC/USDT) during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "Low" price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the BTC/USDT "Low" prices available at https://www.binance.com/en/trade/BTC_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance BTC/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E2.C14: Will Bitcoin dip to $50,000 July 27-August 2?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for Bitcoin (BTC/USDT) during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "Low" price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the BTC/USDT "Low" prices available at https://www.binance.com/en/trade/BTC_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance BTC/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+News before E2's as-of date (date seen, source, headline):
+  - 2026-07-29 | finance.yahoo.com | Prediction: Bitcoin Will Be Worth $2.5 Trillion in 3 Years
+  - 2026-07-29 | bitcoinfoundation.org | Bitcoin Trading Is on Track for Slowest Month Since 2023
+  - 2026-07-29 | bitcoinfoundation.org | Kraken Warns Bitcoin Faces 48-Hour News Grinder
+  - 2026-07-29 | www.coindesk.com | Bitcoin bounces to $64,300 but the real move waits on the Fed: Crypto Markets Today
+  - 2026-07-29 | thequantuminsider.com | The Growing Quantum Security Challenge Facing Bitcoin and Digital Assets
+  - 2026-07-29 | etfdb.com | Cryptocurrencies: Bitcoin Inches Down 4% This Week
+  - 2026-07-29 | www.coindesk.com | BTC, ETH price news: Bitcoin rises toward $64,000 amid Korea's record chip crash
+  - 2026-07-28 | finance.yahoo.com | Should You Buy Bitcoin While It's Under $70,000? The Answer Might Surprise You.
+  - 2026-07-28 | finance.yahoo.com | Bitcoin falls to $63,000 as Fed decision looms, Clarity Act hopes fade
+  - 2026-07-28 | bitcoinfoundation.org | Bitcoin Critic Peter Schiff Tells Bulls to Buy BTC, Not MSTR
+  - 2026-07-28 | fortune.com | Current price of Bitcoin for July 28, 2026
+  - 2026-07-28 | bitcoinfoundation.org | Fresh Bitcoin Capital Inflows Have Nearly Stopped, Analysts Say
+  - 2026-07-28 | www.prnewswire.com | Hyperscale Data Bitcoin Treasury Reaches 1,106 Bitcoin Worth Approximately $71.7 Million
+  - 2026-07-28 | www.bloomberg.com | Bitcoin Weakens in Asia Trading as Fed Rate Decision Looms
+  - 2026-07-28 | www.cnbc.com | Bitcoin may be showing signs of a bottom despite continued consolidation, chart analysts say
+  - 2026-07-28 | bitcoinmagazine.com | Core Scientific Adds More Bitcoin To Balance Sheet in Q2 Despite Selling Strategy
+  - 2026-07-28 | www.coindesk.com | Bitcoin slides 2% after U.S. close while Korea’s Kospi plunges 10%
+  - 2026-07-27 | global.morningstar.com | Crypto Winter or the Big Crash? Where the Bitcoin Price Goes Now
+  - 2026-07-27 | finance.yahoo.com | Prediction: Bitcoin Will Hit $1 Million -- Here's the Timeline
+  - 2026-07-27 | finance.yahoo.com | Bitcoin and ethereum prices today, Monday, July 27, 2026: Can positive price trends hold this week?
+  - 2026-07-27 | finance.yahoo.com | Can Bitcoin Price Reach $500,000? Coinbase Is Preparing for Its Biggest Security Threat
+  - 2026-07-27 | www.cnbc.com | Crypto stocks rally thanks to rotation from AI infrastructure; bitcoin miners lag
+  - 2026-07-27 | fortune.com | Current price of Bitcoin for July 27, 2026
+  - 2026-07-27 | www.coindesk.com | Bitcoin (BTC) news: Prices retake $65,000 as oil slides, ETH outperforms
+  - 2026-07-27 | bitcoinfoundation.org | Ethereum ETFs Outperform Bitcoin Funds — ETH Price Hits Two-Month High at $1,970
+What to write for E2:
+  Write "high": for each chance 10, 25, 50, 75 and 90, the level you give that chance of being reached (at or above) within the period. The 10 level is the highest.
+  Write "low": for each chance 10, 25, 50, 75 and 90, the level you give that chance of being reached (at or below) within the period. The 10 level is the lowest.
+
+=== E3 (as of 2026-04-29): XRP above ___ on April 30?
+Rules:
+This market will resolve to "Yes" if the Binance 1 minute candle for XRP/USDT 12:00 in the ET timezone (noon) on the date specified in the title has a final "Close" price higher than the price specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the XRP/USDT "Close" prices currently available at https://www.binance.com/en/trade/XRP_USDT with "1m" and "Candles" selected on the top bar.
+
+Please note that this market is about the price according to Binance XRP/USDT, not according to other exchanges or trading pairs.
+
+Price precision is determined by the number of decimal places in the source.
+Contracts:
+  E3.C1: Will the price of XRP be above $0.90 on April 30?
+  E3.C2: Will the price of XRP be above $1.00 on April 30?
+  E3.C3: Will the price of XRP be above $1.10 on April 30?
+  E3.C4: Will the price of XRP be above $1.20 on April 30?
+  E3.C5: Will the price of XRP be above $1.30 on April 30?
+  E3.C6: Will the price of XRP be above $1.40 on April 30?
+  E3.C7: Will the price of XRP be above $1.50 on April 30?
+  E3.C8: Will the price of XRP be above $1.60 on April 30?
+  E3.C9: Will the price of XRP be above $1.70 on April 30?
+  E3.C10: Will the price of XRP be above $1.80 on April 30?
+  E3.C11: Will the price of XRP be above $1.90 on April 30?
+News before E3's as-of date (date seen, source, headline):
+  - 2026-04-29 | 247wallst.com | XRP Price: 34.94 Million XRP Just Left Exchanges — So Why Is the Price Still Falling?
+  - 2026-04-29 | www.coindesk.com | XRP price: Ripple linked token falls to $1.38 after breaking key support zones
+  - 2026-04-29 | phemex.com | After 5 Years, XRP Holders Breathe Free: The Lawsuit Is Over
+  - 2026-04-29 | www.fool.com | Here's Why XRP (Ripple) Could Drop Below $1 and Stay There
+  - 2026-04-29 | beincrypto.com | XRP Price Prediction for May 2026: Can Bulls Trigger a Rally Near $2?
+  - 2026-04-29 | cryptonews.com | XRP Price Prediction: Garlinghouse Locks In as Ripple Raises the Standard in Las Vegas
+  - 2026-04-29 | www.investing.com | XRP ETF Inflows at $83M Raise Questions About Price Upside
+  - 2026-04-29 | coinpedia.org | Three XRP Scenarios Mapped From $2 to $100 as Real World Adoption Hits Three Continents
+  - 2026-04-29 | cryptonews.com | Ripple's Europe Boss Says US Falling Behind: Europe Leads XRP
+  - 2026-04-29 | www.binance.com | Experts project XRP price after the approval of the CLARITY Act.
+  - 2026-04-28 | finance.yahoo.com | XRP Price Prediction: We Asked AI if XRP Will Hit $5 Before Bitcoin Hits $200K
+  - 2026-04-28 | finance.yahoo.com | XRP Falls 3% Amid Heavy Selling Pressure
+  - 2026-04-28 | www.coindesk.com | XRP price: What next as Ripple-linked token drops under $1.40
+  - 2026-04-28 | www.tradingview.com | XRP Price Target At $18,000: Expert Says—Only One Condition Must Be Met
+  - 2026-04-28 | 247wallst.com | Ripple (XRP) Price Prediction as It Loses $1.40 Support: Is $1 Next?
+  - 2026-04-28 | 247wallst.com | XRP Price Prediction: Can the XRP Las Vegas Conference Reverse the Token’s Slide?
+  - 2026-04-28 | www.tradingview.com | XRP price prediction: risky pattern forms as key XRPL metrics tumble
+  - 2026-04-28 | 247wallst.com | XRP Sentiment Hits a 2-Year Low: XRP Rallied 82% the Last Time This Happened
+  - 2026-04-28 | crypto.news | Coinbase Gives XRP Institutional Trading Tools
+  - 2026-04-28 | www.tradingview.com | Charles Hoskinson Says Ripple Will Keep Selling XRP And Walk Away With The Money
+  - 2026-04-28 | www.benzinga.com | XRP Down 2% As Scarcity Hits 2-Year High: What Is Going On?
+  - 2026-04-28 | www.fxstreet.com | Why is XRP falling?
+  - 2026-04-28 | www.globenewswire.com | Crypto News Today: AlphaPepe Presale Hits $1M Raised as XRP Price Prediction Targets $13
+  - 2026-04-28 | coingape.com | XRP Price Outlook as U.S. Eyes Potential Strategic Reserve Plan
+  - 2026-04-28 | www.fool.com | Best Cryptocurrency to Buy With $1,000 Right Now and Hold for 10 Years: XRP vs. Cardano
+What to write for E3:
+  Write "levels": for each chance 10, 25, 50, 75 and 90, the level you give that chance of the measured quantity being at or above when it resolves. The 10 level is the highest and the 90 level the lowest. Example: {"10": 120, "25": 110, "50": 100, "75": 92, "90": 85}.
+
+=== E4 (as of 2026-09-16): Khamenei # posts September 11 - September 18, 2026?
+Rules:
+This market will resolve according to the number of times Khamenei (@khamenei_ir), posts on X between September 11, 12:00 PM ET and September 18, 2026, 12:00 PM ET.
+
+For the purposes of this market, only main feed posts, quote posts and reposts will count.
+
+Replies will NOT count towards the total - however, replies which are recorded on the main feed will be counted by the tracker.
+
+Deleted posts will count as long as they remain available long enough to be captured by the tracker (~5 minutes).
+
+The resolution source for this market is the "Post Counter" figure for posts found at https://xtracker.polymarket.com. Individual posts can be viewed by clicking "Export Data". If the tracker does not update correctly in accordance with the rules, X itself may be used as a secondary resolution source.
+Contracts:
+  E4.C1: Will Khamenei post 0-4 posts from September 11 to September 18, 2026?
+  E4.C2: Will Khamenei post 5-9 posts from September 11 to September 18, 2026?
+  E4.C3: Will Khamenei post 10-14 posts from September 11 to September 18, 2026?
+  E4.C4: Will Khamenei post 15-19 posts from September 11 to September 18, 2026?
+  E4.C5: Will Khamenei post 20-24 posts from September 11 to September 18, 2026?
+  E4.C6: Will Khamenei post 25-29 posts from September 11 to September 18, 2026?
+  E4.C7: Will Khamenei post 30-34 posts from September 11 to September 18, 2026?
+  E4.C8: Will Khamenei post 35-39 posts from September 11 to September 18, 2026?
+  E4.C9: Will Khamenei post 40-44 posts from September 11 to September 18, 2026?
+  E4.C10: Will Khamenei post 45-49 posts from September 11 to September 18, 2026?
+  E4.C11: Will Khamenei post 50-54 posts from September 11 to September 18, 2026?
+  E4.C12: Will Khamenei post 55-59 posts from September 11 to September 18, 2026?
+  E4.C13: Will Khamenei post 60+ posts from September 11 to September 18, 2026?
+News before E4's as-of date (date seen, source, headline):
+  - 2026-09-16 | en.abna24.com | Grand conference on Thought of Martyr Seyyed Ali Khamenei held in Hyderabad, Pakistan
+  - 2026-09-16 | www.ncr-iran.org | From Oman to State TV: Rival Factions in Iran Defy Mojtaba Khamenei’s Call for Unity
+  - 2026-09-16 | www.mk.co.kr | Iran's new supreme leader Ayatollah Seyed Moztava Khamenei is a film lover who enjoys Hollywood film..
+  - 2026-09-14 | www.jpost.com | Iranian leadership divided as hard-liners sabotage negotiations, Khamenei still unseen - report
+  - 2026-09-13 | www.ynetnews.com | Israel sees deepening fractures in Iran as injured Khamenei leans on hard-line commanders
+  - 2026-09-13 | www.news18.com | Where Is Mojtaba Khamenei? Iran's Pezeshkian Dismisses Speculation On Supreme Leader's Whereabouts
+  - 2026-09-12 | www.indiatoday.in | Iran Ties With India, Supreme Leader Mojtaba Khamenei Well-Being & US-Israel Action - India Today
+  - 2026-09-12 | www.indiatoday.in | Iran President Pezeshkian Exclusive Interview | Trump, Hormuz, India Ties, Mojtaba Khamenei & BRICS - India Today
+  - 2026-09-12 | www.indiatoday.in | 'Thank God Supreme Leader Is Alive': Iran's Pezeshkian On Rumours Regarding Mojtaba Khamenei - India Today
+  - 2026-09-11 | www.naharnet.com | Houthi advance a 'resounding victory', says Khamenei adviser
+  - 2026-09-11 | www.voiceofemirates.com | The inner workings of the caliphate and the absence of the Supreme Leader: How will the Assembly of Experts elections determine the fate of Mojtaba Khamenei?
+  - 2026-09-11 | www.siasat.com | Iran used Claude to track US warships, plan Khamenei’s funeral
+  - 2026-09-10 | www.newvision.co.ug | World: Iran's Khamenei says enemy 'defeated' in defiant message
+  - 2026-09-09 | www.news24.com.au | Khamenei-linked London properties seized and set for auction
+What to write for E4:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E5 (as of 2026-08-05): XRP above ___ on August 5?
+Rules:
+This market will resolve to "Yes" if the Binance 1 minute candle for XRP/USDT 12:00 in the ET timezone (noon) on the date specified in the title has a final "Close" price higher than the price specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the XRP/USDT "Close" prices currently available at https://www.binance.com/en/trade/XRP_USDT with "1m" and "Candles" selected on the top bar.
+
+Please note that this market is about the price according to Binance XRP/USDT, not according to other exchanges or trading pairs.
+
+Price precision is determined by the number of decimal places in the source.
+Contracts:
+  E5.C1: Will the price of XRP be above $0.60 on August 5?
+  E5.C2: Will the price of XRP be above $0.70 on August 5?
+  E5.C3: Will the price of XRP be above $0.80 on August 5?
+  E5.C4: Will the price of XRP be above $0.90 on August 5?
+  E5.C5: Will the price of XRP be above $1.00 on August 5?
+  E5.C6: Will the price of XRP be above $1.10 on August 5?
+  E5.C7: Will the price of XRP be above $1.20 on August 5?
+  E5.C8: Will the price of XRP be above $1.30 on August 5?
+  E5.C9: Will the price of XRP be above $1.40 on August 5?
+  E5.C10: Will the price of XRP be above $1.50 on August 5?
+  E5.C11: Will the price of XRP be above $1.60 on August 5?
+News before E5's as-of date (date seen, source, headline):
+  - 2026-08-05 | 247wallst.com | Will XRP (Ripple) Recover in 2026? The 3 Things That Have to Happen First
+  - 2026-08-05 | finance.yahoo.com | Why Hasn’t XRP Hit New Highs Like Bitcoin and Ethereum Despite Ripple Becoming a Top Financial Institution
+  - 2026-08-05 | www.theblock.co | CryptoQuant says bitcoin, ether and XRP whales are accumulating, signaling a 'late-stage bear market'
+  - 2026-08-05 | coinpedia.org | XRP News: Anonymous DeFi Is Dying, Analyst Says XRP Ledger Is the Future
+  - 2026-08-05 | www.thestreet.com | Crypto analyst says everything hinges on XRP holding key support
+  - 2026-08-05 | 247wallst.com | The Man Who Sued Ripple Now Runs US Intelligence. Here's What That Lawsuit Is Still Costing XRP
+  - 2026-08-05 | cryptonews.com | Mark Zuckerberg Meta AI Predicts an XRP Surge Few Saw Coming
+  - 2026-08-05 | coinpedia.org | XRP Rich List Threshold Nears 45,000 XRP as Ledger Crosses 8 Million Accounts
+  - 2026-08-05 | www.marketwatch.com | Large cryptocurrencies mixed as XRP drops
+  - 2026-08-04 | bitcoinfoundation.org | XRP Price Explosion Ahead? Analyst Says the Next Major Repricing Could Start Within Months
+  - 2026-08-04 | www.coindesk.com | XRP holders can now borrow RLUSD on Ethereum through $280 million lending pool
+  - 2026-08-04 | www.benzinga.com | XRP Could Rally 53% if This Key Level is Held, Crypto Analyst Says: 'Everything Comes Down To...'
+  - 2026-08-04 | www.benzinga.com | XRP ETFs See 4-Day Inflow Streak: So Why Is XRP Stuck At $1.08?
+  - 2026-08-04 | cryptonews.net | XRP Price Prediction: Will XRP Break Out in Q3? Here’s What Analysts Expect
+  - 2026-08-04 | www.benzinga.com | XRP Holders Can Use Tokens as Collateral for RLUSD Loans on Ethereum
+  - 2026-08-04 | www.investing.com | XRP at $1.06 Defines a Binary Breakout or Breakdown Setup
+  - 2026-08-04 | coinpedia.org | XRP Ledger v3.3.0 Explained: 6 New Features Coming to the Network
+  - 2026-08-04 | coinpedia.org | XRP Price at $10: The Financial Plumbing Argument That Has Nothing to Do With Hype
+  - 2026-08-04 | 247wallst.com | Can You Stake XRP (Ripple) and Earn Rewards?
+  - 2026-08-04 | www.thestreet.com | XRP holders can now borrow Ripple's stablecoin
+  - 2026-08-04 | cryptonews.com | Microsoft Copilot AI Predicts the Price of XRP by The End of 2026
+  - 2026-08-03 | coinpedia.org | Ripple Made Two More Investments, So Why Isn’t XRP Price Reacting?
+  - 2026-08-03 | www.moomoo.com | PCT: Why So Many Bank Adoption XRP Remain Stagnant v2.0 :
+  - 2026-08-03 | www.benzinga.com | Could XRP Benefit if the Fed Pivots Again? One Macro Strategist Says Yes
+  - 2026-08-03 | www.benzinga.com | Ripple Boasts Two New Investments as XRP ETFs Tally $27M Inflows in July
+What to write for E5:
+  Write "levels": for each chance 10, 25, 50, 75 and 90, the level you give that chance of the measured quantity being at or above when it resolves. The 10 level is the highest and the 90 level the lowest. Example: {"10": 120, "25": 110, "50": 100, "75": 92, "90": 85}.
+
+=== E6 (as of 2026-07-29): Bitcoin above ___ on July 29?
+Rules:
+This market will resolve to "Yes" if the Binance 1 minute candle for BTC/USDT 12:00 in the ET timezone (noon) on the date specified in the title has a final "Close" price higher than the price specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the BTC/USDT "Close" prices currently available at https://www.binance.com/en/trade/BTC_USDT with "1m" and "Candles" selected on the top bar.
+
+Please note that this market is about the price according to Binance BTC/USDT, not according to other exchanges or trading pairs.
+
+Price precision is determined by the number of decimal places in the source.
+Contracts:
+  E6.C1: Will the price of Bitcoin be above $56,000 on July 29?
+  E6.C2: Will the price of Bitcoin be above $58,000 on July 29?
+  E6.C3: Will the price of Bitcoin be above $60,000 on July 29?
+  E6.C4: Will the price of Bitcoin be above $62,000 on July 29?
+  E6.C5: Will the price of Bitcoin be above $64,000 on July 29?
+  E6.C6: Will the price of Bitcoin be above $66,000 on July 29?
+  E6.C7: Will the price of Bitcoin be above $68,000 on July 29?
+  E6.C8: Will the price of Bitcoin be above $70,000 on July 29?
+  E6.C9: Will the price of Bitcoin be above $72,000 on July 29?
+  E6.C10: Will the price of Bitcoin be above $74,000 on July 29?
+  E6.C11: Will the price of Bitcoin be above $76,000 on July 29?
+News before E6's as-of date (date seen, source, headline):
+  - 2026-07-29 | finance.yahoo.com | Prediction: Bitcoin Will Be Worth $2.5 Trillion in 3 Years
+  - 2026-07-29 | bitcoinfoundation.org | Bitcoin Trading Is on Track for Slowest Month Since 2023
+  - 2026-07-29 | bitcoinfoundation.org | Kraken Warns Bitcoin Faces 48-Hour News Grinder
+  - 2026-07-29 | www.coindesk.com | Bitcoin bounces to $64,300 but the real move waits on the Fed: Crypto Markets Today
+  - 2026-07-29 | thequantuminsider.com | The Growing Quantum Security Challenge Facing Bitcoin and Digital Assets
+  - 2026-07-29 | etfdb.com | Cryptocurrencies: Bitcoin Inches Down 4% This Week
+  - 2026-07-29 | www.coindesk.com | BTC, ETH price news: Bitcoin rises toward $64,000 amid Korea's record chip crash
+  - 2026-07-28 | finance.yahoo.com | Should You Buy Bitcoin While It's Under $70,000? The Answer Might Surprise You.
+  - 2026-07-28 | finance.yahoo.com | Bitcoin falls to $63,000 as Fed decision looms, Clarity Act hopes fade
+  - 2026-07-28 | bitcoinfoundation.org | Bitcoin Critic Peter Schiff Tells Bulls to Buy BTC, Not MSTR
+  - 2026-07-28 | fortune.com | Current price of Bitcoin for July 28, 2026
+  - 2026-07-28 | bitcoinfoundation.org | Fresh Bitcoin Capital Inflows Have Nearly Stopped, Analysts Say
+  - 2026-07-28 | www.prnewswire.com | Hyperscale Data Bitcoin Treasury Reaches 1,106 Bitcoin Worth Approximately $71.7 Million
+  - 2026-07-28 | www.bloomberg.com | Bitcoin Weakens in Asia Trading as Fed Rate Decision Looms
+  - 2026-07-28 | www.cnbc.com | Bitcoin may be showing signs of a bottom despite continued consolidation, chart analysts say
+  - 2026-07-28 | bitcoinmagazine.com | Core Scientific Adds More Bitcoin To Balance Sheet in Q2 Despite Selling Strategy
+  - 2026-07-28 | www.coindesk.com | Bitcoin slides 2% after U.S. close while Korea’s Kospi plunges 10%
+  - 2026-07-27 | global.morningstar.com | Crypto Winter or the Big Crash? Where the Bitcoin Price Goes Now
+  - 2026-07-27 | finance.yahoo.com | Prediction: Bitcoin Will Hit $1 Million -- Here's the Timeline
+  - 2026-07-27 | finance.yahoo.com | Bitcoin and ethereum prices today, Monday, July 27, 2026: Can positive price trends hold this week?
+  - 2026-07-27 | finance.yahoo.com | Can Bitcoin Price Reach $500,000? Coinbase Is Preparing for Its Biggest Security Threat
+  - 2026-07-27 | www.cnbc.com | Crypto stocks rally thanks to rotation from AI infrastructure; bitcoin miners lag
+  - 2026-07-27 | fortune.com | Current price of Bitcoin for July 27, 2026
+  - 2026-07-27 | www.coindesk.com | Bitcoin (BTC) news: Prices retake $65,000 as oil slides, ETH outperforms
+  - 2026-07-27 | bitcoinfoundation.org | Ethereum ETFs Outperform Bitcoin Funds — ETH Price Hits Two-Month High at $1,970
+What to write for E6:
+  Write "levels": for each chance 10, 25, 50, 75 and 90, the level you give that chance of the measured quantity being at or above when it resolves. The 10 level is the highest and the 90 level the lowest. Example: {"10": 120, "25": 110, "50": 100, "75": 92, "90": 85}.

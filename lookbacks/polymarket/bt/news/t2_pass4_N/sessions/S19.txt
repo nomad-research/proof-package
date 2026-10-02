@@ -1,0 +1,536 @@
+You will be shown 6 questions from a prediction market. Each has one or more contracts that resolve YES or NO under the rules shown. Each question gives the date your view is "as of": answer as you would on that date.
+
+Use what you already know and the news headlines listed under each question, all published in the 7 days before its as-of date. Do not search for or look up anything else: reading this file is the only tool call you may make. There are no prices from any prediction market in this file and you should not try to estimate what any market thinks; give your own view.
+
+Each question says what to write for it. Whole percents run from 1 to 99. Levels are plain numbers in the units the contracts use (for example 95000 for $95,000, 3.25 for 3.25%). Dates are YYYY-MM-DD.
+
+For each question also say whether you recognise how it actually turned out ("recognised": true only if you believe you remember the real outcome; otherwise false).
+
+Reply with one JSON object and nothing else:
+{"events": [{"label": "E1", "recognised": false, ...the fields that question asks for...}]}
+
+=== E1 (as of 2026-08-12): What will Robinhood Markets, Inc. (HOOD) hit Week of August 10 2026?
+Rules:
+What will Robinhood Markets, Inc. (HOOD) hit Week of August 10 2026?
+Contracts:
+  E1.C1: Will Robinhood Markets, Inc. (HOOD) hit (HIGH) $110 Week of August 10 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of August 10 2026, any 1-minute candle for Robinhood Markets, Inc. (HOOD) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Robinhood Markets, Inc. (HOOD) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.HOOD%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.HOOD%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E1.C2: Will Robinhood Markets, Inc. (HOOD) hit (HIGH) $107.50 Week of August 10 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of August 10 2026, any 1-minute candle for Robinhood Markets, Inc. (HOOD) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Robinhood Markets, Inc. (HOOD) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.HOOD%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.HOOD%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E1.C3: Will Robinhood Markets, Inc. (HOOD) hit (HIGH) $105 Week of August 10 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of August 10 2026, any 1-minute candle for Robinhood Markets, Inc. (HOOD) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Robinhood Markets, Inc. (HOOD) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.HOOD%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.HOOD%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E1.C4: Will Robinhood Markets, Inc. (HOOD) hit (HIGH) $102.50 Week of August 10 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of August 10 2026, any 1-minute candle for Robinhood Markets, Inc. (HOOD) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Robinhood Markets, Inc. (HOOD) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.HOOD%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.HOOD%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E1.C5: Will Robinhood Markets, Inc. (HOOD) hit (HIGH) $100 Week of August 10 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of August 10 2026, any 1-minute candle for Robinhood Markets, Inc. (HOOD) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Robinhood Markets, Inc. (HOOD) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.HOOD%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.HOOD%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E1.C6: Will Robinhood Markets, Inc. (HOOD) hit (HIGH) $97.50 Week of August 10 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of August 10 2026, any 1-minute candle for Robinhood Markets, Inc. (HOOD) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Robinhood Markets, Inc. (HOOD) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.HOOD%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.HOOD%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E1.C7: Will Robinhood Markets, Inc. (HOOD) hit (LOW) $90 Week of August 10 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of August 10 2026, any 1-minute candle for Robinhood Markets, Inc. (HOOD) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Robinhood Markets, Inc. (HOOD) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.HOOD%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.HOOD%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E1.C8: Will Robinhood Markets, Inc. (HOOD) hit (LOW) $87.50 Week of August 10 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of August 10 2026, any 1-minute candle for Robinhood Markets, Inc. (HOOD) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Robinhood Markets, Inc. (HOOD) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.HOOD%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.HOOD%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E1.C9: Will Robinhood Markets, Inc. (HOOD) hit (LOW) $85 Week of August 10 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of August 10 2026, any 1-minute candle for Robinhood Markets, Inc. (HOOD) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Robinhood Markets, Inc. (HOOD) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.HOOD%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.HOOD%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E1.C10: Will Robinhood Markets, Inc. (HOOD) hit (LOW) $82.50 Week of August 10 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of August 10 2026, any 1-minute candle for Robinhood Markets, Inc. (HOOD) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Robinhood Markets, Inc. (HOOD) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.HOOD%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.HOOD%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E1.C11: Will Robinhood Markets, Inc. (HOOD) hit (LOW) $80 Week of August 10 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of August 10 2026, any 1-minute candle for Robinhood Markets, Inc. (HOOD) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Robinhood Markets, Inc. (HOOD) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.HOOD%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.HOOD%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E1.C12: Will Robinhood Markets, Inc. (HOOD) hit (LOW) $77.50 Week of August 10 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of August 10 2026, any 1-minute candle for Robinhood Markets, Inc. (HOOD) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Robinhood Markets, Inc. (HOOD) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.HOOD%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.HOOD%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+News before E1's as-of date (date seen, source, headline):
+  - 2026-08-12 | finance.yahoo.com | Robinhood’s Crypto Slump Got the Headlines. Its 10x Business Got Ignored.
+  - 2026-08-12 | www.tikr.com | Robinhood Beat Earnings by 44% in Q2. So Why Is the Stock Down 38% From Its High?
+  - 2026-08-12 | www.barchart.com | Robinhood Is Fixing Its Biggest Weakness. HOOD Stock Could Keep Rising From Here.
+  - 2026-08-12 | fxnewsgroup.com | Robinhood sees continued slowdown in crypto trading (-33%) in July 2026
+  - 2026-08-12 | app.dealroom.co | Robinhood targets ~$200M for second fund backing Y Combinator startups
+  - 2026-08-12 | seekingalpha.com | Robinhood Markets equity ADV in July falls 19% M/M, jumps 56% Y/Y (HOOD:NASDAQ)
+  - 2026-08-11 | finance.yahoo.com | Robinhood Now Has 13 Separate Business Lines Above $100 Million in Annualized Revenue. Here's Why Crypto No Longer Decides the Quarter.
+  - 2026-08-11 | finance.yahoo.com | Can Robinhood's UK Crypto Push Boost Volume and Trading Revenues?
+  - 2026-08-11 | www.pymnts.com | Zerohash Connects Financial Institutions to Robinhood Chain
+  - 2026-08-11 | www.theblock.co | Robinhood Chain hits 11.6 million daily transactions as USDe fuels TVL growth
+  - 2026-08-11 | www.tradingview.com | Robinhood Markets, Inc. Stock 12‑Month Price Target Raised to $124.53, Implies 32% Upside
+  - 2026-08-11 | www.privatebankerinternational.com | Robinhood to introduce crypto trading in UK
+  - 2026-08-11 | www.caledonianrecord.com | Robinhood wants to be the Costco of finance
+  - 2026-08-10 | robinhood.com | Robinhood Presents: HOOD Summit ‘26 - Engines of Creation
+  - 2026-08-10 | finance.yahoo.com | Robinhood Launches Crypto Trading in the UK
+  - 2026-08-10 | finance.yahoo.com | Not Robinhood, Not Fidelity: JD Power Says This Brokerage Leads In DIY Investor Customer Satisfaction
+  - 2026-08-10 | www.tikr.com | Robinhood Just Turned Private-Market Access Into a Product. Here’s Where the Stock Could Go
+  - 2026-08-10 | finance.yahoo.com | HOOD Stock Alert: Robinhood Set to Launch Crypto Trading in UK This Week
+  - 2026-08-10 | fintech.global | Robinhood brings zero-fee digital asset trading to UK
+  - 2026-08-10 | www.theblock.co | Robinhood brings crypto trading to main UK app through Bitstamp
+  - 2026-08-10 | www.bloomberg.com | Robinhood to Offer Access to Crypto Trading in UK From This Week
+  - 2026-08-10 | www.moomoo.com | Robinhood Options Spot-On: On August 10th, 128.89K Contracts Were Traded, With 1.81 Million Open Interest
+  - 2026-08-10 | seekingalpha.com | Robinhood to launch crypto trading in the UK this week (HOOD:NASDAQ)
+  - 2026-08-10 | www.ledger.com | Robinhood Chain & Ledger: How to Send, Receive & Secure Your Assets
+  - 2026-08-09 | seekingalpha.com | Robinhood Ventures Fund II: Y Combinator To The Masses (Pending:RVII)
+What to write for E1:
+  Write "high": for each chance 10, 25, 50, 75 and 90, the level you give that chance of being reached (at or above) within the period. The 10 level is the highest.
+  Write "low": for each chance 10, 25, 50, 75 and 90, the level you give that chance of being reached (at or below) within the period. The 10 level is the lowest.
+
+=== E2 (as of 2026-06-24): Bitcoin price on June 27?
+Rules:
+This market will resolve according to the final "Close" price of the Binance 1 minute candle for BTC/USDT 12:00 in the ET timezone (noon) on the date specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the BTC/USDT "Close" prices currently available at https://www.binance.com/en/trade/BTC_USDT with "1m" and "Candles" selected on the top bar.
+
+If the reported value falls exactly between two brackets, then this market will resolve to the higher range bracket.
+
+Please note that this market is about the price according to Binance BTC/USDT, not according to other exchanges or trading pairs.
+Contracts:
+  E2.C1: Will the price of Bitcoin be less than $56,000 on June 27?
+  E2.C2: Will the price of Bitcoin be between $56,000 and $58,000 on June 27?
+  E2.C3: Will the price of Bitcoin be between $58,000 and $60,000 on June 27?
+  E2.C4: Will the price of Bitcoin be between $60,000 and $62,000 on June 27?
+  E2.C5: Will the price of Bitcoin be between $62,000 and $64,000 on June 27?
+  E2.C6: Will the price of Bitcoin be between $64,000 and $66,000 on June 27?
+  E2.C7: Will the price of Bitcoin be between $66,000 and $68,000 on June 27?
+  E2.C8: Will the price of Bitcoin be between $68,000 and $70,000 on June 27?
+  E2.C9: Will the price of Bitcoin be between $70,000 and $72,000 on June 27?
+  E2.C10: Will the price of Bitcoin be between $72,000 and $74,000 on June 27?
+  E2.C11: Will the price of Bitcoin be greater than $74,000 on June 27?
+News before E2's as-of date (date seen, source, headline):
+  - 2026-06-24 | www.cnbc.com | Bitcoin falls back under $60,000, hitting its lowest level since October 2024
+  - 2026-06-24 | bitcoinfoundation.org | Top 5 Crazy Bitcoin Price Predictions 2026: Will BTC Hit $1M?
+  - 2026-06-24 | finance.yahoo.com | Bitcoin slips below $60,000 as token struggles to recover
+  - 2026-06-24 | finance.yahoo.com | Bitcoin Price Forecast Suggests More Downside May Be on the Horizon
+  - 2026-06-24 | bitcoinfoundation.org | Bitcoin Price Waits for PCE as Fed and Iran Risks Keep Market Stuck
+  - 2026-06-24 | www.coindesk.com | Bitcoin could fall to $55,000 before finding a bottom, 10x Research says
+  - 2026-06-24 | www.marketsmedia.com | Clear Street Executes 1st Bitcoin DR Trade via Prime Broker
+  - 2026-06-24 | bitcoinmagazine.com | Bitcoin Price Crashes Toward $61,000 as Bloodbath Engulfs Crypto Stocks
+  - 2026-06-24 | www.coindesk.com | Gold, silver and bitcoin tumble as 'debasement' trade unwinds
+  - 2026-06-24 | www.coindesk.com | Michael Saylor's MSTR should pause its bitcoin (BTC) buying and rebuild cash
+  - 2026-06-24 | www.ft.com | Bitcoin hits 20-month low as market sentiment sours
+  - 2026-06-24 | www.pymnts.com | Bitcoin Drops Below $60,000 as Retail Traders Flee to AI Stocks
+  - 2026-06-24 | bitcoinmagazine.com | Bitcoin Price Collapses to $59,000 — and the Worst May Not Be Over
+  - 2026-06-24 | www.barrons.com | Bitcoin Is In Freefall, and It’s Taking Strategy, Other Crypto Stocks With It
+  - 2026-06-24 | www.coindesk.com | Bitcoin just broke below the floor of its famous Rainbow Chart into the ‘BTC is dead’ zone
+  - 2026-06-24 | es.tradingview.com | Top 10 Biggest Bitcoin Crashes in History
+  - 2026-06-23 | www.in.gov | Cybersecurity - Blogs: Bitcoin ATMs - Dark Side of Cryptocurrency
+  - 2026-06-23 | bitcoinfoundation.org | Adam Back: Bitcoin Will Reach $500K-$1M by 2028 With No New Catalysts
+  - 2026-06-23 | finance.yahoo.com | Bitcoin 'vulnerable to further weakness' as token tumbles amid tech rout
+  - 2026-06-23 | finance.yahoo.com | Arthur Hayes and Adam Back Say Bitcoin Will Hit $1M — Why Are They So Convinced?
+  - 2026-06-23 | www.coindesk.com | Bitcoin price analysis: BTC may be close to a bottom. Here's why.
+  - 2026-06-23 | bitcoinfoundation.org | Bitcoin Rally May Catch Stocks If Rate Fears Fade, Grayscale Says
+  - 2026-06-23 | mashable.com | Save 60% on this desktop Bitcoin miner that’s smaller than a deck of cards
+  - 2026-06-23 | fortune.com | Current price of Bitcoin for June 23, 2026
+  - 2026-06-23 | www.coindesk.com | Bitcoin forecast: btc may need to drop below $53,500 before a sustainable bottom forms
+What to write for E2:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E3 (as of 2026-05-27): What price will XRP hit May 25-31?
+Rules:
+What price will XRP hit May 25-31?
+Contracts:
+  E3.C1: Will XRP reach $2.00 May 25-31?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1-minute candle for XRP/USDT during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "High" price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the XRP/USDT "High" prices available at https://www.binance.com/en/trade/XRP_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance XRP/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E3.C2: Will XRP reach $1.90 May 25-31?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1-minute candle for XRP/USDT during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "High" price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the XRP/USDT "High" prices available at https://www.binance.com/en/trade/XRP_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance XRP/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E3.C3: Will XRP reach $1.80 May 25-31?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1-minute candle for XRP/USDT during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "High" price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the XRP/USDT "High" prices available at https://www.binance.com/en/trade/XRP_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance XRP/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E3.C4: Will XRP reach $1.70 May 25-31?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1-minute candle for XRP/USDT during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "High" price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the XRP/USDT "High" prices available at https://www.binance.com/en/trade/XRP_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance XRP/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E3.C5: Will XRP reach $1.60 May 25-31?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1-minute candle for XRP/USDT during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "High" price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the XRP/USDT "High" prices available at https://www.binance.com/en/trade/XRP_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance XRP/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E3.C6: Will XRP reach $1.50 May 25-31?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1-minute candle for XRP/USDT during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "High" price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the XRP/USDT "High" prices available at https://www.binance.com/en/trade/XRP_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance XRP/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E3.C7: Will XRP reach $1.40 May 25-31?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1-minute candle for XRP/USDT during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "High" price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the XRP/USDT "High" prices available at https://www.binance.com/en/trade/XRP_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance XRP/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E3.C8: Will XRP dip to $1.20 May 25-31?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for XRP (XRP/USDT) during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "Low" price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the XRP/USDT "Low" prices available at https://www.binance.com/en/trade/XRP_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance XRP/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E3.C9: Will XRP dip to $1.10 May 25-31?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for XRP (XRP/USDT) during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "Low" price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the XRP/USDT "Low" prices available at https://www.binance.com/en/trade/XRP_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance XRP/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E3.C10: Will XRP dip to $1.00 May 25-31?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for XRP (XRP/USDT) during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "Low" price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the XRP/USDT "Low" prices available at https://www.binance.com/en/trade/XRP_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance XRP/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E3.C11: Will XRP dip to $0.90 May 25-31?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for XRP (XRP/USDT) during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "Low" price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the XRP/USDT "Low" prices available at https://www.binance.com/en/trade/XRP_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance XRP/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E3.C12: Will XRP dip to $0.80 May 25-31?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for XRP (XRP/USDT) during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "Low" price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the XRP/USDT "Low" prices available at https://www.binance.com/en/trade/XRP_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance XRP/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E3.C13: Will XRP dip to $0.70 May 25-31?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for XRP (XRP/USDT) during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "Low" price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the XRP/USDT "Low" prices available at https://www.binance.com/en/trade/XRP_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance XRP/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E3.C14: Will XRP dip to $0.60 May 25-31?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for XRP (XRP/USDT) during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "Low" price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the XRP/USDT "Low" prices available at https://www.binance.com/en/trade/XRP_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance XRP/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+News before E3's as-of date (date seen, source, headline):
+  - 2026-05-27 | finance.yahoo.com | Will XRP Ever Skyrocket? What Conditions Would Trigger It
+  - 2026-05-27 | 247wallst.com | How Will the CLARITY Act Actually Change XRP’s Long-Term Price?
+  - 2026-05-27 | 247wallst.com | Is XRP (Ripple) Worth Buying Right Now?
+  - 2026-05-27 | www.coindesk.com | XRP price analysis: Ripple-linked token steadies near $1.32 after failed breakout
+  - 2026-05-27 | www.tradingview.com | XRP Pushing To $100: The Market Cap Conversation Will Go Out The Window If This Happens
+  - 2026-05-27 | www.tradingview.com | Here’s why the XRP price is in a deep dive today
+  - 2026-05-27 | 247wallst.com | XRP Price Analysis: XRP’s Liquidity on Binance Just Hit a 5-Year Low
+  - 2026-05-27 | cryptoslate.com | Ripple is expanding institutional finance ambitions while XRP traders are losing confidence
+  - 2026-05-27 | www.tradingview.com | Hedging With XRP: The Trillion-Dollar Push That Could Send Price Above $300
+  - 2026-05-27 | www.tradingview.com | Will XRP Price Ever Reach $200? Top Expert Discloses What Must Happen First
+  - 2026-05-27 | 247wallst.com | XRP ETF Inflows Just Hit a 2026 High: Is a Price Surge Coming?
+  - 2026-05-27 | www.thestreet.com | XRP traders withdraw millions of dollars in 24 hours
+  - 2026-05-27 | coinpedia.org | XRP Price Prediction: Why a Surprise Rebound Could Be Near
+  - 2026-05-26 | 247wallst.com | Can XRP Hit $200? What Has To Change In Crypto For It To Happen
+  - 2026-05-26 | finance.yahoo.com | Is XRP Still Worth Buying at Today's Price?
+  - 2026-05-26 | finance.yahoo.com | RLUSD Just Crossed $1.6 Billion Market Cap: Here’s Why It’s Not Helping XRP
+  - 2026-05-26 | www.coindesk.com | XRP news: Ripple-linked blockchain could close its biggest DeFi gap if new proposal passes
+  - 2026-05-26 | www.coindesk.com | XRP slips below $1.35 after triangle breakdown puts focus on $1.30 support
+  - 2026-05-26 | 247wallst.com | What 10,000 XRP Could Be Worth by 2028
+  - 2026-05-26 | www.tradingview.com | XRP’s Utility Narrative Extends Beyond Conventional Market Cap Metrics
+  - 2026-05-26 | 247wallst.com | Ripple (XRP) Just Filed Trademarks That Show It’s Becoming a Full Financial Institution
+  - 2026-05-26 | cryptonews.com | Sam Altman ChatGPT AI Predicts XRP Price By End of June 2026
+  - 2026-05-26 | www.tradingview.com | Pundit Points Out Major Mistake Being Made With The XRP Pricing
+  - 2026-05-26 | cryptoticker.io | XRP Price Prediction: Ripple Signals a Violent Reversal Toward the $2.50 Target
+  - 2026-05-26 | 247wallst.com | We Asked 4 AI Models If $10,000 In XRP Beats $10,000 In Nvidia by 2030
+What to write for E3:
+  Write "high": for each chance 10, 25, 50, 75 and 90, the level you give that chance of being reached (at or above) within the period. The 10 level is the highest.
+  Write "low": for each chance 10, 25, 50, 75 and 90, the level you give that chance of being reached (at or below) within the period. The 10 level is the lowest.
+
+=== E4 (as of 2026-04-29): Solana price on April 30?
+Rules:
+This market will resolve according to the final "Close" price of the Binance 1 minute candle for SOL/USDT 12:00 in the ET timezone (noon) on the date specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the SOL/USDT "Close" prices currently available at https://www.binance.com/en/trade/SOL_USDT with "1m" and "Candles" selected on the top bar.
+
+If the reported value falls exactly between two brackets, then this market will resolve to the higher range bracket.
+
+Please note that this market is about the price according to Binance SOL/USDT, not according to other exchanges or trading pairs.
+Contracts:
+  E4.C1: Will the price of Solana be less than $40 on April 30?
+  E4.C2: Will the price of Solana be between $40 and $50 on April 30?
+  E4.C3: Will the price of Solana be between $50 and $60 on April 30?
+  E4.C4: Will the price of Solana be between $60 and $70 on April 30?
+  E4.C5: Will the price of Solana be between $70 and $80 on April 30?
+  E4.C6: Will the price of Solana be between $80 and $90 on April 30?
+  E4.C7: Will the price of Solana be between $90 and $100 on April 30?
+  E4.C8: Will the price of Solana be between $100 and $110 on April 30?
+  E4.C9: Will the price of Solana be between $110 and $120 on April 30?
+  E4.C10: Will the price of Solana be between $120 and $130 on April 30?
+  E4.C11: Will the price of Solana be greater than $130 on April 30?
+News before E4's as-of date (date seen, source, headline):
+  - 2026-04-29 | www.fool.com | What Is Solana (SOL)?
+  - 2026-04-29 | www.theblock.co | Meta begins offering USDC creator payouts to crypto wallets on Solana and Polygon blockchains
+  - 2026-04-29 | www.tradingview.com | SOL price drops towards $83 as Solana ETF flows dwindle
+  - 2026-04-29 | www.theblock.co | Solana Ventures leads $18 million round in Squads to scale its stablecoin platform Altitude
+  - 2026-04-29 | www.tradingview.com | Western Union’s Solana Move Signals A Shift In Global Payment Infrastructure
+  - 2026-04-29 | yellow.com | SOL Slides Below $85 As $2.1B In Stablecoins Sit Idle On Solana Network
+  - 2026-04-29 | 99bitcoins.com | Solana Price Forecast: SOL USD Trading Below $85 – What Next?
+  - 2026-04-29 | www.coindesk.com | Meta (META) starts stablecoin payout to creators in Circle's USDC on Polygon, Solana via Stripe
+  - 2026-04-29 | 247wallst.com | Why Are Bitcoin, XRP, Ethereum, and Solana Sliding This Week?
+  - 2026-04-29 | cryptonews.com | Solana Is Failing to Reclaim $86 as ETF Flows Dry Up: Is the Channel Floor at $77 the Next Stop?
+  - 2026-04-29 | decrypt.co | Meta Launches USDC Stablecoin Creator Payouts on Solana and Polygon via Stripe
+  - 2026-04-29 | www.blockhead.co | Solana's Degenerate Season Fades as ETF Dreams Face Regulatory Headwinds
+  - 2026-04-29 | startupfortune.com | Solana Mobile and RadiantsDAO just showed what crypto-native apps can do on a phone
+  - 2026-04-29 | cryptonews.net | Solana multisig protocol Squads raises 18M USD to scale stablecoin platform Altitude
+  - 2026-04-29 | startupfortune.com | Solana's Pudgy Penguins post turned a meme brand into a live token marketing moment
+  - 2026-04-29 | crypto.news | Meta taps USDC to power creator payments through Solana and Polygon
+  - 2026-04-28 | bitcoinfoundation.org | Israel Clears First Regulated Shekel Stablecoin on Solana
+  - 2026-04-28 | thecoastnews.com | Solana Beach outlines projects, goals for upcoming work plan
+  - 2026-04-28 | bitcoinfoundation.org | Chiliz Coin Declines 5% Amid Expansion to Base, Solana
+  - 2026-04-28 | thecoastnews.com | Del Mar, Solana Beach name joint fire chief, establish management deal
+  - 2026-04-28 | www.coindesk.com | Bitcoin loses $77,000, ether, solana slide as Hormuz standoff lifts oil to 3-week high
+  - 2026-04-28 | www.tradingview.com | Solana Nears Triangle Apex: Is A 10% Breakout Move Coming?
+  - 2026-04-28 | www.coindesk.com | World Cup fever: Chiliz expands to Solana and Base to supercharge fan token trading
+  - 2026-04-28 | www.kucoin.com | Best Solana Memecoins 2026 – High-Potential 100x Crypto Coins to Watch
+  - 2026-04-28 | www.globenewswire.com | Crypto News Today: Varntix Adds 19.7% Fixed Income Pools As Solana (SOL) Price Predictions Underwhelm
+What to write for E4:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E5 (as of 2026-05-27): Ethereum above ___ on June 1?
+Rules:
+This market will resolve to "Yes" if the Binance 1 minute candle for ETH/USDT 12:00 in the ET timezone (noon) on the date specified in the title has a final "Close" price higher than the price specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the ETH/USDT "Close" prices currently available at https://www.binance.com/en/trade/ETH_USDT with "1m" and "Candles" selected on the top bar.
+
+Please note that this market is about the price according to Binance ETH/USDT, not according to other exchanges or trading pairs.
+
+Price precision is determined by the number of decimal places in the source.
+Contracts:
+  E5.C1: Will the price of Ethereum be above $1,600 on June 1?
+  E5.C2: Will the price of Ethereum be above $1,700 on June 1?
+  E5.C3: Will the price of Ethereum be above $1,800 on June 1?
+  E5.C4: Will the price of Ethereum be above $1,900 on June 1?
+  E5.C5: Will the price of Ethereum be above $2,000 on June 1?
+  E5.C6: Will the price of Ethereum be above $2,100 on June 1?
+  E5.C7: Will the price of Ethereum be above $2,200 on June 1?
+  E5.C8: Will the price of Ethereum be above $2,300 on June 1?
+  E5.C9: Will the price of Ethereum be above $2,400 on June 1?
+  E5.C10: Will the price of Ethereum be above $2,500 on June 1?
+  E5.C11: Will the price of Ethereum be above $2,600 on June 1?
+News before E5's as-of date (date seen, source, headline):
+  - 2026-05-27 | finance.yahoo.com | Is It Worth Investing in Ethereum (ETH) Right Now?
+  - 2026-05-27 | fortune.com | Current price of Ethereum for May 27, 2026
+  - 2026-05-27 | finance.yahoo.com | Ethereum Traders Grow Increasingly Bearish as ETFs Bleed, ETH Sinks Near $2,000
+  - 2026-05-27 | finance.yahoo.com | Why Bankless Co-Founder Sold His Entire Ethereum Portfolio
+  - 2026-05-27 | bitcoinfoundation.org | “ETH Is Money” Played Out: David Hoffman Fully Sold His Ethereum
+  - 2026-05-27 | cryptoslate.com | Ethereum’s privacy push faces a 12-month deadline as markets reward privacy-first assets
+  - 2026-05-27 | www.ccn.com | Ethereum Price to $100,000? Bankless Founder’s ETH Sale Thesis Gets Bullish Pushback
+  - 2026-05-27 | www.tradingview.com | Bankless Co-Founder Explains Why He Sold All His Ethereum
+  - 2026-05-26 | fortune.com | Current price of Ethereum for May 26, 2026
+  - 2026-05-26 | bitcoinfoundation.org | Why Is Ethereum Price Still Dropping? ETH Technical Analysis & Market Outlook
+  - 2026-05-26 | finance.yahoo.com | How Much Is 1 Ethereum Going to Be Worth After Glamsterdam?
+  - 2026-05-26 | finance.yahoo.com | Bitcoin and ethereum prices today, Tuesday, May 26, 2026: Prices hold despite U.S.-Israel airstrikes
+  - 2026-05-26 | finance.yahoo.com | Tom Lee's BitMine Makes Biggest Ethereum Buy Yet in 2026
+  - 2026-05-26 | bitcoinfoundation.org | Strategy and BitMine Pause Bitcoin and Ethereum Purchases
+  - 2026-05-26 | 247wallst.com | Could Ethereum Lose Its Number 2 Crypto Position by 2030?
+  - 2026-05-26 | www.theblock.co | Bitmine capitalizes on Ethereum price drop, buys over 100,000 ETH as 5% supply goal nears
+  - 2026-05-26 | www.tradingview.com | Hyperliquid introduces native options for Ethereum on its platform
+  - 2026-05-26 | www.tradingview.com | Ethereum Staking Record Meets On-Chain Collapse: Analyst Explains What’s Holding ETH Price
+  - 2026-05-26 | seekingalpha.com | Bitcoin's (BTC-USD) Upside Signal Faded; Ethereum (ETH-USD) Remains The Fragile Side
+  - 2026-05-26 | www.tradingview.com | Ethereum Price Buying Pressure Softens, Traders Turn Increasingly Cautious
+  - 2026-05-25 | bitcoinfoundation.org | Ethereum’s Glamsterdam: A Complete Guide to Ethereum’s Upcoming Upgrade
+  - 2026-05-25 | finance.yahoo.com | BitMine Purchases 60,000 Ethereum As Price Languishes
+  - 2026-05-25 | finance.yahoo.com | Ethereum Foundation To Shrink In Size, Says ETH Co-Founder
+  - 2026-05-25 | www.theblock.co | Facet co-founder pitches EIP-8182 private transfers for inclusion in Ethereum's Hegota upgrade
+  - 2026-05-25 | www.coindesk.com | Vitalik Buterin breaks silence about Ethereum Foundation amid community frustration
+What to write for E5:
+  Write "levels": for each chance 10, 25, 50, 75 and 90, the level you give that chance of the measured quantity being at or above when it resolves. The 10 level is the highest and the 90 level the lowest. Example: {"10": 120, "25": 110, "50": 100, "75": 92, "90": 85}.
+
+=== E6 (as of 2026-07-15): Danaher (DHR) Q2 non-GAAP core revenue growth __?
+Rules:
+This market will resolve according to Danaher's non-GAAP core revenue growth (year-over-year) for the upcoming second fiscal quarter, as reported in its official company earnings materials.
+
+The specified metric will be considered as reported in the company's official earnings materials. Subsequent revisions will not be considered.
+
+If the specified company's official earnings materials for the specified quarter are released, and the specified metric is not included, this market will resolve to the lowest bracket.
+
+If the specified company does not release quarterly earnings materials for the specified quarter by August 31, 2026, 11:59 PM ET, this market will resolve to the lowest bracket.
+
+If the reported value falls exactly between two brackets, this market will resolve to the higher range bracket.
+
+If the specified metric is reported as a range rather than a specific number, the midpoint of the range will be used for resolution of this market.
+
+The resolution source for this market is the specified company's official earnings materials, including press releases, investor presentations, and regulatory filings. If the specified metric is not reported in these materials, recordings or transcripts of the company's earnings webcast may also be used.
+
+Note: This market will resolve based on the most numerically precise version of the specified metric reported in the company's official earnings materials. Only the specified metric will be considered; alternate versions that differ in definition or scope from the specified metric will not be considered.
+Contracts:
+  E6.C1: Danaher (DHR) Q2 non-GAAP core revenue growth <0%?
+  E6.C2: Danaher (DHR) Q2 non-GAAP core revenue growth 0%-1.5%?
+  E6.C3: Danaher (DHR) Q2 non-GAAP core revenue growth 1.5%-3%?
+  E6.C4: Danaher (DHR) Q2 non-GAAP core revenue growth 3%-4.5%?
+  E6.C5: Danaher (DHR) Q2 non-GAAP core revenue growth 4.5%+?
+News before E6's as-of date (date seen, source, headline):
+  - 2026-07-14 | finance.yahoo.com | Danaher (DHR) Reports Next Week: Wall Street Expects Earnings Growth
+  - 2026-07-14 | www.dars.gov.et | Danaher (DHR) Holds Steady Near $199 as Resistance at $209 Looms - Wedge Breakout
+  - 2026-07-14 | www.dars.gov.et | Danaher (DHR) Holds Steady Near $199 as Resistance at $209 Looms - Short Term Trading Ideas
+  - 2026-07-10 | seekingalpha.com | Danaher Is Getting Better, But The Stock Still Isn't Cheap (NYSE:DHR)
+  - 2026-07-09 | finance.yahoo.com | Danaher (DHR) Wins CE Mark For Access P Tau217 Assay, Is The Stock A Bargain?
+What to write for E6:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).

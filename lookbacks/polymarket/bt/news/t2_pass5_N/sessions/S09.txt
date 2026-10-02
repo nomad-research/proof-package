@@ -1,0 +1,507 @@
+You will be shown 6 questions from a prediction market. Each has one or more contracts that resolve YES or NO under the rules shown. Each question gives the date your view is "as of": answer as you would on that date.
+
+Use what you already know and the news headlines listed under each question, all published in the 7 days before its as-of date. Do not search for or look up anything else: reading this file is the only tool call you may make. There are no prices from any prediction market in this file and you should not try to estimate what any market thinks; give your own view.
+
+Each question says what to write for it. Whole percents run from 1 to 99. Levels are plain numbers in the units the contracts use (for example 95000 for $95,000, 3.25 for 3.25%). Dates are YYYY-MM-DD.
+
+For each question also say whether you recognise how it actually turned out ("recognised": true only if you believe you remember the real outcome; otherwise false).
+
+Reply with one JSON object and nothing else:
+{"events": [{"label": "E1", "recognised": false, ...the fields that question asks for...}]}
+
+=== E1 (as of 2026-08-26): Avg. # of ships transiting Strait of Hormuz end of August?
+Rules:
+This market will resolve according to the finalized 7-day moving average of transit calls (“Arrivals of Ships”) for the Strait of Hormuz that IMF Portwatch reports for August 31, 2026.
+
+If the reported value falls exactly between two brackets, this market will resolve to the higher range bracket.
+
+Transit calls include container, dry bulk, roll-on/roll-off, general cargo, and tanker ships. Ships not reported by IMF Portwatch will not be considered.
+
+Data for a specific date must be finalized before it is considered for this market (namely, once the next date's data point is available, the previous one is finalized).
+
+This market will resolve as soon as the relevant data has been finalized. If the data for the specified date has not been finalized by the end of the third calendar day (ET) after the day on which such data is released, this market will resolve based on data published up to that point. Additionally, if the relevant data is not released and finalized within 14 calendar days of the specified date, this market will resolve based on the most recent data published up to that point.
+
+In case of obvious data integrity issues (i.e., erroneous data), the market may remain open until the end of the third calendar day (ET) after the date on which such data is first released to allow for corrections. Data integrity issues refer only to clerical or other similar errors in the underlying data, and do not include cases where IMF Portwatch differs from alternative sources.
+
+Only revisions to previously published data points made before the applicable resolution time will be considered.
+
+The resolution source for this market will be IMF Portwatch, specifically the transit calls data published for the Strait of Hormuz at https://portwatch.imf.org/pages/cb5856222a5b4105adc6ee7e880a1730, both in the chart and through downloadable files.
+Contracts:
+  E1.C1: Will there be between 0 and 20 average daily transits of the Strait of Hormuz on August 31?
+  E1.C2: Will there be between 20 and 40 average daily transits of the Strait of Hormuz on August 31?
+  E1.C3: Will there be between 40 and 60 average daily transits of the Strait of Hormuz on August 31?
+  E1.C4: Will there be between 60 and 80 average daily transits of the Strait of Hormuz on August 31?
+  E1.C5: Will there be 80 or more average daily transits of the Strait of Hormuz on August 31?
+News before E1's as-of date (date seen, source, headline):
+  - 2026-08-26 | www.theguardian.com | Iran faces strait of Hormuz paradox as strategic value of chokehold erodes
+  - 2026-08-26 | www.csis.org | Pakistan’s LNG Imports Under Pressure: Impacts of the Strait of Hormuz’s Closure and Pakistan’s Diplomatic Response
+  - 2026-08-26 | www.reuters.com | Gulf ship traffic via Strait of Hormuz hovers below 10-day average, data shows
+  - 2026-08-26 | thehill.com | Iran, Oman planning temporary corridor through Strait of Hormuz
+  - 2026-08-26 | www.reuters.com | Iran and Oman still working on Strait of Hormuz accord, says senior Iranian source
+  - 2026-08-26 | www.washingtontimes.com | Iran says the Strait of Hormuz stays closed until the U.S. meets its terms
+  - 2026-08-26 | www.bloomberg.com | Iran, Oman Agree to Share Strait of Hormuz Revenue
+  - 2026-08-26 | www.jpost.com | Gaps remain between Iran, Oman on Strait of Hormuz deal
+  - 2026-08-26 | 8am.media | Iran and Oman Reach Agreement Over Strait of Hormuz
+  - 2026-08-26 | energynow.com | Oil Prices Slide on Growing Hopes for Strait of Hormuz Reopening
+  - 2026-08-26 | www.cbsnews.com | Iran and Oman near a temporary deal on the Strait of Hormuz
+  - 2026-08-26 | www.africanews.com | Iran, Oman agree temporary Strait of Hormuz corridor
+  - 2026-08-26 | www.aa.com.tr | Top diplomats of Japan, Kuwait discuss reopening Strait of Hormuz amid US-Iran tensions
+  - 2026-08-26 | 8am.media | Iranian Official: Understanding with Oman Does Not Mean the Strait of Hormuz Is Open
+  - 2026-08-26 | www.bloomberg.com | Watch Strait of Hormuz Deal? Iran, Oman Discuss 'Interim' Reopening of Vital Shipping Corridor
+  - 2026-08-26 | www.ndtv.com | Iran And Oman Agree To Share Revenues From Strait Of Hormuz
+  - 2026-08-26 | nypost.com | Iran, Oman to share revenue from Strait of Hormuz deal, IRGC says
+  - 2026-08-26 | 8am.media | Iran and Oman Discuss Establishing Temporary Shipping Route in Strait of Hormuz
+  - 2026-08-25 | www.aljazeera.com | Iran, Oman discuss temporary shipping lane through Strait of Hormuz
+  - 2026-08-25 | apnews.com | Iran and Oman hold talks on managing the Strait of Hormuz and other news from around the Middle East
+  - 2026-08-25 | www.bloomberg.com | Watch Oil Analysis: How the World and Energy Markets Adapted to the Strait of Hormuz Crisis
+  - 2026-08-25 | www.france24.com | Trump says Strait of Hormuz demined, warns of ‘zero tolerance’ for new mines
+  - 2026-08-25 | www.axios.com | Trump: Mines fully removed from Strait of Hormuz
+  - 2026-08-25 | iranwire.com | Tanker Attack and Traffic Collapse Escalate Strait of Hormuz Crisis
+  - 2026-08-25 | www.reuters.com | Trump says Strait of Hormuz has been demined, warns Iran not to plant more
+What to write for E1:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E2 (as of 2026-09-23): What will Robinhood Markets, Inc. (HOOD) hit Week of September 21 2026?
+Rules:
+What will Robinhood Markets, Inc. (HOOD) hit Week of September 21 2026?
+Contracts:
+  E2.C1: Will Robinhood Markets, Inc. (HOOD) hit (HIGH) $137.50 Week of September 21 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of September 21 2026, any 1-minute candle for Robinhood Markets, Inc. (HOOD) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Robinhood Markets, Inc. (HOOD) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.HOOD%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.HOOD%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E2.C2: Will Robinhood Markets, Inc. (HOOD) hit (HIGH) $135 Week of September 21 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of September 21 2026, any 1-minute candle for Robinhood Markets, Inc. (HOOD) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Robinhood Markets, Inc. (HOOD) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.HOOD%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.HOOD%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E2.C3: Will Robinhood Markets, Inc. (HOOD) hit (HIGH) $132.50 Week of September 21 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of September 21 2026, any 1-minute candle for Robinhood Markets, Inc. (HOOD) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Robinhood Markets, Inc. (HOOD) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.HOOD%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.HOOD%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E2.C4: Will Robinhood Markets, Inc. (HOOD) hit (HIGH) $130 Week of September 21 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of September 21 2026, any 1-minute candle for Robinhood Markets, Inc. (HOOD) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Robinhood Markets, Inc. (HOOD) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.HOOD%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.HOOD%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E2.C5: Will Robinhood Markets, Inc. (HOOD) hit (HIGH) $127.50 Week of September 21 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of September 21 2026, any 1-minute candle for Robinhood Markets, Inc. (HOOD) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Robinhood Markets, Inc. (HOOD) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.HOOD%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.HOOD%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E2.C6: Will Robinhood Markets, Inc. (HOOD) hit (LOW) $117.50 Week of September 21 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of September 21 2026, any 1-minute candle for Robinhood Markets, Inc. (HOOD) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Robinhood Markets, Inc. (HOOD) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.HOOD%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.HOOD%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E2.C7: Will Robinhood Markets, Inc. (HOOD) hit (LOW) $115 Week of September 21 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of September 21 2026, any 1-minute candle for Robinhood Markets, Inc. (HOOD) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Robinhood Markets, Inc. (HOOD) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.HOOD%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.HOOD%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E2.C8: Will Robinhood Markets, Inc. (HOOD) hit (LOW) $112.50 Week of September 21 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of September 21 2026, any 1-minute candle for Robinhood Markets, Inc. (HOOD) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Robinhood Markets, Inc. (HOOD) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.HOOD%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.HOOD%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E2.C9: Will Robinhood Markets, Inc. (HOOD) hit (LOW) $110 Week of September 21 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of September 21 2026, any 1-minute candle for Robinhood Markets, Inc. (HOOD) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Robinhood Markets, Inc. (HOOD) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.HOOD%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.HOOD%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E2.C10: Will Robinhood Markets, Inc. (HOOD) hit (LOW) $107.50 Week of September 21 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of September 21 2026, any 1-minute candle for Robinhood Markets, Inc. (HOOD) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Robinhood Markets, Inc. (HOOD) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.HOOD%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.HOOD%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E2.C11: Will Robinhood Markets, Inc. (HOOD) hit (LOW) $105 Week of September 21 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of September 21 2026, any 1-minute candle for Robinhood Markets, Inc. (HOOD) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Robinhood Markets, Inc. (HOOD) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.HOOD%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.HOOD%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E2.C12: Will Robinhood Markets, Inc. (HOOD) hit (LOW) $102.50 Week of September 21 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of September 21 2026, any 1-minute candle for Robinhood Markets, Inc. (HOOD) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Robinhood Markets, Inc. (HOOD) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.HOOD%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.HOOD%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E2.C13: Will Robinhood Markets, Inc. (HOOD) hit (LOW) $122.50 Week of September 21 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of September 21 2026, any 1-minute candle for Robinhood Markets, Inc. (HOOD) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Robinhood Markets, Inc. (HOOD) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.HOOD%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.HOOD%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E2.C14: Will Robinhood Markets, Inc. (HOOD) hit (LOW) $120 Week of September 21 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of September 21 2026, any 1-minute candle for Robinhood Markets, Inc. (HOOD) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Robinhood Markets, Inc. (HOOD) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.HOOD%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.HOOD%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+News before E2's as-of date (date seen, source, headline):
+  - 2026-09-23 | finance.yahoo.com | Robinhood Markets, Inc. (HOOD) Sees a More Significant Dip Than Broader Market: Some Facts to Know
+  - 2026-09-21 | finance.yahoo.com | Robinhood Markets, Inc. (HOOD) Recently Broke Out Above the 20-Day Moving Average
+  - 2026-09-18 | www.tradingview.com | Robinhood Markets. Inc Shs A Cert Deposito Arg Repr 0.034483 Sh Actuals & Estimates (BCBA:HOOD.CI)
+  - 2026-09-18 | www.tradingkey.com | Robinhood Markets Inc Stock (HOOD) Moved Up by 7.80% on Sep 18: What Investors Need To Know
+  - 2026-09-16 | finance.yahoo.com | Robinhood Markets, Inc. (HOOD) Falls More Steeply Than Broader Market: What Investors Need to Know
+What to write for E2:
+  Write "high": for each chance 10, 25, 50, 75 and 90, the level you give that chance of being reached (at or above) within the period. The 10 level is the highest.
+  Write "low": for each chance 10, 25, 50, 75 and 90, the level you give that chance of being reached (at or below) within the period. The 10 level is the lowest.
+
+=== E3 (as of 2026-08-12): XRP above ___ on August 18?
+Rules:
+This market will resolve to "Yes" if the Binance 1 minute candle for XRP/USDT 12:00 in the ET timezone (noon) on the date specified in the title has a final "Close" price higher than the price specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the XRP/USDT "Close" prices currently available at https://www.binance.com/en/trade/XRP_USDT with "1m" and "Candles" selected on the top bar.
+
+Please note that this market is about the price according to Binance XRP/USDT, not according to other exchanges or trading pairs.
+
+Price precision is determined by the number of decimal places in the source.
+Contracts:
+  E3.C1: Will the price of XRP be above $0.50 on August 18?
+  E3.C2: Will the price of XRP be above $0.60 on August 18?
+  E3.C3: Will the price of XRP be above $0.70 on August 18?
+  E3.C4: Will the price of XRP be above $0.80 on August 18?
+  E3.C5: Will the price of XRP be above $0.90 on August 18?
+  E3.C6: Will the price of XRP be above $1.00 on August 18?
+  E3.C7: Will the price of XRP be above $1.10 on August 18?
+  E3.C8: Will the price of XRP be above $1.20 on August 18?
+  E3.C9: Will the price of XRP be above $1.30 on August 18?
+  E3.C10: Will the price of XRP be above $1.40 on August 18?
+  E3.C11: Will the price of XRP be above $1.50 on August 18?
+News before E3's as-of date (date seen, source, headline):
+  - 2026-08-12 | finance.yahoo.com | Why XRP Whales Keep Buying as the Price Falls. Is a Bull Rally Coming?
+  - 2026-08-12 | finance.yahoo.com | XRP Price Prediction: $1 Support On Focus After Bridge Hack
+  - 2026-08-12 | finance.yahoo.com | XRP Price Briefly Dropped Below $1 Despite Surging XRP Ledger Activity: Why?
+  - 2026-08-12 | finance.yahoo.com | If You’d Put $10,000 Each Into XRP, Bitcoin, and HYPE in January, Here’s What You’d Have Now
+  - 2026-08-12 | finance.yahoo.com | Coreum Bridge Left With Just 493 XRP After 200,000 XRP Exploit
+  - 2026-08-12 | newscord.org | Attacker Drains Nearly 200,000 XRP From Coreum Bridge After Fake Deposit Trick: 11 outlets compared
+  - 2026-08-12 | www.coindesk.com | XRP bridge drained for $200,000 after software mistook fake deposits for real ones
+  - 2026-08-12 | cryptorank.io | XRP Price Holds $1 as Bridge Exploit Drains Nearly 200,000 XRP
+  - 2026-08-12 | ca.finance.yahoo.com | XRP falls below $1 for first time since Trump's election
+  - 2026-08-12 | finance.biggo.com | XRP Bull Case: Analyst Says $100 Price Target Is 'Inevitable' as Supply Burns
+  - 2026-08-12 | coinpedia.org | XRP News: Why One Analyst Calls XRP ‘Gold With Internet Speed’
+  - 2026-08-12 | www.benzinga.com | XRP Whales Buy the Dip as Futures Open Interest Hits 10-Month High— So Why Is Price Down 6%?
+  - 2026-08-12 | cryptonews.net | XRP Price Could Rally 100% If CLARITY Act Passes by October, Analyst Says
+  - 2026-08-12 | crypto.news | XRP at $1: what derivatives and exchange flows signal
+  - 2026-08-12 | cryptonews.net | XRP Price Prediction For August 12
+  - 2026-08-12 | protos.com | Coreum bridge loses 99.7% of XRP reserve in $200K exploit
+  - 2026-08-12 | cryptoslate.com | 21Shares XRP ETF loses 54% of assets as redemptions lock in $13.4 million loss
+  - 2026-08-12 | cryptorank.io | BRICS’ New Payment Push puts XRP Ledger on the Radar
+  - 2026-08-12 | eciks.org | XRP drops below $1 for first time since 2024 after bridge hack
+  - 2026-08-12 | 247wallst.com | If You'd Put $10,000 Each Into XRP, Bitcoin, and HYPE in January, Here's What You'd Have Now
+  - 2026-08-12 | cryptorank.io | XRP News: Why Aviva Chose the XRP Ledger for Its $30B Liquidity Fund
+  - 2026-08-12 | dmarketforces.com | XRP Climbs As National Bank Of Canada Discloses Holding
+  - 2026-08-12 | finbold.com | XRP Ledger whales holding more than 1 million tokens hit a multi-month peak
+  - 2026-08-12 | www.benzinga.com | Bitcoin, Ethereum, XRP, Dogecoin Sluggish on Unsurprising July Inflation Data
+  - 2026-08-11 | cryptoquant.com | XRP CVD on Binance Remains Negative Despite Strong Price Correlation
+What to write for E3:
+  Write "levels": for each chance 10, 25, 50, 75 and 90, the level you give that chance of the measured quantity being at or above when it resolves. The 10 level is the highest and the 90 level the lowest. Example: {"10": 120, "25": 110, "50": 100, "75": 92, "90": 85}.
+
+=== E4 (as of 2026-08-19): Will Google (GOOGL) finish week of August 17 above___?
+Rules:
+This market will resolve to "Yes" if the Close price for Alphabet Inc. (GOOGL) on the final day of trading of the week specified in the title (normally Friday) is higher than the listed price. Otherwise, this market will resolve to "No."
+
+If the two specified prices are exactly equal, this market will resolve to "No".
+
+Closing prices will be used exactly as published by Pyth, without rounding.
+
+If Alphabet Inc. (GOOGL) does not trade at all during the regular session of the final trading day of the week, the market will resolve 50-50.
+
+For a standard full trading session, the closing price refers to the Pyth "Close" value of the 1-minute candle corresponding to the final minute of regular trading hours on the primary exchange. If the relevant session is shortened (for example, due to a market-holiday schedule), the Pyth "Close" value of the 1-minute candle corresponding to the final minute of that shortened session will be used.
+
+If the relevant day has no valid Pyth Close value for the 1-minute candle corresponding to the end of regular trading hours on the primary exchange, the market will use the last valid Pyth price achieved during the regular trading hours of the primary exchange as the effective closing price. If no valid Pyth price exists for that trading day due to a system outage, data failure, or other technical disruption, the official closing price published by the primary exchange on which the listed security trades will be used to determine the closing price for that day.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed security during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth. The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market will be Pyth, specifically the "Close" values for the relevant 1-minute candle for Alphabet Inc. (GOOGL) available at https://pythdata.app/explore/Equity.US.GOOGL%2FUSD.
+Contracts:
+  E4.C1: Will Google (GOOGL) finish week of August 17 above $315?
+  E4.C2: Will Google (GOOGL) finish week of August 17 above $320?
+  E4.C3: Will Google (GOOGL) finish week of August 17 above $325?
+  E4.C4: Will Google (GOOGL) finish week of August 17 above $330?
+  E4.C5: Will Google (GOOGL) finish week of August 17 above $335?
+  E4.C6: Will Google (GOOGL) finish week of August 17 above $340?
+  E4.C7: Will Google (GOOGL) finish week of August 17 above $345?
+  E4.C8: Will Google (GOOGL) finish week of August 17 above $350?
+  E4.C9: Will Google (GOOGL) finish week of August 17 above $355?
+  E4.C10: Will Google (GOOGL) finish week of August 17 above $360?
+  E4.C11: Will Google (GOOGL) finish week of August 17 above $365?
+  E4.C12: Will Google (GOOGL) finish week of August 17 above $370?
+  E4.C13: Will Google (GOOGL) finish week of August 17 above $375?
+News before E4's as-of date (date seen, source, headline):
+  - 2026-08-19 | news.delaware.gov | Delaware Partners with Google to Expand Digital Skills Training Through Grow with Google
+  - 2026-08-19 | blog.google | What 3 creatives built with unlimited access to Google Flow
+  - 2026-08-19 | www.cnbc.com | Marvell's stock pops 10% on AI chip deal that lets Google buy up to $12.2 billion in shares
+  - 2026-08-19 | www.reuters.com | Marvell gives Google option to buy $12.2 billion stake in custom AI chip deal
+  - 2026-08-19 | blog.youtube | Back to school with YouTube Premium and Google AI Pro
+  - 2026-08-19 | www.wsj.com | Spirit Flight Attendants Fight Google’s Data Bid for AI
+  - 2026-08-19 | www.independent.co.uk | Google is buying up bankrupt Spirit Airlines’ data to feed its AI
+  - 2026-08-19 | arstechnica.com | Flight attendants freaked out that Google is buying tons of Spirit employee data
+  - 2026-08-19 | www.androidcentral.com | Google Pixel 11 Pro and Pro XL review: It didn't have to come to this
+  - 2026-08-19 | www.newson6.com | Google building 506-acre data center campus in Tulsa County
+  - 2026-08-19 | mashable.com | Pixel 11 Pro Fold review: Google is closing the foldable gap
+  - 2026-08-19 | finance.yahoo.com | Broadcom Falls 2% as Google Adds Marvell to Its AI Chip Bench
+  - 2026-08-19 | www.ccjdigital.com | Google Maps Platform Adds Truck & Fleet Navigation Tools
+  - 2026-08-19 | techcrunch.com | Google packs Search and Gemini with new AI study tools
+  - 2026-08-19 | finance.yahoo.com | Broadcom Gets Fresh Google Warning
+  - 2026-08-19 | fortune.com | Ex-Google chief scientist tells Gen Z the trick is not to master AI—instead, just ‘skim papers’
+  - 2026-08-19 | www.barrons.com | Google Buys Spirit Airlines Data as AI Labs Race to Purchase Real-World Information
+  - 2026-08-19 | arstechnica.com | Google Pixel 11 series review: Is the magic fading?
+  - 2026-08-19 | www.nytimes.com | Google’s New Phone Comes With Plenty of A.I. Does Anyone Want That?
+  - 2026-08-19 | finance.yahoo.com | Marvell shares jump as Google warrant deepens AI chip partnership
+  - 2026-08-19 | www.21alivenews.com | Google hosting open house on Fort Wayne data center
+  - 2026-08-18 | www.reuters.com | Google to buy Spirit Airlines business data for $10 million
+  - 2026-08-18 | www.cnn.com | Google is buying all of Spirit Airlines’ data to feed its AI models | CNN Business
+  - 2026-08-18 | www.nytimes.com | Google Just Made It Easier for Campaigns to Send You Fund-Raising Emails
+  - 2026-08-18 | www.reuters.com | US court delays hearing on Google's purchase of Spirit Airlines data as union objects
+What to write for E4:
+  Write "levels": for each chance 10, 25, 50, 75 and 90, the level you give that chance of the measured quantity being at or above when it resolves. The 10 level is the highest and the 90 level the lowest. Example: {"10": 120, "25": 110, "50": 100, "75": 92, "90": 85}.
+
+=== E5 (as of 2026-05-06): Ethereum price on May 6?
+Rules:
+This market will resolve according to the final "Close" price of the Binance 1 minute candle for ETH/USDT 12:00 in the ET timezone (noon) on the date specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the ETH/USDT "Close" prices currently available at https://www.binance.com/en/trade/ETH_USDT with "1m" and "Candles" selected on the top bar.
+
+If the reported value falls exactly between two brackets, then this market will resolve to the higher range bracket.
+
+Please note that this market is about the price according to Binance ETH/USDT, not according to other exchanges or trading pairs.
+Contracts:
+  E5.C1: Will the price of Ethereum be less than $1,800 on May 6?
+  E5.C2: Will the price of Ethereum be between $1,800 and $1,900 on May 6?
+  E5.C3: Will the price of Ethereum be between $1,900 and $2,000 on May 6?
+  E5.C4: Will the price of Ethereum be between $2,000 and $2,100 on May 6?
+  E5.C5: Will the price of Ethereum be between $2,100 and $2,200 on May 6?
+  E5.C6: Will the price of Ethereum be between $2,200 and $2,300 on May 6?
+  E5.C7: Will the price of Ethereum be between $2,300 and $2,400 on May 6?
+  E5.C8: Will the price of Ethereum be between $2,400 and $2,500 on May 6?
+  E5.C9: Will the price of Ethereum be between $2,500 and $2,600 on May 6?
+  E5.C10: Will the price of Ethereum be between $2,600 and $2,700 on May 6?
+  E5.C11: Will the price of Ethereum be greater than $2,700 on May 6?
+News before E5's as-of date (date seen, source, headline):
+  - 2026-05-06 | fortune.com | Current price of Ethereum for May 6, 2026
+  - 2026-05-06 | finance.yahoo.com | Bitcoin and ethereum prices today, Wednesday, May 6, 2026: Prices up; bitcoin at highest level since January
+  - 2026-05-06 | bitcoinfoundation.org | Europe Crypto Tax Guide 2026: EU Rules, Tax Reporting & Compliance for Bitcoin and Ethereum Investors
+  - 2026-05-06 | www.fxstreet.com | Top 3 Price Prediction: Bitcoin, Ethereum, Ripple – Bitcoin eyes $60,000, Ethereum risks $1,750, XRP could test $1
+  - 2026-05-05 | fortune.com | Current price of Ethereum for May 5, 2026
+  - 2026-05-05 | finance.yahoo.com | Bitcoin and ethereum prices today, Tuesday, May 5, 2026: Bitcoin reaches over $81,000, hitting a high last seen in January
+  - 2026-05-05 | www.tradingview.com | Ethereum Price Coiling Tight, Explosive Move Could Trigger Anytime
+  - 2026-05-05 | cryptoslate.com | Ethereum’s biggest staker has just become a public company with over $10 billion locked up
+  - 2026-05-05 | cryptopotato.com | Ethereum Price Analysis: ETH Shows Breakout Signs but Danger Still Looms
+  - 2026-05-05 | beincrypto.com | The 15% Ethereum Rally Hides a Network Problem That Just Reached Exchanges
+  - 2026-05-05 | www.investmentnews.com | BlackRock strategist makes case for adding Bitcoin, Ethereum to portfolios
+  - 2026-05-05 | finbold.com | Trading expert issues new price target for Ethereum
+  - 2026-05-04 | fortune.com | Current price of Ethereum for May 4, 2026
+  - 2026-05-04 | finance.yahoo.com | Bitcoin and ethereum prices today, Monday, May 4, 2026: Bitcoin tops $80,000, then pulls back
+  - 2026-05-04 | www.dlnews.com | Ethereum devs huddled in the Arctic Circle to fix the network. Here’s what to know
+  - 2026-05-04 | finance.yahoo.com | BitMine Buys $240 Million in Ethereum as Tom Lee Heralds Arrival of 'Crypto Spring'
+  - 2026-05-04 | www.tradingview.com | Ethereum nears $2,400 as BitMine’s Tom Lee signals 'crypto spring'
+  - 2026-05-04 | www.benzinga.com | Bitmine Adds 101,745 ETH: How High Can Ethereum Go?
+  - 2026-05-04 | www.tradingview.com | Ethereum holders are back in profit as ETH price chart targets $3K
+  - 2026-05-04 | www.theblock.co | South Korea’s largest crypto exchange Upbit launches Ethereum blockchain with Optimism Foundation support
+  - 2026-05-04 | www.tradingview.com | Market Analyst Predicts Bitcoin And Ethereum Prices For The Next 3 Quarters
+  - 2026-05-04 | www.globenewswire.com | Crypto News: Ethereum Based Crypto Pepeto Presale Announces
+  - 2026-05-04 | coinpedia.org | Ethereum Fails at $2,400 Again: Will $2,300 Decide the Next ETH Price Move?
+  - 2026-05-03 | finance.yahoo.com | Is Ethereum the Generational Wealth Pick for Real‑World Crypto Use?
+  - 2026-05-03 | finance.yahoo.com | Ethereum Exit Queue Explodes 72,000% After DeFi Hack Wave
+What to write for E5:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E6 (as of 2026-06-10): Donald Trump # Truth Social posts June 9 - June 16, 2026?
+Rules:
+This market will resolve according to the number of times Donald Trump (@realDonaldTrump), posts on Truth Social between June 9, 12:00 PM ET and June 16, 2026, 12:00 PM ET.
+
+For the purposes of this market, only main feed posts, quote posts and reposts will count.
+
+Replies will NOT count towards the total - however, replies which are recorded on the main feed will be counted by the tracker.
+
+Deleted posts will count as long as they remain available long enough to be captured by the tracker (~5 minutes).
+
+The resolution source for this market is the "Post Counter" figure for posts found at https://xtracker.polymarket.com. Individual posts can be viewed by clicking "Export Data". If the tracker does not update correctly in accordance with the rules, Truth Social itself may be used as a secondary resolution source.
+Contracts:
+  E6.C1: Will Donald Trump post 20-39 Truth Social posts from June 9 to June 16, 2026?
+  E6.C2: Will Donald Trump post 40-59 Truth Social posts from June 9 to June 16, 2026?
+  E6.C3: Will Donald Trump post 60-79 Truth Social posts from June 9 to June 16, 2026?
+  E6.C4: Will Donald Trump post 80-99 Truth Social posts from June 9 to June 16, 2026?
+  E6.C5: Will Donald Trump post 100-119 Truth Social posts from June 9 to June 16, 2026?
+  E6.C6: Will Donald Trump post 120-139 Truth Social posts from June 9 to June 16, 2026?
+  E6.C7: Will Donald Trump post 140-159 Truth Social posts from June 9 to June 16, 2026?
+  E6.C8: Will Donald Trump post 160-179 Truth Social posts from June 9 to June 16, 2026?
+  E6.C9: Will Donald Trump post 180-199 Truth Social posts from June 9 to June 16, 2026?
+  E6.C10: Will Donald Trump post 200+ Truth Social posts from June 9 to June 16, 2026?
+News before E6's as-of date (date seen, source, headline):
+  - 2026-06-10 | jeffries.house.gov | LEADER JEFFRIES ON MS NOW: “DONALD TRUMP’S RECKLESS AND COSTLY WAR OF CHOICE HAS BEEN A DISASTER FOR THE AMERICAN PEOPLE” – Congressman Hakeem Jeffries
+  - 2026-06-10 | www.mainepublic.org | Donald Trump calls Graham Platner a 'thug' one day after Senate primary victory
+  - 2026-06-10 | www.bbc.com | Donald Trump: 'I love the inflation'
+  - 2026-06-10 | progressive.org | Donald Trump and a Joyless World Cup
+  - 2026-06-09 | yougov.com | A record 63% of Americans disapprove of how Donald Trump is handling the economy
+  - 2026-06-09 | sports.yahoo.com | NBA Finals: President Donald Trump reportedly not expected to attend Game 4, but security zone around MSG will remain in place
+  - 2026-06-09 | sports.yahoo.com | ‘Bad news for the Spurs’: Donald Trump makes decision on NBA Finals Game 4
+  - 2026-06-08 | yougov.com | How popular is Donald Trump in Europe? May 2026
+  - 2026-06-08 | sports.yahoo.com | Donald Trump booed at Madison Square Garden as he makes history as first sitting president to attend NBA Finals game
+  - 2026-06-08 | sports.yahoo.com | Donald Trump-James Dolan friendship, explained: Why president is attending NBA Finals as guest of Knicks owner
+  - 2026-06-07 | www.nbcnews.com | Read the transcript: President Donald Trump interviewed by NBC News’ ‘Meet the Press’ moderator Kristen Welker
+  - 2026-06-07 | jeffries.house.gov | LEADER JEFFRIES ON FOX NEWS: “THIS IS DAY 100 OF DONALD TRUMP’S RECKLESS AND COSTLY WAR OF CHOICE” – Congressman Hakeem Jeffries
+  - 2026-06-07 | www.nbcnews.com | June 7 — President Donald Trump
+  - 2026-06-07 | abc7chicago.com | President Donald Trump pardons Stephen Buyer, former Republican Indiana congressman convicted of insider trading
+  - 2026-06-06 | jeffries.house.gov | LEADER JEFFRIES ON MS NOW:”DONALD TRUMP DOESN’T GIVE A DAMNABOUT THE QUALITY OF LIFEOF THE AMERICAN PEOPLE” – Congressman Hakeem Jeffries
+  - 2026-06-05 | jeffries.house.gov | LEADER JEFFRIES ON CNN: “WHY DOES DONALD TRUMP ALWAYS HAVE TO RUIN A GOOD THING?”
+  - 2026-06-05 | www.bbc.com | Donald Trump unveils $700m 'beautiful, clean coal' investment
+  - 2026-06-05 | apnews.com | Donald Trump, Bernie Sanders and Sam Altman are all talking about public ownership in AI
+  - 2026-06-05 | www.weau.com | President Donald Trump lands at Chippewa Valley Regional Airport
+  - 2026-06-04 | www.nba.com | President Donald Trump to attend Finals game in New York to root for his hometown Knicks
+  - 2026-06-04 | www.citizensforethics.org | Defense IG should investigate $620 million loan to company linked to Donald Trump Jr.
+What to write for E6:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).

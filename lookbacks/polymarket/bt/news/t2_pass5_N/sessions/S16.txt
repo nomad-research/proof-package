@@ -1,0 +1,498 @@
+You will be shown 6 questions from a prediction market. Each has one or more contracts that resolve YES or NO under the rules shown. Each question gives the date your view is "as of": answer as you would on that date.
+
+Use what you already know and the news headlines listed under each question, all published in the 7 days before its as-of date. Do not search for or look up anything else: reading this file is the only tool call you may make. There are no prices from any prediction market in this file and you should not try to estimate what any market thinks; give your own view.
+
+Each question says what to write for it. Whole percents run from 1 to 99. Levels are plain numbers in the units the contracts use (for example 95000 for $95,000, 3.25 for 3.25%). Dates are YYYY-MM-DD.
+
+For each question also say whether you recognise how it actually turned out ("recognised": true only if you believe you remember the real outcome; otherwise false).
+
+Reply with one JSON object and nothing else:
+{"events": [{"label": "E1", "recognised": false, ...the fields that question asks for...}]}
+
+=== E1 (as of 2026-08-05): Ethereum price on August 5?
+Rules:
+This market will resolve according to the final "Close" price of the Binance 1 minute candle for ETH/USDT 12:00 in the ET timezone (noon) on the date specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the ETH/USDT "Close" prices currently available at https://www.binance.com/en/trade/ETH_USDT with "1m" and "Candles" selected on the top bar.
+
+If the reported value falls exactly between two brackets, then this market will resolve to the higher range bracket.
+
+Please note that this market is about the price according to Binance ETH/USDT, not according to other exchanges or trading pairs.
+Contracts:
+  E1.C1: Will the price of Ethereum be less than $1,400 on August 5?
+  E1.C2: Will the price of Ethereum be between $1,400 and $1,500 on August 5?
+  E1.C3: Will the price of Ethereum be between $1,500 and $1,600 on August 5?
+  E1.C4: Will the price of Ethereum be between $1,600 and $1,700 on August 5?
+  E1.C5: Will the price of Ethereum be between $1,700 and $1,800 on August 5?
+  E1.C6: Will the price of Ethereum be between $1,800 and $1,900 on August 5?
+  E1.C7: Will the price of Ethereum be between $1,900 and $2,000 on August 5?
+  E1.C8: Will the price of Ethereum be between $2,000 and $2,100 on August 5?
+  E1.C9: Will the price of Ethereum be between $2,100 and $2,200 on August 5?
+  E1.C10: Will the price of Ethereum be between $2,200 and $2,300 on August 5?
+  E1.C11: Will the price of Ethereum be greater than $2,300 on August 5?
+News before E1's as-of date (date seen, source, headline):
+  - 2026-08-05 | finance.yahoo.com | Bitcoin and ethereum prices today, Wednesday, August 5, 2026: Crypto prices rise as investors watch Hormuz negotiations and jobs report closely
+  - 2026-08-05 | bitcoinfoundation.org | The Ethereum Developer Exodus: Why Builders Are Looking Beyond ETH in 2026
+  - 2026-08-05 | www.altcoinbuzz.io | Ethereum Proposal Could Cut Staking Rewards by 50%
+  - 2026-08-05 | socprime.com | NullReceiver Hides C2 in Blank Ethereum Transfers
+  - 2026-08-05 | www.coindesk.com | New Ethereum proposal would cut issuance to zero if staked ETH reaches $112 billion
+  - 2026-08-05 | cryptorank.io | Why Ethereum Is Underperforming Despite Falling Exchange Reserves
+  - 2026-08-05 | cryptoslate.com | If Ethereum’s proposed 54% reward cut passes, DeFi's favorite loop threatens to become a daily loss machine
+  - 2026-08-05 | 247wallst.com | Why Hasn't XRP Hit New Highs Like Bitcoin and Ethereum Despite Ripple Becoming a Top Financial Institution
+  - 2026-08-04 | www.stepsecurity.io | ChainDrop npm Worm: Bun-loaded CI/CD credential harvester with Ethereum dead-drop C2
+  - 2026-08-04 | fortune.com | Current price of Ethereum for August 4, 2026
+  - 2026-08-04 | finance.yahoo.com | Bitcoin and ethereum prices today, Tuesday, August 4, 2026: Investors closely monitoring Clarity Act progress
+  - 2026-08-04 | www.coindesk.com | XRP holders can now borrow RLUSD on Ethereum through $280 million lending pool
+  - 2026-08-04 | www.theblock.co | Ethereum researchers propose burning validator rewards to cap staking at 50%
+  - 2026-08-04 | www.ccn.com | Ethereum Price at Make-or-Break Point: Will ETH Hold $1,850 or Decline Toward $1,780?
+  - 2026-08-04 | www.theblock.co | BlackRock’s spot Ethereum ETF to undergo 1-for-3 reverse share split in October
+  - 2026-08-04 | www.ccn.com | Ethereum Beat Nasdaq 100 and BTC in July, Tom Lee Highlights — Here’s What He Says Happens in August
+  - 2026-08-04 | www.tradingview.com | Ethereum researchers want to rein in staking; critics say it could backfire
+  - 2026-08-04 | bravenewcoin.com | Ethereum (ETH) Price Prediction: Can Ethereum Clear $1,900 and Extend Its Recovery Towards $1,935?
+  - 2026-08-04 | cryptonews.com | Ethereum Price Prediction: Can ETH USD Break $2,000 In August?
+  - 2026-08-04 | www.crowdfundinsider.com | Bitmine ($BMNR) Reports Ethereum (ETH) Holdings Climb to 5.8 Million Tokens as Combined Crypto, Cash Holdings Hit $11.3B
+  - 2026-08-04 | www.tradingview.com | Ethereum EIP-8361 Targets Staking Growth With New Issuance Burn Proposal
+  - 2026-08-04 | thedefiant.io | New Ethereum Proposal Would Burn Validator Rewards to Kill the Incentive to Stake More
+  - 2026-08-04 | www.fxstreet.com | Ethereum Price Forecast: Open Interest recovers following US-Iran ceasefire
+  - 2026-08-04 | www.tradingview.com | iShares Ethereum Trust ETF approves 1-for-3 reverse split effective Oct. 6, 2026
+  - 2026-08-03 | fortune.com | Current price of Ethereum for August 3, 2026
+What to write for E1:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E2 (as of 2026-08-19): What will Robinhood Markets, Inc. (HOOD) hit Week of August 17 2026?
+Rules:
+What will Robinhood Markets, Inc. (HOOD) hit Week of August 17 2026?
+Contracts:
+  E2.C1: Will Robinhood Markets, Inc. (HOOD) hit (HIGH) $112.50 Week of August 17 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of August 17 2026, any 1-minute candle for Robinhood Markets, Inc. (HOOD) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Robinhood Markets, Inc. (HOOD) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.HOOD%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.HOOD%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E2.C2: Will Robinhood Markets, Inc. (HOOD) hit (HIGH) $110 Week of August 17 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of August 17 2026, any 1-minute candle for Robinhood Markets, Inc. (HOOD) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Robinhood Markets, Inc. (HOOD) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.HOOD%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.HOOD%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E2.C3: Will Robinhood Markets, Inc. (HOOD) hit (HIGH) $107.50 Week of August 17 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of August 17 2026, any 1-minute candle for Robinhood Markets, Inc. (HOOD) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Robinhood Markets, Inc. (HOOD) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.HOOD%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.HOOD%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E2.C4: Will Robinhood Markets, Inc. (HOOD) hit (HIGH) $105 Week of August 17 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of August 17 2026, any 1-minute candle for Robinhood Markets, Inc. (HOOD) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Robinhood Markets, Inc. (HOOD) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.HOOD%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.HOOD%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E2.C5: Will Robinhood Markets, Inc. (HOOD) hit (HIGH) $102.50 Week of August 17 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of August 17 2026, any 1-minute candle for Robinhood Markets, Inc. (HOOD) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Robinhood Markets, Inc. (HOOD) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.HOOD%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.HOOD%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E2.C6: Will Robinhood Markets, Inc. (HOOD) hit (HIGH) $100 Week of August 17 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of August 17 2026, any 1-minute candle for Robinhood Markets, Inc. (HOOD) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Robinhood Markets, Inc. (HOOD) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.HOOD%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.HOOD%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E2.C7: Will Robinhood Markets, Inc. (HOOD) hit (HIGH) $97.50 Week of August 17 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of August 17 2026, any 1-minute candle for Robinhood Markets, Inc. (HOOD) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Robinhood Markets, Inc. (HOOD) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.HOOD%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.HOOD%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E2.C8: Will Robinhood Markets, Inc. (HOOD) hit (LOW) $90 Week of August 17 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of August 17 2026, any 1-minute candle for Robinhood Markets, Inc. (HOOD) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Robinhood Markets, Inc. (HOOD) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.HOOD%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.HOOD%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E2.C9: Will Robinhood Markets, Inc. (HOOD) hit (LOW) $87.50 Week of August 17 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of August 17 2026, any 1-minute candle for Robinhood Markets, Inc. (HOOD) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Robinhood Markets, Inc. (HOOD) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.HOOD%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.HOOD%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E2.C10: Will Robinhood Markets, Inc. (HOOD) hit (LOW) $85 Week of August 17 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of August 17 2026, any 1-minute candle for Robinhood Markets, Inc. (HOOD) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Robinhood Markets, Inc. (HOOD) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.HOOD%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.HOOD%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E2.C11: Will Robinhood Markets, Inc. (HOOD) hit (LOW) $82.50 Week of August 17 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of August 17 2026, any 1-minute candle for Robinhood Markets, Inc. (HOOD) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Robinhood Markets, Inc. (HOOD) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.HOOD%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.HOOD%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E2.C12: Will Robinhood Markets, Inc. (HOOD) hit (LOW) $80 Week of August 17 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of August 17 2026, any 1-minute candle for Robinhood Markets, Inc. (HOOD) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Robinhood Markets, Inc. (HOOD) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.HOOD%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.HOOD%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+News before E2's as-of date (date seen, source, headline):
+  - 2026-08-19 | finance.yahoo.com | Tom Lee Says Avoid Crypto Favorite Robinhood Stock Despite Record Q2 Growth
+  - 2026-08-19 | www.cnbc.com | Robinhood CEO Vlad Tenev: Tokenization will take over the entire financial system
+  - 2026-08-19 | finance.yahoo.com | Robinhood CEO Calls On U.S. To Approve Tokenized Stocks
+  - 2026-08-19 | www.cnbc.com | Tom Lee's top core stock ideas: Avoid Robinhood in 2026
+  - 2026-08-19 | www.businessinsider.com | Trump Accounts will offer primarily S&P 500 ETFs to keep investing simple, Robinhood CEO says
+  - 2026-08-19 | finance.yahoo.com | Experts From Robinhood, Microsoft Research, Binance.US, CNN and CNBC Join NEXTPredict October Summit
+  - 2026-08-19 | www.cnbc.com | Watch CNBC's full interview with Robinhood CEO Vlad Tenev
+  - 2026-08-19 | finance.yahoo.com | Webull Climbs 7% Ahead of Q2 Earnings, Robinhood Gains 7% on Tokenization Push
+  - 2026-08-19 | 247wallst.com | Robinhood CEO: Tokenization Will Enable 24/7 Trading and "Take Over the Entire Financial System"
+  - 2026-08-19 | cryptorank.io | Robinhood News: CEO Vlad Tenev Presses US Regulators on Tokenized Stocks
+  - 2026-08-18 | finance.yahoo.com | Robinhood CEO Vlad Tenev Says ‘Tokenization Supercycle’ Is Just Beginning – As On-Chain Equity Trading Reportedly Hits Record High In 2026
+  - 2026-08-18 | www.cnbc.com | Robinhood’s Steve Quirk: Two weeks of net selling at the end of July
+  - 2026-08-18 | www.coindesk.com | Robinhood CEO urges U.S. to clear path for tokenized stocks as overseas markets advance
+  - 2026-08-18 | www.businesswire.com | TradePMR by Robinhood Integrates with Artha to Offer Scenario Based Optimization and Rebalancing
+  - 2026-08-18 | www.benzinga.com | Why Is Robinhood Stock Falling on Tuesday?
+  - 2026-08-18 | www.cmcmarkets.com | HOOD Stock: How Robinhood Chain Is Leveraging the Tokenisation Revolution
+  - 2026-08-17 | www.wxii12.com | A proposed emergency room along Robinhood Road will be discussed in public hearing Tuesday
+  - 2026-08-17 | finance.yahoo.com | Robinhood's July DATs Rise Y/Y: Is Its Expansion Strategy Working?
+  - 2026-08-17 | www.theblock.co | Robinhood Chain TVL surges 45% in August as tokenized RWAs lose ground
+  - 2026-08-17 | www.zacks.com | Robinhood vs. BGC Group: Which Trading Powerhouse Has the Edge?
+  - 2026-08-17 | cryptoticker.io | Robinhood Chain NFTs: Inside StonkBrokers' 9.95 ETH Floor
+  - 2026-08-15 | ca.finance.yahoo.com | Robinhood Ventures Fund II (RVII) Stock Price, News, Quote & History
+  - 2026-08-15 | www.axios.com | MarginEdge raises $80M; Francisco Partners to buy Moneris; Robinhood Ventures II
+  - 2026-08-15 | upgradedpoints.com | 7 Smart Ways To Use Robinhood Gold Card Virtual Cards
+  - 2026-08-14 | hedgeco.net | Robinhood’s Second Venture BDC Lists at a Discount, Testing Retail Access to Early-Stage Private Markets
+What to write for E2:
+  Write "high": for each chance 10, 25, 50, 75 and 90, the level you give that chance of being reached (at or above) within the period. The 10 level is the highest.
+  Write "low": for each chance 10, 25, 50, 75 and 90, the level you give that chance of being reached (at or below) within the period. The 10 level is the lowest.
+
+=== E3 (as of 2026-04-15): NYC Mayor # posts April 14 - April 21, 2026?
+Rules:
+This market will resolve according to the number of times NYC Mayor Zohran Mamdani (@NYCMayor), posts on X between April 14, 12:00 PM ET and April 21, 2026, 12:00 PM ET.
+
+For the purposes of this market, only main feed posts, quote posts and reposts will count.
+
+Replies will NOT count towards the total - however, replies which are recorded on the main feed will be counted by the tracker.
+
+Deleted posts will count as long as they remain available long enough to be captured by the tracker (~5 minutes).
+
+The resolution source for this market is the "Post Counter" figure for posts found at https://xtracker.polymarket.com. Individual posts can be viewed by clicking "Export Data". If the tracker does not update correctly in accordance with the rules, X itself may be used as a secondary resolution source.
+Contracts:
+  E3.C1: Will NYC Mayor post 0-19 posts from April 14 to April 21, 2026?
+  E3.C2: Will NYC Mayor post 20-39 posts from April 14 to April 21, 2026?
+  E3.C3: Will NYC Mayor post 40-59 posts from April 14 to April 21, 2026?
+  E3.C4: Will NYC Mayor post 60-79 posts from April 14 to April 21, 2026?
+  E3.C5: Will NYC Mayor post 80-99 posts from April 14 to April 21, 2026?
+  E3.C6: Will NYC Mayor post 100-119 posts from April 14 to April 21, 2026?
+  E3.C7: Will NYC Mayor post 120-139 posts from April 14 to April 21, 2026?
+  E3.C8: Will NYC Mayor post 140-159 posts from April 14 to April 21, 2026?
+  E3.C9: Will NYC Mayor post 160-179 posts from April 14 to April 21, 2026?
+  E3.C10: Will NYC Mayor post 180-199 posts from April 14 to April 21, 2026?
+  E3.C11: Will NYC Mayor post 200+ posts from April 14 to April 21, 2026?
+News before E3's as-of date (date seen, source, headline):
+  - 2026-04-15 | wng.org | NYC mayor picks site for $30M city-owned grocery store
+  - 2026-04-15 | www.foxnews.com | 'We're taxing the rich': NYC Mayor Mamdani touts new $500M-a-year tax on luxury second homes
+  - 2026-04-15 | www.foxnews.com | NYC Mayor Mamdani calls threat of rich people leaving NYC over taxes 'imagined'
+  - 2026-04-15 | www.wfmd.com | ‘We’re taxing the rich’: NYC Mayor Mamdani touts new $500M-a-year tax on luxury second homes
+  - 2026-04-15 | pagesix.com | Exclusive | Zohran Mamdani to skip the Met Gala — breaking longstanding NYC mayoral tradition: sources
+  - 2026-04-15 | www.foxnews.com | NYC Mayor Mamdani dismisses 'imagined' wealth exodus from city
+  - 2026-04-14 | www.cbsnews.com | Will NYC Mayor Mamdani's city-run grocery stores be a gimmick or a solution? Depends who you ask.
+  - 2026-04-14 | abc7ny.com | Critics speak out against NYC Mayor Zohran Mamdani's plan for city-run grocery stores
+  - 2026-04-14 | www.c-span.org | NYC Mayor Mamdani Holds News Conference on City-Owned Grocery Stores
+  - 2026-04-14 | www.cbsnews.com | NYC Mayor Mamdani further details city-run grocery stores, says it's "time for a grand experiment"
+  - 2026-04-14 | progressivegrocer.com | NYC Mayor Mamdani Unveils 1st City-Owned Grocery Store Site
+  - 2026-04-13 | abc7ny.com | NYC Mayor Zohran Mamdani proposes major redesign of Brooklyn's Grand Army Plaza to connect it to Prospect Park
+  - 2026-04-13 | www.foxnews.com | NYC mayor touts ‘socialist’ wins in first 100 days alongside Bernie Sanders
+  - 2026-04-13 | www.cbsnews.com | Analysis of NYC Mayor Zohran Mamdani's first 100 days
+  - 2026-04-13 | www.cbsnews.com | Former NYC Mayor Eric Adams becomes an honorary Albanian citizen
+  - 2026-04-13 | www.jns.org | Rabbis give Mamdani failing grade on first 100 days as NYC mayor
+  - 2026-04-13 | www.washingtonexaminer.com | Even socialist NYC mayor Mamdani can’t satisfy the teachers union
+  - 2026-04-13 | www.democracynow.org | Zohran Mamdani Touts Accomplishments After 100 Days as NYC Mayor
+  - 2026-04-13 | www.detroitnews.com | NYC Mayor Mamdani touts ‘pothole politics’ wins in first 100 days in shift of focus from campaign
+  - 2026-04-13 | www.bkreader.com | NYC Mayor Celebrates His First 100 Days With New Proposals
+  - 2026-04-12 | www.cnn.com | Zohran Mamdani celebrates ‘pothole politics’ in a raucous rally marking 100 days as NYC mayor
+  - 2026-04-12 | www.foxnews.com | NYC mayor cites $180K racial wealth gap to justify taxes, police cuts
+  - 2026-04-12 | www.cbsnews.com | Evaluating NYC Mayor Zohran Mamdani's 1st 100 days
+  - 2026-04-12 | lufkindailynews.com | NYC Mayor Zohran Mamdani marks 100 days, vows relentless focus on working class
+  - 2026-04-11 | www.newsday.com | Click-to-cancel subscriptions rule being proposed by NYC Mayor Mamdani
+What to write for E3:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E4 (as of 2026-09-16): Ethereum above ___ on September 21?
+Rules:
+This market will resolve to "Yes" if the Binance 1 minute candle for ETH/USDT 12:00 in the ET timezone (noon) on the date specified in the title has a final "Close" price higher than the price specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the ETH/USDT "Close" prices currently available at https://www.binance.com/en/trade/ETH_USDT with "1m" and "Candles" selected on the top bar.
+
+Please note that this market is about the price according to Binance ETH/USDT, not according to other exchanges or trading pairs.
+
+Price precision is determined by the number of decimal places in the source.
+Contracts:
+  E4.C1: Will the price of Ethereum be above $2,000 on September 21?
+  E4.C2: Will the price of Ethereum be above $2,100 on September 21?
+  E4.C3: Will the price of Ethereum be above $2,200 on September 21?
+  E4.C4: Will the price of Ethereum be above $2,300 on September 21?
+  E4.C5: Will the price of Ethereum be above $2,400 on September 21?
+  E4.C6: Will the price of Ethereum be above $2,500 on September 21?
+  E4.C7: Will the price of Ethereum be above $2,600 on September 21?
+  E4.C8: Will the price of Ethereum be above $2,700 on September 21?
+  E4.C9: Will the price of Ethereum be above $2,800 on September 21?
+  E4.C10: Will the price of Ethereum be above $2,900 on September 21?
+  E4.C11: Will the price of Ethereum be above $3,000 on September 21?
+News before E4's as-of date (date seen, source, headline):
+  - 2026-09-16 | finance.yahoo.com | Ethereum Price Prediction: What Could Ethereum Be Worth Before Q4?
+  - 2026-09-16 | bitcoinfoundation.org | Ethereum Fees Are Collapsing as Layer 2 Grows: Can ETH Still Capture Value?
+  - 2026-09-16 | fortune.com | Current price of Ethereum for September 16, 2026
+  - 2026-09-16 | finance.yahoo.com | Ethereum vs Solana: Which Wins When Wall Street Moves Stocks On-Chain?
+  - 2026-09-16 | finance.yahoo.com | This Ethereum Treasury Company Is Close to Owning 5% of All ETH in Circulation. Does That Make It a Buy?
+  - 2026-09-16 | finance.yahoo.com | XRP or Ethereum: Which Could Fall When the Fed Hikes?
+  - 2026-09-16 | www.coindesk.com | Ethereum, Base give up on common wallet standard after months of talks
+  - 2026-09-16 | markets.businessinsider.com | New Crypto: Pepeto Announces $11.01M Raised While the Ethereum Price Prediction Points to $6,000
+  - 2026-09-16 | www.fool.com | Ethereum's Vitalik Buterin Isn't Worried About AI Breaking Crypto. Here's Why That's Fantastic News For Crypto Investors.
+  - 2026-09-16 | finance.yahoo.com | Ethereum Signals 10% Drop Against Bitcoin Amid CLARITY Act Setback
+  - 2026-09-16 | finance.yahoo.com | The Fed Decides at 2 pm ET Wednesday. What a Hike Does to Bitcoin, XRP and Ethereum the Day After Congress Failed.
+  - 2026-09-16 | crypto.com | Ethereum Price Down 7.6% Following CLARITY Act Failure
+  - 2026-09-16 | 247wallst.com | The CLARITY Act Fails 50 to 49: What's Next for XRP, Bitcoin, Ethereum, and Solana Now That Congress Is Done for the Year?
+  - 2026-09-16 | www.coindesk.com | Circle launched its own blockchain. What happens to Ethereum?
+  - 2026-09-16 | www.tradingview.com | Bitcoin, Ethereum, XRP, Dogecoin Gain After BTC Reserve Bill Advances: Analyst Says He's Not 'Panicking' Despite Rate Hikes — 'Ready for Anything'
+  - 2026-09-16 | www.crowdfundinsider.com | Bitcoin, Ethereum, Tron Transfers Can Vary Significantly Depending on How They’re Counted : BIS
+  - 2026-09-16 | finance.biggo.com | Ethereum Slides Below $2,400 After Senate Rejects CLARITY Act, Testing Key Support Ahead of Fed
+  - 2026-09-16 | www.fxstreet.com | Top 3 Price Prediction: Bitcoin, Ethereum, Ripple – BTC, ETH and XRP retreat as Fed rate decision looms
+  - 2026-09-15 | www.crowdfundinsider.com | Zama Extends Confidential Morpho Vaults, Adds Private Swaps On Ethereum
+  - 2026-09-15 | www.forbes.com | Bitcoin, Ethereum And Other Major Cryptocurrencies Tumble As CLARITY Act Fails
+  - 2026-09-15 | 247wallst.com | Ethereum Price Prediction: How High Will Ethereum Go in 2026?
+  - 2026-09-15 | fortune.com | Current price of Ethereum for Sept. 15, 2026
+  - 2026-09-15 | finance.yahoo.com | Ethereum’s Q2 Data Reveals a Widening User Activity Gap
+  - 2026-09-15 | 247wallst.com | Is Ethereum a Good Investment Right Now? It's Down 16% This Year and Up 33% This Month
+  - 2026-09-15 | finance.yahoo.com | Can Ethereum Hit $3,000 This Month? The Last Time This Pattern Formed, It Rallied 31% in Three Days
+What to write for E4:
+  Write "levels": for each chance 10, 25, 50, 75 and 90, the level you give that chance of the measured quantity being at or above when it resolves. The 10 level is the highest and the 90 level the lowest. Example: {"10": 120, "25": 110, "50": 100, "75": 92, "90": 85}.
+
+=== E5 (as of 2026-08-05): Clacton by-election Winner
+Rules:
+A by-election for the United Kingdom parliamentary constituency of Clacton is expected to be held soon following the announced resignation of incumbent Nigel Farage.
+
+This market will resolve according to the candidate who wins the Clacton parliamentary by-election.
+
+If the election results are not known definitively by June 30, 2027, 11:59 PM ET, this market will resolve to "Other".
+
+The resolution source for this market will be a consensus of credible reporting. In case of ambiguity, this market will resolve solely based on official election results as published by Tendring District Council (https://www.tendringdc.gov.uk/) and the UK Parliament (https://www.parliament.uk/).
+Contracts:
+  E5.C1: Will Nigel Farage win the Clacton by-election?
+  E5.C2: Will Giles Watling win the Clacton by-election?
+  E5.C3: Will Jovan Owusu-Nepaul win the Clacton by-election?
+  E5.C4: Will Matthew Bensilum win the Clacton by-election?
+  E5.C5: Will Natasha Osben win the Clacton by-election?
+  E5.C6: Will Tony Mack win the Clacton by-election?
+  E5.C7: Will Andrew Pemberton win the Clacton by-election?
+  E5.C8: Will Count Binface win the Clacton by-election?
+  E5.C9: Will William Clouston win the Clacton by-election?
+  E5.C10: Will John Stevens win the Clacton by-election?
+  E5.C11: Will Pamela Walford win the Clacton by-election?
+News before E5's as-of date (date seen, source, headline):
+  - 2026-08-05 | www.bbc.co.uk | The serial candidates standing against Farage in the Clacton by-election
+  - 2026-08-05 | www.independent.co.uk | Clacton by-election: Nigel Farage and Count Binface among record number of candidates in crunch vote
+  - 2026-08-05 | www.thenational.scot | Clacton by-election candidate pulls out after facing 'barrage of threats'
+  - 2026-08-05 | www.swindonadvertiser.co.uk | Reform UK’s Swindon leader backs Nigel Farage in Clacton by-election campaign
+  - 2026-08-05 | www.chelmsfordcitynews.co.uk | Candidate pulls out of Clacton by-election after 'barrage of threats'
+  - 2026-08-04 | www.essexcountynews.co.uk | First look at near metre-long Clacton by-election ballot
+  - 2026-08-04 | www.news24.com.au | Nigel Farage faces unlikely threat from Count Binface in Clacton by-election
+  - 2026-08-04 | www.worcesternews.co.uk | Clacton by-election candidate taking on Farage and Binface wants to launch new party
+  - 2026-08-03 | www.aol.com | Count Binface could get 20% of vote in Clacton by-election, new poll shows
+  - 2026-08-03 | www.markpack.org.uk | First Clacton by-election opinion poll released
+  - 2026-08-03 | www.survation.com | Clacton By-election Poll: What do voters say the election is about?
+  - 2026-08-03 | www.independent.co.uk | New polling reveals Count Binface support ahead of Clacton by-election
+  - 2026-08-03 | www.thelondoneconomic.com | First poll predicts outcome of Clacton by-election fought out between Farage and Count Binface
+  - 2026-08-03 | news.sky.com | All the Clacton by-election candidates
+  - 2026-08-03 | www.lbc.co.uk | When is the Clacton by-election?
+  - 2026-08-03 | www.clactonandfrintongazette.co.uk | New poll suggests large backing for Count Binface in Clacton by-election
+  - 2026-08-03 | news.sky.com | Will Nigel Farage's gamble pay off? Clacton by-election preview
+  - 2026-08-02 | www.bbc.co.uk | Clacton by-election ballot list costing four times more
+  - 2026-07-31 | www.churchtimes.co.uk | Beating heart of Clacton-on-Sea: the Church, Nigel Farage, a by-election, and a misunderstood community
+  - 2026-07-31 | pressgazette.co.uk | Summer news diary 3 August - 6 September: Edinburgh Fringe, Burnham 'listening tour', Clacton by-election
+  - 2026-07-30 | www.telegraph.co.uk | The Clacton by-election farce suggests Farage lacks the judgment to be PM
+  - 2026-07-30 | www.thenational.scot | Count Binface reveals full manifesto ahead of Clacton by-election
+  - 2026-07-29 | www.tendringdc.gov.uk | Voters urged to check photo ID this Find it FrIDay ahead of historic by-election in Clacton
+  - 2026-07-29 | www.yorkpress.co.uk | North Yorkshire man to fight Nigel Farage and Count Binface in Clacton by-election
+What to write for E5:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E6 (as of 2026-08-05): Will Databricks' valuation hit __ by August 31?
+Rules:
+This market will resolve to "Yes" if Databricks' private market valuation, as measured by the NPM Price reported by Nasdaq Private Market, LLC (NPM) for any date between market creation and August 31, 2026, reaches or exceeds the listed amount. Otherwise, this market will resolve to "No".
+
+NPM Prices are published for trading days only and are updated once daily at 1:00 PM ET on the following calendar day.
+
+If NPM has not published relevant data for all business dates in the specified period by 1:00 PM ET on the calendar date following the specified date, this market will remain open until 11:59 PM ET on the third business day following the specified date. If no further data is released by that time, the market will resolve according to the data available.
+
+If NPM ceases publishing relevant data prior to the end of the specified period, this market will resolve based on the NPM data published for the period prior to the cessation of coverage, as well as any applicable public market capitalization data following an IPO or direct listing.
+
+If the company completes an IPO or direct listing before the end of the specified period, this market will consider, in addition to the relevant NPM valuations published between market creation and the IPO or direct listing date, the valuation implied by the official IPO or direct listing price, and the company’s public market capitalization between the IPO or direct listing date and the end of the specified period.
+
+Public market capitalization will be determined through appropriate calculation using official regular-hours trading prices published for the company’s listed equities on its primary exchange for any trading day during the specified period, multiplied by the company's total number of shares outstanding at the relevant time. If necessary, to accurately capture the company’s total market capitalization, rather than a stock-class-specific market capitalization, the calculation will include all outstanding share classes and apply any stated conversion ratios to the publicly traded class. Where no conversion right exists, such shares will be counted at their stated outstanding amount without discount, unless official filings explicitly specify differently. The number of outstanding shares will be determined from official company filings or disclosures (e.g., SEC filings).
+
+If the listed company merges with or acquires another entity and remains the parent company, no change to resolution methodology applies.
+
+If the listed company is acquired, merges into another entity and is no longer the surviving parent company, or otherwise ceases to exist as an independent entity prior to the end of the period, only NPM valuations and applicable public market capitalizations achieved prior to completion of the transaction will be considered for resolution. No transaction, acquisition, or merger consideration will be considered for resolution.
+
+The resolution source for this market is NPM data published here: (https://fe.secondmarket.com/companies/company-53787f17-a704-47a9-895a-cb54833bdb1f/data). The resolution source for any period following an IPO, direct listing, or relevant corporate action, will be the relevant Market Cap figure displayed on https://www.nasdaq.com/ as well as official exchange trading data and publicly reported share counts.
+
+Revisions to previously published NPM data made after their initial release will not be considered, unless made to correct clearly erroneous data.
+Contracts:
+  E6.C1: Will Databricks' valuation hit (HIGH) $250B by August 31?
+  E6.C2: Will Databricks' valuation hit (HIGH) $225B by August 31?
+  E6.C3: Will Databricks' valuation hit (HIGH) $200B by August 31?
+  E6.C4: Will Databricks' valuation hit (HIGH) $190B by August 31?
+  E6.C5: Will Databricks' valuation hit (HIGH) $180B by August 31?
+  E6.C6: Will Databricks' valuation hit (HIGH) $175B by August 31?
+  E6.C7: Will Databricks' valuation hit (LOW) $165B by August 31?
+  E6.C8: Will Databricks' valuation hit (LOW) $150B by August 31?
+  E6.C9: Will Databricks' valuation hit (LOW) $140B by August 31?
+News before E6's as-of date (date seen, source, headline):
+  - 2026-08-05 | www.hpcwire.com | Denodo Achieves Databricks Validated Partner Status for Its Seamless Integration in Support of AI and Analytics
+  - 2026-08-04 | www.databricks.com | Databricks joins the Open Secure AI Alliance to advance AI safety and security
+  - 2026-08-04 | www.familywealthreport.com | What’s New In Investments, Funds? – Clear Street, Databricks, Raymond James
+  - 2026-08-04 | www.startuphub.ai | Databricks Adds dbt Query Tagging
+  - 2026-08-04 | www.hpcwire.com | Bloomberg and Databricks Collaborate to Deliver Data-Powered Insights
+  - 2026-08-04 | www.hpcwire.com | Databricks Launches Lakehouse for Healthcare and Life Sciences
+  - 2026-08-03 | www.rfidjournal.com | Siemens Partners with Databricks, FFT to Turn Production Data into AI-driven Insights
+  - 2026-08-03 | www.benzinga.com | QUICK SPARK: Databricks Finalizes Panther Acquisition to Bolster AI Cybersecurity Push
+  - 2026-08-02 | jawlah.co | Brokerage firm offers investors pre-IPO access to Databricks
+  - 2026-07-31 | www.cnbc.com | Fintech broker Clear Street offers investors pre-IPO access to $188 billion AI giant Databricks
+  - 2026-07-31 | cloudwars.com | Microsoft and Databricks Extend Partnership Into the 2030s as Enterprise AI Battle Intensifies
+  - 2026-07-31 | www.techbuzz.ai | Clear Street Opens Pre-IPO Access to $188B Databricks
+  - 2026-07-31 | www.lseg.com | LSEG expands partnership with Databricks, integrating Tick History via OpenSharing on the Databricks Marketplace
+  - 2026-07-31 | www.tradingview.com | Clear Street Launches Clear Street Private Markets Platform With Pre-IPO Access To Databricks
+  - 2026-07-31 | solutionsreview.com | Analytics and Data Science News for the Week of July 31; Updates from Databricks, Notre Dame, Power BI & More
+  - 2026-07-31 | cryptobriefing.com | Clear Street opens pre-IPO access to $188B Databricks for accredited investors
+  - 2026-07-30 | www.infoworld.com | New Databricks tool uses AI agents to rewrite legacy SQL at scale
+  - 2026-07-30 | www.databricks.com | Agentic media buying cannot scale without the right foundation. See how buyers and sellers get there on Databricks.
+  - 2026-07-30 | proptechconnect.com | SmartRent Selects Databricks Data + AI Platform to Power Multifamily Property Analytics
+  - 2026-07-30 | finance.yahoo.com | Cursor Launches Benchmark Partners Program with AWS, BCG, Databricks, McKinsey, NVIDIA, and Snowflake to Deliver First Referenceable Enterprise AI Adoption Stack
+  - 2026-07-30 | www.hpcwire.com | LakeFusion Raises Seed Funding for AI-Powered Data Management on Databricks Lakehouse
+  - 2026-07-29 | www.ibm.com | IBM earns Databricks Brickbuilder Specializations in AI and Security & Governance
+  - 2026-07-29 | www.businesswire.com | SmartRent Selects Databricks Data + AI Platform to Power the Next Generation of Multifamily Property Analytics
+  - 2026-07-29 | www.425business.com | Microsoft, Databricks Expand Enterprise AI Partnership
+  - 2026-07-29 | tech-insider.org | GLM 5.2 Beats Opus 4.8 by 34% in Databricks Test [2026]
+What to write for E6:
+  Write "high": for each chance 10, 25, 50, 75 and 90, the level you give that chance of being reached (at or above) within the period. The 10 level is the highest.
+  Write "low": for each chance 10, 25, 50, 75 and 90, the level you give that chance of being reached (at or below) within the period. The 10 level is the lowest.

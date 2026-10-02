@@ -1,0 +1,381 @@
+You will be shown 6 questions from a prediction market. Each has one or more contracts that resolve YES or NO under the rules shown. Each question gives the date your view is "as of": answer as you would on that date.
+
+Use what you already know and the news headlines listed under each question, all published in the 7 days before its as-of date. Do not search for or look up anything else: reading this file is the only tool call you may make. There are no prices from any prediction market in this file and you should not try to estimate what any market thinks; give your own view.
+
+Each question says what to write for it. Whole percents run from 1 to 99. Levels are plain numbers in the units the contracts use (for example 95000 for $95,000, 3.25 for 3.25%). Dates are YYYY-MM-DD.
+
+For each question also say whether you recognise how it actually turned out ("recognised": true only if you believe you remember the real outcome; otherwise false).
+
+Reply with one JSON object and nothing else:
+{"events": [{"label": "E1", "recognised": false, ...the fields that question asks for...}]}
+
+=== E1 (as of 2026-04-22): Ohio Governor Republican Primary Winner
+Rules:
+This market will resolve according to the winner of the Republican Primary for Governor of Ohio, scheduled to take place on May 5, 2026. Resolution will be based on the overall winner of the primary, including any potential second round or run-off.
+
+If no 2026 Ohio Gubernatorial Republican Primary takes place, this market will resolve to “Other.”
+
+The resolution source for this market will be the first official announcement of the results from the Ohio Republican Party; however, an overwhelming consensus of credible reporting may suffice.
+Contracts:
+  E1.C1: Will Vivek Ramaswamy win the 2026 Ohio Governor Republican primary election?
+  E1.C2: Will Philip Funderburg win the 2026 Ohio Governor Republican primary election?
+  E1.C3: Will Casey Putsch win the 2026 Ohio Governor Republican primary election?
+News before E1's as-of date (date seen, source, headline):
+  - 2026-04-22 | ohiodnr.gov | Ohio’s 2026 Youth Turkey Hunting Results
+  - 2026-04-22 | www.ohio.edu | OHIO to honor administrative employees at May 5 ceremony
+  - 2026-04-22 | mgoblue.com | Michigan to Travel to Ohio State for Big Ten Tournament Quarterfinal
+  - 2026-04-22 | www.themarshallproject.org | Ohio Bill Could Force State to Shut Down Troubled Residential Treatment Facilities
+  - 2026-04-22 | ohiobobcats.com | Ohio Softball Adjusts Akron Series Schedule
+  - 2026-04-22 | ohiohouse.gov | Rep. Bryant Bailey Introduces Legislation to Protect Ohio Families and Students from Radon Exposure
+  - 2026-04-22 | ohiostatebuckeyes.com | Ohio State Falls in B1G Quarterfinal to No. 4 Maryland, 10-9
+  - 2026-04-21 | ohiosenate.gov | Energizing Ohio's Future with Breakthrough High Tech Nuclear Generation
+  - 2026-04-21 | ohiostatebuckeyes.com | Ohio State Drops 9-5 Decision to Akron
+  - 2026-04-21 | www.ohio.edu | OHIO leaders discuss Dynamic Strategy progress, share overview of University operating budget and more during April 9 ‘University Updates’
+  - 2026-04-21 | www.jobsohio.com | Joby Aviation Doubles Down on Ohio, Scaling Manufacturing from Announcement to Production
+  - 2026-04-21 | ohiostatebuckeyes.com | Ohio State Set for B1G Quarterfinal Game vs. No. 4 Maryland
+  - 2026-04-21 | www.jobsohio.com | Ohio Logistics Breaks Ground on New Spec Building in Gateway Commerce Park
+  - 2026-04-21 | www.courthousenews.com | Crowded Republican field fights to take on Ohio's veteran congresswoman
+  - 2026-04-21 | abc6onyourside.com | Turning Point USA stops at Ohio State with Vivek Ramaswamy
+  - 2026-04-21 | ohiobobcats.com | Ohio Baseball Falls to Northern Kentucky on Tuesday Night - Ohio University
+  - 2026-04-20 | www.statenews.org | LaRose talks sending Ohio voter data to DOJ, paper ballots and ending mail-in voting
+  - 2026-04-20 | ohiostatebuckeyes.com | Tucker Leads Ohio State to 20th-Consecutive Big Ten Title
+  - 2026-04-20 | www.landgrantholyland.com | 3 observations from Ohio State’s 2026 spring game
+  - 2026-04-20 | gozips.com | Akron Battles Ohio State on the Road Tuesday
+  - 2026-04-19 | ohiostatebuckeyes.com | Ohio State Takes Series Over Penn State with Five Inning Win
+  - 2026-04-19 | ohiostatebuckeyes.com | Ohio State Showcases Depth, Youth and Growth in Rainy Spring Game
+  - 2026-04-19 | gopsusports.com | Nittany Lions Drop Series Finale at Ohio State
+  - 2026-04-19 | ohiostatebuckeyes.com | No. 2 Ohio State Earns 20th-consecutive B1G Title, Sweeps Nebraska in Final Regular Season Match
+  - 2026-04-18 | ohiobobcats.com | Ohio Baseball Defeats Central Michigan in Series Finale
+What to write for E1:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E2 (as of 2026-05-13): What will Rocket Lab USA, Inc. (RKLB) hit Week of May 11 2026?
+Rules:
+What will Rocket Lab USA, Inc. (RKLB) hit Week of May 11 2026?
+Contracts:
+  E2.C1: Will Rocket Lab USA, Inc. (RKLB) hit (LOW) $104 Week of May 11 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of May 11 2026, any 1-minute candle for Rocket Lab USA, Inc. (RKLB) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Rocket Lab USA, Inc. (RKLB) "Low" prices available at https://pythdata.app/explore/Equity.US.RKLB%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.RKLB%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E2.C2: Will Rocket Lab USA, Inc. (RKLB) hit (LOW) $102 Week of May 11 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of May 11 2026, any 1-minute candle for Rocket Lab USA, Inc. (RKLB) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Rocket Lab USA, Inc. (RKLB) "Low" prices available at https://pythdata.app/explore/Equity.US.RKLB%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.RKLB%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E2.C3: Will Rocket Lab USA, Inc. (RKLB) hit (LOW) $100 Week of May 11 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of May 11 2026, any 1-minute candle for Rocket Lab USA, Inc. (RKLB) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Rocket Lab USA, Inc. (RKLB) "Low" prices available at https://pythdata.app/explore/Equity.US.RKLB%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.RKLB%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E2.C4: Will Rocket Lab USA, Inc. (RKLB) hit (LOW) $98 Week of May 11 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of May 11 2026, any 1-minute candle for Rocket Lab USA, Inc. (RKLB) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Rocket Lab USA, Inc. (RKLB) "Low" prices available at https://pythdata.app/explore/Equity.US.RKLB%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.RKLB%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E2.C5: Will Rocket Lab USA, Inc. (RKLB) hit (LOW) $96 Week of May 11 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of May 11 2026, any 1-minute candle for Rocket Lab USA, Inc. (RKLB) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Rocket Lab USA, Inc. (RKLB) "Low" prices available at https://pythdata.app/explore/Equity.US.RKLB%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.RKLB%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E2.C6: Will Rocket Lab USA, Inc. (RKLB) hit (LOW) $94 Week of May 11 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of May 11 2026, any 1-minute candle for Rocket Lab USA, Inc. (RKLB) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Rocket Lab USA, Inc. (RKLB) "Low" prices available at https://pythdata.app/explore/Equity.US.RKLB%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.RKLB%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E2.C7: Will Rocket Lab USA, Inc. (RKLB) hit (LOW) $92 Week of May 11 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of May 11 2026, any 1-minute candle for Rocket Lab USA, Inc. (RKLB) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Rocket Lab USA, Inc. (RKLB) "Low" prices available at https://pythdata.app/explore/Equity.US.RKLB%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.RKLB%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+News before E2's as-of date (date seen, source, headline):
+  - 2026-05-13 | www.tradingkey.com | Rocket Lab USA Inc Stock (RKLB) Moved Up by 7.11% on May 13: What Signal Does It Send?
+  - 2026-05-12 | www.theglobeandmail.com | Goldman Sachs Keeps Their Hold Rating on Rocket Lab USA (RKLB)
+  - 2026-05-08 | www.investing.com | Why is Rocket Lab USA stock surging today?
+  - 2026-05-08 | finance.yahoo.com | Rocket Lab USA, Inc. Q1 2026 Earnings Call Summary
+  - 2026-05-08 | www.investing.com | Rocket Lab USA stock reaches all-time high at 99.58 USD
+  - 2026-05-07 | www.tipranks.com | Rocket Lab USA Stock Stumbles After Pre-Earnings Euphoria
+What to write for E2:
+  Write "low": for each chance 10, 25, 50, 75 and 90, the level you give that chance of being reached (at or below) within the period. The 10 level is the lowest.
+
+=== E3 (as of 2026-05-13): Opendoor (OPEN) closes week of May 11 at ___?
+Rules:
+This market will resolve according to the official closing price for Opendoor (OPEN) on the final day of trading of the specified week (normally Friday).
+
+If the reported value falls exactly between two brackets, then this market will resolve to the higher range bracket.
+
+If the final session of the week is shortened (for example, due to a market-holiday schedule), the official closing price published for that shortened session will still be used for resolution.
+
+If no official closing price is published for that session (for example, due to a trading halt into the close, system issue, delisting, or other disruption), the market will use the last valid on-exchange trade price of the regular session as the effective closing price.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Yahoo Finance.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Yahoo Finance after any adjustments have been applied.
+
+The resolution source for this market is Yahoo Finance, specifically the Opendoor (OPEN) "Close" prices available at https://finance.yahoo.com/quote/OPEN/history, published under "Historical Prices."
+Contracts:
+  E3.C1: Will Opendoor (OPEN) close at <$1.00 on the final day of trading of the week of May 11 – May 15?
+  E3.C2: Will Opendoor (OPEN) close at $1.00-$2.00 on the final day of trading of the week of May 11 – May 15?
+  E3.C3: Will Opendoor (OPEN) close at $2.00-$3.00 on the final day of trading of the week of May 11 – May 15?
+  E3.C4: Will Opendoor (OPEN) close at $3.00-$4.00 on the final day of trading of the week of May 11 – May 15?
+  E3.C5: Will Opendoor (OPEN) close at $4.00-$5.00 on the final day of trading of the week of May 11 – May 15?
+  E3.C6: Will Opendoor (OPEN) close at $5.00-$6.00 on the final day of trading of the week of May 11 – May 15?
+  E3.C7: Will Opendoor (OPEN) close at $6.00-$7.00 on the final day of trading of the week of May 11 – May 15?
+  E3.C8: Will Opendoor (OPEN) close at $7.00-$8.00 on the final day of trading of the week of May 11 – May 15?
+  E3.C9: Will Opendoor (OPEN) close at $8.00-$9.00 on the final day of trading of the week of May 11 – May 15?
+  E3.C10: Will Opendoor (OPEN) close at $9.00-$10 on the final day of trading of the week of May 11 – May 15?
+  E3.C11: Will Opendoor (OPEN) close at >$10 on the final day of trading of the week of May 11 – May 15?
+News before E3's as-of date (date seen, source, headline):
+  - 2026-05-13 | stockstory.org | Lucky Strike, Funko, The Real Brokerage, Stitch Fix, and Opendoor Shares Plummet, What You Need To Know
+  - 2026-05-13 | stockstory.org | 5 Must-Read Analyst Questions From Opendoor’s Q1 Earnings Call
+  - 2026-05-12 | investingnews.com | Opendoor to Present at JP Morgan's 2026 Global Technology, Media and Communications Conference
+  - 2026-05-12 | www.stocktitan.net | Opendoor CEO to appear at J.P. Morgan's 2026 tech, media and telecom event
+  - 2026-05-12 | www.investing.com | Opendoor CEO Kasra Nejatian buys $487,800 in company stock
+  - 2026-05-11 | www.trefis.com | How Low Can Opendoor Stock Fall?
+  - 2026-05-11 | www.housingwire.com | CEO Kaz Nejatian says Opendoor has fixed its ‘fatal flaw’
+  - 2026-05-11 | timothysykes.com | Opendoor Technologies Stock Slips As Losses Deepen And Target Cut
+  - 2026-05-08 | www.quiverquant.com | Opendoor Technologies Stock (OPEN) Opinions on Q1 Earnings Report
+  - 2026-05-08 | finance.yahoo.com | The Bull Case For Opendoor Technologies (OPEN) Could Change Following Its 12‑Month Forward EBITDA Profitability Milestone
+  - 2026-05-08 | finance.yahoo.com | Opendoor Technologies Inc. Q1 2026 Earnings Call Summary
+  - 2026-05-08 | www.rismedia.com | ‘The Machine Is Working’: Opendoor Pushing for Profitability by End of 2026
+  - 2026-05-07 | finance.yahoo.com | Opendoor falls on wider-than-expected quarterly loss
+  - 2026-05-07 | www.realestatenews.com | ‘Faster’ is Opendoor’s ‘moral imperative’ as revenue falls
+  - 2026-05-07 | www.investing.com | Opendoor earnings on deck: Can iBuying pioneer prove turnaround?
+  - 2026-05-07 | sherwood.news | Opendoor Technologies reports better-than-expected Q1 results and touts key profitability milestone
+  - 2026-05-07 | finance.yahoo.com | Opendoor’s (NASDAQ:OPEN) Q1 CY2026 Sales Beat Estimates
+  - 2026-05-07 | finance.yahoo.com | Opendoor Technologies Inc. (OPEN) Reports Q1 Loss, Tops Revenue Estimates
+  - 2026-05-07 | seekingalpha.com | Opendoor stock advances as adjusted EBITDA run rate turns profitable as of April 1 (OPEN:NASDAQ)
+  - 2026-05-07 | www.stocktitan.net | Opendoor cut aged inventory to 10% while doubling acquisition contracts
+  - 2026-05-07 | www.investing.com | Earnings call transcript: Opendoor Q1 2026 misses forecasts, stock edges up
+  - 2026-05-07 | www.marketscreener.com | Earnings Flash (OPEN) Opendoor Technologies Posts Q1 Loss $0.18 a Share, vs. FactSet Est of $0.09 Loss
+  - 2026-05-07 | 247wallst.com | Opendoor Technologies (OPEN) Q1 2026 Earnings: Results, Market Reaction & History
+  - 2026-05-06 | www.fool.com | Could Opendoor Stock Hit $10 in 2026?
+What to write for E3:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E4 (as of 2026-08-19): Mecklenburg-Vorpommern Parliamentary Elections: SPD # of seats?
+Rules:
+Parliamentary elections to elect the Landtag of Mecklenburg-Vorpommern are scheduled to take place on September 20, 2026.
+
+This market will resolve according to the number of seats won by the SPD party in the Landtag of Mecklenburg-Vorpommern as a result of this election.
+
+This market will resolve according to the total number of seats officially attributed to the specified party as a result of the election. This includes all seats attributed to that party, regardless of whether they are won directly or allocated through party lists, compensatory mechanisms, or any other component of the applicable electoral system.
+
+If the specified party contests the election as part of a joint candidate list with one or more parties, all seats won by the joint candidate list will be counted. If the specified party merges with another party prior to the election, all seats won by the resultant merged party, or any joint candidate list through which it contests the election, will be counted.
+
+If the results of this election are not definitively known by January 31, 2027, 11:59 PM ET, this market will resolve to the lowest range bracket.
+
+This market's resolution will be based solely on the number of seats won by the specified party in this election.
+
+This market will resolve based on the result of the election, as indicated by a consensus of credible reporting. If there is ambiguity, this market will resolve based solely on the official results as published on the official Mecklenburg-Vorpommern elections page of the Landesamt für innere Verwaltung (www.laiv-mv.de/Wahlen/Landtagswahlen/2026/).
+Contracts:
+  E4.C1: Will SPD win fewer than 18 seats in the 2026 Mecklenburg-Vorpommern parliamentary elections?
+  E4.C2: Will SPD win 18-21 seats in the 2026 Mecklenburg-Vorpommern parliamentary elections?
+  E4.C3: Will SPD win 22-25 seats in the 2026 Mecklenburg-Vorpommern parliamentary elections?
+  E4.C4: Will SPD win 26-29 seats in the 2026 Mecklenburg-Vorpommern parliamentary elections?
+  E4.C5: Will SPD win 30-33 seats in the 2026 Mecklenburg-Vorpommern parliamentary elections?
+  E4.C6: Will SPD win 34 or more seats in the 2026 Mecklenburg-Vorpommern parliamentary elections?
+News before E4's as-of date (date seen, source, headline):
+  - 2026-08-19 | www.ksla.com | SPD offers bonus to boost recruiting
+  - 2026-08-19 | www.tampabay28.com | First responders team to save boat captain near Big Pass during bad weather: SPD
+  - 2026-08-19 | www.ilfoglio.it | Sigmar Gabriel’s second thoughts within an SPD seeking support
+  - 2026-08-19 | aroundprague.cz | In Chomutov, the SPD–Motorists Coalition Hands Out Discount Cards Ahead of Elections
+  - 2026-08-18 | 710keel.com | From SPD: Shreveport Woman Arrested for Alleged Simple Assault and Property Damage
+  - 2026-08-18 | komonews.com | Former SPD Chief, Sheriff Sue Rahr slams Bite of Seattle 'failure', 'political theater'
+  - 2026-08-18 | aroundprague.cz | Motoristé Sobě Team Up with Freedom Party, SPD and Tricolor for Local Elections
+  - 2026-08-17 | www.westcentralsbest.com | SPD: Shreveport mother arrested after special needs child found with injuries
+  - 2026-08-17 | en.yenisafak.com | Germany's SPD demands constitutional change for climate funding
+  - 2026-08-17 | 710keel.com | From SPD: Shreveport Police Arrest Two Felons for Gun and Drug Possession
+  - 2026-08-17 | tribune.net.ph | SPD seizes P184,280 shabu in separate operations
+  - 2026-08-17 | www.manilatimes.net | SPD nabs 5 drug suspects in Taguig sting
+  - 2026-08-15 | www.kiro7.com | 26-year-old held on $1M bail, teen detained, third suspect hospitalized after shots fired at SPD
+  - 2026-08-15 | tribune.net.ph | SPD arrests six drug suspect in separate buy-bust ops
+  - 2026-08-14 | www.kxly.com | SPD investigating suspicious deaths
+  - 2026-08-14 | publicola.com | Former Chief Barnes’ Top Staffers Leave SPD, KOMO Reporters Leave Union, and More
+  - 2026-08-13 | www.kiro7.com | VIDEO: Undercover SPD investigation leads to shots fired
+  - 2026-08-13 | www.themountainmail.com | SPD cancels contract with Flock Safety, Sheriff unmoved
+  - 2026-08-13 | www.wfla.com | Sarasota officer under investigation for misusing police search databases: SPD
+  - 2026-08-13 | mynorthwest.com | Harger: SPD described a Georgetown stabbing suspect down to his jacket. For the Bite of Seattle shooters? Nothing.
+  - 2026-08-13 | www.king5.com | Shots fired at SPD officers
+  - 2026-08-13 | www.kiro7.com | 3 arrested for shooting at SPD officers
+  - 2026-08-13 | publicola.com | Councilmembers Blame Mayor For Delayed SPD Press Conference, Criticize Removal of Former Chief Barnes
+  - 2026-08-13 | mynorthwest.com | SPD Won't Describe the Bite of Seattle Shooter. Why?
+  - 2026-08-13 | www.tradingview.com | MOBX: Definitive SPD acquisition expands rare earth and critical mineral supply chain for national security
+What to write for E4:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E5 (as of 2026-09-09): Bitcoin above ___ on September 10?
+Rules:
+This market will resolve to "Yes" if the Binance 1 minute candle for BTC/USDT 12:00 in the ET timezone (noon) on the date specified in the title has a final "Close" price higher than the price specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the BTC/USDT "Close" prices currently available at https://www.binance.com/en/trade/BTC_USDT with "1m" and "Candles" selected on the top bar.
+
+Please note that this market is about the price according to Binance BTC/USDT, not according to other exchanges or trading pairs.
+
+Price precision is determined by the number of decimal places in the source.
+Contracts:
+  E5.C1: Will the price of Bitcoin be above $72,000 on September 10?
+  E5.C2: Will the price of Bitcoin be above $74,000 on September 10?
+  E5.C3: Will the price of Bitcoin be above $76,000 on September 10?
+  E5.C4: Will the price of Bitcoin be above $78,000 on September 10?
+  E5.C5: Will the price of Bitcoin be above $80,000 on September 10?
+  E5.C6: Will the price of Bitcoin be above $82,000 on September 10?
+  E5.C7: Will the price of Bitcoin be above $84,000 on September 10?
+  E5.C8: Will the price of Bitcoin be above $86,000 on September 10?
+  E5.C9: Will the price of Bitcoin be above $88,000 on September 10?
+  E5.C10: Will the price of Bitcoin be above $90,000 on September 10?
+  E5.C11: Will the price of Bitcoin be above $92,000 on September 10?
+News before E5's as-of date (date seen, source, headline):
+  - 2026-09-09 | finance.yahoo.com | Bitcoin Is Down for 2026. Here Is the Exact Price It Has to Reclaim by December 31 to Break Even
+  - 2026-09-09 | ktla.com | California crypto ‘Godfather’ gets 15 years for Bitcoin kidnapping plot
+  - 2026-09-09 | www.nytimes.com | ‘Ferris Bueller Gone Bad’: 22-Year-Old Pleads Guilty in Giant Bitcoin Heist
+  - 2026-09-09 | www.coindesk.com | Bitcoin and Ethereum race quantum clock as U.S. backs $300 million hardware push
+  - 2026-09-09 | finance.yahoo.com | Bitcoin Price Resistance at $82K Ceiling Faces Profit-Taking Risk
+  - 2026-09-09 | www.bloomberg.com | AI Boom Wrecks Trump’s Plan for ‘Made-in-America’ Bitcoin Mining
+  - 2026-09-09 | www.businessinsider.com | Bitcoin just flashed a bullish golden cross signal. Here's what that means for the top crypto.
+  - 2026-09-09 | www.scmp.com | Singapore man pleads guilty after massive US bitcoin heist and spending spree
+  - 2026-09-09 | www.forbes.com | How Bitcoin Mortgages Work: Bitcoin Backs The American Dream
+  - 2026-09-09 | www.etf.com | Crypto ETFs in 2026: Bitcoin, Ethereum and the Altcoin Wave Explained
+  - 2026-09-09 | bitcoinfoundation.org | Bitcoin ETFs Just Sent a $1B Signal: Are Institutions Buying the Dip or Repositioning for the Fed?
+  - 2026-09-09 | www.fox10phoenix.com | ‘Ferris Bueller gone bad’ helps unravel $240M bitcoin theft
+  - 2026-09-09 | finance.yahoo.com | Bitcoin analyst spots two signals of a bear market bottom
+  - 2026-09-09 | www.yahoo.com | Mexican Musician and Family Killed Over Bitcoin Cold Wallet Believed to Hold Millions
+  - 2026-09-09 | 247wallst.com | Strive Added 1,375 Bitcoin While Strategy Added None. Their Preferred Shares Explain Why.
+  - 2026-09-09 | www.xtb.com | Bitcoin fights to reclaim $80,000 - this data could shape the trend 📈 What’s next for crypto?
+  - 2026-09-08 | finance.yahoo.com | Bitcoin Forms Bullish Golden Cross
+  - 2026-09-08 | finance.yahoo.com | Bitcoin and ethereum prices today, Tuesday, September 8, 2026: Crypto prices sliding as U.S.-Iran fighting continues
+  - 2026-09-08 | thehackernews.com | Liquid Hackers Return 3,400 Bitcoin Taken via Elements Bug, Still Holding $47M in BTC
+  - 2026-09-08 | www.coindesk.com | Bitcoin's (BTC) golden cross is here. What next?
+  - 2026-09-08 | finance.yahoo.com | 4,000 BTC Left Liquid Network Without Stolen Keys Exposing a Bigger Bitcoin Bridge Problem
+  - 2026-09-08 | finance.yahoo.com | Strategy Holds Off On Bitcoin Purchases As It Buys Preferred Stock
+  - 2026-09-08 | fortune.com | Current price of Bitcoin for September 8, 2026
+  - 2026-09-08 | www.coindesk.com | Liquid Network gets back 3,400 bitcoin from whitehat hackers; talks underway for the rest
+  - 2026-09-08 | 247wallst.com | Bitcoin Price Prediction: We Asked ChatGPT if BTC Can Reclaim $87,500 by December 31
+What to write for E5:
+  Write "levels": for each chance 10, 25, 50, 75 and 90, the level you give that chance of the measured quantity being at or above when it resolves. The 10 level is the highest and the 90 level the lowest. Example: {"10": 120, "25": 110, "50": 100, "75": 92, "90": 85}.
+
+=== E6 (as of 2026-06-24): Freddie Mac IPO Closing Market Cap
+Rules:
+This market will resolve based on Freddie Mac's market capitalization at the closing price on its first day of trading.
+
+If no IPO occurs by June 30, 2026, 11:59 PM ET, the market will resolve to "No IPO by June 30, 2026".
+
+Market capitalization expresses the monetary value of a company’s outstanding shares, stated in its pricing currency. It is calculated as the number of shares outstanding multiplied by the closing share price on the first trading day.
+
+If the relevant value falls exactly between two brackets, then this market will resolve to the higher range bracket.
+
+Resolution will be based on the primary exchange’s official listing page. In the event that the relevant figure is not displayed, another reliable source will be used.
+
+In the event of an interruption in the course of the normal trading session on Freddie Mac’s first day of trading (e.g., a circuit breaker or half-day), the market will resolve according to the official closing price of the abbreviated session. If no such official closing price is published, the market will resolve according to the next trading day on which an official closing price is published, treating that as the first day of trading for purposes of this market.
+Contracts:
+  E6.C1: Will Freddie Mac’s market cap be less than $150B at market close on IPO day?
+  E6.C2: Will Freddie Mac’s market cap be between $150B and $200B at market close on IPO day?
+  E6.C3: Will Freddie Mac’s market cap be between $200B and $250B at market close on IPO day?
+  E6.C4: Will Freddie Mac’s market cap be between $250B and $300B at market close on IPO day?
+  E6.C5: Will Freddie Mac’s market cap be $300B or greater at market close on IPO day?
+  E6.C6: Will Freddie Mac not IPO by June 30, 2026?
+News before E6's as-of date (date seen, source, headline):
+  - 2026-06-24 | calmatters.org | In the latest resistance to HOAs, California lawmakers consider capping fee increases
+  - 2026-06-24 | taxfoundation.org | Uncapping the Payroll Tax Would Be the Largest Tax Increase in Decades—and Still Wouldn’t Save Social Security
+  - 2026-06-24 | www.bp.com | bp signs Bab Gas Cap concession agreement
+  - 2026-06-24 | www.politico.com | Republicans debate insulin pricing cap ahead of daunting midterms
+  - 2026-06-24 | sports.yahoo.com | The salary cap ramifications if the Detroit Lions choose to release Terrion Arnold
+  - 2026-06-24 | sports.yahoo.com | Lakers’ Cap Space Picture After Austin Reaves’ Mega Deal
+  - 2026-06-24 | www.ithaca.com | Legislature Authorizes Measure to Permit Tax Cap Override
+  - 2026-06-24 | avweb.com | Aviation Groups Oppose GI Bill Flight Training Cap
+  - 2026-06-23 | abc7news.com | MLB Commissioner: Giants botched Pride Night cap guidance, leaving players unclear on opt-out
+  - 2026-06-23 | bankruptcyroundtable.law.harvard.edu | Understanding the Statutory Cap on Landlord Claims for Rejected Leases in Bankruptcy
+  - 2026-06-23 | www.moreno.senate.gov | Moreno, Warren NYT Op-ed: Lift The Social Security Cap
+  - 2026-06-23 | www.axios.com | Insulin cost cap gets another look in Congress
+  - 2026-06-23 | www.fiercehealthcare.com | Michigan hospitals denounce legislation to cap prices, limit mergers
+  - 2026-06-23 | www.live5news.com | Mount Pleasant considers raising income cap for income-restricted neighborhood
+  - 2026-06-23 | abc7news.com | Buster Posey shuns questions about San Francisco Giants' Pride Night cap controversy
+  - 2026-06-23 | sports.yahoo.com | How much cap space the Minnesota Timberwolves freed up with Julius Randle trade
+  - 2026-06-23 | newhampshirebulletin.com | Ayotte signs law raising cap on anonymous campaign donations
+  - 2026-06-23 | www.nytimes.com | How should the Maple Leafs spend $30 million-plus in cap space this summer?
+  - 2026-06-23 | www.kiplinger.com | The Best Small-Cap Stocks to Buy Now
+  - 2026-06-23 | www.fool.com | Why Are Small-Cap Stocks Booming? See What the Research Says.
+  - 2026-06-23 | www.cnbc.com | Billionaire investor Philippe Laffont on why he owns semi cap stocks
+  - 2026-06-23 | www.cliffordchance.com | Baseball’s cap debate: why player lockout risk is rising, and why private capital is watching
+  - 2026-06-23 | www.postingandtoasting.com | What the Knicks’ draft-day dealing means for their tenuous cap situation
+  - 2026-06-23 | www.si.com | Explaining the Chargers’ Cap Situation After Minicamp
+  - 2026-06-23 | www.reuters.com | NCAA approves rule change to cap athlete eligibility at 5 years
+What to write for E6:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).

@@ -1,0 +1,352 @@
+You will be shown 6 questions from a prediction market. Each has one or more contracts that resolve YES or NO under the rules shown. Each question gives the date your view is "as of": answer as you would on that date.
+
+Use what you already know and the news headlines listed under each question, all published in the 7 days before its as-of date. Do not search for or look up anything else: reading this file is the only tool call you may make. There are no prices from any prediction market in this file and you should not try to estimate what any market thinks; give your own view.
+
+Each question says what to write for it. Whole percents run from 1 to 99. Levels are plain numbers in the units the contracts use (for example 95000 for $95,000, 3.25 for 3.25%). Dates are YYYY-MM-DD.
+
+For each question also say whether you recognise how it actually turned out ("recognised": true only if you believe you remember the real outcome; otherwise false).
+
+Reply with one JSON object and nothing else:
+{"events": [{"label": "E1", "recognised": false, ...the fields that question asks for...}]}
+
+=== E1 (as of 2026-07-22): XRP price on July 26?
+Rules:
+This market will resolve according to the final "Close" price of the Binance 1 minute candle for XRP/USDT 12:00 in the ET timezone (noon) on the date specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the XRP/USDT "Close" prices currently available at https://www.binance.com/en/trade/XRP_USDT with "1m" and "Candles" selected on the top bar.
+
+If the reported value falls exactly between two brackets, then this market will resolve to the higher range bracket.
+
+Please note that this market is about the price according to Binance XRP/USDT, not according to other exchanges or trading pairs.
+Contracts:
+  E1.C1: Will the price of XRP be less than $0.60 on July 26?
+  E1.C2: Will the price of XRP be between $0.60 and $0.70 on July 26?
+  E1.C3: Will the price of XRP be between $0.70 and $0.80 on July 26?
+  E1.C4: Will the price of XRP be between $0.80 and $0.90 on July 26?
+  E1.C5: Will the price of XRP be between $0.90 and $1.00 on July 26?
+  E1.C6: Will the price of XRP be between $1.00 and $1.10 on July 26?
+  E1.C7: Will the price of XRP be between $1.10 and $1.20 on July 26?
+  E1.C8: Will the price of XRP be between $1.20 and $1.30 on July 26?
+  E1.C9: Will the price of XRP be between $1.30 and $1.40 on July 26?
+  E1.C10: Will the price of XRP be between $1.40 and $1.50 on July 26?
+  E1.C11: Will the price of XRP be greater than $1.50 on July 26?
+News before E1's as-of date (date seen, source, headline):
+  - 2026-07-22 | www.fool.com | Better Altcoin Buy: XRP vs. Stellar (XLM)
+  - 2026-07-22 | 247wallst.com | XRP Surges to a 2-Week High as Whale Buying Stretches Into a Fifth Week
+  - 2026-07-22 | coinpedia.org | XRP Ledger’s Largest Asset Sits Frozen by Design, Analyst Finds
+  - 2026-07-22 | www.theblock.co | Ripple sees XRP Ledger agentic transactions hitting 10-million mark soon
+  - 2026-07-22 | 247wallst.com | The CLARITY Act Is Now One Clause Away From Passing: Should XRP Holders Celebrate?
+  - 2026-07-22 | www.benzinga.com | XRP Whale Inflows to Binance Drop to $23M: Can the Triangle Breakout Hold?
+  - 2026-07-22 | beincrypto.com | XRP Flashes Bullish On-Chain Signals as Rally Builds in Late July
+  - 2026-07-22 | 247wallst.com | XRP Holders Cheer as Bessent Says Major Crypto Bill ‘On the 1-Yard Line’
+  - 2026-07-21 | www.coindesk.com | XRP price news: Ripple-linked token up 4% as traders watch breakout toward $1.35
+  - 2026-07-21 | finance.yahoo.com | XRP Breaks Out on Clarity Act Hopes. The Charts Are Still Cautious
+  - 2026-07-21 | finance.yahoo.com | XRP Holders Have Until July 23 to Find Out if a Key Crypto Bill Survives. Here’s What’s at Stake.
+  - 2026-07-21 | finance.yahoo.com | XRP Price Prediction: Confirmed Breakout Could Push XRP to $1.40
+  - 2026-07-21 | finance.yahoo.com | Veteran Ripple developer regrets selling XRP
+  - 2026-07-21 | finance.yahoo.com | Bitcoin, Ethereum, XRP, Dogecoin Lift Amid Crypto Bill Optimism: Analyst Flags BTC's 'Biggest Test'
+  - 2026-07-21 | finance.yahoo.com | Crypto XRP Forms Bullish ‘Triangle Breakout’
+  - 2026-07-21 | coinpedia.org | XRP Price Prediction Today: Can Bulls Break $1.20 as Whale Buying Continues?
+  - 2026-07-21 | 247wallst.com | XRP Holders Have Until July 23 to Find Out if a Key Crypto Bill Survives. Here's What's at Stake.
+  - 2026-07-21 | 247wallst.com | XRP Flashes TD Sequential Buy Signal: Can It Rally 20%?
+  - 2026-07-21 | www.fxstreet.com | Why is XRP gaining momentum?
+  - 2026-07-21 | coinpedia.org | XRP News : Ripple Linked to 79% of Major Financial Institutions in Crypto
+  - 2026-07-21 | coinpedia.org | XRP Price is Breaking Out—Can Bulls Fuel a 5% Rally to $1.20?
+  - 2026-07-21 | www.tradingview.com | COIN Stock Jumps, XRP Leads Crypto Majors After Scott Bessent Signals CLARITY Act Is On Senate’s ‘One-Yard Line’
+  - 2026-07-21 | dmarketforces.com | XRP Spot ETF Net Inflow Tops $1bn, Price Swings
+  - 2026-07-21 | www.benzinga.com | Ripple Eyes Wall Street 2.0 As Prime Brokerage Revenue Triples - Bitwise XRP ETF (ARCA:XRP)
+  - 2026-07-21 | 247wallst.com | XRP Whale Deposits to Binance Just Hit a 2-Month Low: What’s Going On?
+What to write for E1:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E2 (as of 2026-08-12): Bitcoin above ___ on August 13?
+Rules:
+This market will resolve to "Yes" if the Binance 1 minute candle for BTC/USDT 12:00 in the ET timezone (noon) on the date specified in the title has a final "Close" price higher than the price specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the BTC/USDT "Close" prices currently available at https://www.binance.com/en/trade/BTC_USDT with "1m" and "Candles" selected on the top bar.
+
+Please note that this market is about the price according to Binance BTC/USDT, not according to other exchanges or trading pairs.
+
+Price precision is determined by the number of decimal places in the source.
+Contracts:
+  E2.C1: Will the price of Bitcoin be above $54,000 on August 13?
+  E2.C2: Will the price of Bitcoin be above $56,000 on August 13?
+  E2.C3: Will the price of Bitcoin be above $58,000 on August 13?
+  E2.C4: Will the price of Bitcoin be above $60,000 on August 13?
+  E2.C5: Will the price of Bitcoin be above $62,000 on August 13?
+  E2.C6: Will the price of Bitcoin be above $64,000 on August 13?
+  E2.C7: Will the price of Bitcoin be above $66,000 on August 13?
+  E2.C8: Will the price of Bitcoin be above $68,000 on August 13?
+  E2.C9: Will the price of Bitcoin be above $70,000 on August 13?
+  E2.C10: Will the price of Bitcoin be above $72,000 on August 13?
+  E2.C11: Will the price of Bitcoin be above $74,000 on August 13?
+News before E2's as-of date (date seen, source, headline):
+  - 2026-08-12 | bitcoinmagazine.com | Bitcoin Price May Be Battered, but Structural Adoption Story Still Intact: Grayscale
+  - 2026-08-12 | fortune.com | Current price of Bitcoin for August 12, 2026
+  - 2026-08-12 | finance.yahoo.com | Where Will Bitcoin Be in 2030?
+  - 2026-08-12 | finance.yahoo.com | Bitcoin and ethereum prices today, Wednesday, August 12, 2026: Crypto prices rise with CPI report on deck
+  - 2026-08-12 | finance.yahoo.com | Bitcoin Price Risks Deeper Drop as $174M in Long Positioning Disappears: Analyst
+  - 2026-08-12 | finance.yahoo.com | The First Spot Bitcoin ETF Is Closing Down. Here's Why I'm Not Concerned About Bitcoin Right Now.
+  - 2026-08-12 | www.coindesk.com | Russia moves to restrict retail crypto trading to bitcoin, ether and USDT
+  - 2026-08-12 | www.theblock.co | Bitcoin dips under $64,000 as in-line CPI buys the Fed time, not conviction: analysts
+  - 2026-08-12 | marketwise.com | Strategy’s New Bitcoin-Backed ‘Digital Credit’ Plan: Does the Juiced Preferred Stock Have Upside?
+  - 2026-08-12 | www.coindesk.com | One overlooked group has added $1.78 billion of selling pressure to bitcoin market
+  - 2026-08-12 | finance.yahoo.com | Earnings For Bitcoin Miners Hit 10-Year Low
+  - 2026-08-12 | www.coindesk.com | Bitcoin holds near $64,000 as U.S. inflation data looms, Harmony exploit rattles altcoins
+  - 2026-08-12 | www.coindesk.com | Dogecoin and BNB lead majors higher as bitcoin slips near $63,700
+  - 2026-08-12 | www.inc.com | Bitcoin Miners Have Something Anthropic Desperately Needs. It’s Worth $9.1 Billion
+  - 2026-08-12 | www.pymnts.com | Russia Limits Retail Crypto to Bitcoin, Ether and Tether
+  - 2026-08-12 | bitcoinmagazine.com | Bitcoin Flashes Bottom Signals As "Digital Gold" Narrative Returns
+  - 2026-08-12 | www.coindesk.com | BTC price news: Bitcoin slips near $63,500 as traders look past CPI to Fed’s next tests
+  - 2026-08-11 | finance.yahoo.com | Is Bitcoin Ready To Explode? Here's Why Crypto Is at a 'Major Inflection Point'
+  - 2026-08-11 | fortune.com | Current price of Bitcoin for August. 11, 2026
+  - 2026-08-11 | finance.yahoo.com | Why Strategy Is Selling Bitcoin and How Much It Has Sold So Far
+  - 2026-08-11 | finance.yahoo.com | Russia Approves Trading of Bitcoin, Ethereum and USDT—But No XRP
+  - 2026-08-11 | finance.yahoo.com | Russia to Allow Bitcoin, Ether, Tether Trading on Official Exchanges
+  - 2026-08-11 | finance.yahoo.com | Could Bitcoin really crash to $20,000? Analyst says watch out for 2027
+  - 2026-08-11 | finance.yahoo.com | Bitcoin Price Prediction: BTC Bullish Signals Persist Despite Short-Term Volatility
+  - 2026-08-11 | www.waff.com | Utility work begins at Somerville Bitcoin mining site despite moratorium
+What to write for E2:
+  Write "levels": for each chance 10, 25, 50, 75 and 90, the level you give that chance of the measured quantity being at or above when it resolves. The 10 level is the highest and the 90 level the lowest. Example: {"10": 120, "25": 110, "50": 100, "75": 92, "90": 85}.
+
+=== E3 (as of 2026-07-15): Houthi military action against Saudi Arabia by...?
+Rules:
+This market will resolve to “Yes” if the Houthis take a qualifying military action against Saudi Arabia by the specified date, 11:59 PM Arabia Standard Time (AST). Otherwise this market will resolve to “No.”
+
+A qualifying military action refers to an air strike or a surface-to-surface missile strike, initiated by the Houthis, that directly impacts Saudi Arabia. An air strike includes bombs, air-to-surface missiles, and air-launched drones. A surface-to-surface missile strike includes one-way attack drones and surface-to-surface missiles such as cruise or ballistic missiles.
+
+The following actions do not constitute a qualifying military action:
+Munitions destroyed or intercepted before impact;
+Surface-to-air missile strikes;
+Small-arms fire;
+Ground incursions;
+Cyber operations;
+Naval gunfire and artillery fire;
+Howitzers, artillery pieces, mortars, and rocket artillery (e.g. MLRS systems);
+Minor surface-to-surface strikes, including short range loitering munitions, FPV drones, and ATGM strikes;
+Any threat, authorization, or announcement of force that has not been executed.
+
+Any munition that is intercepted or destroyed before impact does not constitute a qualifying military action. Debris, fragments, or any wreckage from intercepted munitions that land on Yemen do not constitute a military action regardless of any damage incurred.
+
+“Saudi Arabia” refers to the terrestrial territory of Saudi Arabia, including its internal waters. Saudi Arabia’s maritime territory and airspace are not encompassed. Where territorial borders are disputed, all territory claimed by and under the de facto control of Saudi Arabia as of market creation will qualify.
+
+The occurrence, attribution, and timing of a qualifying military action will be primarily determined based on a consensus of information available from the resolution sources. Where multiple sources conflict regarding the occurrence, attribution, or timing of a relevant military action, this market will remain open until the earlier of: i) the confirmation of the occurrence, attribution, and timing of the action based on a consensus of information available from the resolution sources or ii) 3 full calendar days (IDT) from the date of the first credibly reported evidence of the action. If this period would extend past the end date, this market will remain open to allow for 3 full calendar days to pass. If, at the end of the third calendar day, conflicting reports remain as to the occurrence, attribution, or timing of the action, this market will resolve based on the totality of information available from the resolution sources at that time. No single statement, denial, or presentation of evidence will govern where it is contradicted by the totality of information.
+
+The resolution sources for this market will be official information from the government and military of Saudi Arabia, the Houthis and credible reporting.
+Contracts:
+  E3.C1: Will there be Houthi military action against Saudi Arabia by July 17, 2026?
+    Contract rules: This market will resolve to “Yes” if the Houthis take a qualifying military action against Saudi Arabia by the specified date, 11:59 PM Arabia Standard Time (AST). Otherwise this market will resolve to “No.”
+
+A qualifying military action refers to an air strike or a surface-to-surface missile strike, initiated by the Houthis, that directly impacts Saudi Arabia. An air strike includes bombs, air-to-surface missiles, and air-launched drones. A surface-to-surface missile strike includes one-way attack drones and surface-to-surface missiles such as cruise or ballistic missiles.
+
+The following actions do not constitute a qualifying military action:
+Munitions destroyed or intercepted before impact;
+Surface-to-air missile strikes;
+Small-arms fire;
+Ground incursions;
+Cyber operations;
+Naval gunfire and artillery fire;
+Howitzers, artillery pieces, mortars, and rocket artillery (e.g. MLRS systems);
+Minor surface-to-surface strikes, including short range loitering munitions, FPV drones, and ATGM strikes;
+Any threat, authorization, or announcement of force that has not been executed.
+
+Any munition that is intercepted or destroyed before impact does not constitute a qualifying military action. Debris, fragments, or any wreckage from intercepted munitions that land on Yemen do not constitute a military action regardless of any damage incurred.
+
+“Saudi Arabia” refers to the terrestrial territory of Saudi Arabia, including its internal waters. Saudi Arabia’s maritime territory and airspace are not encompassed. Where territorial borders are disputed, all territory claimed by and under the de facto control of Saudi Arabia as of market creation will qualify.
+
+The occurrence, attribution, and timing of a qualifying military action will be primarily determined based on a consensus of information available from the resolution sources. Where multiple sources conflict regarding the occurrence, attribution, or timing of a relevant military action, this market will remain open until the earlier of: i) the confirmation of the occurrence, attribution, and timing of the action based on a consensus of information available from the resolution sources or ii) 3 full calendar days (AST) from the date of the first credibly reported evidence of the action. If this period would extend past the end date, this market will remain open to allow for 3 full calendar days to pass. If, at the end of the third calendar day, conflicting reports remain as to the occurrence, attribution, or timing of the action, this market will resolve based on the totality of information available from the resolution sources at that time. No single statement, denial, or presentation of evidence will govern where it is contradicted by the totality of information.
+
+The resolution sources for this market will be official information from the government and military of Saudi Arabia, the Houthis and credible reporting.
+  E3.C2: Will there be Houthi military action against Saudi Arabia by July 24, 2026?
+    Contract rules: This market will resolve to “Yes” if the Houthis take a qualifying military action against Saudi Arabia by the specified date, 11:59 PM Arabia Standard Time (AST). Otherwise this market will resolve to “No.”
+
+A qualifying military action refers to an air strike or a surface-to-surface missile strike, initiated by the Houthis, that directly impacts Saudi Arabia. An air strike includes bombs, air-to-surface missiles, and air-launched drones. A surface-to-surface missile strike includes one-way attack drones and surface-to-surface missiles such as cruise or ballistic missiles.
+
+The following actions do not constitute a qualifying military action:
+Munitions destroyed or intercepted before impact;
+Surface-to-air missile strikes;
+Small-arms fire;
+Ground incursions;
+Cyber operations;
+Naval gunfire and artillery fire;
+Howitzers, artillery pieces, mortars, and rocket artillery (e.g. MLRS systems);
+Minor surface-to-surface strikes, including short range loitering munitions, FPV drones, and ATGM strikes;
+Any threat, authorization, or announcement of force that has not been executed.
+
+Any munition that is intercepted or destroyed before impact does not constitute a qualifying military action. Debris, fragments, or any wreckage from intercepted munitions that land on Yemen do not constitute a military action regardless of any damage incurred.
+
+“Saudi Arabia” refers to the terrestrial territory of Saudi Arabia, including its internal waters. Saudi Arabia’s maritime territory and airspace are not encompassed. Where territorial borders are disputed, all territory claimed by and under the de facto control of Saudi Arabia as of market creation will qualify.
+
+The occurrence, attribution, and timing of a qualifying military action will be primarily determined based on a consensus of information available from the resolution sources. Where multiple sources conflict regarding the occurrence, attribution, or timing of a relevant military action, this market will remain open until the earlier of: i) the confirmation of the occurrence, attribution, and timing of the action based on a consensus of information available from the resolution sources or ii) 3 full calendar days (AST) from the date of the first credibly reported evidence of the action. If this period would extend past the end date, this market will remain open to allow for 3 full calendar days to pass. If, at the end of the third calendar day, conflicting reports remain as to the occurrence, attribution, or timing of the action, this market will resolve based on the totality of information available from the resolution sources at that time. No single statement, denial, or presentation of evidence will govern where it is contradicted by the totality of information.
+
+The resolution sources for this market will be official information from the government and military of Saudi Arabia, the Houthis and credible reporting.
+  E3.C3: Will there be Houthi military action against Saudi Arabia by July 31, 2026?
+    Contract rules: This market will resolve to “Yes” if the Houthis take a qualifying military action against Saudi Arabia by the specified date, 11:59 PM Arabia Standard Time (AST). Otherwise this market will resolve to “No.”
+
+A qualifying military action refers to an air strike or a surface-to-surface missile strike, initiated by the Houthis, that directly impacts Saudi Arabia. An air strike includes bombs, air-to-surface missiles, and air-launched drones. A surface-to-surface missile strike includes one-way attack drones and surface-to-surface missiles such as cruise or ballistic missiles.
+
+The following actions do not constitute a qualifying military action:
+Munitions destroyed or intercepted before impact;
+Surface-to-air missile strikes;
+Small-arms fire;
+Ground incursions;
+Cyber operations;
+Naval gunfire and artillery fire;
+Howitzers, artillery pieces, mortars, and rocket artillery (e.g. MLRS systems);
+Minor surface-to-surface strikes, including short range loitering munitions, FPV drones, and ATGM strikes;
+Any threat, authorization, or announcement of force that has not been executed.
+
+Any munition that is intercepted or destroyed before impact does not constitute a qualifying military action. Debris, fragments, or any wreckage from intercepted munitions that land on Yemen do not constitute a military action regardless of any damage incurred.
+
+“Saudi Arabia” refers to the terrestrial territory of Saudi Arabia, including its internal waters. Saudi Arabia’s maritime territory and airspace are not encompassed. Where territorial borders are disputed, all territory claimed by and under the de facto control of Saudi Arabia as of market creation will qualify.
+
+The occurrence, attribution, and timing of a qualifying military action will be primarily determined based on a consensus of information available from the resolution sources. Where multiple sources conflict regarding the occurrence, attribution, or timing of a relevant military action, this market will remain open until the earlier of: i) the confirmation of the occurrence, attribution, and timing of the action based on a consensus of information available from the resolution sources or ii) 3 full calendar days (AST) from the date of the first credibly reported evidence of the action. If this period would extend past the end date, this market will remain open to allow for 3 full calendar days to pass. If, at the end of the third calendar day, conflicting reports remain as to the occurrence, attribution, or timing of the action, this market will resolve based on the totality of information available from the resolution sources at that time. No single statement, denial, or presentation of evidence will govern where it is contradicted by the totality of information.
+
+The resolution sources for this market will be official information from the government and military of Saudi Arabia, the Houthis and credible reporting.
+News before E3's as-of date (date seen, source, headline):
+  - 2026-07-15 | iranwire.com | Pakistan Condemns Houthi Missile Attacks on Saudi Arabia
+  - 2026-07-15 | moderndiplomacy.eu | Saudi Arabia Boosts Yanbu Oil Exports as Houthi Threats Grow
+  - 2026-07-14 | www.reuters.com | Houthis fire missiles at Saudi Arabia, breaking years of calm
+  - 2026-07-14 | www.longwarjournal.org | Saudi Arabia and Houthis trade attacks over restarting direct flights between Yemen and Iran
+  - 2026-07-14 | www.aljazeera.com | Leading Houthi threatens ‘siege’ on Saudi Arabia after Yemen airport attack
+  - 2026-07-14 | themedialine.org | Saudi Arabia Targets Stronghold of Houthi Leader After Missile and Drone Attacks
+  - 2026-07-14 | www.rigzone.com | Houthis Strike Saudi Arabia in Major Escalation
+  - 2026-07-14 | news.cgtn.com | Iran targets US base in Jordan, Houthis strike Saudi Arabia
+  - 2026-07-14 | www.timesofisrael.com | In major escalation, Yemen’s Houthis target Saudi Arabia’s Abha airport
+  - 2026-07-14 | www.france24.com | Houthis launch missiles at Saudi Arabia, in retaliation for Sanaa airport strikes
+  - 2026-07-14 | www.ndtv.com | Trump Extends US Backing To Saudi Arabia To Take On Iran-backed Houthis
+  - 2026-07-14 | www.bloomberg.com | Iran-Backed Houthis Strike Saudi Arabia in Major Escalation
+  - 2026-07-14 | english.alarabiya.net | US reaffirms support for Saudi Arabia after Houthi attacks
+  - 2026-07-14 | www.newagebd.net | Saudi Arabia, Houthis edge towards war
+  - 2026-07-13 | apnews.com | Yemen's Houthis strike Saudi Arabia's Abha airport with missiles and drones in a sharp escalation
+  - 2026-07-13 | www.al-monitor.com | Yemen’s Houthis accuse Saudi Arabia of striking Sanaa airport: What to know
+  - 2026-07-13 | www.nytimes.com | Yemen’s Fragile Peace in Peril as Houthis Accuse Saudi Arabia of Bombing
+  - 2026-07-13 | www.ynetnews.com | Houthis strike back at Saudi Arabia, exposing cracks in Gulf deterrence
+  - 2026-07-13 | www.ynetnews.com | Houthis accuse Saudi Arabia of striking Sanaa airport to block Iranian plane
+  - 2026-07-13 | nypost.com | Iran-backed Houthis fire missile at Saudi Arabia, vow revenge after airport strike
+  - 2026-07-13 | www.timesofisrael.com | Yemen’s Houthis say Saudi Arabia struck Sanaa airport
+  - 2026-07-13 | www.timesofisrael.com | Houthis fire at Saudi Arabia after attack on Yemeni airport, Saudi officials say
+  - 2026-07-13 | www.azernews.az | Houthis say Saudi Arabia declared war
+What to write for E3:
+  Write "dates": for each chance 10, 25, 50, 75 and 90, the date by which you give it that chance of having happened, or null if you do not give it that chance by the last date the contracts cover. Dates must not go earlier as the chance rises.
+
+=== E4 (as of 2026-09-23): Bitcoin above ___ on September 25?
+Rules:
+This market will resolve to "Yes" if the Binance 1 minute candle for BTC/USDT 12:00 in the ET timezone (noon) on the date specified in the title has a final "Close" price higher than the price specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the BTC/USDT "Close" prices currently available at https://www.binance.com/en/trade/BTC_USDT with "1m" and "Candles" selected on the top bar.
+
+Please note that this market is about the price according to Binance BTC/USDT, not according to other exchanges or trading pairs.
+
+Price precision is determined by the number of decimal places in the source.
+Contracts:
+  E4.C1: Will the price of Bitcoin be above $70,000 on September 25?
+  E4.C2: Will the price of Bitcoin be above $72,000 on September 25?
+  E4.C3: Will the price of Bitcoin be above $74,000 on September 25?
+  E4.C4: Will the price of Bitcoin be above $76,000 on September 25?
+  E4.C5: Will the price of Bitcoin be above $78,000 on September 25?
+  E4.C6: Will the price of Bitcoin be above $80,000 on September 25?
+  E4.C7: Will the price of Bitcoin be above $82,000 on September 25?
+  E4.C8: Will the price of Bitcoin be above $84,000 on September 25?
+  E4.C9: Will the price of Bitcoin be above $86,000 on September 25?
+  E4.C10: Will the price of Bitcoin be above $88,000 on September 25?
+  E4.C11: Will the price of Bitcoin be above $90,000 on September 25?
+News before E4's as-of date (date seen, source, headline):
+  - 2026-09-23 | finance.yahoo.com | Where Will Bitcoin and Solana Be in 2 Years?
+  - 2026-09-23 | www.coindesk.com | Bitcoin consolidates near $86,000 as rally narrows and Brent slips below $100
+  - 2026-09-23 | www.coindesk.com | Bitcoin news: The last time this happened to BTC, it was 2012
+  - 2026-09-23 | www.coindesk.com | Coinbase users can now borrow USDC against bitcoin at a fixed rate
+  - 2026-09-23 | finance.yahoo.com | Should You Buy Bitcoin While It's Under $100,000? The Answer Might Surprise You.
+  - 2026-09-23 | finance.yahoo.com | $15.6 Billion in Bitcoin Options Expire Friday—Here's What It Means
+  - 2026-09-23 | finance.yahoo.com | How Bitcoin Climbed From Below $75,000 to Over $87,000 in Just Six Days
+  - 2026-09-23 | finance.yahoo.com | Bitcoin Is Down Just 1.2% for 2026 After Clearing $86,000. Can It End the Year Green?
+  - 2026-09-23 | www.coindesk.com | Bitcoin trades near $85,000 ahead of one of deribit’s largest options expiries of the year
+  - 2026-09-23 | fortune.com | Current price of Bitcoin for September 23, 2026
+  - 2026-09-23 | www.investing.com | Analyst says Bitcoin bull market is underway and sets 2029 target
+  - 2026-09-23 | www.bloomberg.com | Bitcoin Bulls Eye Next Leg as $15 Billion Options Expiry Nears
+  - 2026-09-23 | www.barrons.com | Why Is Bitcoin Cash’s Price Rising After a 30% Surge?
+  - 2026-09-23 | www.tradingview.com | Bitcoin breaks below $84,000 as $237M in longs get liquidated in a single hour
+  - 2026-09-23 | www.tradingview.com | Deribit sees $16B in Bitcoin options expire Friday
+  - 2026-09-23 | finance.yahoo.com | Analyst who predicted 2021 crash admits he was wrong about Bitcoin
+  - 2026-09-23 | finance.yahoo.com | Bitcoin Set for Its First Q3 Winning Streak Since 2012: What Can History Teach Us?
+  - 2026-09-23 | www.coindesk.com | Bitcoin nears $87,000, Zcash zooms 10% as U.S. bitcoin reserve bill clears committee
+  - 2026-09-22 | www.stonex.com | Bitcoin Analysis: Are Buyers Back in Control?
+  - 2026-09-22 | global.morningstar.com | Why Is the Bitcoin Price Soaring Again?
+  - 2026-09-22 | www.inc.com | Bitcoin Is Roaring Back and Crypto-Linked Stocks Are Taking Notice
+  - 2026-09-22 | finance.yahoo.com | 'Crypto winter is over,' analyst says as bitcoin tops $86,000: Chart of the Day
+  - 2026-09-22 | finance.yahoo.com | History Says This Is What Will Happen With Bitcoin in 2027
+  - 2026-09-22 | www.bloomberg.com | Bitcoin Retreats From Eight-Month High After Dizzying 13% Rally
+  - 2026-09-22 | finance.yahoo.com | Elon Musk's X adds Bitcoin trading links as crypto push expands
+What to write for E4:
+  Write "levels": for each chance 10, 25, 50, 75 and 90, the level you give that chance of the measured quantity being at or above when it resolves. The 10 level is the highest and the 90 level the lowest. Example: {"10": 120, "25": 110, "50": 100, "75": 92, "90": 85}.
+
+=== E5 (as of 2026-06-17): XRP above ___ on June 22?
+Rules:
+This market will resolve to "Yes" if the Binance 1 minute candle for XRP/USDT 12:00 in the ET timezone (noon) on the date specified in the title has a final "Close" price higher than the price specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the XRP/USDT "Close" prices currently available at https://www.binance.com/en/trade/XRP_USDT with "1m" and "Candles" selected on the top bar.
+
+Please note that this market is about the price according to Binance XRP/USDT, not according to other exchanges or trading pairs.
+
+Price precision is determined by the number of decimal places in the source.
+Contracts:
+  E5.C1: Will the price of XRP be above $0.80 on June 22?
+  E5.C2: Will the price of XRP be above $0.90 on June 22?
+  E5.C3: Will the price of XRP be above $1.00 on June 22?
+  E5.C4: Will the price of XRP be above $1.10 on June 22?
+  E5.C5: Will the price of XRP be above $1.20 on June 22?
+  E5.C6: Will the price of XRP be above $1.30 on June 22?
+  E5.C7: Will the price of XRP be above $1.40 on June 22?
+  E5.C8: Will the price of XRP be above $1.50 on June 22?
+  E5.C9: Will the price of XRP be above $1.60 on June 22?
+  E5.C10: Will the price of XRP be above $1.70 on June 22?
+  E5.C11: Will the price of XRP be above $1.80 on June 22?
+News before E5's as-of date (date seen, source, headline):
+  - 2026-06-17 | www.coindesk.com | XRP gives back breakout gains, slipping below $1.23 on heavy selling
+  - 2026-06-17 | www.fool.com | Ripple Just Upgraded XRP, but Here's Why the Cryptocurrency Could Still Plunge Below $1
+  - 2026-06-17 | www.financemagnates.com | How Low Can XRP Go From $1.20? XRP Price Prediction Shows -30% Bearish Target
+  - 2026-06-17 | www.fool.com | Is XRP Poised for a Major Breakout Rally?
+  - 2026-06-17 | coinpedia.org | XRP Price Prediction For June 18
+  - 2026-06-17 | crypto.news | XRP Ledger was years ahead of Solana DEX race, ex-Ripple dev says
+  - 2026-06-17 | coinpedia.org | Exclusive: Bitcoin, Ethereum, and XRP Price Predictions – Key Levels to Watch
+  - 2026-06-16 | bitcoinfoundation.org | XRP Price Prediction 2026: Is a Major Drop Coming for Ripple?
+  - 2026-06-16 | changelly.com | What Is XRP? Ripple and XRP Ledger Guide
+  - 2026-06-16 | finance.yahoo.com | XRP Holders With 1 Million Coins Now Own 74% of the Supply
+  - 2026-06-16 | www.coindesk.com | XRP gives back gains after 10% rally as traders take profit near $1.25
+  - 2026-06-16 | www.coindesk.com | XRP News: Ripple invests in Flutterwave, bringing RLUSD and XRP Ledger to payments in Africa
+  - 2026-06-16 | cryptoslate.com | XRP just beat Ethereum, Solana and others in 90-Day RWA flows as traders pile back into the token
+  - 2026-06-16 | seekingalpha.com | XRP: The Case For The Most Deeply Entrenched Payment Network In Crypto (NYSEARCA:XRP)
+  - 2026-06-16 | beincrypto.com | XRP Rallies as Former Goldman Analyst Backs $1,000 Target
+  - 2026-06-16 | www.benzinga.com | XRP Stages 'Impressive Comeback' With 13% Rally On Monday: Can It Continue?
+  - 2026-06-16 | www.ccn.com | XRP Ledger Nears 1 Million Daily Transactions With 427,000 Payments Processed
+  - 2026-06-16 | coinpedia.org | XRP Price Analysis: CLARITY Act Impact, Catalysts and Worst-case Scenarios
+  - 2026-06-16 | crypto.news | XRP price eyes $1.30 as whale accumulation boosts rebound
+  - 2026-06-16 | coinpedia.org | XRP Price Prediction For June 17
+  - 2026-06-16 | www.tradingview.com | XRP whale wallet withdrawals top 720M as risk-adjusted return data points to opportunity
+  - 2026-06-16 | cryptopotato.com | Ripple (XRP) Price Predictions for This Week (June 16)
+  - 2026-06-15 | finance.yahoo.com | Ripple Targets $1 Billion Revenue Run Rate by 2026, Excluding XRP
+  - 2026-06-15 | www.coindesk.com | XRP price: Ripple-linked token up 8% in first major breakout since June selloff
+  - 2026-06-15 | www.coindesk.com | XRP climbs 4% above $1.18 as traders test next resistance zone
+What to write for E5:
+  Write "levels": for each chance 10, 25, 50, 75 and 90, the level you give that chance of the measured quantity being at or above when it resolves. The 10 level is the highest and the 90 level the lowest. Example: {"10": 120, "25": 110, "50": 100, "75": 92, "90": 85}.
+
+=== E6 (as of 2026-06-03): June 2026 Temperature Increase (ºC)
+Rules:
+This market will resolve according to the value reported by the Global Land-Ocean Temperature Index for June 2026 when it is released.
+
+An anomaly within a named bracket for June 2026 is necessary and sufficient to resolve this market immediately once the data becomes available, regardless of whether the figure for June 2026 is later revised.
+
+The primary resolution source for this market will be the figure found in the table titled "GLOBAL Land-Ocean Temperature Index in 0.01 degrees Celsius" under the column "Jun" in the row "2026" (https://data.giss.nasa.gov/gistemp/tabledata_v4/GLB.Ts+dSST.txt).
+
+If NASA’s “Global Temperature Index” is rendered permanently unavailable, other information from NASA may be used.
+If no information for June 2026 is provided by NASA by August 1, 2026, 11:59 PM ET, this market will resolve to the lowest range bracket.
+Contracts:
+  E6.C1: Will global temperature increase by less than 1.10ºC in June 2026?
+  E6.C2: Will global temperature increase by between 1.10ºC and 1.14ºC in June 2026?
+  E6.C3: Will global temperature increase by between 1.15ºC and 1.19ºC in June 2026?
+  E6.C4: Will global temperature increase by between 1.20ºC and 1.24ºC in June 2026?
+  E6.C5: Will global temperature increase by between 1.25ºC and 1.29ºC in June 2026?
+  E6.C6: Will global temperature increase by more than 1.29ºC in June 2026?
+News before E6's as-of date: none found.
+What to write for E6:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
