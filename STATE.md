@@ -749,3 +749,7 @@ Each thesis subgraph is one basket; a basket is which positions, not sizing; lin
   - W01's armed book: 24 positions, $2,388, 63% of it on Brazil's 4 October election.
   - The shadow book's early losses are outcomes already decided at the lock, which the 50¢ floor excludes.
   - Median live spread 3¢; thin senate books 8–24¢.
+- **R1 (decision 19):** averaging two fresh readings adds +0.9¢ (−1.3 to +3.4), direction only, so the reader stays single.
+  - Independent readings arm 82–87% of the same bets.
+  - A2 holds on fresh readings it was not fitted to (+17.9¢, +14.5¢).
+  - 50 sessions, all audited, run from this cloud session.

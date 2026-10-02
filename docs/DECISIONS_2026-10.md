@@ -418,3 +418,16 @@ Supersedes the starting point's §9 line "nothing is built until the design is a
   - **Test 1, sharpening the reader** (several independent sessions averaged, and half the questions framed as "will this not happen"). It is registered before any session runs, on existing backtest events, and can run from this session: transcripts sit where the audit looks.
   - **D2.** The sweep's reader writes no falsifier, and its prompt is frozen. A falsifier needs a v19 reader pass or a separate step.
   - **Rob to start the watcher** on his machine (command in `v19_watch_books.py`).
+
+## 19. Read each question once: averaging readings does not sharpen the reader (2026-10-02)
+
+- **Decision.** The v19 reader stays single: one cold reading per question. Averaging several readings is not adopted.
+- **Rob's words.** "1 and 4 look good" (decision 17's options); "feel free to use whatever you need."
+- **Evidence** (`lookbacks/polymarket/R1_AVERAGING_RESULT.md`; registered before any session ran; 50 cold sessions, all audited):
+  - **Registered:** avg(B, C) beat single readings by +0.9¢ (−1.3 to +3.4). Direction only.
+  - **The reader is consistent.** Independent readings arm 82% to 87% of the same positions, so there is little noise to average away.
+  - **A2 holds on readings it was not fitted to:** +17.9¢ and +14.5¢ on two fresh readings of pass 3's questions. The same events, so this is not a new-event test.
+- **Still open.**
+  - **R2,** the "will this not happen" framing. The reader's errors look systematic, so a change of wording is the better lever.
+  - **Reading every eligible market each week** (decision 17, option 2).
+  - **A statistical second opinion** (option 3).
