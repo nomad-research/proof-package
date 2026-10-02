@@ -728,3 +728,13 @@ Each thesis subgraph is one basket; a basket is which positions, not sizing; lin
   - 40 is a direction read and 80 the confirmation;
   - skill only;
   - reported by week.
+- **Decision 14 (2026-10-02): Rob's six answers.**
+  - Mention markets stay out of the main test.
+  - The halfway look is grounds for revision only (addendum A2).
+  - Scoring not run on his machine.
+  - Shared drivers are to be found, however obscure.
+  - Paper before money.
+  - Cascades: never.
+- **Found while recording:**
+  - W01 is mostly Brazil's 4 October election (54 of 102 events; 22 of 24 armed positions are elections).
+  - A2's backtest edge leans on crypto price markets; without crypto, +7.4¢, spanning zero.

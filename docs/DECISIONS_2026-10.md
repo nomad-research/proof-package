@@ -277,3 +277,60 @@ Settles the first open item of decision 12, and amends the starting point's §5 
   - **A written procedural-against-cascade rule for A1,** for the same reason.
   - **Rob's four numbers** (C1).
   - **Rob to confirm** that `fwd_sweep.py score` has not been run on his machine. On Windows, the sign would be a file `lookbacks\polymarket\sweep\result.json`, which that command writes.
+
+## 14. Rob's six answers (2026-10-02)
+
+Answers to the six open choices of decision 13, put to Rob in plain English.
+
+1. **The main test leaves out mention markets.**
+   - Rob: "Yes we need general edge, markets where we do better are great but they skew."
+   - **The aim is general edge.** A market kind that does better is reported, but is never allowed to carry the main test.
+   - So A2 is also reported by market kind and without its best kind (`v19_a2.py`, addendum A2). That uses a first, fixed list of kinds set before any sweep outcome is read.
+2. **The halfway look (40 events) neither confirms nor kills. It is grounds for revision.**
+   - Rob: "No but it should be grounds for revision."
+   - **If it points the wrong way,** a revised rule is drafted.
+   - **The revision is a new rule,** registered before the batches it is scored on, and it runs beside the original. The original runs unchanged to its final look at 80 events (`V19_A2_prereg.md` addendum A2).
+3. **The sweep's scoring has not been run on Rob's machine.**
+   - Rob: "I have not."
+   - The A2 registration and both addenda are clean.
+4. **Shared drivers are to be found, however obscure.**
+   - Rob: "There's some form of correlation here that we need to identify however obscure."
+   - **Approach (builder's).** A group is the union of four sources:
+     - (a) the same event;
+     - (b) the same market kind over a window;
+     - (c) links found in the data: kinds whose weekly results move together, and kinds that lose in runs;
+     - (d) positions whose recorded falsifiers (D2, now on every position) name the same cause. This catches links too rare for the data to show yet.
+   - **Why a union.** For a risk rule, a false link costs capacity and a missed link costs money.
+5. **Paper before real money.**
+   - Rob: "We need to do paper before we go to real money."
+   - The four C1 numbers are set after a paper phase, informed by it. Nothing is needed from Rob for them now.
+6. **One-off big events (cascades): never.**
+   - Rob: "Never."
+   - **Builder's reading, to confirm:** never bet on them. With real money they are always excluded. On paper they are still recorded and labelled, so the record shows what the rule leaves out.
+
+**Evidence found while recording these (all after the fact, from frozen files; nothing declares on it).**
+- **Forward week one is mostly one occasion.** By the fixed list of kinds:
+  - 72 of W01's 102 events are elections. 54 are Brazil's 4 October general election (state governor, senate and presidential first-round markets) and 11 are Quebec's.
+  - 22 of W01's 24 armed positions are election markets, so most of W01's A2 evidence settles on one or two election nights.
+  - A2 resamples by event, so it treats these as independent. They share one national swing. The sweep's own registered E1 statistic has the same property and stays untouched (a running test).
+- **A2's backtest edge leans on crypto.** Armed non-mention NOs by kind (BT-T2 passes 1 to 3):
+
+  | Kind | Positions | Events | Skill |
+  |---|---|---|---|
+  | Crypto price | 112 | 39 | +17.7¢ (+10.6 to +23.2) |
+  | Stocks and earnings | 35 | 19 | +15.2¢ (−2.7 to +31.0) |
+  | Post counts | 31 | 15 | −9.5¢ (−24.0 to +1.1) |
+  | Elections | 15 | 7 | +6.7¢ (−35.0 to +22.2) |
+
+  - Without crypto: +7.4¢ (−1.1 to +15.0), 64 events. Without crypto and post counts: +13.1¢ (+3.4 to +21.6), 49 events.
+  - **So by Rob's standard of general edge, A2 outside crypto is direction only in the backtest.** Its first forward weeks test it mostly on elections, where it has 7 backtest events.
+- **Losses come in runs inside one kind, not across kinds in one week.** Market-wide NOs priced 50¢ to 90¢: 1,068 contracts, 346 events, 27 lock weeks.
+  - Crypto price NOs lost four weeks running (weeks 26 to 29, −17¢ to −20¢ a week).
+  - Stocks and earnings lost two (weeks 30 and 31, −25¢ and −39¢, earnings season).
+  - Kinds did not move together week to week (crypto against stocks r −0.02 over 22 weeks). But 27 weeks can show only strong links.
+  - A calendar-week group is too short for a run that lasts weeks. The window length is open, to be set from run lengths as data accumulates.
+
+**Still open.**
+- **Whether A2's test should count events that share one occasion** (the same kind, place or asset, settling the same week) as one unit when measuring its uncertainty. This has to be settled before anyone runs the sweep's scoring. Next question.
+- **Rob to confirm** the reading of answer 6.
+- **What the paper phase must show before real money,** and for how long.

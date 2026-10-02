@@ -18,6 +18,21 @@ SEED = 20261001
 OUT = os.path.join(HERE, "v19")
 
 
+def market_type(e):
+    """A first, fixed list of market kinds, set before any sweep outcome is read (addendum A2). Title and tags only."""
+    t = (e.get("title") or "").lower(); tags = " ".join(e.get("tags") or []).lower()
+    for name, pat in (("mention", r"\bsay\b|\bmention"), ("post counts", r"# ?posts|tweets|# of posts"),
+                      ("crypto price", r"bitcoin|ethereum|solana|xrp|\bbtc\b|\beth\b|crypto|dogecoin|hyperliquid"),
+                      ("stocks and earnings", r"\(([a-z]{1,5})\)|earnings|revenue|stock|close above|nasdaq|s&p|dow jones|market cap|ipo"),
+                      ("macro and commodities", r"\bfed\b|cpi|inflation|interest rate|gdp|jobs|unemployment|payroll|treasury|yield|oil|gold|crude"),
+                      ("elections and votes", r"election|primary|winner|by-election|nominee|seats|vote|referendum|poll"),
+                      ("weather and nature", r"temperature|weather|hurricane|earthquake|rain|snow"),
+                      ("deadlines and announcements", r" by |before |announce|sign|release|launch|deal|ceasefire|meet")):
+        if re.search(pat, t + " " + tags if name == "crypto price" else t):
+            return name
+    return "other"
+
+
 def gap_of(side_yes, m, q):
     """How much surer the reader is of its side than the market's midpoint, in chance points."""
     return None if q is None else (m - q if side_yes else q - m)
@@ -64,7 +79,7 @@ def forward_rows(outcomes=F.outcomes):
                         if want > k:
                             rows.append({"batch": b, "event": ev["id"], "kind": ev["kind"], "mention": ev["mention"], "side": "YES" if yes else "NO",
                                          "counts": counts, "cost": k, "hit": float(won == yes), "money": float(won == yes) - k, "usd_2c": sa.get("usd_2c"),
-                                         "m": m, "q": q, "gap": gap_of(yes, m, q), "closed": res[cid][1]})
+                                         "m": m, "q": q, "gap": gap_of(yes, m, q), "closed": res[cid][1], "mtype": market_type(ev)})
     for r in rows:
         same = lambda x: x["counts"] and x["event"] != r["event"] and x["kind"] == r["kind"] and x["yes"] == (r["side"] == "YES") and abs(x["cost"] - r["cost"]) <= F.MATCH_BAND
         bs = [x["hit"] - x["cost"] for x in contracts if same(x)]
@@ -110,15 +125,15 @@ def summarise(rows):
     blocked = [r for r in no if not r["mention"] and not armed(r)]
     n_ev = len({r["event"] for r in arm}); look = 2 if n_ev >= LOOKS[1] else 1 if n_ev >= LOOKS[0] else 0
     res = read(arm, "skill", 97.5, rng); verdict = "not yet at a look"
-    if look and res:
-        if res["ci97.5"][1] < 0:
-            verdict = "killed"
-        elif look == 1:
-            verdict = "direction only (the first look confirms nothing)"
-        else:
-            verdict = "confirmed" if res["ci97.5"][0] > 0 else "carried"
+    if look == 1 and res:                                                  # addendum A2: the halfway look neither confirms nor kills
+        verdict = ("direction only; points the wrong way, so a revision is drafted (addendum A2)" if res["mean"] < 0 else
+                   "direction only; reviewed, no revision required")
+    elif look == 2 and res:
+        verdict = "confirmed" if res["ci97.5"][0] > 0 else "killed" if res["ci97.5"][1] < 0 else "carried"
     weeks = sorted({r["week"] for r in arm})
     best = max(weeks, key=lambda w: sum(r["skill"] for r in arm if r["week"] == w)) if weeks else None
+    types = sorted({r["mtype"] for r in arm})
+    best_t = max(types, key=lambda t: sum(r["skill"] for r in arm if r["mtype"] == t)) if types else None
     men = [r for r in rows if r["mention"] and r["counts"]]
     return {
         "A2": {"events_resolved": n_ev, "look_reached": look, "looks_at": list(LOOKS), "statistic": res, "reading": verdict},
@@ -127,6 +142,8 @@ def summarise(rows):
             "a2_resampled_by_week": read(arm, "skill", 95, rng, unit="week"),
             "a2_without_its_best_week": {"week": best, "read": read([r for r in arm if r["week"] != best], "skill", 95, rng)} if best else None,
             "a2_by_batch": {b: read([r for r in arm if r["batch"] == b], "skill", 95, rng) for b in sorted({r["batch"] for r in arm})},
+            "a2_by_market_type": {t: read([r for r in arm if r["mtype"] == t], "skill", 95, rng) for t in types},
+            "a2_without_its_best_market_type": {"type": best_t, "read": read([r for r in arm if r["mtype"] != best_t], "skill", 95, rng)} if best_t else None,
             "a2_including_mention_events": read(arm_all, "skill", 95, rng),
             "blocked_no_positions": read(blocked, "skill", 95, rng),
             "a2_money": read(arm, "money", 95, rng),

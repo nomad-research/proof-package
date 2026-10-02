@@ -123,3 +123,19 @@ A confirmation that does not survive losing its best week is read as one tide's 
 - It declares nothing.
 - It is never pooled with E3's or E3b's registered statistics. A forward E3 or E3b result is never cited for the floor question, nor this secondary for E3 or E3b.
 - Its no-floor version was found by looking at backtests, so it is a hypothesis.
+
+## Addendum A2 (2026-10-02, decision 14, before any sweep outcome is read)
+
+Rob has confirmed that `fwd_sweep.py score` has not been run on his machine. No sweep outcome has been read anywhere, so this registration and addendum A1 stand as clean.
+
+**The halfway look (40 events) can neither confirm nor kill.** This replaces addendum A1's "a kill can be read at either look".
+- **Why.** Rob: "No but it should be grounds for revision." Forty events is about two weeks, which can be one unlucky stretch. On paper, carrying on costs nothing.
+- **What happens at the halfway look.**
+  - It is always reviewed.
+  - **If it points the wrong way** (the average skill of the armed positions is below zero), a revised rule is drafted. Zero is the boundary because that is what "the wrong way" means; no other threshold is set.
+- **How a revision is handled, so that it cannot become a second chance at this test:**
+  - The registered rule keeps running, unchanged, to its final look at 80 events, and is read there as §3 and addendum A1 say.
+  - A revised rule is a new rule. It is written down and registered before the batches it is scored on, and scored only on batches frozen after its registration.
+  - It has seen the forward data it was drafted from, so that data can never count as its evidence.
+  - It runs beside the registered rule in the shadow book. It does not replace it.
+- **The final look (80 events) is the only look that can confirm or kill.**
