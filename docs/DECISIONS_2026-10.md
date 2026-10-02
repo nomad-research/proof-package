@@ -470,3 +470,24 @@ Supersedes the starting point's §9 line "nothing is built until the design is a
   - **Re-measure the backtests at prices that were really there,** registered before it runs. These are the trade prints near each lock, or a coherent book. It needs no new sessions, and the frozen files are read, not changed.
   - **BT-A** gets the same price check.
   - **The forward test** prices at the live ask, so it is the clean measurement. W01 is mostly election partitions and settles from 4 October.
+
+## 22. The framework is the design itself; only P5's filter is set aside (2026-10-02)
+
+- **Rob's words.** "The framework can't go in the sense that it's just what we're building, if you want to scrap it in it's current form sure no problem but we can't scrap the concept as refining the design is the framework itself."
+- **Decision.**
+  - **"The framework" means the whole design around the edge, and refining it continues.**
+  - **The three-condition filter that P5 tested is set aside in its current form.** It required the reader under 10%, at least 3 days to the scheduled end, and not a touch question. It is called "the P5 filter" from here.
+  - **Its ideas return as candidates in layer 3,** re-tested at real prices.
+- **Evidence.** Decision 21 and `lookbacks/polymarket/V19_FRAMEWORK_P5_RESULT.md`. 43 of the P5 filter's 51 positions were priced at empty-book midpoints.
+- **The design's layers, as they stand:**
+  1. **Is the price real?**
+     - New, from decision 21.
+     - Forward: the live ask, with each stake capped by the depth within 2¢.
+     - Backtests: not yet built in.
+  2. **Does the reader disagree enough?** A2, to be re-measured at real prices.
+  3. **Which disagreements to trust.** Candidates: conviction, timing and shape (the P5 filter's ideas), and pick-the-winner against other questions. A2 lost on pick-the-winner at real prices (exploratory).
+  4. **How much, and how bunched.** Occasion caps and depth. The −$900 rates occasion was on real prices.
+  5. **Execution.** Taking the ask against resting orders, once the edge's size at real prices is known.
+- **Still open.**
+  - **Step 1:** re-score E1, A2, the mention edge and BT-A at real prices, registered before it runs.
+  - **Step 2:** non-binding forward labels before W01 settles on 4 October: the P5 filter's conditions, Tier 1, and pick-the-winner against other questions.
