@@ -348,3 +348,17 @@ Corrects the reading of decision 14, answer 6. Supersedes decision 13's clause t
   - The exclusion came from v15's theory, not from a test. No event has ever been labelled procedural or cascade, so nothing in the record says cascade bets lose.
   - Rob's earlier concern (decision 13: "A1 would look useless right up to the day a cascade flips a dozen NOs") still describes a real risk. With A1 gone, the group caps and the drawdown stop carry it alone, helped by the falsifier field (decision 14, answer 4, source d).
 - **Still open.** Unchanged from decision 14: whether A2's test counts events that share one occasion as one unit.
+
+## 16. One occasion counts as one piece of evidence (2026-10-02)
+
+- **Decision.** A2's test counts events that share one occasion as one unit, both for its uncertainty and for when its looks come.
+  - One occasion is the same kind of market, about the same place or asset, settling within the same 7 days (`V19_A2_prereg.md` addendum A3).
+  - The looks stay at 40 occasions (a direction read) and 80 (the confirmation).
+- **Rob's words.** "lets go with yes."
+- **Evidence.**
+  - **W01** is 54 events on Brazil's 4 October election. Its 20 armed events are 5 occasions.
+  - **On the backtest,** 103 armed events are 87 occasions, at about 25¢ per occasion. At 80 occasions the test confirms if the forward mean is about 6.2¢ or more, against 7.0¢ by events.
+- **What it costs.** The final look moves from about early to mid November to somewhere between late November and late January, depending on how many separate occasions each batch holds.
+- **Still open.**
+  - **What the paper phase must show before real money,** and for how long.
+  - **The same weakness in a running test.** The sweep's own E1, E3 and E3b statistics still resample by event. They are a running test and stay untouched. A2's scorer can report E1 by occasion beside them as a secondary, if wanted.

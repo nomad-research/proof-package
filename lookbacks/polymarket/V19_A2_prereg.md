@@ -139,3 +139,35 @@ Rob has confirmed that `fwd_sweep.py score` has not been run on his machine. No 
   - It has seen the forward data it was drafted from, so that data can never count as its evidence.
   - It runs beside the registered rule in the shadow book. It does not replace it.
 - **The final look (80 events) is the only look that can confirm or kill.**
+
+## Addendum A3 (2026-10-02, decision 16, before any sweep outcome is read)
+
+**Events that share one occasion count as one unit.**
+- Rob: "lets go with yes", to the question whether events sharing one occasion should count as a single piece of evidence when judging how sure the test is.
+- **Why.** 54 of W01's 102 events are Brazil's 4 October election. Resampled by event, its races would count as 54 independent pieces of evidence, though they share one national swing.
+
+**What one occasion is** (`v19_a2.py`: `subject_of`, `assign_occasions`; fixed before any outcome is read).
+- **The same kind of market,** from the fixed list of kinds of addendum A2.
+- **About the same place or asset:**
+
+  | Kind | Subject |
+  |---|---|
+  | Elections | The country, from the event's tags; US primaries and US elections count as "united-states" |
+  | Crypto | The coin named in the title |
+  | Stocks and earnings | The ticker in the title |
+  | Post counts | The account named in the title |
+  | Macro and commodities | The series: the Fed, inflation, growth, jobs, oil, gold, rates |
+
+  A kind with no such subject (deadlines, weather, other), or an event whose subject cannot be read, is its own occasion.
+- **Settling the same week:** events with the same subject whose scheduled ends fall within 7 days of the occasion's first scheduled end. A calendar week was tried first and split Brazil's Sunday vote in two, because some of its markets end on the Monday.
+
+**What changes in the test.**
+- **The declared statistic is resampled by occasion,** not by event. Everything else in §3 and addenda A1 and A2 stands.
+- **The looks count occasions:** a direction read at 40 resolved occasions with an armed non-mention NO position, the confirmation at 80.
+  - Counting occasions is never looser than counting events, since an occasion holds one event or more.
+  - On the backtest, 103 armed events make 87 occasions, at about 25¢ per occasion. At 40 occasions the 97.5% lower bound clears zero if the mean is 8.8¢ or more. At 80 it clears at 6.2¢. So 40 and 80 are kept.
+- **The statistic resampled by event,** and the occasions holding more than one event, are reported as secondaries.
+
+**The cost: the test takes longer.**
+- W01's 24 armed positions sit on 20 events but only 5 occasions: 13 of the events are Brazil's election and 4 are Peru's.
+- If later batches give 5 to 10 armed occasions each, the final look at 80 comes after about 8 to 16 batches: from late November to late January. Before this change it was early to mid November.

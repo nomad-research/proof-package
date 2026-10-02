@@ -739,3 +739,7 @@ Each thesis subgraph is one basket; a basket is which positions, not sizing; lin
   - W01 is mostly Brazil's 4 October election (54 of 102 events; 22 of 24 armed positions are elections).
   - A2's backtest edge leans on crypto price markets; without crypto, +7.4¢, spanning zero.
 - **Decision 15:** one-off big events are never ruled out. A1 is removed as a rule (it may still be recorded as a description); the starting point's cascade exclusion is dropped.
+- **Decision 16:** A2's test counts one occasion as one unit (addendum A3).
+  - One occasion is the same kind of market, the same place or asset, within 7 days.
+  - W01's 20 armed events are 5 occasions.
+  - The final look moves to late November to late January.

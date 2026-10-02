@@ -12,7 +12,7 @@ import bt_t2 as T
 import fwd_sweep as F
 
 ARM_COST, ARM_GAP = 0.50, 0.20                     # A2: NO costs 50c or more, the reader at least 20 points surer (starting point §5, basis §6)
-LOOKS = (40, 80)                                   # resolved non-mention events with an armed NO position: a direction read, then the confirmation (addendum A1)
+LOOKS = (40, 80)                                   # resolved occasions with an armed non-mention NO position: a direction read, then the confirmation (addenda A1, A3)
 BANDS = (0.10, 0.15, 0.20, 0.25, 0.30, 0.40)
 SEED = 20261001
 OUT = os.path.join(HERE, "v19")
@@ -31,6 +31,60 @@ def market_type(e):
         if re.search(pat, t + " " + tags if name == "crypto price" else t):
             return name
     return "other"
+
+
+US_ELECTION_TAGS = {"primaries", "primary-elections", "midterms", "us-presidential-election", "deprec-us-election"}
+COUNTRY_TAGS = {"quebec": "canada", "quebec-elections": "canada", "uk": "united-kingdom", "german-elections": "germany", "russia-election": "russia",
+                "sweden-elections": "sweden", "sweden-parliamentary-elections": "sweden"}
+COUNTRIES = {"brazil", "canada", "peru", "russia", "germany", "sweden", "united-kingdom", "south-korea", "france", "japan", "mexico", "argentina",
+             "chile", "colombia", "india", "italy", "spain", "poland", "netherlands", "belgium", "portugal", "australia", "israel", "turkey",
+             "ukraine", "hungary", "czech-republic", "romania", "latvia", "ireland", "norway", "denmark", "finland", "austria", "switzerland",
+             "new-zealand", "philippines", "indonesia", "taiwan", "thailand", "nigeria", "south-africa", "ecuador", "bolivia", "venezuela"}
+CRYPTO = (("bitcoin", r"bitcoin|\bbtc\b"), ("ethereum", r"ethereum|\beth\b"), ("solana", r"solana|\bsol\b"), ("xrp", r"\bxrp\b"),
+          ("dogecoin", r"dogecoin|\bdoge\b"), ("hyperliquid", r"hyperliquid|\bhype\b"))
+MACRO = (("fed", r"\bfed\b|interest rate|fomc"), ("inflation", r"cpi|inflation|pce"), ("growth", r"gdp"),
+         ("jobs", r"jobs|payroll|unemployment"), ("oil", r"oil|crude|brent|wti"), ("gold", r"gold"), ("rates", r"treasury|yield"))
+
+
+OCCASION_DAYS = 7                                  # "settling the same week": within 7 days of the occasion's first scheduled end
+
+
+def subject_of(e):
+    """The kind of market and the place or asset it is about, or None where the kind has no mechanical subject (addendum A3)."""
+    kind = market_type(e); t = (e.get("title") or "").lower(); tags = [x.lower() for x in (e.get("tags") or [])]
+    subject = None
+    if kind == "elections and votes":
+        named = [COUNTRY_TAGS.get(x, x) for x in tags if COUNTRY_TAGS.get(x, x) in COUNTRIES]
+        us = any(x in US_ELECTION_TAGS or x.endswith("-primary") or x.endswith("-primaries") for x in tags)
+        subject = named[0] if named else "united-states" if us else None
+    elif kind == "crypto price":
+        subject = next((n for n, pat in CRYPTO if re.search(pat, t)), "crypto")
+    elif kind == "stocks and earnings":
+        m = re.search(r"\(([a-z]{1,5})\)", t); subject = m.group(1) if m else None
+    elif kind == "post counts":
+        subject = t.split("#")[0].strip() or None
+    elif kind == "macro and commodities":
+        subject = next((n for n, pat in MACRO if re.search(pat, t)), None)
+    return f"{kind} | {subject}" if subject else None
+
+
+def scheduled_end(e):
+    return max(dt.datetime.fromisoformat(c["end"].replace("Z", "+00:00")) for c in e["contracts"]).timestamp()
+
+
+def assign_occasions(items):
+    """items: dicts with 'event', 'subject' and 'end'. Events with the same subject whose scheduled ends fall within OCCASION_DAYS of the
+    occasion's first end share one occasion; an event with no subject is its own occasion. Sets item['occ']."""
+    first = {}
+    for it in sorted({it["event"]: it for it in items}.values(), key=lambda it: it["end"]):
+        if it["subject"] is None:
+            first[it["event"]] = f"event {it['event']}"; continue
+        cur = first.get(("open", it["subject"]))
+        if cur is None or it["end"] - cur[1] > OCCASION_DAYS * 86400:
+            cur = (f"{it['subject']} | from {dt.datetime.fromtimestamp(it['end'], dt.timezone.utc):%Y-%m-%d}", it["end"]); first[("open", it["subject"])] = cur
+        first[it["event"]] = cur[0]
+    for it in items:
+        it["occ"] = first[it["event"]]
 
 
 def gap_of(side_yes, m, q):
@@ -79,7 +133,8 @@ def forward_rows(outcomes=F.outcomes):
                         if want > k:
                             rows.append({"batch": b, "event": ev["id"], "kind": ev["kind"], "mention": ev["mention"], "side": "YES" if yes else "NO",
                                          "counts": counts, "cost": k, "hit": float(won == yes), "money": float(won == yes) - k, "usd_2c": sa.get("usd_2c"),
-                                         "m": m, "q": q, "gap": gap_of(yes, m, q), "closed": res[cid][1], "mtype": market_type(ev)})
+                                         "m": m, "q": q, "gap": gap_of(yes, m, q), "closed": res[cid][1], "mtype": market_type(ev),
+                                         "subject": subject_of(ev), "end": scheduled_end(ev)})
     for r in rows:
         same = lambda x: x["counts"] and x["event"] != r["event"] and x["kind"] == r["kind"] and x["yes"] == (r["side"] == "YES") and abs(x["cost"] - r["cost"]) <= F.MATCH_BAND
         bs = [x["hit"] - x["cost"] for x in contracts if same(x)]
@@ -119,12 +174,13 @@ def summarise(rows):
     rng = np.random.default_rng(SEED)
     for r in rows:
         r["week"] = week_of(r)
+    assign_occasions(rows)
     no = [r for r in rows if r["side"] == "NO" and r["counts"]]
     arm_all = [r for r in no if armed(r)]
     arm = [r for r in arm_all if not r["mention"]]                         # addendum A1: declared on the E1 book, non-mention events
     blocked = [r for r in no if not r["mention"] and not armed(r)]
-    n_ev = len({r["event"] for r in arm}); look = 2 if n_ev >= LOOKS[1] else 1 if n_ev >= LOOKS[0] else 0
-    res = read(arm, "skill", 97.5, rng); verdict = "not yet at a look"
+    n_occ = len({r["occ"] for r in arm}); look = 2 if n_occ >= LOOKS[1] else 1 if n_occ >= LOOKS[0] else 0
+    res = read(arm, "skill", 97.5, rng, unit="occ"); verdict = "not yet at a look"             # addendum A3: one occasion, one unit
     if look == 1 and res:                                                  # addendum A2: the halfway look neither confirms nor kills
         verdict = ("direction only; points the wrong way, so a revision is drafted (addendum A2)" if res["mean"] < 0 else
                    "direction only; reviewed, no revision required")
@@ -136,8 +192,11 @@ def summarise(rows):
     best_t = max(types, key=lambda t: sum(r["skill"] for r in arm if r["mtype"] == t)) if types else None
     men = [r for r in rows if r["mention"] and r["counts"]]
     return {
-        "A2": {"events_resolved": n_ev, "look_reached": look, "looks_at": list(LOOKS), "statistic": res, "reading": verdict},
+        "A2": {"occasions_resolved": n_occ, "events_resolved": len({r["event"] for r in arm}), "look_reached": look, "looks_at": list(LOOKS),
+               "statistic": res, "reading": verdict},
         "secondary": {
+            "a2_resampled_by_event": read(arm, "skill", 97.5, rng),
+            "a2_occasions_with_more_than_one_event": {o: n for o, n in collections.Counter(r["occ"] for r in {r["event"]: r for r in arm}.values()).items() if n > 1},
             "a2_by_resolution_week": {w: read([r for r in arm if r["week"] == w], "skill", 95, rng) for w in weeks},
             "a2_resampled_by_week": read(arm, "skill", 95, rng, unit="week"),
             "a2_without_its_best_week": {"week": best, "read": read([r for r in arm if r["week"] != best], "skill", 95, rng)} if best else None,
