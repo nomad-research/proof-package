@@ -1,0 +1,814 @@
+You will be shown 6 questions from a prediction market. Each has one or more contracts that resolve YES or NO under the rules shown. Each question gives the date your view is "as of": answer as you would on that date.
+
+Use only what you already know. Do not search for or look up anything: reading this file is the only tool call you may make. There are no prices in this file and you should not try to estimate what any market thinks; give your own view.
+
+Each question says what to write for it. Whole percents run from 1 to 99. Levels are plain numbers in the units the contracts use (for example 95000 for $95,000, 3.25 for 3.25%). Dates are YYYY-MM-DD.
+
+For each question also say whether you recognise how it actually turned out ("recognised": true only if you believe you remember the real outcome; otherwise false).
+
+Reply with one JSON object and nothing else:
+{"events": [{"label": "E1", "recognised": false, ...the fields that question asks for...}]}
+
+=== E1 (as of 2026-05-27): What will S&P 500 (SPY) hit Week of May 25 2026?
+Rules:
+What will S&P 500 (SPY) hit Week of May 25 2026?
+Contracts:
+  E1.C1: Will S&P 500 (SPY) hit (HIGH) $780 Week of May 25 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of May 25 2026, any 1-minute candle for S&P 500 (SPY) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the S&P 500 (SPY) "High" prices available at https://pythdata.app/explore/Equity.US.SPY%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.SPY%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E1.C2: Will S&P 500 (SPY) hit (HIGH) $775 Week of May 25 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of May 25 2026, any 1-minute candle for S&P 500 (SPY) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the S&P 500 (SPY) "High" prices available at https://pythdata.app/explore/Equity.US.SPY%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.SPY%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E1.C3: Will S&P 500 (SPY) hit (HIGH) $770 Week of May 25 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of May 25 2026, any 1-minute candle for S&P 500 (SPY) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the S&P 500 (SPY) "High" prices available at https://pythdata.app/explore/Equity.US.SPY%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.SPY%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E1.C4: Will S&P 500 (SPY) hit (HIGH) $765 Week of May 25 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of May 25 2026, any 1-minute candle for S&P 500 (SPY) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the S&P 500 (SPY) "High" prices available at https://pythdata.app/explore/Equity.US.SPY%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.SPY%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E1.C5: Will S&P 500 (SPY) hit (HIGH) $760 Week of May 25 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of May 25 2026, any 1-minute candle for S&P 500 (SPY) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the S&P 500 (SPY) "High" prices available at https://pythdata.app/explore/Equity.US.SPY%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.SPY%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E1.C6: Will S&P 500 (SPY) hit (HIGH) $755 Week of May 25 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of May 25 2026, any 1-minute candle for S&P 500 (SPY) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the S&P 500 (SPY) "High" prices available at https://pythdata.app/explore/Equity.US.SPY%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.SPY%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E1.C7: Will S&P 500 (SPY) hit (LOW) $745 Week of May 25 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of May 25 2026, any 1-minute candle for S&P 500 (SPY) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the S&P 500 (SPY) "Low" prices available at https://pythdata.app/explore/Equity.US.SPY%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.SPY%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E1.C8: Will S&P 500 (SPY) hit (LOW) $740 Week of May 25 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of May 25 2026, any 1-minute candle for S&P 500 (SPY) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the S&P 500 (SPY) "Low" prices available at https://pythdata.app/explore/Equity.US.SPY%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.SPY%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E1.C9: Will S&P 500 (SPY) hit (LOW) $735 Week of May 25 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of May 25 2026, any 1-minute candle for S&P 500 (SPY) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the S&P 500 (SPY) "Low" prices available at https://pythdata.app/explore/Equity.US.SPY%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.SPY%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E1.C10: Will S&P 500 (SPY) hit (LOW) $730 Week of May 25 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of May 25 2026, any 1-minute candle for S&P 500 (SPY) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the S&P 500 (SPY) "Low" prices available at https://pythdata.app/explore/Equity.US.SPY%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.SPY%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E1.C11: Will S&P 500 (SPY) hit (LOW) $725 Week of May 25 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of May 25 2026, any 1-minute candle for S&P 500 (SPY) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the S&P 500 (SPY) "Low" prices available at https://pythdata.app/explore/Equity.US.SPY%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.SPY%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E1.C12: Will S&P 500 (SPY) hit (LOW) $720 Week of May 25 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of May 25 2026, any 1-minute candle for S&P 500 (SPY) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the S&P 500 (SPY) "Low" prices available at https://pythdata.app/explore/Equity.US.SPY%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.SPY%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E1.C13: Will S&P 500 (SPY) hit (LOW) $715 Week of May 25 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of May 25 2026, any 1-minute candle for S&P 500 (SPY) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the S&P 500 (SPY) "Low" prices available at https://pythdata.app/explore/Equity.US.SPY%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.SPY%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+What to write for E1:
+  Write "high": for each chance 10, 25, 50, 75 and 90, the level you give that chance of being reached (at or above) within the period. The 10 level is the highest.
+  Write "low": for each chance 10, 25, 50, 75 and 90, the level you give that chance of being reached (at or below) within the period. The 10 level is the lowest.
+
+=== E2 (as of 2026-06-24): What price will Ethereum hit in June?
+Rules:
+What price will Ethereum hit in June?
+Contracts:
+  E2.C1: Will Ethereum reach $3,000 in June?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for ETH/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last), has a final High price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the ETH/USDT High prices available at https://www.binance.com/en/trade/ETH_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance ETH/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E2.C2: Will Ethereum reach $2,800 in June?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for ETH/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last), has a final High price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the ETH/USDT High prices available at https://www.binance.com/en/trade/ETH_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance ETH/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E2.C3: Will Ethereum reach $2,700 in June?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for ETH/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last), has a final High price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the ETH/USDT High prices available at https://www.binance.com/en/trade/ETH_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance ETH/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E2.C4: Will Ethereum reach $2,600 in June?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for ETH/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last), has a final High price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the ETH/USDT High prices available at https://www.binance.com/en/trade/ETH_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance ETH/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E2.C5: Will Ethereum reach $2,500 in June?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for ETH/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last), has a final High price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the ETH/USDT High prices available at https://www.binance.com/en/trade/ETH_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance ETH/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E2.C6: Will Ethereum reach $2,400 in June?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for ETH/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last), has a final High price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the ETH/USDT High prices available at https://www.binance.com/en/trade/ETH_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance ETH/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E2.C7: Will Ethereum reach $2,300 in June?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for ETH/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last), has a final High price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the ETH/USDT High prices available at https://www.binance.com/en/trade/ETH_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance ETH/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E2.C8: Will Ethereum reach $2,200 in June?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for ETH/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last), has a final High price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the ETH/USDT High prices available at https://www.binance.com/en/trade/ETH_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance ETH/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E2.C9: Will Ethereum reach $2,100 in June?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for ETH/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last), has a final High price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the ETH/USDT High prices available at https://www.binance.com/en/trade/ETH_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance ETH/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E2.C10: Will Ethereum reach $2,000 in June?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for ETH/USDT from the creation of this market through 11:59 PM ET on the last day of the month specified in the title has a final High price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the ETH/USDT High prices available at https://www.binance.com/en/trade/ETH_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance ETH/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E2.C11: Will Ethereum dip to $1,500 in June?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for ETH/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last), has a final Low price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the ETH/USDT Low prices available at https://www.binance.com/en/trade/ETH_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance ETH/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E2.C12: Will Ethereum dip to $1,400 in June?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for ETH/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last), has a final Low price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the ETH/USDT Low prices available at https://www.binance.com/en/trade/ETH_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance ETH/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E2.C13: Will Ethereum dip to $1,300 in June?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for ETH/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last), has a final Low price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the ETH/USDT Low prices available at https://www.binance.com/en/trade/ETH_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance ETH/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E2.C14: Will Ethereum dip to $1,200 in June?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for ETH/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last), has a final Low price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the ETH/USDT Low prices available at https://www.binance.com/en/trade/ETH_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance ETH/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E2.C15: Will Ethereum dip to $1,100 in June?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for ETH/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last), has a final Low price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the ETH/USDT Low prices available at https://www.binance.com/en/trade/ETH_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance ETH/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E2.C16: Will Ethereum dip to $1,000 in June?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for ETH/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last), has a final Low price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the ETH/USDT Low prices available at https://www.binance.com/en/trade/ETH_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance ETH/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+What to write for E2:
+  Write "high": for each chance 10, 25, 50, 75 and 90, the level you give that chance of being reached (at or above) within the period. The 10 level is the highest.
+  Write "low": for each chance 10, 25, 50, 75 and 90, the level you give that chance of being reached (at or below) within the period. The 10 level is the lowest.
+
+=== E3 (as of 2026-05-13): Solana above ___ on May 13?
+Rules:
+This market will resolve to "Yes" if the Binance 1 minute candle for SOL/USDT 12:00 in the ET timezone (noon) on the date specified in the title has a final "Close" price higher than the price specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the SOL/USDT "Close" prices currently available at https://www.binance.com/en/trade/SOL_USDT with "1m" and "Candles" selected on the top bar.
+
+Please note that this market is about the price according to Binance SOL/USDT, not according to other exchanges or trading pairs.
+
+Price precision is determined by the number of decimal places in the source.
+Contracts:
+  E3.C1: Will the price of Solana be above $40 on May 13?
+  E3.C2: Will the price of Solana be above $50 on May 13?
+  E3.C3: Will the price of Solana be above $60 on May 13?
+  E3.C4: Will the price of Solana be above $70 on May 13?
+  E3.C5: Will the price of Solana be above $80 on May 13?
+  E3.C6: Will the price of Solana be above $90 on May 13?
+  E3.C7: Will the price of Solana be above $100 on May 13?
+  E3.C8: Will the price of Solana be above $110 on May 13?
+  E3.C9: Will the price of Solana be above $120 on May 13?
+  E3.C10: Will the price of Solana be above $130 on May 13?
+  E3.C11: Will the price of Solana be above $140 on May 13?
+What to write for E3:
+  Write "levels": for each chance 10, 25, 50, 75 and 90, the level you give that chance of the measured quantity being at or above when it resolves. The 10 level is the highest and the 90 level the lowest. Example: {"10": 120, "25": 110, "50": 100, "75": 92, "90": 85}.
+
+=== E4 (as of 2026-07-01): Will Apple (AAPL) finish week of June 29 above___?
+Rules:
+This market will resolve to "Yes" if the official closing price for Apple (AAPL) on the final day of trading of the specified week (normally Friday) is higher than the listed price. Otherwise, this market will resolve to "No."
+
+If the final session is shortened (for example, due to a market-holiday schedule), the official closing price published for that shortened session will still be used for resolution.
+
+If no official closing price is published for that session (for example, due to a trading halt into the close, system issue, delisting, or other disruption), the market will use the last valid on-exchange trade price of the regular session as the effective closing price.
+
+The resolution source for this market is Yahoo Finance, specifically the Apple (AAPL) "Close" prices available at https://finance.yahoo.com/quote/AAPL/history, published under "Historical Prices."
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Yahoo Finance.
+Contracts:
+  E4.C1: Will Apple (AAPL) finish week of June 29 above $245?
+  E4.C2: Will Apple (AAPL) finish week of June 29 above $250?
+  E4.C3: Will Apple (AAPL) finish week of June 29 above $255?
+  E4.C4: Will Apple (AAPL) finish week of June 29 above $260?
+  E4.C5: Will Apple (AAPL) finish week of June 29 above $265?
+  E4.C6: Will Apple (AAPL) finish week of June 29 above $270?
+  E4.C7: Will Apple (AAPL) finish week of June 29 above $275?
+  E4.C8: Will Apple (AAPL) finish week of June 29 above $280?
+  E4.C9: Will Apple (AAPL) finish week of June 29 above $285?
+  E4.C10: Will Apple (AAPL) finish week of June 29 above $290?
+  E4.C11: Will Apple (AAPL) finish week of June 29 above $295?
+  E4.C12: Will Apple (AAPL) finish week of June 29 above $300?
+  E4.C13: Will Apple (AAPL) finish week of June 29 above $305?
+What to write for E4:
+  Write "levels": for each chance 10, 25, 50, 75 and 90, the level you give that chance of the measured quantity being at or above when it resolves. The 10 level is the highest and the 90 level the lowest. Example: {"10": 120, "25": 110, "50": 100, "75": 92, "90": 85}.
+
+=== E5 (as of 2026-07-15): What will Coinbase Global, Inc. (COIN) hit Week of July 13 2026?
+Rules:
+What will Coinbase Global, Inc. (COIN) hit Week of July 13 2026?
+Contracts:
+  E5.C1: Will Coinbase Global, Inc. (COIN) hit (HIGH) $175 Week of July 13 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of July 13 2026, any 1-minute candle for Coinbase Global, Inc. (COIN) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Coinbase Global, Inc. (COIN) "High" prices available at https://pythdata.app/explore/Equity.US.COIN%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.COIN%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E5.C2: Will Coinbase Global, Inc. (COIN) hit (HIGH) $172.50 Week of July 13 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of July 13 2026, any 1-minute candle for Coinbase Global, Inc. (COIN) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Coinbase Global, Inc. (COIN) "High" prices available at https://pythdata.app/explore/Equity.US.COIN%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.COIN%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E5.C3: Will Coinbase Global, Inc. (COIN) hit (HIGH) $170 Week of July 13 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of July 13 2026, any 1-minute candle for Coinbase Global, Inc. (COIN) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Coinbase Global, Inc. (COIN) "High" prices available at https://pythdata.app/explore/Equity.US.COIN%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.COIN%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E5.C4: Will Coinbase Global, Inc. (COIN) hit (HIGH) $167.50 Week of July 13 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of July 13 2026, any 1-minute candle for Coinbase Global, Inc. (COIN) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Coinbase Global, Inc. (COIN) "High" prices available at https://pythdata.app/explore/Equity.US.COIN%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.COIN%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E5.C5: Will Coinbase Global, Inc. (COIN) hit (HIGH) $165 Week of July 13 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of July 13 2026, any 1-minute candle for Coinbase Global, Inc. (COIN) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Coinbase Global, Inc. (COIN) "High" prices available at https://pythdata.app/explore/Equity.US.COIN%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.COIN%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E5.C6: Will Coinbase Global, Inc. (COIN) hit (HIGH) $162.50 Week of July 13 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of July 13 2026, any 1-minute candle for Coinbase Global, Inc. (COIN) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Coinbase Global, Inc. (COIN) "High" prices available at https://pythdata.app/explore/Equity.US.COIN%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.COIN%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E5.C7: Will Coinbase Global, Inc. (COIN) hit (LOW) $152.50 Week of July 13 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of July 13 2026, any 1-minute candle for Coinbase Global, Inc. (COIN) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Coinbase Global, Inc. (COIN) "Low" prices available at https://pythdata.app/explore/Equity.US.COIN%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.COIN%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E5.C8: Will Coinbase Global, Inc. (COIN) hit (LOW) $150 Week of July 13 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of July 13 2026, any 1-minute candle for Coinbase Global, Inc. (COIN) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Coinbase Global, Inc. (COIN) "Low" prices available at https://pythdata.app/explore/Equity.US.COIN%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.COIN%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E5.C9: Will Coinbase Global, Inc. (COIN) hit (LOW) $147.50 Week of July 13 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of July 13 2026, any 1-minute candle for Coinbase Global, Inc. (COIN) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Coinbase Global, Inc. (COIN) "Low" prices available at https://pythdata.app/explore/Equity.US.COIN%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.COIN%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E5.C10: Will Coinbase Global, Inc. (COIN) hit (LOW) $145 Week of July 13 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of July 13 2026, any 1-minute candle for Coinbase Global, Inc. (COIN) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Coinbase Global, Inc. (COIN) "Low" prices available at https://pythdata.app/explore/Equity.US.COIN%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.COIN%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E5.C11: Will Coinbase Global, Inc. (COIN) hit (LOW) $142.50 Week of July 13 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of July 13 2026, any 1-minute candle for Coinbase Global, Inc. (COIN) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Coinbase Global, Inc. (COIN) "Low" prices available at https://pythdata.app/explore/Equity.US.COIN%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.COIN%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+What to write for E5:
+  Write "high": for each chance 10, 25, 50, 75 and 90, the level you give that chance of being reached (at or above) within the period. The 10 level is the highest.
+  Write "low": for each chance 10, 25, 50, 75 and 90, the level you give that chance of being reached (at or below) within the period. The 10 level is the lowest.
+
+=== E6 (as of 2026-04-01): Will Natural Gas (NG) hit Week of March 30 2026?
+Rules:
+Will Natural Gas (NG) hit Week of March 30 2026?
+Contracts:
+  E6.C1: Will Natural Gas (NG) hit (HIGH) $3.70 Week of March 30 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of March 30 2026, any 1-minute candle for the Active Month of Natural Gas futures has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+For Natural Gas futures, the active month refers to the nearest listed contract month. The active month changes at 6:00:00 PM ET at the start of the trading session two business days prior to that contract's last trading day, at which point the next listed contract becomes the active month.
+
+For Natural Gas (NG) futures, the last trading day is defined as four business days prior to the first calendar day of the contract's delivery month, consistent with CME contract specifications.
+
+Only prices achieved during the applicable trading session for the underlying market will be considered. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours as listed on Pyth.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If the Active Month contract does not trade at all during the listed time frame, this market will resolve to "No".
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the underlying market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Active Month Natural Gas futures "High" prices available at https://pythdata.app/explore?search=ngd, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published for the Active Month Natural Gas (NG) futures contract by CME Group may be used to determine whether the listed price was reached during the applicable trading session.
+  E6.C2: Will Natural Gas (NG) hit (HIGH) $3.60 Week of March 30 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of March 30 2026, any 1-minute candle for the Active Month of Natural Gas futures has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+For Natural Gas futures, the active month refers to the nearest listed contract month. The active month changes at 6:00:00 PM ET at the start of the trading session two business days prior to that contract's last trading day, at which point the next listed contract becomes the active month.
+
+For Natural Gas (NG) futures, the last trading day is defined as four business days prior to the first calendar day of the contract's delivery month, consistent with CME contract specifications.
+
+Only prices achieved during the applicable trading session for the underlying market will be considered. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours as listed on Pyth.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If the Active Month contract does not trade at all during the listed time frame, this market will resolve to "No".
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the underlying market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Active Month Natural Gas futures "High" prices available at https://pythdata.app/explore?search=ngd, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published for the Active Month Natural Gas (NG) futures contract by CME Group may be used to determine whether the listed price was reached during the applicable trading session.
+  E6.C3: Will Natural Gas (NG) hit (HIGH) $3.50 Week of March 30 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of March 30 2026, any 1-minute candle for the Active Month of Natural Gas futures has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+For Natural Gas futures, the active month refers to the nearest listed contract month. The active month changes at 6:00:00 PM ET at the start of the trading session two business days prior to that contract's last trading day, at which point the next listed contract becomes the active month.
+
+For Natural Gas (NG) futures, the last trading day is defined as four business days prior to the first calendar day of the contract's delivery month, consistent with CME contract specifications.
+
+Only prices achieved during the applicable trading session for the underlying market will be considered. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours as listed on Pyth.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If the Active Month contract does not trade at all during the listed time frame, this market will resolve to "No".
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the underlying market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Active Month Natural Gas futures "High" prices available at https://pythdata.app/explore?search=ngd, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published for the Active Month Natural Gas (NG) futures contract by CME Group may be used to determine whether the listed price was reached during the applicable trading session.
+  E6.C4: Will Natural Gas (NG) hit (HIGH) $3.40 Week of March 30 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of March 30 2026, any 1-minute candle for the Active Month of Natural Gas futures has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+For Natural Gas futures, the active month refers to the nearest listed contract month. The active month changes at 6:00:00 PM ET at the start of the trading session two business days prior to that contract's last trading day, at which point the next listed contract becomes the active month.
+
+For Natural Gas (NG) futures, the last trading day is defined as four business days prior to the first calendar day of the contract's delivery month, consistent with CME contract specifications.
+
+Only prices achieved during the applicable trading session for the underlying market will be considered. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours as listed on Pyth.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If the Active Month contract does not trade at all during the listed time frame, this market will resolve to "No".
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the underlying market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Active Month Natural Gas futures "High" prices available at https://pythdata.app/explore?search=ngd, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published for the Active Month Natural Gas (NG) futures contract by CME Group may be used to determine whether the listed price was reached during the applicable trading session.
+  E6.C5: Will Natural Gas (NG) hit (HIGH) $3.30 Week of March 30 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of March 30 2026, any 1-minute candle for the Active Month of Natural Gas futures has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+For Natural Gas futures, the active month refers to the nearest listed contract month. The active month changes at 6:00:00 PM ET at the start of the trading session two business days prior to that contract's last trading day, at which point the next listed contract becomes the active month.
+
+For Natural Gas (NG) futures, the last trading day is defined as four business days prior to the first calendar day of the contract's delivery month, consistent with CME contract specifications.
+
+Only prices achieved during the applicable trading session for the underlying market will be considered. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours as listed on Pyth.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If the Active Month contract does not trade at all during the listed time frame, this market will resolve to "No".
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the underlying market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Active Month Natural Gas futures "High" prices available at https://pythdata.app/explore?search=ngd, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published for the Active Month Natural Gas (NG) futures contract by CME Group may be used to determine whether the listed price was reached during the applicable trading session.
+  E6.C6: Will Natural Gas (NG) hit (HIGH) $3.20 Week of March 30 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of March 30 2026, any 1-minute candle for the Active Month of Natural Gas futures has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+For Natural Gas futures, the active month refers to the nearest listed contract month. The active month changes at 6:00:00 PM ET at the start of the trading session two business days prior to that contract's last trading day, at which point the next listed contract becomes the active month.
+
+For Natural Gas (NG) futures, the last trading day is defined as four business days prior to the first calendar day of the contract's delivery month, consistent with CME contract specifications.
+
+Only prices achieved during the applicable trading session for the underlying market will be considered. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours as listed on Pyth.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If the Active Month contract does not trade at all during the listed time frame, this market will resolve to "No".
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the underlying market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Active Month Natural Gas futures "High" prices available at https://pythdata.app/explore?search=ngd, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published for the Active Month Natural Gas (NG) futures contract by CME Group may be used to determine whether the listed price was reached during the applicable trading session.
+  E6.C7: Will Natural Gas (NG) hit (HIGH) $3.10 Week of March 30 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of March 30 2026, any 1-minute candle for the Active Month of Natural Gas futures has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+For Natural Gas futures, the active month refers to the nearest listed contract month. The active month changes at 6:00:00 PM ET at the start of the trading session two business days prior to that contract's last trading day, at which point the next listed contract becomes the active month.
+
+For Natural Gas (NG) futures, the last trading day is defined as four business days prior to the first calendar day of the contract's delivery month, consistent with CME contract specifications.
+
+Only prices achieved during the applicable trading session for the underlying market will be considered. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours as listed on Pyth.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If the Active Month contract does not trade at all during the listed time frame, this market will resolve to "No".
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the underlying market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Active Month Natural Gas futures "High" prices available at https://pythdata.app/explore?search=ngd, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published for the Active Month Natural Gas (NG) futures contract by CME Group may be used to determine whether the listed price was reached during the applicable trading session.
+  E6.C8: Will Natural Gas (NG) hit (LOW) $2.80 Week of March 30 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of March 30 2026, any 1-minute candle for the Active Month of Natural Gas futures has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+For Natural Gas futures, the active month refers to the nearest listed contract month. The active month changes at 6:00:00 PM ET at the start of the trading session two business days prior to that contract's last trading day, at which point the next listed contract becomes the active month.
+
+For Natural Gas (NG) futures, the last trading day is defined as four business days prior to the first calendar day of the contract's delivery month, consistent with CME contract specifications.
+
+Only prices achieved during the applicable trading session for the underlying market will be considered. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours as listed on Pyth.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If the Active Month contract does not trade at all during the listed time frame, this market will resolve to "No".
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the underlying market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Active Month Natural Gas futures "Low" prices available at https://pythdata.app/explore?search=ngd, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published for the Active Month Natural Gas (NG) futures contract by CME Group may be used to determine whether the listed price was reached during the applicable trading session.
+  E6.C9: Will Natural Gas (NG) hit (LOW) $2.70 Week of March 30 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of March 30 2026, any 1-minute candle for the Active Month of Natural Gas futures has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+For Natural Gas futures, the active month refers to the nearest listed contract month. The active month changes at 6:00:00 PM ET at the start of the trading session two business days prior to that contract's last trading day, at which point the next listed contract becomes the active month.
+
+For Natural Gas (NG) futures, the last trading day is defined as four business days prior to the first calendar day of the contract's delivery month, consistent with CME contract specifications.
+
+Only prices achieved during the applicable trading session for the underlying market will be considered. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours as listed on Pyth.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If the Active Month contract does not trade at all during the listed time frame, this market will resolve to "No".
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the underlying market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Active Month Natural Gas futures "Low" prices available at https://pythdata.app/explore?search=ngd, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published for the Active Month Natural Gas (NG) futures contract by CME Group may be used to determine whether the listed price was reached during the applicable trading session.
+  E6.C10: Will Natural Gas (NG) hit (LOW) $2.60 Week of March 30 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of March 30 2026, any 1-minute candle for the Active Month of Natural Gas futures has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+For Natural Gas futures, the active month refers to the nearest listed contract month. The active month changes at 6:00:00 PM ET at the start of the trading session two business days prior to that contract's last trading day, at which point the next listed contract becomes the active month.
+
+For Natural Gas (NG) futures, the last trading day is defined as four business days prior to the first calendar day of the contract's delivery month, consistent with CME contract specifications.
+
+Only prices achieved during the applicable trading session for the underlying market will be considered. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours as listed on Pyth.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If the Active Month contract does not trade at all during the listed time frame, this market will resolve to "No".
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the underlying market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Active Month Natural Gas futures "Low" prices available at https://pythdata.app/explore?search=ngd, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published for the Active Month Natural Gas (NG) futures contract by CME Group may be used to determine whether the listed price was reached during the applicable trading session.
+  E6.C11: Will Natural Gas (NG) hit (LOW) $2.50 Week of March 30 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of March 30 2026, any 1-minute candle for the Active Month of Natural Gas futures has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+For Natural Gas futures, the active month refers to the nearest listed contract month. The active month changes at 6:00:00 PM ET at the start of the trading session two business days prior to that contract's last trading day, at which point the next listed contract becomes the active month.
+
+For Natural Gas (NG) futures, the last trading day is defined as four business days prior to the first calendar day of the contract's delivery month, consistent with CME contract specifications.
+
+Only prices achieved during the applicable trading session for the underlying market will be considered. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours as listed on Pyth.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If the Active Month contract does not trade at all during the listed time frame, this market will resolve to "No".
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the underlying market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Active Month Natural Gas futures "Low" prices available at https://pythdata.app/explore?search=ngd, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published for the Active Month Natural Gas (NG) futures contract by CME Group may be used to determine whether the listed price was reached during the applicable trading session.
+  E6.C12: Will Natural Gas (NG) hit (LOW) $2.40 Week of March 30 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of March 30 2026, any 1-minute candle for the Active Month of Natural Gas futures has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+For Natural Gas futures, the active month refers to the nearest listed contract month. The active month changes at 6:00:00 PM ET at the start of the trading session two business days prior to that contract's last trading day, at which point the next listed contract becomes the active month.
+
+For Natural Gas (NG) futures, the last trading day is defined as four business days prior to the first calendar day of the contract's delivery month, consistent with CME contract specifications.
+
+Only prices achieved during the applicable trading session for the underlying market will be considered. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours as listed on Pyth.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If the Active Month contract does not trade at all during the listed time frame, this market will resolve to "No".
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the underlying market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Active Month Natural Gas futures "Low" prices available at https://pythdata.app/explore?search=ngd, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published for the Active Month Natural Gas (NG) futures contract by CME Group may be used to determine whether the listed price was reached during the applicable trading session.
+What to write for E6:
+  Write "high": for each chance 10, 25, 50, 75 and 90, the level you give that chance of being reached (at or above) within the period. The 10 level is the highest.
+  Write "low": for each chance 10, 25, 50, 75 and 90, the level you give that chance of being reached (at or below) within the period. The 10 level is the lowest.

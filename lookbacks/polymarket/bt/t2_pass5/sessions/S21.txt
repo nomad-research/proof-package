@@ -1,0 +1,553 @@
+You will be shown 6 questions from a prediction market. Each has one or more contracts that resolve YES or NO under the rules shown. Each question gives the date your view is "as of": answer as you would on that date.
+
+Use only what you already know. Do not search for or look up anything: reading this file is the only tool call you may make. There are no prices in this file and you should not try to estimate what any market thinks; give your own view.
+
+Each question says what to write for it. Whole percents run from 1 to 99. Levels are plain numbers in the units the contracts use (for example 95000 for $95,000, 3.25 for 3.25%). Dates are YYYY-MM-DD.
+
+For each question also say whether you recognise how it actually turned out ("recognised": true only if you believe you remember the real outcome; otherwise false).
+
+Reply with one JSON object and nothing else:
+{"events": [{"label": "E1", "recognised": false, ...the fields that question asks for...}]}
+
+=== E1 (as of 2026-05-20): TX-33 Democratic Primary Winner
+Rules:
+This market will resolve according to the candidate who wins the nomination for the Democratic Party to contest the TX-233 congressional district seat in the U.S. House of Representatives in the 2026 midterm elections. The Democratic primary will take place on March 3, 2026.
+
+If no nominee is announced by November 3, 2026, 11:59PM ET, this market will resolve to "Other".
+
+The resolution source for this market will be a consensus of official Democrat sources, including https://democrats.org/.
+
+Any replacement of the nominee before election day will not change the resolution of the market.
+Contracts:
+  E1.C1: Will Julie Johnson be the Democratic nominee for TX-33?
+  E1.C2: Will Colin Allred be the Democratic nominee for TX-33?
+  E1.C3: Will Zeeshan Hafeez be the Democratic nominee for TX-33?
+  E1.C4: Will Carlos Quintanilla be the Democratic nominee for TX-33?
+What to write for E1:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E2 (as of 2026-05-20): NVIDIA (NVDA) closes week of May 18 at ___?
+Rules:
+This market will resolve according to the official closing price for NVIDIA (NVDA) on the final day of trading of the specified week (normally Friday).
+
+If the reported value falls exactly between two brackets, then this market will resolve to the higher range bracket.
+
+If the final session of the week is shortened (for example, due to a market-holiday schedule), the official closing price published for that shortened session will still be used for resolution.
+
+If no official closing price is published for that session (for example, due to a trading halt into the close, system issue, delisting, or other disruption), the market will use the last valid on-exchange trade price of the regular session as the effective closing price.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Yahoo Finance.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Yahoo Finance after any adjustments have been applied.
+
+The resolution source for this market is Yahoo Finance, specifically the NVIDIA (NVDA) "Close" prices available at https://finance.yahoo.com/quote/NVDA/history, published under "Historical Prices."
+Contracts:
+  E2.C1: Will NVIDIA (NVDA) close at <$215 on the final day of trading of the week of May 18 – May 22?
+  E2.C2: Will NVIDIA (NVDA) close at $215-$220 on the final day of trading of the week of May 18 – May 22?
+  E2.C3: Will NVIDIA (NVDA) close at $220-$225 on the final day of trading of the week of May 18 – May 22?
+  E2.C4: Will NVIDIA (NVDA) close at $225-$230 on the final day of trading of the week of May 18 – May 22?
+  E2.C5: Will NVIDIA (NVDA) close at $230-$235 on the final day of trading of the week of May 18 – May 22?
+  E2.C6: Will NVIDIA (NVDA) close at $235-$240 on the final day of trading of the week of May 18 – May 22?
+  E2.C7: Will NVIDIA (NVDA) close at $240-$245 on the final day of trading of the week of May 18 – May 22?
+  E2.C8: Will NVIDIA (NVDA) close at $245-$250 on the final day of trading of the week of May 18 – May 22?
+  E2.C9: Will NVIDIA (NVDA) close at $250-$255 on the final day of trading of the week of May 18 – May 22?
+  E2.C10: Will NVIDIA (NVDA) close at $255-$260 on the final day of trading of the week of May 18 – May 22?
+  E2.C11: Will NVIDIA (NVDA) close at >$260 on the final day of trading of the week of May 18 – May 22?
+What to write for E2:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E3 (as of 2026-06-03): Solana price on June 8?
+Rules:
+This market will resolve according to the final "Close" price of the Binance 1 minute candle for SOL/USDT 12:00 in the ET timezone (noon) on the date specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the SOL/USDT "Close" prices currently available at https://www.binance.com/en/trade/SOL_USDT with "1m" and "Candles" selected on the top bar.
+
+If the reported value falls exactly between two brackets, then this market will resolve to the higher range bracket.
+
+Please note that this market is about the price according to Binance SOL/USDT, not according to other exchanges or trading pairs.
+Contracts:
+  E3.C1: Will the price of Solana be less than $30 on June 8?
+  E3.C2: Will the price of Solana be between $30 and $40 on June 8?
+  E3.C3: Will the price of Solana be between $40 and $50 on June 8?
+  E3.C4: Will the price of Solana be between $50 and $60 on June 8?
+  E3.C5: Will the price of Solana be between $60 and $70 on June 8?
+  E3.C6: Will the price of Solana be between $70 and $80 on June 8?
+  E3.C7: Will the price of Solana be between $80 and $90 on June 8?
+  E3.C8: Will the price of Solana be between $90 and $100 on June 8?
+  E3.C9: Will the price of Solana be between $100 and $110 on June 8?
+  E3.C10: Will the price of Solana be between $110 and $120 on June 8?
+  E3.C11: Will the price of Solana be greater than $120 on June 8?
+What to write for E3:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E4 (as of 2026-05-20): What will WTI Crude Oil (WTI) hit Week of May 18 2026?
+Rules:
+What will WTI Crude Oil (WTI) hit Week of May 18 2026?
+Contracts:
+  E4.C1: Will WTI Crude Oil (WTI) hit (HIGH) $135 Week of May 18 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of May 18 2026, any 1-minute candle for the Active Month of WTI Crude Oil futures has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If the Active Month contract does not trade at all during the listed time frame, this market will resolve to "No".
+
+Only prices achieved during the applicable trading session for the underlying market will be considered. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours.
+
+Per CME contract specifications for WTI Crude Oil (CL) futures, a contract's last trading day is three business days prior to the 25th calendar day of the month preceding the contract's delivery month (or four business days prior if the 25th calendar day is not a business day).
+
+The active month changes at the start of the second trading session prior to the nearest listed contract's last trading session. At that point, the next listed contract becomes the active month (i.e., for the final three trading sessions of the nearest listed contract, the contract for the next month is the active month). The trading session for a given business day typically begins at 6:00 PM ET on the prior calendar date.
+
+For example, if the 25th of the month is a Saturday, the last trading session for the nearest listed contract is the session for Tuesday the 21st, and the next listed contract becomes the active month at the start of the trading session for Friday the 17th (6:00 PM ET on Thursday), assuming a standard trading calendar.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published for the Active Month WTI Crude Oil (CL) futures contract by CME Group may be used to determine whether the listed price was reached during the applicable trading session.
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the underlying market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Active Month WTI Crude Oil futures "High" prices available at https://pythdata.app/explore?search=WTI, with the chart settings configured for 1-minute candles. Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+  E4.C2: Will WTI Crude Oil (WTI) hit (HIGH) $130 Week of May 18 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of May 18 2026, any 1-minute candle for the Active Month of WTI Crude Oil futures has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If the Active Month contract does not trade at all during the listed time frame, this market will resolve to "No".
+
+Only prices achieved during the applicable trading session for the underlying market will be considered. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours.
+
+Per CME contract specifications for WTI Crude Oil (CL) futures, a contract's last trading day is three business days prior to the 25th calendar day of the month preceding the contract's delivery month (or four business days prior if the 25th calendar day is not a business day).
+
+The active month changes at the start of the second trading session prior to the nearest listed contract's last trading session. At that point, the next listed contract becomes the active month (i.e., for the final three trading sessions of the nearest listed contract, the contract for the next month is the active month). The trading session for a given business day typically begins at 6:00 PM ET on the prior calendar date.
+
+For example, if the 25th of the month is a Saturday, the last trading session for the nearest listed contract is the session for Tuesday the 21st, and the next listed contract becomes the active month at the start of the trading session for Friday the 17th (6:00 PM ET on Thursday), assuming a standard trading calendar.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published for the Active Month WTI Crude Oil (CL) futures contract by CME Group may be used to determine whether the listed price was reached during the applicable trading session.
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the underlying market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Active Month WTI Crude Oil futures "High" prices available at https://pythdata.app/explore?search=WTI, with the chart settings configured for 1-minute candles. Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+  E4.C3: Will WTI Crude Oil (WTI) hit (HIGH) $125 Week of May 18 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of May 18 2026, any 1-minute candle for the Active Month of WTI Crude Oil futures has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If the Active Month contract does not trade at all during the listed time frame, this market will resolve to "No".
+
+Only prices achieved during the applicable trading session for the underlying market will be considered. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours.
+
+Per CME contract specifications for WTI Crude Oil (CL) futures, a contract's last trading day is three business days prior to the 25th calendar day of the month preceding the contract's delivery month (or four business days prior if the 25th calendar day is not a business day).
+
+The active month changes at the start of the second trading session prior to the nearest listed contract's last trading session. At that point, the next listed contract becomes the active month (i.e., for the final three trading sessions of the nearest listed contract, the contract for the next month is the active month). The trading session for a given business day typically begins at 6:00 PM ET on the prior calendar date.
+
+For example, if the 25th of the month is a Saturday, the last trading session for the nearest listed contract is the session for Tuesday the 21st, and the next listed contract becomes the active month at the start of the trading session for Friday the 17th (6:00 PM ET on Thursday), assuming a standard trading calendar.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published for the Active Month WTI Crude Oil (CL) futures contract by CME Group may be used to determine whether the listed price was reached during the applicable trading session.
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the underlying market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Active Month WTI Crude Oil futures "High" prices available at https://pythdata.app/explore?search=WTI, with the chart settings configured for 1-minute candles. Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+  E4.C4: Will WTI Crude Oil (WTI) hit (HIGH) $120 Week of May 18 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of May 18 2026, any 1-minute candle for the Active Month of WTI Crude Oil futures has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If the Active Month contract does not trade at all during the listed time frame, this market will resolve to "No".
+
+Only prices achieved during the applicable trading session for the underlying market will be considered. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours.
+
+Per CME contract specifications for WTI Crude Oil (CL) futures, a contract's last trading day is three business days prior to the 25th calendar day of the month preceding the contract's delivery month (or four business days prior if the 25th calendar day is not a business day).
+
+The active month changes at the start of the second trading session prior to the nearest listed contract's last trading session. At that point, the next listed contract becomes the active month (i.e., for the final three trading sessions of the nearest listed contract, the contract for the next month is the active month). The trading session for a given business day typically begins at 6:00 PM ET on the prior calendar date.
+
+For example, if the 25th of the month is a Saturday, the last trading session for the nearest listed contract is the session for Tuesday the 21st, and the next listed contract becomes the active month at the start of the trading session for Friday the 17th (6:00 PM ET on Thursday), assuming a standard trading calendar.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published for the Active Month WTI Crude Oil (CL) futures contract by CME Group may be used to determine whether the listed price was reached during the applicable trading session.
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the underlying market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Active Month WTI Crude Oil futures "High" prices available at https://pythdata.app/explore?search=WTI, with the chart settings configured for 1-minute candles. Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+  E4.C5: Will WTI Crude Oil (WTI) hit (HIGH) $115 Week of May 18 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of May 18 2026, any 1-minute candle for the Active Month of WTI Crude Oil futures has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If the Active Month contract does not trade at all during the listed time frame, this market will resolve to "No".
+
+Only prices achieved during the applicable trading session for the underlying market will be considered. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours.
+
+Per CME contract specifications for WTI Crude Oil (CL) futures, a contract's last trading day is three business days prior to the 25th calendar day of the month preceding the contract's delivery month (or four business days prior if the 25th calendar day is not a business day).
+
+The active month changes at the start of the second trading session prior to the nearest listed contract's last trading session. At that point, the next listed contract becomes the active month (i.e., for the final three trading sessions of the nearest listed contract, the contract for the next month is the active month). The trading session for a given business day typically begins at 6:00 PM ET on the prior calendar date.
+
+For example, if the 25th of the month is a Saturday, the last trading session for the nearest listed contract is the session for Tuesday the 21st, and the next listed contract becomes the active month at the start of the trading session for Friday the 17th (6:00 PM ET on Thursday), assuming a standard trading calendar.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published for the Active Month WTI Crude Oil (CL) futures contract by CME Group may be used to determine whether the listed price was reached during the applicable trading session.
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the underlying market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Active Month WTI Crude Oil futures "High" prices available at https://pythdata.app/explore?search=WTI, with the chart settings configured for 1-minute candles. Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+  E4.C6: Will WTI Crude Oil (WTI) hit (HIGH) $110 Week of May 18 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of May 18 2026, any 1-minute candle for the Active Month of WTI Crude Oil futures has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If the Active Month contract does not trade at all during the listed time frame, this market will resolve to "No".
+
+Only prices achieved during the applicable trading session for the underlying market will be considered. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours.
+
+Per CME contract specifications for WTI Crude Oil (CL) futures, a contract's last trading day is three business days prior to the 25th calendar day of the month preceding the contract's delivery month (or four business days prior if the 25th calendar day is not a business day).
+
+The active month changes at the start of the second trading session prior to the nearest listed contract's last trading session. At that point, the next listed contract becomes the active month (i.e., for the final three trading sessions of the nearest listed contract, the contract for the next month is the active month). The trading session for a given business day typically begins at 6:00 PM ET on the prior calendar date.
+
+For example, if the 25th of the month is a Saturday, the last trading session for the nearest listed contract is the session for Tuesday the 21st, and the next listed contract becomes the active month at the start of the trading session for Friday the 17th (6:00 PM ET on Thursday), assuming a standard trading calendar.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published for the Active Month WTI Crude Oil (CL) futures contract by CME Group may be used to determine whether the listed price was reached during the applicable trading session.
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the underlying market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Active Month WTI Crude Oil futures "High" prices available at https://pythdata.app/explore?search=WTI, with the chart settings configured for 1-minute candles. Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+  E4.C7: Will WTI Crude Oil (WTI) hit (LOW) $95 Week of May 18 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of May 18 2026, any 1-minute candle for the Active Month of WTI Crude Oil futures has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If the Active Month contract does not trade at all during the listed time frame, this market will resolve to "No".
+
+Only prices achieved during the applicable trading session for the underlying market will be considered. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours.
+
+Per CME contract specifications for WTI Crude Oil (CL) futures, a contract's last trading day is three business days prior to the 25th calendar day of the month preceding the contract's delivery month (or four business days prior if the 25th calendar day is not a business day).
+
+The active month changes at the start of the second trading session prior to the nearest listed contract's last trading session. At that point, the next listed contract becomes the active month (i.e., for the final three trading sessions of the nearest listed contract, the contract for the next month is the active month). The trading session for a given business day typically begins at 6:00 PM ET on the prior calendar date.
+
+For example, if the 25th of the month is a Saturday, the last trading session for the nearest listed contract is the session for Tuesday the 21st, and the next listed contract becomes the active month at the start of the trading session for Friday the 17th (6:00 PM ET on Thursday), assuming a standard trading calendar.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published for the Active Month WTI Crude Oil (CL) futures contract by CME Group may be used to determine whether the listed price was reached during the applicable trading session.
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the underlying market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Active Month WTI Crude Oil futures "Low" prices available at https://pythdata.app/explore?search=WTI, with the chart settings configured for 1-minute candles. Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+  E4.C8: Will WTI Crude Oil (WTI) hit (LOW) $90 Week of May 18 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of May 18 2026, any 1-minute candle for the Active Month of WTI Crude Oil futures has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If the Active Month contract does not trade at all during the listed time frame, this market will resolve to "No".
+
+Only prices achieved during the applicable trading session for the underlying market will be considered. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours.
+
+Per CME contract specifications for WTI Crude Oil (CL) futures, a contract's last trading day is three business days prior to the 25th calendar day of the month preceding the contract's delivery month (or four business days prior if the 25th calendar day is not a business day).
+
+The active month changes at the start of the second trading session prior to the nearest listed contract's last trading session. At that point, the next listed contract becomes the active month (i.e., for the final three trading sessions of the nearest listed contract, the contract for the next month is the active month). The trading session for a given business day typically begins at 6:00 PM ET on the prior calendar date.
+
+For example, if the 25th of the month is a Saturday, the last trading session for the nearest listed contract is the session for Tuesday the 21st, and the next listed contract becomes the active month at the start of the trading session for Friday the 17th (6:00 PM ET on Thursday), assuming a standard trading calendar.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published for the Active Month WTI Crude Oil (CL) futures contract by CME Group may be used to determine whether the listed price was reached during the applicable trading session.
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the underlying market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Active Month WTI Crude Oil futures "Low" prices available at https://pythdata.app/explore?search=WTI, with the chart settings configured for 1-minute candles. Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+  E4.C9: Will WTI Crude Oil (WTI) hit (LOW) $85 Week of May 18 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of May 18 2026, any 1-minute candle for the Active Month of WTI Crude Oil futures has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If the Active Month contract does not trade at all during the listed time frame, this market will resolve to "No".
+
+Only prices achieved during the applicable trading session for the underlying market will be considered. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours.
+
+Per CME contract specifications for WTI Crude Oil (CL) futures, a contract's last trading day is three business days prior to the 25th calendar day of the month preceding the contract's delivery month (or four business days prior if the 25th calendar day is not a business day).
+
+The active month changes at the start of the second trading session prior to the nearest listed contract's last trading session. At that point, the next listed contract becomes the active month (i.e., for the final three trading sessions of the nearest listed contract, the contract for the next month is the active month). The trading session for a given business day typically begins at 6:00 PM ET on the prior calendar date.
+
+For example, if the 25th of the month is a Saturday, the last trading session for the nearest listed contract is the session for Tuesday the 21st, and the next listed contract becomes the active month at the start of the trading session for Friday the 17th (6:00 PM ET on Thursday), assuming a standard trading calendar.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published for the Active Month WTI Crude Oil (CL) futures contract by CME Group may be used to determine whether the listed price was reached during the applicable trading session.
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the underlying market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Active Month WTI Crude Oil futures "Low" prices available at https://pythdata.app/explore?search=WTI, with the chart settings configured for 1-minute candles. Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+  E4.C10: Will WTI Crude Oil (WTI) hit (LOW) $80 Week of May 18 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of May 18 2026, any 1-minute candle for the Active Month of WTI Crude Oil futures has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If the Active Month contract does not trade at all during the listed time frame, this market will resolve to "No".
+
+Only prices achieved during the applicable trading session for the underlying market will be considered. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours.
+
+Per CME contract specifications for WTI Crude Oil (CL) futures, a contract's last trading day is three business days prior to the 25th calendar day of the month preceding the contract's delivery month (or four business days prior if the 25th calendar day is not a business day).
+
+The active month changes at the start of the second trading session prior to the nearest listed contract's last trading session. At that point, the next listed contract becomes the active month (i.e., for the final three trading sessions of the nearest listed contract, the contract for the next month is the active month). The trading session for a given business day typically begins at 6:00 PM ET on the prior calendar date.
+
+For example, if the 25th of the month is a Saturday, the last trading session for the nearest listed contract is the session for Tuesday the 21st, and the next listed contract becomes the active month at the start of the trading session for Friday the 17th (6:00 PM ET on Thursday), assuming a standard trading calendar.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published for the Active Month WTI Crude Oil (CL) futures contract by CME Group may be used to determine whether the listed price was reached during the applicable trading session.
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the underlying market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Active Month WTI Crude Oil futures "Low" prices available at https://pythdata.app/explore?search=WTI, with the chart settings configured for 1-minute candles. Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+  E4.C11: Will WTI Crude Oil (WTI) hit (LOW) $75 Week of May 18 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of May 18 2026, any 1-minute candle for the Active Month of WTI Crude Oil futures has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If the Active Month contract does not trade at all during the listed time frame, this market will resolve to "No".
+
+Only prices achieved during the applicable trading session for the underlying market will be considered. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours.
+
+Per CME contract specifications for WTI Crude Oil (CL) futures, a contract's last trading day is three business days prior to the 25th calendar day of the month preceding the contract's delivery month (or four business days prior if the 25th calendar day is not a business day).
+
+The active month changes at the start of the second trading session prior to the nearest listed contract's last trading session. At that point, the next listed contract becomes the active month (i.e., for the final three trading sessions of the nearest listed contract, the contract for the next month is the active month). The trading session for a given business day typically begins at 6:00 PM ET on the prior calendar date.
+
+For example, if the 25th of the month is a Saturday, the last trading session for the nearest listed contract is the session for Tuesday the 21st, and the next listed contract becomes the active month at the start of the trading session for Friday the 17th (6:00 PM ET on Thursday), assuming a standard trading calendar.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published for the Active Month WTI Crude Oil (CL) futures contract by CME Group may be used to determine whether the listed price was reached during the applicable trading session.
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the underlying market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Active Month WTI Crude Oil futures "Low" prices available at https://pythdata.app/explore?search=WTI, with the chart settings configured for 1-minute candles. Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+  E4.C12: Will WTI Crude Oil (WTI) hit (LOW) $70 Week of May 18 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of May 18 2026, any 1-minute candle for the Active Month of WTI Crude Oil futures has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If the Active Month contract does not trade at all during the listed time frame, this market will resolve to "No".
+
+Only prices achieved during the applicable trading session for the underlying market will be considered. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours.
+
+Per CME contract specifications for WTI Crude Oil (CL) futures, a contract's last trading day is three business days prior to the 25th calendar day of the month preceding the contract's delivery month (or four business days prior if the 25th calendar day is not a business day).
+
+The active month changes at the start of the second trading session prior to the nearest listed contract's last trading session. At that point, the next listed contract becomes the active month (i.e., for the final three trading sessions of the nearest listed contract, the contract for the next month is the active month). The trading session for a given business day typically begins at 6:00 PM ET on the prior calendar date.
+
+For example, if the 25th of the month is a Saturday, the last trading session for the nearest listed contract is the session for Tuesday the 21st, and the next listed contract becomes the active month at the start of the trading session for Friday the 17th (6:00 PM ET on Thursday), assuming a standard trading calendar.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published for the Active Month WTI Crude Oil (CL) futures contract by CME Group may be used to determine whether the listed price was reached during the applicable trading session.
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the underlying market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Active Month WTI Crude Oil futures "Low" prices available at https://pythdata.app/explore?search=WTI, with the chart settings configured for 1-minute candles. Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+What to write for E4:
+  Write "high": for each chance 10, 25, 50, 75 and 90, the level you give that chance of being reached (at or above) within the period. The 10 level is the highest.
+  Write "low": for each chance 10, 25, 50, 75 and 90, the level you give that chance of being reached (at or below) within the period. The 10 level is the lowest.
+
+=== E5 (as of 2026-05-13): Khamenei # posts May 8 - May 15, 2026?
+Rules:
+This market will resolve according to the number of times Khamenei (@khamenei_ir), posts on X between May 8, 12:00 PM ET and May 15, 2026, 12:00 PM ET.
+
+For the purposes of this market, only main feed posts, quote posts and reposts will count.
+
+Replies will NOT count towards the total - however, replies which are recorded on the main feed will be counted by the tracker.
+
+Deleted posts will count as long as they remain available long enough to be captured by the tracker (~5 minutes).
+
+The resolution source for this market is the "Post Counter" figure for posts found at https://xtracker.polymarket.com. Individual posts can be viewed by clicking "Export Data". If the tracker does not update correctly in accordance with the rules, X itself may be used as a secondary resolution source.
+Contracts:
+  E5.C1: Will Khamenei post 0-4 posts from May 8 to May 15, 2026?
+  E5.C2: Will Khamenei post 5-9 posts from May 8 to May 15, 2026?
+  E5.C3: Will Khamenei post 10-14 posts from May 8 to May 15, 2026?
+  E5.C4: Will Khamenei post 15-19 posts from May 8 to May 15, 2026?
+  E5.C5: Will Khamenei post 20-24 posts from May 8 to May 15, 2026?
+  E5.C6: Will Khamenei post 25-29 posts from May 8 to May 15, 2026?
+  E5.C7: Will Khamenei post 30-34 posts from May 8 to May 15, 2026?
+  E5.C8: Will Khamenei post 35-39 posts from May 8 to May 15, 2026?
+  E5.C9: Will Khamenei post 40-44 posts from May 8 to May 15, 2026?
+  E5.C10: Will Khamenei post 45-49 posts from May 8 to May 15, 2026?
+  E5.C11: Will Khamenei post 50-54 posts from May 8 to May 15, 2026?
+  E5.C12: Will Khamenei post 55-59 posts from May 8 to May 15, 2026?
+  E5.C13: Will Khamenei post 60+ posts from May 8 to May 15, 2026?
+What to write for E5:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E6 (as of 2026-06-24): Will Stripe's valuation hit __ by June 30?
+Rules:
+This market will resolve to "Yes" if Stripe's private market valuation, as measured by the NPM Price reported by Nasdaq Private Market, LLC (NPM) for any date between market creation and June 30, 2026, reaches or exceeds the listed amount. Otherwise, this market will resolve to "No".
+
+NPM Prices are published for trading days only and are updated once daily at 1:00 PM ET on the following calendar day.
+
+If NPM has not published relevant data for all business dates in the specified period by 1:00 PM ET on July 1, 2026, this market may remain open until 11:59 PM ET on July 4, 2026. If no further data is released by that time, the market will resolve according to the data available.
+
+If NPM ceases publishing relevant data prior to the end of the specified period, this market will resolve based on the NPM data published for the period prior to the cessation of coverage, as well as any applicable public market capitalization data following an IPO or direct listing.
+If the company completes an IPO or direct listing before the end of the specified period, this market will consider, in addition to the relevant NPM valuations published between market creation and the IPO or direct listing date, the valuation implied by the official IPO or direct listing price, and the company's public market capitalization between the IPO or direct listing date and the end of the specified period.
+
+Public market capitalization will be determined using the highest/lowest official regular-hours trading price published for the company's primary listed common equity on its primary exchange for any trading day during the specified period, multiplied by the company's total outstanding common shares at the relevant time.
+
+If the listed company merges with or acquires another entity and remains the parent company, no change to resolution methodology applies.
+
+If the listed company is acquired, merges into another entity and is no longer the surviving parent company, or otherwise ceases to exist as an independent entity prior to the end of the period, only NPM valuations and applicable public market capitalizations achieved prior to completion of the transaction will be considered for resolution. No transaction, acquisition, or merger consideration will be considered for resolution.
+
+The resolution source for this market is NPM data published here (https://fe.secondmarket.com/companies/company-6edded11-6786-4392-9695-3cce6fda0de0/data?return_url=https://polymarket.com/finance/privates). The resolution source for any period following an IPO, direct listing, or relevant corporate action, will be official exchange trading data and publicly reported share counts.
+
+Revisions to previously published NPM data made after their initial release will not be considered, unless made to correct clearly erroneous data.
+Contracts:
+  E6.C1: Will Stripe's valuation hit (HIGH) $250B by June 30?
+    Contract rules: This market will resolve to "Yes" if Stripe's private market valuation, as measured by the NPM Price reported by Nasdaq Private Market, LLC (NPM) for any date between market creation and June 30, 2026, reaches or exceeds the listed amount. Otherwise, this market will resolve to "No".
+
+NPM Prices are published for trading days only and are updated once daily at 1:00 PM ET on the following calendar day.
+
+If NPM has not published relevant data for all business dates in the specified period by 1:00 PM ET on July 1, 2026, this market may remain open until 11:59 PM ET on July 4, 2026. If no further data is released by that time, the market will resolve according to the data available.
+
+If NPM ceases publishing relevant data prior to the end of the specified period, this market will resolve based on the NPM data published for the period prior to the cessation of coverage, as well as any applicable public market capitalization data following an IPO or direct listing.
+If the company completes an IPO or direct listing before the end of the specified period, this market will consider, in addition to the relevant NPM valuations published between market creation and the IPO or direct listing date, the valuation implied by the official IPO or direct listing price, and the company's public market capitalization between the IPO or direct listing date and the end of the specified period.
+
+Public market capitalization will be determined using the highest/lowest official regular-hours trading price published for the company's primary listed common equity on its primary exchange for any trading day during the specified period, multiplied by the company's total outstanding common shares at the relevant time.
+
+If the listed company merges with or acquires another entity and remains the parent company, no change to resolution methodology applies.
+
+If the listed company is acquired, merges into another entity and is no longer the surviving parent company, or otherwise ceases to exist as an independent entity prior to the end of the period, only NPM valuations and applicable public market capitalizations achieved prior to completion of the transaction will be considered for resolution. No transaction, acquisition, or merger consideration will be considered for resolution.
+
+The resolution source for this market is NPM data published here (https://fe.secondmarket.com/companies/company-6edded11-6786-4392-9695-3cce6fda0de0/data). The resolution source for any period following an IPO, direct listing, or relevant corporate action, will be official exchange trading data and publicly reported share counts.
+
+Revisions to previously published NPM data made after their initial release will not be considered, unless made to correct clearly erroneous data.
+  E6.C2: Will Stripe's valuation hit (HIGH) $225B by June 30?
+    Contract rules: This market will resolve to "Yes" if Stripe's private market valuation, as measured by the NPM Price reported by Nasdaq Private Market, LLC (NPM) for any date between market creation and June 30, 2026, reaches or exceeds the listed amount. Otherwise, this market will resolve to "No".
+
+NPM Prices are published for trading days only and are updated once daily at 1:00 PM ET on the following calendar day.
+
+If NPM has not published relevant data for all business dates in the specified period by 1:00 PM ET on July 1, 2026, this market may remain open until 11:59 PM ET on July 4, 2026. If no further data is released by that time, the market will resolve according to the data available.
+
+If NPM ceases publishing relevant data prior to the end of the specified period, this market will resolve based on the NPM data published for the period prior to the cessation of coverage, as well as any applicable public market capitalization data following an IPO or direct listing.
+If the company completes an IPO or direct listing before the end of the specified period, this market will consider, in addition to the relevant NPM valuations published between market creation and the IPO or direct listing date, the valuation implied by the official IPO or direct listing price, and the company's public market capitalization between the IPO or direct listing date and the end of the specified period.
+
+Public market capitalization will be determined using the highest/lowest official regular-hours trading price published for the company's primary listed common equity on its primary exchange for any trading day during the specified period, multiplied by the company's total outstanding common shares at the relevant time.
+
+If the listed company merges with or acquires another entity and remains the parent company, no change to resolution methodology applies.
+
+If the listed company is acquired, merges into another entity and is no longer the surviving parent company, or otherwise ceases to exist as an independent entity prior to the end of the period, only NPM valuations and applicable public market capitalizations achieved prior to completion of the transaction will be considered for resolution. No transaction, acquisition, or merger consideration will be considered for resolution.
+
+The resolution source for this market is NPM data published here (https://fe.secondmarket.com/companies/company-6edded11-6786-4392-9695-3cce6fda0de0/data). The resolution source for any period following an IPO, direct listing, or relevant corporate action, will be official exchange trading data and publicly reported share counts.
+
+Revisions to previously published NPM data made after their initial release will not be considered, unless made to correct clearly erroneous data.
+  E6.C3: Will Stripe's valuation hit (HIGH) $210B by June 30?
+    Contract rules: This market will resolve to "Yes" if Stripe's private market valuation, as measured by the NPM Price reported by Nasdaq Private Market, LLC (NPM) for any date between market creation and June 30, 2026, reaches or exceeds the listed amount. Otherwise, this market will resolve to "No".
+
+NPM Prices are published for trading days only and are updated once daily at 1:00 PM ET on the following calendar day.
+
+If NPM has not published relevant data for all business dates in the specified period by 1:00 PM ET on July 1, 2026, this market may remain open until 11:59 PM ET on July 4, 2026. If no further data is released by that time, the market will resolve according to the data available.
+
+If NPM ceases publishing relevant data prior to the end of the specified period, this market will resolve based on the NPM data published for the period prior to the cessation of coverage, as well as any applicable public market capitalization data following an IPO or direct listing.
+If the company completes an IPO or direct listing before the end of the specified period, this market will consider, in addition to the relevant NPM valuations published between market creation and the IPO or direct listing date, the valuation implied by the official IPO or direct listing price, and the company's public market capitalization between the IPO or direct listing date and the end of the specified period.
+
+Public market capitalization will be determined using the highest/lowest official regular-hours trading price published for the company's primary listed common equity on its primary exchange for any trading day during the specified period, multiplied by the company's total outstanding common shares at the relevant time.
+
+If the listed company merges with or acquires another entity and remains the parent company, no change to resolution methodology applies.
+
+If the listed company is acquired, merges into another entity and is no longer the surviving parent company, or otherwise ceases to exist as an independent entity prior to the end of the period, only NPM valuations and applicable public market capitalizations achieved prior to completion of the transaction will be considered for resolution. No transaction, acquisition, or merger consideration will be considered for resolution.
+
+The resolution source for this market is NPM data published here (https://fe.secondmarket.com/companies/company-6edded11-6786-4392-9695-3cce6fda0de0/data). The resolution source for any period following an IPO, direct listing, or relevant corporate action, will be official exchange trading data and publicly reported share counts.
+
+Revisions to previously published NPM data made after their initial release will not be considered, unless made to correct clearly erroneous data.
+  E6.C4: Will Stripe's valuation hit (HIGH) $200B by June 30?
+    Contract rules: This market will resolve to "Yes" if Stripe's private market valuation, as measured by the NPM Price reported by Nasdaq Private Market, LLC (NPM) for any date between market creation and June 30, 2026, reaches or exceeds the listed amount. Otherwise, this market will resolve to "No".
+
+NPM Prices are published for trading days only and are updated once daily at 1:00 PM ET on the following calendar day.
+
+If NPM has not published relevant data for all business dates in the specified period by 1:00 PM ET on July 1, 2026, this market may remain open until 11:59 PM ET on July 4, 2026. If no further data is released by that time, the market will resolve according to the data available.
+
+If NPM ceases publishing relevant data prior to the end of the specified period, this market will resolve based on the NPM data published for the period prior to the cessation of coverage, as well as any applicable public market capitalization data following an IPO or direct listing.
+If the company completes an IPO or direct listing before the end of the specified period, this market will consider, in addition to the relevant NPM valuations published between market creation and the IPO or direct listing date, the valuation implied by the official IPO or direct listing price, and the company's public market capitalization between the IPO or direct listing date and the end of the specified period.
+
+Public market capitalization will be determined using the highest/lowest official regular-hours trading price published for the company's primary listed common equity on its primary exchange for any trading day during the specified period, multiplied by the company's total outstanding common shares at the relevant time.
+
+If the listed company merges with or acquires another entity and remains the parent company, no change to resolution methodology applies.
+
+If the listed company is acquired, merges into another entity and is no longer the surviving parent company, or otherwise ceases to exist as an independent entity prior to the end of the period, only NPM valuations and applicable public market capitalizations achieved prior to completion of the transaction will be considered for resolution. No transaction, acquisition, or merger consideration will be considered for resolution.
+
+The resolution source for this market is NPM data published here (https://fe.secondmarket.com/companies/company-6edded11-6786-4392-9695-3cce6fda0de0/data). The resolution source for any period following an IPO, direct listing, or relevant corporate action, will be official exchange trading data and publicly reported share counts.
+
+Revisions to previously published NPM data made after their initial release will not be considered, unless made to correct clearly erroneous data.
+  E6.C5: Will Stripe's valuation hit (HIGH) $190B by June 30?
+    Contract rules: This market will resolve to "Yes" if Stripe's private market valuation, as measured by the NPM Price reported by Nasdaq Private Market, LLC (NPM) for any date between market creation and June 30, 2026, reaches or exceeds the listed amount. Otherwise, this market will resolve to "No".
+
+NPM Prices are published for trading days only and are updated once daily at 1:00 PM ET on the following calendar day.
+
+If NPM has not published relevant data for all business dates in the specified period by 1:00 PM ET on July 1, 2026, this market may remain open until 11:59 PM ET on July 4, 2026. If no further data is released by that time, the market will resolve according to the data available.
+
+If NPM ceases publishing relevant data prior to the end of the specified period, this market will resolve based on the NPM data published for the period prior to the cessation of coverage, as well as any applicable public market capitalization data following an IPO or direct listing.
+If the company completes an IPO or direct listing before the end of the specified period, this market will consider, in addition to the relevant NPM valuations published between market creation and the IPO or direct listing date, the valuation implied by the official IPO or direct listing price, and the company's public market capitalization between the IPO or direct listing date and the end of the specified period.
+
+Public market capitalization will be determined using the highest/lowest official regular-hours trading price published for the company's primary listed common equity on its primary exchange for any trading day during the specified period, multiplied by the company's total outstanding common shares at the relevant time.
+
+If the listed company merges with or acquires another entity and remains the parent company, no change to resolution methodology applies.
+
+If the listed company is acquired, merges into another entity and is no longer the surviving parent company, or otherwise ceases to exist as an independent entity prior to the end of the period, only NPM valuations and applicable public market capitalizations achieved prior to completion of the transaction will be considered for resolution. No transaction, acquisition, or merger consideration will be considered for resolution.
+
+The resolution source for this market is NPM data published here (https://fe.secondmarket.com/companies/company-6edded11-6786-4392-9695-3cce6fda0de0/data). The resolution source for any period following an IPO, direct listing, or relevant corporate action, will be official exchange trading data and publicly reported share counts.
+
+Revisions to previously published NPM data made after their initial release will not be considered, unless made to correct clearly erroneous data.
+  E6.C6: Will Stripe's valuation hit (HIGH) $185B by June 30?
+    Contract rules: This market will resolve to "Yes" if Stripe's private market valuation, as measured by the NPM Price reported by Nasdaq Private Market, LLC (NPM) for any date between market creation and June 30, 2026, reaches or exceeds the listed amount. Otherwise, this market will resolve to "No".
+
+NPM Prices are published for trading days only and are updated once daily at 1:00 PM ET on the following calendar day.
+
+If NPM has not published relevant data for all business dates in the specified period by 1:00 PM ET on July 1, 2026, this market may remain open until 11:59 PM ET on July 4, 2026. If no further data is released by that time, the market will resolve according to the data available.
+
+If NPM ceases publishing relevant data prior to the end of the specified period, this market will resolve based on the NPM data published for the period prior to the cessation of coverage, as well as any applicable public market capitalization data following an IPO or direct listing.
+If the company completes an IPO or direct listing before the end of the specified period, this market will consider, in addition to the relevant NPM valuations published between market creation and the IPO or direct listing date, the valuation implied by the official IPO or direct listing price, and the company's public market capitalization between the IPO or direct listing date and the end of the specified period.
+
+Public market capitalization will be determined using the highest/lowest official regular-hours trading price published for the company's primary listed common equity on its primary exchange for any trading day during the specified period, multiplied by the company's total outstanding common shares at the relevant time.
+
+If the listed company merges with or acquires another entity and remains the parent company, no change to resolution methodology applies.
+
+If the listed company is acquired, merges into another entity and is no longer the surviving parent company, or otherwise ceases to exist as an independent entity prior to the end of the period, only NPM valuations and applicable public market capitalizations achieved prior to completion of the transaction will be considered for resolution. No transaction, acquisition, or merger consideration will be considered for resolution.
+
+The resolution source for this market is NPM data published here (https://fe.secondmarket.com/companies/company-6edded11-6786-4392-9695-3cce6fda0de0/data). The resolution source for any period following an IPO, direct listing, or relevant corporate action, will be official exchange trading data and publicly reported share counts.
+
+Revisions to previously published NPM data made after their initial release will not be considered, unless made to correct clearly erroneous data.
+  E6.C7: Will Stripe's valuation hit (HIGH) $180B by June 30?
+    Contract rules: This market will resolve to "Yes" if Stripe's private market valuation, as measured by the NPM Price reported by Nasdaq Private Market, LLC (NPM) for any date between market creation and June 30, 2026, reaches or exceeds the listed amount. Otherwise, this market will resolve to "No".
+
+NPM Prices are published for trading days only and are updated once daily at 1:00 PM ET on the following calendar day.
+
+If NPM has not published relevant data for all business dates in the specified period by 1:00 PM ET on July 1, 2026, this market may remain open until 11:59 PM ET on July 4, 2026. If no further data is released by that time, the market will resolve according to the data available.
+
+If NPM ceases publishing relevant data prior to the end of the specified period, this market will resolve based on the NPM data published for the period prior to the cessation of coverage, as well as any applicable public market capitalization data following an IPO or direct listing.
+If the company completes an IPO or direct listing before the end of the specified period, this market will consider, in addition to the relevant NPM valuations published between market creation and the IPO or direct listing date, the valuation implied by the official IPO or direct listing price, and the company's public market capitalization between the IPO or direct listing date and the end of the specified period.
+
+Public market capitalization will be determined using the highest/lowest official regular-hours trading price published for the company's primary listed common equity on its primary exchange for any trading day during the specified period, multiplied by the company's total outstanding common shares at the relevant time.
+
+If the listed company merges with or acquires another entity and remains the parent company, no change to resolution methodology applies.
+
+If the listed company is acquired, merges into another entity and is no longer the surviving parent company, or otherwise ceases to exist as an independent entity prior to the end of the period, only NPM valuations and applicable public market capitalizations achieved prior to completion of the transaction will be considered for resolution. No transaction, acquisition, or merger consideration will be considered for resolution.
+
+The resolution source for this market is NPM data published here (https://fe.secondmarket.com/companies/company-6edded11-6786-4392-9695-3cce6fda0de0/data). The resolution source for any period following an IPO, direct listing, or relevant corporate action, will be official exchange trading data and publicly reported share counts.
+
+Revisions to previously published NPM data made after their initial release will not be considered, unless made to correct clearly erroneous data.
+  E6.C8: Will Stripe's valuation hit (LOW) $165B by June 30?
+    Contract rules: This market will resolve to "Yes" if Stripe's private market valuation, as measured by the NPM Price reported by Nasdaq Private Market, LLC (NPM) for any date between market creation and June 30, 2026, reaches or exceeds the listed amount. Otherwise, this market will resolve to "No".
+
+NPM Prices are published for trading days only and are updated once daily at 1:00 PM ET on the following calendar day.
+
+If NPM has not published relevant data for all business dates in the specified period by 1:00 PM ET on July 1, 2026, this market may remain open until 11:59 PM ET on July 4, 2026. If no further data is released by that time, the market will resolve according to the data available.
+
+If NPM ceases publishing relevant data prior to the end of the specified period, this market will resolve based on the NPM data published for the period prior to the cessation of coverage, as well as any applicable public market capitalization data following an IPO or direct listing.
+If the company completes an IPO or direct listing before the end of the specified period, this market will consider, in addition to the relevant NPM valuations published between market creation and the IPO or direct listing date, the valuation implied by the official IPO or direct listing price, and the company's public market capitalization between the IPO or direct listing date and the end of the specified period.
+
+Public market capitalization will be determined using the highest/lowest official regular-hours trading price published for the company's primary listed common equity on its primary exchange for any trading day during the specified period, multiplied by the company's total outstanding common shares at the relevant time.
+
+If the listed company merges with or acquires another entity and remains the parent company, no change to resolution methodology applies.
+
+If the listed company is acquired, merges into another entity and is no longer the surviving parent company, or otherwise ceases to exist as an independent entity prior to the end of the period, only NPM valuations and applicable public market capitalizations achieved prior to completion of the transaction will be considered for resolution. No transaction, acquisition, or merger consideration will be considered for resolution.
+
+The resolution source for this market is NPM data published here (https://fe.secondmarket.com/companies/company-6edded11-6786-4392-9695-3cce6fda0de0/data). The resolution source for any period following an IPO, direct listing, or relevant corporate action, will be official exchange trading data and publicly reported share counts.
+
+Revisions to previously published NPM data made after their initial release will not be considered, unless made to correct clearly erroneous data.
+  E6.C9: Will Stripe's valuation hit (LOW) $160B by June 30?
+    Contract rules: This market will resolve to "Yes" if Stripe's private market valuation, as measured by the NPM Price reported by Nasdaq Private Market, LLC (NPM) for any date between market creation and June 30, 2026, reaches or exceeds the listed amount. Otherwise, this market will resolve to "No".
+
+NPM Prices are published for trading days only and are updated once daily at 1:00 PM ET on the following calendar day.
+
+If NPM has not published relevant data for all business dates in the specified period by 1:00 PM ET on July 1, 2026, this market may remain open until 11:59 PM ET on July 4, 2026. If no further data is released by that time, the market will resolve according to the data available.
+
+If NPM ceases publishing relevant data prior to the end of the specified period, this market will resolve based on the NPM data published for the period prior to the cessation of coverage, as well as any applicable public market capitalization data following an IPO or direct listing.
+If the company completes an IPO or direct listing before the end of the specified period, this market will consider, in addition to the relevant NPM valuations published between market creation and the IPO or direct listing date, the valuation implied by the official IPO or direct listing price, and the company's public market capitalization between the IPO or direct listing date and the end of the specified period.
+
+Public market capitalization will be determined using the highest/lowest official regular-hours trading price published for the company's primary listed common equity on its primary exchange for any trading day during the specified period, multiplied by the company's total outstanding common shares at the relevant time.
+
+If the listed company merges with or acquires another entity and remains the parent company, no change to resolution methodology applies.
+
+If the listed company is acquired, merges into another entity and is no longer the surviving parent company, or otherwise ceases to exist as an independent entity prior to the end of the period, only NPM valuations and applicable public market capitalizations achieved prior to completion of the transaction will be considered for resolution. No transaction, acquisition, or merger consideration will be considered for resolution.
+
+The resolution source for this market is NPM data published here (https://fe.secondmarket.com/companies/company-6edded11-6786-4392-9695-3cce6fda0de0/data). The resolution source for any period following an IPO, direct listing, or relevant corporate action, will be official exchange trading data and publicly reported share counts.
+
+Revisions to previously published NPM data made after their initial release will not be considered, unless made to correct clearly erroneous data.
+What to write for E6:
+  Write "high": for each chance 10, 25, 50, 75 and 90, the level you give that chance of being reached (at or above) within the period. The 10 level is the highest.
+  Write "low": for each chance 10, 25, 50, 75 and 90, the level you give that chance of being reached (at or below) within the period. The 10 level is the lowest.
