@@ -1,0 +1,43 @@
+{
+ "hedges": [
+  {
+   "event": "E12",
+   "direction": "dip",
+   "tier": "moderate",
+   "reason": "The ETH/USDT touch ladder resolves on Binance 1m wicks in the same August window, and it is what my hedge thesis reaches first. ETH has higher leverage and beta than BTC and its perpetual order books are thinner. So the same forced-deleveraging cascade that pushes BTC through 42.5k or 40k (a stablecoin or exchange failure, or a macro liquidity shock) pushes ETH proportionally further toward the low end of its ladder. It pays in the downside-crash worlds, which are the main way my basket fails."
+  },
+  {
+   "contract": "E16.1",
+   "side": "YES",
+   "reason": "This is the macro side of the thesis. A liquidity shock severe enough to crash crypto into the low 40ks in late August would also be tightening funding markets and hitting equities. That raises the chance of an oversized 50+ bp Fed cut in September. It is a weaker link than ETH: a crash that stays inside crypto would not move the FOMC. I am holding it only as a partial, tail-aligned hedge and make no claim on it."
+  }
+ ],
+ "claims": [
+  {
+   "if": {
+    "contract": "C13",
+    "resolves": "YES"
+   },
+   "then": {
+    "event": "E12",
+    "direction": "dip",
+    "tier": "moderate"
+   },
+   "reason": "BTC at 40k is roughly a 37% fall from the implied mid-August spot, and it can only come from a system-wide crypto deleveraging. In every such episode (March 2020, May 2021, June 2022, FTX) ETH fell at least as far as BTC in percentage terms. Cross-margined perpetual liquidations and ETH's higher beta make it close to impossible for BTC to wick to 40k on Binance while ETH/USDT stays above the moderate dip strikes in the same window."
+  },
+  {
+   "if": {
+    "contract": "C12",
+    "resolves": "YES"
+   },
+   "then": {
+    "event": "E12",
+    "direction": "dip",
+    "tier": "moderate"
+   },
+   "reason": "Same mechanism at a slightly smaller size. A BTC 1m low at or below 42.5k means about a one-third drawdown driven by liquidations. ETH's correlation with BTC on crash days is near 1 and its beta is above 1, so ETH would fall a third or more over the same period, which reaches the moderate dip rungs of its ladder."
+  }
+ ],
+ "no_instrument": false,
+ "recalls_outcome": false
+}

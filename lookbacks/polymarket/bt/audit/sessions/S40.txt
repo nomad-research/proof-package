@@ -1,0 +1,192 @@
+You will be shown 10 questions from a prediction market. Each question has one or more contracts, and each contract resolves YES or NO under the rules shown.
+
+For every contract, give your probability, as a whole percent from 1 to 99, that it resolves YES. Use only what you already know. Do not search for or look up anything: reading this file is the only tool call you may make.
+
+For each question, also say whether you recognise how it actually turned out ("recognised": true only if you believe you remember the real outcome; otherwise false).
+
+Where a question's contracts are mutually exclusive (exactly one can resolve YES), your numbers for it should add up to about 100. Where they are nested thresholds or dates, keep them consistent with each other.
+
+Reply with one JSON object and nothing else, in this form:
+{"events": [{"label": "E1", "recognised": false, "p": {"E1.C1": 35, "E1.C2": 60}}]}
+
+Every contract label below must appear exactly once in your reply.
+
+=== E1: Will Bitcoin ETFs attract more flows in 2025 than in 2024?
+Rules:
+This market will resolve to “Yes” if net Bitcoin ETF flows in 2025 are greater than $33.6B (the total net flows recorded in 2024). Otherwise, it will resolve to “No.”
+
+Net flows for 2025 will be calculated by subtracting the cumulative flow shown on January 1, 2025 from the cumulative flow shown on December 31, 2025.
+
+A daily cumulative flow data point on Farside will be considered finalized once the data point for the following day is published.
+
+The resolution source is Farside’s Bitcoin Spot ETF Total Cumulative Flow chart available at https://farside.co.uk/btc/
+
+This market resolves solely according to the cumulative flow values displayed on Farside, not according to other ETF flow sources.
+
+If Farside becomes permanently unavailable, the market will resolve using other credible and publicly verifiable sources.
+Contracts:
+  E1.C1: Will Bitcoin ETFs attract more flows in 2025 than in 2024?
+
+=== E2: How many different countries will Israel take military action against in March?
+Rules:
+This market will resolve according to the total number of different sovereign UN member states' soil that Israel initiates a drone, missile, or air strike between March 1, 2026, 12:00 AM ET and March 31, 2026, 11:59 PM ET.
+
+Strikes on embassies or consulates will count towards the country where the embassy or consulate is located, not towards the country they represent.
+
+Strikes within the territory controlled by Israel as of market creation, as well as strikes within the West Bank or the Gaza Strip, will not be counted towards this market's resolution.
+
+For the purposes of this market, a qualifying "strike" is defined as the use of aerial bombs, drones, or missiles (including cruise or ballistic missiles) launched by Israeli military forces that impact another country's ground territory that is officially acknowledged by the Israeli government or a consensus of credible reporting.
+
+Missiles or drones that are intercepted and surface-to-air missile strikes will not count towards the resolution of this market, regardless of whether they land on another country's territory or cause damage.
+
+Actions such as artillery fire, small arms fire, FPV or ATGM strikes directly, ground incursions, naval shelling, cyberattacks, or other operations conducted by Israeli ground operatives will not qualify.
+
+The resolution source will be a consensus of credible reporting.
+Contracts:
+  E2.C1: Will Israel strike 2 countries in March 2026?
+  E2.C2: Will Israel strike 3 countries in March 2026?
+  E2.C3: Will Israel strike ≥4 countries in March 2026?
+
+=== E3: Will the House pass a reconciliation bill by...?
+Rules:
+This market will resolve to "Yes" if the US House passes a reconciliation bill by the specified date, 11:59 PM ET. Otherwise, this market will resolve to "No".
+
+The primary resolution source for this market will be official information from the US Government. However, a consensus of credible reporting will also be used.
+Contracts:
+  E3.C1: Will the House pass a reconciliation bill by May 31?
+  E3.C2: Will the House pass a reconciliation bill by June 15?
+  E3.C3: Will the House pass a reconciliation bill by June 30?
+  E3.C4: Will the House pass a reconciliation bill by September 30?
+
+=== E4: Peru Presidential Election First Round: 4th Place
+Rules:
+First-round presidential elections are scheduled to be held in Peru on April 12, 2026, with a potential second round on June 7, 2026, if no candidate receives more than 50% of the valid votes outright.
+
+This market will resolve according to the listed candidate who receives the fourth-most valid votes in the first round of this election.
+
+The named candidates will be primarily ranked by the number of valid votes received in the specified election. If two or more candidates are tied on valid votes, ties will be broken by alphabetical order of the candidates' last names. This market will resolve to the candidate that occupies the fourth-highest finishing position after applying this ranking.
+
+If the results are not known definitively by October 31, 2026, 11:59 PM ET, this market will resolve to "Other".
+
+This market will resolve based on the results of this election, as indicated by a consensus of credible reporting. If there is ambiguity, this market will resolve solely on the official results as reported by the Peruvian government, specifically the National Office of Electoral Processes (Oficina Nacional de Procesos Electorales, ONPE) (https://www.onpe.gob.pe/elecciones/) and the National Jury of Elections (Jurado Nacional de Elecciones, JNE) (https://portal.jne.gob.pe/portal/)
+Contracts:
+  E4.C1: Will Rafael López Aliaga finish in fourth place in the first round of the 2026 Peruvian presidential election?
+  E4.C2: Will Keiko Fujimori finish in fourth place in the first round of the 2026 Peruvian presidential election?
+  E4.C3: Will Mario Vizcarra finish in fourth place in the first round of the 2026 Peruvian presidential election?
+  E4.C4: Will Carlos Álvarez finish in fourth place in the first round of the 2026 Peruvian presidential election?
+  E4.C5: Will César Acuña finish in fourth place in the first round of the 2026 Peruvian presidential election?
+  E4.C6: Will Alfonso López Chau finish in fourth place in the first round of the 2026 Peruvian presidential election?
+  E4.C7: Will Vladimir Cerrón finish in fourth place in the first round of the 2026 Peruvian presidential election?
+  E4.C8: Will José Luna finish in fourth place in the first round of the 2026 Peruvian presidential election?
+  E4.C9: Will George Forsyth finish in fourth place in the first round of the 2026 Peruvian presidential election?
+  E4.C10: Will Roberto Chiabra finish in fourth place in the first round of the 2026 Peruvian presidential election?
+  E4.C11: Will Enrique Valderrama finish in fourth place in the first round of the 2026 Peruvian presidential election?
+  E4.C12: Will José Williams finish in fourth place in the first round of the 2026 Peruvian presidential election?
+
+=== E5: Next Toulouse Mayor after municipal election?
+Rules:
+The 2026 Toulouse municipal election is scheduled for March 15, 2026, with a potential runoff on March 22. The Mayor of Toulouse will then be elected by the Toulouse Municipal Council elected in this election.
+
+This market will resolve according to the next individual elected to be the Mayor of Toulouse following this election.
+
+Interim, temporary, or caretaker mayors will not count.
+
+If no such mayor has been elected by December 31, 2026, 11:59 PM ET, this market will resolve to "Other".
+
+The primary resolution source for this market will be official information from the government of Toulouse; however, a consensus of credible reporting may also be used.
+Contracts:
+  E5.C1: Will Jean-Luc Moudenc be the next mayor of Toulouse following the 2026 Toulouse municipal election?
+  E5.C2: Will François Briançon be the next mayor of Toulouse following the 2026 Toulouse municipal election?
+  E5.C3: Will François Piquemal be the next mayor of Toulouse following the 2026 Toulouse municipal election?
+  E5.C4: Will Julien Leonardelli be the next mayor of Toulouse following the 2026 Toulouse municipal election?
+  E5.C5: Will Lambert Meilhac be the next mayor of Toulouse following the 2026 Toulouse municipal election?
+  E5.C6: Will Vanessa Pedinotti be the next mayor of Toulouse following the 2026 Toulouse municipal election?
+  E5.C7: Will Malena Adrada be the next mayor of Toulouse following the 2026 Toulouse municipal election?
+  E5.C8: Will Guillaume Scali be the next mayor of Toulouse following the 2026 Toulouse municipal election?
+  E5.C9: Will Arthur Cottrel be the next mayor of Toulouse following the 2026 Toulouse municipal election?
+  E5.C10: Will Julian Menendez be the next mayor of Toulouse following the 2026 Toulouse municipal election?
+
+=== E6: Will Russia capture all of Hryshyne by...?
+Rules:
+This market will resolve to “Yes” if, according to the ISW map, Russia captures the entirety of Hryshyne, Donetsk Oblast, (48.326812° N, 37.081701° E) by the specified date, 11:59 PM ET.
+
+Hryshyne will be considered captured if the entirety of the municipality is shaded red on the ISW map (https://storymaps.arcgis.com/stories/36a7f6a6f5a9448496de641cf64bd375) by the resolution date. If the area is not shaded red by the resolution date, the market will resolve to “No”.
+
+For any change on the ISW map to qualify for this market’s resolution, the relevant shading indicating Russian control must persist through the next full ISW daily update cycle. If ISW skips a day, shading must persist until the next finalized ISW update is published, regardless of the date. Any continuous shading which reflects either “Assessed Russian Control”, “Assessed Russian Advance In Ukraine”, or “Assessed Russian Gains in the Past 24 Hours” will qualify. “Assessed Russian Infiltration Areas in Ukraine” will not qualify.
+
+The territory of the municipality is shaded in light grey and is distinguished from bordering municipalities with a darker grey line. If all area within the municipality is shaded in red, however, the shading does not precisely match up with the border such that there is a tiny amount of grey along the border of the city, this will still qualify for a "Yes" resolution.
+
+Once Russia captures the entirety of the specified area, any subsequent loss of control will not be considered towards the resolution of this market.
+
+Location on Google maps: https://maps.app.goo.gl/4PzLD4keUCHdSRLC6
+
+The primary resolution source for this market will be the ISW Ukraine map. If the ISW map is rendered unavailable, information from DeepStateMap (https://deepstatemap.live/) may be used. If information from both the ISW and DeepStateMap are rendered permanently unavailable, a consensus of credible reporting may be used.
+
+Note: Any temporary glitches or errors in the map will not be considered.
+
+If Russia comes into control of this territory as a result of a negotiated settlement, this will qualify for a 'Yes' resolution, regardless of whether it is shaded red in the ISW map. An announcement of a negotiated settlement that gives Russia de jure control will not qualify. Actual control must be established.
+Contracts:
+  E6.C1: Will Russia capture all of Hryshyne by May 31?
+
+=== E7: Trump announces Fed Chair nominee by...?
+Rules:
+This market will resolve to “Yes” if the Trump administration announces a new nominee for Chair of the Federal Reserve by the listed date, 11:59 PM ET. Otherwise, this market will resolve to “No”.
+
+An announcement within this market’s timeframe from Donald Trump or the Trump administration stating their intent to nominate a specific individual for Chair of the Federal Reserve will suffice to resolve this market, regardless of whether a formal nomination actually occurs. 
+
+Qualifying announcements must explicitly present the relevant individual as the nominee or future nominee for Chair of the Federal Reserve. Announcements of acting or interim appointments, or announcements which merely reveal potential candidates, will not qualify. Media reports, speculation, or other unofficial information will not qualify.
+
+A formal presidential nomination of an individual to be Chair of the Federal Reserve, made before the listed date, 11:59 PM ET, will immediately resolve this market to “Yes”. Formal nominations are defined as the submission of a nomination message to the U.S. Senate.
+
+The resolution sources for this market will be official announcements from Donald Trump or the Trump administration and official information from the U.S. Senate.
+Contracts:
+  E7.C1: Will Donald Trump announce a new nominee for Chair of the Federal Reserve by January 16, 2026?
+  E7.C2: Will Donald Trump announce a new nominee for Chair of the Federal Reserve by January 31, 2026?
+  E7.C3: Will Donald Trump announce a new nominee for Chair of the Federal Reserve by June 30, 2026?
+  E7.C4: Will Donald Trump announce a new nominee for Chair of the Federal Reserve by March 31, 2026?
+
+=== E8: Will Hunter Biden announce a Delaware Senate run by July 14?
+Rules:
+This market will resolve to "Yes" if Hunter Biden announces that he will run for US Senator from Delaware by July 14, 2026, 11:59 PM ET. Otherwise, this market will resolve to "No".
+
+A qualifying announcement will suffice to resolve this market, regardless of whether the specified individual does or does not actually file to run. 
+
+The primary resolution source for this market will be official statements by Hunter Biden (e.g., via speech, social media, etc.) or his official or legal representatives; however, a consensus of credible reporting may also be used.
+Contracts:
+  E8.C1: Will Hunter Biden announce a Delaware Senate run by July 14?
+
+=== E9: São Tomé Presidential Election First Round Winner
+Rules:
+First-round presidential elections are scheduled to be held in São Tomé and Príncipe on July 19, 2026, with a potential second round to be scheduled if no candidate receives more than 50% of the valid votes outright.
+
+This market will resolve according to the listed candidate who receives the most valid votes in the first round of this election.
+
+The named candidates will be primarily ranked by the number of valid votes received in the specified election. If two or more candidates are tied on valid votes, this market will resolve to the winner of the specified election.
+
+If the results are not known definitively by June 30, 2027, 11:59 PM ET, this market will resolve to "Other".
+
+This market will resolve based on the results of this election, as indicated by a consensus of credible reporting. If there is ambiguity, this market will resolve solely based on official results as reported by São Tomé and Príncipe government sources.
+Contracts:
+  E9.C1: Will Carlos Vila Nova win the greatest number of valid votes in the first round of the 2026 São Tomé and Príncipe presidential elections?
+  E9.C2: Will Nito Abreu win the greatest number of valid votes in the first round of the 2026 São Tomé and Príncipe presidential elections?
+  E9.C3: Will Elsa Pinto win the greatest number of valid votes in the first round of the 2026 São Tomé and Príncipe presidential elections?
+  E9.C4: Will Jorge Bom Jesus win the greatest number of valid votes in the first round of the 2026 São Tomé and Príncipe presidential elections?
+  E9.C5: Will Nino Monteiro win the greatest number of valid votes in the first round of the 2026 São Tomé and Príncipe presidential elections?
+
+=== E10: Philippines, Cavite 4th Congressional District Special Election Winner
+Rules:
+A special election is currently scheduled for August 29, 2026 to fill the 4th congressional district seat of Cavite in the Philippine House of Representatives.
+
+This market will resolve according to the winner of this election.
+
+This market includes any potential runoff election or second round.
+
+If the results of this election are not definitively known by March 31, 2027, 11:59 PM ET, this market will resolve to “Other”.
+
+The resolution source for this market will be a consensus of official sources, including: https://www.comelec.gov.ph/.
+Contracts:
+  E10.C1: Will Jennifer Austria Barzaga win the special election to fill the Cavite 4th congressional district seat in the Philippine House of Representatives?
+  E10.C2: Will Raul Rex Del Rosario Mangubat win the special election to fill the Cavite 4th congressional district seat in the Philippine House of Representatives?
+  E10.C3: Will Marvin Opamin Dupal-ag win the special election to fill the Cavite 4th congressional district seat in the Philippine House of Representatives?
+  E10.C4: Will Leysander Aguilar Ordenes win the special election to fill the Cavite 4th congressional district seat in the Philippine House of Representatives?
+  E10.C5: Will Jacinto Bautista Frani Jr. win the special election to fill the Cavite 4th congressional district seat in the Philippine House of Representatives?

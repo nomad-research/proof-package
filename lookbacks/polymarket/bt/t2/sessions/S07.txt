@@ -1,0 +1,163 @@
+You will be shown 6 questions from a prediction market. Each has one or more contracts that resolve YES or NO under the rules shown. Each question gives the date your view is "as of": answer as you would on that date.
+
+Use only what you already know. Do not search for or look up anything: reading this file is the only tool call you may make. There are no prices in this file and you should not try to estimate what any market thinks; give your own view.
+
+Each question says what to write for it. Whole percents run from 1 to 99. Levels are plain numbers in the units the contracts use (for example 95000 for $95,000, 3.25 for 3.25%). Dates are YYYY-MM-DD.
+
+For each question also say whether you recognise how it actually turned out ("recognised": true only if you believe you remember the real outcome; otherwise false).
+
+Reply with one JSON object and nothing else:
+{"events": [{"label": "E1", "recognised": false, ...the fields that question asks for...}]}
+
+=== E1 (as of 2026-07-29): Greater Manchester Mayoral Election Winner
+Rules:
+The 2026 Greater Manchester mayoral election is currently scheduled to be held on July 30, 2026.
+
+This market will resolve according to the candidate who becomes the next Mayor of Greater Manchester as a result of this election.
+
+Temporary, interim, or placeholder mayors appointed before the election will not be considered.
+
+If the result of this election isn't known by June 30, 2027, 11:59 PM ET, the market will resolve to "Other".
+
+The primary resolution source for this market will be a consensus of credible reporting; however, if there is any ambiguity in the results, this market will resolve according to official information from Greater Manchester Combined Authority (https://www.gmelects.org.uk/).
+Contracts:
+  E1.C1: Will Kate Green win the 2026 Greater Manchester Mayoral Election?
+  E1.C2: Will Laura Evans win the 2026 Greater Manchester Mayoral Election?
+  E1.C3: Will Nick Buckley win the 2026 Greater Manchester Mayoral Election?
+  E1.C4: Will Dan Barker win the 2026 Greater Manchester Mayoral Election?
+  E1.C5: Will Hannah Spencer win the 2026 Greater Manchester Mayoral Election?
+  E1.C6: Will Jake Austin win the 2026 Greater Manchester Mayoral Election?
+  E1.C7: Will Paul Dennett win the 2026 Greater Manchester Mayoral Election?
+  E1.C8: Will Bev Craig win the 2026 Greater Manchester Mayoral Election?
+  E1.C9: Will Arooj Shah win the 2026 Greater Manchester Mayoral Election?
+  E1.C10: Will Geraldine Coggins win the 2026 Greater Manchester Mayoral Election?
+  E1.C11: Will Marlon Scott West win the 2026 Greater Manchester Mayoral Election?
+  E1.C12: Will Richard Kilpatrick win the 2026 Greater Manchester Mayoral Election?
+  E1.C13: Will Sian Astley win the 2026 Greater Manchester Mayoral Election?
+  E1.C14: Will George Galloway win the 2026 Greater Manchester Mayoral Election?
+What to write for E1:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E2 (as of 2026-09-02): How many ships transit Bab el-Mandeb Strait week of August 31?
+Rules:
+This market will resolve according to the total number of transit calls that IMF Portwatch reports for the Bab el-Mandeb Strait for all days from August 31, 2026, through September 6, 2026, inclusive.
+
+Transit calls include container, dry bulk, roll-on/roll-off, general cargo, and tanker ships. Ships not reported by IMF Portwatch will not be considered.
+
+This market will resolve as soon as all relevant data has been published. If the relevant data is not published within 14 calendar days of the specified date, this market will resolve based on the most recent data published up to that point.
+
+In case of obvious data integrity issues (i.e., erroneous data), the market may remain open until the end of the third calendar day (ET) after the date on which such data is first released to allow for corrections. Data integrity issues refer only to clerical or other similar errors in the underlying data, and do not include cases where IMF Portwatch differs from alternative sources.
+
+Only revisions to previously published data points made before all relevant data has been published will be considered.
+
+The resolution source for this market will be IMF PortWatch, specifically the “Arrivals of Ships” data published for the Bab el-Mandeb Strait at https://portwatch.imf.org/pages/6b1814d64903461b98144a6cc25eb79c.
+Contracts:
+  E2.C1: Will fewer than 170 ships transit the Bab el-Mandeb Strait between August 31-September 6?
+  E2.C2: Will 170-189 ships transit the Bab el-Mandeb Strait between August 31-September 6?
+  E2.C3: Will 190-209 ships transit the Bab el-Mandeb Strait between August 31-September 6?
+  E2.C4: Will 210-229 ships transit the Bab el-Mandeb Strait between August 31-September 6?
+  E2.C5: Will 230 or more ships transit the Bab el-Mandeb Strait between August 31-September 6?
+What to write for E2:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E3 (as of 2026-07-08): Core CPI MoM - July 2026
+Rules:
+This is a market about the one-month percent change in the Consumer Price Index for All Urban Consumers excluding food and energy in July 2026 as reported by the Bureau of Labor Statistics.
+
+This market will resolve to the one-month percentage change in the Consumer Price Index for All Urban Consumers excluding food and energy (Core CPI-U) in July 2026 according to the monthly Bureau of Labor Statistics (BLS) report (seasonally adjusted change from the preceding month).
+
+The resolution source for this market will be the BLS Consumer Price Index report released for July 2026 (https://www.bls.gov/bls/news-release/cpi.htm), currently scheduled to be released on August 12, 2026, at 8:30 AM ET. Resolution of this market will take place upon release of the aforementioned data.
+
+Note: the resolution source for this market will be the official monthly BLS CPI news release, which reports core inflation (all items less food and energy) over 1-month periods to only one decimal point (e.g., 0.3%). Thus, this is the level of precision that will be used when resolving the market. For the avoidance of doubt, this market resolves on the core CPI figure — the all items index excluding food and energy — not the headline all items CPI figure.
+
+If the BLS does not release the relevant figures on the scheduled date, this market may remain open up until the scheduled release time of the next CPI report (https://www.bls.gov/schedule). If the information is not released by that time, this market will resolve according to the figures of the most recent previous month with available data.
+Contracts:
+  E3.C1: Will Core CPI MoM be 0.0% or less in July?
+  E3.C2: Will Core CPI MoM be 0.1% in July?
+  E3.C3: Will Core CPI MoM be 0.2% in July?
+  E3.C4: Will Core CPI MoM be 0.3% in July?
+  E3.C5: Will Core CPI MoM be 0.4% in July?
+  E3.C6: Will Core CPI MoM be 0.5% in July?
+  E3.C7: Will Core CPI MoM be 0.6% or more in July?
+What to write for E3:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E4 (as of 2026-07-08): Will Hunter Biden announce a Delaware Senate run by July 14?
+Rules:
+This market will resolve to "Yes" if Hunter Biden announces that he will run for US Senator from Delaware by July 14, 2026, 11:59 PM ET. Otherwise, this market will resolve to "No".
+
+A qualifying announcement will suffice to resolve this market, regardless of whether the specified individual does or does not actually file to run. 
+
+The primary resolution source for this market will be official statements by Hunter Biden (e.g., via speech, social media, etc.) or his official or legal representatives; however, a consensus of credible reporting may also be used.
+Contracts:
+  E4.C1: Will Hunter Biden announce a Delaware Senate run by July 14?
+What to write for E4:
+  Write "dates": for each chance 10, 25, 50, 75 and 90, the date by which you give it that chance of having happened, or null if you do not give it that chance by the last date the contracts cover. Dates must not go earlier as the chance rises.
+
+=== E5 (as of 2026-09-02): Will Google (GOOGL) close above ___ end of September?
+Rules:
+This market will resolve to "Yes" if the Close price for Alphabet Inc. (GOOGL) on the final trading day of September 2026 is higher than the listed price. Otherwise, this market will resolve to "No."
+
+If the two specified prices are exactly equal, this market will resolve to "No".
+
+Closing prices will be used exactly as published by Pyth, without rounding.
+
+If Alphabet Inc. (GOOGL) does not trade at all during the regular session of the final trading day of the month, the market will resolve 50-50.
+
+For a standard full trading session, the closing price refers to the Pyth "Close" value of the 1-minute candle corresponding to the final minute of regular trading hours on the primary exchange. If the relevant session is shortened (for example, due to a market-holiday schedule), the Pyth "Close" value of the 1-minute candle corresponding to the final minute of that shortened session will be used.
+
+If the relevant day has no valid Pyth Close value for the 1-minute candle corresponding to the end of regular trading hours on the primary exchange, the market will use the last valid Pyth price achieved during the regular trading hours of the primary exchange as the effective closing price. If no valid Pyth price exists for that trading day due to a system outage, data failure, or other technical disruption, the official closing price published by the primary exchange on which the listed security trades will be used to determine the closing price for that day.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed security during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth. The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market will be Pyth, specifically the "Close" values for the relevant 1-minute candle for Alphabet Inc. (GOOGL) available at https://pythdata.app/explore/Equity.US.GOOGL%2FUSD.
+Contracts:
+  E5.C1: Will Google (GOOGL) close above $290 end of September?
+  E5.C2: Will Google (GOOGL) close above $300 end of September?
+  E5.C3: Will Google (GOOGL) close above $310 end of September?
+  E5.C4: Will Google (GOOGL) close above $320 end of September?
+  E5.C5: Will Google (GOOGL) close above $330 end of September?
+  E5.C6: Will Google (GOOGL) close above $340 end of September?
+  E5.C7: Will Google (GOOGL) close above $350 end of September?
+  E5.C8: Will Google (GOOGL) close above $360 end of September?
+  E5.C9: Will Google (GOOGL) close above $370 end of September?
+  E5.C10: Will Google (GOOGL) close above $380 end of September?
+  E5.C11: Will Google (GOOGL) close above $390 end of September?
+  E5.C12: Will Google (GOOGL) close above $400 end of September?
+  E5.C13: Will Google (GOOGL) close above $410 end of September?
+What to write for E5:
+  Write "levels": for each chance 10, 25, 50, 75 and 90, the level you give that chance of the measured quantity being at or above when it resolves. The 10 level is the highest and the 90 level the lowest. Example: {"10": 120, "25": 110, "50": 100, "75": 92, "90": 85}.
+
+=== E6 (as of 2026-08-12): Will Meta (META) finish week of August 10 above___?
+Rules:
+This market will resolve to "Yes" if the Close price for Meta Platforms, Inc. (META) on the final day of trading of the week specified in the title (normally Friday) is higher than the listed price. Otherwise, this market will resolve to "No."
+
+If the two specified prices are exactly equal, this market will resolve to "No".
+
+Closing prices will be used exactly as published by Pyth, without rounding.
+
+If Meta Platforms, Inc. (META) does not trade at all during the regular session of the final trading day of the week, the market will resolve 50-50.
+
+For a standard full trading session, the closing price refers to the Pyth "Close" value of the 1-minute candle corresponding to the final minute of regular trading hours on the primary exchange. If the relevant session is shortened (for example, due to a market-holiday schedule), the Pyth "Close" value of the 1-minute candle corresponding to the final minute of that shortened session will be used.
+
+If the relevant day has no valid Pyth Close value for the 1-minute candle corresponding to the end of regular trading hours on the primary exchange, the market will use the last valid Pyth price achieved during the regular trading hours of the primary exchange as the effective closing price. If no valid Pyth price exists for that trading day due to a system outage, data failure, or other technical disruption, the official closing price published by the primary exchange on which the listed security trades will be used to determine the closing price for that day.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed security during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth. The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market will be Pyth, specifically the "Close" values for the relevant 1-minute candle for Meta Platforms, Inc. (META) available at https://pythdata.app/explore/Equity.US.META%2FUSD.
+Contracts:
+  E6.C1: Will Meta (META) finish week of August 10 above $530?
+  E6.C2: Will Meta (META) finish week of August 10 above $540?
+  E6.C3: Will Meta (META) finish week of August 10 above $550?
+  E6.C4: Will Meta (META) finish week of August 10 above $560?
+  E6.C5: Will Meta (META) finish week of August 10 above $570?
+  E6.C6: Will Meta (META) finish week of August 10 above $580?
+  E6.C7: Will Meta (META) finish week of August 10 above $590?
+  E6.C8: Will Meta (META) finish week of August 10 above $600?
+  E6.C9: Will Meta (META) finish week of August 10 above $610?
+  E6.C10: Will Meta (META) finish week of August 10 above $620?
+  E6.C11: Will Meta (META) finish week of August 10 above $630?
+  E6.C12: Will Meta (META) finish week of August 10 above $640?
+  E6.C13: Will Meta (META) finish week of August 10 above $650?
+What to write for E6:
+  Write "levels": for each chance 10, 25, 50, 75 and 90, the level you give that chance of the measured quantity being at or above when it resolves. The 10 level is the highest and the 90 level the lowest. Example: {"10": 120, "25": 110, "50": 100, "75": 92, "90": 85}.

@@ -1,0 +1,304 @@
+You will be shown 10 questions from a prediction market. Each question has one or more contracts, and each contract resolves YES or NO under the rules shown.
+
+For every contract, give your probability, as a whole percent from 1 to 99, that it resolves YES. Use only what you already know. Do not search for or look up anything: reading this file is the only tool call you may make.
+
+For each question, also say whether you recognise how it actually turned out ("recognised": true only if you believe you remember the real outcome; otherwise false).
+
+Where a question's contracts are mutually exclusive (exactly one can resolve YES), your numbers for it should add up to about 100. Where they are nested thresholds or dates, keep them consistent with each other.
+
+Reply with one JSON object and nothing else, in this form:
+{"events": [{"label": "E1", "recognised": false, "p": {"E1.C1": 35, "E1.C2": 60}}]}
+
+Every contract label below must appear exactly once in your reply.
+
+=== E1: GA-13 Democratic Primary Winner
+Rules:
+This market will resolve according to the candidate who wins the nomination for the Democratic Party to contest the GA-13 congressional district seat in the U.S. House of Representatives in the 2026 midterm elections. The Democratic primary will take place on May 19, 2026.
+
+If no nominee is announced by November 3, 2026, 11:59PM ET, this market will resolve to "Other".
+
+The resolution source for this market will be a consensus of official Democrat sources, including https://democrats.org/.
+
+Any replacement of the nominee before election day will not change the resolution of the market.
+Contracts:
+  E1.C1: Will David Scott be the Democratic nominee for GA-13?
+  E1.C2: Will Everton Blair Jr. be the Democratic nominee for GA-13?
+  E1.C3: Will Jasmine Clark be the Democratic nominee for GA-13?
+  E1.C4: Will Jeffree Fauntleroy Sr. be the Democratic nominee for GA-13?
+  E1.C5: Will Emanuel Jones be the Democratic nominee for GA-13?
+  E1.C6: Will Heavenly Kimes be the Democratic nominee for GA-13?
+  E1.C7: Will Joe Lester be the Democratic nominee for GA-13?
+  E1.C8: Will Pierre Whatley be the Democratic nominee for GA-13?
+
+=== E2: How many ships will Iran successfully target by April 30?
+Rules:
+This market will resolve based on the number of distinct commercial vessels on which Iranian forces conduct a kinetic strike or otherwise seize control between market creation and April 30, 2026, 11:59 PM ET.
+
+Attacks on military vessels will not be considered.
+
+Only military actions by Iranian forces explicitly claimed by the Islamic Republic of Iran, or confirmed to have originated from Iranian territory, will count toward the resolution of this market. Attacks by proxy forces (i.e. Hezbollah, Houthis, etc.) will not count toward the resolution of this market.
+
+Missile/drone strikes targeting a ship that are intercepted or otherwise do not directly impact the vessel will not be considered, regardless of damage through debris.
+
+Qualifying incidents include, but are not limited to, drone and missile strikes, aerial bombings, and kinetic actions carried out by Iranian operatives in person, such as seizing a ship by force.
+
+The primary resolution source for this market will be a consensus of credible reporting.
+Contracts:
+  E2.C1: Will 2–3 ships be successfully targeted by Iran by April 30?
+  E2.C2: Will 4–5 ships be successfully targeted by Iran by April 30?
+  E2.C3: Will 6–7 ships be successfully targeted by Iran by April 30?
+  E2.C4: Will 8–9 ships be successfully targeted by Iran by April 30?
+  E2.C5: Will 10 or more ships be successfully targeted by Iran by April 30?
+
+=== E3: Will Rolex prices hit __ by April 30?
+Rules:
+This market will resolve to “Yes” if, for any day between market creation and April 30, 2026, the Bloomberg x Subdial Watch Index for Rolex price is equal to or above the listed price. Otherwise, this market will resolve to “No.”
+
+The resolution source for this market is Subdial — specifically, the Rolex Index chart available at https://subdial.com/market. The daily values in USD shown on the chart will be used for resolution. 
+
+This market refers to prices displayed in USD. To switch the display currency, use the currency toggle located at the left beneath the graph and select “USD” instead of “GBP”.
+
+This market will resolve as soon as the price shown on the Bloomberg x Subdial Watch Index for Rolex chart reaches the listed price, or once the value for April 30, 2026, is published, and the listed price has not been reached. If no data for April 30, 2026, has been published by May 14, 2026, this market will resolve based on the data available at that time.
+
+Revisions made to published data points on the Bloomberg x Subdial Watch Index for Rolex chart before the April 30, 2026 data point has been published will be considered; however, they will not disqualify a previously published data point from resolving this market. Revisions made after the April 30, 2026, data point has been finalized will not be considered.
+Contracts:
+  E3.C1: Will the Rolex Index hit $13,150 (HIGH) by April 30?
+  E3.C2: Will the Rolex Index hit $12,650 (HIGH) by April 30?
+  E3.C3: Will the Rolex Index hit $12,550 (HIGH) by April 30?
+  E3.C4: Will the Rolex Index hit $12,450 (HIGH) by April 30?
+  E3.C5: Will the Rolex Index hit $12,350 (HIGH) by April 30?
+  E3.C6: Will the Rolex Index hit $12,300 (HIGH) by April 30?
+  E3.C7: Will the Rolex Index hit $12,250 (HIGH) by April 30?
+  E3.C8: Will the Rolex Index hit $12,100 (LOW) by April 30?
+    Contract rules: This market will resolve to “Yes” if, for any day between market creation and April 30, 2026, the Bloomberg x Subdial Watch Index for Rolex price is equal to or below the listed price. Otherwise, this market will resolve to “No.”
+
+The resolution source for this market is Subdial — specifically, the Rolex Index chart available at https://subdial.com/market. The daily values in USD shown on the chart will be used for resolution. 
+
+This market refers to prices displayed in USD. To switch the display currency, use the currency toggle located at the left beneath the graph and select “USD” instead of “GBP”.
+
+This market will resolve as soon as the price shown on the Bloomberg x Subdial Watch Index for Rolex chart reaches the listed price, or once the value for April 30, 2026, is published, and the listed price has not been reached. If no data for April 30, 2026, has been published by May 14, 2026, this market will resolve based on the data available at that time.
+
+Revisions made to published data points on the Bloomberg x Subdial Watch Index for Rolex chart before the April 30, 2026 data point has been published will be considered; however, they will not disqualify a previously published data point from resolving this market. Revisions made after the April 30, 2026, data point has been finalized will not be considered.
+  E3.C9: Will the Rolex Index hit $12,050 (LOW) by April 30?
+    Contract rules: This market will resolve to “Yes” if, for any day between market creation and April 30, 2026, the Bloomberg x Subdial Watch Index for Rolex price is equal to or below the listed price. Otherwise, this market will resolve to “No.”
+
+The resolution source for this market is Subdial — specifically, the Rolex Index chart available at https://subdial.com/market. The daily values in USD shown on the chart will be used for resolution. 
+
+This market refers to prices displayed in USD. To switch the display currency, use the currency toggle located at the left beneath the graph and select “USD” instead of “GBP”.
+
+This market will resolve as soon as the price shown on the Bloomberg x Subdial Watch Index for Rolex chart reaches the listed price, or once the value for April 30, 2026, is published, and the listed price has not been reached. If no data for April 30, 2026, has been published by May 14, 2026, this market will resolve based on the data available at that time.
+
+Revisions made to published data points on the Bloomberg x Subdial Watch Index for Rolex chart before the April 30, 2026 data point has been published will be considered; however, they will not disqualify a previously published data point from resolving this market. Revisions made after the April 30, 2026, data point has been finalized will not be considered.
+  E3.C10: Will the Rolex Index hit $11,950 (LOW) by April 30?
+    Contract rules: This market will resolve to “Yes” if, for any day between market creation and April 30, 2026, the Bloomberg x Subdial Watch Index for Rolex price is equal to or below the listed price. Otherwise, this market will resolve to “No.”
+
+The resolution source for this market is Subdial — specifically, the Rolex Index chart available at https://subdial.com/market. The daily values in USD shown on the chart will be used for resolution. 
+
+This market refers to prices displayed in USD. To switch the display currency, use the currency toggle located at the left beneath the graph and select “USD” instead of “GBP”.
+
+This market will resolve as soon as the price shown on the Bloomberg x Subdial Watch Index for Rolex chart reaches the listed price, or once the value for April 30, 2026, is published, and the listed price has not been reached. If no data for April 30, 2026, has been published by May 14, 2026, this market will resolve based on the data available at that time.
+
+Revisions made to published data points on the Bloomberg x Subdial Watch Index for Rolex chart before the April 30, 2026 data point has been published will be considered; however, they will not disqualify a previously published data point from resolving this market. Revisions made after the April 30, 2026, data point has been finalized will not be considered.
+  E3.C11: Will the Rolex Index hit $11,850 (LOW) by April 30?
+    Contract rules: This market will resolve to “Yes” if, for any day between market creation and April 30, 2026, the Bloomberg x Subdial Watch Index for Rolex price is equal to or below the listed price. Otherwise, this market will resolve to “No.”
+
+The resolution source for this market is Subdial — specifically, the Rolex Index chart available at https://subdial.com/market. The daily values in USD shown on the chart will be used for resolution. 
+
+This market refers to prices displayed in USD. To switch the display currency, use the currency toggle located at the left beneath the graph and select “USD” instead of “GBP”.
+
+This market will resolve as soon as the price shown on the Bloomberg x Subdial Watch Index for Rolex chart reaches the listed price, or once the value for April 30, 2026, is published, and the listed price has not been reached. If no data for April 30, 2026, has been published by May 14, 2026, this market will resolve based on the data available at that time.
+
+Revisions made to published data points on the Bloomberg x Subdial Watch Index for Rolex chart before the April 30, 2026 data point has been published will be considered; however, they will not disqualify a previously published data point from resolving this market. Revisions made after the April 30, 2026, data point has been finalized will not be considered.
+  E3.C12: Will the Rolex Index hit $11,750 (LOW) by April 30?
+    Contract rules: This market will resolve to “Yes” if, for any day between market creation and April 30, 2026, the Bloomberg x Subdial Watch Index for Rolex price is equal to or below the listed price. Otherwise, this market will resolve to “No.”
+
+The resolution source for this market is Subdial — specifically, the Rolex Index chart available at https://subdial.com/market. The daily values in USD shown on the chart will be used for resolution. 
+
+This market refers to prices displayed in USD. To switch the display currency, use the currency toggle located at the left beneath the graph and select “USD” instead of “GBP”.
+
+This market will resolve as soon as the price shown on the Bloomberg x Subdial Watch Index for Rolex chart reaches the listed price, or once the value for April 30, 2026, is published, and the listed price has not been reached. If no data for April 30, 2026, has been published by May 14, 2026, this market will resolve based on the data available at that time.
+
+Revisions made to published data points on the Bloomberg x Subdial Watch Index for Rolex chart before the April 30, 2026 data point has been published will be considered; however, they will not disqualify a previously published data point from resolving this market. Revisions made after the April 30, 2026, data point has been finalized will not be considered.
+
+=== E4: Will Meta (META) close above ___ end of February?
+Rules:
+This market will resolve to "Yes" if the official closing price for Meta Platforms, Inc. (META) on the final trading day of February 2026 is higher than the listed price. Otherwise, this market will resolve to "No".
+
+If the final trading day of the month is shortened (for example, due to a market-holiday schedule), the official closing price published for that shortened session will still be used for resolution.
+
+If no official closing price is published for that session (for example, due to a trading halt into the close, system issue, or other disruption), the market will use the last valid on-exchange trade price of the regular session as the effective closing price.
+
+The resolution source for this market is Yahoo Finance — specifically, the Meta Platforms, Inc. (META) "Close" prices available at https://finance.yahoo.com/quote/META/history, published under "Historical Prices."
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Yahoo Finance.
+Contracts:
+  E4.C1: Will Meta (META) close above $620 end of February?
+  E4.C2: Will Meta (META) close above $640 end of February?
+  E4.C3: Will Meta (META) close above $660 end of February?
+  E4.C4: Will Meta (META) close above $680 end of February?
+  E4.C5: Will Meta (META) close above $700 end of February?
+  E4.C6: Will Meta (META) close above $720 end of February?
+  E4.C7: Will Meta (META) close above $740 end of February?
+  E4.C8: Will Meta (META) close above $760 end of February?
+  E4.C9: Will Meta (META) close above $780 end of February?
+  E4.C10: Will Meta (META) close above $800 end of February?
+  E4.C11: Will Meta (META) close above $820 end of February?
+  E4.C12: Will Meta (META) close above $840 end of February?
+
+=== E5: JOLTS Job Openings — June 2026
+Rules:
+This is a market about the seasonally adjusted total number of job openings in the United States in June 2026, as reported by the Bureau of Labor Statistics (BLS) Job Openings and Labor Turnover Survey (JOLTS).
+
+This market will resolve to the bracket containing the seasonally adjusted total number of job openings for the total nonfarm sector in June 2026, as reported in the monthly JOLTS report published by the BLS.
+
+The resolution source for this market will be the BLS Job Openings and Labor Turnover Survey report released for June 2026 (https://www.bls.gov/jlt/), currently scheduled to be released on August 4, 2026, at 10:00 AM ET. Resolution of this market will take place upon release of the aforementioned data.
+
+Note: the resolution source for this market will be the official monthly JOLTS report, which reports job openings in thousands of openings. Thus, this is the level of precision that will be used when resolving the market. Rounding employed in the headline figure will not impact settlement, where a more precise figure is reported.
+
+If the reported value falls exactly between two brackets, this market will resolve to the higher range bracket.
+
+If the BLS does not release the relevant figures on the scheduled date, this market may remain open up until the scheduled release time of the next JOLTS report (https://www.bls.gov/schedule/2026/home.htm). If the information is not released by that time, this market will resolve according to the figures of the most recent previous month with available data.
+Contracts:
+  E5.C1: Will JOLTS Job Openings be below 7.2M in June?
+  E5.C2: Will JOLTS Job Openings be between 7.2M and 7.3M in June?
+  E5.C3: Will JOLTS Job Openings be between 7.3M and 7.4M in June?
+  E5.C4: Will JOLTS Job Openings be between 7.4M and 7.5M in June?
+  E5.C5: Will JOLTS Job Openings be between 7.5M and 7.6M in June?
+  E5.C6: Will JOLTS Job Openings be between 7.6M and 7.7M in June?
+  E5.C7: Will JOLTS Job Openings be between 7.7M and 7.8M in June?
+  E5.C8: Will JOLTS Job Openings be at least 7.8M in June?
+
+=== E6: What price will Hyperliquid hit in April?
+Rules:
+What price will Hyperliquid hit in April?
+Contracts:
+  E6.C1: Will Hyperliquid reach $56 in April?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for HYPEUSDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last) has a final High price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the HYPEUSDT High prices available at https://www.binance.com/en/futures/HYPEUSDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance HYPEUSDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E6.C2: Will Hyperliquid reach $52 in April?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for HYPEUSDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last) has a final High price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the HYPEUSDT High prices available at https://www.binance.com/en/futures/HYPEUSDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance HYPEUSDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E6.C3: Will Hyperliquid reach $48 in April?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for HYPEUSDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last) has a final High price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the HYPEUSDT High prices available at https://www.binance.com/en/futures/HYPEUSDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance HYPEUSDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E6.C4: Will Hyperliquid dip to $32 in April?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for HYPEUSDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last) has a final Low price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the HYPEUSDT Low prices available at https://www.binance.com/en/futures/HYPEUSDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance HYPEUSDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E6.C5: Will Hyperliquid dip to $28 in April?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for HYPEUSDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last) has a final Low price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the HYPEUSDT Low prices available at https://www.binance.com/en/futures/HYPEUSDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance HYPEUSDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E6.C6: Will Hyperliquid dip to $24 in April?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for HYPEUSDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last) has a final Low price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the HYPEUSDT Low prices available at https://www.binance.com/en/futures/HYPEUSDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance HYPEUSDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E6.C7: Will Hyperliquid dip to $20 in April?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for HYPEUSDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last) has a final Low price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the HYPEUSDT Low prices available at https://www.binance.com/en/futures/HYPEUSDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance HYPEUSDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E6.C8: Will Hyperliquid dip to $16 in April?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for HYPEUSDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last) has a final Low price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the HYPEUSDT Low prices available at https://www.binance.com/en/futures/HYPEUSDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance HYPEUSDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+
+=== E7: Texas Democratic Senate Primary Margin of Victory
+Rules:
+Primary elections in Texas are scheduled to be held on March 3, 2026, with a runoff on May 26 if no candidate receives a majority.
+
+This market will resolve according to the margin of victory between the top two candidates in the first round of the Texas Democratic Senate Primary.
+
+For the purpose of this market, the “margin of victory” is defined as the absolute difference between the percentages of valid votes received by the first- and second-place candidates. Percentages of the valid votes received by each candidate will be determined by dividing the total number of valid votes each of the top two candidates receives by the sum of all valid votes cast in the election.
+
+If the reported value falls exactly between two brackets, then this market will resolve to the higher placed bracket (ascending).
+
+If two candidates receive the same number of valid votes, this market will resolve according to the candidate whose last name comes first alphabetically.
+
+This market will resolve based on the official vote count once the count has been made official.
+
+If the results of the specified election are not known definitively by November 30, 2026, 11:59 PM ET, this market will resolve to “Other”.
+
+The primary resolution source for this market will be information from the State of Texas, such as official statewide results published by the Texas Secretary of State (https://elections.sos.state.tx.us/index.htm); however, an overwhelming consensus of credible reporting may suffice.
+
+If a recount is initiated before the vote total has been made official, the market will remain open until the recount is completed and the vote is made official.
+Contracts:
+  E7.C1: Will James Talarico win the Texas Democratic Senate Primary by 15% or more?
+  E7.C2: Will James Talarico win the Texas Democratic Senate Primary by between 10% and 15.00%?
+  E7.C3: Will James Talarico win the Texas Democratic Senate Primary by between 5% and 10.00%?
+  E7.C4: Will James Talarico win the Texas Democratic Senate Primary by between 0% and 5.00%?
+  E7.C5: Will Jasmine Crockett win the Texas Democratic Senate Primary by between 0% and 5.00%?
+  E7.C6: Will Jasmine Crockett win the Texas Democratic Senate Primary by 5% or more?
+
+=== E8: Who will advance from the California Governor primary?
+Rules:
+The non-partisan primary election for Governor of California is scheduled to take place on June 2, 2026. The top two candidates in this election by number of votes won will advance to the general election for Governor of California.
+
+This market will resolve to “Yes” If the listed candidate advances from the primary to the general election for Governor of California. Otherwise this market will resolve to “No”.
+
+If no 2026 California gubernatorial primary takes place by December 31, 2026, this market will resolve to “No.”
+
+This market will resolve based on the results of the primary election for Governor of California as indicated by a consensus of credible reporting. If there is ambiguity, this market will resolve based solely on the official results as reported by the government of California, specifically the Office of the Secretary of State.
+Contracts:
+  E8.C1: Will Derek Grasty advance from the 2026 California Governor primary election?
+  E8.C2: Will Ethan Agarwal advance from the 2026 California Governor primary election?
+  E8.C3: Will Xavier Becerra advance from the 2026 California Governor primary election?
+  E8.C4: Will Carolina Buhler advance from the 2026 California Governor primary election?
+  E8.C5: Will Ian Calderon advance from the 2026 California Governor primary election?
+  E8.C6: Will Zoltan Istvan advance from the 2026 California Governor primary election?
+  E8.C7: Will Thunder Parley advance from the 2026 California Governor primary election?
+  E8.C8: Will Katie Porter advance from the 2026 California Governor primary election?
+  E8.C9: Will Raji Rab advance from the 2026 California Governor primary election?
+  E8.C10: Will Tom Steyer advance from the 2026 California Governor primary election?
+  E8.C11: Will Eric Swalwell advance from the 2026 California Governor primary election?
+  E8.C12: Will Tony Thurmond advance from the 2026 California Governor primary election?
+
+=== E9: What will the median home value in the Los Angeles Metro area be on February 1?
+Rules:
+This market will resolve according to the median home value for all property types in the Los Angeles Metro area on February 1, 2026.
+
+If the reported value falls exactly between two brackets, then this market will resolve to the higher range bracket.
+
+The resolution source will be official data from the Parcl Labs Sales Price Index for the Los Angeles Metro area (Parcl_ID: 2900078). The settlement price will be calculated by multiplying the published price index value (price per square foot) by 1900 square feet, which is the median home size in the Los Angeles Metro area. Parcl is set to publish this data on February 1, 2026. If no data for February 1 is released by February 10, 2026, 11:59PM ET, this market will resolve according to the most recently published data. (see: https://app.parcllabs.com/prediction-market-resolutions/5)
+Contracts:
+  E9.C1: Will the median home value in the Los Angeles Metro area be less than $1,130,000 by February 1?
+  E9.C2: Will the median home value in the Los Angeles Metro area be between $1,130,000 and $1,230,000 by February 1?
+  E9.C3: Will the median home value in the Los Angeles Metro area be between $1,230,000 and $1,330,000 by February 1?
+  E9.C4: Will the median home value in the Los Angeles Metro area be between $1,330,000 and $1,430,000 by February 1?
+  E9.C5: Will the median home value in the Los Angeles Metro area be greater than $1,430,000 by February 1?
+
+=== E10: April 2026 Temperature Increase (ºC)
+Rules:
+This market will resolve according to the value reported by the Global Land-Ocean Temperature Index for April 2026 when it is released.
+
+An anomaly within a named bracket for April 2026 is necessary and sufficient to resolve this market immediately once the data becomes available, regardless of whether the figure for April 2026 is later revised.
+
+The primary resolution source for this market will be the figure found in the table titled "GLOBAL Land-Ocean Temperature Index in 0.01 degrees Celsius" under the column "Apr" in the row "2026" (https://data.giss.nasa.gov/gistemp/tabledata_v4/GLB.Ts+dSST.txt).
+
+If NASA’s “Global Temperature Index” is rendered permanently unavailable, other information from NASA may be used.
+If no information for April 2026 is provided by NASA by June 1, 2026, 11:59 PM ET, this market will resolve to the lowest range bracket.
+Contracts:
+  E10.C1: Will global temperature increase by less than 1.10ºC in April 2026?
+  E10.C2: Will global temperature increase by between 1.10ºC and 1.14ºC in April 2026?
+  E10.C3: Will global temperature increase by between 1.15ºC and 1.19ºC in April 2026?
+  E10.C4: Will global temperature increase by between 1.20ºC and 1.24ºC in April 2026?
+  E10.C5: Will global temperature increase by between 1.25ºC and 1.29ºC in April 2026?
+  E10.C6: Will global temperature increase by more than 1.29ºC in April 2026?

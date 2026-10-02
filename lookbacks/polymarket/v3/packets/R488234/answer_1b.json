@@ -1,0 +1,30 @@
+{
+ "hedges": [
+  {
+   "contract": "E23.6",
+   "side": "YES",
+   "reason": "The main way the primary fails is that Google's next Pro model slips. If no new Pro-labelled Gemini ships by November 1, that is the same delay that leaves the Arena text leaderboard without a new Gemini Pro. That in turn makes every YES rung (C1, C2 and C4) resolve NO. This contract pays in exactly that delay world."
+  },
+  {
+   "event": "E74",
+   "direction": "above",
+   "tier": "mild",
+   "reason": "This expresses the idea that a rival holds the top of the leaderboard. When Google is absent or weak, the new top scores in Q4 2026 come from other labs, and an Anthropic Sonnet debuting high on the same style-control-off text leaderboard is one of them. It is a looser link than E23.6: it only pays off if Anthropic is the rival that fills the gap."
+  }
+ ],
+ "claims": [
+  {
+   "if": {
+    "contract": "C1",
+    "resolves": "NO"
+   },
+   "then": {
+    "contract": "E23.6",
+    "resolves": "YES"
+   },
+   "reason": "Gemini 3 Pro already debuted around 1500 in late 2025. Any new Pro-labelled release in October 2026 would therefore almost certainly be added to Arena above 1480. That includes a GA promotion of 3.1 Pro, which E23 counts. So C1 resolving NO realistically needs a model that never appears on the leaderboard, meaning no Pro release at all in the window. A Pro released before November 1 and still debuting below 1480 is the combination that should not happen."
+  }
+ ],
+ "no_instrument": false,
+ "recalls_outcome": false
+}

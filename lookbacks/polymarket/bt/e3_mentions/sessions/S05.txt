@@ -1,0 +1,211 @@
+You will be shown 6 questions from a prediction market. Each has one or more contracts that resolve YES or NO under the rules shown. Each question gives the date your view is "as of": answer as you would on that date.
+
+Use only what you already know. Do not search for or look up anything: reading this file is the only tool call you may make. There are no prices in this file and you should not try to estimate what any market thinks; give your own view.
+
+Each question says what to write for it. Whole percents run from 1 to 99. Levels are plain numbers in the units the contracts use (for example 95000 for $95,000, 3.25 for 3.25%). Dates are YYYY-MM-DD.
+
+For each question also say whether you recognise how it actually turned out ("recognised": true only if you believe you remember the real outcome; otherwise false).
+
+Reply with one JSON object and nothing else:
+{"events": [{"label": "E1", "recognised": false, ...the fields that question asks for...}]}
+
+=== E1 (as of 2026-07-18): What will Intel say during their next earnings call?
+Rules:
+This market will resolve based on the next earnings announcement of Intel currently scheduled to take place on July 23, 2026 at 5 PM ET.
+
+This market will resolve to "Yes" if the listed term is mentioned by anyone during this event. Otherwise, the market will resolve to "No".
+
+If this event is definitely cancelled, or otherwise is not aired by July 24, 2026, 11:59 PM ET, "-No Qualifying Event-" will resolve to "Yes" and all other brackets will resolve to "No".
+
+The resolution source will be audio of the event.
+
+For full rules, see: https://polymarket-upload.s3.us-east-2.amazonaws.com/market_products/Event+Mentions+Contract+DeFi.pdf
+Contracts:
+  E1.C1: Will Intel say "Income" 10+ times during earnings call?
+  E1.C2: Will Intel say "Quarter" 10+ times during earnings call?
+  E1.C3: Will Intel say "Fiscal" 10+ times during earnings call?
+  E1.C4: Will Intel say "Growth" 5+ times during earnings call?
+  E1.C5: Will Intel say "Data Center" 5+ times during earnings call?
+  E1.C6: Will Intel say "AI" or "Artificial Intelligence" 5+ times during earnings call?
+  E1.C7: Will Intel say "Tool" during earnings call?
+  E1.C8: Will Intel say "Chip" during earnings call?
+  E1.C9: Will Intel say "Advanced" during earnings call?
+  E1.C10: Will Intel say "Government" during earnings call?
+  E1.C11: Will Intel say "NVIDIA" during earnings call?
+  E1.C12: Will Intel say "Lab" during earnings call?
+  E1.C13: Will Intel say "Node Ramp" during earnings call?
+  E1.C14: Will Intel say "CPU" or "Central Processing Unit" during earnings call?
+  E1.C15: Will Intel say "Iran" during earnings call?
+  E1.C16: Will Intel say "China" during earnings call?
+  E1.C17: Will Intel say "Backlog" during earnings call?
+  E1.C18: Will Intel say "Restructuring" during earnings call?
+  E1.C19: Will Intel say "Foundry" during earnings call?
+  E1.C20: Will the earnings call not air?
+What to write for E1:
+  Write "p": a whole percent for every contract label, your chance that it resolves YES.
+
+=== E2 (as of 2026-08-25): What will Zoom say during their next earnings call?
+Rules:
+This market will resolve based on the next earnings announcement of Zoom currently scheduled to take place on August 25, 2026 at 5:00 PM ET.
+
+This market will resolve to "Yes" if the listed term is mentioned by anyone during this event. Otherwise, the market will resolve to "No".
+
+If this event is definitely cancelled, or otherwise is not aired by August 26, 2026, 11:59 PM ET, "-No Qualifying Event-" will resolve to "Yes" and all other brackets will resolve to "No".
+
+The resolution source will be audio of the event.
+
+For full rules, see: https://polymarket-upload.s3.us-east-2.amazonaws.com/market_products/Event+Mentions+Contract+DeFi.pdf
+Contracts:
+  E2.C1: Will Zoom say "Customer" 25+ times during earnings call?
+  E2.C2: Will Zoom say "AI" or "Artificial Intelligence" 20+ times during earnings call?
+  E2.C3: Will Zoom say "Quarter" 10+ times during earnings call?
+  E2.C4: Will Zoom say "Churn" during earnings call?
+  E2.C5: Will Zoom say "Video" during earnings call?
+  E2.C6: Will Zoom say "Camera" during earnings call?
+  E2.C7: Will Zoom say "Latency" during earnings call?
+  E2.C8: Will Zoom say "Workplace" during earnings call?
+  E2.C9: Will Zoom say "Enterprise" during earnings call?
+  E2.C10: Will Zoom say "Contact Center" during earnings call?
+  E2.C11: Will Zoom say "AI Companion" during earnings call?
+  E2.C12: Will Zoom say "Zoom Phone" during earnings call?
+  E2.C13: Will Zoom say "System of Action" during earnings call?
+  E2.C14: Will Zoom say "Agentic" during earnings call?
+  E2.C15: Will the earnings call not air?
+What to write for E2:
+  Write "p": a whole percent for every contract label, your chance that it resolves YES.
+
+=== E3 (as of 2026-07-19): What will Verizon say during their next earnings call?
+Rules:
+This market will resolve based on the next earnings announcement of Verizon currently scheduled to take place on July 24, 2026 at 8:30 AM ET.
+
+This market will resolve to "Yes" if the listed term is mentioned by anyone during this event. Otherwise, the market will resolve to "No".
+
+If this event is definitely cancelled, or otherwise is not aired by July 25, 2026, 11:59 PM ET, "-No Qualifying Event-" will resolve to "Yes" and all other brackets will resolve to "No".
+
+The resolution source will be audio of the event.
+
+For full rules, see: https://polymarket-upload.s3.us-east-2.amazonaws.com/market_products/Event+Mentions+Contract+DeFi.pdf
+Contracts:
+  E3.C1: Will Verizon say "Income" 10+ times during earnings call?
+  E3.C2: Will Verizon say "Quarter" 10+ times during earnings call?
+  E3.C3: Will Verizon say "Fiscal" 10+ times during earnings call?
+  E3.C4: Will Verizon say "Growth" 5+ times during earnings call?
+  E3.C5: Will Verizon say "Fiber" during earnings call?
+  E3.C6: Will Verizon say "Prepaid" during earnings call?
+  E3.C7: Will Verizon say "Spectrum" during earnings call?
+  E3.C8: Will Verizon say "AI" or "Artificial Intelligence" during earnings call?
+  E3.C9: Will Verizon say "Public" during earnings call?
+  E3.C10: Will Verizon say "Integration" during earnings call?
+  E3.C11: Will Verizon say "Mobile" or "Mobility" during earnings call?
+  E3.C12: Will Verizon say "Leverage" during earnings call?
+  E3.C13: Will Verizon say "Churn" during earnings call?
+  E3.C14: Will Verizon say "New York" during earnings call?
+  E3.C15: Will Verizon say "America" during earnings call?
+  E3.C16: Will Verizon say "China" during earnings call?
+  E3.C17: Will the earnings call not air?
+What to write for E3:
+  Write "p": a whole percent for every contract label, your chance that it resolves YES.
+
+=== E4 (as of 2026-07-10): What will Trump say this week? (July 6 - July 12)
+Rules:
+This market will resolve to “Yes” if Donald Trump mentions the listed term between July 6, 2026, 12:00 AM ET and July 12, 2026, 11:59 PM ET. Otherwise, this market will resolve to “No”.
+
+Written usages of terms (e.g. Truth Social posts, written statements, etc.) will not count toward this market's resolution.
+
+Videos posted on his social media which were filmed outside this market's time frame will not qualify for a "Yes" resolution.
+
+For full rules, see: https://polymarket-upload.s3.us-east-2.amazonaws.com/market_products/Period+Mentions+Contract+DeFi.pdf
+Contracts:
+  E4.C1: Will Trump say "Goal" this week?
+  E4.C2: Will Trump say "Beer" this week?
+  E4.C3: Will Trump say "Police" this week?
+  E4.C4: Will Trump say "Female" this week?
+  E4.C5: Will Trump say "Fertilizer" this week?
+  E4.C6: Will Trump say "Six Seven" this week?
+  E4.C7: Will Trump say "Radical Left Lunatic" this week?
+What to write for E4:
+  Write "p": a whole percent for every contract label, your chance that it resolves YES.
+
+=== E5 (as of 2026-07-12): What will JPMorgan say during their next earnings call?
+Rules:
+This market will resolve based on the next earnings announcement of JPMorgan currently scheduled to take place on July 14, 2026 at 8:30 AM ET.
+
+This market will resolve to "Yes" if the listed term is mentioned by anyone during this event. Otherwise, the market will resolve to "No".
+
+If this event is definitely cancelled, or otherwise is not aired by July 15, 2026, 11:59 PM ET, "-No Qualifying Event-" will resolve to "Yes" and all other brackets will resolve to "No".
+
+The resolution source will be audio of the event.
+
+For full rules, see: https://polymarket-upload.s3.us-east-2.amazonaws.com/market_products/Event+Mentions+Contract+DeFi.pdf
+Contracts:
+  E5.C1: Will JPMorgan say "Revenue" 10+ times during earnings call?
+  E5.C2: Will JPMorgan say "Dollar" 10+ times during earnings call?
+  E5.C3: Will JPMorgan say "Million" 10+ times during earnings call?
+  E5.C4: Will JPMorgan say "Invest" or "Investment" 5+ times during earnings call?
+  E5.C5: Will JPMorgan say "AI" or "Artificial Intelligence" 5+ times during earnings call?
+  E5.C6: Will JPMorgan say "Bitcoin" during earnings call?
+  E5.C7: Will JPMorgan say "Blockchain" during earnings call?
+  E5.C8: Will JPMorgan say "Churn" during earnings call?
+  E5.C9: Will JPMorgan say "Monetize" during earnings call?
+  E5.C10: Will JPMorgan say "Synergy" during earnings call?
+  E5.C11: Will JPMorgan say "Pivot" during earnings call?
+  E5.C12: Will JPMorgan say "Disruption" during earnings call?
+  E5.C13: Will JPMorgan say "Risk" during earnings call?
+  E5.C14: Will JPMorgan say "Stakeholder" during earnings call?
+  E5.C15: Will JPMorgan say "Credit card" during earnings call?
+  E5.C16: Will JPMorgan say "Mortgage" during earnings call?
+  E5.C17: Will JPMorgan say "Prediction" during earnings call?
+  E5.C18: Will JPMorgan say "Trump" during earnings call?
+  E5.C19: Will JPMorgan say "Bond Crisis" during earnings call?
+  E5.C20: Will JPMorgan say "Cyber" during earnings call?
+  E5.C21: Will the earnings call not air?
+What to write for E5:
+  Write "p": a whole percent for every contract label, your chance that it resolves YES.
+
+=== E6 (as of 2026-07-25): What will Kevin Warsh say during July Press Conference?
+Rules:
+Kevin Warsh is currently scheduled to give an FOMC Introductory Statement and press conference on July 29, 2026, at 2:30 PM ET. This market pertains to his Introductory Statement as well as the following Q&A session.
+
+This market will resolve to "Yes" if Warsh says the listed term during the FOMC Press Conference. Otherwise, this market will resolve to "No".
+
+If no such statement by Warsh happens by July 30, 2026, 11:59 PM ET, "-No Qualifying Event-" will resolve to "Yes" and all other brackets will resolve to "No".
+
+The resolution source will be video and transcripts of the FOMC Press conference.
+
+For full rules, see: https://polymarket-upload.s3.us-east-2.amazonaws.com/market_products/Event+Mentions+Contract+DeFi.pdf
+Contracts:
+  E6.C1: Will Warsh say "Inflation" 40+ times during July Press Conference?
+  E6.C2: Will Warsh say "Inflation" 20+ times during July Press Conference?
+  E6.C3: Will Warsh say "Task Force" 20+ times during July Press Conference?
+  E6.C4: Will Warsh say "Good day" during July Press Conference?
+  E6.C5: Will Warsh say "Groupthink" or "Group think" during July Press Conference?
+  E6.C6: Will Warsh say "Independence" during July Press Conference?
+  E6.C7: Will Warsh say "Echo of History" during July Press Conference?
+  E6.C8: Will Warsh say "North Star" during July Press Conference?
+  E6.C9: Will Warsh say "Predecessor" during July Press Conference?
+  E6.C10: Will Warsh say "Bet" or "Betting" during July Press Conference?
+  E6.C11: Will Warsh say "Trump" during July Press Conference?
+  E6.C12: Will Warsh say "Balance Sheet" during July Press Conference?
+  E6.C13: Will Warsh say "Central Bank" during July Press Conference?
+  E6.C14: Will Warsh say "Productivity" during July Press Conference?
+  E6.C15: Will Warsh say "AI" or "Artificial Intelligence" during July Press Conference?
+  E6.C16: Will Warsh say "Shock" during July Press Conference?
+  E6.C17: Will Warsh say "Oil" during July Press Conference?
+  E6.C18: Will Warsh say "Uncertainty" during July Press Conference?
+  E6.C19: Will Warsh say "Restrictive" during July Press Conference?
+  E6.C20: Will Warsh say "Projection" during July Press Conference?
+  E6.C21: Will Warsh say "President" during July Press Conference?
+  E6.C22: Will Warsh say "Dollar" during July Press Conference?
+  E6.C23: Will Warsh say "Anchor" or "Anchored" during July Press Conference?
+  E6.C24: Will Warsh say "Recession" during July Press Conference?
+  E6.C25: Will Warsh say "Consumer Confidence" during July Press Conference?
+  E6.C26: Will Warsh say "Iran" during July Press Conference?
+  E6.C27: Will Warsh say "Tax" during July Press Conference?
+  E6.C28: Will Warsh say "Crypto" or "Cryptocurrency" during July Press Conference?
+  E6.C29: Will Warsh say "Dissent" during July Press Conference?
+  E6.C30: Will Warsh say "Pandemic" during July Press Conference?
+  E6.C31: Will Warsh say "Renovation" during July Press Conference?
+  E6.C32: Will Warsh say "Good Afternoon" during July Press Conference?
+  E6.C33: Will Warsh’s remarks not air?
+What to write for E6:
+  Write "p": a whole percent for every contract label, your chance that it resolves YES.

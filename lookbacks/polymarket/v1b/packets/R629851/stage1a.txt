@@ -1,0 +1,34 @@
+You are one of several independent analysts. Work only from what is written below. Apart from reading the file that held this text, do not use any tool, do not look anything up, and do not use anything you
+know that happened after 2026-07-07: reason as of that date. You are shown no market prices, and you are not asked for any probability.
+
+EVENT: Next UK Home Secretary in 2026?   (structure: partition open)
+RULES (as of 2026-07-07):
+This market will resolve to the individual who is officially appointed as the next Home Secretary of the United Kingdom by December 31, 2026, 11:59 PM ET.
+
+To count for resolution, the individual must be officially appointed by the United Kingdom Monarch. Any interim or caretaker Home Secretary will not count toward the resolution of this market.
+
+If no such Home Secretary is appointed, or Shabana Mahmood is re-appointed as Home Secretary, by December 31, 2026, 11:59 PM ET, this market will resolve to “No next Home Secretary in 2026”.
+
+The primary resolution source for this market will be official information from the Government of the United Kingdom; however, a consensus of credible reporting may also be used.
+
+CONTRACTS (each pays $1 if its statement is true when the event resolves, $0 otherwise; you may name YES or NO on any contract):
+  C1: Will Pat McFadden be the next Home Secretary of the UK in 2026?  [Pat McFadden]
+  C2: Will Ed Miliband be the next Home Secretary of the UK in 2026?  [Ed Miliband]
+  C3: Will Yvette Cooper be the next Home Secretary of the UK in 2026?  [Yvette Cooper]
+  C4: Will Stephen Kinnock be the next Home Secretary of the UK in 2026?  [Stephen Kinnock]
+  C5: Will David Lammy be the next Home Secretary of the UK in 2026?  [David Lammy]
+  C6: Will Jess Phillips be the next Home Secretary of the UK in 2026?  [Jess Phillips]
+  C7: Will Dan Jarvis be the next Home Secretary of the UK in 2026?  [Dan Jarvis]
+  C8: Will Angela Rayner be the next Home Secretary of the UK in 2026?  [Angela Rayner]
+  C9: Will there be no next Home Secretary of the UK in 2026?  [No next Home Secretary in 2026]
+  C10: Will Mike Tapp be the next Home Secretary of the UK in 2026?  [Mike Tapp]
+
+Task. Write your own view as documents-and-mechanism reasoning, not as odds.
+1. primary: a thesis about how this event resolves and a basket of at most 4 contracts from the list that expresses it (long only: a contract with YES or NO).
+2. failure_narrative: the specific way the thesis is wrong (what would have to happen for the basket to lose).
+3. hedge_thesis: a second narrative, about a DIFFERENT part of the world, that would tend to be true in exactly the worlds where the primary fails. Say why, in mechanism terms.
+4. search_terms: 3 to 8 words or names (entities, assets, places, institutions) that instruments for the hedge thesis would carry. Lower-case single words or short names.
+5. recalls_outcome: true if you already know, or think you know, how this event (or any part of it) actually turned out; otherwise false. Be honest: a true answer is not penalised, it only means this item is set aside.
+
+Answer with one JSON object and nothing else:
+{"primary": {"thesis": "...", "basket": [{"contract": "C1", "side": "YES", "reason": "..."}]}, "failure_narrative": "...", "hedge_thesis": "...", "search_terms": ["..."], "recalls_outcome": false}

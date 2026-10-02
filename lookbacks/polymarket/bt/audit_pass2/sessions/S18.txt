@@ -1,0 +1,193 @@
+You will be shown 10 questions from a prediction market. Each question has one or more contracts, and each contract resolves YES or NO under the rules shown.
+
+For every contract, give your probability, as a whole percent from 1 to 99, that it resolves YES. Use only what you already know. Do not search for or look up anything: reading this file is the only tool call you may make.
+
+For each question, also say whether you recognise how it actually turned out ("recognised": true only if you believe you remember the real outcome; otherwise false).
+
+Where a question's contracts are mutually exclusive (exactly one can resolve YES), your numbers for it should add up to about 100. Where they are nested thresholds or dates, keep them consistent with each other.
+
+Reply with one JSON object and nothing else, in this form:
+{"events": [{"label": "E1", "recognised": false, "p": {"E1.C1": 35, "E1.C2": 60}}]}
+
+Every contract label below must appear exactly once in your reply.
+
+=== E1: Will Trump meet with Putin again by...?
+Rules:
+On August 15, 2025, U.S. President Donald Trump and Russian President Vladimir Putin met in person at Joint Base Elmendorf-Richardson near Anchorage, Alaska, for a summit focused on potential peace terms in Ukraine. 
+
+This market will resolve to "Yes" if Vladimir Putin meets with Donald Trump on a separate occasion from the August 15, 2025 meeting by December 31, 2025, 11:59 PM ET.  Otherwise, this market will resolve to "No".
+
+Encounters that are part of, or a continuation of, the August 15 meeting will not qualify, even if they occur on a different day (e.g. August 16).
+
+A meeting is defined as any encounter where both Putin and Trump are present and interact with each other in person.
+
+The resolution source will be a consensus of credible reporting.
+Contracts:
+  E1.C1: Will Trump meet with Putin by March 31, 2026?
+    Contract rules: On August 15, 2025, U.S. President Donald Trump and Russian President Vladimir Putin met in person at Joint Base Elmendorf-Richardson near Anchorage, Alaska, for a summit focused on potential peace terms in Ukraine. 
+
+This market will resolve to "Yes" if Vladimir Putin meets with Donald Trump on a separate occasion from the August 15, 2025 meeting by the listed date (ET).  Otherwise, this market will resolve to "No".
+
+Encounters that are part of, or a continuation of, the August 15 meeting will not qualify, even if they occur on a different day (e.g. August 16).
+
+A meeting is defined as any encounter where both Putin and Trump are present and interact with each other in person.
+
+The resolution source will be a consensus of credible reporting.
+
+=== E2: Illinois Democratic Senate Primary Winner
+Rules:
+This market will resolve according to the winner of the Democratic Primary for United States Senator from Illinois.
+
+If no 2026 Illinois Democratic Senate Primary takes place, this market will resolve to "Other".
+
+The resolution source for this market will be the first announcement of the results from the Illinois Democratic party, however an overwhelming consensus of credible reporting may suffice.
+Contracts:
+  E2.C1: Will Steve Botsford Jr. be the Democratic nominee for Senate in Illinois?
+  E2.C2: Will Sean Brown be the Democratic nominee for Senate in Illinois?
+  E2.C3: Will Awisi Bustos be the Democratic nominee for Senate in Illinois?
+  E2.C4: Will Jonathan Dean be the Democratic nominee for Senate in Illinois?
+  E2.C5: Will Adam Delgado be the Democratic nominee for Senate in Illinois?
+  E2.C6: Will Robin Kelly be the Democratic nominee for Senate in Illinois?
+  E2.C7: Will Raja Krishnamoorthi be the Democratic nominee for Senate in Illinois?
+  E2.C8: Will Stanley Leavell be the Democratic nominee for Senate in Illinois?
+  E2.C9: Will Bryan Maxwell be the Democratic nominee for Senate in Illinois?
+  E2.C10: Will Robert Palmer be the Democratic nominee for Senate in Illinois?
+  E2.C11: Will Adair Rodriquez be the Democratic nominee for Senate in Illinois?
+  E2.C12: Will Kevin Ryan be the Democratic nominee for Senate in Illinois?
+
+=== E3: Bank of Canada decision in January?
+Rules:
+This market will resolve to the amount of basis points the target for the overnight rate is changed by versus the level it was prior to the Bank of Canada's January 2026 meeting.
+
+If the target for the overnight rate is changed to a level not expressed in the displayed options, the change will be rounded up to the nearest 25 basis points and will resolve to the relevant bracket. For example, if the deposit facility rate is increased or decreased by 12.5 basis points, it will be treated as a 25 basis point change for the purposes of resolution.
+
+The resolution source for this market is information released by the Bank of Canada after its January 28, 2026 policy meeting, as listed on the official Bank of Canada calendar: https://www.bankofcanada.ca/core-functions/monetary-policy/key-interest-rate/#target-dates
+
+This market may resolve as soon as the Bank of Canada's statement for their January meeting with relevant data is issued. If no statement is released by the end date of the next scheduled meeting, this market will resolve to the "No change" bracket.
+Contracts:
+  E3.C1: Will the Bank of Canada announce a 50+ bps decrease at the January meeting?
+  E3.C2: Will the Bank of Canada announce a 25 bps decrease at the January meeting?
+  E3.C3: Will the Bank of Canada announce no change at the January meeting?
+  E3.C4: Will the Bank of Canada announce an increase at the January meeting?
+
+=== E4: ICE Shooter fired/resigns by March 31?
+Rules:
+On January 7, 2026, an Immigration and Customs Enforcement (ICE) officer committed a shooting in Minneapolis (see: https://apnews.com/article/minnesota-immigration-enforcement-shooting-crackdown-surge-173e00fa7388054e98c3b5b9417c1e5a).
+
+This market will resolve to "Yes" if the ICE Officer who fired the shots in the specified shooting ceases to be an employee of ICE for any length of time between market creation and March 31, 2026, 11:59 PM ET. Otherwise, this market will resolve to "No".
+
+An announcement of the officer’s resignation/firing before this market's end date will immediately resolve this market to "Yes", regardless of when the announced resignation/firing goes into effect.
+
+Suspensions, administrative leave, or other temporary measures will not qualify.
+
+This market's primary resolution source will be official information from ICE and the U.S. federal government; however a consensus of credible reporting may also be used.
+Contracts:
+  E4.C1: ICE Shooter fired/resigns by March 31?
+
+=== E5: Ethiopia Parliamentary Election Winner
+Rules:
+General elections are scheduled to be held in Ethiopia on June 1, 2026.
+
+This market will resolve according to the political party that wins the greatest number of seats in the next Ethiopian House of Peoples' Representatives election. 
+
+If the results are not known definitively by December 31, 2026, 11:59 PM ET, this market will resolve to "Other".
+
+In the event of a tie between multiple parties for the most seats won, this market will resolve in favor of the party or coalition that received a greater number of valid votes. In the event that results in a tie, this market will resolve in favor of the party or coalition whose listed abbreviation appears first in alphabetical order.
+
+This market's resolution will be based solely on the number of seats won by the named party in the Ethiopian Parliament.
+
+This market will resolve based on the results of this election as indicated by a consensus of credible reporting. If there is ambiguity, this market will resolve based solely on the official results as reported by the Ethiopian government, specifically the National Election Board of Ethiopia (NEBE) (nebe.org.et/en).
+Contracts:
+  E5.C1: Will the Prosperity Party (Prosperity) win the most seats in the 2026 Ethiopian general election?
+  E5.C2: Will the National Movement of Amhara (NaMA) win the most seats in the 2026 Ethiopian general election?
+  E5.C3: Will the Ethiopian Citizens for Social Justice (EZEMA) win the most seats in the 2026 Ethiopian general election?
+  E5.C4: Will the Gedeo People’s Democratic Party (GPDP) win the most seats in the 2026 Ethiopian general election?
+  E5.C5: Will the Tigray People’s Liberation Front (TPLF) win the most seats in the 2026 Ethiopian general election?
+
+=== E6: Which party wins control of the most London borough councils?
+Rules:
+Local elections in London, UK are currently scheduled for May 7, 2026.
+
+This market will resolve according to the party that controls the most London borough councils as a result of this election.
+
+Control is defined as having more than half of the voting councillors of a London borough council. Any executive positions, like Mayor, will not count.
+
+A candidate will be considered an official candidate of a party if they are officially nominated by that party and are registered for the relevant election in affiliation with that party. Independent candidates will not count for any party.
+
+This market's resolution will be based solely on the number of councils controlled by the specified party, not any coalition of which it may be a part. 
+
+In the case of a tie between two or more parties for the greatest number of councils controlled, this market will resolve in favor of the party whose name comes first in alphabetical order, as listed in this market group.
+
+Resolution of this market will be based on the results of the relevant London borough council elections, once those results are official. This market may resolve to the listed party as soon as it becomes mathematically impossible for any other party to equal or surpass its number of councils controlled in these elections. If the results of any of the relevant 2026 London local elections aren’t known by April 30, 2027 11:59 PM ET, the winning party will be determined based on the available results up to that point. If none of the results of the relevant 2026 London local elections are known by that time, this market will resolve to “Other”.
+
+This market will resolve based on the results of the elections as indicated by a consensus of credible reporting. If there is ambiguity, this market will resolve based solely on the official results as reported by the respective council government.
+Contracts:
+  E6.C1: Will the Labour Party win control of the most London borough councils?
+  E6.C2: Will the Conservative Party win control of the most London borough councils?
+  E6.C3: Will the Liberal Democrats win control of the most London borough councils?
+  E6.C4: Will Reform UK win control of the most London borough councils?
+  E6.C5: Will the Green Party win control of the most London borough councils?
+
+=== E7: Liberal majority in Canadian Parliament by June 30?
+Rules:
+This market will resolve to "Yes" if the Liberal Party of Canada holds a majority of seats in the House of Commons for any period of time between December 12, 2025 and June 30, 2026, otherwise this market will resolve to "No".
+
+This market will resolve to "No" if Parliament is dissolved before June 30, 2026. 
+
+This markets resolution will be based solely on the number of seats held by the Liberal Party of Canada, not any alliance or coalition of which it may be a part.
+
+The resolution source for this market will be official information from the Canadian government or a consensus of credible reporting.
+Contracts:
+  E7.C1: Liberal majority in Canadian Parliament by June 30?
+
+=== E8: January 2026 Temperature Increase (ºC)
+Rules:
+This market will resolve according to the value reported by the Global Land-Ocean Temperature Index for January 2026 when it is released.
+
+An anomaly within a named bracket for January 2026 is necessary and sufficient to resolve this market immediately once the data becomes available, regardless of whether the figure for January 2026 is later revised.
+
+The primary resolution source for this market will be the figure found in the table titled "GLOBAL Land-Ocean Temperature Index in 0.01 degrees Celsius" under the column "Jan" in the row "2026" (https://data.giss.nasa.gov/gistemp/tabledata_v4/GLB.Ts+dSST.txt).
+
+If NASA’s “Global Temperature Index” is rendered permanently unavailable, other information from NASA may be used.
+If no information for January 2026 is provided by NASA by March 1, 2026, 11:59 PM ET, this market will resolve to the lowest range bracket.
+Contracts:
+  E8.C1: Will global temperature increase by less than 1.00ºC in January 2026?
+  E8.C2: Will global temperature increase by between 1.00ºC and 1.04ºC in January 2026?
+  E8.C3: Will global temperature increase by between 1.05ºC and 1.09ºC in January 2026?
+  E8.C4: Will global temperature increase by between 1.10ºC and 1.14ºC in January 2026?
+  E8.C5: Will global temperature increase by between 1.15ºC and 1.19ºC in January 2026?
+  E8.C6: Will global temperature increase by more than 1.19ºC in January 2026?
+
+=== E9: Cellular outage on Jan 14 caused by a hack?
+Rules:
+On January 14, 2026, widespread internet and mobile service outages affected customers of major U.S. telecommunications providers, including Verizon, AT&T, and T-Mobile, across multiple states. You can read more about that here: reuters.com/business/media-telecom/verizons-network-down-thousands-users-us-downdetector-shows-2026-01-14.
+
+This market will resolve to “Yes” if it is discovered that the January 14 outages was caused by a hack by January 31, 2026, 11:59 PM ET. Otherwise, this market will resolve to “No”. 
+
+"A hack" encompasses intentional, malicious activity that caused the network outage.
+
+The primary resolution source for this market will be official statements from the U.S. Government, Verizon, T-Mobile and AT&T. However, a consensus of credible reporting may also be used to resolve this market.
+Contracts:
+  E9.C1: Cellular outage on Jan 14 caused by a hack?
+
+=== E10: Will Israel strike Lebanon on...?
+Rules:
+This market will resolve to "Yes" if Israel initiates a drone, missile, or air strike on Lebanese soil on the listed date Israel Standard Time (IST). Otherwise, this market will resolve to "No".
+
+For the purposes of this market, a qualifying "strike" is defined as the use of aerial bombs, drones, or missiles (including cruise or ballistic missiles) launched by Israeli military forces that impact Lebanese ground territory.
+
+A strike on any area within the terrestrial territory of Lebanon counts, including buffer zones.
+
+Missiles or drones that are intercepted and surface-to-air missile strikes will not be sufficient for a "Yes" resolution, regardless of whether they land on Lebanese territory or cause damage.
+
+Actions such as artillery fire, small arms fire, FPV or ATGM strikes, ground incursions, naval shelling, cyberattacks, or other operations conducted by Israeli ground operatives will not qualify.
+
+The primary solution resolution source will be official government/military statements (Israeli or foreign), multilateral bodies (UN, etc.), or a consensus of credible reporting from major international media and national broadcasters/newspapers.
+
+If the date/time of a strike cannot be confirmed by a consensus of credible reporting within 48 hours of this market's end date, it will resolve to "No" regardless of whether a strike was later confirmed to have taken place.
+Contracts:
+  E10.C1: Will Israel strike Lebanon on February 11, 2026?
+  E10.C2: Will Israel strike Lebanon on February 13, 2026?
+  E10.C3: Will Israel strike Lebanon on February 14, 2026?
+  E10.C4: Will Israel strike Lebanon on February 15, 2026?
+  E10.C5: Will Israel strike Lebanon on February 16, 2026?

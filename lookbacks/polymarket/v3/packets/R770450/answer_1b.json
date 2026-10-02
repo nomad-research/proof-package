@@ -1,0 +1,44 @@
+{
+ "hedges": [
+  {
+   "event": "E24",
+   "direction": "reach",
+   "tier": "moderate",
+   "reason": "The candidates show a live Gulf energy crisis going into Q4 2026: a US naval blockade of Iran reinstated in July, Saudi Arabia's East-West pipeline shut on September 11, a fragile US-Iran and Israel-Iran ceasefire, and a WTI ladder that runs up to $150. The likeliest route to my primary's hike tail (C4 or C5) is oil pass-through. If Hormuz or Red Sea traffic breaks down again, WTI spikes in October and headline and expected inflation jump. That is what could make the FOMC hike in December despite a dovish chair. A long position on WTI reaching a clearly elevated level in October pays in exactly that world and loses in the calm middle where my primary wins."
+  },
+  {
+   "event": "E51",
+   "direction": "by_date",
+   "tier": "moderate",
+   "reason": "A Houthi strike on commercial shipping that lands is the visible sign that the ceasefire regime is breaking down. It brings a jump in shipping, insurance and energy risk premia, and higher cross-asset volatility. That is the same shock that pushes the Fed out of its hold or 25 bp cut middle, toward a hike if inflation dominates or toward a big cut if financial stress dominates."
+  }
+ ],
+ "claims": [
+  {
+   "if": {
+    "contract": "C4",
+    "resolves": "NO"
+   },
+   "then": {
+    "event": "E24",
+    "direction": "reach",
+    "tier": "moderate"
+   },
+   "reason": "Mechanism: C4 resolving NO in my basket means the Fed hiked 25 bp in December. That reverses an easing cycle under a new chair picked for a dovish lean, weeks after the midterms. In this environment the only plausible trigger in the next ten weeks is an energy-driven inflation shock from the Iran, Hormuz or Saudi pipeline disruption. That shock would show up as WTI touching a clearly elevated level in October, well before the December meeting."
+  },
+  {
+   "if": {
+    "contract": "C5",
+    "resolves": "NO"
+   },
+   "then": {
+    "event": "E24",
+    "direction": "reach",
+    "tier": "moderate"
+   },
+   "reason": "Mechanism: a hike of 50+ bp needs an even larger and more visible inflation shock than a 25 bp hike. The candidate set shows the Gulf oil supply is already impaired, so such a shock would almost certainly come through crude, with WTI spiking during October."
+  }
+ ],
+ "no_instrument": false,
+ "recalls_outcome": false
+}

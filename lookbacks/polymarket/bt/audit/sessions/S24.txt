@@ -1,0 +1,471 @@
+You will be shown 10 questions from a prediction market. Each question has one or more contracts, and each contract resolves YES or NO under the rules shown.
+
+For every contract, give your probability, as a whole percent from 1 to 99, that it resolves YES. Use only what you already know. Do not search for or look up anything: reading this file is the only tool call you may make.
+
+For each question, also say whether you recognise how it actually turned out ("recognised": true only if you believe you remember the real outcome; otherwise false).
+
+Where a question's contracts are mutually exclusive (exactly one can resolve YES), your numbers for it should add up to about 100. Where they are nested thresholds or dates, keep them consistent with each other.
+
+Reply with one JSON object and nothing else, in this form:
+{"events": [{"label": "E1", "recognised": false, "p": {"E1.C1": 35, "E1.C2": 60}}]}
+
+Every contract label below must appear exactly once in your reply.
+
+=== E1: What will S&P 500 (SPX) hit in March?
+Rules:
+What will S&P 500 (SPX) hit in March?
+Contracts:
+  E1.C1: Will S&P 500 (SPX) hit 5700 (LOW) in March?
+    Contract rules: This market will resolve to "Yes" if, at any point during March 2026, any 1-minute candle for S&P 500 (SPX) shows a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No."
+
+All prices recorded during regular trading hours of the primary exchange for the instrument, as reflected in Yahoo Finance's 1-minute interval ("1m") data, will be considered.
+
+Periods when the market is officially closed (e.g., holidays or maintenance breaks) will not be considered.
+
+All times referenced are local to the primary exchange on which the index trades.
+
+The resolution source for this market is Yahoo Finance — specifically, the 1-minute interval ("1m") chart data for S&P 500 (SPX).
+
+Note: S&P 500 (SPX) is represented by ^GSPC on Yahoo Finance.
+  E1.C2: Will S&P 500 (SPX) hit 5600 (LOW) in March?
+    Contract rules: This market will resolve to "Yes" if, at any point during March 2026, any 1-minute candle for S&P 500 (SPX) shows a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No."
+
+All prices recorded during regular trading hours of the primary exchange for the instrument, as reflected in Yahoo Finance's 1-minute interval ("1m") data, will be considered.
+
+Periods when the market is officially closed (e.g., holidays or maintenance breaks) will not be considered.
+
+All times referenced are local to the primary exchange on which the index trades.
+
+The resolution source for this market is Yahoo Finance — specifically, the 1-minute interval ("1m") chart data for S&P 500 (SPX).
+
+Note: S&P 500 (SPX) is represented by ^GSPC on Yahoo Finance.
+  E1.C3: Will S&P 500 (SPX) hit 5500 (LOW) in March?
+    Contract rules: This market will resolve to "Yes" if, at any point during March 2026, any 1-minute candle for S&P 500 (SPX) shows a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No."
+
+All prices recorded during regular trading hours of the primary exchange for the instrument, as reflected in Yahoo Finance's 1-minute interval ("1m") data, will be considered.
+
+Periods when the market is officially closed (e.g., holidays or maintenance breaks) will not be considered.
+
+All times referenced are local to the primary exchange on which the index trades.
+
+The resolution source for this market is Yahoo Finance — specifically, the 1-minute interval ("1m") chart data for S&P 500 (SPX).
+
+Note: S&P 500 (SPX) is represented by ^GSPC on Yahoo Finance.
+  E1.C4: Will S&P 500 (SPX) hit 5350 (LOW) in March?
+    Contract rules: This market will resolve to "Yes" if, at any point during March 2026, any 1-minute candle for S&P 500 (SPX) shows a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No."
+
+All prices recorded during regular trading hours of the primary exchange for the instrument, as reflected in Yahoo Finance's 1-minute interval ("1m") data, will be considered.
+
+Periods when the market is officially closed (e.g., holidays or maintenance breaks) will not be considered.
+
+All times referenced are local to the primary exchange on which the index trades.
+
+The resolution source for this market is Yahoo Finance — specifically, the 1-minute interval ("1m") chart data for S&P 500 (SPX).
+
+Note: S&P 500 (SPX) is represented by ^GSPC on Yahoo Finance.
+  E1.C5: Will S&P 500 (SPX) hit 5200 (LOW) in March?
+    Contract rules: This market will resolve to "Yes" if, at any point during March 2026, any 1-minute candle for S&P 500 (SPX) shows a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No."
+
+All prices recorded during regular trading hours of the primary exchange for the instrument, as reflected in Yahoo Finance's 1-minute interval ("1m") data, will be considered.
+
+Periods when the market is officially closed (e.g., holidays or maintenance breaks) will not be considered.
+
+All times referenced are local to the primary exchange on which the index trades.
+
+The resolution source for this market is Yahoo Finance — specifically, the 1-minute interval ("1m") chart data for S&P 500 (SPX).
+
+Note: S&P 500 (SPX) is represented by ^GSPC on Yahoo Finance.
+  E1.C6: Will S&P 500 (SPX) hit 5000 (LOW) in March?
+    Contract rules: This market will resolve to "Yes" if, at any point during March 2026, any 1-minute candle for S&P 500 (SPX) shows a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No."
+
+All prices recorded during regular trading hours of the primary exchange for the instrument, as reflected in Yahoo Finance's 1-minute interval ("1m") data, will be considered.
+
+Periods when the market is officially closed (e.g., holidays or maintenance breaks) will not be considered.
+
+All times referenced are local to the primary exchange on which the index trades.
+
+The resolution source for this market is Yahoo Finance — specifically, the 1-minute interval ("1m") chart data for S&P 500 (SPX).
+
+Note: S&P 500 (SPX) is represented by ^GSPC on Yahoo Finance.
+  E1.C7: Will S&P 500 (SPX) hit 4750 (LOW) in March?
+    Contract rules: This market will resolve to "Yes" if, at any point during March 2026, any 1-minute candle for S&P 500 (SPX) shows a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No."
+
+All prices recorded during regular trading hours of the primary exchange for the instrument, as reflected in Yahoo Finance's 1-minute interval ("1m") data, will be considered.
+
+Periods when the market is officially closed (e.g., holidays or maintenance breaks) will not be considered.
+
+All times referenced are local to the primary exchange on which the index trades.
+
+The resolution source for this market is Yahoo Finance — specifically, the 1-minute interval ("1m") chart data for S&P 500 (SPX).
+
+Note: S&P 500 (SPX) is represented by ^GSPC on Yahoo Finance.
+
+=== E2: Will Silver (SI) hit__ by end of June?
+Rules:
+This market will resolve to "Yes" if, on any trading day, the official CME settlement price for the Active Month (front month) of Silver (SI) futures is equal to or above the listed price by the final trading day of June 2026. Otherwise, the market will resolve to "No".
+
+For CME Silver (SI) futures contracts, the Active Month is the nearest of CME's designated delivery-cycle months (March, May, July, September, December) that is not the spot month. The Active Month becomes a non-active month effective on its First Position Date, at which point the next eligible contract month becomes the Active Month.
+
+Only the Active Month's official settlement price published by CME Group will be considered. Intraday trades, highs, lows, bids, offers, midpoint values, or indicative prices do not count.
+
+Note that the settlement price may differ from the last traded price. CME's methodology to determine the settlement price can vary by commodity and contract.
+
+Only days on which CME publishes an official settlement price for the Active Month will be included. Days without settlement prices (weekends, holidays, or market closures) are ignored.
+
+This market will resolve based on the settlement price as it appears on the CME settlement page at the time it is first published for that trading day, regardless of any later corrections or updates.
+
+The resolution source for this market is the CME Group website — specifically, the daily "Settlement" price for the Active Month of Silver (SI) futures.
+Contracts:
+  E2.C1: Will Silver (SI) hit (HIGH) $250 by end of June?
+  E2.C2: Will Silver (SI) hit (HIGH) $230 by end of June?
+  E2.C3: Will Silver (SI) hit (HIGH) $210 by end of June?
+  E2.C4: Will Silver (SI) hit (HIGH) $200 by end of June?
+  E2.C5: Will Silver (SI) hit (HIGH) $170 by end of June?
+  E2.C6: Will Silver (SI) hit (HIGH) $150 by end of June?
+  E2.C7: Will Silver (SI) hit (HIGH) $130 by end of June?
+  E2.C8: Will Silver (SI) hit (HIGH) $120 by end of June?
+  E2.C9: Will Silver (SI) hit (HIGH) $110 by end of June?
+    Contract rules: This market will resolve to "Yes" if, on any trading day, the official CME settlement price for the Active Month (front month) of Silver (SI) futures is equal to or above the listed price between market creation and the final trading day of June 2026. Otherwise, the market will resolve to "No".
+
+For CME Silver (SI) futures contracts, the Active Month is the nearest of CME's designated delivery-cycle months (March, May, July, September, December) that is not the spot month. The Active Month becomes a non-active month effective on its First Position Date, at which point the next eligible contract month becomes the Active Month.
+
+Only the Active Month's official settlement price published by CME Group will be considered. Intraday trades, highs, lows, bids, offers, midpoint values, or indicative prices do not count.
+
+Note that the settlement price may differ from the last traded price. CME's methodology to determine the settlement price can vary by commodity and contract.
+
+Only days on which CME publishes an official settlement price for the Active Month will be included. Days without settlement prices (weekends, holidays, or market closures) are ignored.
+
+This market will resolve based on the settlement price as it appears on the CME settlement page at the time it is first published for that trading day, regardless of any later corrections or updates.
+
+The resolution source for this market is the CME Group website — specifically, the daily "Settlement" price for the Active Month of Silver (SI) futures.
+  E2.C10: Will Silver (SI) hit (HIGH) $100 by end of June?
+    Contract rules: This market will resolve to "Yes" if, on any trading day, the official CME settlement price for the Active Month (front month) of Silver (SI) futures is equal to or above the listed price between market creation and the final trading day of June 2026. Otherwise, the market will resolve to "No".
+
+For CME Silver (SI) futures contracts, the Active Month is the nearest of CME's designated delivery-cycle months (March, May, July, September, December) that is not the spot month. The Active Month becomes a non-active month effective on its First Position Date, at which point the next eligible contract month becomes the Active Month.
+
+Only the Active Month's official settlement price published by CME Group will be considered. Intraday trades, highs, lows, bids, offers, midpoint values, or indicative prices do not count.
+
+Note that the settlement price may differ from the last traded price. CME's methodology to determine the settlement price can vary by commodity and contract.
+
+Only days on which CME publishes an official settlement price for the Active Month will be included. Days without settlement prices (weekends, holidays, or market closures) are ignored.
+
+This market will resolve based on the settlement price as it appears on the CME settlement page at the time it is first published for that trading day, regardless of any later corrections or updates.
+
+The resolution source for this market is the CME Group website — specifically, the daily "Settlement" price for the Active Month of Silver (SI) futures.
+  E2.C11: Will Silver (SI) hit (HIGH) $95 by end of June?
+    Contract rules: This market will resolve to "Yes" if, on any trading day, the official CME settlement price for the Active Month (front month) of Silver (SI) futures is equal to or above the listed price between market creation and the final trading day of June 2026. Otherwise, the market will resolve to "No".
+
+For CME Silver (SI) futures contracts, the Active Month is the nearest of CME's designated delivery-cycle months (March, May, July, September, December) that is not the spot month. The Active Month becomes a non-active month effective on its First Position Date, at which point the next eligible contract month becomes the Active Month.
+
+Only the Active Month's official settlement price published by CME Group will be considered. Intraday trades, highs, lows, bids, offers, midpoint values, or indicative prices do not count.
+
+Note that the settlement price may differ from the last traded price. CME's methodology to determine the settlement price can vary by commodity and contract.
+
+Only days on which CME publishes an official settlement price for the Active Month will be included. Days without settlement prices (weekends, holidays, or market closures) are ignored.
+
+This market will resolve based on the settlement price as it appears on the CME settlement page at the time it is first published for that trading day, regardless of any later corrections or updates.
+
+The resolution source for this market is the CME Group website — specifically, the daily "Settlement" price for the Active Month of Silver (SI) futures.
+  E2.C12: Will Silver (SI) hit (HIGH) $90 by end of June?
+    Contract rules: This market will resolve to "Yes" if, on any trading day, the official CME settlement price for the Active Month (front month) of Silver (SI) futures is equal to or above the listed price between market creation and the final trading day of June 2026. Otherwise, the market will resolve to "No".
+
+For CME Silver (SI) futures contracts, the Active Month is the nearest of CME's designated delivery-cycle months (March, May, July, September, December) that is not the spot month. The Active Month becomes a non-active month effective on its First Position Date, at which point the next eligible contract month becomes the Active Month.
+
+Only the Active Month's official settlement price published by CME Group will be considered. Intraday trades, highs, lows, bids, offers, midpoint values, or indicative prices do not count.
+
+Note that the settlement price may differ from the last traded price. CME's methodology to determine the settlement price can vary by commodity and contract.
+
+Only days on which CME publishes an official settlement price for the Active Month will be included. Days without settlement prices (weekends, holidays, or market closures) are ignored.
+
+This market will resolve based on the settlement price as it appears on the CME settlement page at the time it is first published for that trading day, regardless of any later corrections or updates.
+
+The resolution source for this market is the CME Group website — specifically, the daily "Settlement" price for the Active Month of Silver (SI) futures.
+
+=== E3: What Iranian demands will Trump agree to by May 31?
+Rules:
+This market will resolve to "Yes" if the United States agrees to the continued enrichment of uranium by Iran by May 31, 2026, 11:59 PM ET. Otherwise, this market will resolve to "No."
+
+Continued enrichment of uranium by Iran refers to US acceptance of the enrichment of, or the right to enrich, any quantity of uranium by Iran for any future amount of time. Agreements that include limitations, restrictions, or specified terms (e.g., caps on enrichment level, monitoring requirements) will qualify, provided the United States accepts continued enrichment.
+
+The United States will be considered to have agreed to the continued enrichment of uranium by Iran if:
+
+- Donald Trump or another authorized representative of the Government of the United States publicly announces that they have definitively agreed to accept the continued enrichment of uranium by Iran.
+- Continued enrichment of uranium by Iran is included as part of a treaty or deal that is formally established between the United States and Iran, either through signing or other formal means.
+
+Agreement refers to an explicit acceptance, authorization or consent to the specified action. Only announcements of definitive agreement will qualify. Suggestions, negotiations, expressions of openness, or other non-definitive statements will not qualify.
+
+Any definitive agreement or commitment made before the resolution date will be considered, regardless of when or whether the specified action is begun.
+
+The primary resolution source for this market will be official statements from Donald Trump and the US government and their official representatives; however a consensus of credible reporting may also be used to verify the details of an announcement or formal agreement.
+Contracts:
+  E3.C1: Will Trump agree to Iranian enrichment of uranium by May 31?
+  E3.C2: Will Trump agree to Iranian oil sanction relief by May 31?
+    Contract rules: This market will resolve to “Yes” if the United States agrees to remove, suspend, waive, or otherwise reduce any sanctions restricting Iranian oil exports by May 31, 2026, 11:59 PM ET. Otherwise, this market will resolve to “No”.
+
+Sanctions restricting Iranian oil exports refers to U.S. restrictions that prohibit or limit the production, sale, transport, purchase, or export of crude oil, petroleum, or petrochemical products from Iran, including associated shipping, insurance, and financial transactions necessary for such exports. This includes both primary sanctions, which apply to U.S. persons, and secondary sanctions, which apply to non-U.S. persons or entities engaging in such activities.
+
+The United States will be considered to have agreed to remove, suspend, waive, or reduce such sanctions if:
+- Donald Trump or another authorized representative of the Government of the United States publicly announces that the United States has definitively agreed to remove, suspend, waive, or otherwise reduce any sanctions restricting Iranian oil
+- The removal, suspension, waiver, or reduction of any such sanctions is included as part of a treaty or deal formally established between the United States and Iran, including through signing or other formal means.
+
+Agreement refers to an explicit acceptance, authorization, or consent to the specified action. Only announcements of definitive agreement will qualify. Suggestions, negotiations, expressions of openness, or other non-definitive statements will not qualify.
+
+Any definitive agreement or commitment made before the resolution date will qualify, regardless of when or whether the specified action is implemented.
+
+The primary resolution source for this market will be official statements from Donald Trump, the U.S. government, and their official representatives; however, a consensus of credible reporting may also be used to verify the details of an announcement or formal agreement.
+  E3.C3: Will Trump agree to Iranian transit fees in the Strait of Hormuz by May 31?
+    Contract rules: This market will resolve to “Yes” if the United States agrees to Iran charging fees on ships transiting the Strait of Hormuz by May 31, 2026, 11:59 PM ET. Otherwise, this market will resolve to “No”.
+
+Iran charging fees on ships transiting the Strait of Hormuz refers to U.S. acceptance of Iran imposing tolls, transit fees, passage charges, or other mandatory payments on commercial vessels in exchange for transit through the Strait of Hormuz.
+
+The United States will be considered to have agreed to Iran charging such fees if:
+- Donald Trump or another authorized representative of the Government of the United States publicly announces that the United States has definitively agreed to accept Iran charging such fees on ships transiting the Strait of Hormuz.
+- Iran charging such fees is included as part of a treaty or deal formally established between the United States and Iran, including through signing or other formal means.
+
+Agreement refers to an explicit acceptance, authorization, or consent to the specified action. Only announcements of definitive agreement will qualify. Suggestions, negotiations, expressions of openness, or other non-definitive statements will not qualify.
+
+Any definitive agreement or commitment made before the resolution date will qualify, regardless of when or whether the specified action is implemented.
+
+The primary resolution source for this market will be official statements from Donald Trump, the U.S. government, and their official representatives; however, a consensus of credible reporting may also be used to verify the details of an announcement or formal agreement.
+  E3.C4: Will Trump agree to unfreeze Iranian assets by May 31?
+    Contract rules: This market will resolve to “Yes” if the United States agrees to unfreeze any Iranian assets by May 31, 2026, 11:59 PM ET. Otherwise, this market will resolve to “No.”
+
+Unfreezing Iranian assets refers to the release, transfer, or restoration of Iranian access to any assets that are frozen, blocked, or otherwise inaccessible due to U.S. sanctions or restrictions. This includes both assets held in the United States and assets held in foreign jurisdictions where access is restricted due to U.S. sanctions. The removal of sanctions which freeze these assets will also be considered to be unfreezing Iranian assets.
+
+The United States will be considered to have agreed to unfreeze Iranian assets if:
+- Donald Trump or another authorized representative of the Government of the United States publicly announces that the United States has agreed to unfreeze any Iranian assets.
+- The unfreezing of any Iranian assets is included as part of a treaty or deal that is formally established between the United States and Iran, either through signing or other formal means.
+
+Agreement refers to an explicit acceptance, authorization or consent to the specified action. Only announcements of definitive agreement will qualify. Suggestions, negotiations, expressions of openness, or other non-definitive statements will not qualify.
+
+Any definitive agreement or commitment made before the resolution date will be considered, regardless of when or whether the specified action is begun.
+
+The primary resolution source for this market will be official statements from Donald Trump, the U.S. government, and their official representatives; however, a consensus of credible reporting may also be used to verify the details of an announcement or formal agreement.
+
+=== E4: Henrique Gouveia e Melo vote share in Portuguese presidential first round?
+Rules:
+First-round presidential elections are scheduled to be held in Portugal on January 18, 2026.
+
+This market will resolve according to the vote share Henrique Gouveia e Melo wins in the first round of the Portuguese presidential election.
+
+If the reported value falls exactly between two brackets, then this market will resolve to the higher range bracket.
+
+If a recount is initiated before the vote total has been made official, the market will remain open until the recount is completed and the vote is made official.
+
+This market's resolution will be based solely on the proportion of votes won by Henrique Gouveia e Melo.
+
+If the results of the election aren’t known by June 30, 2026 ET, this market will resolve to the lowest range bracket.
+
+This market will resolve based on the result of the election as indicated by a consensus of credible reporting. If there is ambiguity, this market will resolve based solely on the official results as reported by the Portuguese government, specifically the National Election Commission (Comissão Nacional de Eleições, CNE) (https://www.cne.pt/).
+Contracts:
+  E4.C1: Will Henrique Gouveia e Melo win less than 12% of votes in the first round?
+  E4.C2: Will Henrique Gouveia e Melo win between 12% and 14% of votes in the first round?
+  E4.C3: Will Henrique Gouveia e Melo win between 14% and 16% of votes in the first round?
+  E4.C4: Will Henrique Gouveia e Melo win between 16% and 18% of votes in the first round?
+  E4.C5: Will Henrique Gouveia e Melo win between 18% and 20% of votes in the first round?
+  E4.C6: Will Henrique Gouveia e Melo win between 20% and 22% of votes in the first round?
+  E4.C7: Will Henrique Gouveia e Melo win more than 22% of votes in the first round?
+
+=== E5: What will Google (GOOGL) hit in April 2026?
+Rules:
+What will Alphabet Inc. (GOOGL) hit in April 2026?
+Contracts:
+  E5.C1: Will Google reach $400 in April?
+    Contract rules: This market will resolve to "Yes" if, at any point during April 2026 (ET), any 1-minute candle for Alphabet Inc. (GOOGL) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during regular trading hours (ET) will be considered.
+
+The resolution source for this market is Yahoo Finance — specifically, the Alphabet Inc. (GOOGL) "High" prices available at https://finance.yahoo.com/quote/GOOGL/, with the chart settings on "1m" for candle intervals.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Yahoo Finance.
+  E5.C2: Will Google reach $375 in April?
+    Contract rules: This market will resolve to "Yes" if, at any point during April 2026 (ET), any 1-minute candle for Alphabet Inc. (GOOGL) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during regular trading hours (ET) will be considered.
+
+The resolution source for this market is Yahoo Finance — specifically, the Alphabet Inc. (GOOGL) "High" prices available at https://finance.yahoo.com/quote/GOOGL/, with the chart settings on "1m" for candle intervals.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Yahoo Finance.
+  E5.C3: Will Google reach $355 in April?
+    Contract rules: This market will resolve to "Yes" if, at any point during April 2026 (ET), any 1-minute candle for Alphabet Inc. (GOOGL) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during regular trading hours (ET) will be considered.
+
+The resolution source for this market is Yahoo Finance — specifically, the Alphabet Inc. (GOOGL) "High" prices available at https://finance.yahoo.com/quote/GOOGL/, with the chart settings on "1m" for candle intervals.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Yahoo Finance.
+  E5.C4: Will Google dip to $280 in April?
+    Contract rules: This market will resolve to "Yes" if, at any point during April 2026 (ET), any 1-minute candle for Alphabet Inc. (GOOGL) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during regular trading hours (ET) will be considered.
+
+The resolution source for this market is Yahoo Finance — specifically, the Alphabet Inc. (GOOGL) "Low" prices available at https://finance.yahoo.com/quote/GOOGL/, with the chart settings on "1m" for candle intervals.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Yahoo Finance.
+  E5.C5: Will Google dip to $270 in April?
+    Contract rules: This market will resolve to "Yes" if, at any point during April 2026 (ET), any 1-minute candle for Alphabet Inc. (GOOGL) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during regular trading hours (ET) will be considered.
+
+The resolution source for this market is Yahoo Finance — specifically, the Alphabet Inc. (GOOGL) "Low" prices available at https://finance.yahoo.com/quote/GOOGL/, with the chart settings on "1m" for candle intervals.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Yahoo Finance.
+  E5.C6: Will Google dip to $255 in April?
+    Contract rules: This market will resolve to "Yes" if, at any point during April 2026 (ET), any 1-minute candle for Alphabet Inc. (GOOGL) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during regular trading hours (ET) will be considered.
+
+The resolution source for this market is Yahoo Finance — specifically, the Alphabet Inc. (GOOGL) "Low" prices available at https://finance.yahoo.com/quote/GOOGL/, with the chart settings on "1m" for candle intervals.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Yahoo Finance.
+  E5.C7: Will Google dip to $240 in April?
+    Contract rules: This market will resolve to "Yes" if, at any point during April 2026 (ET), any 1-minute candle for Alphabet Inc. (GOOGL) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during regular trading hours (ET) will be considered.
+
+The resolution source for this market is Yahoo Finance — specifically, the Alphabet Inc. (GOOGL) "Low" prices available at https://finance.yahoo.com/quote/GOOGL/, with the chart settings on "1m" for candle intervals.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Yahoo Finance.
+  E5.C8: Will Google dip to $220 in April?
+    Contract rules: This market will resolve to "Yes" if, at any point during April 2026 (ET), any 1-minute candle for Alphabet Inc. (GOOGL) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during regular trading hours (ET) will be considered.
+
+The resolution source for this market is Yahoo Finance — specifically, the Alphabet Inc. (GOOGL) "Low" prices available at https://finance.yahoo.com/quote/GOOGL/, with the chart settings on "1m" for candle intervals.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Yahoo Finance.
+  E5.C9: Will Google dip to $195 in April?
+    Contract rules: This market will resolve to "Yes" if, at any point during April 2026 (ET), any 1-minute candle for Alphabet Inc. (GOOGL) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during regular trading hours (ET) will be considered.
+
+The resolution source for this market is Yahoo Finance — specifically, the Alphabet Inc. (GOOGL) "Low" prices available at https://finance.yahoo.com/quote/GOOGL/, with the chart settings on "1m" for candle intervals.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Yahoo Finance.
+
+=== E6: What price will Hyperliquid hit in June?
+Rules:
+What price will Hyperliquid hit in June?
+Contracts:
+  E6.C1: Will Hyperliquid reach $92 in June?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for HYPEUSDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last) has a final High price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the HYPEUSDT High prices available at https://www.binance.com/en/futures/HYPEUSDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance HYPEUSDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E6.C2: Will Hyperliquid reach $88 in June?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for HYPEUSDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last) has a final High price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the HYPEUSDT High prices available at https://www.binance.com/en/futures/HYPEUSDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance HYPEUSDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E6.C3: Will Hyperliquid reach $84 in June?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for HYPEUSDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last) has a final High price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the HYPEUSDT High prices available at https://www.binance.com/en/futures/HYPEUSDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance HYPEUSDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E6.C4: Will Hyperliquid reach $80 in June?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for HYPEUSDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last) has a final High price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the HYPEUSDT High prices available at https://www.binance.com/en/futures/HYPEUSDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance HYPEUSDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E6.C5: Will Hyperliquid dip to $52 in June?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for HYPEUSDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last) has a final Low price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the HYPEUSDT Low prices available at https://www.binance.com/en/futures/HYPEUSDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance HYPEUSDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+
+=== E7: Will xAI release a dLLM by June 30?
+Rules:
+This market will resolve to "Yes" if, before June 30, 2026, 11:59 PM ET, xAI releases a Diffusion Large Language Model (dLLM). Otherwise, this market will resolve to "No".
+
+Any xAI dLMM will be considered to be released if it is launched and publicly accessible, including via open beta or open rolling waitlist signups. A closed beta or any form of private access will not suffice. The release must be clearly defined and publicly announced by xAI as being accessible to the general public.
+
+A Diffusion Large Language Model (dLLM) is any model for which official publicly released documentation, such as a model card, technical paper, or official statements from its developers, clearly identifies diffusion or iterative denoising as a central part of its text-generation or decoding process.
+
+The primary resolution source for this market will be official information from xAI, with additional verification from a consensus of credible reporting.
+Contracts:
+  E7.C1: Will xAI release a dLLM by June 30?
+
+=== E8: What will Trump say in January?
+Rules:
+This market will resolve to “Yes” if Donald Trump mentions the listed term between January 2, 2026, 12:00 AM ET and January 31, 2026, 11:59 PM ET. Otherwise, this market will resolve to “No”.
+
+Pluralization/possessive of the word will count toward the resolution of this market.
+
+Instances where the term is used in a compound word will count regardless of context (e.g. joyful is not a compound word for "joy," however "killjoy" is a compounding of the words "kill" and "joy").
+
+If this market requires a specified number of mentions of a person’s first or last name, a full-name mention will count as one mention (e.g., if a market is about “Joe / Biden 5+ times,” a mention of “Joe Biden” will count once).
+
+AI-generated audio or video will not count towards the resolution of this market.
+
+A ‘mention’ will include any verbal mention which is recorded (audio or video) and publicly accessible.
+
+Written usages of terms (e.g. Truth Social posts, written statements, etc.) will not count toward this market's resolution.
+
+Videos posted on his social media which were filmed outside this market's time frame will not qualify for a "Yes" resolution.
+Contracts:
+  E8.C1: Will Trump say "Fuck" or "Fucking" or "Fucked" in January?
+  E8.C2: Will Trump say "Heart Attack" in January?
+  E8.C3: Will Trump say "Breaking News" in January?
+  E8.C4: Will Trump say "N Word" in January?
+  E8.C5: Will Trump say "Rolex" in January?
+  E8.C6: Will Trump say "Banana Republic" in January?
+  E8.C7: Will Trump say "Martin Luther King" in January?
+  E8.C8: Will Trump say "Trump Derangement Syndrome" in January?
+  E8.C9: Will Trump say "Ego" in January?
+  E8.C10: Will Trump say "Bitcoin" in January?
+  E8.C11: Will Trump say "Jerome Too Late Powell" in January?
+  E8.C12: Will Trump say "McDonald's" in January?
+
+=== E9: Morocco Legislative Elections: 2nd Place
+Rules:
+Legislative elections to elect the House of Representatives of Morocco are scheduled to take place on September 23, 2026.
+
+This market will resolve to the political party that wins the second-most number of seats in the House of Representatives of Morocco as a result of this election.
+
+If the results of the specified election are not definitively known by July 31, 2027, this market will resolve to "Other".
+
+The named parties will be primarily ranked by the number of seats won in the specified election. If two or more parties are tied on seats, ties will be broken by the total number of valid votes received, with higher vote totals ranking higher. If parties remain tied, ties will be broken by alphabetical order of the listed party abbreviations. This market will resolve to the party that occupies the second finishing position after applying this ranking.
+
+This market's resolution will be based solely on the number of seats won by the named party. 
+
+This market will resolve based on the results of the elections, as indicated by a consensus of credible reporting. In the case of ambiguity, this market will resolve solely based on the results as reported by the Moroccan government, including the Ministry of the Interior (https://www.elections.ma/).
+
+Note: If a listed party contests the election as part of a coalition with one or more parties not listed in this market, the market corresponding to the listed party will represent the coalition and will count all seats won by the coalition collectively. If two or more listed parties contest the election as a jointly listed coalition, with or without additional parties not listed in this market, the market corresponding to the party within that coalition that won the most seats in the previous election will represent the coalition and will count all seats won by the coalition collectively. If such a coalition dissolves, each market will again represent its respective party individually.
+Contracts:
+  E9.C1: Will RNI get the second-most number of seats in the next Moroccan legislative elections?
+  E9.C2: Will PAM get the second-most number of seats in the next Moroccan legislative elections?
+  E9.C3: Will PI get the second-most number of seats in the next Moroccan legislative elections?
+  E9.C4: Will USFP get the second-most number of seats in the next Moroccan legislative elections?
+  E9.C5: Will MP get the second-most number of seats in the next Moroccan legislative elections?
+  E9.C6: Will PPS get the second-most number of seats in the next Moroccan legislative elections?
+  E9.C7: Will UC get the second-most number of seats in the next Moroccan legislative elections?
+  E9.C8: Will PJD get the second-most number of seats in the next Moroccan legislative elections?
+
+=== E10: Luís Marques Mendes vote share in Portuguese presidential first round?
+Rules:
+First-round presidential elections are scheduled to be held in Portugal on January 18, 2026.
+
+This market will resolve according to the vote share Luís Marques Mendes wins in the first round of the Portuguese presidential election.
+
+If the reported value falls exactly between two brackets, then this market will resolve to the higher range bracket.
+
+If a recount is initiated before the vote total has been made official, the market will remain open until the recount is completed and the vote is made official.
+
+This market's resolution will be based solely on the proportion of votes won by Luís Marques Mendes.
+
+If the results of the election aren’t known by June 30, 2026 ET, this market will resolve to the lowest range bracket.
+
+This market will resolve based on the result of the election as indicated by a consensus of credible reporting. If there is ambiguity, this market will resolve based solely on the official results as reported by the Portuguese government, specifically the National Election Commission (Comissão Nacional de Eleições, CNE) (https://www.cne.pt/).
+Contracts:
+  E10.C1: Will Luís Marques Mendes win less than 16% of votes in the first round?
+  E10.C2: Will Luís Marques Mendes win between 16% and 18% of votes in the first round?
+  E10.C3: Will Luís Marques Mendes win between 18% and 20% of votes in the first round?
+  E10.C4: Will Luís Marques Mendes win between 20% and 22% of votes in the first round?
+  E10.C5: Will Luís Marques Mendes win between 22% and 24% of votes in the first round?
+  E10.C6: Will Luís Marques Mendes win between 24% and 26% of votes in the first round?
+  E10.C7: Will Luís Marques Mendes win more than 26% of votes in the first round?

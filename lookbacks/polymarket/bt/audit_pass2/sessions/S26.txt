@@ -1,0 +1,191 @@
+You will be shown 10 questions from a prediction market. Each question has one or more contracts, and each contract resolves YES or NO under the rules shown.
+
+For every contract, give your probability, as a whole percent from 1 to 99, that it resolves YES. Use only what you already know. Do not search for or look up anything: reading this file is the only tool call you may make.
+
+For each question, also say whether you recognise how it actually turned out ("recognised": true only if you believe you remember the real outcome; otherwise false).
+
+Where a question's contracts are mutually exclusive (exactly one can resolve YES), your numbers for it should add up to about 100. Where they are nested thresholds or dates, keep them consistent with each other.
+
+Reply with one JSON object and nothing else, in this form:
+{"events": [{"label": "E1", "recognised": false, "p": {"E1.C1": 35, "E1.C2": 60}}]}
+
+Every contract label below must appear exactly once in your reply.
+
+=== E1: Will CRA win 173+ seats in the Japanese snap election?
+Rules:
+General elections are scheduled to be held in Japan on February 8, 2026.
+
+This market will resolve to "Yes" if the Centrist Reform Alliance (CRA) wins at least 173 seats in the Japanese House of Representatives (衆議院, Shūgiin) as a result of the next Japanese general election. Otherwise, this market will resolve to "No".
+
+If the results of this election aren't known by November 30, 2026, 11:59 PM ET, this market will resolve 50-50.
+
+This market's resolution will be based solely on the number of seats won by the respective party, not any coalition or alliance of which it may be a part.
+
+This market will resolve based on the results of the election as indicated by a consensus of credible reporting. If there is ambiguity, this market will resolve based solely on the official results reported by the Japanese government, including the Ministry of Internal Affairs and Communications (https://www.soumu.go.jp/) or e-Stat (Japan’s government statistics portal; https://www.e-stat.go.jp/).
+Contracts:
+  E1.C1: Will CRA win 173+ seats in the Japanese snap election?
+
+=== E2: Billionaire one-time wealth tax on California ballot?
+Rules:
+This market will resolve to "Yes" if a ballot initiative is certified to appear on the official statewide California ballot for the November 3, 2026 election, that proposes a one-time tax targeting individuals, households, or family units with wealth, assets, or net worth of at least $1 billion (USD or equivalent), by June 25, 2026, 11:59 PM ET (the official cutoff date for new initiatives to be approved). Otherwise, this market will resolve to "No".
+
+Certification means the initiative is officially approved by the California Secretary of State for a statewide ballot.
+
+The primary resolution source will be official information from the government of California. If unavailable, a consensus of credible reporting may be used.
+Contracts:
+  E2.C1: Billionaire one-time wealth tax on California ballot?
+
+=== E3: Price of Dozen Eggs in January
+Rules:
+This market will resolve to the bracket within which the price for "Eggs, Grade A, Large (Cost per Dozen) in U.S. City Average" lies when the January data point is published by the St. Louis Fed (https://fred.stlouisfed.org/series/APU0000708111).
+
+The St. Louis Fed bases its numbers for egg prices on the BLS's CPI release. The January release is presently scheduled for February 11, 2026. Resolution of this market will take place upon the update of the St. Louis Fed's chart. If no data for the specified month is released by the date the next month's data is scheduled to be released, this market will resolve based on data from the last available month.
+
+The resolution source for this market measures prices to the third decimal place. Thus, this is the level of precision that will be used when resolving the market.
+
+If the reported value falls exactly between two brackets, then this market will resolve to the higher range bracket.
+Contracts:
+  E3.C1: Will a dozen eggs cost <$2.50 in January?
+  E3.C2: Will a dozen eggs cost between $2.50–2.75 in January?
+  E3.C3: Will a dozen eggs cost between $2.75–3.00 in January?
+  E3.C4: Will a dozen eggs cost between $3.00–3.25 in January?
+  E3.C5: Will a dozen eggs cost between $3.25–3.50 in January?
+  E3.C6: Will a dozen eggs cost between $3.50–3.75 in January?
+  E3.C7: Will a dozen eggs cost between $3.75–4.00 in January?
+  E3.C8: Will a dozen eggs cost >$4.00 in January?
+
+=== E4: Will the Supreme Court rule on Trump's tariffs by...?
+Rules:
+This market will resolve to “Yes” if the United States Supreme Court issues an official ruling in the case Donald J. Trump, et al., v. V.O.S. Selections, Inc. by the listed date, 11:59 PM ET. Otherwise, this market will resolve to “No”.
+
+An official ruling on the case is defined as any decision on the merits of the case issued by the Supreme Court, including but not limited to a written opinion, summary disposition, or per curiam opinion.
+
+If the case is dismissed as improvidently granted, dismissed for mootness, vacated and remanded without a decision on the merits, withdrawn or settled, otherwise concluded without a final merits judgment, or there has been no qualifying ruling for this case by the listed date, 11:59 PM ET, this market will resolve to “No”. 
+
+The primary resolution source for this market will be official information from the United States Supreme Court; however, a consensus of credible reporting may also be used.
+Contracts:
+  E4.C1: Will the Supreme Court rule on Trump's tarriffs by February 20?
+
+=== E5: GPT-5.6 released on...?
+Rules:
+This market will resolve according to the date (ET) on which OpenAI's GPT-5.6 model is made available to the general public.
+
+GPT-5.6 refers to a product explicitly named GPT-5.6, or a variant that is recognized as a direct successor to GPT-5.5, similar to the progression from GPT-5.1 to GPT-5.2. (e.g., GPT-5.7, GPT-5.8, etc., would qualify toward a "Yes" resolution to this market)
+
+Qualifying releases of task-specialized models (e.g., GPT-Codex/Transcribe), cost-efficiency variants (e.g., Nano/Mini), or reasoning models of the o-series family will count for this market. Products labeled as a new flagship generation GPT-6 or similar will NOT qualify.
+
+For this market to resolve to "Yes," a qualifying model must be launched and publicly accessible, including via open beta or open rolling waitlist signups. A closed beta or any form of private access will not suffice. 
+
+The release must be either clearly defined and publicly announced by OpenAI as being accessible to the general public or otherwise made publicly accessible and explicitly labeled within the company’s official website. Labeling errors, placeholder text, or version names displayed on the website that do not correspond to a model that is actually accessible to the general public will not qualify.
+
+The primary resolution source for this market will be official information from OpenAI, with additional verification from a consensus of credible reporting.
+Contracts:
+  E5.C1: Will GPT-5.6 be released on June 25, 2026?
+  E5.C2: Will GPT-5.6 be released on June 26, 2026?
+  E5.C3: Will GPT-5.6 be released on June 27, 2026?
+  E5.C4: Will GPT-5.6 be released on June 28, 2026?
+  E5.C5: Will GPT-5.6 be released on June 29, 2026?
+  E5.C6: Will GPT-5.6 be released on June 30, 2026?
+  E5.C7: Will GPT-5.6 be released on July 1, 2026?
+  E5.C8: Will GPT-5.6 be released on July 2, 2026?
+  E5.C9: Will GPT-5.6 be released on July 3, 2026?
+  E5.C10: Will GPT-5.6 be released on July 4, 2026?
+  E5.C11: Will GPT-5.6 be released on July 5, 2026?
+  E5.C12: Will GPT-5.6 be released on July 6, 2026?
+
+=== E6: DoorDash Total Orders above __ in Q1? 
+Rules:
+This market will resolve to “Yes” if DoorDash’s total number of orders (typically labeled “total orders”) for the first fiscal quarter of 2026, as reported in its official company earnings materials, is above the listed amount. Otherwise, this market will resolve to “No”.
+
+The specified metric will be considered as reported in the company’s official earnings materials. Subsequent revisions will not be considered.
+
+If the specified company’s official earnings materials for the specified quarter are released and the specified metric is not included, this market will resolve to “No”. 
+
+If the specified company does not release quarterly earnings materials for the specified quarter by June 30, 2026, 11:59 PM ET, this market will resolve to “No”.
+
+If the specified metric is reported as a range rather than a specific number, the midpoint of the range will be used for resolution of this market. 
+
+The resolution source for this market is DoorDash’s official company earnings materials, including press releases, investor presentations, and regulatory filings. If the specified metric is not reported in these materials, recordings or transcripts of the company’s earnings webcast may also be used.
+
+Note: This market will resolve based on the most numerically precise version of the specified metric reported in the company’s official earnings materials. Only the specified metric will be considered; alternate versions that differ in definition or scope from the specified metric will not be considered.
+Contracts:
+  E6.C1: DoorDash total orders above 900M in Q1?
+  E6.C2: DoorDash total orders above 920M in Q1?
+  E6.C3: DoorDash total orders above 940M in Q1?
+  E6.C4: DoorDash total orders above 960M in Q1?
+  E6.C5: DoorDash total orders above 980M in Q1?
+  E6.C6: DoorDash total orders above 1B in Q1?
+
+=== E7: Will Trump praise Allah again by June 30?
+Rules:
+This market will resolve to "Yes" if Donald Trump publicly praises Allah between the time of its creation and June 30, 2026, 11:59 PM ET. Otherwise, this market will resolve to "No".
+
+A qualifying statement includes any remark by Donald Trump that expresses approval, admiration, respect, or reverence for the Islamic deity referred to as Allah. This can include direct praise (e.g., “Praise be to Allah”) or equivalent positive descriptions (“Allah is great”).
+
+General neutrality or polite diplomatic language (e.g., “Yes, I posted about Allah”) will not qualify unless it contains a clear element of positive evaluation.
+
+Any written, verbal, or recorded usage will qualify.
+
+Text or speech contained in images, memes, or videos posted by Trump on his official social media accounts will qualify if it clearly expresses approval, admiration, respect, or reverence toward Allah, provided that any additional posted commentary from Trump does not explicitly contradict that sentiment. Media contained only within reposts or posts quoted by Trump will not qualify.
+
+The resolution source for this market will be public statements from Donald Trump.
+Contracts:
+  E7.C1: Will Trump praise Allah again by June 30?
+
+=== E8: Turnout in 2025 Portugal Presidential Election First Round
+Rules:
+First-round presidential elections are scheduled to be held in Portugal on January 18, 2026.
+
+This market will resolve according to the first-round turnout percentage, calculated as “Total votantes” divided by “Total inscritos”
+
+If the reported value falls exactly between two brackets, then this market will resolve to the higher range bracket.
+
+If the results of the election aren’t known by May 31, 2026 ET, this market will resolve to the lowest range bracket.  
+
+This market will resolve based on the result of this election as indicated by a consensus of credible reporting. If there is ambiguity, this market will resolve based solely on the official results as reported by the Portuguese government, specifically the National Election Commission (Comissão Nacional de Eleições, CNE) (https://www.cne.pt/).
+Contracts:
+  E8.C1: Will turnout in the first round of the 2026 Portuguese presidential election be less than 34%?
+  E8.C2: Will turnout in the first round of the 2026 Portuguese presidential election be between 34% and 36%?
+  E8.C3: Will turnout in the first round of the 2026 Portuguese presidential election be between 36% and 38%?
+  E8.C4: Will turnout in the first round of the 2026 Portuguese presidential election be between 38% and 40%?
+  E8.C5: Will turnout in the first round of the 2026 Portuguese presidential election be between 40% and 42%?
+  E8.C6: Will turnout in the first round of the 2026 Portuguese presidential election be between 42% and 44%?
+  E8.C7: Will turnout in the first round of the 2026 Portuguese presidential election be at least 44%?
+
+=== E9: Le Havre Mayoral Election Winner
+Rules:
+Municipal elections to elect the municipal council of Le Havre are scheduled to take place on March 15, 2026 (with a runoff on March 22 if necessary); the elected councillors will then choose the mayor.
+
+This market will resolve according to the candidate who becomes the next elected Mayor of Le Havre.
+
+Temporary, interim, or placeholder mayors appointed before the election will not be considered.
+
+This market includes any potential second round. If the result of this election isn't known by December 31, 2026, 11:59 PM ET, the market will resolve to "Other".
+
+This market will resolve based on the result of the election as indicated by a consensus of credible reporting. If there is ambiguity, this market will resolve based solely on the official results as reported by the French Government, specifically the Ministry of the Interior (https://www.interieur.gouv.fr/).
+Contracts:
+  E9.C1: Will Edouard Philippe be the next mayor of Le Havre?
+  E9.C2: Will Charlotte Boulogne be the next mayor of Le Havre?
+  E9.C3: Will Franck Keller be the next mayor of Le Havre?
+  E9.C4: Will Jean-Paul Lecoq be the next mayor of Le Havre?
+  E9.C5: Will Marie Le Cieux be the next mayor of Le Havre?
+  E9.C6: Will Sophie Zarifian be the next mayor of Le Havre?
+  E9.C7: Will Magali Cauchois be the next mayor of Le Havre?
+
+=== E10: Ukraine hits Moscow by January 31?
+Rules:
+This market will resolve to "Yes" if the Ukrainian armed forces initiate a drone, missile, or air strike on Moscow municipality's soil by the listed date Moscow Standard Time (MSK). Otherwise, this market will resolve to "No".
+
+For the purposes of this market, a qualifying "strike" is defined as the use of aerial bombs, drones, or missiles (including cruise or ballistic missiles) launched by Ukrainian armed forces that impact Moscow municipality's ground territory.
+
+A strike on any area within the terrestrial territory of the Moscow municipality counts.
+
+Missiles or drones that are intercepted and surface-to-air missile strikes will not be sufficient for a "Yes" resolution, regardless of whether they land on the Moscow municipality's territory or cause damage.
+
+Actions such as artillery fire, small arms fire, FPV or ATGM strikes, ground incursions, naval shelling, cyberattacks, or other operations conducted by the Ukrainian armed forces will not qualify.
+
+The primary resolution source will be official government/military statements (Ukrainian or Russian), multilateral bodies (UN, etc.), or a consensus of credible reporting from major international media and national broadcasters/newspapers.
+
+If the date/time of a strike cannot be confirmed by a consensus of credible reporting within 48 hours of this market's end date, it will resolve to "No" regardless of whether a strike was later confirmed to have taken place.
+Contracts:
+  E10.C1: Ukraine hits Moscow by January 31?

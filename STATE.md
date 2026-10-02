@@ -324,3 +324,448 @@ labels (131 of 200 `inferred`). So K8's unreadability was not only missing stamp
 the overlay (default behaviour unchanged, checked); **K8 has not been re-run**: `K8_rerun_expectations.md` is a
 blank template for the requester to fill in first. "Cold" is a procedure, not a wall (the container holds the
 v15 database); the dater's self-report is committed.
+
+## 2026-09-29 — v17 V0 and V1 built (`docs/nomad_v17_open_entity.md`; ratifications in `docs/RATIFICATIONS.md`)
+
+D17, D18, D19, D20, D21, D24 and D25 were ratified and persons put in the schema with ingestion off, on the
+requester's instruction in this session. **Built: V0 (schema and compatibility) and V1 (documents as evidence).
+Not built: V2 onward** (relations as rows, capability role binding in derivation, `edge_basis`, carriers as
+series, `nomad_reach`), V3 composites, V4 instruments as entities and stake by kind, V5 the data-product spine.
+K14, K15 and K16 have not been run.
+
+### V0
+
+- **`entities`** (mutable) with a kind tree (`entity_kinds`, 60 seed kinds, 32 reviewed), `capabilities`,
+  `key_map`, `attribute_scope`. **`holders`, `nodes` and `node_types` are kept as they are**: v16 code paths and
+  every old lock manifest read them, so nothing was renamed (the document says "renamed"; that would have broken
+  replay of any manifest that pins `holders`). `holder_upsert` and `node_upsert` write the v16 table and mirror
+  into `entities` once `seed_v17` has run; `migrate_v17` mirrored R16-001's 7 holders and 2 nodes (9 entities).
+- **An unseen kind registers `unreviewed`** and can propose and never support; ratifying a kind needs a scale
+  attribute (or an explicit none), a capability list, and an attribute registered *for that kind or an
+  ancestor* (the generic `*` attributes don't count; the first version let them, and a test caught it).
+- **Identity is a claim with evidence.** Merge, split, ratify and decline are appended events in
+  `entity_events`; an as-of read honours the evidence's `knowable_from` and the view's `ledger_cutoff`, and a split
+  restores the earlier graph. Merges need compatible kinds (the same, or one refining the other). A name alone never
+  merges two persons. `migrate_v17` proposed two merges by a name-stem heuristic; **one was wrong** (`miso_lrz7_energy`,
+  a market, and `miso-lrz7`, the place that is its footprint) because the heuristic ignored kinds. Fixed, and the
+  wrong proposal is closed by an appended `decline` event (`EV00002`); it stays on the ledger. The other
+  (`fermi2_unit` with `fermi-2`) is a proposal awaiting an operator's ratification, never applied automatically.
+- **Persons.** `PERSON_INGEST` is `off` and read fail-closed (a missing value is off); `entity_upsert` refuses a
+  person or any descendant kind; only five public-capacity attributes are scoped to `person`, and an attribute
+  whose name suggests health, family, residence, location, sanctions, offences or motive can't be registered for one.
+- **A18:** no existing ledger table gained a column (a frozen column fixture is compared); the three new ledger
+  tables are `entity_events`, `evidence_entities`, `statement_links`. `position_attributes` did **not** gain
+  `applies_to_kinds` (the document allows it): a side table `attribute_scope` does the job, so the v16 table stays
+  byte-identical.
+- **A1:** the R16-001 record is unchanged (every v16 ledger table's row count still sits at its pre-V0 head hash),
+  the chain verifies, and both locks replay to their hashes on the migrated store.
+- **Lifecycle (A12, entities):** `exists_from`/`exists_to` each honour their own `knowable_from`.
+
+### V1
+
+- **Documents are entities**, keyed by content hash and linked from an evidence row through `evidence_entities`
+  when cited; a list fetch of a series is not a document. Lifecycle statements follow the document's state chain
+  (draft → executed → in_force → …), each evidenced by another document.
+- **`knowable_from` is derived** (`statement_add`): earliest verified `states` link, else latest `component` link,
+  else the statement's own time. A `states` link needs its quoted span in the stored text (and, for numeric and
+  enumerated attributes, the value in the span), otherwise it is stored as `component`. The check is literal: "1,141"
+  in a span does not verify 1141. A typed date is refused; an embargo may only move a date later, with a reason.
+  A v17 round writes its admission record (the Q8 line) as a document, so its first stated statement can cite it.
+  `position_add` refuses while the active round is v17, and `statement_add` refuses on a v16 round.
+- **Null-node statements** (about a subject's own state) are visible to a read that names the subject.
+- **`dating_report` on R16-001 confirms the document's figures exactly:** 22 of 25 positions cite evidence; 20
+  typed stamps equal the earliest cited document; 2 differ (`prior_outage_restart_days`, typed 05-22 against
+  documents dated 05-20 to 05-26; `listed_domestic_filer`, typed 07-02 against 06-05 and 07-03); 3 cite nothing.
+
+### Not done, and worth knowing
+
+- V0 changes nothing about how a v16 round is played or scored; V1's derived dating applies only to rounds admitted
+  with `logic_version: "v17"`. None exists yet.
+- The relational test of §1.1 (an entity with no relation is an orphan) has nothing to check until V2 adds relation
+  rows; `observable` records only whether the caller named a carrier.
+- `resolve`, `orphans`, `nomad_opposite_census` and `relation_add` (the document's §7.7) are not built.
+- `MATERIALITY_BAND`'s new `notional` key (V4) and the V2/V3 appetite values are added to the appetite file (all
+  provisional) but nothing reads them yet.
+- K14 needs a cold reader over 11 rounds' lock-time documents; it hasn't been started.
+
+## 2026-09-30 — K14 readability census (draft pre-registration)
+
+`lookbacks/K14_prereg.md` (DRAFT). Counted lock-time documents per qualifying round from the v15 `evidence` table
+(http URL, `knowable_from` ≤ event date) and probed each with one GET. Two v15 rounds (7, 17) have none. Rounds with
+at least 1 / 2 / 3 usable documents: 7 / 5 / 4 of 11 (R16-001 included). K14 is readable (≥ 6 of 11) only at DOC_MIN = 1.
+DOC_MIN and the reader model are left unset for the user; the counts were seen before the rule was written and the file
+says so. An earlier query over `node_facts` returned zero everywhere because those rows are keyed to global nodes, not rounds; it was
+the wrong source and is not used. No reading has been run.
+
+## 2026-09-30 — chain impact, count dilution and post-hoc buckets (a first V2 slice)
+
+`nomad16/dilution.py`, `nomad16/tests/test_dilution.py` (9 tests; 83 pass). Tools: `bucket_propose`, `bucket_partition_add`,
+`bucket_fit`, `depth_profile`. Three new ledger tables (`bucket_versions`, `bucket_assignments`, `bucket_fits`); no existing
+table gains a column, R16-001's chain and replay are unchanged.
+
+**The model, as the user set it.** Impact is a node quantity in noise-band units. Paths from one root are one signal by
+several routes (the strongest counts); independent roots add. An edge passes `t * n_out ** -alpha`: alpha 0 is an amplifier
+that a fan-out does not dilute, alpha 1 is a fixed pot shared out, and anything between is allowed. Nothing pre-assigns which
+edges are which: buckets are a versioned, post-hoc partition proposed from text knowable at the lock (an embedding or an
+LLM does the grouping; `bucket_propose` is a deterministic stand-in), and only a behavioural fit of alpha supports one. A
+bucket with too few observations has no alpha (a typed gap) and everything downstream is an interval between the amplifier
+run and the pot run; nothing is defaulted. Retention r is a node's impact over the impact of the parent that supplies most
+of it; r above 1 is a convergence concentrating. The bend is the first depth at which median r falls by more than `BEND_TOL`.
+
+**Not set, on purpose** (absent from the appetite file, as `K7_SHARE` is; each function refuses until set):
+`BUCKET_MIN_OBS`, `BUCKET_SHRINK_K`, `BEND_TOL`, `BEND_MIN_NODES`.
+
+**What this does and does not show.** The tests plant alphas and a bend and check they are recovered, and that a same-root
+diamond is not double counted. That tests the machinery. It says nothing about whether the world dilutes this way. There
+are no real observations yet: the v15 record holds 279 depth-1 effects and 2 at depth 2, with magnitude on one row. Real
+data needs the open graph (relations as rows, edge transmission and a band-unit magnitude on every edge), which this slice
+does not build.
+
+## 2026-09-30 (later) — Rob's values, the report-only profile mode, K14 values
+
+- Appetite (all provisional_unratified, set by Rob via the requester): `BUCKET_MIN_OBS` 8, `BUCKET_SHRINK_K` 10, `BEND_TOL` 0.5,
+  `BEND_MIN_NODES` 10, plus `PROFILE_DEPTH_MAX` 5 and `K14_DOC_MIN` 1. Ratification and removal rules are in
+  `docs/RATIFICATIONS.md`: ratified only if a bucket reaches 8 real observations and its alpha holds on a later block;
+  removed if none has 8 by 2027-03-31.
+- `dilution.profile_expand` (tool `profile_expand`): report-only, expands past `SUPPORT_THRESHOLD` to depth 5, bounded by
+  `ENTITY_MATERIALISE_MAX`, only edges that go strictly deeper, truncation reported, writes no row, output marked
+  `report_only` and refused by `refuse_as_support`. Tests check the no-write property and that no other module imports it.
+  88 tests pass. The trigram grouping stays until real edge texts exist.
+- K14: values frozen, census re-run (unchanged), no reading run. Unverified: the template-authorship guard.
+
+## 2026-09-30 (K14 pilot) — one reading on a non-qualifying round
+
+Procedure frozen in `lookbacks/K14_prereg.md` §8 and `lookbacks/k14/` (`registry.py`/`registry.json`, `support.py`, `package.py`). Pilot on
+the 2025 re-run (round 13; rounds 12 and 14 have no documents). The round's one dated document is an encyclopaedia page with no
+revision before 2025-12-21, so the pilot corpus is four early-August-2025 news pages: not lock-time, counts for nothing.
+Reader `claude-opus-5-5` (cold subagent, open reading first), then a blind judge (same model, given the find without the
+reader's class or rationale). Files in `lookbacks/k14/pilot_r13/`.
+
+- **Result:** 1 open find, passed by the support script (one `binds` hop, support 0.72); the blind judge said `none` for (ii). 1 closed find.
+- **The mechanical check passed a hop that the judge's diagnostic says is not supported.** The script verifies the relation type, the
+  arithmetic and that the quoted span exists; it cannot tell that the quote (a company saying it made a filing) does not show a
+  `binds` relation, or that `binds` runs document-to-party and the find ran it the other way. The registry has no from/to kind constraints.
+- **Ambiguities the reader and the judge both hit:** relations have no stated direction; template role capabilities
+  (`listed_domestic_filer`, `licensed_facility`, ...) are not in the capability registry; no template covers a mining
+  regulator's restart decision; whether effect kinds must chain hop to hop; the closed reading's rule for unreviewed kinds.
+- **Expressibility is hard to show from news pages:** no document says a listed instrument references an entity. (ii) will
+  often fail for lack of an instrument map, not for lack of entities.
+- **Cost:** reader 71,410 tokens, judge 61,954 tokens (subagent totals; the input/output split is not reported). At $4 / $20 per
+  million (`claude-opus-5-5`): between about $0.5 (all input) and $2.7 (all output) for the pilot pair.
+
+**PR #20 preservation (Rob, 2026-09-30):** do not squash-merge. `3090edf` is preserved as the branch `preserve/pr20-3090edf` (tag pushes are
+refused, issue #19). A comment on PR #20 records the constraint. Nothing has been merged.
+
+## 2026-09-30 (later) — amendment A1 drafted; K8 expectations not found
+
+`docs/nomad_v17_amendment_A1.md` (proposed, nothing built or ratified): D29 one registry mechanism; D18 amended (relations have no
+direction, participants fill roles, one-sided relations allowed, direction is a perspective); expressibility left open with options;
+D30 forward-first gating (look-backs non-gating, K14 read forward, V3 to V5 built dark). Rob: do not merge PR #20 until it is clear what
+we are working with. The K8 expectations Rob says he wrote earlier are not in the repo, issue #11, or this session's transcript;
+`lookbacks/K8_rerun_expectations.md` is still blank and K8 has not been re-run.
+
+## 2026-09-30 (later) — narrative-hedge scenarios (illustrative, not data)
+
+`lookbacks/scenarios/narrative_hedge.py`. Assumed payoffs for a mine-outage event, fair pricing, capped-loss legs. Two long legs on diverging
+theses lift the worst case from -1.0 to -0.10 and cap the best case (2.0 to 0.5); two legs on the same thesis lift nothing; the
+result holds in 100/95/84% of draws at payoff-estimation error sd 0.15/0.30/0.50 but a wrong response sign on one leg drops the floor to -0.60;
+with an anchor excluding one outcome, the money comes from being short the excluded outcome, not from the hedge (worst in the thesis set
++0.08 with a short-w3 leg and a 0.25 cap in w3, against -0.10 without it). Rob's position: no structural count; K8 retired as a gate
+(not yet recorded in RATIFICATIONS.md; awaiting his yes).
+
+## 2026-09-30 (later) — depth-hedge test on real prices (pre-registered, run)
+
+`lookbacks/scenarios/depth_hedge_prereg.md` (commit 363e7d9, before any number), `depth_hedge.py`, `depth_hedge_result.md`. 29 USO up-shock events 2019 to 2025,
+legs by causal depth. Verdict under the pre-registered rule: not supported for Tier 2 (-7% downside gain) or Tier 3 (+17%, a near miss of 20%). Correlation
+with the first leg falls with depth (0.91, 0.83, 0.57; 0.44 for SPY) and so does the retained reaction; depth did not beat an unrelated asset (+29%).
+Small sample; equal weights; the "R kept" measure is weak. A better test needs deeper legs chosen by the chain, maximin weights, and forward events.
+
+## 2026-09-30 (later) — depth-hedge v2 on equity baskets, with a holdout
+
+Rob: no funds; baskets of equities. `lookbacks/scenarios/depth_hedge_v2_*`. Main run (35 events, 2019 to 2025): T3 supported (+35% downside, own reaction share 0.57),
+T2 not (+6%): against the builder's expectation. Holdout 2026 (9 events, rule registered first): T3 diluted (+74% downside, share 0.33 below the 0.50 bar), T2 not supported.
+Not confirmed. Correlation falls with depth in both windows; the response thins with it. Tankers and defence were exploratory only.
+
+## 2026-09-30 (later) — depth-hedge v3: a long at depth as a synthetic short
+
+`lookbacks/scenarios/depth_hedge_v3_*`. Not confirmed: T4 (airlines, cruise) failed the main window (2019 to 2025) and met 3 of 4 in the 2026 holdout (fade correlation -0.76,
+reaction -2.8%, t -2.80; failed only the pair-gain probability, 0.73); T5 (homebuilders, retail) not reliably negative. Post hoc: T4's sign flips with the kind of spike
+(+3.3% in 2019 to 2021, -1.7% in 2022 to 2025). Deep nodes are scenario-specific; a pooled mechanical rule mixes them. A cause-classified, pre-registered forward test is the follow-up.
+
+## 2026-09-30 (later) — the mechanism, in Rob's words (A1 §7 amended)
+
+Not depth or sign. Two longs over the same underlying, through different company sets, whose effects along the narrative and ACK chain diverge progressively (other data enters) so
+one narrative covers the other's weak outcome; both stay long. Each thesis that wants it carries its own DAG with the thesis as the final node, receiving the positions that hedge its narrative, one-way.
+Term proposed: progressive decorrelation of the effect vectors across the thesis outcomes (ex ante, from documented positions). Depth tests v2 and v3 were a realised-correlation stand-in, not a test of it.
+
+## 2026-09-30 (later) — hedge DAG prototype and a worked example (Rob: DAG first, no cross-referencing, no cycles)
+
+`nomad16/hedgedag.py` (tool `hedge_dag`, report-only, 7 tests, 102 pass with the rest): one sink (the thesis), one-way edges, cycles and second theses refused, effect vectors from documented exposures times the thesis's
+channel shocks per outcome, implicit exposures are gaps unless allowed and then labelled switches, maximin worst case, alignment by depth. Worked example on real FY2024 10-Ks (OXY, MPC) in
+`lookbacks/scenarios/hedge_dag_example/`: the strict run refuses (each company documents only its own channel); the switch run runs and shows both long and cosine 0.89 but no hedge (MPC dominates). A directed cyclic graph is deferred.
+
+## 2026-09-30 (later) — hedge-DAG validation on realised payoffs (pre-registered, run)
+
+`lookbacks/scenarios/hedge_dag_example/VALIDATION_*`, `exposures.json` (12 FY2024 10-Ks; every quote verified). 13 oil-spike events after Feb 2025, names OXY, EOG, XOM, MPC. Documented-exposure model vs realised
+divergence: rho +0.30 (met), beat the beta model by +0.03 (bar 0.10, failed), E&P-vs-refiner spread hit rate 62% and correlation +0.37 (bars 65% and 0.40, narrowly failed). Not supported. Coverage: 4 of 12 companies disclose an
+unhedged income sensitivity, 3 hedge-book only, 4 none. Underpowered; the extension would use each year's prior 10-K for the 2019 to 2024 events.
+
+## 2026-09-30 (later) — synthetic-exposure leg (isolating the mechanism)
+
+`lookbacks/scenarios/synthetic_leg_*`. Part A (a synthetic leg with the oil basket's crude loading, controlled residual correlation): worst-fade gain -3% at rho +0.9, +2% at rho 0, +14% at rho -0.5; about -0.95 needed for 30%. Part B (real non-energy equities, unlevered):
+achievable crude loading f = 0.32 (0.30 holdout), diluted in both windows; S_corr and S_unc gave the same downside gain. Reading: at fixed loading on the channel that fades, decorrelating the residual chain buys little; the gains in every earlier test came from lower loading.
+The hedge must differ in kind on the fade (a different channel or timing), for example crack against crude. Candidate next test: refiners (VLO, MPC, PSX, PBF) against the producers.
+
+## 2026-09-30 (later) — refiners against producers
+
+`lookbacks/scenarios/refiners_*`. Main window: no hedge (corr +0.72 with producers, gain -5%, the loading-matched control +22%; the crack fell with crude over the fade, corr +0.37). Holdout: +33% and +26 points beyond de-risking, channel test failed.
+Not supported. Five pooled oil-spike tests now (depth, equity depth, synthetic short, synthetic leg, refiners): the correlation gradient is real, gains came from lower loading. Pooled spike days may be the wrong instrument (mixed causes); next would be a homogeneous
+event class with an observed outcome, after a feasibility check that listed owners respond beyond noise; or derivatives for payoffs that differ in kind.
+
+## 2026-09-30 (later) — construction, not search (A1 §7.1)
+
+Rob: the hedge is constructed thesis-first: build the narrative that hedges the position basket (over its failure set), then build the hedging basket to fit that narrative; the narrative guides the basket in both cases. The five pooled price tests searched over baskets taken as given and so
+could not test this. The falsifiable claim: the constructed hedge beats the primary alone, a de-risking control, and a blind statistical hedge out of sample. Written into A1 §7.1; nothing built.
+
+## 2026-09-30 (later) — construct-then-hedge on FOMC days (first test of A1 §7.1)
+
+`lookbacks/scenarios/construct_hedge/` (feasibility: 67 statement dates, outcome = change in the 5-year yield; NRC events and Gulf hurricanes fail). A cold session, blind to prices, built the hedging thesis and the basket DHI, O, AMT, NEE for a long-banks primary.
+Result: beats de-risking in both halves (+0.26%, +0.42% on dovish days); does not beat a blind statistical hedge (level, then -0.72%); costs 0.23% to 0.32% of the upside on other days. A constructed long hedge works; narrative guidance adds nothing here.
+Hypothesis for next: narrative should matter where statistics cannot be estimated (rare event class, regime break, single-company outcome).
+
+## 2026-09-30 (later) — the general form (A1 §7.2)
+
+Rob: as soon as we design specific scenarios where it can work, it is ungeneralized. Stated without a domain: a hedge exists at the margin iff some non-negative combination of instruments pays on every failure outcome (Ville's theorem);
+the narrative is a prior over the payoff matrix's sign structure, worth most where data cannot estimate it; the engine holds no event class; every round runs with a blind shadow comparator; generality is predicted success against two domain-free
+quantities (payoff on the failure set, trailing data). Proposed step 8 of the implementation list (Fed days as the first live class) withdrawn.
+
+## 2026-09-30 (later) — convexity of the FOMC pair (exploratory, pre-registered)
+
+Rob: two long but different narratives over one underlying, however built, equal a downside-capped, upside-uncapped hedge, that is, a convex composite. Direct check on the FOMC pair (banks + DHI, O, AMT, NEE): both legs are linear in the yield move with opposite slopes, so the sum is near-linear
+(c +0.00009, 10th percentile below 0); not supported here. The shape needs two one-sided (kinked) legs, not two opposite-sloped linear ones. Next: a convexity map across stocks and state variables (domain-free), and whether the kinks are stable out of sample.
+
+## 2026-09-30 (later) — convexity map (100 stocks x 8 state variables), pre-registered
+
+`lookbacks/scenarios/convexity_map/`. Not supported in general: c is uncorrelated across halves (+0.037), no pair reached train t >= 3 (about 1 expected by chance), one composite (market) passed and is read as noise. At the daily horizon no large-cap equity shows a stable convex, one-sided response.
+A global |x| term looks for a kink at zero; documented kinks sit at thresholds (strikes, floors, contracts). Next: threshold-aware tail asymmetry per stock, and whether a narrative that names documented floors and caps in advance picks kinks the data cannot.
+
+## 2026-09-30 (later) — the whole system as entities and kinds (A2, proposed D32)
+
+`docs/nomad_v17_entity_model.md`, `config/system_model.json` (37 system kinds, 29 relation types with roles, 12 rules, every one of the 69 tables read as an entity kind, relation, statement or event), `nomad16/tests/test_system_model.py`
+(covers every table; constraints consistent; price is attentional and excluded as evidence). Rob: the atom is an entity, the base type is a kind; a quarterly fundamental, a filing, a decision are entities of kinds. Nothing migrated; views first. The price-free effect-space test is to be pre-registered under this view.
+
+## 2026-09-30 (later) — Ohmni cloned; the data layer crosswalk
+
+Rob added `standard-reference/ohmni` (the data layer) and it was cloned into the session (commit cadfb95, contract 0.1.0; read only). Its spec §18 is "artifact + kind registry": the same pattern as the entity-and-kind model. `docs/nomad_v17_ohmni_crosswalk.md` maps Record, Status, Lineage, Revision,
+SourceDeclaration, Phenomenon, TruthRole and MeasurementType onto the model, corrects the earlier statement that the data layer was not reachable, and lists the gaps: six technology entities, prototype-grade prices, no filing text, regulatory notices, ownership edges, scheduled facts, quotes or event spine, contract 0.1.0 against Nomad's pinned >= 0.2.
+Rule R13 in `config/system_model.json` now follows the phenomenon a source measures. Correction to my own earlier note: the oil, bank and rate filings were fetched by Nomad's adapters, not served by Ohmni.
+
+## 2026-09-30 (later) — Ohmni stays separate; source declarations built for Nomad
+
+Rob: Ohmni is a separate, more ambitious project (it should generate Nomad-like frameworks over time); keep them separate; Nomad stays Nomad; adopt ideas freely. Withdrawn: the adapter and the contract-version questions. The crosswalk became `docs/nomad_v17_adopted_from_ohmni.md`.
+Built: `nomad16/declarations.py` (every adapter and look-back source declares its phenomenon, truth role, measured or modeled, as-of or snapshot, survivorship, access, needs, known biases; unverified; tool `source_declarations`, `source_may_support`; rule R13 as code),
+`nomad16/tests/test_declarations.py`. 113 tests pass. The model file no longer depends on the Ohmni clone.
+
+## 2026-09-30 (later) — the Polymarket frame
+
+Rob: get the model right and validate before paying for data; this is for Polymarket now; Jev or Laya over the modified PredictionProphet angle. `docs/nomad_polymarket_frame.md` (proposed D33): an event contract's payoff is exact (1 or 0, loss capped at the price), so the hedge-existence condition and the maximin are exact and validation is cleaner than in equities;
+necessary-condition decomposition and its Fréchet bound supply the probabilities; price kept out until the gate; sessions author proposals only. Validation order V1 (hedge mechanism on resolved related contracts), V2 (the bound, clean only after the model's cutoff), V3 (forward recorder), each with a null control and a declared bar.
+Free Polymarket public APIs are reachable (market metadata and resolutions; price history thin for closed markets). The equity look-backs explored the mechanism where the payoff had to be estimated; the data-layer patch plan is paused behind this validation.
+
+## 2026-09-30 (later) — recorder, census, K14 pause
+Recorder (`tools/polymarket_recorder.py`, `polymarket_ws_recorder.py`, commit 153b9ec) is ready; **not running until Rob starts it on his machine.** Census written up in `lookbacks/polymarket/CENSUS_RESULT.md` (definitions first, two bug amendments after run 1, coverage a union of orderings). K14 full run paused on Rob's instruction. Rob's note: once the modified PredictionProphet is live, all classes are viable; the census only picks V1's class. Not started: instruments/construct/prices/paper/intake/calls changes, V1 pre-registration.
+
+## 2026-09-30 (later still) — fee model and exact-payoff branch built
+`nomad16/exact.py` (nonlinear taker fee from each market's own `feeSchedule`: shares x rate x (p(1-p))^exponent, taker only; all-in share cost with slippage and tick rounding; state space of partitions, terminal ladders and touch ladders with typed `__gap__` for open slots; maximin floor with the primary fixed and ties broken by least spend; equal-floor de-risking; realised scoring from resolved 1/0). `instruments.event_contract_meta_add` (new mutable table `event_contract_meta`, keyed by instrument, holding condition and token ids, side, tick, minimum size, fee schedule, slot kind; no column added to an existing table) and `unit_cost` uses the fee schedule for event contracts (one leg when held to resolution). `construct.build_exact` returns the `build` record shape with the floor as `z_star`, `no_lift` when no claim removes a state where everything loses, and `open_slot_reachable` as a flag. 123 tests pass; the V1 pilot's arithmetic (floor -11.54) is reproduced.
+**Unverified:** the fee formula's exponent placement against real fills (recorded trades will be the check); `build_exact` is not yet dispatched from `build` (the harness calls it where every instrument is an event contract). Not started: prices.py vintage store, paper.py book fills, intake.py, calls.py, parking stories.py and vetoes.py, UMA resolution risk as a leak class.
+
+## 2026-09-30 (later still) — the open-set graph
+`nomad16/pmgraph.py` (+ `tests/test_pmgraph.py`): builds the graph from the recorder's universe file (structure classes with the census definitions, rare-tag and entity edges by IDF, template collapsing, `neighbourhood` and thesis-word `search`, price-free by test). Real open set: 12,668 events, 9,689 templates, built in about 10 s. Finding: a tag and entity neighbourhood does not link macro to crypto ladders, so V1 authoring is thesis-first with retrieval (`V1_prereg.md` §11 A8). Heuristic; proposes only.
+
+## 2026-09-30 (later still) — Polymarket vintage store, V1 pool frozen and drawn
+`prices.fetch_polymarket`, `pm_points`, `pm_price_at` (hashed vintage per token id in the existing ledger table, verified, truncated at the lock before write, drift recorded, 48-hour age rule); tests in `test_exact.py`. `lookbacks/polymarket/v1_pool.py`: pool of **78** clean events (closed after 2026-06-30 by actual `closedTime`; the census's 203 used the scheduled `endDate` and overstated it, corrected in `CENSUS_RESULT.md` and `V1_prereg.md` A9), sha256 recorded in §9; seeded draw of 24 (`v1_draw.json`: 16 ladders, 8 partitions, 5 crypto). 11 usable events were disputed at resolution (about 12%). Not yet built: `v1_packet.py` (stage-1 packet, retrieval, seeded shuffle), `v1_score.py` (expression at the lock, arms P/C/D/R/M/B, bar), and the session authoring harness; no round is authored before those are frozen by commit.
+
+## 2026-09-30 (later still) — foundation checks; ladder rule fixed; pool re-frozen
+`v1_foundation_checks.py`: on the real resolved pool all 23 partitions had exactly one winner; numeric ladders 10/10 nested; date ladders 25/26 nested (the one exception is a market end-date quirk). Found and fixed a classifier bug inherited from the census spec (`groupItemThreshold` is an ordering index, so every grouped event was a ladder): `pmgraph.structure` and the pool now use text-derived numeric and date ladders; second freeze of 73 events; first freeze kept in `lookbacks/polymarket/superseded/`; market end dates in a hashed supplement. Price at the lock is thin (exact partitions 100%, numeric ladders 62%, date ladders 48%, open partitions 34% of contracts have a point within 48 h). See `V1_prereg.md` A10 and `CENSUS_RESULT.md` (second correction).
+
+## 2026-09-30 (later still) — survivor count
+`v1_survivors.py`, definition declared first (`V1_prereg.md` A11): 61 of 73 pool events survive (at least 3 contracts priced within 48 h of the lock, and a live menu of at least 10 templates); 23 of the 24 drawn. The menu condition is not binding (289 to 640 candidate templates live at each lock; hedge-side prices unchecked). Decision left to Rob: keep 24 rounds with a reserve, or draw more of the 61.
+
+## 2026-09-30 (later still) — reserve
+Rob: keep 24 rounds with a reserve of 12. `v1_reserve.json` drawn (second seed, at most 4 crypto); event 536290 (a non-survivor in the draw) replaced by the first reserve event. `V1_prereg.md` A12.
+
+## 2026-09-30 (later still) — packet script
+`lookbacks/polymarket/v1_packet.py` + `tests/test_v1_packet.py` (136 tests pass): stage-1a packet, thesis-first retrieval for stage 1b, answer validators, leak scan, seeded shuffle, live index (1,167 events, hashed). Dry run on a mock answer (`packets_dryrun/`). Recount under the packet's real eligibility: 59/73 pool, 22/24 drawn; 536290 and 623235 replaced by reserve #1 and #2. `V1_prereg.md` A13. Not built: scoring script, session harness.
+
+## 2026-09-30 (later still) — scoring script
+`lookbacks/polymarket/v1_score.py` + `tests/test_v1_score.py` (144 tests pass): tier to rung, exact coarsened state spaces (typed gap only for true open slots), arms P C D R (M in the study), B1 from resolutions, study verdict per the bar. Reproduces the pilot's -11.54 floor through the pipeline. Found while building it: the retrieval index must hold only closed, cleanly resolved events (open events cannot be scored), and that cut the live menu to a median of 45 templates per lock (A13's 289 to 640 was wrong); menu rule now a coverage floor plus "no instrument" for an empty search. Final round list by rule in `v1_rounds.json` (three replacements; 9 reserve left). `V1_prereg.md` A14. Not built: the session harness.
+
+## 2026-09-30 (later still) — run harness and dress rehearsal
+`lookbacks/polymarket/v1_run.py` (prompt prep, file-based prompts, ingest from the session transcript, strict audit, freeze manifest) + tests; stage 1b now shows every live candidate; dress rehearsal on two out-of-pool events (`REHEARSAL.md`, `packets_rehearsal/`): mechanics work end to end; measured about 85k tokens per round. Found and fixed: hand-abbreviated prompt (caught by audit), over-strict answer validator, thin term-matched menu, tier mapping limited to displayed rungs, duplicate rungs, a strike-parser bug; recall canary is noisy; ladder strikes leak the level at the lock. 153 tests pass. `V1_prereg.md` A15. Open for Rob: the claim-consistency sentence; batching. Not done: the final freeze (A16), any real round.
+
+## 2026-09-30 (later still) — the freeze (A16)
+Rob: add the claim line, batches of 6. Claim line added and validated; price checks retried; replacement tooling. All hashes recorded in `V1_prereg.md` A16. First batch: 655630, 125877, 155674, 199763, 230191, 25036. No round authored before this commit.
+
+## 2026-09-30 (later still) — V1 batch 1 authored (6 of 24 rounds)
+Rounds 655630, 125877, 155674, 199763, 230191, 25036. All ingested from the sessions' own transcripts; 0 invalid, 0 recall flags, 12 of 12 session turns passed the audit (declared model, one read per prompt file, content and instructions verified). Two rounds ended "no instrument" (125877, 25036), four hold hedges. About 0.49M tokens for the batch (44k to 53k for stage 1a; 77k to 98k per round in total). Nothing has been scored: all 24 rounds are authored and frozen by hash first (A16). Batch 2 not started.
+
+## 2026-09-30 (later still) — V1 batch 2 authored (12 of 24)
+Rounds 287395, 333025, 410410, 481717, 680764, 606437: all ingested from transcripts, 0 invalid, 0 recall flags, audits passed. One "no instrument" (410410). About 0.41M tokens. Pattern to report at scoring: several hedges are structural (the same Fed meeting expressed as a multi-meeting path, or a by-date contract on the same underlying), so their floor lift is arithmetic.
+
+## 2026-09-30 (later still) — V1 batch 3 authored (18 of 24)
+Rounds 655631, 624096, 624242, 627355, 630845, 674379: all ingested from transcripts, 0 invalid, 0 recall flags, audits passed. Two "no instrument" (624242, 630845). About 0.40M tokens. Running total about 1.3M tokens; "no instrument" so far 5 of 18.
+
+## 2026-09-30 — V1 batch 4 authored; all 24 rounds authored and answers frozen
+Batch 4 (707496, 731779, 833597, 850741, 90434, 674586) ran two-stage, all audits ok. 765707 was voided at 1a (recalls_outcome true) and replaced by reserve 674586. Reserve left: 8.
+Stage-1b outcomes over the 24 rounds: 17 with hedges, 7 `no_instrument` (125877, 25036, 410410, 624242, 630845, 674586, 833597). Per A14/A15 those are not replaced and count as unscored, so at most 17 scored rounds: below the registered gate of 20, so V1 can only be inconclusive unless Rob amends. Nothing amended. Answers frozen by hash in `v1_answers_manifest.json` before any scoring.
+
+## 2026-09-30 — V1 scored (17 of 17 hedged rounds)
+`v1_score.py --study`: verdict **inconclusive** (gates: scored 17 < 20; primary-loss rounds 7 < 10). Not amended.
+Indicative only: mean floor P -9.57, C -2.24, D -6.16; B1 in-set 0.88 (below the 0.90 bar); B2 mean C-D +3.92, 90% CI [-2.66, +10.75]; B3 M null ok, C above R in 71%; B4 0.78 on 4 rounds. Three rounds (287395, 481717, 606437) scored 0 lift, and two of those had a hedge or claim drop for "no rung".
+
+## 2026-09-30 — Step 1 of 4 (structural hedges flagged)
+`V1_STRUCTURAL.md`, `v1_structural.py`, `v1_structural_dump.py`, `v1_structural_report.json`. Post-hoc and descriptive, no verdict changed. 6 of 17 scored rounds have a same-underlying (S) hedge leg and carry a mean floor lift of 5.5; the 11 cross-entity (X) rounds carry 50.9 and hold both claim violations, including the +205 outlier (674379). B1 among X rounds is 0.82.
+
+## 2026-09-30 — Steps 2 and 3 of 4 (variance check run; V0 written)
+Variance: `V1_VARIANCE.md` (declared first), `v1_variance.py`, `V1_VARIANCE_RESULT.md`, `v1_variance_report.json`, `variance/`. 7 of 8 valid (287395 void after a second validation failure). Where a hedge was found both times the choice overlapped 0.67 to 1.00 and lift was close; both re-run no-instrument rounds came back hedged, so "no instrument" is partly a willingness threshold. V0: `V0_SPEC.md`, `v0_audit.py`, `v0_result.json`, `V0_RESULT.md`: the venue is thin in commodity, FX and shipping contracts; 11 of 17 hedged rounds hedged within the primary's own domain; event volume median about $4M.
+
+## 2026-09-30 — V3 authored and frozen
+30 forward rounds authored (26 hedged, 4 no instrument), 6 reserve replacements, answers frozen by hash (`v3/v1_answers_manifest.json`, see V3_prereg.md A4). Horizons 2026-10-15 to 2027-01-10. `v3_status.py` tracks resolution. Open: write the V3 scorer (re-fetch finals at scoring time), study the structural (S/X) split on V3 too, and run it once contracts resolve.
+
+## 2026-10-01 — Evaluation written (lookbacks/polymarket/EVALUATION.md)
+V1b registered, authored (33 events: 24 hedged, 5 no instrument, 4 void), frozen and scored: inconclusive (8 primary losses < 10; B2 interval spans 0; B4 0.33). Pooled V1+V1b (post-hoc, 41 scored, 15 losses): C−D +2.7 (−2.0, +7.5); −2.6 in rounds where the primary lost, +5.7 where it held; cross-entity +0.9 (−4.4, +6.0). Hedges pay more when the primary loses (+9.1, p 0.063); triggered claims beat lock prices (+28 pp, CI +10..+45, n 16); session hedge beats the blind statistical hedge (12 of 15, +14.9). Registered M control found degenerate. Verdict: not supported as an edge over de-risking; V3 is the confirmatory test.
+
+## 2026-10-01 — v18 received; decisions under delegation (addendum B1)
+Rob's v18 spec copied to `docs/nomad_v18_updates.md`. Builder decisions under Rob's delegation in `docs/nomad_v18_addendum_B1.md` (D33–D43; D40 coherence trades diagnostic only; 18.1 deferred; claims added as 18.0c). Feasibility from this container: GDELT, EDGAR, Gamma and CLOB answer; Wayback and Wikipedia revisions are blocked or rate-limited (bundle fetching to run on Rob's machine); cloud sessions see the date and model name.
+
+## 2026-10-01 — T0 run (claims and picks priced)
+`T0_prereg.md` (before the script), `t0_picks_and_claims.py`, `t0_report.json`, `T0_RESULT.md`. Triggered claims beat lock price (+24 points, P 0.98) and a matched placebo (+22, P 0.96); the trigger trade does not capture it (+3, P 0.65, 6 tradable). Picks: no edge (skill −2.3, P 0.19). Post-hoc: the claims' edge is in magnitude (tier) claims, 8 of 9 held against 0.43 priced; bet at the lock they are positive under all three price-only weightings (`t0_weightings.py`, intervals span zero).
+
+## 2026-10-01 — design conversation with Rob (addendum B1 §6–8)
+Each thesis subgraph is one basket; a basket is which positions, not sizing; links are never traded alone; claims are calibrated edges inside subgraphs (18.0c folded in). Sizing suspended (never discussed). Position risk and global risk separated; four global numbers Rob's, blank; `KELLY_FRACTION` retired; magnitude to drive sizing (open how). Unratified values reframed as missing components: `docs/COMPONENTS_REGISTER.md` (C1 global risk, C2 position risk, C3 magnitude, C4 subgraph and basket, C5 belief, C6 reading evidence, C7 execution, C8 exit). Briefing for a chat discussion: `docs/BRIEFING_2026-10-01.md`.
+**Next:** Rob discusses C3+C5 (what T3 sessions author; deadline 14 October), then C2, C1, C4. Build resumes after: shared packet, projection and scorer; BT-A; T3; V3 scoring from 15 October.
+
+## 2026-10-01 (later) — run moves to Rob's Windows machine; T0 base rate; BT-A registered
+**Where.** Work continues on Rob's machine (`C:\Users\bato2\Documents\nomad`, branch `claude/v18-run`, cut from `ccr-1eed6fb5-w9uiin` at `9d11b1f`). Decisions from the day's conversation are in `docs/DECISIONS_2026-10.md` (firewall scope; T3 magnitude in world units; confidence collected; confidence carried as values at fixed chances).
+**Gaps found running here, none fixed in frozen files:**
+- **Encoding.** Windows defaults to cp1252, and the frozen scripts open files without an encoding. Every run here sets `PYTHONUTF8=1`.
+- **V1b's data files are git symlinks** to the container path `/home/user/Nomad-Research/...`. With `core.symlinks=false` they check out as text holding that path. New scripts resolve them (`t0_base_rate.py`), and the frozen files are untouched.
+- **The PreToolUse hook does not run.** Its command is `python3`, which resolves to the Microsoft Store stub and fails as a non-blocking error, in the main session and in subagents. Its phase file still reads the v16 round R16-001 as `live`, so even working it would allow everything. For sessions, the transcript audit is the enforcement (as in V1).
+- **Subagent context.** Sessions run as Claude Code subagents on `claude-opus-5-5` (verified in the transcript). They receive the date, their model name and cutoff, the working directory, and the builder's auto-memory index (`MEMORY.md`, which holds only equity-harness build notes). There is no API key on this machine, so v18 §6.7 rule 6 (a fixed prompt with no date or identity) cannot be met; the leak is recorded per test.
+- **Network.** Gamma and CLOB answer from here. `gh` is not installed. The GitHub connector can read the repository but not write (403). `git push` waits on a Git Credential Manager sign-in that only Rob can complete.
+**T0 against the pool's base rate** (`T0_BASE_RATE.md`, `t0_base_rate.py`, post-hoc). V1's pool admitted events by actual close time, so its date-ladder YES rungs beat their lock price by +13 points with no claim (+18 where the tiers landed). Against a kind-and-price matched base, the triggered tier claims keep +30 points (n 9), but bought at the lock they are +4 (−7 to +17). The claims show linked events, not timing skill.
+**Built:**
+- `bt_crawl.py`: closed events by scheduled-end windows, split under the API cap, with every event's and market's `createdAt`, `startDate`, `endDate` and `closedTime`, a lifetime-volume prefilter and the scope filter at crawl time.
+- `bt_audit.py` and `BT_A_prereg.md`: BT-A, committed before the draw. `BT_AUDIT_GATE` is Rob's and must be set before scoring.
+**Not built (v18 §8):** `v18_packet.py`, `v18_project.py`, `v18_score.py`, `bundle.py` and rules recovery, `world.py`, `bt_run.py`. BT-T2 and T3 wait on the session format: the questions still open in topic 1, put to Rob as one proposal.
+
+## 2026-10-01 (evening) — BT-A and BT-T2 first pass run on Rob's machine
+- **BT-A** (`BT_A_RESULT.md`): 450 events, 45 sessions. The positive control shows recall (+0.088, P 0.99). `BT_WINDOW_START` is 2026-07-01 under both gates (0.5 and 0.2). June failed only on events that resolved in February and March (scheduled ends later); post-hoc by actual resolution month, April to September are all clean. A second pass would settle it.
+- **BT-T2 first pass** (`BT_T2_RESULT.md`): 173 events on locks from 2026-07-01, no-evidence arm, 29 sessions.
+  - S1 skill +0.041 (95% +0.010 to +0.072): edge shown on the registered statistic.
+  - It is concentrated: five events carry two-thirds of it, and without them it is +0.015 and spans zero.
+  - Money +0.029, direction only; magnitude shows nothing; the log score loses to price.
+  - Two scorer bugs were fixed after the freeze (addendum A3), with the first run kept.
+- **Audit gap found and fixed:** a prompt read in overlapping chunks fails V1's exact-join check. BT-A's addendum A2 reconstructs by line number, and BT-T2's prompts all fit one read.
+- **Session mechanics here:**
+  - 20 concurrent subagents at most.
+  - About 75–115k tokens a session.
+  - Hand-backs arrive as messages to the orchestrating session. A transcript contains the word "SubagentHandback" in its system reminder, so readiness is checked by the tool_use, not by text.
+- **Not built yet:** the evidence bundle (`bundle.py`), `world.py`, T3's scorer, the weekly walk-forward batch. T3's packet code (`t3.py`) and draft registration (`T3_prereg.md`, uncommitted) wait on Rob's cluster rule.
+
+## 2026-10-01 (night) — BT-T2 pass 2, edge ledger, E3, T3 authored, forward sweep started
+- **BT-T2 pass 2** (`BT_T2_pass2_RESULT.md`): the registered E1 statistic is +2.6¢ (−2.7 to +8.0), **direction only**.
+  - The money on the model's NO picks replicated: +5.2¢ a share, and +8.6¢ on NOs priced 50¢ or more.
+  - Blind NO earned 0 in both passes.
+- **Ledger and readings.**
+  - `docs/EDGE_LEDGER.md`: E1 (ruling out), E2 (linked events), E3 (mention markets), the non-edges N1–N6, and market facts.
+  - `docs/CAPITAL_READING_2026-10-01.md`: capacity-bound. The planning case is about +5% per dollar, with working capital of $15–30k.
+  - Decisions 9–11 are in `docs/DECISIONS_2026-10.md`.
+  - Post-hoc tools: `bt_t2_anatomy.py`, `edge_no_check.py`, `calibration_methods.py`, `depth_sample.py`.
+- **E3** (`E3_MENTIONS_prereg.md`, `E3_MENTIONS_RESULT.md`): every eligible mention event in the clean window (46).
+  - Registered statistic +7.3¢ (+1.8 to +13.0): **edge shown**.
+  - It survives removing stale and decided prices.
+  - It is concentrated: without the top three events it is +3.8¢ (−0.4 to +8.4).
+  - YES picks also beat the market here, and the log score ties it.
+- **T3 authored** (25 clusters, live retrieval, claims, scale of scale).
+  - 23 sessions passed the audit. C09 was voided twice: its 138 KB prompt was read with Bash both times. C05 was voided once (it read a fetched PDF from the harness's tool-results folder) and re-authored.
+  - **Search budget.** Twenty sessions running at once shared one 200-search budget. Each hit it after 5–20 searches and finished with page fetches only.
+  - Not frozen yet: waiting on C05's re-authoring.
+- **Forward sweep** (`FORWARD_SWEEP_prereg.md` with A1 and A2, `fwd_sweep.py`): E1 and E3 forward, cold and price-blind, read at the ask with depth.
+  - W01 has 102 events (2 of them mention events) in 17 sessions, now running.
+  - A weekly scheduled task needs Rob's word.
+- **Mechanics found tonight:**
+  - Gamma's date-window crawl hits its offset cap on sports events, so mention markets are found by `tag_slug=mention-markets`.
+  - Gamma now tags Trump speech events "pop-culture", so the scope list drops them, as it did in the backtest.
+- **Later the same night.**
+  - **T3 frozen:** 24 of 25 clusters (manifest `080b509d…`). Its forward scorer and the scale-of-scale scoring registration (`T3_SCALE_prereg.md`) were committed before any T3 outcome was read.
+  - **Sweep W01 frozen:** 17 sessions; 4 were re-authored after writing 0%, and the originals are kept.
+  - **BT-A pass 2** (`BT_A_pass2_RESULT.md`): the window opens at **2026-04-01** under the loose gate and at 2026-06-01 under the strict gate (May borderline, P 0.38).
+  - **E3 pass 2** (`E3_MENTIONS_pass2_RESULT.md`): the NO statistic is +5.1¢, direction only.
+    - The both-sides reading replicated: +10.9¢ against pass 1's +11.1¢, pooled +11.0¢, and +8.7¢ without the top five events.
+    - It is registered forward as E3b (sweep addendum A3), and political mention markets come back into scope from W02.
+  - **BT-T2 pass 3** (E1 on April–June locks) is registered and its frame is building.
+  - **Pushes work again** (Rob completed the Git sign-in): `claude/v18-run` and `ccr-1eed6fb5-w9uiin` are on GitHub.
+
+## 2026-10-01 (night, later) — v19 starting point adopted; A2 registered forward
+- **Starting point.** `docs/NOMAD_V19_STARTING_POINT.md`, Rob's text, adopted as decision 12. Nothing in its stack is built until the design is agreed.
+- **§6 reproduced** from the frozen BT-T2 results (`v19_a2.py backtest`): armed +13.5¢ on 107 events.
+  - On mention markets A2 also concentrates the edge: +24.2¢ on 65 events.
+  - But there the picks it blocks still earn +8.4¢.
+- **A2 forward** (`V19_A2_prereg.md`, `v19_a2.py score`). Registered before any sweep outcome is read, on the sweep's frozen batches.
+  - Looks at 40 and 80 armed events.
+  - W01 holds about 20 armed events.
+  - The sweep's files and statistics are untouched.
+- **Next design question:** which arming rules bind the armed book from the start (decision 12, still open).
+- **Decision 13** (same night).
+  - A2 alone binds.
+  - A3, A4 and A6 are labels.
+  - A1, A5 and the group caps bind at real money.
+  - D2 is recorded on every position.
+  - D1 is narrowed to dated official facts that change the mechanics, label-only.
+- **A2 registration addendum A1,** before any outcome:
+  - declared on non-mention events;
+  - 40 is a direction read and 80 the confirmation;
+  - skill only;
+  - reported by week.
+- **Decision 14 (2026-10-02): Rob's six answers.**
+  - Mention markets stay out of the main test.
+  - The halfway look is grounds for revision only (addendum A2).
+  - Scoring not run on his machine.
+  - Shared drivers are to be found, however obscure.
+  - Paper before money.
+  - Cascades: never.
+- **Found while recording:**
+  - W01 is mostly Brazil's 4 October election (54 of 102 events; 22 of 24 armed positions are elections).
+  - A2's backtest edge leans on crypto price markets; without crypto, +7.4¢, spanning zero.
+- **Decision 15:** one-off big events are never ruled out. A1 is removed as a rule (it may still be recorded as a description); the starting point's cascade exclusion is dropped.
+- **Decision 16:** A2's test counts one occasion as one unit (addendum A3).
+  - One occasion is the same kind of market, the same place or asset, within 7 days.
+  - W01's 20 armed events are 5 occasions.
+  - The final look moves to late November to late January.
+- **Decision 17:** real money waits for A2's final look to confirm and for paper fills to show the edge survives costs. The money limits adapt to resources at the time.
+  - Evidence: armed crypto bets won 19 of 20 through crypto's market-wide losing run; the armed book's own cluster fell on post counts, its weak kind.
+- **Decision 18: v19 runs on paper.** Version 0 is `v19_book.py`, with its report in `v19/BOOK.md`; the fill watcher is `v19_watch_books.py`, for Rob's machine.
+  - W01's armed book: 24 positions, $2,388, 63% of it on Brazil's 4 October election.
+  - The shadow book's early losses are outcomes already decided at the lock, which the 50¢ floor excludes.
+  - Median live spread 3¢; thin senate books 8–24¢.
+- **R1 (decision 19):** averaging two fresh readings adds +0.9¢ (−1.3 to +3.4), direction only, so the reader stays single.
+  - Independent readings arm 82–87% of the same bets.
+  - A2 holds on fresh readings it was not fitted to (+17.9¢, +14.5¢).
+  - 50 sessions, all audited, run from this cloud session.
+- **Design-performance tests (decision 20).** 100 cold, audited sessions today.
+  - A2 on fresh events: BT-A +11.5¢ (edge shown); P4 +10.0¢ (direction only). Blocked NOs earn about 0.
+  - R2 framing: direction only; the reader's bets are unchanged by wording.
+  - A3 fails with P4 added and stays a label.
+  - The out-of-sample book returned +29.9% per dollar (money, last trade + 1¢). Its worst week was one interest-rates occasion, −$900.
+  - Forward: A2 has 0 occasions resolved; W01 settles from 4 October.
+- **P5 (decision 21).** 30 cold, audited sessions on 180 fresh events; frozen before scoring.
+  - Registered: framework skill +20.8¢ (+12.8 to +27.0) and passed minus blocked +20.0¢ (+6.6 to +34.4). Both read edge shown.
+  - Found after scoring: 58% of A2's armed backtest positions (passes 1 to 5) were priced at empty-book midpoints, about 50¢, that nobody could trade. Trade prints near the lock show 91¢ to 100¢.
+  - On clean prices: A2 +4.2¢ skill (direction only) and +9.8¢ money; −16.9¢ on partitions. Framework out of sample: 8 positions, direction only.
+  - Framework replacing A2 in the paper book is held for Rob. Proposed: re-measure every backtest at real trade prices.
+- **Backtests at real prices (decision 23).** Registered before any print was pulled; 11,747 contracts.
+  - E1: +1.1¢ (−1.6 to +3.8), direction only. Does not survive real prices; the forward tests are its only evidence.
+  - A2, passes 4 and 5: +4.0¢, direction only. Of its 464 original armed positions, 86 stay armed and 214 had no trade near the lock. On BT-A (liquid events): +13.4¢ (+1.8 to +25.5).
+  - E3b, mention picks on both sides: +8.1¢ (+5.1 to +11.3), shown at real prices. Where at least $100 traded near the lock: +3.1¢, direction only.
+  - Forward A2 labels (addendum A4) added before W01 settles.

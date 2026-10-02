@@ -1,0 +1,232 @@
+You will be shown 6 questions from a prediction market. Each has one or more contracts that resolve YES or NO under the rules shown. Each question gives the date your view is "as of": answer as you would on that date.
+
+Use only what you already know. Do not search for or look up anything: reading this file is the only tool call you may make. There are no prices in this file and you should not try to estimate what any market thinks; give your own view.
+
+Each question says what to write for it. Whole percents run from 1 to 99. Levels are plain numbers in the units the contracts use (for example 95000 for $95,000, 3.25 for 3.25%). Dates are YYYY-MM-DD.
+
+For each question also say whether you recognise how it actually turned out ("recognised": true only if you believe you remember the real outcome; otherwise false).
+
+Reply with one JSON object and nothing else:
+{"events": [{"label": "E1", "recognised": false, ...the fields that question asks for...}]}
+
+=== E1 (as of 2026-09-02): August Inflation US - Monthly
+Rules:
+This is a market about the one-month percent change in the seasonally adjusted Consumer Price Index for All Urban Consumers (CPI-U) published by the Bureau of Labor Statistics (BLS).
+
+This market will resolve to the one-month percent change in the seasonally adjusted Consumer Price Index for All Urban Consumers (CPI-U) in August 2026 according to the monthly BLS report.
+
+The resolution source for this market will be the BLS Consumer Price Index report released for August 2026 (https://www.bls.gov/bls/news-release/cpi.htm), currently scheduled to be released on September 11, 2026, at 8:30 AM ET. Resolution of this market will take place upon release of the aforementioned data.
+
+Note: the resolution source for this market will be the official monthly Consumer Price Index for All Urban Consumers (CPI-U) which BLS reports to one decimal point (e.g. 0.4%). Thus, this is the level of precision that will be used when resolving the market.
+
+If the BLS does not release the relevant figures on the scheduled date, this market may remain open up until the scheduled release time of the next CPI report (https://www.bls.gov/schedule). If the information is not released by that time, this market will resolve according to the figures of the most recent previous month with available data.
+Contracts:
+  E1.C1: Will monthly inflation decrease by 0.3% or more in August?
+  E1.C2: Will monthly inflation decrease by 0.2% in August?
+  E1.C3: Will monthly inflation decrease by 0.1% in August?
+  E1.C4: Will monthly inflation stay flat (0.0%) in August?
+  E1.C5: Will monthly inflation increase by 0.1% in August?
+  E1.C6: Will monthly inflation increase by 0.2% in August?
+  E1.C7: Will monthly inflation increase by 0.3% in August?
+  E1.C8: Will monthly inflation increase by 0.4% in August?
+  E1.C9: Will monthly inflation increase by 0.5% or more in August?
+What to write for E1:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E2 (as of 2026-07-15): Solana above ___ on July 17?
+Rules:
+This market will resolve to "Yes" if the Binance 1 minute candle for SOL/USDT 12:00 in the ET timezone (noon) on the date specified in the title has a final "Close" price higher than the price specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the SOL/USDT "Close" prices currently available at https://www.binance.com/en/trade/SOL_USDT with "1m" and "Candles" selected on the top bar.
+
+Please note that this market is about the price according to Binance SOL/USDT, not according to other exchanges or trading pairs.
+
+Price precision is determined by the number of decimal places in the source.
+Contracts:
+  E2.C1: Will the price of Solana be above $30 on July 17?
+  E2.C2: Will the price of Solana be above $40 on July 17?
+  E2.C3: Will the price of Solana be above $50 on July 17?
+  E2.C4: Will the price of Solana be above $60 on July 17?
+  E2.C5: Will the price of Solana be above $70 on July 17?
+  E2.C6: Will the price of Solana be above $80 on July 17?
+  E2.C7: Will the price of Solana be above $90 on July 17?
+  E2.C8: Will the price of Solana be above $100 on July 17?
+  E2.C9: Will the price of Solana be above $110 on July 17?
+  E2.C10: Will the price of Solana be above $120 on July 17?
+  E2.C11: Will the price of Solana be above $130 on July 17?
+What to write for E2:
+  Write "levels": for each chance 10, 25, 50, 75 and 90, the level you give that chance of the measured quantity being at or above when it resolves. The 10 level is the highest and the 90 level the lowest. Example: {"10": 120, "25": 110, "50": 100, "75": 92, "90": 85}.
+
+=== E3 (as of 2026-08-19): What price will XRP hit August 17-23?
+Rules:
+What price will XRP hit August 17-23?
+Contracts:
+  E3.C1: Will XRP reach $1.70 August 17-23?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1-minute candle for XRP/USDT during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "High" price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the XRP/USDT "High" prices available at https://www.binance.com/en/trade/XRP_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance XRP/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E3.C2: Will XRP reach $1.60 August 17-23?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1-minute candle for XRP/USDT during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "High" price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the XRP/USDT "High" prices available at https://www.binance.com/en/trade/XRP_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance XRP/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E3.C3: Will XRP reach $1.50 August 17-23?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1-minute candle for XRP/USDT during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "High" price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the XRP/USDT "High" prices available at https://www.binance.com/en/trade/XRP_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance XRP/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E3.C4: Will XRP reach $1.40 August 17-23?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1-minute candle for XRP/USDT during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "High" price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the XRP/USDT "High" prices available at https://www.binance.com/en/trade/XRP_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance XRP/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E3.C5: Will XRP reach $1.30 August 17-23?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1-minute candle for XRP/USDT during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "High" price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the XRP/USDT "High" prices available at https://www.binance.com/en/trade/XRP_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance XRP/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E3.C6: Will XRP reach $1.20 August 17-23?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1-minute candle for XRP/USDT during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "High" price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the XRP/USDT "High" prices available at https://www.binance.com/en/trade/XRP_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance XRP/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E3.C7: Will XRP reach $1.10 August 17-23?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1-minute candle for XRP/USDT during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "High" price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the XRP/USDT "High" prices available at https://www.binance.com/en/trade/XRP_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance XRP/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E3.C8: Will XRP dip to $0.90 August 17-23?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for XRP (XRP/USDT) during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "Low" price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the XRP/USDT "Low" prices available at https://www.binance.com/en/trade/XRP_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance XRP/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E3.C9: Will XRP dip to $0.80 August 17-23?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for XRP (XRP/USDT) during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "Low" price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the XRP/USDT "Low" prices available at https://www.binance.com/en/trade/XRP_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance XRP/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E3.C10: Will XRP dip to $0.70 August 17-23?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for XRP (XRP/USDT) during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "Low" price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the XRP/USDT "Low" prices available at https://www.binance.com/en/trade/XRP_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance XRP/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E3.C11: Will XRP dip to $0.60 August 17-23?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for XRP (XRP/USDT) during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "Low" price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the XRP/USDT "Low" prices available at https://www.binance.com/en/trade/XRP_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance XRP/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E3.C12: Will XRP dip to $0.50 August 17-23?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for XRP (XRP/USDT) during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "Low" price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the XRP/USDT "Low" prices available at https://www.binance.com/en/trade/XRP_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance XRP/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E3.C13: Will XRP dip to $0.40 August 17-23?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for XRP (XRP/USDT) during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "Low" price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the XRP/USDT "Low" prices available at https://www.binance.com/en/trade/XRP_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance XRP/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E3.C14: Will XRP dip to $0.30 August 17-23?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for XRP (XRP/USDT) during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "Low" price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the XRP/USDT "Low" prices available at https://www.binance.com/en/trade/XRP_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance XRP/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+What to write for E3:
+  Write "high": for each chance 10, 25, 50, 75 and 90, the level you give that chance of being reached (at or above) within the period. The 10 level is the highest.
+  Write "low": for each chance 10, 25, 50, 75 and 90, the level you give that chance of being reached (at or below) within the period. The 10 level is the lowest.
+
+=== E4 (as of 2026-07-22): Total commitments for the RipCars public sale on MetaDAO
+Rules:
+This market will resolve to "Yes" if total commitments for the RipCars raise on MetaDAO exceeds the number specified in the title before the raise closes. Otherwise, it will resolve to "No".
+
+The resolution source for this market is the “committed” figure displayed on the official RipCars sale page at https://www.metadao.fi/projects/ripcars/fundraise. If the displayed figure reaches the threshold at any point before August 31, 2026, 11:59 PM ET, this market will resolve to "Yes" regardless of subsequent refunds or cancellations. If the sale is on hold and no commitment total is verifiable by August 31, 2026, 11:59 PM ET, or if the raise event is otherwise cancelled or rescheduled to a time past that date, this market resolves to "No". If requisite information for this market’s resolution becomes permanently unavailable within this market’s timeframe, this market will resolve to “No”.
+
+If the sale begins and is extended before the official closing time, commitments made during the extended period will count toward resolution.
+Contracts:
+  E4.C1: Over $22.5M committed to the RipCars public sale?
+  E4.C2: Over $25M committed to the RipCars public sale?
+  E4.C3: Over $27.5M committed to the RipCars public sale?
+  E4.C4: Over $30M committed to the RipCars public sale?
+  E4.C5: Over $35M committed to the RipCars public sale?
+  E4.C6: Over $40M committed to the RipCars public sale?
+  E4.C7: Over $50M committed to the RipCars public sale?
+  E4.C8: Over $60M committed to the RipCars public sale?
+  E4.C9: Over $70M committed to the RipCars public sale?
+  E4.C10: Over $80M committed to the RipCars public sale?
+  E4.C11: Over $90M committed to the RipCars public sale?
+  E4.C12: Over $100M committed to the RipCars public sale?
+What to write for E4:
+  Write "levels": for each chance 10, 25, 50, 75 and 90, the level you give that chance of the measured quantity being at or above when it resolves. The 10 level is the highest and the 90 level the lowest. Example: {"10": 120, "25": 110, "50": 100, "75": 92, "90": 85}.
+
+=== E5 (as of 2026-07-01): Sachsen-Anhalt Parliamentary Elections: 2nd Place
+Rules:
+Parliamentary elections to elect the Landtag of Sachsen-Anhalt are scheduled to take place on September 6, 2026.
+
+This market will resolve to the political party that wins the second greatest number of seats in the state parliament of Sachsen-Anhalt (Landtag) as a result of this election.
+
+If voting in the Sachsen-Anhalt election for the Landtag does not occur by January 31, 2027, this market will resolve to "Other".
+
+The named parties or coalitions will be primarily ranked by the number of seats won in the specified election. If two or more parties are tied on seats, ties will be broken by the total number of valid second votes received (Zweitstimme), with higher vote totals ranking higher. If parties remain tied, ties will be broken by alphabetical order of the listed party abbreviations. This market will resolve to the party that occupies the second finishing position after applying this ranking.
+
+This market's resolution will be based solely on the number of seats won by the named party or coalition.
+
+This market will resolve based on the result of the election, as indicated by a consensus of credible reporting. If there is ambiguity, this market will resolve based solely on the official results as published on the official website of the Landtag of Sachsen-Anhalt (https://www.landtag.sachsen-anhalt.de/).
+Contracts:
+  E5.C1: Will CDU win the second most seats in the 2026 Sachsen-Anhalt parliamentary elections?
+  E5.C2: Will AfD win the second most seats in the 2026 Sachsen-Anhalt parliamentary elections?
+  E5.C3: Will SPD win the second most seats in the 2026 Sachsen-Anhalt parliamentary elections?
+  E5.C4: Will The Greens win the second most seats in the 2026 Sachsen-Anhalt parliamentary elections?
+  E5.C5: Will The Left win the second most seats in the 2026 Sachsen-Anhalt parliamentary elections?
+  E5.C6: Will FDP win the second most seats in the 2026 Sachsen-Anhalt parliamentary elections?
+  E5.C7: Will BSW win the second most seats in the 2026 Sachsen-Anhalt parliamentary elections?
+What to write for E5:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E6 (as of 2026-07-22): Will Kraken's valuation hit __ by July 31?
+Rules:
+This market will resolve to "Yes" if Kraken's private market valuation, as measured by the NPM Price reported by Nasdaq Private Market, LLC (NPM) for any date between market creation and July 31, 2026, reaches or exceeds the listed amount. Otherwise, this market will resolve to "No".
+
+NPM Prices are published for trading days only and are updated once daily at 1:00 PM ET on the following calendar day.
+
+If NPM has not published relevant data for all business dates in the specified period by 1:00 PM ET on August 1, 2026, this market may remain open until 11:59 PM ET on August 4, 2026. If no further data is released by that time, the market will resolve according to the data available.
+
+If NPM ceases publishing relevant data prior to the end of the specified period, this market will resolve based on the NPM data published for the period prior to the cessation of coverage, as well as any applicable public market capitalization data following an IPO or direct listing.
+
+If the company completes an IPO or direct listing before the end of the specified period, this market will consider, in addition to the relevant NPM valuations published between market creation and the IPO or direct listing date, the valuation implied by the official IPO or direct listing price, and the company's public market capitalization between the IPO or direct listing date and the end of the specified period.
+
+Public market capitalization will be determined using the highest/lowest official regular-hours trading price published for the company's primary listed common equity on its primary exchange for any trading day during the specified period, multiplied by the company's total outstanding common shares at the relevant time.
+
+If the listed company merges with or acquires another entity and remains the parent company, no change to resolution methodology applies.
+
+If the listed company is acquired, merges into another entity and is no longer the surviving parent company, or otherwise ceases to exist as an independent entity prior to the end of the period, only NPM valuations and applicable public market capitalizations achieved prior to completion of the transaction will be considered for resolution. No transaction, acquisition, or merger consideration will be considered for resolution.
+
+The resolution source for this market is NPM data published here: (https://fe.secondmarket.com/companies/company-ab5413cb-1c83-497e-b03e-2ed7ca70117d/data). The resolution source for any period following an IPO, direct listing, or relevant corporate action, will be official exchange trading data and publicly reported share counts.
+
+Revisions to previously published NPM data made after their initial release will not be considered, unless made to correct clearly erroneous data.
+Contracts:
+  E6.C1: Will Kraken's valuation hit (HIGH) $17.5B by July 31?
+  E6.C2: Will Kraken's valuation hit (HIGH) $15B by July 31?
+  E6.C3: Will Kraken's valuation hit (HIGH) $14B by July 31?
+  E6.C4: Will Kraken's valuation hit (HIGH) $13B by July 31?
+  E6.C5: Will Kraken's valuation hit (HIGH) $12B by July 31?
+  E6.C6: Will Kraken's valuation hit (HIGH) $11.5B by July 31?
+  E6.C7: Will Kraken's valuation hit (HIGH) $11B by July 31?
+  E6.C8: Will Kraken's valuation hit (LOW) $9B by July 31?
+  E6.C9: Will Kraken's valuation hit (LOW) $8B by July 31?
+What to write for E6:
+  Write "high": for each chance 10, 25, 50, 75 and 90, the level you give that chance of being reached (at or above) within the period. The 10 level is the highest.
+  Write "low": for each chance 10, 25, 50, 75 and 90, the level you give that chance of being reached (at or below) within the period. The 10 level is the lowest.

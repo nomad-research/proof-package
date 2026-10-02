@@ -1,0 +1,304 @@
+You will be shown 6 questions from a prediction market. Each has one or more contracts that resolve YES or NO under the rules shown. Each question gives the date your view is "as of": answer as you would on that date.
+
+Use only what you already know. Do not search for or look up anything: reading this file is the only tool call you may make. There are no prices in this file and you should not try to estimate what any market thinks; give your own view.
+
+Each question says what to write for it. Whole percents run from 1 to 99. Levels are plain numbers in the units the contracts use (for example 95000 for $95,000, 3.25 for 3.25%). Dates are YYYY-MM-DD.
+
+For each question also say whether you recognise how it actually turned out ("recognised": true only if you believe you remember the real outcome; otherwise false).
+
+Reply with one JSON object and nothing else:
+{"events": [{"label": "E1", "recognised": false, ...the fields that question asks for...}]}
+
+=== E1 (as of 2026-05-17): What will the Press Secretary say during the next White House press briefing?
+Rules:
+This market will resolve to "Yes" if the acting White House Press Secretary says the listed term during the next White House press briefing they participate in. Otherwise, the market will resolve to "No".
+
+Any usage of the term regardless of context will count toward the resolution of this market.
+
+Plural and possessive forms of the listed term will count toward the resolution of this market regardless of context; however, other forms will NOT count.
+
+Instances where the term is used in a compound word will count regardless of context (e.g. joyful is not a compound word for "joy," however "killjoy" is a compounding of the words "kill" and "joy").
+
+If this market requires a specified number of mentions of a person’s first or last name, a full-name mention will count as one mention (e.g., if a market is about “Joe / Biden 5+ times,” a mention of “Joe Biden” will count once).
+
+AI-generated content will not be considered when resolving this market.
+
+If no such press briefing happens by May 31, 2026, 11:59 PM ET, this market will resolve to "No".
+
+This market refers to White House press briefings by the acting White House Press Secretary (https://rollcall.com/factbase/trump/topic/calendar/). Any press briefing by the acting White House Press Secretary will qualify. "New Media" press briefings or special briefings such as those including extra guests will be considered, so long as the acting White House Press Secretary  is a listed participant. Impromptu press gaggles will not be considered for the resolution of this market; only events listed on the public schedule as briefings or announcements will qualify.
+
+The resolution source for this market will be footage of the relevant briefing.
+Contracts:
+  E1.C1: Will the White House Press Secretary say "President" 30+ times during the next White House Press Briefing?
+  E1.C2: Will the White House Press Secretary say "President" 40+ times during the next White House Press Briefing?
+  E1.C3: Will the White House Press Secretary say "Administration" 10+ times during the next White House Press Briefing?
+  E1.C4: Will the White House Press Secretary say "Thing" 10+ times during the next White House Press Briefing?
+  E1.C5: Will the White House Press Secretary say "Joe" or "Biden" 5+ times during the next White House Press Briefing?
+  E1.C6: Will the White House Press Secretary say "Iran" 5+ times during the next White House Press Briefing?
+  E1.C7: Will the White House Press Secretary say "Go ahead" 5+ times during the next White House Press Briefing?
+  E1.C8: Will the White House Press Secretary say "Democrat" 3+ times during the next White House Press Briefing?
+  E1.C9: Will the White House Press Secretary say "Ceasefire" during the next White House Press Briefing?
+  E1.C10: Will the White House Press Secretary say "Russia" or "Ukraine" during the next White House Press Briefing?
+  E1.C11: Will the White House Press Secretary say "Spanish" during the next White House Press Briefing?
+  E1.C12: Will the White House Press Secretary say "Mexico" during the next White House Press Briefing?
+  E1.C13: Will the White House Press Secretary say "Illegal" or "Illegals" during the next White House Press Briefing?
+  E1.C14: Will the White House Press Secretary say "Virus" during the next White House Press Briefing?
+  E1.C15: Will the White House Press Secretary say "CDC" or "WHO" during the next White House Press Briefing?
+  E1.C16: Will the White House Press Secretary say "Congress" during the next White House Press Briefing?
+  E1.C17: Will the White House Press Secretary say "Baby" during the next White House Press Briefing?
+  E1.C18: Will the White House Press Secretary say "Madness" during the next White House Press Briefing?
+  E1.C19: Will the White House Press Secretary say "Commander in Chief" during the next White House Press Briefing?
+  E1.C20: Will the White House Press Secretary say "Alien" during the next White House Press Briefing?
+  E1.C21: Will the White House Press Secretary say "Hormuz" or "Strait" during the next White House Press Briefing?
+  E1.C22: Will the White House Press Secretary say "Pink" during the next White House Press Briefing?
+  E1.C23: Will the White House Press Secretary say "Xi" or "Jinping" during the next White House Press Briefing?
+  E1.C24: Will the White House Press Secretary say "Congratulations" during the next White House Press Briefing?
+  E1.C25: Will the White House Press Secretary say "Mother" during the next White House Press Briefing?
+What to write for E1:
+  Write "p": a whole percent for every contract label, your chance that it resolves YES.
+
+=== E2 (as of 2026-04-30): What will Trump say during remarks at The Villages?
+Rules:
+Donald Trump is scheduled to visit The Villages on May 1, 2026, 3PM ET (https://www.dailycommercial.com/story/news/local/2026/04/28/president-trump-set-to-visit-the-villages-in-florida-on-may-1-2026/89835008007/). 
+
+This market will resolve to "Yes" if Donald Trump says the listed term during events at The Villages scheduled for May 1, 2026. Otherwise, the market will resolve to "No".
+
+If clips of old interviews or prerecorded videos are aired where Trump is speaking, those clips will count toward this market's resolution.
+
+Plural and possessive forms of the listed term will count toward the resolution of this market regardless of context; however, other forms will NOT count.
+
+Instances where the term is used in a compound word will count regardless of context (e.g., joyful is not a compound word for "joy," however, "killjoy" is a compounding of the words "kill" and "joy").
+
+If this market requires a specified number of mentions of a person’s first or last name, a full-name mention will count as one mention (e.g., if a market is about “Joe / Biden 5+ times,” a mention of “Joe Biden” will count once).
+
+This market is explicitly about Trump's visit to The Villages scheduled for May 1, 2026, 3PM ET. Speeches, events, or comments that occur outside of the named, scheduled event will not qualify toward this market's resolution. If the event contains a Q&A, it will count toward the resolution of this market.
+
+AI-generated audio or video will not count toward this market's resolution.
+
+If this event is definitively cancelled, or otherwise is not aired by May 1, 2026, 11:59 PM ET, "-No Qualifying Event-" will resolve to "Yes" and all other brackets will resolve to "No". 
+
+The resolution source will be video of the events. Only remarks which are broadcast or streamed live will count toward this market's resolution.
+Contracts:
+  E2.C1: Will Trump say "Tax" 15+ times at The Villages on May 1?
+  E2.C2: Will Trump say "Job" 10+ times at The Villages on May 1?
+  E2.C3: Will Trump say "Hell" 10+ times at The Villages on May 1?
+  E2.C4: Will Trump say "Nuclear" 3+ times at The Villages on May 1?
+  E2.C5: Will Trump say "Six Seven" at The Villages on May 1?
+  E2.C6: Will Trump say "Stock market" or "401(k)" at The Villages on May 1?
+  E2.C7: Will Trump say "Obliterated" or "Obliteration" at The Villages on May 1?
+  E2.C8: Will Trump say "Obamacare" at The Villages on May 1?
+  E2.C9: Will Trump say "Soleimani" at The Villages on May 1?
+  E2.C10: Will Trump say "Social Security" at The Villages on May 1?
+  E2.C11: Will Trump say "Kickback" at The Villages on May 1?
+  E2.C12: Will Trump say "Mars" at The Villages on May 1?
+  E2.C13: Will Trump say "Unaffordable Care Act" at The Villages on May 1?
+  E2.C14: Will Trump say "Deduction" at The Villages on May 1?
+  E2.C15: Will Trump say "Mar-a-Lago" at The Villages on May 1?
+  E2.C16: Will Trump say "Tariff" at The Villages on May 1?
+  E2.C17: Will Trump say "Fat" at The Villages on May 1?
+  E2.C18: Will Trump say "Beautiful Bill" at The Villages on May 1?
+  E2.C19: Will Trump say "Drill Baby Drill" at The Villages on May 1?
+  E2.C20: Will Trump say "China" at The Villages on May 1?
+  E2.C21: Will Trump say "Save America" at The Villages on May 1?
+  E2.C22: Will Trump say "Crypto" or "Bitcoin" at The Villages on May 1?
+  E2.C23: Will Trump say "AI" or "Artificial Intelligence" at The Villages on May 1?
+  E2.C24: Will Trump say "Military" at The Villages on May 1?
+  E2.C25: Will Trump say "American Dream" at The Villages on May 1?
+  E2.C26: Will Trump say "Venezuela" at The Villages on May 1?
+  E2.C27: Will Trump say "Cookie" or "Potato" at The Villages on May 1?
+  E2.C28: Will Trump say "Disney" at The Villages on May 1?
+  E2.C29: Will Trump say "Ballroom" at The Villages on May 1?
+  E2.C30: Will Trump say "Melania" or "First Lady" at The Villages on May 1?
+  E2.C31: Will Trump's remarks not air?
+What to write for E2:
+  Write "p": a whole percent for every contract label, your chance that it resolves YES.
+
+=== E3 (as of 2026-05-15): What will MrBeast say during his next YouTube video?
+Rules:
+MrBeast releases videos on https://www.youtube.com/@MrBeast.
+
+This market will resolve to "Yes" if Mr Beast says the listed term during the next video he releases on YouTube. Otherwise, the market will resolve to "No".
+
+If clips of old videos or prerecorded clips are aired where people are speaking, those clips will count toward this market's resolution.
+
+AI-generated audio or video will count toward this market's resolution.
+
+Any usage of the term, regardless of context, will count toward the resolution of this market.
+
+Pluralization/possessive of the term will count toward the resolution of this market; however, other forms will NOT count.
+
+Instances where the term is used in a compound word will count regardless of context (e.g. joyful is not a compound word for "joy," however "killjoy" is a compounding of the words "kill" and "joy").
+
+If this market requires a specified number of mentions of a person’s first or last name, a full-name mention will count as one mention (e.g., if a market is about “Joe / Biden 5+ times,” a mention of “Joe Biden” will count once).
+
+If no such video is posted by MrBeast by May 31, 2026, 11:59 PM ET, this market will resolve to "No".
+
+The resolution source will be the released video from (https://www.youtube.com/@MrBeast).
+
+Note: This market refers to MrBeast's next video posted. Shorts, previews, or other videos released other than the referenced video will not be considered.
+Contracts:
+  E3.C1: Will MrBeast say "Hundred" or "Thousand" or "Million" 10+ times during his next YouTube video?
+  E3.C2: Will MrBeast say "Dollar" 10+ times during his next YouTube video?
+  E3.C3: Will MrBeast say "Cash" during his next YouTube video?
+  E3.C4: Will MrBeast say "Eliminate" or "Eliminated" during his next YouTube video?
+  E3.C5: Will MrBeast say "Prize" during his next YouTube video?
+  E3.C6: Will MrBeast say "Island" during his next YouTube video?
+  E3.C7: Will MrBeast say "Jet" during his next YouTube video?
+  E3.C8: Will MrBeast say "Tesla" or "Lamborghini" during his next YouTube video?
+  E3.C9: Will MrBeast say "Mystery Box" during his next YouTube video?
+  E3.C10: Will MrBeast say "Briefcase" or "Suitcase" during his next YouTube video?
+  E3.C11: Will MrBeast say "Red Line" during his next YouTube video?
+  E3.C12: Will MrBeast say "Donate" or "Donated" during his next YouTube video?
+  E3.C13: Will MrBeast say "Sponsor" or "Sponsored" or "Sponsoring" during his next YouTube video?
+  E3.C14: Will MrBeast say "Feastables" during his next YouTube video?
+  E3.C15: Will MrBeast say "MrBeast" during his next YouTube video?
+  E3.C16: Will MrBeast say "Chocolate" during his next YouTube video?
+  E3.C17: Will MrBeast say "World Cup" during his next YouTube video?
+  E3.C18: Will MrBeast say "Gold" or "Golden" during his next YouTube video?
+  E3.C19: Will MrBeast say "Super Mario Galaxy" during his next YouTube video?
+  E3.C20: Will MrBeast say "Strategy" during his next YouTube video?
+  E3.C21: Will MrBeast say "America" during his next YouTube video?
+  E3.C22: Will MrBeast say "Calendar" during his next YouTube video?
+  E3.C23: Will MrBeast say "Copyright" during his next YouTube video?
+  E3.C24: Will MrBeast say "Monetize" during his next YouTube video?
+  E3.C25: Will MrBeast say "Chandler" during his next YouTube video?
+  E3.C26: Will MrBeast say "Karl" during his next YouTube video?
+  E3.C27: Will MrBeast say "Wife" during his next YouTube video?
+  E3.C28: Will MrBeast say "Apple" during his next YouTube video?
+What to write for E3:
+  Write "p": a whole percent for every contract label, your chance that it resolves YES.
+
+=== E4 (as of 2026-05-23): What will Bernie Sanders say during Fighting Oligarchy Tour?
+Rules:
+Bernie Sanders is scheduled to speak in Orono, Maine on his Fighting Oligarchy tour on May 24, 2026 (https://berniesanders.com/oligarchy/). 
+
+This market will resolve to "Yes" if Bernie Sanders says the listed term during events in Maine scheduled for May 24, 2026. Otherwise, the market will resolve to "No".
+
+If clips of old interviews or prerecorded videos are aired where Sanders is speaking, those clips will count toward this market's resolution.
+
+Plural and possessive forms of the listed term will count toward the resolution of this market regardless of context; however, other forms will NOT count.
+
+Instances where the term is used in a compound word will count regardless of context (e.g., joyful is not a compound word for "joy," however, "killjoy" is a compounding of the words "kill" and "joy").
+
+If this market requires a specified number of mentions of a person’s first or last name, a full-name mention will count as one mention (e.g., if a market is about “Joe / Biden 5+ times,” a mention of “Joe Biden” will count once).
+
+This market is explicitly about Bernie Sanders's remarks in Maine scheduled for May 24, 2026. Speeches, events, or comments that occur outside of the named, scheduled event will not qualify toward this market's resolution. If the event contains a Q&A, it will count toward the resolution of this market.
+
+AI-generated audio or video will not count toward this market's resolution.
+
+If this event is definitively cancelled, or otherwise is not aired by May 24, 2026, 11:59 PM ET, "-No Qualifying Event-" will resolve to "Yes" and all other brackets will resolve to "No". 
+
+The resolution source will be video of the events. Only remarks which are broadcast or streamed live will count toward this market's resolution.
+Contracts:
+  E4.C1: Will Bernie say "Healthcare" 4+ times in Maine?
+  E4.C2: Will Bernie say "Trump" 5+ times in Maine?
+  E4.C3: Will Bernie say "ICE" 5+ times in Maine?
+  E4.C4: Will Bernie say "Billionaire" 3+ times in Maine?
+  E4.C5: Will Bernie say "Middle Class" or "Working Class" in Maine?
+  E4.C6: Will Bernie say "Afford" or "Affordable" or "Affordability" in Maine?
+  E4.C7: Will Bernie say "Healthcare" in Maine?
+  E4.C8: Will Bernie say "Robot" or "Robotic" or "Robotics" in Maine?
+  E4.C9: Will Bernie say "Corrupt" or "Corruption" in Maine?
+  E4.C10: Will Bernie say "Elon" or "Musk" in Maine?
+  E4.C11: Will Bernie say "Revolution" or "Revolutionary" in Maine?
+  E4.C12: Will Bernie say "Climate" in Maine?
+  E4.C13: Will Bernie say "Iran" in Maine?
+  E4.C14: Will Bernie say "Restructure" in Maine?
+  E4.C15: Will Bernie say "Fight" in Maine?
+  E4.C16: Will Bernie say "Stakeholder" in Maine?
+  E4.C17: Will Bernie say "Greed" or "Greedy" in Maine?
+  E4.C18: Will Bernie say "Tariff" in Maine?
+  E4.C19: Will Bernie say "TSA" in Maine?
+  E4.C20: Will Bernie say "AI" or "Artificial Intelligence" in Maine?
+  E4.C21: Will Bernie say "Trumpism" in Maine?
+  E4.C22: Will Bernie say "Nuclear" in Maine?
+  E4.C23: Will Bernie say "Immigrant" or "Immigration" in Maine?
+  E4.C24: Will Bernie say "Coffee" in Maine?
+  E4.C25: Will Bernie say "Crypto" or "Bitcoin" in Maine?
+  E4.C26: Will Bernie's remarks not air?
+What to write for E4:
+  Write "p": a whole percent for every contract label, your chance that it resolves YES.
+
+=== E5 (as of 2026-05-20): What will Trump say during Kevin Warsh's Swearing-In?
+Rules:
+Donald Trump is scheduled to attend Kevin Warsh's swearing-in ceremony on May 22, 2026 (https://www.cnbc.com/2026/05/18/kevin-warsh-trump-federal-reserve-chair.html). 
+
+This market will resolve to "Yes" if Donald Trump says the listed term during his appearance at Kevin Warsh's swearing-in ceremony scheduled for May 22, 2026. Otherwise, the market will resolve to "No".
+
+If clips of old interviews or prerecorded videos are aired where Trump is speaking, those clips will count toward this market's resolution.
+
+Plural and possessive forms of the listed term will count toward the resolution of this market regardless of context; however, other forms will NOT count.
+
+Instances where the term is used in a compound word will count regardless of context (e.g., joyful is not a compound word for "joy," however, "killjoy" is a compounding of the words "kill" and "joy").
+
+If this market requires a specified number of mentions of a person’s first or last name, a full-name mention will count as one mention (e.g., if a market is about “Joe / Biden 5+ times,” a mention of “Joe Biden” will count once).
+
+This market is explicitly about Kevin Warsh's swearing-in ceremony on May 22, 2026. Speeches, events, or comments that occur outside of the named, scheduled event will not qualify toward this market's resolution. If the event contains a Q&A, it will count toward the resolution of this market.
+
+AI-generated audio or video will not count toward this market's resolution.
+
+If this event is definitively cancelled, or otherwise is not aired by May 24, 2026, 11:59 PM ET, "-No Qualifying Event-" will resolve to "Yes" and all other brackets will resolve to "No". 
+
+The resolution source will be video of the events. Only remarks which are broadcast or streamed live will count toward this market's resolution.
+Contracts:
+  E5.C1: Will Trump say "Unemployment" 5+ times during Kevin Warsh's swearing-in ceremony?
+  E5.C2: Will Trump say "Inflation" 5+ times during Kevin Warsh's swearing-in ceremony?
+  E5.C3: Will Trump say "Tariff" 5+ times during Kevin Warsh's swearing-in ceremony?
+  E5.C4: Will Trump say "Good afternoon" during Kevin Warsh's swearing-in ceremony?
+  E5.C5: Will Trump say "Job" during Kevin Warsh's swearing-in ceremony?
+  E5.C6: Will Trump say "Too late" during Kevin Warsh's swearing-in ceremony?
+  E5.C7: Will Trump say "Cut rate" during Kevin Warsh's swearing-in ceremony?
+  E5.C8: Will Trump say "Gold" during Kevin Warsh's swearing-in ceremony?
+  E5.C9: Will Trump say "Recession" during Kevin Warsh's swearing-in ceremony?
+  E5.C10: Will Trump say "Booming" during Kevin Warsh's swearing-in ceremony?
+  E5.C11: Will Trump say "Budget" during Kevin Warsh's swearing-in ceremony?
+  E5.C12: Will Trump say "War" during Kevin Warsh's swearing-in ceremony?
+  E5.C13: Will Trump say "Oil" during Kevin Warsh's swearing-in ceremony?
+  E5.C14: Will Trump say "Crypto" or "Bitcoin" during Kevin Warsh's swearing-in ceremony?
+  E5.C15: Will Trump say "All time high" during Kevin Warsh's swearing-in ceremony?
+  E5.C16: Will Trump say "Jerome" or "Powell" during Kevin Warsh's swearing-in ceremony?
+What to write for E5:
+  Write "p": a whole percent for every contract label, your chance that it resolves YES.
+
+=== E6 (as of 2026-04-26): What will King Charles say during the joint meeting of Congress on April 28? 
+Rules:
+King Charles is scheduled to participate in a joint meeting of Congress on April 28, 2026. (https://www.washingtonpost.com/politics/2026/04/01/king-charles-joint-meeting-congress/). 
+
+This market will resolve to "Yes" if King Charles says the listed term during the joint meeting of Congress scheduled for April 28, 2026. Otherwise, the market will resolve to "No".
+
+Plural and possessive forms of the listed term will count toward the resolution of this market regardless of context; however, other forms will NOT count.
+
+Instances where the term is used in a compound word will count regardless of context (e.g., joyful is not a compound word for "joy," however, "killjoy" is a compounding of the words "kill" and "joy").
+
+If this market requires a specified number of mentions of a person’s first or last name, a full-name mention will count as one mention (e.g., if a market is about “Joe / Biden 5+ times,” a mention of “Joe Biden” will count once).
+
+This market is explicitly about King Charles's remarks at the joint meeting of Congress scheduled for April 28, 2026. Speeches, events, or comments that occur outside of the named, scheduled event will not qualify toward this market's resolution. If the event contains a Q&A, it will count toward the resolution of this market.
+
+AI-generated audio or video will not count toward this market's resolution.
+
+If this event is definitively cancelled, or otherwise is not aired by April 30, 2026, 11:59 PM ET, "-No Qualifying Event-" will resolve to "Yes" and all other brackets will resolve to "No". 
+
+The resolution source will be video of the events. Only remarks which are broadcast or streamed live will count toward this market's resolution.
+Contracts:
+  E6.C1: Will King Charles say "American" or "America" 15+ times during the joint meeting of Congress?
+  E6.C2: Will King Charles say "Freedom" 5+ times during the joint meeting of Congress?
+  E6.C3: Will King Charles say "250" or "250th" during the joint meeting of Congress?
+  E6.C4: Will King Charles say "Mother" or "Mama" during the joint meeting of Congress?
+  E6.C5: Will King Charles say "NATO" during the joint meeting of Congress?
+  E6.C6: Will King Charles say "Parliament" during the joint meeting of Congress?
+  E6.C7: Will King Charles say "Ukraine" during the joint meeting of Congress?
+  E6.C8: Will King Charles say "AI" or "Artificial Intelligence" during the joint meeting of Congress?
+  E6.C9: Will King Charles say "Special Relationship" during the joint meeting of Congress?
+  E6.C10: Will King Charles say "George" or "Washington" during the joint meeting of Congress?
+  E6.C11: Will King Charles say "King" or "Kingdom" during the joint meeting of Congress?
+  E6.C12: Will King Charles say "Anniversary" during the joint meeting of Congress?
+  E6.C13: Will King Charles say "Honor" during the joint meeting of Congress?
+  E6.C14: Will King Charles say "Historic" or "History" or "Historical" during the joint meeting of Congress?
+  E6.C15: Will King Charles say "Crown" or "Prince" during the joint meeting of Congress?
+  E6.C16: Will King Charles say "Queen" or "Elizabeth" during the joint meeting of Congress?
+  E6.C17: Will King Charles say "War" during the joint meeting of Congress?
+  E6.C18: Will King Charles say "Independence" during the joint meeting of Congress?
+  E6.C19: Will King Charles say "Ballroom" during the joint meeting of Congress?
+  E6.C20: Will King Charles say "Colony" during the joint meeting of Congress?
+What to write for E6:
+  Write "p": a whole percent for every contract label, your chance that it resolves YES.

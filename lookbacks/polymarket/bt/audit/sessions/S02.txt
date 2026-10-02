@@ -1,0 +1,256 @@
+You will be shown 10 questions from a prediction market. Each question has one or more contracts, and each contract resolves YES or NO under the rules shown.
+
+For every contract, give your probability, as a whole percent from 1 to 99, that it resolves YES. Use only what you already know. Do not search for or look up anything: reading this file is the only tool call you may make.
+
+For each question, also say whether you recognise how it actually turned out ("recognised": true only if you believe you remember the real outcome; otherwise false).
+
+Where a question's contracts are mutually exclusive (exactly one can resolve YES), your numbers for it should add up to about 100. Where they are nested thresholds or dates, keep them consistent with each other.
+
+Reply with one JSON object and nothing else, in this form:
+{"events": [{"label": "E1", "recognised": false, "p": {"E1.C1": 35, "E1.C2": 60}}]}
+
+Every contract label below must appear exactly once in your reply.
+
+=== E1: Michigan Governor Democratic Primary Winner
+Rules:
+This market will resolve according to the winner of the Democratic Primary for Governor of Michigan, scheduled to take place on August 4, 2026. Resolution will be based on the overall winner of the primary, including any potential second round or run-off.
+
+If no 2026 Michigan Gubernatorial Democratic Primary takes place, this market will resolve to “Other.”
+
+The resolution source for this market will be the first official announcement of the results from the Michigan Democratic Party; however, an overwhelming consensus of credible reporting may suffice.
+Contracts:
+  E1.C1: Will Jocelyn Benson win the 2026 Michigan Governor Democratic primary election?
+  E1.C2: Will Garlin Gilchrist win the 2026 Michigan Governor Democratic primary election?
+  E1.C3: Will Marni Sawicki win the 2026 Michigan Governor Democratic primary election?
+  E1.C4: Will Chris Swanson win the 2026 Michigan Governor Democratic primary election?
+
+=== E2: CopperTech Metals IPO Closing Market Cap
+Rules:
+This market will resolve based on CopperTech Metals' market capitalization at the closing price on its first day of trading.
+
+As of market creation, the IPO is scheduled to price on July 1 (ET). If no such IPO occurs by August 31, 2026, 11:59 PM ET, the market will resolve to "No IPO before September 2026".
+
+Market capitalization expresses the monetary value of a company’s outstanding shares, stated in its pricing currency.
+
+It is calculated as the total number of outstanding shares, multiplied by the official closing share price of the publicly traded class on the first trading day.
+
+If necessary, to accurately capture the company’s total market capitalization, rather than a stock-class-specific market capitalization, the calculation will include all outstanding share classes and apply any stated conversion ratios to the publicly traded class. Where no conversion right exists, such shares will be counted at their stated outstanding amount without discount, unless official filings explicitly specify differently.
+
+The number of outstanding shares will be determined from official company filings or disclosures (e.g., SEC filings). The closing share price on the first trading day will be determined from the primary exchange’s official listing page.
+
+If the relevant value falls exactly between two brackets, this market will resolve to the higher range bracket.
+
+The primary resolution source for this market will be official company filings and the primary exchange’s official listing page. The market capitalization will be determined through appropriate calculation using the total outstanding shares and the closing price from the first day of trading.
+
+In the event of an interruption in the normal trading session on the specified company’s first day of trading (e.g., a circuit breaker or half-day), the market will resolve according to the official closing price of the abbreviated session. If no such official closing price is published, the market will resolve according to the next trading day on which an official closing price is published, treating that day as the first day of trading for the purposes of this market.
+Contracts:
+  E2.C1: Will CopperTech Metals' market cap be less than $3B at market close on IPO day?
+  E2.C2: Will CopperTech Metals' market cap be between $3B and $3.6B at market close on IPO day?
+  E2.C3: Will CopperTech Metals' market cap be between $3.6B and $4.2B at market close on IPO day?
+  E2.C4: Will CopperTech Metals' market cap be between $4.2B and $4.8B at market close on IPO day?
+  E2.C5: Will CopperTech Metals' market cap be between $4.8B and $5.4B at market close on IPO day?
+  E2.C6: Will CopperTech Metals' market cap be greater than $5.4B at market close on IPO day?
+  E2.C7: Will CopperTech Metals not IPO before September 2026?
+
+=== E3: Will SpaceX (SPCX) close above ___ end of July?
+Rules:
+This market will resolve to "Yes" if the official closing price for Space Exploration Technologies Corp. (SPCX) on the final trading day of July 2026 is higher than the listed price. Otherwise, this market will resolve to "No".
+
+If the final trading day of the month is shortened (for example, due to a market-holiday schedule), the official closing price published for that shortened session will still be used for resolution.
+
+If no official closing price is published for that session (for example, due to a trading halt into the close, system issue, or other disruption), the market will use the last valid on-exchange trade price of the regular session as the effective closing price.
+
+The resolution source for this market is Yahoo Finance — specifically, the Space Exploration Technologies Corp. (SPCX) "Close" prices available at https://finance.yahoo.com/quote/SPCX/history, published under "Historical Prices."
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Yahoo Finance.
+Contracts:
+  E3.C1: Will SpaceX (SPCX) close above $90 end of July?
+  E3.C2: Will SpaceX (SPCX) close above $100 end of July?
+  E3.C3: Will SpaceX (SPCX) close above $110 end of July?
+  E3.C4: Will SpaceX (SPCX) close above $120 end of July?
+  E3.C5: Will SpaceX (SPCX) close above $130 end of July?
+  E3.C6: Will SpaceX (SPCX) close above $140 end of July?
+  E3.C7: Will SpaceX (SPCX) close above $150 end of July?
+  E3.C8: Will SpaceX (SPCX) close above $160 end of July?
+  E3.C9: Will SpaceX (SPCX) close above $170 end of July?
+  E3.C10: Will SpaceX (SPCX) close above $180 end of July?
+  E3.C11: Will SpaceX (SPCX) close above $190 end of July?
+  E3.C12: Will SpaceX (SPCX) close above $200 end of July?
+
+=== E4: President of Andalusia after election?
+Rules:
+Elections for the autonomous community of Andalusia’s unicameral parliament are scheduled for May 17, 2026. The President of Andalusia will then be elected by the Parliament of Andalusia elected in this election.
+
+This market will resolve according to the first individual elected by the Parliament of Andalusia to serve as President of Andalusia following this election.
+
+Interim, temporary, or caretaker Presidents will not count.
+
+If no such President has been elected by December 31, 2026, 11:59 PM ET, this market will resolve to "Other".
+
+The primary resolution source for this market will be official information from the government of Andalusia; however, a consensus of credible reporting may also be used.
+Contracts:
+  E4.C1: Will Juanma Moreno be the next President of Andalusia following the regional election?
+  E4.C2: Will María Jesús Montero be the next President of Andalusia following the regional election?
+  E4.C3: Will Manuel Gavira be the next President of Andalusia following the regional election?
+  E4.C4: Will Antonio Maíllo be the next President of Andalusia following the regional election?
+  E4.C5: Will José Ignacio García be the next President of Andalusia following the regional election?
+
+=== E5: Silver (SI) above ___ end of January?
+Rules:
+This market will resolve to "Yes" if the official CME settlement price for the Active Month of Silver futures on the final trading day of January 2026 is higher than the listed price. Otherwise, the market will resolve to "No".
+
+For CME Silver (SI) futures contracts, the Active Month is the nearest of CME's designated delivery-cycle months (March, May, July, September, December) that is not the spot month. The Active Month becomes a non-active month effective on its First Position Date, at which point the next eligible contract month becomes the Active Month.
+
+Only the Active Month's official settlement price published by CME Group will be considered. Intraday trades, highs, lows, bids, offers, midpoint values, or indicative prices do not count.
+
+Note that the settlement price may differ from the last traded price. CME's methodology to determine the settlement price can vary by commodity and contract.
+
+Only days during January on which CME publishes an official settlement price for the Active Month will be included. Days without settlement prices (weekends, holidays, or market closures) are ignored.
+
+This market will resolve based on the settlement price as it appears on the CME settlement page at the time it is first published for that trading day, regardless of any later corrections or updates.
+
+The resolution source for this market is the CME Group website — specifically, the daily "Settlement" price for the Active Month of Silver (SI) futures.
+Contracts:
+  E5.C1: Will Silver (SI) settle over $120 on the final trading day of January 2026?
+  E5.C2: Will Silver (SI) settle over $110 on the final trading day of January 2026?
+  E5.C3: Will Silver (SI) settle over $100 on the final trading day of January 2026?
+  E5.C4: Will Silver (SI) settle over $95 on the final trading day of January 2026?
+  E5.C5: Will Silver (SI) settle over $90 on the final trading day of January 2026?
+  E5.C6: Will Silver (SI) settle over $85 on the final trading day of January 2026?
+  E5.C7: Will Silver (SI) settle over $80 on the final trading day of January 2026?
+  E5.C8: Will Silver (SI) settle over $75 on the final trading day of January 2026?
+  E5.C9: Will Silver (SI) settle over $70 on the final trading day of January 2026?
+  E5.C10: Will Silver (SI) settle over $65 on the final trading day of January 2026?
+  E5.C11: Will Silver (SI) settle over $55 on the final trading day of January 2026?
+  E5.C12: Will Silver (SI) settle over $40 on the final trading day of January 2026?
+
+=== E6: Sweden Parliamentary Election: 3rd Place
+Rules:
+Parliamentary elections are scheduled to be held in Sweden on September 13, 2026.
+
+This market will resolve according to the political party that wins the third-greatest number of seats in the Swedish Parliament (Riksdag) in this election.
+
+If voting in the Swedish parliamentary election does not occur by December 31, 2026, 11:59 PM ET, this market will resolve to "Other".
+
+The named parties or coalitions will be primarily ranked by the number of seats won in the specified election. If two or more parties are tied on seats, ties will be broken by the total number of valid votes received, with higher vote totals ranking higher. If parties remain tied, ties will be broken by alphabetical order of the listed party abbreviations. This market will resolve to the party that occupies the third finishing position after applying this ranking.
+
+This market will resolve based on the results of this election as indicated by a consensus of credible reporting. If there is ambiguity, this market will resolve based solely on the official results as reported by the Swedish government, specifically the Swedish Election Authority (Valmyndigheten) (https://www.val.se/).
+Contracts:
+  E6.C1: Will the Swedish Social Democratic Party (S) win the third most seats in the 2026 Swedish parliamentary election?
+  E6.C2: Will the Sweden Democrats (SD) win the third most seats in the 2026 Swedish parliamentary election?
+  E6.C3: Will the Moderate Party (M) win the third most seats in the 2026 Swedish parliamentary election?
+  E6.C4: Will the Centre Party (C) win the third most seats in the 2026 Swedish parliamentary election?
+  E6.C5: Will the Left Party (V) win the third most seats in the 2026 Swedish parliamentary election?
+  E6.C6: Will the Christian Democrats (KD) win the third most seats in the 2026 Swedish parliamentary election?
+  E6.C7: Will the Green Party (MP) win the third most seats in the 2026 Swedish parliamentary election?
+  E6.C8: Will the Liberals (L) win the third most seats in the 2026 Swedish parliamentary election?
+  E6.C9: Will the Citizens' Coalition (MED) win the third most seats in the 2026 Swedish parliamentary election?
+
+=== E7: January Inflation US - Monthly
+Rules:
+This is a market about the one-month percent change in the seasonally adjusted Consumer Price Index for All Urban Consumers (CPI-U) published by the Bureau of Labor Statistics (BLS).
+
+This market will resolve to the number that the one-month seasonally adjusted Consumer Price Index for All Urban Consumers (CPI-U) increased by in January 2026 according to the monthly BLS report.
+
+The resolution source for this market will be the BLS Consumer Price Index report released for January 2026 (https://www.bls.gov/bls/news-release/cpi.htm), currently scheduled to be released on February 11, 2026, at 8:30 AM ET. Resolution of this market will take place upon release of the aforementioned data.
+
+Note: the resolution source for this market will be the official monthly Consumer Price Index for All Urban Consumers (CPI-U) which reports to the one decimal point (e.g. 0.4%). Thus, this is the level of precision that will be used when resolving the market.
+
+If the BLS does not release the relevant figures on the scheduled date, this market may remain open up until the scheduled release time of the next CPI report (https://www.bls.gov/schedule). If the information is not released by that time, this market will resolve according to the figures of the most recent previous month with available data.
+Contracts:
+  E7.C1: Will monthly inflation increase by 0.1% or less in January?
+  E7.C2: Will monthly inflation increase by 0.2% in January?
+  E7.C3: Will monthly inflation increase by 0.3% in January?
+  E7.C4: Will monthly inflation increase by 0.4% in January?
+  E7.C5: Will monthly inflation increase by 0.5% or more in January?
+
+=== E8: Will Russia capture all of Pokrovsk by...?
+Rules:
+This market will resolve to “Yes” if, according to the ISW map, Russia captures the entirety of Pokrovsk by September 30, 2025, 11:59 PM ET.
+
+Pokrovsk will be considered captured if the entirety of the municipality is shaded red on the ISW map (https://storymaps.arcgis.com/stories/36a7f6a6f5a9448496de641cf64bd375) by the resolution date. If the area is not shaded red by September 30, 2025, 11:59 PM ET, the market will resolve to “No”.
+
+If the territory of municipality is shade light grey, and is distinguished from bordering municipalities such as "Rih" with a darker grey line. If all area within the municipality is shaded in red, however the shading does not precisely match up with the border such that there is a tiny amount of grey along the border of the city, this will still qualify for a "Yes" resolution.
+
+Once Russia captures the Pokrovsk, any subsequent loss of control will not be considered towards the resolution of this market.
+
+Pokrovsk Location: https://polymarket-upload.s3.us-east-2.amazonaws.com/Pokrovosk+Location.png
+Location on Google Maps: https://maps.app.goo.gl/ixAs4fF8n8ccVeL17
+
+The primary resolution source for this market will be the ISW Ukraine map. If the ISW map is rendered unavailable, information from DeepStateMap (https://deepstatemap.live/) may be used. If information from both the ISW and DeepStateMap are rendered permanently unavailable, a consensus of credible reporting may be used.
+
+Note: Any temporary glitches or errors in the map which will not be considered.
+
+If Russia comes into control of this territory as a result of a negotiated settlement, this will qualify for a 'Yes' resolution, regardless of if it is shaded red in the ISW map. An announcement of a negotiated settlement which gives Russia de jure control will not qualify. Actual control must be established.
+Contracts:
+  E8.C1: Will Russia capture all of Pokrovsk by February 28?
+    Contract rules: This market will resolve to “Yes” if, according to the ISW map, Russia captures the entirety of Pokrovsk by February 28, 2026, 11:59 PM ET.
+
+Pokrovsk will be considered captured if the entirety of the municipality is shaded red on the ISW map (https://storymaps.arcgis.com/stories/36a7f6a6f5a9448496de641cf64bd375) by the resolution date. If the area is not shaded red by February 28, 2026, 11:59 PM ET, the market will resolve to “No”.
+
+For any change on the ISW map to qualify for this market’s resolution, the relevant shading indicating Russian control must persist through the next full ISW daily update cycle. If ISW skips a day, shading must persist until the next finalized ISW update is published, regardless of the date. Any continuous shading which reflects either “Assessed Russian Control”, “Assessed Russian Advance In Ukraine”, or “Assessed Russian Gains in the Past 24 Hours” will qualify. “Assessed Russian Infiltration Areas in Ukraine” will not qualify.
+
+The territory of the municipality is shaded in light grey and is distinguished from bordering municipalities such as "Rih" with a darker grey line.  If all area within the municipality is shaded in red, however the shading does not precisely match up with the border such that there is a tiny amount of grey along the border of the city, this will still qualify for a "Yes" resolution.
+
+Once Russia captures the Pokrovsk, any subsequent loss of control will not be considered towards the resolution of this market.
+
+Pokrovsk Location: https://polymarket-upload.s3.us-east-2.amazonaws.com/Pokrovosk+Location.png
+Location on Google Maps: https://maps.app.goo.gl/ixAs4fF8n8ccVeL17
+
+The primary resolution source for this market will be the ISW Ukraine map. If the ISW map is rendered unavailable, information from DeepStateMap (https://deepstatemap.live/) may be used. If information from both the ISW and DeepStateMap are rendered permanently unavailable, a consensus of credible reporting may be used.
+
+Note: Any temporary glitches or errors in the map which will not be considered.
+
+If Russia comes into control of this territory as a result of a negotiated settlement, this will qualify for a 'Yes' resolution, regardless of if it is shaded red in the ISW map. An announcement of a negotiated settlement which gives Russia de jure control will not qualify. Actual control must be established.
+  E8.C2: Will Russia capture all of Pokrovsk by March 31?
+    Contract rules: This market will resolve to “Yes” if, according to the ISW map, Russia captures the entirety of Pokrovsk by March 31, 2026, 11:59 PM ET.
+
+Pokrovsk will be considered captured if the entirety of the municipality is shaded red on the ISW map (https://storymaps.arcgis.com/stories/36a7f6a6f5a9448496de641cf64bd375) by the resolution date. If the area is not shaded red by March 31, 2026, 11:59 PM ET, the market will resolve to “No”.
+
+For any change on the ISW map to qualify for this market’s resolution, the relevant shading indicating Russian control must persist through the next full ISW daily update cycle. If ISW skips a day, shading must persist until the next finalized ISW update is published, regardless of the date. Any continuous shading which reflects either “Assessed Russian Control”, “Assessed Russian Advance In Ukraine”, or “Assessed Russian Gains in the Past 24 Hours” will qualify. “Assessed Russian Infiltration Areas in Ukraine” will not qualify.
+
+The territory of the municipality is shaded in light grey and is distinguished from bordering municipalities such as "Rih" with a darker grey line.  If all area within the municipality is shaded in red, however the shading does not precisely match up with the border such that there is a tiny amount of grey along the border of the city, this will still qualify for a "Yes" resolution.
+
+Once Russia captures the Pokrovsk, any subsequent loss of control will not be considered towards the resolution of this market.
+
+Pokrovsk Location: https://polymarket-upload.s3.us-east-2.amazonaws.com/Pokrovosk+Location.png
+Location on Google Maps: https://maps.app.goo.gl/ixAs4fF8n8ccVeL17
+
+The primary resolution source for this market will be the ISW Ukraine map. If the ISW map is rendered unavailable, information from DeepStateMap (https://deepstatemap.live/) may be used. If information from both the ISW and DeepStateMap are rendered permanently unavailable, a consensus of credible reporting may be used.
+
+Note: Any temporary glitches or errors in the map which will not be considered.
+
+If Russia comes into control of this territory as a result of a negotiated settlement, this will qualify for a 'Yes' resolution, regardless of if it is shaded red in the ISW map. An announcement of a negotiated settlement which gives Russia de jure control will not qualify. Actual control must be established.
+
+=== E9: Any US state legislature votes on secession by June 30, 2026?
+Rules:
+This market will resolve to "Yes" if any house of any US state legislature holds a vote, as part of its standard legislative process, on a bill, resolution, or constitutional amendment whose main purpose is for the state to secede from the United States, or to otherwise declare its support for such a secession, by June 30, 2026 ET. Otherwise, this market will resolve to "No".
+
+A qualifying measure must clearly state its purpose as part of a process for the state to leave, withdraw from, dissolve political ties with, declare independence from, or otherwise terminate its membership in the United States; measures which merely study, explore, or explain a possibility of secession or independence will not qualify. Informal measures of consensus taking such as straw polls or whip counts will not qualify toward this market's resolution.
+
+A vote on a resolution or other statement without binding legal effect but declaring the state's explicit support for secession will qualify toward this market's resolution.
+
+Only a vote taken by a full chamber will qualify toward this market's resolution. Votes held by committees/subcommittees, etc., will not qualify.
+
+This market's primary resolution source will be official records of qualifying votes from relevant state governments, however a consensus of credible reporting will also be used.
+Contracts:
+  E9.C1: Any US state legislature votes on secession by June 30, 2026?
+
+=== E10: Colombia Presidential Election 1st Round: Turnout?
+Rules:
+Colombia's presidential elections are scheduled for May 31, 2026, and a second round (if required) on June 21, 2026, in case no candidate secures more than 50% of the valid votes in the first round.
+
+This market will resolve according to the official voter turnout rate for the first round of the 2026 Colombia presidential election, defined as the total number of votes cast divided by the total number of eligible voters.
+
+If the reported value falls exactly between two brackets, this market will resolve to the higher bracket.
+
+If the results of this election are not known by December 31, 2026, 11:59 PM ET, this market will resolve to the lowest bracket.
+
+This market will resolve based on the official results as reported by the Colombian government, including Colombia's National Civil Registry (Registraduría Nacional del Estado Civil) (https://registraduria.gov.co).
+Contracts:
+  E10.C1: Will voter turnout be <48% in the first round of the 2026 Colombian presidential election?
+  E10.C2: Will voter turnout be 48-51% in the first round of the 2026 Colombian presidential election?
+  E10.C3: Will voter turnout be 51-54% in the first round of the 2026 Colombian presidential election?
+  E10.C4: Will voter turnout be 54-57% in the first round of the 2026 Colombian presidential election?
+  E10.C5: Will voter turnout be 57-60% in the first round of the 2026 Colombian presidential election?
+  E10.C6: Will voter turnout be 60%+ in the first round of the 2026 Colombian presidential election?

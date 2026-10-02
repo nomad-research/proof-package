@@ -13,6 +13,17 @@ Nothing here has been run on the overlay.*
   verdict is your call, and it must be decided here).
 - "Listed before the event" is still unenforceable: v15 stores listed status as of September 2026.
 
+## Rob's statement, recorded verbatim (2026-09-30, in the build session, before any re-run)
+
+> "The answer is yes but there's a twist, they don't hedge in the typical sense of the word. They narrative hedge not
+> structurally hedge. Two long narratives could hedge each other in this case over different correlated theses."
+
+This is the requester's own wording. The four fields below are **not yet filled**: the statement says "yes", and it says the hedge
+is narrative and not structural, but it does not say what verdict K8 as pre-registered (which counts structural opposite holders and
+options) should return, how many nodes qualify, or what to do about rounds 1–6. The builder has not filled them in on Rob's behalf.
+**K8 has not been re-run.** (Rob wrote earlier that he had written expectations elsewhere; they were not found in the repo, in
+issue #11 or in the session transcript.)
+
 ## Your expectation (fill in)
 
 - **Expected verdict** (survives / dies / unreadable), and why:

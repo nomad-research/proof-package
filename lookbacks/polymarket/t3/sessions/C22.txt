@@ -1,0 +1,118 @@
+You are reading a group of prediction-market questions that may affect each other. Your view is as of 2026-10-01.
+
+You may search the web and fetch public pages to inform your view (load the WebSearch and WebFetch tools if needed). Rules for that:
+- Every web search must pass blocked_domains = ["polymarket.com", "kalshi.com", "predictit.org", "manifold.markets", "metaculus.com", "betfair.com", "smarkets.com", "oddschecker.com", "electionbettingodds.com", "polymarketanalytics.com", "gjopen.com", "goodjudgment.com", "insightprediction.com", "limitless.exchange", "myriad.markets", "betmgm.com", "draftkings.com", "fanduel.com", "williamhill.com", "paddypower.com", "bet365.com", "ladbrokes.com", "polymarket.co"].
+- Never open a prediction-market, betting or odds site, and never use or mention what any market, bookmaker or trader thinks. Give your own view from the evidence.
+- No other tools: only reading this file, searching and fetching.
+
+First decide which questions belong together. For any you judge unrelated to the rest, put its label in "drop" with a one-line reason; write nothing else for it.
+
+For every question you keep, write what it asks for. Whole percents run from 1 to 99. Levels are plain numbers in the units the contracts use. Dates are YYYY-MM-DD.
+
+CLAIMS. Where you believe one event's outcome changes the chances of another in this group, write a claim:
+  {"if": {"contract": "E1.C2", "resolves": "YES"}, "then_event": "E3", "if_true": <what you would write for E3 if that happens>, "if_false": <what you would write for E3 if it does not>}
+"if_true" and "if_false" use exactly the fields E3 asks for (the same "p", "levels", "high", "low" or "dates" object). Write as many claims as you believe in, including none.
+
+SCALE. For every question you keep that measures a quantity, a count, a price, a size or a date, also write "scale": the kind of thing this is and where you expect this instance to land among instances of that kind.
+  "scale": {"class": "<the reference class, e.g. monthly US core CPI prints since 2010>", "percentile": <0 to 100: where your middle view of this instance sits among instances of that class; 50 is an ordinary one>}
+Write "scale": null for a question with no scale (a plain yes/no about whether something happens).
+
+Also list the pages you relied on in "sources" (URLs).
+
+Reply with one JSON object and nothing else:
+{"drop": {"E5": "reason"}, "events": [{"label": "E1", ...the fields it asks for..., "scale": {"class": "...", "percentile": 50}}], "claims": [...], "sources": ["https://..."]}
+
+=== E1 (as of 2026-10-01): What price will Plasma hit in 2026?
+Rules:
+What price will Plasma hit before 2027?
+Contracts:
+  E1.C1: Will Plasma reach $2.20 by December 31, 2026?
+    Contract rules: This market will immediately resolve to “Yes” if any Binance 1-minute candle for XPL (XPL/USDT) between November 24, 2025, 17:35 and December 31, 2026, 23:59 in the ET timezone has a final “High” price equal to or greater than the price specified in the title. Otherwise, this market will resolve to “No.”
+
+The resolution source for this market is Binance, specifically the XPL/USDT “High” prices available at:
+https://www.binance.com/en/trade/XPL_USDT
+with the chart set to “1m” (one-minute candles) on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance XPL/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E1.C2: Will Plasma reach $2.00 by December 31, 2026?
+    Contract rules: This market will immediately resolve to “Yes” if any Binance 1-minute candle for XPL (XPL/USDT) between November 24, 2025, 17:35 and December 31, 2026, 23:59 in the ET timezone has a final “High” price equal to or greater than the price specified in the title. Otherwise, this market will resolve to “No.”
+
+The resolution source for this market is Binance, specifically the XPL/USDT “High” prices available at:
+https://www.binance.com/en/trade/XPL_USDT
+with the chart set to “1m” (one-minute candles) on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance XPL/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E1.C3: Will Plasma reach $1.80 by December 31, 2026?
+    Contract rules: This market will immediately resolve to “Yes” if any Binance 1-minute candle for XPL (XPL/USDT) between November 24, 2025, 17:35 and December 31, 2026, 23:59 in the ET timezone has a final “High” price equal to or greater than the price specified in the title. Otherwise, this market will resolve to “No.”
+
+The resolution source for this market is Binance, specifically the XPL/USDT “High” prices available at:
+https://www.binance.com/en/trade/XPL_USDT
+with the chart set to “1m” (one-minute candles) on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance XPL/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E1.C4: Will Plasma reach $1.60 by December 31, 2026?
+    Contract rules: This market will immediately resolve to “Yes” if any Binance 1-minute candle for XPL (XPL/USDT) between November 24, 2025, 17:35 and December 31, 2026, 23:59 in the ET timezone has a final “High” price equal to or greater than the price specified in the title. Otherwise, this market will resolve to “No.”
+
+The resolution source for this market is Binance, specifically the XPL/USDT “High” prices available at:
+https://www.binance.com/en/trade/XPL_USDT
+with the chart set to “1m” (one-minute candles) on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance XPL/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E1.C5: Will Plasma reach $1.40 by December 31, 2026?
+    Contract rules: This market will immediately resolve to “Yes” if any Binance 1-minute candle for XPL (XPL/USDT) between November 24, 2025, 17:35 and December 31, 2026, 23:59 in the ET timezone has a final “High” price equal to or greater than the price specified in the title. Otherwise, this market will resolve to “No.”
+
+The resolution source for this market is Binance, specifically the XPL/USDT “High” prices available at:
+https://www.binance.com/en/trade/XPL_USDT
+with the chart set to “1m” (one-minute candles) on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance XPL/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E1.C6: Will Plasma reach $1.20 by December 31, 2026?
+    Contract rules: This market will immediately resolve to “Yes” if any Binance 1-minute candle for XPL (XPL/USDT) between November 24, 2025, 17:35 and December 31, 2026, 23:59 in the ET timezone has a final “High” price equal to or greater than the price specified in the title. Otherwise, this market will resolve to “No.”
+
+The resolution source for this market is Binance, specifically the XPL/USDT “High” prices available at:
+https://www.binance.com/en/trade/XPL_USDT
+with the chart set to “1m” (one-minute candles) on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance XPL/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E1.C7: Will Plasma reach $0.60 by December 31, 2026?
+    Contract rules: This market will immediately resolve to “Yes” if any Binance 1-minute candle for XPL (XPL/USDT) between November 25, 2025, 17:30 and December 31, 2026, 23:59 in the ET timezone has a final “High” price equal to or greater than the price specified in the title. Otherwise, this market will resolve to “No.”
+
+The resolution source for this market is Binance, specifically the XPL/USDT “High” prices available at:
+https://www.binance.com/en/trade/XPL_USDT
+with the chart set to “1m” (one-minute candles) on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance XPL/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E1.C8: Will Plasma reach $0.50 by December 31, 2026?
+    Contract rules: This market will immediately resolve to “Yes” if any Binance 1-minute candle for XPL (XPL/USDT) between November 25, 2025, 17:30 and December 31, 2026, 23:59 in the ET timezone has a final “High” price equal to or greater than the price specified in the title. Otherwise, this market will resolve to “No.”
+
+The resolution source for this market is Binance, specifically the XPL/USDT “High” prices available at:
+https://www.binance.com/en/trade/XPL_USDT
+with the chart set to “1m” (one-minute candles) on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance XPL/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E1.C9: Will Plasma reach $0.40 by December 31, 2026?
+    Contract rules: This market will immediately resolve to “Yes” if any Binance 1-minute candle for XPL (XPL/USDT) between November 25, 2025, 17:30 and December 31, 2026, 23:59 in the ET timezone has a final “High” price equal to or greater than the price specified in the title. Otherwise, this market will resolve to “No.”
+
+The resolution source for this market is Binance, specifically the XPL/USDT “High” prices available at:
+https://www.binance.com/en/trade/XPL_USDT
+with the chart set to “1m” (one-minute candles) on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance XPL/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E1.C10: Will Plasma reach $0.30 by December 31, 2026?
+    Contract rules: This market will immediately resolve to “Yes” if any Binance 1-minute candle for XPL (XPL/USDT) between November 25, 2025, 17:30 and December 31, 2026, 23:59 in the ET timezone has a final “High” price equal to or greater than the price specified in the title. Otherwise, this market will resolve to “No.”
+
+The resolution source for this market is Binance, specifically the XPL/USDT “High” prices available at:
+https://www.binance.com/en/trade/XPL_USDT
+with the chart set to “1m” (one-minute candles) on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance XPL/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E1.C11: Will Plasma reach $0.24 by December 31, 2026?
+    Contract rules: This market will immediately resolve to “Yes” if any Binance 1-minute candle for XPL (XPL/USDT) between November 25, 2025, 16:45 and December 31, 2026, 23:59 in the ET timezone has a final “High” price equal to or greater than the price specified in the title. Otherwise, this market will resolve to “No.”
+
+The resolution source for this market is Binance, specifically the XPL/USDT “High” prices available at:
+https://www.binance.com/en/trade/XPL_USDT
+with the chart set to “1m” (one-minute candles) on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance XPL/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+What to write for E1:
+  Write "high": for each chance 10, 25, 50, 75 and 90, the level you give that chance of being reached (at or above) within the period. The 10 level is the highest.

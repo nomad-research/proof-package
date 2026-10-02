@@ -1,0 +1,258 @@
+You will be shown 10 questions from a prediction market. Each question has one or more contracts, and each contract resolves YES or NO under the rules shown.
+
+For every contract, give your probability, as a whole percent from 1 to 99, that it resolves YES. Use only what you already know. Do not search for or look up anything: reading this file is the only tool call you may make.
+
+For each question, also say whether you recognise how it actually turned out ("recognised": true only if you believe you remember the real outcome; otherwise false).
+
+Where a question's contracts are mutually exclusive (exactly one can resolve YES), your numbers for it should add up to about 100. Where they are nested thresholds or dates, keep them consistent with each other.
+
+Reply with one JSON object and nothing else, in this form:
+{"events": [{"label": "E1", "recognised": false, "p": {"E1.C1": 35, "E1.C2": 60}}]}
+
+Every contract label below must appear exactly once in your reply.
+
+=== E1: South African Reserve Bank decision in July?
+Rules:
+This market will resolve according to the change in basis points in the repo rate resulting from the July 2026 meeting of the South African Reserve Bank's Monetary Policy Committee, relative to the level it was prior to this meeting.
+
+The resolution source will be official information from the South African Reserve Bank's Monetary Policy Committee, including the statement or release from its July 2026 meeting, scheduled for July 23, 2026, as listed on the official South African Reserve Bank calendar (https://www.resbank.co.za/en/home/calendar).
+
+This market may resolve as soon as the statement or release of the South African Reserve Bank's Monetary Policy Committee resulting from its July 2026 meeting with relevant data is issued.
+
+If the specified rate is defined by an upper and lower bound, the relevant change will be the change to the upper bound.
+
+If the specified rate is changed to a level not expressed in the displayed options, the change will be rounded according to the following guidelines. Increases or decreases of less than 25 bps will be rounded to 25 bps (e.g. an increase or decrease of 10 bps would be considered to be an increase or decrease of 25 bps). Increases or decreases of greater than 25 bps will be rounded to the nearest 25 bps and will be rounded away from 0 in cases of equidistance (e.g., an increase or decrease of 37.5 bps would be considered to be an increase or decrease of 50 bps). Displayed options of "Hike" or "Cut" will include policy rate increases or decreases of any size.
+
+If the specified meeting is postponed to a date and time before the start of the next scheduled meeting, this market will resolve based on the outcome of that postponed meeting.
+
+If the specified meeting is cancelled, or postponed such that no decision is announced by the start of the next scheduled meeting, this market will resolve to the "No Change" bracket. Emergency changes to the specified rate not resulting from the specified meeting will not be considered.
+Contracts:
+  E1.C1: Will the South African Reserve Bank cut by 50 bps or more at the July 2026 meeting?
+  E1.C2: Will the South African Reserve Bank cut by 25 bps at the July 2026 meeting?
+  E1.C3: Will the South African Reserve Bank hold at the July 2026 meeting?
+  E1.C4: Will the South African Reserve Bank hike by 25 bps at the July 2026 meeting?
+  E1.C5: Will the South African Reserve Bank hike by 50 bps or more at the July 2026 meeting?
+
+=== E2: Sachsen-Anhalt Parliamentary Election: CDU Vote Share?
+Rules:
+Parliamentary elections to elect the Landtag of Sachsen-Anhalt are scheduled to take place on September 6, 2026.
+
+This market will resolve according to the percentage of valid second votes (Zweitstimme) received by CDU in the specified election.
+
+If the reported value falls exactly between two brackets, then this market will resolve to the higher range bracket.
+
+This market will resolve solely based on the percentage of valid second votes (Zweitstimme) won by the specified party, defined as the number of valid second votes won by the specified party divided by the total number of valid second votes in the specified election.
+
+Valid vote percentages will be counted only where the State Returning Officer of Sachsen-Anhalt (Landeswahlleiter Sachsen-Anhalt) attributes them to the aforementioned party. Vote percentages attributed to other parties or electoral designations will not count, regardless of electoral cooperation, endorsements, coalition agreements, or subsequent parliamentary-group arrangements. If the specified party formally merges into a successor party before the election and does not contest separately, the valid vote percentage of the successor party will count towards resolution.
+
+If the results of this election are not definitively known by December 31, 2026, 11:59 PM ET, this market will resolve to the lowest range bracket.
+
+This market will resolve based on the results of this election as indicated by a consensus of credible reporting. If there is ambiguity, this market will resolve based solely on the official results as published on the official website of the Landtag of Sachsen-Anhalt (https://www.landtag.sachsen-anhalt.de/).
+Contracts:
+  E2.C1: Will CDU win less than 20% of all valid second votes?
+  E2.C2: Will CDU win between 20% and 23% of all valid second votes?
+  E2.C3: Will CDU win between 23% and 26% of all valid second votes?
+  E2.C4: Will CDU win at least 26% of all valid second votes?
+
+=== E3: Labour leadership election scheduled by ...?
+Rules:
+This market will resolve to "Yes" if a leadership election for the UK-wide Leader of the Labour Party is scheduled by the specified date, ET. Otherwise, this market will resolve to "No".
+
+This market is about whether a date for any Labour Party leadership election is announced within this market's timeframe. Whether the election is supposed to take place within this market's timeframe or later will have no effect on the resolution to this market.
+
+The resolution source for this market will be official information from the Labour Party, however a consensus of credible reporting may be used.
+Contracts:
+  E3.C1: Labour leadership election scheduled by June 30?
+  E3.C2: Labour leadership election scheduled by December 31, 2026?
+
+=== E4: US federally charges ex-Cuba leader Raul Castro?
+Rules:
+This market will resolve to “Yes” if United States federal government formally charges or announces a criminal indictment of former First Secretary of the Communist Party of Cuba Raul Castro between market creation and June 30, 2026, 11:59 PM ET. Otherwise, this market will resolve to “No”.
+
+The primary resolution source for this market will be official information from US governmental sources, however a wide consensus of credible reporting will also be used.
+Contracts:
+  E4.C1: US federally charges ex-Cuba leader Raul Castro?
+
+=== E5: What price will Bitcoin hit in June?
+Rules:
+What price will Bitcoin hit in June?
+Contracts:
+  E5.C1: Will Bitcoin reach $100,000 in June?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for BTC/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last), has a final High price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the BTC/USDT High prices available at https://www.binance.com/en/trade/BTC_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance BTC/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E5.C2: Will Bitcoin reach $92,500 in June?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for BTC/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last), has a final High price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the BTC/USDT High prices available at https://www.binance.com/en/trade/BTC_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance BTC/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E5.C3: Will Bitcoin reach $90,000 in June?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for BTC/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last), has a final High price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the BTC/USDT High prices available at https://www.binance.com/en/trade/BTC_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance BTC/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E5.C4: Will Bitcoin reach $87,500 in June?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for BTC/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last), has a final High price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the BTC/USDT High prices available at https://www.binance.com/en/trade/BTC_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance BTC/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E5.C5: Will Bitcoin reach $85,000 in June?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for BTC/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last), has a final High price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the BTC/USDT High prices available at https://www.binance.com/en/trade/BTC_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance BTC/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E5.C6: Will Bitcoin reach $82,500 in June?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for BTC/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last), has a final High price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the BTC/USDT High prices available at https://www.binance.com/en/trade/BTC_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance BTC/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E5.C7: Will Bitcoin reach $80,000 in June?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for BTC/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last), has a final High price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the BTC/USDT High prices available at https://www.binance.com/en/trade/BTC_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance BTC/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E5.C8: Will Bitcoin reach $77,500 in June?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for BTC/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last), has a final High price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the BTC/USDT High prices available at https://www.binance.com/en/trade/BTC_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance BTC/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E5.C9: Will Bitcoin reach $75,000 in June?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for BTC/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last), has a final High price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the BTC/USDT High prices available at https://www.binance.com/en/trade/BTC_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance BTC/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E5.C10: Will Bitcoin reach $72,500 in June?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for BTC/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last), has a final High price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the BTC/USDT High prices available at https://www.binance.com/en/trade/BTC_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance BTC/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E5.C11: Will Bitcoin reach $70,000 in June?
+    Contract rules: This market will resolve to "Yes" if any Binance 1 minute candle for BTC/USDT from the creation of this market through 11:59 PM ET on the last day of the month specified in the title has a final High price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No". Price action before this market's creation will not be considered.
+
+The resolution source for this market is Binance, specifically the BTC/USDT High prices available at https://www.binance.com/en/trade/BTC_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance BTC/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E5.C12: Will Bitcoin reach $67,500 in June?
+    Contract rules: This market will resolve to "Yes" if any Binance 1 minute candle for BTC/USDT from the creation of this market through 11:59 PM ET on the last day of the month specified in the title has a final High price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No". Price action before this market's creation will not be considered.
+
+The resolution source for this market is Binance, specifically the BTC/USDT High prices available at https://www.binance.com/en/trade/BTC_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance BTC/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+
+=== E6: TX-21 Republican Primary Winner
+Rules:
+This market will resolve according to the candidate who wins the nomination for the Republican Party to contest the TX-21 congressional district seat in the U.S. House of Representatives in the 2026 midterm elections. The Republican primary will take place on March 3, 2026.
+
+If no nominee is announced by November 3, 2026, 11:59PM ET, this market will resolve to "Other".
+
+The resolution source for this market will be a consensus of official Republican sources, including https://www.rnc.org/.
+
+Any replacement of the nominee before election day will not change the resolution of the market.
+Contracts:
+  E6.C1: Will Robert Lowry be the Republican nominee for TX-21?
+  E6.C2: Will Chip Roy be the Republican nominee for TX-21?
+  E6.C3: Will Mike Wheeler be the Republican nominee for TX-21?
+  E6.C4: Will Peggy Wardlaw be the Republican nominee for TX-21?
+  E6.C5: Will Trey Trainor be the Republican nominee for TX-21?
+  E6.C6: Will Heather Tessmer be the Republican nominee for TX-21?
+  E6.C7: Will Mark Teixeira be the Republican nominee for TX-21?
+  E6.C8: Will Kyle Sinclair be the Republican nominee for TX-21?
+  E6.C9: Will Paul Rojas be the Republican nominee for TX-21?
+  E6.C10: Will Matt Okerson be the Republican nominee for TX-21?
+  E6.C11: Will Weston Martinez be the Republican nominee for TX-21?
+  E6.C12: Will Denis Goulet be the Republican nominee for TX-21?
+
+=== E7: Meta’s Market Cap end of September 2026?
+Rules:
+This market will resolve according to Meta's public market capitalization at the close of regular trading on the final trading day of the specified month.
+
+If the determined value falls exactly on the boundary between two brackets, this market will resolve to the higher bracket.
+
+Public market capitalization will be determined through appropriate calculation using the final official regular-hours closing prices published for the company's listed equities on its primary exchange for the last trading day of the specified month, multiplied by the company's total number of shares outstanding at the relevant time. If necessary, to accurately capture the company’s total market capitalization, rather than a stock-class-specific market capitalization, the calculation will include all outstanding share classes and apply any stated conversion ratios to the publicly traded class. Where no conversion right exists, such shares will be counted at their stated outstanding amount without discount, unless official filings explicitly specify differently. The number of outstanding shares will be determined from official company filings or disclosures (e.g., SEC filings).
+
+If the listed company merges with or acquires another entity and remains the parent company, no change to resolution methodology applies.
+
+If the listed company is acquired, merges into another entity and is no longer the surviving parent company, or otherwise ceases to exist as an independent entity prior to the end of the period, the public market capitalizations achieved prior to completion of the transaction will be considered for resolution. No transaction, acquisition, or merger consideration will be considered for resolution.
+
+The resolution source for this market is official exchange trading data and publicly reported share counts.
+Contracts:
+  E7.C1: Will Meta’s market capitalization be less than $1.00T at the end of September 2026?
+  E7.C2: Will Meta’s market capitalization be between $1.00T and $1.25T at the end of September 2026?
+  E7.C3: Will Meta’s market capitalization be between $1.25T and $1.50T at the end of September 2026?
+  E7.C4: Will Meta’s market capitalization be between $1.50T and $1.75T at the end of September 2026?
+  E7.C5: Will Meta’s market capitalization be between $1.75T and $2.00T at the end of September 2026?
+  E7.C6: Will Meta’s market capitalization be between $2.00T and $2.25T at the end of September 2026?
+  E7.C7: Will Meta’s market capitalization be at least $2.25T at the end of September 2026?
+
+=== E8: AL-01 Republican Primary Winner
+Rules:
+This market will resolve according to the candidate who wins the nomination for the Republican Party to contest the AL-01 congressional district seat in the U.S. House of Representatives in the 2026 midterm elections. The Republican primary will take place on May 19, 2026.
+
+If no nominee is announced by November 3, 2026, 11:59PM ET, this market will resolve to "Other".
+
+The resolution source for this market will be a consensus of official Republican sources, including https://www.rnc.org/.
+
+Any replacement of the nominee before election day will not change the resolution of the market.
+Contracts:
+  E8.C1: Will Jerry Carl be the Republican nominee for AL-01?
+  E8.C2: Will James Dees be the Republican nominee for AL-01?
+  E8.C3: Will Rhett Marques be the Republican nominee for AL-01?
+  E8.C4: Will Joshua McKee be the Republican nominee for AL-01?
+  E8.C5: Will John Mills be the Republican nominee for AL-01?
+  E8.C6: Will James Richardson be the Republican nominee for AL-01?
+  E8.C7: Will Austin Sidwell be the Republican nominee for AL-01?
+
+=== E9: Who will Trump meet with in May?
+Rules:
+This market will resolve to "Yes" if the listed individual meets with Donald Trump between May 1, and May 31, 2026, 11:59 PM ET. Otherwise, this market will resolve to "No".
+
+A meeting is defined as any encounter where both the listed individual and Trump are present and interact with each other in person.
+
+The resolution source will be a consensus of credible reporting.
+Contracts:
+  E9.C1: Will Trump meet with Kim Jong Un in May 2026?
+  E9.C2: Will Trump meet with Volodymyr Zelenskyy in May 2026?
+  E9.C3: Will Trump meet with Mohammed bin Salman in May 2026?
+  E9.C4: Will Trump meet with Vladimir Putin in May 2026?
+  E9.C5: Will Trump meet with Keir Starmer in May 2026?
+  E9.C6: Will Trump meet with Giorgia Meloni in May 2026?
+  E9.C7: Will Trump meet with Elon Musk in May 2026?
+  E9.C8: Will Trump meet with Benjamin Netanyahu in May 2026?
+
+=== E10: Will Russia capture Dorozhnie by...?
+Rules:
+This market will resolve to “Yes” if, according to the ISW map, Russia captures the railroad station (48.423665° N, 37.221521° E) located in Dorozhnie, Donetsk Oblast, by the specified date 11:59 PM ET.
+
+The train station will be considered captured if any part of the icon is shaded red on the ISW map (https://storymaps.arcgis.com/stories/36a7f6a6f5a9448496de641cf64bd375) by the resolution date. If the area is not shaded red by the specified date, the market will resolve to “No”.
+
+For any change on the ISW map to qualify for this market’s resolution, the relevant shading indicating Russian control must persist through the next full ISW daily update cycle. If ISW skips a day, shading must persist until the next finalized ISW update is published, regardless of the date. Any continuous shading which reflects either “Assessed Russian Control”, “Assessed Russian Advance In Ukraine”, or “Assessed Russian Gains in the Past 24 Hours” will qualify. “Assessed Russian Infiltration Areas in Ukraine” will not qualify.
+
+If Russia comes into control of this territory as a result of a negotiated settlement, this will qualify for a 'Yes' resolution, regardless of whether it is shaded red in the ISW map. An announcement of a negotiated settlement that gives Russia de jure control will not qualify. Actual control must be established.
+
+Once Russia captures the railroad station, any subsequent loss of control will not be considered towards the resolution of this market.
+
+Train Station Location: https://polymarket-upload.s3.us-east-2.amazonaws.com/Dorozhnie1.png 
+
+Location in Dorozhnie: https://polymarket-upload.s3.us-east-2.amazonaws.com/Dorozhnie2.png
+
+Dorozhnie Location: https://polymarket-upload.s3.us-east-2.amazonaws.com/Dorozhnie3.png
+
+Location on Google maps: https://maps.app.goo.gl/Qdc6WJDYPcziC7PU9
+
+The primary resolution source for this market will be the ISW Ukraine map. If the ISW map is rendered unavailable, information from DeepStateMap (https://deepstatemap.live/) may be used. If information from both the ISW and DeepStateMap are rendered permanently unavailable, a consensus of credible reporting may be used.
+
+Note: Any temporary glitches or errors in the map will not be considered.
+Contracts:
+  E10.C1: Will Russia capture Dorozhnie by June 30, 2026?
+  E10.C2: Will Russia capture Dorozhnie by July 31, 2026?

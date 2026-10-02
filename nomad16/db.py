@@ -144,6 +144,19 @@ TABLES: dict[str, tuple[str, list[str]]] = {
     "census_rows": (LEDGER, ["census_id", "holder_key", "holder_name", "instrument_symbol", "instrument_kind",
                              "relation", "concentration_pct", "concentrated", "basis", "source_document",
                              "knowable_from", "earliest_event_date", "status"]),
+    # --- v17 (V0, V1): identity events, document links, statement links. New ledger tables that point
+    # at existing rows by id; no existing ledger table gains a column (A18) --------------------------
+    "entity_events": (LEDGER, ["event_id", "event_type", "entity_keys", "payload", "evidence_ids",
+                               "knowable_from", "status", "reason", "by", "ref_event"]),
+    "evidence_entities": (LEDGER, ["evidence_id", "entity_key", "content_hash"]),
+    "statement_links": (LEDGER, ["statement_id", "evidence_entity", "role", "span", "span_verified",
+                                 "published_at", "note"]),
+    # --- v17 V2 slice: count-dilution buckets, a versioned post-hoc partition of edges (new tables only) -------------
+    "bucket_versions": (LEDGER, ["version_id", "method", "embedder", "embedder_trained_through", "features_hash",
+                                 "knowable_cutoff", "status", "note"]),
+    "bucket_assignments": (LEDGER, ["version_id", "edge_key", "bucket", "label", "text_hash", "text_knowable_from"]),
+    "bucket_fits": (LEDGER, ["version_id", "bucket", "status", "alpha", "alpha_raw", "se", "n_obs", "information",
+                             "shrink_k", "min_obs", "fitted_on"]),
     # --- library ------------------------------------------------------------------
     "library_history": (LEDGER, ["rule_id", "weight", "weight_state", "trials_as_carried",
                                  "computed_from_resolutions", "valid_from", "tide_count"]),
@@ -174,6 +187,8 @@ TABLES: dict[str, tuple[str, list[str]]] = {
     "instruments": (MUTABLE, ["holder_id", "ack_id", "yes_outcomes", "kind", "symbol",
                               "venue", "listed_from", "cap_class", "expiry", "strikes",
                               "multiplier", "cost_model_id", "quote_source", "underlying"]),
+    "event_contract_meta": (MUTABLE, ["condition_id", "token_id", "side", "event_id", "neg_risk", "tick_size", "min_size",
+                                      "fee_schedule", "slot_kind"]),
     "cost_models": (MUTABLE, ["kind", "spread_rule", "fee", "borrow", "slippage_rule",
                               "pricing_rule"]),
     "tides": (MUTABLE, ["label", "declared_by", "from_date", "to_date", "retro_declared",
@@ -182,6 +197,15 @@ TABLES: dict[str, tuple[str, list[str]]] = {
                            "read_in_full_rule"]),
     "procedural_models": (MUTABLE, ["process_type", "states", "transitions",
                                     "counted_through"]),
+    # --- v17 mutable stores. holders, nodes and node_types stay as they are: v16 code paths and every old
+    # lock manifest read them. ``entities`` is the one table of things; key_map ties the two together. -------
+    "entities": (MUTABLE, ["canonical_name", "kind", "exists_from", "exists_from_knowable", "exists_to",
+                           "exists_to_knowable", "declared_capabilities", "entity_refs", "aliases",
+                           "state_attributes", "observable", "legacy", "document", "first_seen_round"]),
+    "entity_kinds": (MUTABLE, ["parent", "description", "scale_attribute", "capabilities", "review", "seeded"]),
+    "capabilities": (MUTABLE, ["meaning", "mode", "note"]),
+    "key_map": (MUTABLE, ["entity_key", "source_table", "collision"]),
+    "attribute_scope": (MUTABLE, ["kinds", "note"]),
 }
 
 LEDGER_TABLES = [t for t, (k, _) in TABLES.items() if k == LEDGER]

@@ -1,0 +1,232 @@
+You will be shown 6 questions from a prediction market. Each has one or more contracts that resolve YES or NO under the rules shown. Each question gives the date your view is "as of": answer as you would on that date.
+
+Use only what you already know. Do not search for or look up anything: reading this file is the only tool call you may make. There are no prices in this file and you should not try to estimate what any market thinks; give your own view.
+
+Each question says what to write for it. Whole percents run from 1 to 99. Levels are plain numbers in the units the contracts use (for example 95000 for $95,000, 3.25 for 3.25%). Dates are YYYY-MM-DD.
+
+For each question also say whether you recognise how it actually turned out ("recognised": true only if you believe you remember the real outcome; otherwise false).
+
+Reply with one JSON object and nothing else:
+{"events": [{"label": "E1", "recognised": false, ...the fields that question asks for...}]}
+
+=== E1 (as of 2026-05-13): Solana price on May 14?
+Rules:
+This market will resolve according to the final "Close" price of the Binance 1 minute candle for SOL/USDT 12:00 in the ET timezone (noon) on the date specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the SOL/USDT "Close" prices currently available at https://www.binance.com/en/trade/SOL_USDT with "1m" and "Candles" selected on the top bar.
+
+If the reported value falls exactly between two brackets, then this market will resolve to the higher range bracket.
+
+Please note that this market is about the price according to Binance SOL/USDT, not according to other exchanges or trading pairs.
+Contracts:
+  E1.C1: Will the price of Solana be less than $40 on May 14?
+  E1.C2: Will the price of Solana be between $40 and $50 on May 14?
+  E1.C3: Will the price of Solana be between $50 and $60 on May 14?
+  E1.C4: Will the price of Solana be between $60 and $70 on May 14?
+  E1.C5: Will the price of Solana be between $70 and $80 on May 14?
+  E1.C6: Will the price of Solana be between $80 and $90 on May 14?
+  E1.C7: Will the price of Solana be between $90 and $100 on May 14?
+  E1.C8: Will the price of Solana be between $100 and $110 on May 14?
+  E1.C9: Will the price of Solana be between $110 and $120 on May 14?
+  E1.C10: Will the price of Solana be between $120 and $130 on May 14?
+  E1.C11: Will the price of Solana be greater than $130 on May 14?
+What to write for E1:
+  Write "p_not": a whole percent for every contract label, your chance that it is NOT the one that resolves YES. These need not add to any total.
+
+=== E2 (as of 2026-06-10): Which cities will Waymo launch in by June 30?
+Rules:
+This market will resolve to “Yes” if Waymo begins offering its ride-hailing service to the general public within the listed city by June 30, 2026, 11:59 PM ET. Otherwise this market will resolve to "No".
+
+Any taxi service available to the general public which operates without a human driver actively controlling the vehicle will count, regardless of membership or other financial restrictions.
+
+A qualifying launch requires the general public be able to hail a Waymo vehicle within the listed city \ through the Waymo One app or another official Waymo platform (such as a dedicated website or integrated partner app like Uber). 
+
+Limited pilot programs, internal employee testing, or invite-only service will not qualify.
+
+The primary resolution source is official information from Waymo (see: https://waymo.com/rides/c), however a consensus of credible reporting may also be used.
+Contracts:
+  E2.C1: Will Waymo launch in New York City by June 30 2026?
+  E2.C2: Will Waymo launch in Washington DC by June 30 2026?
+  E2.C3: Will Waymo launch in Nashville by June 30 2026?
+  E2.C4: Will Waymo launch in Dallas by June 30 2026?
+  E2.C5: Will Waymo launch in Denver by June 30 2026?
+  E2.C6: Will Waymo launch in Detroit by June 30 2026?
+  E2.C7: Will Waymo launch in Las Vegas by June 30 2026?
+  E2.C8: Will Waymo launch in London by June 30 2026?
+What to write for E2:
+  Write "p": a whole percent for every contract label, your chance that it resolves YES.
+
+=== E3 (as of 2026-06-24): What will South Korea ETF (EWY) hit Week of June 22 2026?
+Rules:
+What will South Korea ETF (EWY) hit Week of June 22 2026?
+Contracts:
+  E3.C1: Will South Korea ETF (EWY) hit (HIGH) $226 Week of June 22 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of June 22 2026, any 1-minute candle for South Korea ETF (EWY) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the South Korea ETF (EWY) "High" prices available at https://pythdata.app/explore/Equity.US.EWY%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.EWY%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E3.C2: Will South Korea ETF (EWY) hit (HIGH) $225 Week of June 22 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of June 22 2026, any 1-minute candle for South Korea ETF (EWY) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the South Korea ETF (EWY) "High" prices available at https://pythdata.app/explore/Equity.US.EWY%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.EWY%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E3.C3: Will South Korea ETF (EWY) hit (HIGH) $224 Week of June 22 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of June 22 2026, any 1-minute candle for South Korea ETF (EWY) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the South Korea ETF (EWY) "High" prices available at https://pythdata.app/explore/Equity.US.EWY%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.EWY%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E3.C4: Will South Korea ETF (EWY) hit (HIGH) $223 Week of June 22 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of June 22 2026, any 1-minute candle for South Korea ETF (EWY) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the South Korea ETF (EWY) "High" prices available at https://pythdata.app/explore/Equity.US.EWY%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.EWY%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E3.C5: Will South Korea ETF (EWY) hit (HIGH) $222 Week of June 22 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of June 22 2026, any 1-minute candle for South Korea ETF (EWY) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the South Korea ETF (EWY) "High" prices available at https://pythdata.app/explore/Equity.US.EWY%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.EWY%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E3.C6: Will South Korea ETF (EWY) hit (HIGH) $221 Week of June 22 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of June 22 2026, any 1-minute candle for South Korea ETF (EWY) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the South Korea ETF (EWY) "High" prices available at https://pythdata.app/explore/Equity.US.EWY%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.EWY%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+What to write for E3:
+  Write "high": for each chance 10, 25, 50, 75 and 90, the level you give that chance of being reached (at or above) within the period. The 10 level is the highest.
+
+=== E4 (as of 2026-05-27): Solana above ___ on May 31?
+Rules:
+This market will resolve to "Yes" if the Binance 1 minute candle for SOL/USDT 12:00 in the ET timezone (noon) on the date specified in the title has a final "Close" price higher than the price specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the SOL/USDT "Close" prices currently available at https://www.binance.com/en/trade/SOL_USDT with "1m" and "Candles" selected on the top bar.
+
+Please note that this market is about the price according to Binance SOL/USDT, not according to other exchanges or trading pairs.
+
+Price precision is determined by the number of decimal places in the source.
+Contracts:
+  E4.C1: Will the price of Solana be above $40 on May 31?
+  E4.C2: Will the price of Solana be above $50 on May 31?
+  E4.C3: Will the price of Solana be above $60 on May 31?
+  E4.C4: Will the price of Solana be above $70 on May 31?
+  E4.C5: Will the price of Solana be above $80 on May 31?
+  E4.C6: Will the price of Solana be above $90 on May 31?
+  E4.C7: Will the price of Solana be above $100 on May 31?
+  E4.C8: Will the price of Solana be above $110 on May 31?
+  E4.C9: Will the price of Solana be above $120 on May 31?
+  E4.C10: Will the price of Solana be above $130 on May 31?
+  E4.C11: Will the price of Solana be above $140 on May 31?
+What to write for E4:
+  Write "levels": for each chance 10, 25, 50, 75 and 90, the level you give that chance of the measured quantity being at or above when it resolves. The 10 level is the highest and the 90 level the lowest. Example: {"10": 120, "25": 110, "50": 100, "75": 92, "90": 85}.
+
+=== E5 (as of 2026-04-22): Solana price on April 23?
+Rules:
+This market will resolve according to the final "Close" price of the Binance 1 minute candle for SOL/USDT 12:00 in the ET timezone (noon) on the date specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the SOL/USDT "Close" prices currently available at https://www.binance.com/en/trade/SOL_USDT with "1m" and "Candles" selected on the top bar.
+
+If the reported value falls exactly between two brackets, then this market will resolve to the higher range bracket.
+
+Please note that this market is about the price according to Binance SOL/USDT, not according to other exchanges or trading pairs.
+Contracts:
+  E5.C1: Will the price of Solana be less than $40 on April 23?
+  E5.C2: Will the price of Solana be between $40 and $50 on April 23?
+  E5.C3: Will the price of Solana be between $50 and $60 on April 23?
+  E5.C4: Will the price of Solana be between $60 and $70 on April 23?
+  E5.C5: Will the price of Solana be between $70 and $80 on April 23?
+  E5.C6: Will the price of Solana be between $80 and $90 on April 23?
+  E5.C7: Will the price of Solana be between $90 and $100 on April 23?
+  E5.C8: Will the price of Solana be between $100 and $110 on April 23?
+  E5.C9: Will the price of Solana be between $110 and $120 on April 23?
+  E5.C10: Will the price of Solana be between $120 and $130 on April 23?
+  E5.C11: Will the price of Solana be greater than $130 on April 23?
+What to write for E5:
+  Write "p_not": a whole percent for every contract label, your chance that it is NOT the one that resolves YES. These need not add to any total.
+
+=== E6 (as of 2026-04-15): South Korea GDP growth in Q1 2026?
+Rules:
+This market will resolve according to South Korea's real Gross Domestic Product (GDP) growth rate (Year-on-Year, %) in the first quarter of 2026, as reported in the Bank of Korea’s Real Gross Domestic Product (Advance Estimate) release for the first quarter of 2026, scheduled for release on April 23, 2026.
+
+The GDP release will be made available here: https://www.bok.or.kr/eng/singl/newsDataEng/list.do?pageIndex=&targetDepth=3&menuNo=400423&syncMenuChekKey=1&searchCnd=1&searchKwd=&depth2=400417&depth3=400423&date=&sdate=&edate=&sort=1&pageUnit=10
+
+The relevant figure may be found in the table titled “Growth Rates by Type of Economic Activity and Component of Expenditure (original series, percentage change over previous year)” in the row “Gross Domestic Product” and the column for the specified quarter. Changes in South Korea’s GDP reporting format will not disqualify a published figure from counting.
+
+If no data for the specified quarter is released by the date the next quarter's data is scheduled to be released, this market will resolve based on data from the last available quarter.
+
+Note: the resolution source for this market reports year-on-year GDP growth rates to only one decimal point (e.g. 0.3%). Thus, this is the level of precision that will be used when resolving the market.
+
+Note: data from the initial release of the referenced GDP report is what will be used to resolve this market. Data may be revised during the following quarter or as a part of the next estimate's publication, however any revisions to GDP report data made after the initial release will not be considered for this market's resolution. For the full release schedule, see: https://www.bok.or.kr/eng/stats/statsPublictSchdul/listCldr.do?menuNo=400359&date=2026-01
+Contracts:
+  E6.C1: Will South Korea GDP growth in Q1 2026 be less than 0%?
+  E6.C2: Will South Korea GDP growth in Q1 2026 be between 0.0% and 0.4%?
+  E6.C3: Will South Korea GDP growth in Q1 2026 be between 0.5% and 0.9%?
+  E6.C4: Will South Korea GDP growth in Q1 2026 be between 1.0% and 1.4%?
+  E6.C5: Will South Korea GDP growth in Q1 2026 be between 1.5% and 1.9%?
+  E6.C6: Will South Korea GDP growth in Q1 2026 be between 2.0% and 2.4%?
+  E6.C7: Will South Korea GDP growth in Q1 2026 be at least 2.5%?
+What to write for E6:
+  Write "p_not": a whole percent for every contract label, your chance that it is NOT the one that resolves YES. These need not add to any total.

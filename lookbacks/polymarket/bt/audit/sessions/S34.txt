@@ -1,0 +1,357 @@
+You will be shown 10 questions from a prediction market. Each question has one or more contracts, and each contract resolves YES or NO under the rules shown.
+
+For every contract, give your probability, as a whole percent from 1 to 99, that it resolves YES. Use only what you already know. Do not search for or look up anything: reading this file is the only tool call you may make.
+
+For each question, also say whether you recognise how it actually turned out ("recognised": true only if you believe you remember the real outcome; otherwise false).
+
+Where a question's contracts are mutually exclusive (exactly one can resolve YES), your numbers for it should add up to about 100. Where they are nested thresholds or dates, keep them consistent with each other.
+
+Reply with one JSON object and nothing else, in this form:
+{"events": [{"label": "E1", "recognised": false, "p": {"E1.C1": 35, "E1.C2": 60}}]}
+
+Every contract label below must appear exactly once in your reply.
+
+=== E1: What will Netflix, Inc. (NFLX) hit in July 2026?
+Rules:
+What will Netflix, Inc. (NFLX) hit in July 2026?
+Contracts:
+  E1.C1: Will Netflix, Inc. (NFLX) hit (HIGH) $105 in July?
+    Contract rules: This market will resolve to "Yes" if, at any point during July 2026, any 1-minute candle for Netflix, Inc. (NFLX) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Netflix, Inc. (NFLX) "High" prices available at https://pythdata.app/explore/Equity.US.NFLX%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.NFLX%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E1.C2: Will Netflix, Inc. (NFLX) hit (HIGH) $100 in July?
+    Contract rules: This market will resolve to "Yes" if, at any point during July 2026, any 1-minute candle for Netflix, Inc. (NFLX) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Netflix, Inc. (NFLX) "High" prices available at https://pythdata.app/explore/Equity.US.NFLX%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.NFLX%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E1.C3: Will Netflix, Inc. (NFLX) hit (HIGH) $95 in July?
+    Contract rules: This market will resolve to "Yes" if, at any point during July 2026, any 1-minute candle for Netflix, Inc. (NFLX) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Netflix, Inc. (NFLX) "High" prices available at https://pythdata.app/explore/Equity.US.NFLX%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.NFLX%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E1.C4: Will Netflix, Inc. (NFLX) hit (HIGH) $90 in July?
+    Contract rules: This market will resolve to "Yes" if, at any point during July 2026, any 1-minute candle for Netflix, Inc. (NFLX) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Netflix, Inc. (NFLX) "High" prices available at https://pythdata.app/explore/Equity.US.NFLX%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.NFLX%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E1.C5: Will Netflix, Inc. (NFLX) hit (HIGH) $85 in July?
+    Contract rules: This market will resolve to "Yes" if, at any point during July 2026, any 1-minute candle for Netflix, Inc. (NFLX) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Netflix, Inc. (NFLX) "High" prices available at https://pythdata.app/explore/Equity.US.NFLX%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.NFLX%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E1.C6: Will Netflix, Inc. (NFLX) hit (HIGH) $80 in July?
+    Contract rules: This market will resolve to "Yes" if, at any point during July 2026, any 1-minute candle for Netflix, Inc. (NFLX) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Netflix, Inc. (NFLX) "High" prices available at https://pythdata.app/explore/Equity.US.NFLX%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.NFLX%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E1.C7: Will Netflix, Inc. (NFLX) hit (LOW) $65 in July?
+    Contract rules: This market will resolve to "Yes" if, at any point during July 2026, any 1-minute candle for Netflix, Inc. (NFLX) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Netflix, Inc. (NFLX) "Low" prices available at https://pythdata.app/explore/Equity.US.NFLX%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.NFLX%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E1.C8: Will Netflix, Inc. (NFLX) hit (LOW) $60 in July?
+    Contract rules: This market will resolve to "Yes" if, at any point during July 2026, any 1-minute candle for Netflix, Inc. (NFLX) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Netflix, Inc. (NFLX) "Low" prices available at https://pythdata.app/explore/Equity.US.NFLX%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.NFLX%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E1.C9: Will Netflix, Inc. (NFLX) hit (LOW) $55 in July?
+    Contract rules: This market will resolve to "Yes" if, at any point during July 2026, any 1-minute candle for Netflix, Inc. (NFLX) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Netflix, Inc. (NFLX) "Low" prices available at https://pythdata.app/explore/Equity.US.NFLX%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.NFLX%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E1.C10: Will Netflix, Inc. (NFLX) hit (LOW) $50 in July?
+    Contract rules: This market will resolve to "Yes" if, at any point during July 2026, any 1-minute candle for Netflix, Inc. (NFLX) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Netflix, Inc. (NFLX) "Low" prices available at https://pythdata.app/explore/Equity.US.NFLX%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.NFLX%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E1.C11: Will Netflix, Inc. (NFLX) hit (LOW) $45 in July?
+    Contract rules: This market will resolve to "Yes" if, at any point during July 2026, any 1-minute candle for Netflix, Inc. (NFLX) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Netflix, Inc. (NFLX) "Low" prices available at https://pythdata.app/explore/Equity.US.NFLX%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.NFLX%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E1.C12: Will Netflix, Inc. (NFLX) hit (LOW) $40 in July?
+    Contract rules: This market will resolve to "Yes" if, at any point during July 2026, any 1-minute candle for Netflix, Inc. (NFLX) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Netflix, Inc. (NFLX) "Low" prices available at https://pythdata.app/explore/Equity.US.NFLX%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.NFLX%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+
+=== E2: Wolfsburg Mayoral Election Winner
+Rules:
+The next Wolfsburg mayoral election is scheduled to be held on September 13, 2026, to elect the mayor of Wolfsburg, Germany (Oberbürgermeister der Stadt Wolfsburg). A runoff election is scheduled for September 27, 2026, if no candidate receives more than half of the valid votes in the first round.
+
+This market will resolve according to the candidate who becomes the next mayor of Wolfsburg as a result of this election.
+
+Temporary, interim, or placeholder mayors appointed before the election will not be considered.
+
+If the result of this election isn't known by April 30, 2027, 11:59 PM ET, the market will resolve to “Other.”
+
+The primary resolution source for this market will be a consensus of credible reporting; however, if there is any ambiguity in the results, this market will resolve according to official information from the Stadt Wolfsburg, including its election office and city election committee.
+Contracts:
+  E2.C1: Will Dennis Weilmann win the next Wolfsburg mayoral election?
+  E2.C2: Will Karsten Schneider win the next Wolfsburg mayoral election?
+  E2.C3: Will Jens Hortmeyer win the next Wolfsburg mayoral election?
+  E2.C4: Will Marco Meiners win the next Wolfsburg mayoral election?
+  E2.C5: Will Andreas Klaffehn win the next Wolfsburg mayoral election?
+  E2.C6: Will Thomas Schlick win the next Wolfsburg mayoral election?
+  E2.C7: Will Timothy Luca Petersen win the next Wolfsburg mayoral election?
+
+=== E3: Another 7.0 or above earthquake by...?
+Rules:
+This market will resolve to “Yes” if one or more earthquakes with a magnitude of 7.0 or higher occur anywhere on Earth between market creation and the listed date ET. Otherwise, this market will resolve to “No”.
+
+The resolution source for this market is the United States Geological Survey (USGS) Earthquake Hazards Program (https://earthquake.usgs.gov/earthquakes/browse/significant.php#sigdef).
+
+If an earthquake of substantial size has occurred within this market's timeframe but not yet appeared on the resolution source, this market may remain open until the end of the month following resolution time or until the earthquake in question otherwise appears on the resolution source. If such an earthquake has not appeared on the resolution source by that date, another credible resolution source will be used. 
+
+After a qualifying earthquake is registered, this market will remain open for 24 hours to account for any revisions to its recorded magnitude. After 24 hours, this market will resolve according to the latest provided data.
+Contracts:
+  E3.C1: Another 7.0 or above earthquake by March 31, 2026?
+
+=== E4: DOJ reopens Powell investigation by...?
+Rules:
+The United States Department of Justice recently opened, and later dropped, a criminal investigation into Federal Reserve Chair Jerome Powell over his handling of renovations to the Federal Reserve buildings. 
+
+This market will resolve to “Yes” if the United States Department of Justice reopens this criminal investigation of Powell, or opens a new criminal investigation of Powell, by the specified date, 11:59 PM ET. Otherwise, this market will resolve to “No”.
+
+If the United States federal government formally charges or announces a criminal indictment of Jerome Powell, this will also suffice for a “Yes” resolution.
+
+An official announcement from the United States Department of Justice that the investigation has been reopened, or that a new investigation against Powell has been opened, will be sufficient to resolve this market to “Yes”. 
+
+Statements or reports that the Department of Justice is considering allegations or potential investigative action against Powell will not qualify, unless they explicitly indicate that a criminal investigation into Powell has been reopened or opened.
+
+The primary resolution source for this market will be official information from the United States Department of Justice, including any relevant United States Attorney’s Office; however, a consensus of credible reporting may also be used.
+Contracts:
+  E4.C1: DOJ reopens Powell investigation by June 30?
+
+=== E5: What will the median home value in the Austin, Texas Metro area be on April 1?
+Rules:
+This market will resolve according to the median home value for all property types in the Austin, Texas Metro area on April 1, 2026.
+
+If the reported value falls exactly between two brackets, then this market will resolve to the higher range bracket. 
+
+The resolution source will be official data from the Parcl Labs Sales Price Index for the Austin, Texas Metro area (Parcl_ID: 2887289). The settlement price will be calculated by multiplying the published price index value (price per square foot) by 2100 square feet, which is the median home size in the Austin, Texas Metro area. Parcl is set to publish this data on April 1, 2026. If no data for April 1 is released by April 10, 2026, 11:59PM ET, this market will resolve according to the most recently published data. (see: https://app.parcllabs.com/prediction-market-resolutions/19)
+Contracts:
+  E5.C1: Will the median home value in the Austin, Texas metro area be less than $400,000 on April 1?
+  E5.C2: Will the median home value in the Austin, Texas metro area be between $400,000 and $405,000 on April 1?
+  E5.C3: Will the median home value in the Austin, Texas metro area be between $405,000 and $410,000 on April 1?
+  E5.C4: Will the median home value in the Austin, Texas metro area be between $410,000 and $415,000 on April 1?
+  E5.C5: Will the median home value in the Austin, Texas metro area be between $415,000 and $420,000 on April 1?
+  E5.C6: Will the median home value in the Austin, Texas metro area be between $420,000 and $425,000 on April 1?
+  E5.C7: Will the median home value in the Austin, Texas metro area be greater than $425,000 on April 1?
+
+=== E6: Aster all time high by December 31?
+Rules:
+This market will resolve to "Yes" if any Binance 1 minute candle for ASTERUSDT between 3  October '25 11:00 and 11:59PM ET on the date specified in the title has a final “High” price that is higher than any previous Binance 1 minute candle's "High" price on any prior date. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the ASTERUSDT "High" prices currently available at https://www.binance.com/en/futures/ASTERUSDT with “1m” and “Candles” selected on the top bar.
+
+Please note that this market is about the price according to Binance ASTERUSDT, not according to other sources or spot markets.
+Contracts:
+  E6.C1: Aster all time high by December 31?
+
+=== E7: Netherlands parliamentary election: GroenLinks–PvdA seats
+Rules:
+The ruling coalition of the Netherlands collapsed on June 3, 2025. New parliamentary elections are expected to be scheduled soon.
+
+This market will resolve according to the number of seats held by GroenLinks–PvdA in the House of Representatives as a result of this election.
+
+If voting in the Netherlands election for the House does not occur by July 31, 2026, this market will resolve to the lowest range bracket.
+
+This market’s resolution will be based solely on the number of seats won by GroenLinks–PvdA.
+
+This market will resolve based on the result of the election as indicated by a consensus of credible reporting. If there is ambiguity, this market will resolve based solely on the official results as reported by the Electoral Council (Kiesraad) (https://www.kiesraad.nl/).
+Contracts:
+  E7.C1: Will GroenLinks–PvdA win 22 or fewer seats in the 2025 Netherlands parliamentary election?
+  E7.C2: Will GroenLinks–PvdA win 23–25 seats in the 2025 Netherlands parliamentary election?
+  E7.C3: Will GroenLinks–PvdA win 26–28 seats in the 2025 Netherlands parliamentary election?
+  E7.C4: Will GroenLinks–PvdA win 29 or more seats in the 2025 Netherlands parliamentary election?
+
+=== E8: Hezbollah strike on Israel by February 28?
+Rules:
+This market will resolve to "Yes" if Hezbollah initiates a drone, missile, or air strike that impacts Israeli ground territory by February 28, 2026, 11:59 PM ET. Otherwise, this market will resolve to "No".
+
+For the purposes of this market, a qualifying "strike" is defined as the use of aerial bombs, drones, or missiles (including cruise or ballistic missiles) launched by Hezbollah forces that physically impact land under Israeli control.
+
+Israeli ground territory, for the purposes of this market, refers to land internationally recognized as part of the State of Israel, including all territory under de facto Israeli government administration as of October 31, 2025. This includes the Israeli-controlled Golan Heights and East Jerusalem, but excludes the West Bank and Gaza Strip.
+ 
+Missiles or drones that are intercepted before reaching the ground, or surface-to-air missile strikes, will not qualify for a "Yes" resolution—regardless of whether debris lands on Israeli soil or causes damage.
+
+The resolution source will be a consensus of credible reporting.
+Contracts:
+  E8.C1: Hezbollah strike on Israel by February 28?
+
+=== E9: How many different countries will Israel strike in February?
+Rules:
+This market will resolve according to the total number of different sovereign UN member states' soil that Israel initiates a drone, missile, or air strike between February 1, 2026, 12:00 AM ET and February 28, 2026, 11:59 PM ET.
+
+Strikes on embassies or consulates will count towards the country where the embassy or consulate is located, not towards the country they represent.
+
+Strikes within the territory controlled by Israel as of January 31, 2025, 11:59 PM ET, as well as strikes within the West Bank or the Gaza Strip, will not be counted towards this market's resolution.
+
+For the purposes of this market, a qualifying "strike" is defined as the use of aerial bombs, drones, or missiles (including cruise or ballistic missiles) launched by Israeli military forces that impact another country's ground territory that is officially acknowledged by the Israeli government or a consensus of credible reporting.
+
+Missiles or drones that are intercepted and surface-to-air missile strikes will not count towards the resolution of this market, regardless of whether they land on another country's territory or cause damage.
+
+Actions such as artillery fire, small arms fire, FPV or ATGM strikes directly, ground incursions, naval shelling, cyberattacks, or other operations conducted by Israeli ground operatives will not qualify.
+
+The resolution source will be a consensus of credible reporting.
+Contracts:
+  E9.C1: Will Israel strike ≤1 countries in February 2026?
+  E9.C2: Will Israel strike 2 countries in February 2026?
+  E9.C3: Will Israel strike 3 countries in February 2026?
+  E9.C4: Will Israel strike ≥4 countries in February 2026?
+
+=== E10: Kazakhstan Kurultai Election: Party Winner
+Rules:
+Parliamentary elections to elect the Kurultai of Kazakhstan are scheduled to take place on August 23, 2026.
+
+This market will resolve to the political party that wins the greatest number of seats in the Kurultai of Kazakhstan as a result of this election.
+
+If the results of the specified election are not definitively known by July 31, 2027, this market will resolve to "Other".
+
+In the event of a tie between multiple parties for the most seats won, this market will resolve in favor of the party that received a greater number of valid votes. In the event that results in a tie, this market will resolve in favor of the party whose name as listed in this market appears first in alphabetical order.
+
+This market's resolution will be based solely on the number of seats won by the named party.
+
+This market will resolve based on the results of the elections, as indicated by a consensus of credible reporting. In the case of ambiguity, this market will resolve solely based on the results as reported by the Kazakh government.
+Contracts:
+  E10.C1: Will Adilet win the most seats in the 2026 Kazakh Kurultai elections?
+  E10.C2: Will Auyl win the most seats in the 2026 Kazakh Kurultai elections?
+  E10.C3: Will Respublica win the most seats in the 2026 Kazakh Kurultai elections?
+  E10.C4: Will Aq Jol win the most seats in the 2026 Kazakh Kurultai elections?
+  E10.C5: Will QHP win the most seats in the 2026 Kazakh Kurultai elections?
+  E10.C6: Will JSDP win the most seats in the 2026 Kazakh Kurultai elections?
+  E10.C7: Will Baytaq win the most seats in the 2026 Kazakh Kurultai elections?

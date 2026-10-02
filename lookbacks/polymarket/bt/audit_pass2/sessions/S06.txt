@@ -1,0 +1,256 @@
+You will be shown 10 questions from a prediction market. Each question has one or more contracts, and each contract resolves YES or NO under the rules shown.
+
+For every contract, give your probability, as a whole percent from 1 to 99, that it resolves YES. Use only what you already know. Do not search for or look up anything: reading this file is the only tool call you may make.
+
+For each question, also say whether you recognise how it actually turned out ("recognised": true only if you believe you remember the real outcome; otherwise false).
+
+Where a question's contracts are mutually exclusive (exactly one can resolve YES), your numbers for it should add up to about 100. Where they are nested thresholds or dates, keep them consistent with each other.
+
+Reply with one JSON object and nothing else, in this form:
+{"events": [{"label": "E1", "recognised": false, "p": {"E1.C1": 35, "E1.C2": 60}}]}
+
+Every contract label below must appear exactly once in your reply.
+
+=== E1: Will Russia enter Rai-Oleksandrivka by...?
+Rules:
+This market will resolve to “Yes” if, according to the ISW map, Russia captures any territory of Rai-Oleksandrivka, Donetsk Oblast, (48.8088° N, 37.8573° E) between market creation and February 28, 2026, at 11:59 PM ET.
+
+Territory will be considered captured if any part of Rai-Oleksandrivka is shaded under a below specified layer on the ISW map (https://storymaps.arcgis.com/stories/36a7f6a6f5a9448496de641cf64bd375) by the resolution date. Otherwise, the market will resolve to “No”.
+
+For any change on the ISW map to qualify for this market’s resolution, the relevant shading indicating Russian control must persist through the next full ISW daily update cycle. If ISW skips a day, shading must persist until the next finalized ISW update is published, regardless of the date. Any continuous shading which reflects either "Assessed Russian Infiltration Areas in Ukraine", “Assessed Russian Control”, “Assessed Russian Advance In Ukraine”, or “Assessed Russian Gains in the Past 24 Hours” will qualify. 
+
+Once a qualifying condition is met, any subsequent loss of control will not be considered towards the resolution of this market.
+
+If Russia comes into control of the specified territory as a result of a negotiated settlement, this will qualify for a 'Yes' resolution, regardless of whether it is shaded red in the ISW map. However, an announcement of a negotiated settlement that gives Russia de jure control will not qualify. Actual control must be established.
+
+The primary resolution source for this market will be the ISW Ukraine map. If the ISW map is rendered unavailable, information from DeepStateMap (https://deepstatemap.live/) may be used. If information from both the ISW and DeepStateMap are rendered permanently unavailable, a consensus of credible reporting may be used.
+
+Note: Any temporary glitches or errors in the map will not be considered.
+Contracts:
+  E1.C1: Will Russia enter Rai-Oleksandrivka by April 30, 2026?
+    Contract rules: This market will resolve to “Yes” if, according to the ISW map, Russia captures any territory of Rai-Oleksandrivka, Donetsk Oblast, (48.8088° N, 37.8573° E) between market creation and April 30, 2026, at 11:59 PM ET.
+
+Territory will be considered captured if any part of Rai-Oleksandrivka is shaded under a below specified layer on the ISW map (https://storymaps.arcgis.com/stories/36a7f6a6f5a9448496de641cf64bd375) by the resolution date. Otherwise, the market will resolve to “No”.
+
+For any change on the ISW map to qualify for this market’s resolution, the relevant shading indicating Russian control must persist through the next full ISW daily update cycle. If ISW skips a day, shading must persist until the next finalized ISW update is published, regardless of the date. Any continuous shading which reflects either "Assessed Russian Infiltration Areas in Ukraine", “Assessed Russian Control”, “Assessed Russian Advance In Ukraine”, or “Assessed Russian Gains in the Past 24 Hours” will qualify. 
+
+Once a qualifying condition is met, any subsequent loss of control will not be considered towards the resolution of this market.
+
+If Russia comes into control of the specified territory as a result of a negotiated settlement, this will qualify for a 'Yes' resolution, regardless of whether it is shaded red in the ISW map. However, an announcement of a negotiated settlement that gives Russia de jure control will not qualify. Actual control must be established.
+
+The primary resolution source for this market will be the ISW Ukraine map. If the ISW map is rendered unavailable, information from DeepStateMap (https://deepstatemap.live/) may be used. If information from both the ISW and DeepStateMap are rendered permanently unavailable, a consensus of credible reporting may be used.
+
+Note: Any temporary glitches or errors in the map will not be considered.
+
+=== E2: GPT ads by...?
+Rules:
+This market will resolve to "Yes" if OpenAI integrates advertisements into ChatGPT, GPT-4, GPT-4.1, GPT-5, or any successor general-purpose GPT model made publicly available by December 31, 2025, 11:59 PM ET. Otherwise, this market will resolve to "No".
+
+Limited advertisement releases restricted to a specific region, model, or user group will qualify. The release must be publicly announced as accessible to the relevant users. Closed betas or fully private testing do not count.
+
+Once implemented, the market will resolve to “Yes” immediately, regardless of whether the integration is later removed.
+
+An announcement will not suffice to resolve this market to "Yes"; only the release of the advertisement integration will trigger a "Yes" resolution for this market.
+
+The primary resolution source for this market will be official information from OpenAI; however, a consensus of credible reporting will also be used.
+Contracts:
+  E2.C1: GPT ads by January 31?
+    Contract rules: This market will resolve to "Yes" if OpenAI integrates advertisements into ChatGPT, GPT-4, GPT-4.1, GPT-5, or any successor general-purpose GPT model made publicly available by January 31, 2026, 11:59 PM ET. Otherwise, this market will resolve to "No".
+
+Limited advertisement releases restricted to a specific region, model, or user group will qualify. The release must be publicly announced as accessible to the relevant users. Closed betas or fully private testing do not count.
+
+Once implemented, the market will resolve to “Yes” immediately, regardless of whether the integration is later removed.
+
+An announcement will not suffice to resolve this market to "Yes"; only the release of the advertisement integration will trigger a "Yes" resolution for this market.
+
+The primary resolution source for this market will be official information from OpenAI; however, a consensus of credible reporting will also be used.
+  E2.C2: GPT ads by March 31?
+    Contract rules: This market will resolve to "Yes" if OpenAI integrates advertisements into ChatGPT, GPT-4, GPT-4.1, GPT-5, or any successor general-purpose GPT model made publicly available by March 31, 2026, 11:59 PM ET. Otherwise, this market will resolve to "No".
+
+Limited advertisement releases restricted to a specific region, model, or user group will qualify. The release must be publicly announced as accessible to the relevant users. Closed betas or fully private testing do not count.
+
+Once implemented, the market will resolve to “Yes” immediately, regardless of whether the integration is later removed.
+
+An announcement will not suffice to resolve this market to "Yes"; only the release of the advertisement integration will trigger a "Yes" resolution for this market.
+
+The primary resolution source for this market will be official information from OpenAI; however, a consensus of credible reporting will also be used.
+
+=== E3: Who will attend the NATO Summit?
+Rules:
+This market will resolve to "Yes" if Donald Trump attends the NATO Summit event scheduled for July 7, 2026 – July 8, 2026
+ in Ankara, Türkiye. Otherwise, this market will resolve to "No".
+
+If the event is canceled or postponed beyond August 30, 2026, 11:59 PM ET, this market will resolve to "No".
+
+Attending the NATO Summit is defined as being in physical attendance in the event at any point between the start and end of the Summit.
+
+The resolution source will be a consensus of credible reporting.
+Contracts:
+  E3.C1: Will Donald Trump attend NATO Summit?
+  E3.C2: Will Marco Rubio attend NATO Summit?
+    Contract rules: This market will resolve to "Yes" if Marco Rubio attends the NATO Summit event scheduled for July 7, 2026 – July 8, 2026
+ in Ankara, Türkiye. Otherwise, this market will resolve to "No".
+
+If the event is canceled or postponed beyond August 30, 2026, 11:59 PM ET, this market will resolve to "No".
+
+Attending the NATO Summit is defined as being in physical attendance in the event at any point between the start and end of the Summit.
+
+The resolution source will be a consensus of credible reporting.
+  E3.C3: Will JD Vance attend NATO Summit?
+    Contract rules: This market will resolve to "Yes" if JD Vance attends the NATO Summit event scheduled for July 7, 2026 – July 8, 2026
+ in Ankara, Türkiye. Otherwise, this market will resolve to "No".
+
+If the event is canceled or postponed beyond August 30, 2026, 11:59 PM ET, this market will resolve to "No".
+
+Attending the NATO Summit is defined as being in physical attendance in the event at any point between the start and end of the Summit.
+
+The resolution source will be a consensus of credible reporting.
+
+=== E4: TX-02 Republican Primary Winner
+Rules:
+This market will resolve according to the candidate who wins the nomination for the Republican Party to contest the TX-02 congressional district seat in the U.S. House of Representatives in the 2026 midterm elections. The Republican primary will take place on March 3, 2026.
+
+If no nominee is announced by November 3, 2026, 11:59PM ET, this market will resolve to "Other".
+
+The resolution source for this market will be a consensus of official Republican sources, including https://www.rnc.org/.
+
+Any replacement of the nominee before election day will not change the resolution of the market.
+Contracts:
+  E4.C1: Will Daniel Crenshaw be the Republican Nominee for TX-02?
+  E4.C2: Will Martin Etwop be the Republican Nominee for TX-02?
+  E4.C3: Will Nicholas Plumb be the Republican Nominee for TX-02?
+  E4.C4: Will Steve Toth be the Republican Nominee for TX-02?
+
+=== E5: Puducherry Legislative Assembly Election Winner
+Rules:
+Legislative Assembly elections are to be scheduled to be held in Puducherry, India, in April–June 2026.
+
+This market will resolve according to the political party that wins the greatest number of seats in the Puducherry Legislative Assembly in the 2026 election.
+
+If the results are not known definitively by October 31, 2026, 11:59 PM ET, this market will resolve to "Other".
+
+In the event of a tie between multiple parties for the most seats won, this market will resolve in favor of the party that received a greater number of valid votes. If that also results in a tie, this market will resolve in favor of the party whose listed abbreviation appears first in alphabetical order.
+
+This market’s resolution will be based solely on the number of seats won by the named party in the Puducherry Legislative Assembly.
+
+This market will resolve based on the results of this election as indicated by a consensus of credible reporting. If there is ambiguity, this market will resolve based solely on the official results reported by the Indian government, specifically the Election Commission of India (ECI) (https://eci.gov.in). If multiple official reports differ, this market will resolve based on the one that includes the greatest number of Assembly Constituencies (ACs).
+Contracts:
+  E5.C1: Will the Bharatiya Janata Party (BJP) win the most seats in the 2026 Puducherry Legislative Assembly election?
+  E5.C2: Will the Bahujan Samaj Party (BSP) win the most seats in the 2026 Puducherry Legislative Assembly election?
+  E5.C3: Will the Communist Party of India (CPI) win the most seats in the 2026 Puducherry Legislative Assembly election?
+  E5.C4: Will the Communist Party of India (Marxist) (CPI(M)) win the most seats in the 2026 Puducherry Legislative Assembly election?
+  E5.C5: Will the Indian National Congress (INC) win the most seats in the 2026 Puducherry Legislative Assembly election?
+  E5.C6: Will the All India N.R. Congress (AINRC) win the most seats in the 2026 Puducherry Legislative Assembly election?
+  E5.C7: Will the All India Anna Dravida Munnetra Kazhagam (ADMK) win the most seats in the 2026 Puducherry Legislative Assembly election?
+  E5.C8: Will the Dravida Munnetra Kazhagam (DMK) win the most seats in the 2026 Puducherry Legislative Assembly election?
+
+=== E6: UK GDP growth in Q4 2025?
+Rules:
+This market will resolve according to the UK real gross domestic product (GDP) compared with the same quarter a year ago in the "GDP First quarterly estimate, UK" release for Q4 of 2025, scheduled for February 12, 2026, 7:00 AM.
+
+If the reported value falls exactly between two brackets, then this market will resolve to the higher range bracket.
+
+The GDP release will be made available here: https://www.ons.gov.uk/economy/grossdomesticproductgdp/bulletins/gdpfirstquarterlyestimateuk/previousreleases
+
+If no data for the specified quarter is released by the date the next quarter's data is scheduled to be released, this market will resolve based on data from the last available quarter.
+
+Note: data from the initial release of the referenced GDP report is what will be used to resolve this market. Data may be revised during the following quarter or as a part of the next estimate's publication, however any revisions to GDP report data made after the initial release will not be considered for this market's resolution.
+Contracts:
+  E6.C1: Will UK GDP growth in Q4 2025 be negative?
+  E6.C2: Will UK GDP growth in Q4 2025 be between 0% and 0.5%?
+  E6.C3: Will UK GDP growth in Q4 2025 be between 0.5% and 1.0%?
+  E6.C4: Will UK GDP growth in Q4 2025 be between 1.0% and 1.5%?
+  E6.C5: Will UK GDP growth in Q4 2025 be between 1.5% and 2.0%?
+  E6.C6: Will UK GDP growth in Q4 2025 be between 2.0% and 2.5%?
+  E6.C7: Will UK GDP growth in Q4 2025 be greater than 2.5%?
+
+=== E7: Fed Decision in July?
+Rules:
+The FED interest rates are defined in this market by the upper bound of the target federal funds range. The decisions on the target federal funds range are made by the Federal Open Market Committee (FOMC) meetings.
+
+This market will resolve to the amount of basis points the upper bound of the target federal funds rate is changed by versus the level it was prior to the Federal Reserve's July 2026 meeting.
+
+If the target federal funds rate is changed to a level not expressed in the displayed options, the change will be rounded up to the nearest 25 and will resolve to the relevant bracket. (e.g. if there's a cut/increase of 12.5 bps it will be considered to be 25 bps)
+
+The resolution source for this market is the FOMC’s statement after its meeting scheduled for July 28-29, 2026 according to the official calendar: https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm.
+
+The level and change of the target federal funds rate is also published at the official website of the Federal Reserve at https://www.federalreserve.gov/monetarypolicy/openmarket.htm.
+
+This market may resolve as soon as the FOMC’s statement for their July meeting with relevant data is issued. If no statement is released by the end date of the next scheduled meeting, this market will resolve to the "No change" bracket.
+Contracts:
+  E7.C1: Will the Fed decrease interest rates by 50+ bps after the July 2026 meeting?
+  E7.C2: Will the Fed decrease interest rates by 25 bps after the July 2026 meeting?
+  E7.C3: Will there be no change in Fed interest rates after the July 2026 meeting?
+  E7.C4: Will the Fed increase interest rates by 25 bps after the July 2026 meeting?
+  E7.C5: Will the Fed increase interest rates by 50+ bps after the July 2026 meeting?
+
+=== E8: US next strikes Iran on...?
+Rules:
+This market will resolve according to the next date (ET) the US initiates a drone, missile, or air strike on Iranian soil or any official Iranian embassy or consulate between market creation and March 31, 2026, (ET). 
+
+If the date/time of a qualifying strike cannot be confirmed by a consensus of credible reporting within 48 hours of the listed date, the respective market will resolve to "No" regardless of whether a strike is later confirmed to have occurred. If no strike could be verified under the prior rule by 48 hours after this market's end date, it will resolve to "No strike by March 31," regardless of whether a strike is later confirmed to have occurred.
+
+For the purposes of this market, a qualifying "strike" is defined as the use of aerial bombs, drones or missiles (including cruise or ballistic missiles) launched by US military forces that impact Iranian ground territory or any official Iranian embassy or consulate (e.g., if a weapons depot on Iranian soil is hit by an US missile, this will qualify).
+
+Missiles or drones that are intercepted and surface-to-air missile strikes will not be sufficient, regardless of whether they land on Iranian territory or cause damage.
+
+Actions such as artillery fire, small arms fire, FPV or ATGM strikes directly, ground incursions, naval shelling, cyberattacks, or other operations conducted by US ground operatives will not qualify.
+
+The resolution source will be a consensus of credible reporting.
+Contracts:
+  E8.C1: Will the US next strike Iran before March 2026 (ET)?
+  E8.C2: Will the US next strike Iran on March 1, 2026 (ET)?
+  E8.C3: Will the US next strike Iran on March 2, 2026 (ET)?
+  E8.C4: Will the US next strike Iran on March 3, 2026 (ET)?
+  E8.C5: Will the US next strike Iran on March 4, 2026 (ET)?
+  E8.C6: Will the US next strike Iran on March 5, 2026 (ET)?
+  E8.C7: Will the US next strike Iran on March 6, 2026 (ET)?
+  E8.C8: Will the US next strike Iran on March 7, 2026 (ET)?
+  E8.C9: Will the US next strike Iran on March 8, 2026 (ET)?
+  E8.C10: Will the US next strike Iran on March 9, 2026 (ET)?
+  E8.C11: Will the US next strike Iran on March 10, 2026 (ET)?
+  E8.C12: Will the US next strike Iran on March 11, 2026 (ET)?
+
+=== E9: March Inflation US - Monthly
+Rules:
+This is a market about the one-month percent change in the seasonally adjusted Consumer Price Index for All Urban Consumers (CPI-U) published by the Bureau of Labor Statistics (BLS).
+
+This market will resolve to the one-month percent change in the seasonally adjusted Consumer Price Index for All Urban Consumers (CPI-U) in March 2026 according to the monthly BLS report.
+
+The resolution source for this market will be the BLS Consumer Price Index report released for March 2026 (https://www.bls.gov/bls/news-release/cpi.htm), currently scheduled to be released on April 10, 2026, at 8:30 AM ET. Resolution of this market will take place upon release of the aforementioned data.
+
+Note: the resolution source for this market will be the official monthly Consumer Price Index for All Urban Consumers (CPI-U) which BLS reports to one decimal point (e.g. 0.4%). Thus, this is the level of precision that will be used when resolving the market.
+
+If the BLS does not release the relevant figures on the scheduled date, this market may remain open up until the scheduled release time of the next CPI report (https://www.bls.gov/schedule). If the information is not released by that time, this market will resolve according to the figures of the most recent previous month with available data.
+Contracts:
+  E9.C1: Will monthly inflation increase by 0.3% or less in March?
+  E9.C2: Will monthly inflation increase by 0.4% in March?
+  E9.C3: Will monthly inflation increase by 0.5% in March?
+  E9.C4: Will monthly inflation increase by 0.6% in March?
+  E9.C5: Will monthly inflation increase by 0.7% in March?
+  E9.C6: Will monthly inflation increase by 0.8% or more in March?
+
+=== E10: Who will be named in newly released Epstein files by March 31?
+Rules:
+This market will resolve to "Yes" if the Trump Administration (including any federal court) publicly releases previously unreleased files pertaining to the illegal activities of Jeffrey Epstein which contain any mention of the listed individual between market creation and March 31, 2026, 11:59 PM ET. Otherwise, this market will resolve to "No".
+
+Only previously unreleased files, as of market creation, which contain novel material not previously available to the public will qualify. Documents that are merely re-released, have had redactions removed, repackaged, or newly publicized versions of already available information do not qualify.
+
+Any mention of the listed individual in connection with Jeffrey Epstein will qualify, regardless of if connected to nefarious or illegal activities.
+
+Previously unreleased files is inclusive of any written, audio, photo or video documentation (e.g., qualifying photos which depict the listed individual will count).
+
+The primary resolution source for this market will be a consensus of credible reporting.
+Contracts:
+  E10.C1: Will Oprah Winfrey be named in newly released Epstein files by March 31?
+  E10.C2: Will Jay-Z be named in newly released Epstein files by March 31?
+  E10.C3: Will Joe Biden be named in newly released Epstein files by March 31?
+  E10.C4: Will Kevin Spacey be named in newly released Epstein files by March 31?
+  E10.C5: Will Henry Kissinger be named in newly released Epstein files by March 31?
+  E10.C6: Will Prince Andrew be named in newly released Epstein files by March 31?
+  E10.C7: Will Alan Dershowitz be named in newly released Epstein files by March 31?
+  E10.C8: Will Stephen Hawking be named in newly released Epstein files by March 31?
+  E10.C9: Will Donald Trump be named in newly released Epstein files by March 31?
+  E10.C10: Will Barack Obama be named in newly released Epstein files by March 31?
+  E10.C11: Will Michael Jackson be named in newly released Epstein files by March 31?
+  E10.C12: Will Bill Gates be named in newly released Epstein files by March 31?

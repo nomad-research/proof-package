@@ -1,0 +1,276 @@
+You will be shown 10 questions from a prediction market. Each question has one or more contracts, and each contract resolves YES or NO under the rules shown.
+
+For every contract, give your probability, as a whole percent from 1 to 99, that it resolves YES. Use only what you already know. Do not search for or look up anything: reading this file is the only tool call you may make.
+
+For each question, also say whether you recognise how it actually turned out ("recognised": true only if you believe you remember the real outcome; otherwise false).
+
+Where a question's contracts are mutually exclusive (exactly one can resolve YES), your numbers for it should add up to about 100. Where they are nested thresholds or dates, keep them consistent with each other.
+
+Reply with one JSON object and nothing else, in this form:
+{"events": [{"label": "E1", "recognised": false, "p": {"E1.C1": 35, "E1.C2": 60}}]}
+
+Every contract label below must appear exactly once in your reply.
+
+=== E1: Will Russia enter Rizdvianka by...?
+Rules:
+This market will resolve to “Yes” if, according to the ISW map, Russia captures any territory of Rizdvianka, Zaporizhzhya Oblast, (47.800885° N, 36.052564° E) between market creation and February 28, 2026, at 11:59 PM ET.
+
+Territory will be considered captured if any part of Rizdvianka is shaded under a below specified layer on the ISW map (https://storymaps.arcgis.com/stories/36a7f6a6f5a9448496de641cf64bd375) by the resolution date. Otherwise, the market will resolve to “No”.
+
+For any change on the ISW map to qualify for this market’s resolution, the relevant shading indicating Russian control must persist through the next full ISW daily update cycle. If ISW skips a day, shading must persist until the next finalized ISW update is published, regardless of the date. Any continuous shading which reflects either "Assessed Russian Infiltration Areas in Ukraine", “Assessed Russian Control”, “Assessed Russian Advance In Ukraine”, or “Assessed Russian Gains in the Past 24 Hours” will qualify. 
+
+Once a qualifying condition is met, any subsequent loss of control will not be considered towards the resolution of this market.
+
+If Russia comes into control of the specified territory as a result of a negotiated settlement, this will qualify for a 'Yes' resolution, regardless of whether it is shaded red in the ISW map. However, an announcement of a negotiated settlement that gives Russia de jure control will not qualify. Actual control must be established.
+
+The primary resolution source for this market will be the ISW Ukraine map. If the ISW map is rendered unavailable, information from DeepStateMap (https://deepstatemap.live/) may be used. If information from both the ISW and DeepStateMap are rendered permanently unavailable, a consensus of credible reporting may be used.
+
+Note: Any temporary glitches or errors in the map will not be considered.
+Contracts:
+  E1.C1: Will Russia enter Rizdvianka by February 28, 2026?
+  E1.C2: Will Russia enter Rizdvianka by March 31, 2026?
+    Contract rules: This market will resolve to “Yes” if, according to the ISW map, Russia captures any territory of Rizdvianka, Zaporizhzhya Oblast, (47.800885° N, 36.052564° E) between market creation and March 31, 2026, at 11:59 PM ET.
+
+Territory will be considered captured if any part of Rizdvianka is shaded under a below specified layer on the ISW map (https://storymaps.arcgis.com/stories/36a7f6a6f5a9448496de641cf64bd375) by the resolution date. Otherwise, the market will resolve to “No”.
+
+For any change on the ISW map to qualify for this market’s resolution, the relevant shading indicating Russian control must persist through the next full ISW daily update cycle. If ISW skips a day, shading must persist until the next finalized ISW update is published, regardless of the date. Any continuous shading which reflects either "Assessed Russian Infiltration Areas in Ukraine", “Assessed Russian Control”, “Assessed Russian Advance In Ukraine”, or “Assessed Russian Gains in the Past 24 Hours” will qualify. 
+
+Once a qualifying condition is met, any subsequent loss of control will not be considered towards the resolution of this market.
+
+If Russia comes into control of the specified territory as a result of a negotiated settlement, this will qualify for a 'Yes' resolution, regardless of whether it is shaded red in the ISW map. However, an announcement of a negotiated settlement that gives Russia de jure control will not qualify. Actual control must be established.
+
+The primary resolution source for this market will be the ISW Ukraine map. If the ISW map is rendered unavailable, information from DeepStateMap (https://deepstatemap.live/) may be used. If information from both the ISW and DeepStateMap are rendered permanently unavailable, a consensus of credible reporting may be used.
+
+Note: Any temporary glitches or errors in the map will not be considered.
+
+=== E2: Andalusia Election Winner
+Rules:
+Elections for the autonomous community of Andalusia’s unicameral parliament are scheduled for May 17, 2026.
+
+This market will resolve according to the political party/coalition that wins the greatest number of seats in the Parliament of Andalusia as a result of this election.
+
+If the results of this election are not definitively known by December 31, 2026, 11:59 PM ET, this market will resolve to “Other”.
+
+This market's resolution will be based solely on the number of seats won by the listed party or coalition.
+
+In the event of a tie between multiple parties for the most seats won, this market will resolve in favor of the party that received a greater number of valid votes. If that also results in a tie, this market will resolve in favor of the party whose listed abbreviation appears first in alphabetical order.
+
+This market will resolve based on the result of the election as indicated by a consensus of credible reporting. In case of ambiguity, this market will resolve based solely on the official results as published by the Spanish Junta Electoral Central (JEC) (https://www.juntaelectoralcentral.es/cs/jec/inicio).
+
+Note: If a listed coalition splits prior to this election and does not contest this election as a unified coalition, the corresponding market will represent the party formerly in that coalition that holds the greatest number of seats in the Parliament of Andalusia at the time of the split.
+Contracts:
+  E2.C1: Will Partido Popular (PP) win the Andalusia regional election?
+  E2.C2: Will Partido Socialista Obrero Español de Andalucía (PSOE-A) win the Andalusia regional election?
+  E2.C3: Will VOX (VOX) win the Andalusia regional election?
+  E2.C4: Will Por Andalucia (PA) win the Andalusia regional election?
+  E2.C5: Will Adelante Andalucia (AA) win the Andalusia regional election?
+
+=== E3: Nebraska Governor Republican Primary Winner
+Rules:
+This market will resolve according to the winner of the Republican Primary for Governor of Nebraska, scheduled to take place on May 12, 2026. Resolution will be based on the overall winner of the primary, including any potential second round or run-off.
+
+If no 2026 Nebraska Gubernatorial Republican Primary takes place, this market will resolve to “Other.”
+
+The resolution source for this market will be the first official announcement of the results from the Nebraska Republican Party; however, an overwhelming consensus of credible reporting may suffice.
+Contracts:
+  E3.C1: Will Jim Pillen win the 2026 Nebraska Governor Republican primary election?
+  E3.C2: Will Jacy Todd win the 2026 Nebraska Governor Republican primary election?
+  E3.C3: Will Charles Herbster win the 2026 Nebraska Governor Republican primary election?
+  E3.C4: Will Sheila Korth-Focken win the 2026 Nebraska Governor Republican primary election?
+  E3.C5: Will Gary L. Rogge win the 2026 Nebraska Governor Republican primary election?
+  E3.C6: Will Sal Holguin win the 2026 Nebraska Governor Republican primary election?
+  E3.C7: Will John Walz win the 2026 Nebraska Governor Republican primary election?
+
+=== E4: Will OpenAI release a new frontier model by...?
+Rules:
+This market will resolve to “Yes” if OpenAI makes a new frontier model available to the general public by the specified date (ET). Otherwise, this market will resolve to “No”.
+
+For this market to resolve to “Yes”, OpenAI’s new frontier model must be launched and publicly accessible, including via open beta or open rolling waitlist signups. A closed beta or any form of private access will not suffice. The release must be clearly defined and publicly announced by OpenAI as being accessible to the general public.
+
+A frontier model refers to a newly released OpenAI model that OpenAI describes as one of its most capable or next-generation, general-purpose flagship models.
+
+Qualifying new frontier models include successors to existing frontier models, such as GPT 5.2, which could succeed GPT 5.1 in the same way that GPT 5.1 succeeded GPT 5. Models focused on a specific task such as image generation or which are versions of a previous model optimized for a specific task (i.e. GPT 5.1-codex) or for cost-efficiency (i.e. GPT-5 mini) will not count.
+
+Qualifying frontier models which are separate from the OpenAI GPT series will count. A qualifying new model from OpenAI’s o-series (i.e. o1, o3) will count.
+
+The primary resolution source for this market will be official information from OpenAI, with additional verification from a consensus of credible reporting.
+Contracts:
+  E4.C1: Will OpenAI release a new frontier model on or before June 30, 2026?
+  E4.C2: Will OpenAI release a new frontier model on or before September 30, 2026?
+
+=== E5: Bank of England decision in February?
+Rules:
+The summary for the Bank of England's Monetary Policy Committee meeting for February is scheduled to be released on February 5.
+
+This market will resolve to the amount of basis points the upper bound of the Bank Rate is changed by versus the level it was prior to the Bank of England's February 2026 meeting.
+
+The primary resolution source for this market will be the official website of the Bank of England (https://www.bankofengland.co.uk/monetary-policy/upcoming-mpc-dates), however a consensus of credible reporting may also be used.
+
+If the Bank Rate is changed to a level not expressed in the displayed options, the change will be rounded up to the nearest 25 and will resolve to the relevant bracket. (e.g. if there's a cut/increase of 12.5 bps it will be considered to be 25 bps)
+
+This market may resolve as soon as the Bank of England's statement for their February meeting with relevant data is issued. If no statement is released by the start date of the next scheduled meeting, this market will resolve to the "No change" bracket.
+Contracts:
+  E5.C1: Bank of England decreases interest rates by 50+ bps after February 2026 meeting?
+  E5.C2: Bank of England decreases interest rates by 25 bps after February 2026 meeting?
+  E5.C3: No change in Bank of England's interest rates after February 2026 meeting?
+  E5.C4: Bank of England increases interest rates after February 2026 meeting?
+
+=== E6: Reserve Bank of New Zealand decision in July?
+Rules:
+This market will resolve according to the change in the official cash rate (OCR) resulting from the Reserve Bank of New Zealand’s July monetary policy decision, relative to the level it was prior to this decision.
+
+The resolution source for this market is information released by the Reserve Bank of New Zealand after its July 7, 2026 monetary policy decision, as listed on the official Reserve Bank of New Zealand monetary policy schedule: https://www.rbnz.govt.nz/news-and-events/events#sort=%40eventstart%20ascending&f:@hierarchicalz95xsz120xatopictagnames=[Monetary%20policy]
+
+This market may resolve as soon as the Reserve Bank of New Zealand's media release for their July 7, 2026 decision with relevant data is issued. If no decision on the official cash rate is issued by the date of the next scheduled monetary policy decision, this market will resolve to the "No change" bracket.
+Contracts:
+  E6.C1: Will the Reserve Bank of New Zealand increase the official cash rate after the July decision?
+  E6.C2: Will the Reserve Bank of New Zealand make no change to the official cash rate after the July decision?
+  E6.C3: Will the Reserve Bank of New Zealand decrease the official cash rate after the July decision?
+
+=== E7: Next UK Prime Minister appointed by…?
+Rules:
+This market will resolve to “Yes” if the next Prime Minister of the UK is officially appointed by the listed date, 11:59 PM ET. Otherwise, this market will resolve to “No”.
+
+To count for resolution, the individual must be officially appointed by the United Kingdom Monarch. Any interim or caretaker Prime Minister will not count toward the resolution of this market.
+
+If no such Prime Minister is appointed, or Keir Starmer is re-appointed as Prime Minister without another intervening Prime Minister, by the listed date, 11:59 PM ET, this market will resolve to “No”.
+
+The primary resolution source for this market will be official information from the Government of the United Kingdom; however, a consensus of credible reporting may also be used.
+Contracts:
+  E7.C1: Will the next UK Prime Minister be appointed by July 16?
+  E7.C2: Will the next UK Prime Minister be appointed by July 19?
+  E7.C3: Will the next UK Prime Minister be appointed by July 31?
+  E7.C4: Will the next UK Prime Minister be appointed by September 30?
+
+=== E8: NJ-11 Special Election Democratic Primary Winner
+Rules:
+This market will resolve according to the candidate who wins the nomination for the Democratic Party to contest the NJ-11 congressional district seat in the U.S. House of Representatives in the 2026 special election, scheduled for April 16, 2026. The Democratic primary will take place on February 5, 2026.
+
+If no nominee is announced by November 3, 2026, 11:59PM ET, this market will resolve to "Other".
+
+The resolution source for this market will be a consensus of official Democrat sources, including https://democrats.org/.
+
+Any replacement of the nominee before election day will not change the resolution of the market.
+Contracts:
+  E8.C1: Will Brendan Gill be the Democratic nominee for the NJ-11 special election?
+  E8.C2: Will Tom Malinowski be the Democratic nominee for the NJ-11 special election?
+  E8.C3: Will Analilia Mejia be the Democratic nominee for the NJ-11 special election?
+  E8.C4: Will Tahesha Way be the Democratic nominee for the NJ-11 special election?
+  E8.C5: Will Anna Lee Williams be the Democratic nominee for the NJ-11 special election?
+  E8.C6: Will John Bartlett be the Democratic nominee for the NJ-11 special election?
+  E8.C7: Will Zach Beecher be the Democratic nominee for the NJ-11 special election?
+  E8.C8: Will Dean Dafis be the Democratic nominee for the NJ-11 special election?
+  E8.C9: Will Cammie Croft be the Democratic nominee for the NJ-11 special election?
+  E8.C10: Will Jeff Grayzel be the Democratic nominee for the NJ-11 special election?
+  E8.C11: Will Justin Strickland be the Democratic nominee for the NJ-11 special election?
+  E8.C12: Will Marc Chaaban be the Democratic nominee for the NJ-11 special election?
+
+=== E9: What will S&P 500 (SPX) hit by end of June?
+Rules:
+What will S&P 500 (SPX) hit by end of June 2026?
+Contracts:
+  E9.C1: Will S&P 500 (SPX) hit $8,000 (HIGH) in June?
+    Contract rules: This market will resolve to "Yes" if, at any point between market creation and market close on the final day of trading for June 2026, any 1-minute candle for S&P 500 (SPX) shows a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No."
+
+All prices recorded during regular trading hours of the primary exchange for the instrument, as reflected in Yahoo Finance's 1-minute interval ("1m") data, will be considered.
+
+Periods when the market is officially closed (e.g., holidays or maintenance breaks) will not be considered.
+
+All times referenced are local to the primary exchange on which the index trades.
+
+The resolution source for this market is Yahoo Finance — specifically, the 1-minute interval ("1m") chart data for S&P 500 (SPX) available at https://finance.yahoo.com/quote/%5EGSPC/.
+  E9.C2: Will S&P 500 (SPX) hit $7,850 (HIGH) in June?
+    Contract rules: This market will resolve to "Yes" if, at any point between market creation and market close on the final day of trading for June 2026, any 1-minute candle for S&P 500 (SPX) shows a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No."
+
+All prices recorded during regular trading hours of the primary exchange for the instrument, as reflected in Yahoo Finance's 1-minute interval ("1m") data, will be considered.
+
+Periods when the market is officially closed (e.g., holidays or maintenance breaks) will not be considered.
+
+All times referenced are local to the primary exchange on which the index trades.
+
+The resolution source for this market is Yahoo Finance — specifically, the 1-minute interval ("1m") chart data for S&P 500 (SPX) available at https://finance.yahoo.com/quote/%5EGSPC/.
+  E9.C3: Will S&P 500 (SPX) hit $7,700 (HIGH) in June?
+    Contract rules: This market will resolve to "Yes" if, at any point between market creation and market close on the final day of trading for June 2026, any 1-minute candle for S&P 500 (SPX) shows a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No."
+
+All prices recorded during regular trading hours of the primary exchange for the instrument, as reflected in Yahoo Finance's 1-minute interval ("1m") data, will be considered.
+
+Periods when the market is officially closed (e.g., holidays or maintenance breaks) will not be considered.
+
+All times referenced are local to the primary exchange on which the index trades.
+
+The resolution source for this market is Yahoo Finance — specifically, the 1-minute interval ("1m") chart data for S&P 500 (SPX) available at https://finance.yahoo.com/quote/%5EGSPC/.
+  E9.C4: Will S&P 500 (SPX) hit $7,100 (LOW) in June?
+    Contract rules: This market will resolve to "Yes" if, at any point between market creation and market close on the final day of trading for June 2026, any 1-minute candle for S&P 500 (SPX) shows a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No."
+
+All prices recorded during regular trading hours of the primary exchange for the instrument, as reflected in Yahoo Finance's 1-minute interval ("1m") data, will be considered.
+
+Periods when the market is officially closed (e.g., holidays or maintenance breaks) will not be considered.
+
+All times referenced are local to the primary exchange on which the index trades.
+
+The resolution source for this market is Yahoo Finance — specifically, the 1-minute interval ("1m") chart data for S&P 500 (SPX) available at https://finance.yahoo.com/quote/%5EGSPC/.
+  E9.C5: Will S&P 500 (SPX) hit $6,900 (LOW) in June?
+    Contract rules: This market will resolve to "Yes" if, at any point between market creation and market close on the final day of trading for June 2026, any 1-minute candle for S&P 500 (SPX) shows a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No."
+
+All prices recorded during regular trading hours of the primary exchange for the instrument, as reflected in Yahoo Finance's 1-minute interval ("1m") data, will be considered.
+
+Periods when the market is officially closed (e.g., holidays or maintenance breaks) will not be considered.
+
+All times referenced are local to the primary exchange on which the index trades.
+
+The resolution source for this market is Yahoo Finance — specifically, the 1-minute interval ("1m") chart data for S&P 500 (SPX) available at https://finance.yahoo.com/quote/%5EGSPC/.
+  E9.C6: Will S&P 500 (SPX) hit $6,700 (LOW) in June?
+    Contract rules: This market will resolve to "Yes" if, at any point between market creation and market close on the final day of trading for June 2026, any 1-minute candle for S&P 500 (SPX) shows a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No."
+
+All prices recorded during regular trading hours of the primary exchange for the instrument, as reflected in Yahoo Finance's 1-minute interval ("1m") data, will be considered.
+
+Periods when the market is officially closed (e.g., holidays or maintenance breaks) will not be considered.
+
+All times referenced are local to the primary exchange on which the index trades.
+
+The resolution source for this market is Yahoo Finance — specifically, the 1-minute interval ("1m") chart data for S&P 500 (SPX) available at https://finance.yahoo.com/quote/%5EGSPC/.
+  E9.C7: Will S&P 500 (SPX) hit $6,500 (LOW) in June?
+    Contract rules: This market will resolve to "Yes" if, at any point between market creation and market close on the final day of trading for June 2026, any 1-minute candle for S&P 500 (SPX) shows a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No."
+
+All prices recorded during regular trading hours of the primary exchange for the instrument, as reflected in Yahoo Finance's 1-minute interval ("1m") data, will be considered.
+
+Periods when the market is officially closed (e.g., holidays or maintenance breaks) will not be considered.
+
+All times referenced are local to the primary exchange on which the index trades.
+
+The resolution source for this market is Yahoo Finance — specifically, the 1-minute interval ("1m") chart data for S&P 500 (SPX) available at https://finance.yahoo.com/quote/%5EGSPC/.
+  E9.C8: Will S&P 500 (SPX) hit $6,300 (LOW) in June?
+    Contract rules: This market will resolve to "Yes" if, at any point between market creation and market close on the final day of trading for June 2026, any 1-minute candle for S&P 500 (SPX) shows a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No."
+
+All prices recorded during regular trading hours of the primary exchange for the instrument, as reflected in Yahoo Finance's 1-minute interval ("1m") data, will be considered.
+
+Periods when the market is officially closed (e.g., holidays or maintenance breaks) will not be considered.
+
+All times referenced are local to the primary exchange on which the index trades.
+
+The resolution source for this market is Yahoo Finance — specifically, the 1-minute interval ("1m") chart data for S&P 500 (SPX) available at https://finance.yahoo.com/quote/%5EGSPC/.
+  E9.C9: Will S&P 500 (SPX) hit $6,000 (LOW) in June?
+    Contract rules: This market will resolve to "Yes" if, at any point between market creation and market close on the final day of trading for June 2026, any 1-minute candle for S&P 500 (SPX) shows a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No."
+
+All prices recorded during regular trading hours of the primary exchange for the instrument, as reflected in Yahoo Finance's 1-minute interval ("1m") data, will be considered.
+
+Periods when the market is officially closed (e.g., holidays or maintenance breaks) will not be considered.
+
+All times referenced are local to the primary exchange on which the index trades.
+
+The resolution source for this market is Yahoo Finance — specifically, the 1-minute interval ("1m") chart data for S&P 500 (SPX) available at https://finance.yahoo.com/quote/%5EGSPC/.
+
+=== E10: 3rd largest company end of March?
+Rules:
+This market will resolve to the third-largest company in the world by market cap on March 31, 2026, as of market close.
+
+The resolution source for this market will be a consensus of credible reporting.
+Contracts:
+  E10.C1: Will NVIDIA be the third-largest company in the world by market cap on March 31?
+  E10.C2: Will Microsoft be the third-largest company in the world by market cap on March 31?
+  E10.C3: Will Apple be the third-largest company in the world by market cap on March 31?
+  E10.C4: Will Alphabet be the third-largest company in the world by market cap on March 31?
+  E10.C5: Will Tesla be the third-largest company in the world by market cap on March 31?
+  E10.C6: Will Saudi Aramco be the third-largest company in the world by market cap on March 31?
+  E10.C7: Will Amazon be the third-largest company in the world by market cap on March 31?
+  E10.C8: Will Oracle be the third-largest company in the world by market cap on March 31?

@@ -1,0 +1,202 @@
+You will be shown 6 questions from a prediction market. Each has one or more contracts that resolve YES or NO under the rules shown. Each question gives the date your view is "as of": answer as you would on that date.
+
+Use only what you already know. Do not search for or look up anything: reading this file is the only tool call you may make. There are no prices in this file and you should not try to estimate what any market thinks; give your own view.
+
+Each question says what to write for it. Whole percents run from 1 to 99. Levels are plain numbers in the units the contracts use (for example 95000 for $95,000, 3.25 for 3.25%). Dates are YYYY-MM-DD.
+
+For each question also say whether you recognise how it actually turned out ("recognised": true only if you believe you remember the real outcome; otherwise false).
+
+Reply with one JSON object and nothing else:
+{"events": [{"label": "E1", "recognised": false, ...the fields that question asks for...}]}
+
+=== E1 (as of 2026-07-06): What will ConAgra Brands say during their next earnings call?
+Rules:
+This market will resolve based on the next earnings announcement of ConAgra Brands, currently scheduled to take place on July 15, 2026 at 9:30 AM ET.
+
+This market will resolve to "Yes" if the listed term is mentioned by anyone during this event. Otherwise, the market will resolve to "No".
+
+If this event is definitely cancelled, or otherwise is not aired by July 16, 2026, 11:59 PM ET, "-No Qualifying Event-" will resolve to "Yes" and all other brackets will resolve to "No". 
+
+The resolution source will be audio/video of the event.
+
+For full rules, see: https://polymarket-upload.s3.us-east-2.amazonaws.com/market_products/Event+Mentions+Contract+DeFi.pdf
+Contracts:
+  E1.C1: Will ConAgra Brands say "Margin" 5+ times during earnings call?
+  E1.C2: Will ConAgra Brands say "Frozen" 5+ times during earnings call?
+  E1.C3: Will ConAgra Brands say "Inflation" during earnings call?
+  E1.C4: Will ConAgra Brands say "Hydroponics" during earnings call?
+  E1.C5: Will ConAgra Brands say "Farm-to-table" or "Farm to table" during earnings call?
+  E1.C6: Will ConAgra Brands say "Volume" during earnings call?
+  E1.C7: Will ConAgra Brands say "Flywheel" during earnings call?
+  E1.C8: Will ConAgra Brands say "Omnichannel" during earnings call?
+  E1.C9: Will ConAgra Brands say "Fiscal" during earnings call?
+  E1.C10: Will ConAgra Brands say "California" during earnings call?
+  E1.C11: Will ConAgra Brands say "Frozen" during earnings call?
+  E1.C12: Will ConAgra Brands say "Collaboration" during earnings call?
+  E1.C13: Will ConAgra Brands say "Flavor" during earnings call?
+  E1.C14: Will ConAgra Brands say "Health" or "Healthy" during earnings call?
+  E1.C15: Will ConAgra Brands say "Vision" during earnings call?
+  E1.C16: Will ConAgra Brands say "Diesel" during earnings call?
+  E1.C17: Will ConAgra Brands say "Project" during earnings call?
+  E1.C18: Will ConAgra Brands say "AI" or "Artificial Intelligence" during earnings call?
+  E1.C19: Will the earnings call not air?
+What to write for E1:
+  Write "p": a whole percent for every contract label, your chance that it resolves YES.
+
+=== E2 (as of 2026-07-29): What will Procter & Gamble say during their next earnings call?
+Rules:
+This market will resolve based on the next earnings announcement of Procter & Gamble currently scheduled to take place on July 29, 2026 at 8:30 AM ET.
+
+This market will resolve to "Yes" if the listed term is mentioned by anyone during this event. Otherwise, the market will resolve to "No".
+
+If this event is definitely cancelled, or otherwise is not aired by July 30, 2026, 11:59 PM ET, "-No Qualifying Event-" will resolve to "Yes" and all other brackets will resolve to "No".
+
+The resolution source will be audio of the event.
+
+For full rules, see: https://polymarket-upload.s3.us-east-2.amazonaws.com/market_products/Event+Mentions+Contract+DeFi.pdf
+Contracts:
+  E2.C1: Will Procter & Gamble say "Income" 10+ times during earnings call?
+  E2.C2: Will Procter & Gamble say "Quarter" 10+ times during earnings call?
+  E2.C3: Will Procter & Gamble say "Fiscal" 10+ times during earnings call?
+  E2.C4: Will Procter & Gamble say "Innovation" 10+ times during earnings call?
+  E2.C5: Will Procter & Gamble say "Revenue" 10+ times during earnings call?
+  E2.C6: Will Procter & Gamble say "Consumer" 10+ times during earnings call?
+  E2.C7: Will Procter & Gamble say "Customer" 5+ times during earnings call?
+  E2.C8: Will Procter & Gamble say "Profit" 10+ times during earnings call?
+  E2.C9: Will Procter & Gamble say "Currency" during earnings call?
+  E2.C10: Will Procter & Gamble say "Collusion" during earnings call?
+  E2.C11: Will Procter & Gamble say "World Cup" during earnings call?
+  E2.C12: Will Procter & Gamble say "Category" during earnings call?
+  E2.C13: Will Procter & Gamble say "Portfolio" during earnings call?
+  E2.C14: Will Procter & Gamble say "Insolvency" during earnings call?
+  E2.C15: Will Procter & Gamble say "Supply" during earnings call?
+  E2.C16: Will Procter & Gamble say "Commodity" during earnings call?
+  E2.C17: Will Procter & Gamble say "Trump" during earnings call?
+  E2.C18: Will Procter & Gamble say "Geopolitical" during earnings call?
+  E2.C19: Will Procter & Gamble say "Toilet paper" during earnings call?
+  E2.C20: Will Procter & Gamble say "Valuation" during earnings call?
+  E2.C21: Will Procter & Gamble say "China" during earnings call?
+  E2.C22: Will the earnings call not air?
+What to write for E2:
+  Write "p": a whole percent for every contract label, your chance that it resolves YES.
+
+=== E3 (as of 2026-09-20): What will Trump say this week? (September 21 - September 27)
+Rules:
+This market will resolve to "Yes" if Donald Trump mentions the listed term between September 21, 2026, 12:00 AM ET and September 27, 2026, 11:59 PM ET. Otherwise, this market will resolve to "No".
+
+Written usages of terms (e.g. Truth Social posts, written statements, etc.) will not count toward this market's resolution.
+
+Videos posted on his social media which were filmed outside this market's time frame will not qualify for a "Yes" resolution.
+
+For full rules, see: https://polymarket-upload.s3.us-east-2.amazonaws.com/market_products/Mentions/Period+Mentions+Contract+DeFi.pdf
+Contracts:
+  E3.C1: Will Trump say "Pearl Harbor" this week?
+  E3.C2: Will Trump say "Tiger" this week?
+  E3.C3: Will Trump say "Heaven" this week?
+  E3.C4: Will Trump say "Cloud" this week?
+  E3.C5: Will Trump say "Miracle" this week?
+  E3.C6: Will Trump say "Magnificent" this week?
+  E3.C7: Will Trump say "Granite" this week?
+  E3.C8: Will Trump say "Eisenhower" this week?
+  E3.C9: Will Trump say "Cheat" or "Cheater" this week?
+  E3.C10: Will Trump say "Elon" or "Musk" this week?
+  E3.C11: Will Trump say "Valueless" this week?
+  E3.C12: Will Trump say "Cook" or "Cooked" this week?
+  E3.C13: Will Trump say "Alaska" this week?
+  E3.C14: Will Trump say "Six Seven" this week?
+What to write for E3:
+  Write "p": a whole percent for every contract label, your chance that it resolves YES.
+
+=== E4 (as of 2026-08-03): What will Karoline Leavitt say during the next White House press briefing?
+Rules:
+This market will resolve to "Yes" if the acting White House Press Secretary says the listed term during the next White House press briefing they participate in. Otherwise, the market will resolve to "No".
+
+If no such press briefing happens by August 31, 2026, 11:59 PM ET, "-No Qualifying Event-" will resolve to "Yes" and all other brackets will resolve to "No". 
+
+This market refers to White House press briefings by the acting White House Press Secretary (https://rollcall.com/factbase/trump/topic/calendar/). Any press briefing by the acting White House Press Secretary will qualify. "New Media" press briefings or special briefings such as those including extra guests will be considered, so long as the acting White House Press Secretary is a listed participant. Impromptu press gaggles will not be considered for the resolution of this market; only events listed on the public schedule as briefings or announcements will qualify.
+
+The resolution source for this market will be footage of the relevant briefing.
+
+For full rules, see: https://polymarket-upload.s3.us-east-2.amazonaws.com/market_products/Mentions/Event+Mentions+Contract+DeFi.pdf
+Contracts:
+  E4.C1: Will Leavitt say "President" 60+ times during the next White House Press Briefing?
+  E4.C2: Will Leavitt say "President" 50+ times during the next White House Press Briefing?
+  E4.C3: Will Leavitt say "Administration" 10+ times during the next White House Press Briefing?
+  E4.C4: Will Leavitt say "Joe" or "Biden" 5+ times during the next White House Press Briefing?
+  E4.C5: Will Leavitt say "Iran" 5+ times during the next White House Press Briefing?
+  E4.C6: Will Leavitt say "Go ahead" 5+ times during the next White House Press Briefing?
+  E4.C7: Will Leavitt say "Ceasefire" during the next White House Press Briefing?
+  E4.C8: Will Leavitt say "Pink" during the next White House Press Briefing?
+  E4.C9: Will Leavitt say "Red" during the next White House Press Briefing?
+  E4.C10: Will Leavitt say "Russia" or "Ukraine" during the next White House Press Briefing?
+  E4.C11: Will Leavitt say "Mexico" during the next White House Press Briefing?
+  E4.C12: Will Leavitt say "Illegal" or "Illegals" during the next White House Press Briefing?
+  E4.C13: Will Leavitt say "CDC" or "WHO" during the next White House Press Briefing?
+  E4.C14: Will Leavitt say "Congress" during the next White House Press Briefing?
+  E4.C15: Will Leavitt say "World Cup" during the next White House Press Briefing?
+  E4.C16: Will Leavitt say "Madness" during the next White House Press Briefing?
+  E4.C17: Will Leavitt say "Commander in Chief" during the next White House Press Briefing?
+  E4.C18: Will Leavitt say "Alien" during the next White House Press Briefing?
+  E4.C19: Will Leavitt say "Hormuz" or "Strait" during the next White House Press Briefing?
+  E4.C20: Will Leavitt say "Xi" or "Jinping" during the next White House Press Briefing?
+  E4.C21: Will Leavitt say "Pool" during the next White House Press Briefing?
+  E4.C22: Will Leavitt say "Border" during the next White House Press Briefing?
+  E4.C23: Will no press briefing air by August 31?
+What to write for E4:
+  Write "p": a whole percent for every contract label, your chance that it resolves YES.
+
+=== E5 (as of 2026-08-30): What will Dell say during their next earnings call?
+Rules:
+This market will resolve based on the next earnings announcement of Dell currently scheduled to take place on September 1, 2026 at 4:30 PM ET.
+
+This market will resolve to "Yes" if the listed term is mentioned by anyone during this event. Otherwise, the market will resolve to "No".
+
+If this event is definitely cancelled, or otherwise is not aired by September 2, 2026, 11:59 PM ET, "-No Qualifying Event-" will resolve to "Yes" and all other brackets will resolve to "No".
+
+The resolution source will be audio of the event.
+
+For full rules, see: https://polymarket-upload.s3.us-east-2.amazonaws.com/market_products/Mentions/Event+Mentions+Contract+DeFi.pdf
+Contracts:
+  E5.C1: Will Dell say "AI" or "Artificial Intelligence" 20+ times during earnings call?
+  E5.C2: Will Dell say "Quarter" 20+ times during earnings call?
+  E5.C3: Will Dell say "Fiscal" 20+ times during earnings call?
+  E5.C4: Will Dell say "Data Center" 10+ times during earnings call?
+  E5.C5: Will Dell say "Dividend" 3+ times during earnings call?
+  E5.C6: Will Dell say "Nvidia" during earnings call?
+  E5.C7: Will Dell say "Agentic" during earnings call?
+  E5.C8: Will Dell say "Lightning" during earnings call?
+  E5.C9: Will Dell say "Confidence" during earnings call?
+  E5.C10: Will Dell say "Tailwind" during earnings call?
+  E5.C11: Will Dell say "Inflation" or "Inflationary" during earnings call?
+  E5.C12: Will Dell say "Mistral" during earnings call?
+  E5.C13: Will Dell say "Headwind" during earnings call?
+  E5.C14: Will Dell say "Texas" during earnings call?
+  E5.C15: Will Dell say "China" during earnings call?
+  E5.C16: Will Dell say "Trump" during earnings call?
+  E5.C17: Will the earnings call not air?
+What to write for E5:
+  Write "p": a whole percent for every contract label, your chance that it resolves YES.
+
+=== E6 (as of 2026-07-16): What will Trump say this week? (July 13 - July 19)
+Rules:
+This market will resolve to “Yes” if Donald Trump mentions the listed term between July 13, 2026, 12:00 AM ET and July 19, 2026, 11:59 PM ET. Otherwise, this market will resolve to “No”.
+
+Written usages of terms (e.g. Truth Social posts, written statements, etc.) will not count toward this market's resolution.
+
+Videos posted on his social media which were filmed outside this market's time frame will not qualify for a "Yes" resolution.
+
+For full rules, see: https://polymarket-upload.s3.us-east-2.amazonaws.com/market_products/Period+Mentions+Contract+DeFi.pdf
+Contracts:
+  E6.C1: Will Trump say "Communist" or "Communism" this week?
+  E6.C2: Will Trump say "Cuba" or "Cuban" this week?
+  E6.C3: Will Trump say "Beer" this week?
+  E6.C4: Will Trump say "Female" this week?
+  E6.C5: Will Trump say "Fertilizer" this week?
+  E6.C6: Will Trump say "Predict" this week?
+  E6.C7: Will Trump say "Melania" this week?
+  E6.C8: Will Trump say "Spain" this week?
+  E6.C9: Will Trump say "Belgium" this week?
+  E6.C10: Will Trump say "Radical Left Lunatic" this week?
+  E6.C11: Will Trump say "Six Seven" this week?
+What to write for E6:
+  Write "p": a whole percent for every contract label, your chance that it resolves YES.

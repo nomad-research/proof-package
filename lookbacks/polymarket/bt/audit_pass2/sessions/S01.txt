@@ -1,0 +1,172 @@
+You will be shown 10 questions from a prediction market. Each question has one or more contracts, and each contract resolves YES or NO under the rules shown.
+
+For every contract, give your probability, as a whole percent from 1 to 99, that it resolves YES. Use only what you already know. Do not search for or look up anything: reading this file is the only tool call you may make.
+
+For each question, also say whether you recognise how it actually turned out ("recognised": true only if you believe you remember the real outcome; otherwise false).
+
+Where a question's contracts are mutually exclusive (exactly one can resolve YES), your numbers for it should add up to about 100. Where they are nested thresholds or dates, keep them consistent with each other.
+
+Reply with one JSON object and nothing else, in this form:
+{"events": [{"label": "E1", "recognised": false, "p": {"E1.C1": 35, "E1.C2": 60}}]}
+
+Every contract label below must appear exactly once in your reply.
+
+=== E1: 3rd largest company end of February?
+Rules:
+This market will resolve to the third-largest company in the world by market cap on February 28, 2026, as of market close.
+
+The resolution source for this market will be a consensus of credible reporting.
+Contracts:
+  E1.C1: Will NVIDIA be the third-largest company in the world by market cap on February 28?
+  E1.C2: Will Microsoft be the third-largest company in the world by market cap on February 28?
+  E1.C3: Will Apple be the third-largest company in the world by market cap on February 28?
+  E1.C4: Will Alphabet be the third-largest company in the world by market cap on February 28?
+  E1.C5: Will Tesla be the third-largest company in the world by market cap on February 28?
+  E1.C6: Will Saudi Aramco be the third-largest company in the world by market cap on February 28?
+  E1.C7: Will Amazon be the third-largest company in the world by market cap on February 28?
+  E1.C8: Will Oracle be the third-largest company in the world by market cap on February 28?
+
+=== E2: Iowa Governor Democratic Primary Winner
+Rules:
+This market will resolve according to the winner of the Democratic Primary for Governor of Iowa, scheduled to take place on June 2, 2026. Resolution will be based on the overall winner of the primary, including any potential second round or run-off.
+
+If no 2026 Iowa Gubernatorial Democratic Primary takes place, this market will resolve to “Other.”
+
+The resolution source for this market will be the first official announcement of the results from the Iowa Democratic Party; however, an overwhelming consensus of credible reporting may suffice.
+Contracts:
+  E2.C1: Will Paul Dahl win the 2026 Iowa Governor Democratic primary election?
+  E2.C2: Will Rob Sand win the 2026 Iowa Governor Democratic primary election?
+  E2.C3: Will Julie Stauch win the 2026 Iowa Governor Democratic primary election?
+
+=== E3: Bank of Korea decision in April?
+Rules:
+This market will resolve according to the change in the base rate resulting from the Bank of Korea’s April monetary policy meeting, relative to the level it was prior to this meeting.
+
+The resolution source for this market is information released by the Bank of Korea after its April 10, 2026 policy-setting meeting, as listed on the official Bank of Korea meeting schedule: https://www.bok.or.kr/eng/bbs/E0000627/view.do?nttId=10094301&searchCnd=1&searchKwd=&depth2=400417&depth3=400022&depth=400022&pageUnit=10&pageIndex=1&programType=newsDataEng&menuNo=400022&oldMenuNo=400022
+
+This market may resolve as soon as the Bank of Korea's policy statement for their April 10, 2026 meeting with relevant data is issued. If no decision on the base rate is issued by the end date of the next scheduled meeting, this market will resolve to the "No change" bracket.
+Contracts:
+  E3.C1: Will the Bank of Korea decrease the base rate after the April Meeting?
+  E3.C2: Will the Bank of Korea make no change to the base rate after the April Meeting?
+  E3.C3: Will the Bank of Korea increase the base rate after the April Meeting?
+
+=== E4: Portugal Presidential Election
+Rules:
+Presidential elections are scheduled to be held in Portugal on 18 or 25 January 2026, with a possible second round on 8 or 15 February 2026. A second round will be held if no candidate secures more than 50% of the valid votes in the first round.
+
+This market will resolve according to the listed candidate that wins this election. 
+
+This market includes any potential second round. If the result of this election isn't known by December 31, 2026, 11:59 PM ET, the market will resolve to "Other".
+
+This market will resolve based on the result of the election as indicated by a consensus of credible reporting. If there is ambiguity, this market will resolve based solely on the official results as reported by the Portuguese government, specifically the National Election Commission (Comissão Nacional de Eleições, CNE) (https://www.cne.pt/).
+Contracts:
+  E4.C1: Will Tim Vieira win the 2026 Portugal presidential election?
+  E4.C2: Will Joana Amaral Dias win the 2026 Portugal presidential election?
+  E4.C3: Will André Pestana win the 2026 Portugal presidential election?
+  E4.C4: Will André Ventura win the 2026 Portugal presidential election?
+  E4.C5: Will Orlando Cruz win the 2026 Portugal presidential election?
+  E4.C6: Will Aristides Teixeira win the 2026 Portugal presidential election?
+  E4.C7: Will Manuela Magno win the 2026 Portugal presidential election?
+  E4.C8: Will Luís Marques Mendes win the 2026 Portugal presidential election?
+  E4.C9: Will Pedro Tinoco de Faria win the 2026 Portugal presidential election?
+  E4.C10: Will Henrique Gouveia e Melo win the 2026 Portugal presidential election?
+  E4.C11: Will António José Seguro win the 2026 Portugal presidential election?
+  E4.C12: Will Vitorino Silva win the 2026 Portugal presidential election?
+
+=== E5: AZ-01 Democratic Primary Winner
+Rules:
+This market will resolve according to the candidate who wins the nomination for the Democratic Party to contest the AZ-01 congressional district seat in the U.S. House of Representatives in the 2026 midterm elections. The Democratic primary will take place on July 21, 2026.
+
+If no nominee is announced by November 3, 2026, 11:59PM ET, this market will resolve to "Other".
+
+The resolution source for this market will be a consensus of official Democrat sources, including https://democrats.org/.
+
+Any replacement of the nominee before election day will not change the resolution of the market.
+Contracts:
+  E5.C1: Will Marlene Galán-Woods be the AZ-01 Democratic nominee?
+  E5.C2: Will Rick McCartney be the AZ-01 Democratic nominee?
+  E5.C3: Will Amish Shah be the AZ-01 Democratic nominee?
+  E5.C4: Will Jonathan Treble be the AZ-01 Democratic nominee?
+
+=== E6: Maryland Governor Republican Primary Winner
+Rules:
+This market will resolve according to the winner of the Republican Primary for Governor of Maryland, scheduled to take place on June 23, 2026. Resolution will be based on the overall winner of the primary, including any potential second round or run-off.
+
+If no 2026 Maryland Gubernatorial Republican Primary takes place, this market will resolve to “Other.”
+
+The resolution source for this market will be the first official announcement of the results from the Maryland Republican Party; however, an overwhelming consensus of credible reporting may suffice.
+Contracts:
+  E6.C1: Will Carl Brunner win the 2026 Maryland Governor Republican primary election?
+  E6.C2: Will Ed Hale win the 2026 Maryland Governor Republican primary election?
+  E6.C3: Will John Myrick win the 2026 Maryland Governor Republican primary election?
+  E6.C4: Will Kurt Wedekind win the 2026 Maryland Governor Republican primary election?
+  E6.C5: Will Christopher Bouchat win the 2026 Maryland Governor Republican primary election?
+  E6.C6: Will Steve Hershey win the 2026 Maryland Governor Republican primary election?
+  E6.C7: Will Larry Hogan win the 2026 Maryland Governor Republican primary election?
+  E6.C8: Will Dan Cox win the 2026 Maryland Governor Republican primary election?
+
+=== E7: CA-04 Primary Winners
+Rules:
+The California primary is currently scheduled to take place on June 2, 2026.
+
+This market will resolve "Yes" if the listed candidate advances from the primary to contest the seat for California's 4th congressional district in the U.S. House of Representatives in the 2026 midterm elections. Otherwise, this market will resolve to "No".
+
+If no nominees are announced by November 3, 2026, 11:59PM ET, this market will resolve to "Other".
+
+The resolution source for this market will be a consensus of official sources, including https://www.sos.ca.gov/.
+
+Any replacement of the nominees before election day will not change the resolution of the market.
+Contracts:
+  E7.C1: Will Mike Thompson advance from the CA-04 primary election?
+  E7.C2: Will Sharon Brown advance from the CA-04 primary election?
+  E7.C3: Will Heath Fulkerson advance from the CA-04 primary election?
+  E7.C4: Will Mandy Ghusar advance from the CA-04 primary election?
+  E7.C5: Will Eric Jones advance from the CA-04 primary election?
+  E7.C6: Will Laurie MacKenzie advance from the CA-04 primary election?
+  E7.C7: Will Trevor Merrell advance from the CA-04 primary election?
+  E7.C8: Will John Wesley Tyler advance from the CA-04 primary election?
+
+=== E8: February 2026 Temperature Increase (ºC)
+Rules:
+This market will resolve according to the value reported by the Global Land-Ocean Temperature Index for February 2026 when it is released.
+
+An anomaly within a named bracket for February 2026 is necessary and sufficient to resolve this market immediately once the data becomes available, regardless of whether the figure for February 2026 is later revised.
+
+The primary resolution source for this market will be the figure found in the table titled "GLOBAL Land-Ocean Temperature Index in 0.01 degrees Celsius" under the column "Feb" in the row "2026" (https://data.giss.nasa.gov/gistemp/tabledata_v4/GLB.Ts+dSST.txt).
+
+If NASA’s “Global Temperature Index” is rendered permanently unavailable, other information from NASA may be used.
+If no information for February 2026 is provided by NASA by April 1, 2026, 11:59 PM ET, this market will resolve to the lowest range bracket.
+Contracts:
+  E8.C1: Will global temperature increase by less than 1.05ºC in February 2026?
+  E8.C2: Will global temperature increase by between 1.05ºC and 1.09ºC in February 2026?
+  E8.C3: Will global temperature increase by between 1.10ºC and 1.14ºC in February 2026?
+  E8.C4: Will global temperature increase by between 1.15ºC and 1.19ºC in February 2026?
+  E8.C5: Will global temperature increase by between 1.20ºC and 1.24ºC in February 2026?
+  E8.C6: Will global temperature increase by more than 1.24ºC in February 2026?
+
+=== E9: Fact Check: is L.A. U-Haul attack perp a U.S. Citizen?
+Rules:
+On January 11, 2026, a U-Haul truck drove into a crowd in Los Angeles, during a demonstration in support of Iranian protestors. ABC7 Los Angeles reported that a man was later pulled out of the truck and taken into police custody.
+
+This market will resolve to “Yes” if it is confirmed, by either relevant U.S. law enforcement agencies or a consensus of credible reporting, that the alleged driver of the U-Haul Truck that drove into the crowd is a United States citizen by February 28, 2026, 11:59 PM ET. Otherwise, this market will resolve to “No”.
+
+This market will resolve once official statements from relevant U.S. law enforcement agencies, or a consensus of credible reporting, have clearly confirmed whether the driver was a U.S. citizen. If the citizenship status of the driver has not been confirmed by February 28, 2026, 11:59 PM ET, this market will resolve to “No”.
+
+The primary resolution source for this market will be official information from relevant U.S. law enforcement agencies; however, a consensus of credible reporting will also be used.
+Contracts:
+  E9.C1: Fact Check: is L.A. U-Haul attack perp a U.S. Citizen?
+
+=== E10: Bank of Canada decision in March?
+Rules:
+This market will resolve to the amount of basis points the target for the overnight rate is changed by versus the level it was prior to the Bank of Canada's March 2026 meeting.
+
+If the target for the overnight rate is changed to a level not expressed in the displayed options, the change will be rounded up to the nearest 25 basis points and will resolve to the relevant bracket. For example, if the deposit facility rate is increased or decreased by 12.5 basis points, it will be treated as a 25 basis point change for the purposes of resolution.
+
+The resolution source for this market is information released by the Bank of Canada after its March 18, 2026 policy meeting, as listed on the official Bank of Canada calendar: https://www.bankofcanada.ca/core-functions/monetary-policy/key-interest-rate/#target-dates
+
+This market may resolve as soon as the Bank of Canada's statement for their March meeting with relevant data is issued. If no statement is released by the end date of the next scheduled meeting, this market will resolve to the "No change" bracket.
+Contracts:
+  E10.C1: Will the Bank of Canada announce a 50+ bps decrease at the March meeting?
+  E10.C2: Will the Bank of Canada announce a 25 bps decrease at the March meeting?
+  E10.C3: Will the Bank of Canada announce no change at the March meeting?
+  E10.C4: Will the Bank of Canada announce an increase at the March meeting?

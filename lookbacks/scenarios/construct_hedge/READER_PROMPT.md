@@ -1,0 +1,9 @@
+You are asked to construct a hedge. Do not use any tool, do not open any file, and do not look anything up. Use only what is written here and your general knowledge. You have not been shown any prices or returns and must not try to recall specific returns from particular dates.
+
+**Situation.** A basket of four bank stocks (JPM, BAC, WFC, C) is held long. Its thesis: on a Federal Reserve policy-statement day, a hawkish or neutral outcome (the 5-year Treasury yield rises by 5 basis points or more, or stays within 5 basis points) supports bank net interest income. The outcome space is: hawkish (yield change +5 bp or more), neutral (between -5 and +5 bp), dovish (-5 bp or less). The thesis set is {hawkish, neutral}; the **failure set is {dovish}**.
+
+**Task.**
+1. Write a **hedging thesis** over the same outcomes whose thesis set covers the failure set (dovish). State the mechanism chain that makes it true: each hop (for example financing cost, duration of cash flows, leverage, the way a company earns or discounts) and why the outcome reaches the companies. State every outcome it excludes and the reason for the exclusion (an exclusion resting on something unknown is not allowed).
+2. Choose **exactly four** stocks from this universe to fit that thesis: AAPL MSFT AMZN GOOGL META NVDA TSLA UNH JNJ PFE MRK ABBV LLY PG KO PEP WMT COST HD LOW MCD NKE DIS CMCSA VZ T LIN CAT DE HON UNP UPS DUK SO NEE D AEP O SPG PLD AMT EQIX DHI LEN PHM XOM CVX. All are held long. Nothing may be short. For each, one sentence tying it to a hop of your mechanism chain.
+
+Write /home/user/Nomad-Research/lookbacks/scenarios/construct_hedge/hedge_basket.json as {"hedging_thesis": "...", "mechanism_chain": ["...", "..."], "exclusions": [{"outcome": "...", "reason": "..."}], "basket": [{"ticker": "...", "hop": "..."}, ...four entries]}. Then reply with only the four tickers.

@@ -23,9 +23,11 @@ def visible_positions(view, clock: str, holder_id: str | None = None,
                       nodes: list[str] | None = None, attribute: str | None = None) -> list[dict]:
     """Rows knowable by the clock, superseded rows removed (among the visible ones)."""
     rows = view.led("positions")
+    # v17: a null-node statement is about the subject's own state (a reactor's unit_status, a licence's state);
+    # it is included when the read names the subject. v16 rows always carry a node, so nothing changes for them.
     vis = [r for r in rows if le(r["knowable_from"], clock)
            and (holder_id is None or r["holder_id"] == holder_id)
-           and (nodes is None or r["node"] in nodes)
+           and (nodes is None or r["node"] in nodes or (r["node"] is None and holder_id is not None))
            and (attribute is None or r["attribute"] == attribute)]
     superseded = {r["supersedes"] for r in vis if r.get("supersedes")}
     return [r for r in vis if r["position_id"] not in superseded]

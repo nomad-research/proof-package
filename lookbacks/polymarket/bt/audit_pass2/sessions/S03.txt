@@ -1,0 +1,196 @@
+You will be shown 10 questions from a prediction market. Each question has one or more contracts, and each contract resolves YES or NO under the rules shown.
+
+For every contract, give your probability, as a whole percent from 1 to 99, that it resolves YES. Use only what you already know. Do not search for or look up anything: reading this file is the only tool call you may make.
+
+For each question, also say whether you recognise how it actually turned out ("recognised": true only if you believe you remember the real outcome; otherwise false).
+
+Where a question's contracts are mutually exclusive (exactly one can resolve YES), your numbers for it should add up to about 100. Where they are nested thresholds or dates, keep them consistent with each other.
+
+Reply with one JSON object and nothing else, in this form:
+{"events": [{"label": "E1", "recognised": false, "p": {"E1.C1": 35, "E1.C2": 60}}]}
+
+Every contract label below must appear exactly once in your reply.
+
+=== E1: Will Johnson & Johnson (JNJ) Q2 MedTech revenue be above __?
+Rules:
+This market will resolve to "Yes" if Johnson & Johnson's MedTech revenue for the upcoming second fiscal quarter, as reported in its official company earnings materials, is above the listed amount. Otherwise, this market will resolve to "No".
+
+The specified metric will be considered as reported in the company's official earnings materials. Subsequent revisions will not be considered.
+
+If the specified company's official earnings materials for the specified quarter are released, and the specified metric is not included, this market will resolve to "No".
+
+If the specified company does not release quarterly earnings materials for the specified quarter by August 31, 2026, 11:59 PM ET, this market will resolve to "No".
+
+If the specified metric is reported as a range rather than a specific number, the midpoint of the range will be used for resolution of this market.
+
+The resolution source for this market is Johnson & Johnson's official company earnings materials, including press releases, investor presentations, and regulatory filings. If the specified metric is not reported in these materials, recordings or transcripts of the company's earnings webcast may also be used.
+
+Note: This market will resolve based on the most numerically precise version of the specified metric reported in the company's official earnings materials. Only the specified metric will be considered; alternate versions that differ in definition or scope from the specified metric will not be considered.
+Contracts:
+  E1.C1: Will Johnson & Johnson (JNJ) Q2 MedTech revenue be above $8.8B?
+  E1.C2: Will Johnson & Johnson (JNJ) Q2 MedTech revenue be above $8.9B?
+  E1.C3: Will Johnson & Johnson (JNJ) Q2 MedTech revenue be above $9B?
+  E1.C4: Will Johnson & Johnson (JNJ) Q2 MedTech revenue be above $9.1B?
+  E1.C5: Will Johnson & Johnson (JNJ) Q2 MedTech revenue be above $9.2B?
+
+=== E2: 2026 United Kingdom Local Elections: Labour wins ___ seats?
+Rules:
+United Kingdom local elections are scheduled to be held on May 7, 2026. 
+
+This market will resolve to "Yes" if the Labour Party wins at least the listed number of council seats for the United Kingdom's metropolitan boroughs, London borough councils, unitary authorities, county councils, and district councils as a result of this election. Otherwise, this market will resolve to "No".
+
+A candidate will be considered an official candidate of the Labour Party if they are officially nominated by the Labour Party and are registered for the relevant election in affiliation with the Labour Party. Independent candidates will not count for any party.
+
+Only elections for the United Kingdom’s metropolitan boroughs, London borough councils, unitary authorities, county councils, and district councils taking place on May 7, 2026, or rescheduled to within seven days thereafter, will be counted for this market.
+
+Resolution of this market will be based on the results of the relevant elections, once those results are official. If the results of any of the relevant 2026 United Kingdom local elections aren’t known by April 30, 2027 11:59 PM ET, this market will resolve based on the available results up to that point. If none of the results of the relevant 2026 United Kingdom local elections are known by that time, this market will resolve to “No”.
+
+This market will resolve based on the results of the elections as indicated by a consensus of credible reporting. If there is ambiguity, this market will resolve based solely on the official results as reported by the respective council government.
+Contracts:
+  E2.C1: Will the Labour Party win at least 300 council seat elections in the 2026 United Kingdom local elections?
+  E2.C2: Will the Labour Party win at least 400 council seat elections in the 2026 United Kingdom local elections?
+  E2.C3: Will the Labour Party win at least 500 council seat elections in the 2026 United Kingdom local elections?
+  E2.C4: Will the Labour Party win at least 600 council seat elections in the 2026 United Kingdom local elections?
+  E2.C5: Will the Labour Party win at least 700 council seat elections in the 2026 United Kingdom local elections?
+
+=== E3: 2026 United Kingdom Local Elections: Liberal Democrats wins ___ seats?
+Rules:
+United Kingdom local elections are scheduled to be held on May 7, 2026. 
+
+This market will resolve to "Yes" if the Liberal Democrats wins at least the listed number of council seats for the United Kingdom's metropolitan boroughs, London borough councils, unitary authorities, county councils, and district councils as a result of this election. Otherwise, this market will resolve to "No".
+
+A candidate will be considered an official candidate of the Liberal Democrats if they are officially nominated by the Liberal Democrats and are registered for the relevant election in affiliation with the Liberal Democrats. Independent candidates will not count for any party.
+
+Only elections for the United Kingdom’s metropolitan boroughs, London borough councils, unitary authorities, county councils, and district councils taking place on May 7, 2026, or rescheduled to within seven days thereafter, will be counted for this market.
+
+Resolution of this market will be based on the results of the relevant elections, once those results are official. If the results of any of the relevant 2026 United Kingdom local elections aren’t known by April 30, 2027 11:59 PM ET, this market will resolve based on the available results up to that point. If none of the results of the relevant 2026 United Kingdom local elections are known by that time, this market will resolve to “No”.
+
+This market will resolve based on the results of the elections as indicated by a consensus of credible reporting. If there is ambiguity, this market will resolve based solely on the official results as reported by the respective council government.
+Contracts:
+  E3.C1: Will the Liberal Democrats win at least 600 council seat elections in the 2026 United Kingdom local elections?
+  E3.C2: Will the Liberal Democrats win at least 700 council seat elections in the 2026 United Kingdom local elections?
+  E3.C3: Will the Liberal Democrats win at least 800 council seat elections in the 2026 United Kingdom local elections?
+
+=== E4: Will Trump visit North Korea by April 30?
+Rules:
+If Donald J. Trump visits North Korea by April 30, 2026, 11:59 PM ET, this market will resolve to "Yes". Otherwise, this market will resolve to "No".
+
+For the purpose of this market, a "visit" is defined as Trump physically entering the terrestrial or maritime territory of North Korea. Whether or not Trump enters North Korean airspace during the timeframe of this market will have no bearing on this market's resolution.
+
+The primary resolution source for this information will be official information from Trump, information released by his verified social media accounts, and official information from North Korea; however, a consensus of credible reporting will also be used.
+Contracts:
+  E4.C1: Will Trump visit North Korea by April 30?
+
+=== E5: Will Ken Paxton drop out?
+Rules:
+This market will resolve to "Yes" if Ken Paxton withdraws from or officially announces his withdrawal from the 2026 Texas Senate Republican Primary election, or announces the suspension of his 2026 Senate campaign, by May 25, 2026, 11:59 PM ET. Otherwise, this market will resolve to "No".
+
+The primary resolution source for this market will be official information from Ken Paxton or his official/legal representatives; however, a consensus of credible reporting may also be used.
+Contracts:
+  E5.C1: Will Ken Paxton drop out?
+
+=== E6: What will Keir Starmer say at the next Prime Minister's Questions event?
+Rules:
+Keir Starmer is scheduled to participate in the Prime Minister's Questions (PMQs) in the Commons Chamber in the Palace of Westminster on every Wednesday. (https://www.parliament.uk/visiting/visiting-and-tours/watch-committees-and-debates/prime-ministers-questions/).
+
+This market will resolve to "Yes" if Keir Starmer says the listed term during the next Prime Minister's Question Time event he participates in. Otherwise, the market will resolve to "No".
+
+Any usage of the term regardless of context will count toward the resolution of this market.
+
+Pluralization/possessive of the term will count toward the resolution of this market, however other forms will NOT count.
+
+Instances where the term is used in a compound word will count regardless of context (e.g. joyful is not a compound word for "joy," however "killjoy" is a compounding of the words "kill" and "joy").
+
+If this market requires a specified number of mentions of a person’s first or last name, a full-name mention will count as one mention (e.g., if a market is about “Joe / Biden 5+ times,” a mention of “Joe Biden” will count once).
+
+AI-generated audio or video will not count toward this market's resolution.
+
+If no such Prime Minister's Question Time event happens by May 31, 2026, 11:59 PM ET, this market will resolve to "No". If Starmer ceases to be Prime Minister for any length of time by May 31, 2026, 11:59 PM ET, this market will resolve to "No".
+
+This market is explicitly about scheduled events featuring Keir Starmer titled "Prime Minister's Question Time" (https://www.parallelparliament.co.uk/mp/keir-starmer/dept/cabinet-office/calendar). Speeches, events, or comments that occur outside of named, scheduled events will not qualify toward this market's resolution. If the event contains a Q&A, it will count toward the resolution of this market.
+
+The resolution source will be video of the events. Only remarks which are broadcast or streamed live will count toward this market's resolution.
+Contracts:
+  E6.C1: Will Starmer say "Mr. Speaker" 10+ times during the next Prime Minister's Questions event?
+  E6.C2: Will Starmer say "Mr. Speaker" 20+ times during the next Prime Minister's Questions event?
+  E6.C3: Will Starmer say "Mr. Speaker" 30+ times during the next Prime Minister's Questions event?
+  E6.C4: Will Starmer say "Opposition" or "Opposite" 5+ times during the next Prime Minister's Questions event?
+  E6.C5: Will Starmer say "Labour" 3+ times during the next Prime Minister's Questions event?
+  E6.C6: Will Starmer say "Scotland" during the next Prime Minister's Questions event?
+  E6.C7: Will Starmer say "NHS" during the next Prime Minister's Questions event?
+  E6.C8: Will Starmer say "Trump" during the next Prime Minister's Questions event?
+  E6.C9: Will Starmer say "Apologize" or "Apology" during the next Prime Minister's Questions event?
+  E6.C10: Will Starmer say "Chancellor" during the next Prime Minister's Questions event?
+  E6.C11: Will Starmer say "Deeply Concerning" during the next Prime Minister's Questions event?
+  E6.C12: Will Starmer say "Political Stunt" during the next Prime Minister's Questions event?
+
+=== E7: Brazil’s 12-month inflation below 5.50% for December 2025?
+Rules:
+The IPCA (t. Broad National Consumer Price Index) is the official inflation rate measure used by the Brazilian government, tracked by the Brazilian Institute of Geography and Statistics (IBGE). The IPCA reflects the cost of living for households across urban areas in Brazil, measuring changes in prices for a diverse set of goods and services.
+
+This market will resolve to “Yes” if the 12-month IPCA for December 2025 is below 5.50%. Otherwise, this market will resolve to “No”.
+
+This market will resolve according to IBGE's (https://www.ibge.gov.br/en/indicators#ipca) public release of 12 month IPCA figure for December 2025, expected in January 2026. If the publication of this figure is delayed beyond February 28, 2026 ET, this market will resolve according to the last published figure.
+
+Because this market's resolution source reports inflation over 12 month periods to two decimal points (e.g. 4.56%), this is the level of precision that will be used when resolving the market.
+Contracts:
+  E7.C1: Brazil’s 12-month inflation below 5.50% for December 2025?
+
+=== E8: Fed decisions (Apr-Jul)
+Rules:
+The FED interest rates are defined in this market by the upper bound of the target federal funds rate. The decisions on the target federal funds rate are made by the Federal Open Market Committee (FOMC) meetings.
+
+This market will resolve according to the decisions made by the next three Federal Open Market Committee (FOMC) meetings: April 28-29; June 16-17; and July 28-29.
+
+A qualifying cut occurs when the new upper bound of the target federal funds rate is lower compared to the level it was prior to the respective meeting.
+
+A qualifying hike occurs when the new upper bound of the target federal funds rate is higher compared to the level it was prior to the respective meeting.
+
+A qualifying pause occurs when the new upper bound of the target federal funds rate is equal to the level it was prior to the respective meeting.
+
+If the Fed publishes a different combination than any listed, this market will resolve to "Other". Any rate hike will be encompassed by "Other".
+
+Emergency rate cuts outside the regularly scheduled meetings will not be considered.
+
+The resolution source for this market is the FOMC’s statement after its meetings:
+https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm
+
+The level and change of the target federal funds rate is also published at the official website of the Federal Reserve:
+https://www.federalreserve.gov/monetarypolicy/openmarket.htm
+Contracts:
+  E8.C1: Will the Fed Pause–Pause–Pause in the next three decisions (Apr–Jun–Jul)?
+  E8.C2: Will the Fed Pause–Pause–Cut in the next three decisions (Apr–Jun–Jul)?
+  E8.C3: Will the Fed decide differently in the next three decisions (Apr–Jun–Jul)?
+
+=== E9: Will Trump spend >25% of 2025 presidency golfing?
+Rules:
+This market will resolve to "Yes" if Donald Trump golfs on over 25% of days between January 20 and December 31, 2025 ET. Otherwise, this market will resolve to "No".
+
+This market will resolve according to https://trumpgolftrack.com as of January 2, 2026, 12:00 PM. However, definitive photo or video evidence confirmed by a consensus of credible reporting may also be used to supplement the tally if the trumpgolftrack.com tally is incomplete.
+Contracts:
+  E9.C1: Will Trump spend >25% of 2025 presidency golfing?
+
+=== E10: CA-48 Primary Winners
+Rules:
+The California primary is currently scheduled to take place on June 2, 2026.
+
+This market will resolve "Yes" if the listed candidate advances from the primary to contest the seat for California's 48th congressional district in the U.S. House of Representatives in the 2026 midterm elections. Otherwise, this market will resolve to "No".
+
+If no nominees are announced by November 3, 2026, 11:59 PM ET, this market will resolve to "Other".
+
+The resolution source for this market will be a consensus of official sources, including https://www.sos.ca.gov/.
+
+Any replacement of the nominees before election day will not change the resolution of the market.
+Contracts:
+  E10.C1: Will Abel Chavez advance from the CA-48 primary election?
+  E10.C2: Will Ammar Campa-Najjar advance from the CA-48 primary election?
+  E10.C3: Will Brandon Riker advance from the CA-48 primary election?
+  E10.C4: Will Corinna Contreras advance from the CA-48 primary election?
+  E10.C5: Will Eric Shaw advance from the CA-48 primary election?
+  E10.C6: Will Ferguson Porter advance from the CA-48 primary election?
+  E10.C7: Will Jim Desmond advance from the CA-48 primary election?
+  E10.C8: Will Kevin O'Neil advance from the CA-48 primary election?
+  E10.C9: Will Luis Reyna advance from the CA-48 primary election?
+  E10.C10: Will Marni von Wilpert advance from the CA-48 primary election?
+  E10.C11: Will Mike Schaefer advance from the CA-48 primary election?
+  E10.C12: Will Stephen Clemons advance from the CA-48 primary election?

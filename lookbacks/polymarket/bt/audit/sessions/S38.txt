@@ -1,0 +1,509 @@
+You will be shown 10 questions from a prediction market. Each question has one or more contracts, and each contract resolves YES or NO under the rules shown.
+
+For every contract, give your probability, as a whole percent from 1 to 99, that it resolves YES. Use only what you already know. Do not search for or look up anything: reading this file is the only tool call you may make.
+
+For each question, also say whether you recognise how it actually turned out ("recognised": true only if you believe you remember the real outcome; otherwise false).
+
+Where a question's contracts are mutually exclusive (exactly one can resolve YES), your numbers for it should add up to about 100. Where they are nested thresholds or dates, keep them consistent with each other.
+
+Reply with one JSON object and nothing else, in this form:
+{"events": [{"label": "E1", "recognised": false, "p": {"E1.C1": 35, "E1.C2": 60}}]}
+
+Every contract label below must appear exactly once in your reply.
+
+=== E1: Will Glean's valuation hit __ by July 31?
+Rules:
+This market will resolve to "Yes" if Glean's private market valuation, as measured by the NPM Price reported by Nasdaq Private Market, LLC (NPM) for any date between market creation and July 31, 2026, reaches or exceeds the listed amount. Otherwise, this market will resolve to "No".
+
+NPM Prices are published for trading days only and are updated once daily at 1:00 PM ET on the following calendar day.
+
+If NPM has not published relevant data for all business dates in the specified period by 1:00 PM ET on August 1, 2026, this market may remain open until 11:59 PM ET on August 4, 2026. If no further data is released by that time, the market will resolve according to the data available.
+
+If NPM ceases publishing relevant data prior to the end of the specified period, this market will resolve based on the NPM data published for the period prior to the cessation of coverage, as well as any applicable public market capitalization data following an IPO or direct listing.
+
+If the company completes an IPO or direct listing before the end of the specified period, this market will consider, in addition to the relevant NPM valuations published between market creation and the IPO or direct listing date, the valuation implied by the official IPO or direct listing price, and the company’s public market capitalization between the IPO or direct listing date and the end of the specified period.
+
+Public market capitalization will be determined using the highest/lowest official regular-hours trading price published for the company’s primary listed common equity on its primary exchange for any trading day during the specified period, multiplied by the company’s total outstanding common shares at the relevant time.
+
+If the listed company merges with or acquires another entity and remains the parent company, no change to resolution methodology applies.
+
+If the listed company is acquired, merges into another entity and is no longer the surviving parent company, or otherwise ceases to exist as an independent entity prior to the end of the period, only NPM valuations and applicable public market capitalizations achieved prior to completion of the transaction will be considered for resolution. No transaction, acquisition, or merger consideration will be considered for resolution.
+
+The resolution source for this market is NPM data published here: (https://fe.secondmarket.com/companies/company-77127aa8-38b7-4737-b764-a5024345b19b/data). The resolution source for any period following an IPO, direct listing, or relevant corporate action, will be official exchange trading data and publicly reported share counts.
+
+Revisions to previously published NPM data made after their initial release will not be considered, unless made to correct clearly erroneous data.
+Contracts:
+  E1.C1: Will Glean's valuation hit (HIGH) $10B by July 31?
+  E1.C2: Will Glean's valuation hit (HIGH) $9B by July 31?
+  E1.C3: Will Glean's valuation hit (HIGH) $8B by July 31?
+  E1.C4: Will Glean's valuation hit (HIGH) $7.5B by July 31?
+  E1.C5: Will Glean's valuation hit (HIGH) $7.25B by July 31?
+  E1.C6: Will Glean's valuation hit (HIGH) $7B by July 31?
+  E1.C7: Will Glean's valuation hit (LOW) $6.5B by July 31?
+  E1.C8: Will Glean's valuation hit (LOW) $6B by July 31?
+  E1.C9: Will Glean's valuation hit (LOW) $5.5B by July 31?
+  E1.C10: Will Glean's valuation hit (LOW) $4.5B by July 31?
+
+=== E2: What will Apple (AAPL) hit in January 2026?
+Rules:
+What will Apple (AAPL) hit in January 2026?
+Contracts:
+  E2.C1: Will Apple reach $360 in January?
+    Contract rules: This market will resolve to "Yes" if, at any point during January 2026 (ET), any 1-minute candle for Apple (AAPL) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during regular trading hours (ET) will be considered.
+
+The resolution source for this market is Yahoo Finance — specifically, the Apple (AAPL) "High" prices available at https://finance.yahoo.com/quote/AAPL/, with the chart settings on "1m" for candle intervals.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Yahoo Finance.
+  E2.C2: Will Apple reach $340 in January?
+    Contract rules: This market will resolve to "Yes" if, at any point during January 2026 (ET), any 1-minute candle for Apple (AAPL) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during regular trading hours (ET) will be considered.
+
+The resolution source for this market is Yahoo Finance — specifically, the Apple (AAPL) "High" prices available at https://finance.yahoo.com/quote/AAPL/, with the chart settings on "1m" for candle intervals.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Yahoo Finance.
+  E2.C3: Will Apple reach $324 in January?
+    Contract rules: This market will resolve to "Yes" if, at any point during January 2026 (ET), any 1-minute candle for Apple (AAPL) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during regular trading hours (ET) will be considered.
+
+The resolution source for this market is Yahoo Finance — specifically, the Apple (AAPL) "High" prices available at https://finance.yahoo.com/quote/AAPL/, with the chart settings on "1m" for candle intervals.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Yahoo Finance.
+  E2.C4: Will Apple reach $308 in January?
+    Contract rules: This market will resolve to "Yes" if, at any point during January 2026 (ET), any 1-minute candle for Apple (AAPL) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during regular trading hours (ET) will be considered.
+
+The resolution source for this market is Yahoo Finance — specifically, the Apple (AAPL) "High" prices available at https://finance.yahoo.com/quote/AAPL/, with the chart settings on "1m" for candle intervals.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Yahoo Finance.
+  E2.C5: Will Apple reach $296 in January?
+    Contract rules: This market will resolve to "Yes" if, at any point during January 2026 (ET), any 1-minute candle for Apple (AAPL) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during regular trading hours (ET) will be considered.
+
+The resolution source for this market is Yahoo Finance — specifically, the Apple (AAPL) "High" prices available at https://finance.yahoo.com/quote/AAPL/, with the chart settings on "1m" for candle intervals.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Yahoo Finance.
+  E2.C6: Will Apple reach $288 in January?
+    Contract rules: This market will resolve to "Yes" if, at any point during January 2026 (ET), any 1-minute candle for Apple (AAPL) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during regular trading hours (ET) will be considered.
+
+The resolution source for this market is Yahoo Finance — specifically, the Apple (AAPL) "High" prices available at https://finance.yahoo.com/quote/AAPL/, with the chart settings on "1m" for candle intervals.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Yahoo Finance.
+  E2.C7: Will Apple reach $280 in January?
+    Contract rules: This market will resolve to "Yes" if, at any point during January 2026 (ET), any 1-minute candle for Apple (AAPL) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during regular trading hours (ET) will be considered.
+
+The resolution source for this market is Yahoo Finance — specifically, the Apple (AAPL) "High" prices available at https://finance.yahoo.com/quote/AAPL/, with the chart settings on "1m" for candle intervals.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Yahoo Finance.
+  E2.C8: Will Apple dip to $244 in January?
+    Contract rules: This market will resolve to "Yes" if, at any point during January 2026 (ET), any 1-minute candle for Apple (AAPL) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during regular trading hours (ET) will be considered.
+
+The resolution source for this market is Yahoo Finance — specifically, the Apple (AAPL) "Low" prices available at https://finance.yahoo.com/quote/AAPL/, with the chart settings on "1m" for candle intervals.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Yahoo Finance.
+  E2.C9: Will Apple dip to $232 in January?
+    Contract rules: This market will resolve to "Yes" if, at any point during January 2026 (ET), any 1-minute candle for Apple (AAPL) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during regular trading hours (ET) will be considered.
+
+The resolution source for this market is Yahoo Finance — specifically, the Apple (AAPL) "Low" prices available at https://finance.yahoo.com/quote/AAPL/, with the chart settings on "1m" for candle intervals.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Yahoo Finance.
+  E2.C10: Will Apple dip to $216 in January?
+    Contract rules: This market will resolve to "Yes" if, at any point during January 2026 (ET), any 1-minute candle for Apple (AAPL) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during regular trading hours (ET) will be considered.
+
+The resolution source for this market is Yahoo Finance — specifically, the Apple (AAPL) "Low" prices available at https://finance.yahoo.com/quote/AAPL/, with the chart settings on "1m" for candle intervals.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Yahoo Finance.
+  E2.C11: Will Apple dip to $196 in January?
+    Contract rules: This market will resolve to "Yes" if, at any point during January 2026 (ET), any 1-minute candle for Apple (AAPL) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during regular trading hours (ET) will be considered.
+
+The resolution source for this market is Yahoo Finance — specifically, the Apple (AAPL) "Low" prices available at https://finance.yahoo.com/quote/AAPL/, with the chart settings on "1m" for candle intervals.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Yahoo Finance.
+
+=== E3: Will NVIDIA (NVDA) close above ___ end of August?
+Rules:
+This market will resolve to "Yes" if the Close price for NVIDIA (NVDA) on the final trading day of August 2026 is higher than the listed price. Otherwise, this market will resolve to "No."
+
+If the two specified prices are exactly equal, this market will resolve to "No".
+
+Closing prices will be used exactly as published by Pyth, without rounding.
+
+If NVIDIA (NVDA) does not trade at all during the regular session of the final trading day of the month, the market will resolve 50-50.
+
+For a standard full trading session, the closing price refers to the Pyth "Close" value of the 1-minute candle corresponding to the final minute of regular trading hours on the primary exchange. If the relevant session is shortened (for example, due to a market-holiday schedule), the Pyth "Close" value of the 1-minute candle corresponding to the final minute of that shortened session will be used.
+
+If the relevant day has no valid Pyth Close value for the 1-minute candle corresponding to the end of regular trading hours on the primary exchange, the market will use the last valid Pyth price achieved during the regular trading hours of the primary exchange as the effective closing price. If no valid Pyth price exists for that trading day due to a system outage, data failure, or other technical disruption, the official closing price published by the primary exchange on which the listed security trades will be used to determine the closing price for that day.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed security during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth. The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market will be Pyth, specifically the "Close" values for the relevant 1-minute candle for NVIDIA (NVDA) available at https://pythdata.app/explore/Equity.US.NVDA%2FUSD.
+Contracts:
+  E3.C1: Will NVIDIA (NVDA) close above $140 end of August?
+  E3.C2: Will NVIDIA (NVDA) close above $150 end of August?
+  E3.C3: Will NVIDIA (NVDA) close above $160 end of August?
+  E3.C4: Will NVIDIA (NVDA) close above $170 end of August?
+  E3.C5: Will NVIDIA (NVDA) close above $180 end of August?
+  E3.C6: Will NVIDIA (NVDA) close above $190 end of August?
+  E3.C7: Will NVIDIA (NVDA) close above $200 end of August?
+  E3.C8: Will NVIDIA (NVDA) close above $210 end of August?
+  E3.C9: Will NVIDIA (NVDA) close above $220 end of August?
+  E3.C10: Will NVIDIA (NVDA) close above $230 end of August?
+  E3.C11: Will NVIDIA (NVDA) close above $240 end of August?
+  E3.C12: Will NVIDIA (NVDA) close above $250 end of August?
+
+=== E4: Will Tesla (TSLA) close above ___ end of March?
+Rules:
+This market will resolve to "Yes" if the official closing price for Tesla, Inc. (TSLA) on the final trading day of March 2026 is higher than the listed price. Otherwise, this market will resolve to "No".
+
+If the final trading day of the month is shortened (for example, due to a market-holiday schedule), the official closing price published for that shortened session will still be used for resolution.
+
+If no official closing price is published for that session (for example, due to a trading halt into the close, system issue, or other disruption), the market will use the last valid on-exchange trade price of the regular session as the effective closing price.
+
+The resolution source for this market is Yahoo Finance — specifically, the Tesla, Inc. (TSLA) "Close" prices available at https://finance.yahoo.com/quote/TSLA/history, published under "Historical Prices."
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Yahoo Finance.
+Contracts:
+  E4.C1: Will Tesla (TSLA) close above $350 end of March?
+  E4.C2: Will Tesla (TSLA) close above $360 end of March?
+  E4.C3: Will Tesla (TSLA) close above $370 end of March?
+  E4.C4: Will Tesla (TSLA) close above $380 end of March?
+  E4.C5: Will Tesla (TSLA) close above $390 end of March?
+  E4.C6: Will Tesla (TSLA) close above $400 end of March?
+  E4.C7: Will Tesla (TSLA) close above $410 end of March?
+  E4.C8: Will Tesla (TSLA) close above $420 end of March?
+  E4.C9: Will Tesla (TSLA) close above $430 end of March?
+  E4.C10: Will Tesla (TSLA) close above $440 end of March?
+  E4.C11: Will Tesla (TSLA) close above $450 end of March?
+  E4.C12: Will Tesla (TSLA) close above $460 end of March?
+
+=== E5: ALIGN public sale total commitments?
+Rules:
+This market will resolve to “Yes” if total commitments for the ALIGN raise on Sonar exceeds the number specified in the title before the raise closes. Otherwise, it will resolve to “No.”
+
+The resolution source is the official Align raise page available at: https://sale.alignedlayer.com/
+
+If the final commitment amount cannot be verified by June 30, 2026, 11:59 PM ET, or if relevant information becomes permanently unavailable within the market timeframe, this market will resolve to “No.”
+
+If the sale is extended before the official closing time, commitments made during the extended period will count toward resolution.
+Contracts:
+  E5.C1: Over $250k committed to the ALIGN public sale?
+  E5.C2: Over $500k committed to the ALIGN public sale?
+  E5.C3: Over $1M committed to the ALIGN public sale?
+  E5.C4: Over $2M committed to the ALIGN public sale?
+  E5.C5: Over $4M committed to the ALIGN public sale?
+  E5.C6: Over $6M committed to the ALIGN public sale?
+  E5.C7: Over $8M committed to the ALIGN public sale?
+  E5.C8: Over $10M committed to the ALIGN public sale?
+  E5.C9: Over $15M committed to the ALIGN public sale?
+  E5.C10: Over $20M committed to the ALIGN public sale?
+  E5.C11: Over $30M committed to the ALIGN public sale?
+  E5.C12: Over $50M committed to the ALIGN public sale?
+
+=== E6: Karoline Leavitt out by March 31?
+Rules:
+This market will resolve to “Yes” if Karoline Leavitt ceases to be the White House Press Secretary for any period of time between market creation and March 31, 2026, 11:59 PM ET. Otherwise, this market will resolve to “No”.
+
+An announcement of Leavitt's resignation/removal before this market's end date will immediately resolve this market to "Yes", regardless of when the announced resignation/removal goes into effect. Leaves of absence, such as maternity leave, will qualify.
+
+The resolution source for this market will be official information from the Trump administration, however a consensus of credible reporting may also be used.
+Contracts:
+  E6.C1: Karoline Leavitt out by March 31?
+
+=== E7: 2026 Gyeongsangnam Province Gubernatorial Election Winner
+Rules:
+The 2026 Gyeongsangnam Province gubernatorial election is scheduled to take place on June 3, 2026 to elect the next Governor of Gyeongsangnam Province.
+
+This market will resolve according to the listed candidate that wins this election.
+
+If the result of this election isn't known by January 31, 2027, 11:59 PM ET, the market will resolve to "Other".
+
+This market will resolve based on the result of the election as indicated by a consensus of credible reporting. If there is ambiguity, this market will resolve based solely on the official results as reported by the South Korean government, specifically the National Election Commission.
+Contracts:
+  E7.C1: Will Park Wan-soo win the 2026 Gyeongsangnam Province Gubernatorial Election?
+  E7.C2: Will Kim Kyung-soo win the 2026 Gyeongsangnam Province Gubernatorial Election?
+
+=== E8: Will Russia enter Stinky by...?
+Rules:
+This market will resolve to “Yes” if, according to the ISW map, Russia captures any territory of Stinky, Donetsk Oblast, (48.578829902717374° N, 37.73960567273168° E) between market creation and the specified date (ET).
+
+Territory will be considered captured if any part of the specified territory is shaded under a below specified layer on the ISW map (https://storymaps.arcgis.com/stories/36a7f6a6f5a9448496de641cf64bd375) by the resolution date. Otherwise, the market will resolve to “No”.
+
+For any change on the ISW map to qualify for this market’s resolution, the relevant shading indicating Russian control must persist through the next full ISW daily update cycle. If ISW skips a day, shading must persist until the next finalized ISW update is published, regardless of the date. Any continuous shading which reflects either "Assessed Russian Infiltration Areas in Ukraine", “Assessed Russian Control”, “Assessed Russian Advance In Ukraine”, or “Assessed Russian Gains in the Past 24 Hours” will qualify. 
+
+Once a qualifying condition is met, any subsequent loss of control will not be considered towards the resolution of this market.
+
+If Russia comes into control of the specified territory as a result of a negotiated settlement, this will qualify for a 'Yes' resolution, regardless of whether it is shaded red in the ISW map. However, an announcement of a negotiated settlement that gives Russia de jure control will not qualify. Actual control must be established.
+
+The primary resolution source for this market will be the ISW Ukraine map. If the ISW map is rendered unavailable, information from DeepStateMap (https://deepstatemap.live/) may be used. If information from both the ISW and DeepStateMap are rendered permanently unavailable, a consensus of credible reporting may be used.
+
+Note: Any temporary glitches or errors in the map will not be considered.
+Contracts:
+  E8.C1: Will Russia enter Stinky by May 31?
+
+=== E9: Highest Mt. Washington wind speed in July?
+Rules:
+This market will resolve based on the highest wind speed, in miles per hour, reported on the summit of Mt. Washington in New Hampshire in July, 2026. 
+
+The resolution source will be data published by the Mt. Washington Weather Observatory. F6 reports containing daily wind speed recordings can be found here: https://mountwashington.org/weather/mount-washington-weather-archives/monthly-f6/. 
+
+The resolution source for this market measures wind speeds to whole mile per hour (eg, 67mph). Thus, this is the level of precision that will be used when resolving the market.
+
+Revisions to the wind speed recorded within this market's timeframe will be considered until the first datapoint for the following month has been published, after which any alterations will not be considered.
+Contracts:
+  E9.C1: Will the highest recorded wind on Mt. Washington in July be at least 85 mph?
+  E9.C2: Will the highest recorded wind on Mt. Washington in July be at least 90 mph?
+  E9.C3: Will the highest recorded wind on Mt. Washington in July be at least 95 mph?
+  E9.C4: Will the highest recorded wind on Mt. Washington in July be at least 100 mph?
+  E9.C5: Will the highest recorded wind on Mt. Washington in July be at least 105 mph?
+  E9.C6: Will the highest recorded wind on Mt. Washington in July be at least 110 mph?
+  E9.C7: Will the highest recorded wind on Mt. Washington in July be at least 115 mph?
+
+=== E10: Who will Trump name during the State of the Union address?
+Rules:
+Donald Trump is scheduled to deliver the 2026 State of the Union address on February 24. You can read more about that here: https://mikejohnson.house.gov/news/documentsingle.aspx?DocumentID=2812
+
+This market will resolve to "Yes" if Donald Trump says the listed name during his appearance at the specified event. Otherwise, the market will resolve to "No".
+
+If this market requires a specified number of mentions of a person’s first or last name, a full-name mention will count as one mention (e.g., if a market is about “Joe / Biden 5+ times,” a mention of “Joe Biden” will count once).
+
+AI-generated audio or video will not count toward this market's resolution.
+
+This market is explicitly about Donald Trump's scheduled delivery of the 2026 State of the Union address. Speeches, events, or comments that occur outside of the named, scheduled event will not qualify toward this market's resolution. If the event contains a Q&A, it will count toward the resolution of this market.
+
+If this event is definitively cancelled, or otherwise is not aired by February 28, 2026, 11:59 PM ET, this market will resolve to "No".
+
+The resolution source will be video of the events. Only remarks which are broadcast or streamed live will count toward this market's resolution.
+Contracts:
+  E10.C1: Will Trump say "Ayatollah" or "Khamenei" during the State of the Union address?
+    Contract rules: Donald Trump is scheduled to deliver the 2026 State of the Union address on February 24. You can read more about that here: https://mikejohnson.house.gov/news/documentsingle.aspx?DocumentID=2812
+
+This market will resolve to "Yes" if Donald Trump says the listed term during his appearance at the specified event. Otherwise, the market will resolve to "No".
+
+Pluralization/possessive of the listed term will count toward the resolution of this market.
+
+Instances where the term is used in a compound word will count regardless of context (e.g. joyful is not a compound word for "joy," however "killjoy" is a compounding of the words "kill" and "joy").
+
+If this market requires a specified number of mentions of a person’s first or last name, a full-name mention will count as one mention (e.g., if a market is about “Joe / Biden 5+ times,” a mention of “Joe Biden” will count once).
+
+AI-generated audio or video will not count toward this market's resolution.
+
+This market is explicitly about Donald Trump's scheduled delivery of the 2026 State of the Union address. Speeches, events, or comments that occur outside of the named, scheduled event will not qualify toward this market's resolution. If the event contains a Q&A, it will count toward the resolution of this market.
+
+If this event is definitively cancelled, or otherwise is not aired by February 28, 2026, 11:59 PM ET, this market will resolve to "No".
+
+The resolution source will be video of the events. Only remarks which are broadcast or streamed live will count toward this market's resolution.
+  E10.C2: Will Trump say "Beckstrom" during the State of the Union address?
+    Contract rules: Donald Trump is scheduled to deliver the 2026 State of the Union address on February 24. You can read more about that here: https://mikejohnson.house.gov/news/documentsingle.aspx?DocumentID=2812
+
+This market will resolve to "Yes" if Donald Trump says the listed term during his appearance at the specified event. Otherwise, the market will resolve to "No".
+
+Pluralization/possessive of the listed term will count toward the resolution of this market.
+
+Instances where the term is used in a compound word will count regardless of context (e.g. joyful is not a compound word for "joy," however "killjoy" is a compounding of the words "kill" and "joy").
+
+If this market requires a specified number of mentions of a person’s first or last name, a full-name mention will count as one mention (e.g., if a market is about “Joe / Biden 5+ times,” a mention of “Joe Biden” will count once).
+
+AI-generated audio or video will not count toward this market's resolution.
+
+This market is explicitly about Donald Trump's scheduled delivery of the 2026 State of the Union address. Speeches, events, or comments that occur outside of the named, scheduled event will not qualify toward this market's resolution. If the event contains a Q&A, it will count toward the resolution of this market.
+
+If this event is definitively cancelled, or otherwise is not aired by February 28, 2026, 11:59 PM ET, this market will resolve to "No".
+
+The resolution source will be video of the events. Only remarks which are broadcast or streamed live will count toward this market's resolution.
+  E10.C3: Will Trump say "Bessent" during the State of the Union address?
+    Contract rules: Donald Trump is scheduled to deliver the 2026 State of the Union address on February 24. You can read more about that here: https://mikejohnson.house.gov/news/documentsingle.aspx?DocumentID=2812
+
+This market will resolve to "Yes" if Donald Trump says the listed term during his appearance at the specified event. Otherwise, the market will resolve to "No".
+
+Pluralization/possessive of the listed term will count toward the resolution of this market.
+
+Instances where the term is used in a compound word will count regardless of context (e.g. joyful is not a compound word for "joy," however "killjoy" is a compounding of the words "kill" and "joy").
+
+If this market requires a specified number of mentions of a person’s first or last name, a full-name mention will count as one mention (e.g., if a market is about “Joe / Biden 5+ times,” a mention of “Joe Biden” will count once).
+
+AI-generated audio or video will not count toward this market's resolution.
+
+This market is explicitly about Donald Trump's scheduled delivery of the 2026 State of the Union address. Speeches, events, or comments that occur outside of the named, scheduled event will not qualify toward this market's resolution. If the event contains a Q&A, it will count toward the resolution of this market.
+
+If this event is definitively cancelled, or otherwise is not aired by February 28, 2026, 11:59 PM ET, this market will resolve to "No".
+
+The resolution source will be video of the events. Only remarks which are broadcast or streamed live will count toward this market's resolution.
+  E10.C4: Will Trump say "Bibi" or "Netanyahu" during the State of the Union address?
+    Contract rules: Donald Trump is scheduled to deliver the 2026 State of the Union address on February 24. You can read more about that here: https://mikejohnson.house.gov/news/documentsingle.aspx?DocumentID=2812
+
+This market will resolve to "Yes" if Donald Trump says the listed term during his appearance at the specified event. Otherwise, the market will resolve to "No".
+
+Pluralization/possessive of the listed term will count toward the resolution of this market.
+
+Instances where the term is used in a compound word will count regardless of context (e.g. joyful is not a compound word for "joy," however "killjoy" is a compounding of the words "kill" and "joy").
+
+If this market requires a specified number of mentions of a person’s first or last name, a full-name mention will count as one mention (e.g., if a market is about “Joe / Biden 5+ times,” a mention of “Joe Biden” will count once).
+
+AI-generated audio or video will not count toward this market's resolution.
+
+This market is explicitly about Donald Trump's scheduled delivery of the 2026 State of the Union address. Speeches, events, or comments that occur outside of the named, scheduled event will not qualify toward this market's resolution. If the event contains a Q&A, it will count toward the resolution of this market.
+
+If this event is definitively cancelled, or otherwise is not aired by February 28, 2026, 11:59 PM ET, this market will resolve to "No".
+
+The resolution source will be video of the events. Only remarks which are broadcast or streamed live will count toward this market's resolution.
+  E10.C5: Will Trump say "Charlie Kirk" during the State of the Union address?
+    Contract rules: Donald Trump is scheduled to deliver the 2026 State of the Union address on February 24. You can read more about that here: https://mikejohnson.house.gov/news/documentsingle.aspx?DocumentID=2812
+
+This market will resolve to "Yes" if Donald Trump says the listed term during his appearance at the specified event. Otherwise, the market will resolve to "No".
+
+Pluralization/possessive of the listed term will count toward the resolution of this market.
+
+Instances where the term is used in a compound word will count regardless of context (e.g. joyful is not a compound word for "joy," however "killjoy" is a compounding of the words "kill" and "joy").
+
+If this market requires a specified number of mentions of a person’s first or last name, a full-name mention will count as one mention (e.g., if a market is about “Joe / Biden 5+ times,” a mention of “Joe Biden” will count once).
+
+AI-generated audio or video will not count toward this market's resolution.
+
+This market is explicitly about Donald Trump's scheduled delivery of the 2026 State of the Union address. Speeches, events, or comments that occur outside of the named, scheduled event will not qualify toward this market's resolution. If the event contains a Q&A, it will count toward the resolution of this market.
+
+If this event is definitively cancelled, or otherwise is not aired by February 28, 2026, 11:59 PM ET, this market will resolve to "No".
+
+The resolution source will be video of the events. Only remarks which are broadcast or streamed live will count toward this market's resolution.
+  E10.C6: Will Trump say "Clinton" during the State of the Union address?
+    Contract rules: Donald Trump is scheduled to deliver the 2026 State of the Union address on February 24. You can read more about that here: https://mikejohnson.house.gov/news/documentsingle.aspx?DocumentID=2812
+
+This market will resolve to "Yes" if Donald Trump says the listed term during his appearance at the specified event. Otherwise, the market will resolve to "No".
+
+Pluralization/possessive of the listed term will count toward the resolution of this market.
+
+Instances where the term is used in a compound word will count regardless of context (e.g. joyful is not a compound word for "joy," however "killjoy" is a compounding of the words "kill" and "joy").
+
+If this market requires a specified number of mentions of a person’s first or last name, a full-name mention will count as one mention (e.g., if a market is about “Joe / Biden 5+ times,” a mention of “Joe Biden” will count once).
+
+AI-generated audio or video will not count toward this market's resolution.
+
+This market is explicitly about Donald Trump's scheduled delivery of the 2026 State of the Union address. Speeches, events, or comments that occur outside of the named, scheduled event will not qualify toward this market's resolution. If the event contains a Q&A, it will count toward the resolution of this market.
+
+If this event is definitively cancelled, or otherwise is not aired by February 28, 2026, 11:59 PM ET, this market will resolve to "No".
+
+The resolution source will be video of the events. Only remarks which are broadcast or streamed live will count toward this market's resolution.
+  E10.C7: Will Trump say "Elizabeth Warren" or "Pocahontas" during the State of the Union address?
+    Contract rules: Donald Trump is scheduled to deliver the 2026 State of the Union address on February 24. You can read more about that here: https://mikejohnson.house.gov/news/documentsingle.aspx?DocumentID=2812
+
+This market will resolve to "Yes" if Donald Trump says the listed term during his appearance at the specified event. Otherwise, the market will resolve to "No".
+
+Pluralization/possessive of the listed term will count toward the resolution of this market.
+
+Instances where the term is used in a compound word will count regardless of context (e.g. joyful is not a compound word for "joy," however "killjoy" is a compounding of the words "kill" and "joy").
+
+If this market requires a specified number of mentions of a person’s first or last name, a full-name mention will count as one mention (e.g., if a market is about “Joe / Biden 5+ times,” a mention of “Joe Biden” will count once).
+
+AI-generated audio or video will not count toward this market's resolution.
+
+This market is explicitly about Donald Trump's scheduled delivery of the 2026 State of the Union address. Speeches, events, or comments that occur outside of the named, scheduled event will not qualify toward this market's resolution. If the event contains a Q&A, it will count toward the resolution of this market.
+
+If this event is definitively cancelled, or otherwise is not aired by February 28, 2026, 11:59 PM ET, this market will resolve to "No".
+
+The resolution source will be video of the events. Only remarks which are broadcast or streamed live will count toward this market's resolution.
+  E10.C8: Will Trump say "Elon" or "Musk" during the State of the Union address?
+    Contract rules: Donald Trump is scheduled to deliver the 2026 State of the Union address on February 24. You can read more about that here: https://mikejohnson.house.gov/news/documentsingle.aspx?DocumentID=2812
+
+This market will resolve to "Yes" if Donald Trump says the listed term during his appearance at the specified event. Otherwise, the market will resolve to "No".
+
+Pluralization/possessive of the listed term will count toward the resolution of this market.
+
+Instances where the term is used in a compound word will count regardless of context (e.g. joyful is not a compound word for "joy," however "killjoy" is a compounding of the words "kill" and "joy").
+
+If this market requires a specified number of mentions of a person’s first or last name, a full-name mention will count as one mention (e.g., if a market is about “Joe / Biden 5+ times,” a mention of “Joe Biden” will count once).
+
+AI-generated audio or video will not count toward this market's resolution.
+
+This market is explicitly about Donald Trump's scheduled delivery of the 2026 State of the Union address. Speeches, events, or comments that occur outside of the named, scheduled event will not qualify toward this market's resolution. If the event contains a Q&A, it will count toward the resolution of this market.
+
+If this event is definitively cancelled, or otherwise is not aired by February 28, 2026, 11:59 PM ET, this market will resolve to "No".
+
+The resolution source will be video of the events. Only remarks which are broadcast or streamed live will count toward this market's resolution.
+  E10.C9: Will Trump say "Hegseth" during the State of the Union address?
+    Contract rules: Donald Trump is scheduled to deliver the 2026 State of the Union address on February 24. You can read more about that here: https://mikejohnson.house.gov/news/documentsingle.aspx?DocumentID=2812
+
+This market will resolve to "Yes" if Donald Trump says the listed term during his appearance at the specified event. Otherwise, the market will resolve to "No".
+
+Pluralization/possessive of the listed term will count toward the resolution of this market.
+
+Instances where the term is used in a compound word will count regardless of context (e.g. joyful is not a compound word for "joy," however "killjoy" is a compounding of the words "kill" and "joy").
+
+If this market requires a specified number of mentions of a person’s first or last name, a full-name mention will count as one mention (e.g., if a market is about “Joe / Biden 5+ times,” a mention of “Joe Biden” will count once).
+
+AI-generated audio or video will not count toward this market's resolution.
+
+This market is explicitly about Donald Trump's scheduled delivery of the 2026 State of the Union address. Speeches, events, or comments that occur outside of the named, scheduled event will not qualify toward this market's resolution. If the event contains a Q&A, it will count toward the resolution of this market.
+
+If this event is definitively cancelled, or otherwise is not aired by February 28, 2026, 11:59 PM ET, this market will resolve to "No".
+
+The resolution source will be video of the events. Only remarks which are broadcast or streamed live will count toward this market's resolution.
+  E10.C10: Will Trump say "Homan" during the State of the Union address?
+    Contract rules: Donald Trump is scheduled to deliver the 2026 State of the Union address on February 24. You can read more about that here: https://mikejohnson.house.gov/news/documentsingle.aspx?DocumentID=2812
+
+This market will resolve to "Yes" if Donald Trump says the listed term during his appearance at the specified event. Otherwise, the market will resolve to "No".
+
+Pluralization/possessive of the listed term will count toward the resolution of this market.
+
+Instances where the term is used in a compound word will count regardless of context (e.g. joyful is not a compound word for "joy," however "killjoy" is a compounding of the words "kill" and "joy").
+
+If this market requires a specified number of mentions of a person’s first or last name, a full-name mention will count as one mention (e.g., if a market is about “Joe / Biden 5+ times,” a mention of “Joe Biden” will count once).
+
+AI-generated audio or video will not count toward this market's resolution.
+
+This market is explicitly about Donald Trump's scheduled delivery of the 2026 State of the Union address. Speeches, events, or comments that occur outside of the named, scheduled event will not qualify toward this market's resolution. If the event contains a Q&A, it will count toward the resolution of this market.
+
+If this event is definitively cancelled, or otherwise is not aired by February 28, 2026, 11:59 PM ET, this market will resolve to "No".
+
+The resolution source will be video of the events. Only remarks which are broadcast or streamed live will count toward this market's resolution.
+  E10.C11: Will Trump say "Howard" or "Lutnick" during the State of the Union address?
+    Contract rules: Donald Trump is scheduled to deliver the 2026 State of the Union address on February 24. You can read more about that here: https://mikejohnson.house.gov/news/documentsingle.aspx?DocumentID=2812
+
+This market will resolve to "Yes" if Donald Trump says the listed term during his appearance at the specified event. Otherwise, the market will resolve to "No".
+
+Pluralization/possessive of the listed term will count toward the resolution of this market.
+
+Instances where the term is used in a compound word will count regardless of context (e.g. joyful is not a compound word for "joy," however "killjoy" is a compounding of the words "kill" and "joy").
+
+If this market requires a specified number of mentions of a person’s first or last name, a full-name mention will count as one mention (e.g., if a market is about “Joe / Biden 5+ times,” a mention of “Joe Biden” will count once).
+
+AI-generated audio or video will not count toward this market's resolution.
+
+This market is explicitly about Donald Trump's scheduled delivery of the 2026 State of the Union address. Speeches, events, or comments that occur outside of the named, scheduled event will not qualify toward this market's resolution. If the event contains a Q&A, it will count toward the resolution of this market.
+
+If this event is definitively cancelled, or otherwise is not aired by February 28, 2026, 11:59 PM ET, this market will resolve to "No".
+
+The resolution source will be video of the events. Only remarks which are broadcast or streamed live will count toward this market's resolution.
+  E10.C12: Will Trump say "Kushner" during the State of the Union address?
+    Contract rules: Donald Trump is scheduled to deliver the 2026 State of the Union address on February 24. You can read more about that here: https://mikejohnson.house.gov/news/documentsingle.aspx?DocumentID=2812
+
+This market will resolve to "Yes" if Donald Trump says the listed term during his appearance at the specified event. Otherwise, the market will resolve to "No".
+
+Pluralization/possessive of the listed term will count toward the resolution of this market.
+
+Instances where the term is used in a compound word will count regardless of context (e.g. joyful is not a compound word for "joy," however "killjoy" is a compounding of the words "kill" and "joy").
+
+If this market requires a specified number of mentions of a person’s first or last name, a full-name mention will count as one mention (e.g., if a market is about “Joe / Biden 5+ times,” a mention of “Joe Biden” will count once).
+
+AI-generated audio or video will not count toward this market's resolution.
+
+This market is explicitly about Donald Trump's scheduled delivery of the 2026 State of the Union address. Speeches, events, or comments that occur outside of the named, scheduled event will not qualify toward this market's resolution. If the event contains a Q&A, it will count toward the resolution of this market.
+
+If this event is definitively cancelled, or otherwise is not aired by February 28, 2026, 11:59 PM ET, this market will resolve to "No".
+
+The resolution source will be video of the events. Only remarks which are broadcast or streamed live will count toward this market's resolution.

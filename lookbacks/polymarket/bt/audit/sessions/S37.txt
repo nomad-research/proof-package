@@ -1,0 +1,273 @@
+You will be shown 10 questions from a prediction market. Each question has one or more contracts, and each contract resolves YES or NO under the rules shown.
+
+For every contract, give your probability, as a whole percent from 1 to 99, that it resolves YES. Use only what you already know. Do not search for or look up anything: reading this file is the only tool call you may make.
+
+For each question, also say whether you recognise how it actually turned out ("recognised": true only if you believe you remember the real outcome; otherwise false).
+
+Where a question's contracts are mutually exclusive (exactly one can resolve YES), your numbers for it should add up to about 100. Where they are nested thresholds or dates, keep them consistent with each other.
+
+Reply with one JSON object and nothing else, in this form:
+{"events": [{"label": "E1", "recognised": false, "p": {"E1.C1": 35, "E1.C2": 60}}]}
+
+Every contract label below must appear exactly once in your reply.
+
+=== E1: Which candidates advance to 2026 Peru presidential runoff?
+Rules:
+First-round presidential elections are scheduled to be held in Peru on April 12, 2026, with a potential second round on June 7, 2026, if no candidate receives more than 50% of the valid votes outright.
+
+This market will resolve according to the listed pair of candidates who advance to the runoff of the 2026 Peruvian presidential election.
+
+If a different combination of candidates than those listed below advances to the runoff, if no runoff is being held, for example, because a candidate wins the first round outright, or if the candidates of the specified election are not known definitively by October 31, 2026, 11:59 PM ET, this market will resolve to “Other”.
+
+This market will resolve based on the results of this election, as indicated by a consensus of credible reporting. If there is ambiguity, this market will resolve solely on the official results as reported by the Peruvian government, specifically the National Office of Electoral Processes (Oficina Nacional de Procesos Electorales, ONPE) (https://www.onpe.gob.pe/elecciones/) and the National Jury of Elections (Jurado Nacional de Elecciones, JNE) (https://portal.jne.gob.pe/portal/).
+Contracts:
+  E1.C1: Will Rafael López Aliaga and Alfonso López Chau advance to the runoff?
+  E1.C2: Will Rafael López Aliaga and Keiko Fujimori advance to the runoff?
+  E1.C3: Will Rafael López Aliaga and Jorge Nieto advance to the runoff?
+  E1.C4: Will Rafael López Aliaga and Roberto Sánchez Palomino advance to the runoff?
+  E1.C5: Will Alfonso López Chau and Keiko Fujimori advance to the runoff?
+  E1.C6: Will Rafael López Aliaga and Wolfgang Grozo advance to the runoff?
+  E1.C7: Will Alfonso López Chau and Jorge Nieto advance to the runoff?
+  E1.C8: Will Keiko Fujimori and Jorge Nieto advance to the runoff?
+  E1.C9: Will Alfonso López Chau and Roberto Sánchez Palomino advance to the runoff?
+  E1.C10: Will a different combination of candidates advance to the runoff?
+
+=== E2: Malta Parliamentary Election: Margin of Victory
+Rules:
+General elections are scheduled to be held in Malta on May 30, 2026.
+
+This market will resolve according to the margin of victory between the top two parties in terms of valid votes in this election.
+
+If the margin of victory falls exactly between two brackets, this market will resolve to the higher bracket.
+
+For the purposes of this market, the “margin of victory” is defined as the absolute difference between the percentages of valid votes received by the political party that wins the most valid votes nationwide and the political party that wins the second-most valid votes nationwide. Percentages of the valid votes received by each party will be determined by dividing the total number of valid votes each of the top two parties receives by the sum of all valid votes cast in the election.
+
+If two or more parties tie for the most valid votes in this election, and the tie is between two parties listed, this market will resolve to the lowest margin bracket for the list whose listed abbreviation comes first in alphabetical order. If the tie is between a listed party and an unlisted party, this market will resolve to the lowest margin bracket for the listed party. If the tie is between two or more unlisted parties, this market will resolve to “Other.”
+
+If any unlisted party wins the most valid votes in this election, or the results of this election are not known definitively by March 31, 2027, 11:59 PM ET, this market will resolve to "Other".
+
+This market will resolve based on the results of the 2026 Maltese general election, as indicated by a consensus of credible reporting. If there is ambiguity, this market will resolve solely on the official results reported by the Government of Malta, such as those published by the Electoral Commission of Malta (https://electoral.gov.mt/).
+Contracts:
+  E2.C1: Will the Labour Party win the next Maltese general election by at least 25%?
+  E2.C2: Will the Labour Party win the next Maltese general election by 20-25%?
+  E2.C3: Will the Labour Party win the next Maltese general election by 15-20%?
+  E2.C4: Will the Labour Party win the next Maltese general election by 10-15%?
+  E2.C5: Will the Labour Party win the next Maltese general election by 5-10%?
+  E2.C6: Will the Labour Party win the next Maltese general election by less than 5%?
+  E2.C7: Will another margin of victory outcome occur in the next Maltese general election?
+
+=== E3: Which Party wins 4th most seats in Netherlands election?
+Rules:
+The ruling coalition of the Netherlands collapsed on June 3, 2025. New parliamentary elections are expected to be scheduled soon.
+
+This market will resolve to the political party that wins the fourth greatest number of seats in the Netherlands House of Representatives (Tweede Kamer der Staten-Generaal) as a result of this election.
+
+If voting in the Netherlands election for the House does not occur by July 31, 2026, this market will resolve to "Other".
+
+In the case of a tie between this party and any other for the fourth most seats won, this market will resolve in favor of the party whose listed abbreviation comes first in alphabetical order.
+
+This market's resolution will be based solely on the number of seats won by the named party or coalition.
+
+This market will resolve based on the result of the election as indicated by a consensus of credible reporting. If there is ambiguity, this market will resolve based solely on the official results as reported by the Electoral Council (Kiesraad) (https://www.kiesraad.nl/).
+
+Note: If the GL/PvdA alliance splits and announce they will not run a joint list, this market will refer to the Labor Party (PvdA).
+Contracts:
+  E3.C1: Will Party for Freedom win the fourth most seats in the 2025 Netherlands parliamentary election?
+  E3.C2: Will the People's Party for Freedom and Democracy win the fourth most seats in the 2025 Netherlands parliamentary election?
+  E3.C3: Will the GreenLeft–Labour Party alliance win the fourth most seats in the 2025 Netherlands parliamentary election?
+  E3.C4: Will the Christian Democratic Appeal win the fourth most seats in the 2025 Netherlands parliamentary election?
+  E3.C5: Will the Forum for Democracy win the fourth most seats in the 2025 Netherlands parliamentary election?
+  E3.C6: Will the Democrats 66 win the fourth most seats in the 2025 Netherlands parliamentary election?
+  E3.C7: Will the JA21 win the fourth most seats in the 2025 Netherlands parliamentary election?
+  E3.C8: Will the New Social Contract win the fourth most seats in the 2025 Netherlands parliamentary election?
+  E3.C9: Will the Farmer–Citizen Movement win the fourth most seats in the 2025 Netherlands parliamentary election?
+  E3.C10: Will the Socialist Party win the fourth most seats in the 2025 Netherlands parliamentary election?
+  E3.C11: Will the Party for the Animals win the fourth most seats in the 2025 Netherlands parliamentary election?
+  E3.C12: Will the Volt Netherlands win the fourth most seats in the 2025 Netherlands parliamentary election?
+
+=== E4: What price will Ethereum hit in July?
+Rules:
+What price will Ethereum hit in July?
+Contracts:
+  E4.C1: Will Ethereum reach $2,500 in July?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for ETH/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last), has a final High price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the ETH/USDT High prices available at https://www.binance.com/en/trade/ETH_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance ETH/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E4.C2: Will Ethereum reach $2,400 in July?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for ETH/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last), has a final High price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the ETH/USDT High prices available at https://www.binance.com/en/trade/ETH_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance ETH/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E4.C3: Will Ethereum reach $2,300 in July?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for ETH/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last), has a final High price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the ETH/USDT High prices available at https://www.binance.com/en/trade/ETH_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance ETH/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E4.C4: Will Ethereum reach $2,200 in July?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for ETH/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last), has a final High price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the ETH/USDT High prices available at https://www.binance.com/en/trade/ETH_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance ETH/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E4.C5: Will Ethereum reach $2,100 in July?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for ETH/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last), has a final High price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the ETH/USDT High prices available at https://www.binance.com/en/trade/ETH_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance ETH/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E4.C6: Will Ethereum reach $2,000 in July?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for ETH/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last), has a final High price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the ETH/USDT High prices available at https://www.binance.com/en/trade/ETH_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance ETH/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E4.C7: Will Ethereum dip to $1,800 in July?
+    Contract rules: This market will resolve to "Yes" if any Binance 1 minute candle for ETH/USDT from the creation of this market through 11:59 PM ET on the last day of the month specified in the title has a final Low price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No". Price action before this market's creation will not be considered.
+
+The resolution source for this market is Binance, specifically the ETH/USDT Low prices available at https://www.binance.com/en/trade/ETH_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance ETH/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E4.C8: Will Ethereum dip to $1,700 in July?
+    Contract rules: This market will resolve to "Yes" if any Binance 1 minute candle for ETH/USDT from the creation of this market through 11:59 PM ET on the last day of the month specified in the title has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No”. Price action before this market's creation will not be considered.
+
+The resolution source for this market is Binance, specifically the ETH/USDT “High” and “Low” prices available at https://www.binance.com/en/trade/ETH_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance ETH/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E4.C9: Will Ethereum dip to $1,600 in July?
+    Contract rules: This market will resolve to "Yes" if any Binance 1 minute candle for ETH/USDT from the creation of this market through 11:59 PM ET on the last day of the month specified in the title has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No”. Price action before this market's creation will not be considered.
+
+The resolution source for this market is Binance, specifically the ETH/USDT “High” and “Low” prices available at https://www.binance.com/en/trade/ETH_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance ETH/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E4.C10: Will Ethereum dip to $1,500 in July?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for ETH/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last), has a final Low price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the ETH/USDT Low prices available at https://www.binance.com/en/trade/ETH_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance ETH/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E4.C11: Will Ethereum dip to $1,400 in July?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for ETH/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last), has a final Low price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the ETH/USDT Low prices available at https://www.binance.com/en/trade/ETH_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance ETH/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E4.C12: Will Ethereum dip to $1,300 in July?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for ETH/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last), has a final Low price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the ETH/USDT Low prices available at https://www.binance.com/en/trade/ETH_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance ETH/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+
+=== E5: Aragon Regional Election Winner
+Rules:
+Elections for the autonomous community of Aragon’s unicameral legislature (Cortes) are scheduled for February 8, 2026.
+
+This market will resolve according to the political party/coalition that wins the greatest number of seats in the Cortes of Aragon as a result of this election.
+
+If the results of this election are not definitively known by May 31, 2026, 11:59 PM ET, this market will resolve to “Other”.
+
+This market's resolution will be based solely on the number of seats won by the listed party or coalition.
+
+In the event of a tie between multiple parties for the most seats won, this market will resolve in favor of the party that received a greater number of valid votes. If that also results in a tie, this market will resolve in favor of the party whose listed abbreviation appears first in alphabetical order.
+
+This market will resolve based on the result of the election as indicated by a consensus of credible reporting. If there is ambiguity, this market will resolve based solely on the official results as published by the Spanish Junta Electoral Central (JEC) (https://www.juntaelectoralcentral.es/cs/jec/inicio).
+Contracts:
+  E5.C1: Will Partido Popular (PP) win the 2026 Aragon Regional Election?
+  E5.C2: Will Partido Socialista Obrero Español (PSOE) win the 2026 Aragon Regional Election?
+  E5.C3: Will Vox (VOX) win the 2026 Aragon Regional Election?
+  E5.C4: Will Chunta Aragonesista (CHA) win the 2026 Aragon Regional Election?
+
+=== E6: Will Verizon (VZ) Q2 total operating revenue be above __?
+Rules:
+This market will resolve to "Yes" if Verizon's total operating revenue for the upcoming second fiscal quarter, as reported in its official company earnings materials, is above the listed amount. Otherwise, this market will resolve to "No".
+
+The specified metric will be considered as reported in the company's official earnings materials. Subsequent revisions will not be considered.
+
+If the specified company's official earnings materials for the specified quarter are released, and the specified metric is not included, this market will resolve to "No".
+
+If the specified company does not release quarterly earnings materials for the specified quarter by August 31, 2026, 11:59 PM ET, this market will resolve to "No".
+
+If the specified metric is reported as a range rather than a specific number, the midpoint of the range will be used for resolution of this market.
+
+The resolution source for this market is the specified company's official company earnings materials, including press releases, investor presentations, and regulatory filings. If the specified metric is not reported in these materials, recordings or transcripts of the company's earnings webcast may also be used.
+
+Note: This market will resolve based on the most numerically precise version of the specified metric reported in the company's official earnings materials. Only the specified metric will be considered; alternate versions that differ in definition or scope from the specified metric will not be considered.
+Contracts:
+  E6.C1: Will Verizon (VZ) Q2 total operating revenue be above $34.5B?
+  E6.C2: Will Verizon (VZ) Q2 total operating revenue be above $35B?
+  E6.C3: Will Verizon (VZ) Q2 total operating revenue be above $35.5B?
+  E6.C4: Will Verizon (VZ) Q2 total operating revenue be above $36B?
+  E6.C5: Will Verizon (VZ) Q2 total operating revenue be above $36.5B?
+
+=== E7: Texas Democratic Senate Primary: First Round Winner
+Rules:
+Primary elections in Texas are scheduled to be held on March 3, 2026, with a runoff on May 26 if no candidate receives a majority.
+
+This market will resolve according to the candidate who receives the most valid votes in the first round of the Democratic Primary for United States Senator from Texas.
+
+If no 2026 Texas Democratic Senate Primary takes place, this market will resolve to "Other".
+
+The resolution source for this market will be the first announcement of the results from the Texas Democratic Party; however, an overwhelming consensus of credible reporting may suffice.
+Contracts:
+  E7.C1: Will James Talarico receive the most votes in the first round of the Democratic Senate primary in Texas?
+  E7.C2: Will Jasmine Crockett receive the most votes in the first round of the Democratic Senate primary in Texas?
+
+=== E8: Who will be the first substitute White House Press Secretary?
+Rules:
+This market will resolve according to the listed individual who hosts the first White House Press Briefing after Karoline Leavitt goes on leave. Otherwise, this market will resolve to "No".
+
+If Karoline Leavitt's leave is not announced, this market will resolve according to the next individual excepting Karoline Leavitt who hosts a White House Press Briefing as listed on the official schedule. If Karoline Leavitt does not go on leave, or if no White House Press Briefings occur between the beginning of Leavitt's leave and May 31, this market will resolve to "Other". For the purposes of this market, if Leavitt resigns or otherwise leaves her position, it will qualify as a leave.
+
+This market refers to White House press briefings by the acting White House Press Secretary (https://rollcall.com/factbase/trump/topic/calendar/). Any press briefing by the acting White House Press Secretary will qualify, even if the host is not formally announced as the acting or interim Press Secretary. "New Media" press briefings or special briefings such as those including extra guests will be considered, so long as the acting White House Press Secretary is a listed participant. Impromptu press gaggles will not be considered for the resolution of this market; only events listed on the public schedule as briefings or announcements will qualify.
+
+This market will resolve based on footage of the next White House Press Briefing that Karoline Leavitt does not host.
+Contracts:
+  E8.C1: Will Marco Rubio be the first substitute White House Press Secretary?
+  E8.C2: Will Stephen Miller be the first substitute White House Press Secretary?
+  E8.C3: Will Scott Bessent be the first substitute White House Press Secretary?
+  E8.C4: Will Howard Lutnick be the first substitute White House Press Secretary?
+  E8.C5: Will Peter Hegseth be the first substitute White House Press Secretary?
+  E8.C6: Will Brooke Rollins be the first substitute White House Press Secretary?
+  E8.C7: Will Linda McMahon be the first substitute White House Press Secretary?
+  E8.C8: Will Susie Wiles be the first substitute White House Press Secretary?
+  E8.C9: Will Erika Kirk be the first substitute White House Press Secretary?
+  E8.C10: Will Donald Trump be the first substitute White House Press Secretary?
+  E8.C11: Will Anna Kelly be the first substitute White House Press Secretary?
+  E8.C12: Will Taylor Rogers be the first substitute White House Press Secretary?
+
+=== E9: How many seats will IUML win in the next Kerala Legislative Assembly election?
+Rules:
+Legislative Assembly elections are to be scheduled to be held in Kerala, India, in March–May 2026.
+
+This market will resolve according to the number of seats held by the Indian Union Muslim League (IUML) in the Kerala Assembly as a result of the next Legislative Assembly elections in Kerala.
+
+If results are not known definitively by October 31, 2026, 11:59 PM ET, this market will resolve to the lowest bracket.
+
+This market’s resolution will be based solely on the number of seats won by the named party in the Kerala Legislative Assembly.
+
+This market will resolve based on the results of this election as indicated by a consensus of credible reporting. If there is ambiguity, this market will resolve based solely on the official results reported by the Indian government, specifically the Election Commission of India (ECI) (https://eci.gov.in). If multiple official reports differ, this market will resolve based on the one that includes the greatest number of Assembly Constituencies (ACs).
+Contracts:
+  E9.C1: Will the Indian Union Muslim League (IUML) win fewer than 10 seats in the 2026 Kerala Legislative Assembly election?
+  E9.C2: Will the Indian Union Muslim League (IUML) win between 10 and 12 seats in the 2026 Kerala Legislative Assembly election?
+  E9.C3: Will the Indian Union Muslim League (IUML) win between 13 and 15 seats in the 2026 Kerala Legislative Assembly election?
+  E9.C4: Will the Indian Union Muslim League (IUML) win between 16 and 18 seats in the 2026 Kerala Legislative Assembly election?
+  E9.C5: Will the Indian Union Muslim League (IUML) win between 19 and 21 seats in the 2026 Kerala Legislative Assembly election?
+  E9.C6: Will the Indian Union Muslim League (IUML) win 22 or more seats in the 2026 Kerala Legislative Assembly election?
+
+=== E10: Andalusia Election: PP Absolute Majority?
+Rules:
+Elections for the autonomous community of Andalusia’s unicameral parliament are scheduled for May 17, 2026.
+
+This market will resolve to “Yes” if Partido Popular (PP) wins at least 55 seats in the Parliament of Andalusia as a result of this election. Otherwise, this market will resolve to “No”.
+
+If the results of this election are not definitively known by December 31, 2026, 11:59 PM ET, this market will resolve to “No”.
+
+This market's resolution will be based solely on the number of seats won by Partido Popular.
+
+This market will resolve based on the result of the election as indicated by a consensus of credible reporting. In case of ambiguity, this market will resolve based solely on the official results as published by the Spanish Junta Electoral Central (JEC) (https://www.juntaelectoralcentral.es/cs/jec/inicio).
+Contracts:
+  E10.C1: Andalusia Election: PP Absolute Majority?

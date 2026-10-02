@@ -1,0 +1,287 @@
+You will be shown 6 questions from a prediction market. Each has one or more contracts that resolve YES or NO under the rules shown. Each question gives the date your view is "as of": answer as you would on that date.
+
+Use only what you already know. Do not search for or look up anything: reading this file is the only tool call you may make. There are no prices in this file and you should not try to estimate what any market thinks; give your own view.
+
+Each question says what to write for it. Whole percents run from 1 to 99. Levels are plain numbers in the units the contracts use (for example 95000 for $95,000, 3.25 for 3.25%). Dates are YYYY-MM-DD.
+
+For each question also say whether you recognise how it actually turned out ("recognised": true only if you believe you remember the real outcome; otherwise false).
+
+Reply with one JSON object and nothing else:
+{"events": [{"label": "E1", "recognised": false, ...the fields that question asks for...}]}
+
+=== E1 (as of 2026-05-27): Solana above ___ on June 1?
+Rules:
+This market will resolve to "Yes" if the Binance 1 minute candle for SOL/USDT 12:00 in the ET timezone (noon) on the date specified in the title has a final "Close" price higher than the price specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the SOL/USDT "Close" prices currently available at https://www.binance.com/en/trade/SOL_USDT with "1m" and "Candles" selected on the top bar.
+
+Please note that this market is about the price according to Binance SOL/USDT, not according to other exchanges or trading pairs.
+
+Price precision is determined by the number of decimal places in the source.
+Contracts:
+  E1.C1: Will the price of Solana be above $40 on June 1?
+  E1.C2: Will the price of Solana be above $50 on June 1?
+  E1.C3: Will the price of Solana be above $60 on June 1?
+  E1.C4: Will the price of Solana be above $70 on June 1?
+  E1.C5: Will the price of Solana be above $80 on June 1?
+  E1.C6: Will the price of Solana be above $90 on June 1?
+  E1.C7: Will the price of Solana be above $100 on June 1?
+  E1.C8: Will the price of Solana be above $110 on June 1?
+  E1.C9: Will the price of Solana be above $120 on June 1?
+  E1.C10: Will the price of Solana be above $130 on June 1?
+  E1.C11: Will the price of Solana be above $140 on June 1?
+What to write for E1:
+  Write "levels": for each chance 10, 25, 50, 75 and 90, the level you give that chance of the measured quantity being at or above when it resolves. The 10 level is the highest and the 90 level the lowest. Example: {"10": 120, "25": 110, "50": 100, "75": 92, "90": 85}.
+
+=== E2 (as of 2026-05-20): AutoZone Q3 domestic same store sales growth?
+Rules:
+This market will resolve according to AutoZone's announced domestic same store sales growth for the third fiscal quarter of 2026, as reported in its official company earnings materials.
+
+The specified metric will be considered as reported in the company's official earnings materials. Subsequent revisions will not be considered.
+
+If the specified company's official earnings materials for the specified quarter are released, and the specified metric is not included, this market will resolve to the lowest bracket.
+
+If the specified company does not release quarterly earnings materials for the specified quarter by June 30, 2026, 11:59 PM ET, this market will resolve to the lowest bracket.
+
+If the reported value falls exactly between two brackets, this market will resolve to the higher range bracket.
+
+If the specified metric is reported as a range rather than a specific number, the midpoint of the range will be used for resolution of this market.
+
+The resolution source for this market is AutoZone's official company earnings materials, including press releases, investor presentations, and regulatory filings. If the specified metric is not reported in these materials, recordings or transcripts of the company's earnings webcast may also be used.
+
+Note: This market will resolve based on the most numerically precise version of the specified metric reported in the company's official earnings materials. Only the specified metric will be considered; alternate versions that differ in definition or scope from the specified metric will not be considered.
+Contracts:
+  E2.C1: Will AutoZone Q3 domestic same store sales growth be below 3.5%?
+  E2.C2: Will AutoZone Q3 domestic same store sales growth be between 3.5% and 4.5%?
+  E2.C3: Will AutoZone Q3 domestic same store sales growth be between 4.5% and 5.5%?
+  E2.C4: Will AutoZone Q3 domestic same store sales growth be between 5.5% and 6.5%?
+  E2.C5: Will AutoZone Q3 domestic same store sales growth be above 6.5%?
+What to write for E2:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E3 (as of 2026-05-13): 2026 Seoul Mayoral Election Winner
+Rules:
+The 2026 Seoul mayoral election is scheduled to take place on June 3, 2026 to elect the next mayor of Seoul.
+
+This market will resolve according to the listed candidate that wins this election.
+
+If the result of this election isn't known by January 31, 2027, 11:59 PM ET, the market will resolve to "Other".
+
+This market will resolve based on the result of the election as indicated by a consensus of credible reporting. If there is ambiguity, this market will resolve based solely on the official results as reported by the South Korean government, specifically the National Election Commission.
+Contracts:
+  E3.C1: Will Oh Se-hoon win the 2026 Seoul Mayoral Election
+  E3.C2: Will Na Kyung-won win the 2026 Seoul Mayoral Election
+  E3.C3: Will Cho Eun-hee win the 2026 Seoul Mayoral Election
+  E3.C4: Will Han Dong-hoon win the 2026 Seoul Mayoral Election
+  E3.C5: Will Ahn Cheol-soo win the 2026 Seoul Mayoral Election
+  E3.C6: Will Park Ju-min win the 2026 Seoul Mayoral Election
+  E3.C7: Will Park Yong-jin win the 2026 Seoul Mayoral Election
+  E3.C8: Will Park Hong-keun win the 2026 Seoul Mayoral Election
+  E3.C9: Will Chong Won-oh win the 2026 Seoul Mayoral Election
+  E3.C10: Will Seo Young-kyo win the 2026 Seoul Mayoral Election
+  E3.C11: Will Hong Ihk-pyo win the 2026 Seoul Mayoral Election
+  E3.C12: Will Jeon Hyun-heui win the 2026 Seoul Mayoral Election
+  E3.C13: Will Cho Kuk win the 2026 Seoul Mayoral Election
+  E3.C14: Will Kang Hoon-sik win the 2026 Seoul Mayoral Election
+What to write for E3:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E4 (as of 2026-06-10): Ethereum price on June 15?
+Rules:
+This market will resolve according to the final "Close" price of the Binance 1 minute candle for ETH/USDT 12:00 in the ET timezone (noon) on the date specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the ETH/USDT "Close" prices currently available at https://www.binance.com/en/trade/ETH_USDT with "1m" and "Candles" selected on the top bar.
+
+If the reported value falls exactly between two brackets, then this market will resolve to the higher range bracket.
+
+Please note that this market is about the price according to Binance ETH/USDT, not according to other exchanges or trading pairs.
+Contracts:
+  E4.C1: Will the price of Ethereum be less than $1,200 on June 15?
+  E4.C2: Will the price of Ethereum be between $1,200 and $1,300 on June 15?
+  E4.C3: Will the price of Ethereum be between $1,300 and $1,400 on June 15?
+  E4.C4: Will the price of Ethereum be between $1,400 and $1,500 on June 15?
+  E4.C5: Will the price of Ethereum be between $1,500 and $1,600 on June 15?
+  E4.C6: Will the price of Ethereum be between $1,600 and $1,700 on June 15?
+  E4.C7: Will the price of Ethereum be between $1,700 and $1,800 on June 15?
+  E4.C8: Will the price of Ethereum be between $1,800 and $1,900 on June 15?
+  E4.C9: Will the price of Ethereum be between $1,900 and $2,000 on June 15?
+  E4.C10: Will the price of Ethereum be between $2,000 and $2,100 on June 15?
+  E4.C11: Will the price of Ethereum be greater than $2,100 on June 15?
+What to write for E4:
+  Write "p_not": a whole percent for every contract label, your chance that it is NOT the one that resolves YES. These need not add to any total.
+
+=== E5 (as of 2026-04-01): XRP above ___ on April 7?
+Rules:
+This market will resolve to "Yes" if the Binance 1 minute candle for XRP/USDT 12:00 in the ET timezone (noon) on the date specified in the title has a final "Close" price higher than the price specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the XRP/USDT "Close" prices currently available at https://www.binance.com/en/trade/XRP_USDT with "1m" and "Candles" selected on the top bar.
+
+Please note that this market is about the price according to Binance XRP/USDT, not according to other exchanges or trading pairs.
+
+Price precision is determined by the number of decimal places in the source.
+Contracts:
+  E5.C1: Will the price of XRP be above $0.80 on April 7?
+  E5.C2: Will the price of XRP be above $0.90 on April 7?
+  E5.C3: Will the price of XRP be above $1.00 on April 7?
+  E5.C4: Will the price of XRP be above $1.10 on April 7?
+  E5.C5: Will the price of XRP be above $1.20 on April 7?
+  E5.C6: Will the price of XRP be above $1.30 on April 7?
+  E5.C7: Will the price of XRP be above $1.40 on April 7?
+  E5.C8: Will the price of XRP be above $1.50 on April 7?
+  E5.C9: Will the price of XRP be above $1.60 on April 7?
+  E5.C10: Will the price of XRP be above $1.70 on April 7?
+  E5.C11: Will the price of XRP be above $1.80 on April 7?
+What to write for E5:
+  Write "levels": for each chance 10, 25, 50, 75 and 90, the level you give that chance of the measured quantity being at or above when it resolves. The 10 level is the highest and the 90 level the lowest. Example: {"10": 120, "25": 110, "50": 100, "75": 92, "90": 85}.
+
+=== E6 (as of 2026-04-01): Will Meta Platforms, Inc. (META) hit Week of March 30 2026?
+Rules:
+Will Meta Platforms, Inc. (META) hit Week of March 30 2026?
+Contracts:
+  E6.C1: Will Meta Platforms, Inc. (META) hit (HIGH) $590 Week of March 30 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of March 30 2026, any 1-minute candle for Meta Platforms, Inc. (META) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Meta Platforms, Inc. (META) "High" prices available at https://pythdata.app/explore/Equity.US.META%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.META%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E6.C2: Will Meta Platforms, Inc. (META) hit (HIGH) $580 Week of March 30 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of March 30 2026, any 1-minute candle for Meta Platforms, Inc. (META) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Meta Platforms, Inc. (META) "High" prices available at https://pythdata.app/explore/Equity.US.META%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.META%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E6.C3: Will Meta Platforms, Inc. (META) hit (LOW) $520 Week of March 30 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of March 30 2026, any 1-minute candle for Meta Platforms, Inc. (META) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Meta Platforms, Inc. (META) "Low" prices available at https://pythdata.app/explore/Equity.US.META%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.META%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E6.C4: Will Meta Platforms, Inc. (META) hit (LOW) $510 Week of March 30 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of March 30 2026, any 1-minute candle for Meta Platforms, Inc. (META) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Meta Platforms, Inc. (META) "Low" prices available at https://pythdata.app/explore/Equity.US.META%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.META%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E6.C5: Will Meta Platforms, Inc. (META) hit (LOW) $500 Week of March 30 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of March 30 2026, any 1-minute candle for Meta Platforms, Inc. (META) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Meta Platforms, Inc. (META) "Low" prices available at https://pythdata.app/explore/Equity.US.META%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.META%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E6.C6: Will Meta Platforms, Inc. (META) hit (LOW) $490 Week of March 30 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of March 30 2026, any 1-minute candle for Meta Platforms, Inc. (META) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Meta Platforms, Inc. (META) "Low" prices available at https://pythdata.app/explore/Equity.US.META%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.META%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E6.C7: Will Meta Platforms, Inc. (META) hit (LOW) $480 Week of March 30 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of March 30 2026, any 1-minute candle for Meta Platforms, Inc. (META) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Meta Platforms, Inc. (META) "Low" prices available at https://pythdata.app/explore/Equity.US.META%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.META%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E6.C8: Will Meta Platforms, Inc. (META) hit (LOW) $470 Week of March 30 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of March 30 2026, any 1-minute candle for Meta Platforms, Inc. (META) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Meta Platforms, Inc. (META) "Low" prices available at https://pythdata.app/explore/Equity.US.META%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.META%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E6.C9: Will Meta Platforms, Inc. (META) hit (LOW) $460 Week of March 30 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of March 30 2026, any 1-minute candle for Meta Platforms, Inc. (META) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Meta Platforms, Inc. (META) "Low" prices available at https://pythdata.app/explore/Equity.US.META%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.META%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+What to write for E6:
+  Write "high": for each chance 10, 25, 50, 75 and 90, the level you give that chance of being reached (at or above) within the period. The 10 level is the highest.
+  Write "low": for each chance 10, 25, 50, 75 and 90, the level you give that chance of being reached (at or below) within the period. The 10 level is the lowest.

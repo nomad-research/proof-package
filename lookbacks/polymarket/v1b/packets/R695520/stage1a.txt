@@ -1,0 +1,39 @@
+You are one of several independent analysts. Work only from what is written below. Apart from reading the file that held this text, do not use any tool, do not look anything up, and do not use anything you
+know that happened after 2026-08-03: reason as of that date. You are shown no market prices, and you are not asked for any probability.
+
+EVENT: South Carolina Republican Senate Special Primary Winner   (structure: partition open)
+RULES (as of 2026-08-03):
+This market will resolve according to the winner of the special Republican Primary for United States Senator from South Carolina, including any potential runoff.
+
+If no 2026 special South Carolina Republican Senate Primary takes place by November 2, 2026, 11:59 PM ET, this market will resolve according to the candidate who is the official Republican nominee to contest the November 3, 2026 South Carolina U.S. Senate election.
+
+If the results of the special primary are not definitively known, or if there is no Republican nominee to contest the November 3, 2026 South Carolina U.S. Senate election, by November 2, 2026, 11:59 PM ET, this market will resolve to "Other".
+
+The resolution source for this market will be the first announcement of the results from the South Carolina Republican party, however an overwhelming consensus of credible reporting may suffice.
+
+CONTRACTS (each pays $1 if its statement is true when the event resolves, $0 otherwise; you may name YES or NO on any contract):
+  C1: Will Nancy Mace be the new Republican nominee for Senate in South Carolina?  [Nancy Mace]
+  C2: Will Joe Wilson be the new Republican nominee for Senate in South Carolina?  [Joe Wilson]
+  C3: Will Mark Lynch be the new Republican nominee for Senate in South Carolina?  [Mark Lynch]
+  C4: Will Paul Dans be the new Republican nominee for Senate in South Carolina?  [Paul Dans]
+  C5: Will Ralph Norman be the new Republican nominee for Senate in South Carolina?  [Ralph Norman]
+  C6: Will William Timmons be the new Republican nominee for Senate in South Carolina?  [William Timmons]
+  C7: Will Russell Fry be the new Republican nominee for Senate in South Carolina?  [Russell Fry]
+  C8: Will Sheri Biggs be the new Republican nominee for Senate in South Carolina?  [Sheri Biggs]
+  C9: Will Pamela Evette be the new Republican nominee for Senate in South Carolina?  [Pamela Evette]
+  C10: Will André Bauer be the new republican nominee for Senate in South Carolina?  [André Bauer]
+  C11: Will Alan Wilson be the new republican nominee for Senate in South Carolina?  [Alan Wilson]
+  C12: Will Scott Bessent be the new republican nominee for Senate in South Carolina?  [Scott Bessent]
+  C13: Will Trey Gowdy be the new republican nominee for Senate in South Carolina?  [Trey Gowdy]
+  C14: Will Darline Graham Nordone be the new republican nominee for Senate in South Carolina?  [Darline Graham Nordone]
+  C15: Will Mark Sanford be the new republican nominee for Senate in South Carolina?  [Mark Sanford]
+
+Task. Write your own view as documents-and-mechanism reasoning, not as odds.
+1. primary: a thesis about how this event resolves and a basket of at most 4 contracts from the list that expresses it (long only: a contract with YES or NO).
+2. failure_narrative: the specific way the thesis is wrong (what would have to happen for the basket to lose).
+3. hedge_thesis: a second narrative, about a DIFFERENT part of the world, that would tend to be true in exactly the worlds where the primary fails. Say why, in mechanism terms.
+4. search_terms: 3 to 8 words or names (entities, assets, places, institutions) that instruments for the hedge thesis would carry. Lower-case single words or short names.
+5. recalls_outcome: true if you already know, or think you know, how this event (or any part of it) actually turned out; otherwise false. Be honest: a true answer is not penalised, it only means this item is set aside.
+
+Answer with one JSON object and nothing else:
+{"primary": {"thesis": "...", "basket": [{"contract": "C1", "side": "YES", "reason": "..."}]}, "failure_narrative": "...", "hedge_thesis": "...", "search_terms": ["..."], "recalls_outcome": false}

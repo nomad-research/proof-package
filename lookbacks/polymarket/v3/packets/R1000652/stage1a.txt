@@ -1,0 +1,34 @@
+You are one of several independent analysts. Work only from what is written below. Apart from reading the file that held this text, do not use any tool, do not look anything up, and do not use anything you
+know that happened after 2026-09-30: reason as of that date. You are shown no market prices, and you are not asked for any probability.
+
+EVENT: Houthis successfully target shipping by...?   (structure: date ladder)
+RULES (as of 2026-09-30):
+This market will resolve to "Yes" if Houthi forces conduct a kinetic strike on or otherwise seize control of a commercial ship between market creation and the specified date, 11:59 PM AST (UTC+03:00). Otherwise, this market will resolve to "No".
+
+Attacks on military vessels will not be considered.
+
+Missile/drone strikes targeting a ship that are intercepted or otherwise do not directly impact the vessel will not be considered, regardless of damage through debris.
+
+Seize control refers to Houthi forces forcefully boarding and taking control of a commercial ship.
+
+Qualifying incidents include, but are not limited to, drone and missile strikes, aerial bombings, and kinetic actions carried out by Houthi operatives in person, such as seizing a ship by force.
+
+The primary resolution source for this market will be a consensus of credible reporting.
+
+If a kinetic incident occurs, but, on the specified date, 11:59 PM AST, material ambiguity remains as to whether the incident can be attributed to Houthi operatives, this market may remain open for an additional 3 calendar days, AST. If, at such time, attribution of the incident still cannot be confirmed, this market will resolve to “No”.
+
+CONTRACTS (each pays $1 if its statement is true when the event resolves, $0 otherwise; you may name YES or NO on any contract):
+  C1: Will the Houthis successfully target shipping by September 23, 2026?  [September 23]
+  C2: Will the Houthis successfully target shipping by September 30, 2026?  [September 30]
+  C3: Will the Houthis successfully target shipping by October 15, 2026?  [October 15]
+  C4: Will the Houthis successfully target shipping by October 31, 2026?  [October 31]
+
+Task. Write your own view as documents-and-mechanism reasoning, not as odds.
+1. primary: a thesis about how this event resolves and a basket of at most 4 contracts from the list that expresses it (long only: a contract with YES or NO).
+2. failure_narrative: the specific way the thesis is wrong (what would have to happen for the basket to lose).
+3. hedge_thesis: a second narrative, about a DIFFERENT part of the world, that would tend to be true in exactly the worlds where the primary fails. Say why, in mechanism terms.
+4. search_terms: 3 to 8 words or names (entities, assets, places, institutions) that instruments for the hedge thesis would carry. Lower-case single words or short names.
+5. recalls_outcome: true if you already know, or think you know, how this event (or any part of it) actually turned out; otherwise false. Be honest: a true answer is not penalised, it only means this item is set aside.
+
+Answer with one JSON object and nothing else:
+{"primary": {"thesis": "...", "basket": [{"contract": "C1", "side": "YES", "reason": "..."}]}, "failure_narrative": "...", "hedge_thesis": "...", "search_terms": ["..."], "recalls_outcome": false}

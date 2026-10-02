@@ -1,0 +1,359 @@
+You will be shown 10 questions from a prediction market. Each question has one or more contracts, and each contract resolves YES or NO under the rules shown.
+
+For every contract, give your probability, as a whole percent from 1 to 99, that it resolves YES. Use only what you already know. Do not search for or look up anything: reading this file is the only tool call you may make.
+
+For each question, also say whether you recognise how it actually turned out ("recognised": true only if you believe you remember the real outcome; otherwise false).
+
+Where a question's contracts are mutually exclusive (exactly one can resolve YES), your numbers for it should add up to about 100. Where they are nested thresholds or dates, keep them consistent with each other.
+
+Reply with one JSON object and nothing else, in this form:
+{"events": [{"label": "E1", "recognised": false, "p": {"E1.C1": 35, "E1.C2": 60}}]}
+
+Every contract label below must appear exactly once in your reply.
+
+=== E1: Will Israel strike Iraq by February 28?
+Rules:
+This market will resolve to "Yes" if Israel initiates a drone, missile, or air strike on Iraqi soil or any Iraqi embassy or consulate between market creation and February 28, 2026, 11:59 PM ET. Otherwise, this market will resolve to "No".
+
+For the purposes of this market, a qualifying "strike" is defined as the use of aerial bombs, drones or missiles (including cruise or ballistic missiles) launched by Israeli military forces that impact Iraqi ground territory or any official Iraqi embassy or consulate (e.g., if a weapons depot on Iraqi soil is hit by an Israeli missile, this market will resolve to "Yes") that is officially acknowledged by the Israeli government or a consensus of credible reporting.
+
+Missiles or drones that are intercepted and surface-to-air missile strikes will not be sufficient for a "Yes" resolution, regardless of whether they land on Iraqi territory or cause damage.
+
+Actions such as artillery fire, small arms fire, FPV or ATGM strikes directly, ground incursions, naval shelling, cyberattacks, or other operations conducted by Israeli ground operatives will not qualify.
+
+The resolution source will be a consensus of credible reporting.
+Contracts:
+  E1.C1: Will Israel strike Iraq by February 28?
+
+=== E2: How many jobs added in March?
+Rules:
+This market will resolve according to the change in the total nonfarm payroll employment reported by the BLS "Employment Situation Summary" for March 2026, scheduled to be released on April 3, 2026, at 8:30 AM ET.
+
+If the reported value falls exactly between two brackets, then this market will resolve to the higher range bracket.
+
+If no data for the specified month is released by the date the next month's data is scheduled to be released, this market will resolve based on data from the last available month.
+
+The BLS "Employment Situation Summary" may be found here: https://www.bls.gov/bls/newsrels.htm
+Contracts:
+  E2.C1: Will the US lose more than 150k jobs in March?
+  E2.C2: Will the US lose between 100k and 150k jobs in March?
+  E2.C3: Will the US lose between 50k and 100k jobs in March?
+  E2.C4: Will the US lose between 0 and 50k jobs in March?
+  E2.C5: Will the US add between 0 and 50k jobs in March?
+  E2.C6: Will the US add between 50k and 100k jobs in March?
+  E2.C7: Will the US add at least 100k jobs in March?
+
+=== E3: Jang Dong-hyeok out as PPP Leader by June 30, 2026?
+Rules:
+This market will resolve to “Yes” if Jang Dong-hyeok ceases to be Leader of the People Power Party (PPP) for any period of time between market creation and the specified date (ET). Otherwise, this market will resolve to “No”.
+
+An announcement of Jang Dong-hyeok's resignation/removal before this market's end date will immediately resolve this market to "Yes", regardless of when the announced resignation/removal goes into effect.
+
+If the specified individual is detained, effectively removed from the specified position, or otherwise permanently prevented from fulfilling the duties of the specified position within this market’s timeframe, it will qualify for a “Yes” resolution.
+
+The resolution source for this market will be official information from Jang Dong-hyeok and the People Power Party (PPP); however, a consensus of credible reporting may also be used.
+Contracts:
+  E3.C1: Jang Dong-hyeok out as PPP Leader by June 30, 2026?
+
+=== E4: Nothing Ever Happens: US Strike Edition
+Rules:
+This market will resolve to “No” if any of the following conditions are met between market creation and March 31, 2026, 11:59 ET:
+
+- Another US strike on Venezuela
+- US strikes Iran
+- US strike on Colombia
+- US strike on Mexico
+- US strike on Cuba
+
+Otherwise, this market will resolve to “Yes”.
+
+If no qualifying strike is confirmed by the resolution date, this market will remain open until the end of the second day after the resolution time. If the date/time of a qualifying strike cannot be confirmed by a consensus of credible reporting by that time, it will resolve to "Yes" regardless of whether a strike was later confirmed to have taken place.
+
+The full rules for this market can be found here:
+https://polymarket-upload.s3.us-east-2.amazonaws.com/NEHUSStrike.pdf
+Contracts:
+  E4.C1: Nothing Ever Happens: US Strike Edition
+
+=== E5: Will the U.S. invade Iran in 2025?
+Rules:
+This market will resolve to "Yes" if the United States commences a military offensive intended to establish control over any portion of Iran between June 18 and December 31, 2025, 11:59 PM ET. Otherwise, this market will resolve to "No".
+
+For the purposes of this market, land de facto controlled by Iran or the United States as of June 18, 2025, 12:00 PM ET, will be considered the sovereign territory of that country.
+
+The resolution source for this market will be a consensus of credible sources.
+Contracts:
+  E5.C1: Will the U.S. invade Iran in 2025?
+
+=== E6: West Virginia Democratic Senate Primary Winner
+Rules:
+This market will resolve according to the winner of the Democratic Primary for United States Senator from West Virginia.
+
+If no 2026 West Virginia Democratic Senate Primary takes place, this market will resolve to "Other".
+
+The resolution source for this market will be the first announcement of the results from the West Virginia Democratic Party, however an overwhelming consensus of credible reporting may suffice.
+Contracts:
+  E6.C1: Will Rio Phillips be the Democratic nominee for Senate in West Virginia?
+  E6.C2: Will Zachary Shrewsbury be the Democratic nominee for Senate in West Virginia?
+  E6.C3: Will Rachel Anderson be the Democratic nominee for Senate in West Virginia?
+  E6.C4: Will Thornton Cooper be the Democratic nominee for Senate in West Virginia?
+  E6.C5: Will Jeffrey Kessler be the Democratic nominee for Senate in West Virginia?
+
+=== E7: How many dissent at the July Fed meeting?
+Rules:
+The July Federal Open Market Committee (FOMC) meeting is scheduled for July 28-29, 2026. The policy decision will be announced at 2:00 PM Eastern Time on July 29, followed by the Fed Chair’s press conference at around 2:30 PM ET.
+
+This market will resolve according to the number of dissenting votes recorded at the July Federal Open Market Committee monetary policy meeting, specifically those dissenting on the Fed Funds Rate decision.
+
+The resolution source for this market is the FOMC’s statement after its meeting scheduled for July 28-29, 2026, according to the official calendar: https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm.
+
+This market may resolve as soon as the FOMC’s statement for their July meeting with relevant data is issued; however, a consensus of credible reporting will also be used.
+Contracts:
+  E7.C1: Will no one dissent the July Fed decision?
+  E7.C2: Will one person dissent the July Fed decision?
+  E7.C3: Will two people dissent the July Fed decision?
+  E7.C4: Will three people dissent the July Fed decision?
+  E7.C5: Will four or more people dissent the July Fed decision?
+
+=== E8: Precipitation in Hong Kong in July?
+Rules:
+This market will resolve according to the total precipitation in mm in Hong Kong between July 1 and July 31, 2026, according to the Hong Kong Observatory.
+
+The resolution source for this market will be the Hong Kong Observatory, specifically the "Total Rainfall (mm)" figure for all days in July 2026 under the "Daily Extract" at the https://www.weather.gov.hk/en/cis/climat.htm link once figures are finalized for the specified range.
+
+If the reported data falls exactly between two brackets, this market will resolve to the higher bracket.
+
+If the relevant data is not available by October 7, 2026, 11:59 PM ET, another credible resolution source will be chosen.
+
+The resolution source for this market measures precipitation to 1 decimal place (e.g., 1.5), thus, this is the level of precision that will be used when resolving this market. Any revisions to precipitation recorded after data is finalized for this market's timeframe will not be considered for this market's resolution.
+Contracts:
+  E8.C1: Will Hong Kong have less than 400mm of precipitation in July?
+  E8.C2: Will Hong Kong have between 400-425mm of precipitation in July?
+  E8.C3: Will Hong Kong have between 425-450mm of precipitation in July?
+  E8.C4: Will Hong Kong have between 450-475mm of precipitation in July?
+  E8.C5: Will Hong Kong have between 475-500mm of precipitation in July?
+  E8.C6: Will Hong Kong have between 500-525mm of precipitation in July?
+  E8.C7: Will Hong Kong have between 525-550mm of precipitation in July?
+  E8.C8: Will Hong Kong have between 550-575mm of precipitation in July?
+  E8.C9: Will Hong Kong have between 575-600mm of precipitation in July?
+  E8.C10: Will Hong Kong have 600mm or more of precipitation in July?
+
+=== E9: Will Israel strike Greater Beirut by...?
+Rules:
+This market will resolve to "Yes" if Israel initiates a drone, missile, or air strike on Greater Beirut between market creation and the listed date, Israel Standard Time (IST). Otherwise, this market will resolve to "No".
+
+For the purposes of this market, a qualifying "strike" is defined as the use of aerial bombs, drones, or missiles (including cruise or ballistic missiles) launched by Israeli military forces that impact within Greater Beirut.
+
+For the purposes of this market, “Greater Beirut” refers to the continuous urbanized zone that encompasses all of the Beirut Governorate and the adjacent coastal and suburban municipalities of the Mount Lebanon Governorate. For this market, the geographic boundaries as defined in the map “Location of the Greater Beirut Area” (https://polymarket-upload.s3.us-east-2.amazonaws.com/Beirut-3ffb23044f.png) from Faour & Mhawej (2014), Mapping Urban Transitions in the Greater Beirut Area Using Different Space Platforms (https://www.mdpi.com/2073-445X/3/3/941) will be used. If the precise location of a strike cannot be clearly attributed to the defined territory based on the referenced map, it will not qualify.
+
+Missiles or drones that are intercepted and surface-to-air missile strikes will not be sufficient for a "Yes" resolution, regardless of whether they land on the specified territory or cause damage.
+
+Actions such as artillery fire, small arms fire, FPV or ATGM strikes, ground incursions, naval shelling, cyberattacks, or other operations conducted by Israeli ground operatives will not qualify.
+
+The primary resolution source will be official government/military statements (Israeli or foreign), multilateral bodies (UN, etc.), or a consensus of credible reporting from major international media and national broadcasters/newspapers.
+
+If the date/time of a strike cannot be confirmed by a consensus of credible reporting within 48 hours of this market's end date, it will resolve to "No" regardless of whether a strike was later confirmed to have taken place.
+Contracts:
+  E9.C1: Will Israel strike Greater Beirut by March 31, 2026?
+
+=== E10: Will Epic Games' valuation hit __ by June 30?
+Rules:
+This market will resolve to "Yes" if Epic Games' private market valuation, as measured by the NPM Price reported by Nasdaq Private Market, LLC (NPM) for any date between market creation and June 30, 2026, reaches or exceeds the listed amount. Otherwise, this market will resolve to "No".
+
+NPM Prices are published for trading days only and are updated once daily at 1:00 PM ET on the following calendar day.
+
+If NPM has not published relevant data for all business dates in the specified period by 1:00 PM ET on July 1, 2026, this market may remain open until 11:59 PM ET on July 4, 2026. If no further data is released by that time, the market will resolve according to the data available.
+
+If NPM ceases publishing relevant data prior to the end of the specified period, this market will resolve based on the NPM data published for the period prior to the cessation of coverage, as well as any applicable public market capitalization data following an IPO or direct listing.
+
+If the company completes an IPO or direct listing before the end of the specified period, this market will consider, in addition to the relevant NPM valuations published between market creation and the IPO or direct listing date, the valuation implied by the official IPO or direct listing price, and the company's public market capitalization between the IPO or direct listing date and the end of the specified period.
+
+Public market capitalization will be determined using the highest/lowest official regular-hours trading price published for the company's primary listed common equity on its primary exchange for any trading day during the specified period, multiplied by the company's total outstanding common shares at the relevant time.
+
+If the listed company merges with or acquires another entity and remains the parent company, no change to resolution methodology applies.
+
+If the listed company is acquired, merges into another entity and is no longer the surviving parent company, or otherwise ceases to exist as an independent entity prior to the end of the period, only NPM valuations and applicable public market capitalizations achieved prior to completion of the transaction will be considered for resolution. No transaction, acquisition, or merger consideration will be considered for resolution.
+
+The resolution source for this market is NPM data published here: (https://fe.secondmarket.com/companies/company-625e5f47-7ff7-45c4-be95-0305665164bd/data?return_url=https://polymarket.com/finance/privates). The resolution source for any period following an IPO, direct listing, or relevant corporate action, will be official exchange trading data and publicly reported share counts.
+
+Revisions to previously published NPM data made after their initial release will not be considered, unless made to correct clearly erroneous data.
+Contracts:
+  E10.C1: Will Epic Games' valuation hit (HIGH) $20B by June 30?
+    Contract rules: This market will resolve to "Yes" if Epic Games' private market valuation, as measured by the NPM Price reported by Nasdaq Private Market, LLC (NPM) for any date between market creation and June 30, 2026, reaches or exceeds the listed amount. Otherwise, this market will resolve to "No".
+
+NPM Prices are published for trading days only and are updated once daily at 1:00 PM ET on the following calendar day.
+
+If NPM has not published relevant data for all business dates in the specified period by 1:00 PM ET on July 1, 2026, this market may remain open until 11:59 PM ET on July 4, 2026. If no further data is released by that time, the market will resolve according to the data available.
+
+If NPM ceases publishing relevant data prior to the end of the specified period, this market will resolve based on the NPM data published for the period prior to the cessation of coverage, as well as any applicable public market capitalization data following an IPO or direct listing.
+
+If the company completes an IPO or direct listing before the end of the specified period, this market will consider, in addition to the relevant NPM valuations published between market creation and the IPO or direct listing date, the valuation implied by the official IPO or direct listing price, and the company's public market capitalization between the IPO or direct listing date and the end of the specified period.
+
+Public market capitalization will be determined using the highest/lowest official regular-hours trading price published for the company's primary listed common equity on its primary exchange for any trading day during the specified period, multiplied by the company's total outstanding common shares at the relevant time.
+
+If the listed company merges with or acquires another entity and remains the parent company, no change to resolution methodology applies.
+
+If the listed company is acquired, merges into another entity and is no longer the surviving parent company, or otherwise ceases to exist as an independent entity prior to the end of the period, only NPM valuations and applicable public market capitalizations achieved prior to completion of the transaction will be considered for resolution. No transaction, acquisition, or merger consideration will be considered for resolution.
+
+The resolution source for this market is NPM data published here: (https://fe.secondmarket.com/companies/company-625e5f47-7ff7-45c4-be95-0305665164bd/data). The resolution source for any period following an IPO, direct listing, or relevant corporate action, will be official exchange trading data and publicly reported share counts.
+
+Revisions to previously published NPM data made after their initial release will not be considered, unless made to correct clearly erroneous data.
+  E10.C2: Will Epic Games' valuation hit (HIGH) $17.5B by June 30?
+    Contract rules: This market will resolve to "Yes" if Epic Games' private market valuation, as measured by the NPM Price reported by Nasdaq Private Market, LLC (NPM) for any date between market creation and June 30, 2026, reaches or exceeds the listed amount. Otherwise, this market will resolve to "No".
+
+NPM Prices are published for trading days only and are updated once daily at 1:00 PM ET on the following calendar day.
+
+If NPM has not published relevant data for all business dates in the specified period by 1:00 PM ET on July 1, 2026, this market may remain open until 11:59 PM ET on July 4, 2026. If no further data is released by that time, the market will resolve according to the data available.
+
+If NPM ceases publishing relevant data prior to the end of the specified period, this market will resolve based on the NPM data published for the period prior to the cessation of coverage, as well as any applicable public market capitalization data following an IPO or direct listing.
+
+If the company completes an IPO or direct listing before the end of the specified period, this market will consider, in addition to the relevant NPM valuations published between market creation and the IPO or direct listing date, the valuation implied by the official IPO or direct listing price, and the company's public market capitalization between the IPO or direct listing date and the end of the specified period.
+
+Public market capitalization will be determined using the highest/lowest official regular-hours trading price published for the company's primary listed common equity on its primary exchange for any trading day during the specified period, multiplied by the company's total outstanding common shares at the relevant time.
+
+If the listed company merges with or acquires another entity and remains the parent company, no change to resolution methodology applies.
+
+If the listed company is acquired, merges into another entity and is no longer the surviving parent company, or otherwise ceases to exist as an independent entity prior to the end of the period, only NPM valuations and applicable public market capitalizations achieved prior to completion of the transaction will be considered for resolution. No transaction, acquisition, or merger consideration will be considered for resolution.
+
+The resolution source for this market is NPM data published here: (https://fe.secondmarket.com/companies/company-625e5f47-7ff7-45c4-be95-0305665164bd/data). The resolution source for any period following an IPO, direct listing, or relevant corporate action, will be official exchange trading data and publicly reported share counts.
+
+Revisions to previously published NPM data made after their initial release will not be considered, unless made to correct clearly erroneous data.
+  E10.C3: Will Epic Games' valuation hit (HIGH) $15B by June 30?
+    Contract rules: This market will resolve to "Yes" if Epic Games' private market valuation, as measured by the NPM Price reported by Nasdaq Private Market, LLC (NPM) for any date between market creation and June 30, 2026, reaches or exceeds the listed amount. Otherwise, this market will resolve to "No".
+
+NPM Prices are published for trading days only and are updated once daily at 1:00 PM ET on the following calendar day.
+
+If NPM has not published relevant data for all business dates in the specified period by 1:00 PM ET on July 1, 2026, this market may remain open until 11:59 PM ET on July 4, 2026. If no further data is released by that time, the market will resolve according to the data available.
+
+If NPM ceases publishing relevant data prior to the end of the specified period, this market will resolve based on the NPM data published for the period prior to the cessation of coverage, as well as any applicable public market capitalization data following an IPO or direct listing.
+
+If the company completes an IPO or direct listing before the end of the specified period, this market will consider, in addition to the relevant NPM valuations published between market creation and the IPO or direct listing date, the valuation implied by the official IPO or direct listing price, and the company's public market capitalization between the IPO or direct listing date and the end of the specified period.
+
+Public market capitalization will be determined using the highest/lowest official regular-hours trading price published for the company's primary listed common equity on its primary exchange for any trading day during the specified period, multiplied by the company's total outstanding common shares at the relevant time.
+
+If the listed company merges with or acquires another entity and remains the parent company, no change to resolution methodology applies.
+
+If the listed company is acquired, merges into another entity and is no longer the surviving parent company, or otherwise ceases to exist as an independent entity prior to the end of the period, only NPM valuations and applicable public market capitalizations achieved prior to completion of the transaction will be considered for resolution. No transaction, acquisition, or merger consideration will be considered for resolution.
+
+The resolution source for this market is NPM data published here: (https://fe.secondmarket.com/companies/company-625e5f47-7ff7-45c4-be95-0305665164bd/data). The resolution source for any period following an IPO, direct listing, or relevant corporate action, will be official exchange trading data and publicly reported share counts.
+
+Revisions to previously published NPM data made after their initial release will not be considered, unless made to correct clearly erroneous data.
+  E10.C4: Will Epic Games' valuation hit (HIGH) $14B by June 30?
+    Contract rules: This market will resolve to "Yes" if Epic Games' private market valuation, as measured by the NPM Price reported by Nasdaq Private Market, LLC (NPM) for any date between market creation and June 30, 2026, reaches or exceeds the listed amount. Otherwise, this market will resolve to "No".
+
+NPM Prices are published for trading days only and are updated once daily at 1:00 PM ET on the following calendar day.
+
+If NPM has not published relevant data for all business dates in the specified period by 1:00 PM ET on July 1, 2026, this market may remain open until 11:59 PM ET on July 4, 2026. If no further data is released by that time, the market will resolve according to the data available.
+
+If NPM ceases publishing relevant data prior to the end of the specified period, this market will resolve based on the NPM data published for the period prior to the cessation of coverage, as well as any applicable public market capitalization data following an IPO or direct listing.
+
+If the company completes an IPO or direct listing before the end of the specified period, this market will consider, in addition to the relevant NPM valuations published between market creation and the IPO or direct listing date, the valuation implied by the official IPO or direct listing price, and the company's public market capitalization between the IPO or direct listing date and the end of the specified period.
+
+Public market capitalization will be determined using the highest/lowest official regular-hours trading price published for the company's primary listed common equity on its primary exchange for any trading day during the specified period, multiplied by the company's total outstanding common shares at the relevant time.
+
+If the listed company merges with or acquires another entity and remains the parent company, no change to resolution methodology applies.
+
+If the listed company is acquired, merges into another entity and is no longer the surviving parent company, or otherwise ceases to exist as an independent entity prior to the end of the period, only NPM valuations and applicable public market capitalizations achieved prior to completion of the transaction will be considered for resolution. No transaction, acquisition, or merger consideration will be considered for resolution.
+
+The resolution source for this market is NPM data published here: (https://fe.secondmarket.com/companies/company-625e5f47-7ff7-45c4-be95-0305665164bd/data). The resolution source for any period following an IPO, direct listing, or relevant corporate action, will be official exchange trading data and publicly reported share counts.
+
+Revisions to previously published NPM data made after their initial release will not be considered, unless made to correct clearly erroneous data.
+  E10.C5: Will Epic Games' valuation hit (HIGH) $13.5B by June 30?
+    Contract rules: This market will resolve to "Yes" if Epic Games' private market valuation, as measured by the NPM Price reported by Nasdaq Private Market, LLC (NPM) for any date between market creation and June 30, 2026, reaches or exceeds the listed amount. Otherwise, this market will resolve to "No".
+
+NPM Prices are published for trading days only and are updated once daily at 1:00 PM ET on the following calendar day.
+
+If NPM has not published relevant data for all business dates in the specified period by 1:00 PM ET on July 1, 2026, this market may remain open until 11:59 PM ET on July 4, 2026. If no further data is released by that time, the market will resolve according to the data available.
+
+If NPM ceases publishing relevant data prior to the end of the specified period, this market will resolve based on the NPM data published for the period prior to the cessation of coverage, as well as any applicable public market capitalization data following an IPO or direct listing.
+
+If the company completes an IPO or direct listing before the end of the specified period, this market will consider, in addition to the relevant NPM valuations published between market creation and the IPO or direct listing date, the valuation implied by the official IPO or direct listing price, and the company's public market capitalization between the IPO or direct listing date and the end of the specified period.
+
+Public market capitalization will be determined using the highest/lowest official regular-hours trading price published for the company's primary listed common equity on its primary exchange for any trading day during the specified period, multiplied by the company's total outstanding common shares at the relevant time.
+
+If the listed company merges with or acquires another entity and remains the parent company, no change to resolution methodology applies.
+
+If the listed company is acquired, merges into another entity and is no longer the surviving parent company, or otherwise ceases to exist as an independent entity prior to the end of the period, only NPM valuations and applicable public market capitalizations achieved prior to completion of the transaction will be considered for resolution. No transaction, acquisition, or merger consideration will be considered for resolution.
+
+The resolution source for this market is NPM data published here: (https://fe.secondmarket.com/companies/company-625e5f47-7ff7-45c4-be95-0305665164bd/data). The resolution source for any period following an IPO, direct listing, or relevant corporate action, will be official exchange trading data and publicly reported share counts.
+
+Revisions to previously published NPM data made after their initial release will not be considered, unless made to correct clearly erroneous data.
+  E10.C6: Will Epic Games' valuation hit (HIGH) $13.25B by June 30?
+    Contract rules: This market will resolve to "Yes" if Epic Games' private market valuation, as measured by the NPM Price reported by Nasdaq Private Market, LLC (NPM) for any date between market creation and June 30, 2026, reaches or exceeds the listed amount. Otherwise, this market will resolve to "No".
+
+NPM Prices are published for trading days only and are updated once daily at 1:00 PM ET on the following calendar day.
+
+If NPM has not published relevant data for all business dates in the specified period by 1:00 PM ET on July 1, 2026, this market may remain open until 11:59 PM ET on July 4, 2026. If no further data is released by that time, the market will resolve according to the data available.
+
+If NPM ceases publishing relevant data prior to the end of the specified period, this market will resolve based on the NPM data published for the period prior to the cessation of coverage, as well as any applicable public market capitalization data following an IPO or direct listing.
+
+If the company completes an IPO or direct listing before the end of the specified period, this market will consider, in addition to the relevant NPM valuations published between market creation and the IPO or direct listing date, the valuation implied by the official IPO or direct listing price, and the company's public market capitalization between the IPO or direct listing date and the end of the specified period.
+
+Public market capitalization will be determined using the highest/lowest official regular-hours trading price published for the company's primary listed common equity on its primary exchange for any trading day during the specified period, multiplied by the company's total outstanding common shares at the relevant time.
+
+If the listed company merges with or acquires another entity and remains the parent company, no change to resolution methodology applies.
+
+If the listed company is acquired, merges into another entity and is no longer the surviving parent company, or otherwise ceases to exist as an independent entity prior to the end of the period, only NPM valuations and applicable public market capitalizations achieved prior to completion of the transaction will be considered for resolution. No transaction, acquisition, or merger consideration will be considered for resolution.
+
+The resolution source for this market is NPM data published here: (https://fe.secondmarket.com/companies/company-625e5f47-7ff7-45c4-be95-0305665164bd/data). The resolution source for any period following an IPO, direct listing, or relevant corporate action, will be official exchange trading data and publicly reported share counts.
+
+Revisions to previously published NPM data made after their initial release will not be considered, unless made to correct clearly erroneous data.
+  E10.C7: Will Epic Games' valuation hit (LOW) $12B by June 30?
+    Contract rules: This market will resolve to "Yes" if Epic Games' private market valuation, as measured by the NPM Price reported by Nasdaq Private Market, LLC (NPM) for any date between market creation and June 30, 2026, reaches or exceeds the listed amount. Otherwise, this market will resolve to "No".
+
+NPM Prices are published for trading days only and are updated once daily at 1:00 PM ET on the following calendar day.
+
+If NPM has not published relevant data for all business dates in the specified period by 1:00 PM ET on July 1, 2026, this market may remain open until 11:59 PM ET on July 4, 2026. If no further data is released by that time, the market will resolve according to the data available.
+
+If NPM ceases publishing relevant data prior to the end of the specified period, this market will resolve based on the NPM data published for the period prior to the cessation of coverage, as well as any applicable public market capitalization data following an IPO or direct listing.
+
+If the company completes an IPO or direct listing before the end of the specified period, this market will consider, in addition to the relevant NPM valuations published between market creation and the IPO or direct listing date, the valuation implied by the official IPO or direct listing price, and the company's public market capitalization between the IPO or direct listing date and the end of the specified period.
+
+Public market capitalization will be determined using the highest/lowest official regular-hours trading price published for the company's primary listed common equity on its primary exchange for any trading day during the specified period, multiplied by the company's total outstanding common shares at the relevant time.
+
+If the listed company merges with or acquires another entity and remains the parent company, no change to resolution methodology applies.
+
+If the listed company is acquired, merges into another entity and is no longer the surviving parent company, or otherwise ceases to exist as an independent entity prior to the end of the period, only NPM valuations and applicable public market capitalizations achieved prior to completion of the transaction will be considered for resolution. No transaction, acquisition, or merger consideration will be considered for resolution.
+
+The resolution source for this market is NPM data published here: (https://fe.secondmarket.com/companies/company-625e5f47-7ff7-45c4-be95-0305665164bd/data). The resolution source for any period following an IPO, direct listing, or relevant corporate action, will be official exchange trading data and publicly reported share counts.
+
+Revisions to previously published NPM data made after their initial release will not be considered, unless made to correct clearly erroneous data.
+  E10.C8: Will Epic Games' valuation hit (LOW) $11.5B by June 30?
+    Contract rules: This market will resolve to "Yes" if Epic Games' private market valuation, as measured by the NPM Price reported by Nasdaq Private Market, LLC (NPM) for any date between market creation and June 30, 2026, reaches or exceeds the listed amount. Otherwise, this market will resolve to "No".
+
+NPM Prices are published for trading days only and are updated once daily at 1:00 PM ET on the following calendar day.
+
+If NPM has not published relevant data for all business dates in the specified period by 1:00 PM ET on July 1, 2026, this market may remain open until 11:59 PM ET on July 4, 2026. If no further data is released by that time, the market will resolve according to the data available.
+
+If NPM ceases publishing relevant data prior to the end of the specified period, this market will resolve based on the NPM data published for the period prior to the cessation of coverage, as well as any applicable public market capitalization data following an IPO or direct listing.
+
+If the company completes an IPO or direct listing before the end of the specified period, this market will consider, in addition to the relevant NPM valuations published between market creation and the IPO or direct listing date, the valuation implied by the official IPO or direct listing price, and the company's public market capitalization between the IPO or direct listing date and the end of the specified period.
+
+Public market capitalization will be determined using the highest/lowest official regular-hours trading price published for the company's primary listed common equity on its primary exchange for any trading day during the specified period, multiplied by the company's total outstanding common shares at the relevant time.
+
+If the listed company merges with or acquires another entity and remains the parent company, no change to resolution methodology applies.
+
+If the listed company is acquired, merges into another entity and is no longer the surviving parent company, or otherwise ceases to exist as an independent entity prior to the end of the period, only NPM valuations and applicable public market capitalizations achieved prior to completion of the transaction will be considered for resolution. No transaction, acquisition, or merger consideration will be considered for resolution.
+
+The resolution source for this market is NPM data published here: (https://fe.secondmarket.com/companies/company-625e5f47-7ff7-45c4-be95-0305665164bd/data). The resolution source for any period following an IPO, direct listing, or relevant corporate action, will be official exchange trading data and publicly reported share counts.
+
+Revisions to previously published NPM data made after their initial release will not be considered, unless made to correct clearly erroneous data.
+  E10.C9: Will Epic Games' valuation hit (LOW) $10B by June 30?
+    Contract rules: This market will resolve to "Yes" if Epic Games' private market valuation, as measured by the NPM Price reported by Nasdaq Private Market, LLC (NPM) for any date between market creation and June 30, 2026, reaches or exceeds the listed amount. Otherwise, this market will resolve to "No".
+
+NPM Prices are published for trading days only and are updated once daily at 1:00 PM ET on the following calendar day.
+
+If NPM has not published relevant data for all business dates in the specified period by 1:00 PM ET on July 1, 2026, this market may remain open until 11:59 PM ET on July 4, 2026. If no further data is released by that time, the market will resolve according to the data available.
+
+If NPM ceases publishing relevant data prior to the end of the specified period, this market will resolve based on the NPM data published for the period prior to the cessation of coverage, as well as any applicable public market capitalization data following an IPO or direct listing.
+
+If the company completes an IPO or direct listing before the end of the specified period, this market will consider, in addition to the relevant NPM valuations published between market creation and the IPO or direct listing date, the valuation implied by the official IPO or direct listing price, and the company's public market capitalization between the IPO or direct listing date and the end of the specified period.
+
+Public market capitalization will be determined using the highest/lowest official regular-hours trading price published for the company's primary listed common equity on its primary exchange for any trading day during the specified period, multiplied by the company's total outstanding common shares at the relevant time.
+
+If the listed company merges with or acquires another entity and remains the parent company, no change to resolution methodology applies.
+
+If the listed company is acquired, merges into another entity and is no longer the surviving parent company, or otherwise ceases to exist as an independent entity prior to the end of the period, only NPM valuations and applicable public market capitalizations achieved prior to completion of the transaction will be considered for resolution. No transaction, acquisition, or merger consideration will be considered for resolution.
+
+The resolution source for this market is NPM data published here: (https://fe.secondmarket.com/companies/company-625e5f47-7ff7-45c4-be95-0305665164bd/data). The resolution source for any period following an IPO, direct listing, or relevant corporate action, will be official exchange trading data and publicly reported share counts.
+
+Revisions to previously published NPM data made after their initial release will not be considered, unless made to correct clearly erroneous data.

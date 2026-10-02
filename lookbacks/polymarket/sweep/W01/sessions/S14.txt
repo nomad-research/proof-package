@@ -1,0 +1,282 @@
+You will be shown 6 questions from a prediction market. Each has one or more contracts that resolve YES or NO under the rules shown. Each question gives the date your view is "as of": answer as you would on that date.
+
+Use only what you already know. Do not search for or look up anything: reading this file is the only tool call you may make. There are no prices in this file and you should not try to estimate what any market thinks; give your own view.
+
+Each question says what to write for it. Whole percents run from 1 to 99. Levels are plain numbers in the units the contracts use (for example 95000 for $95,000, 3.25 for 3.25%). Dates are YYYY-MM-DD.
+
+For each question also say whether you recognise how it actually turned out ("recognised": true only if you believe you remember the real outcome; otherwise false).
+
+Reply with one JSON object and nothing else:
+{"events": [{"label": "E1", "recognised": false, ...the fields that question asks for...}]}
+
+=== E1 (as of 2026-10-01): Paraná Senate Election: 1st Place
+Rules:
+The Brazilian Federal Senate election for Paraná is scheduled to take place on October 4, 2026.
+
+This market will resolve according to the candidate who wins the most valid votes of any candidate at the specified election.
+
+Candidates will be primarily ranked by order of valid votes won. If two or more candidates are tied for any position, ties will be broken by alphabetical order of the candidates’ listed full names as they appear in this market. This market will resolve to the candidate that occupies the highest finishing position after applying this ranking.
+
+If the result of this election isn't definitively known by June 30, 2027, 11:59 PM ET, the market will resolve to "Other".
+
+This market will resolve based on the result of the election, as indicated by a consensus of credible reporting. If there is ambiguity, this market will resolve based solely on the official results as reported by the Brazilian government, specifically the Superior Electoral Court (Tribunal Superior Eleitoral, TSE) (e.g., www.tse.jus.br/eleicoes/resultados-eleicoes).
+Contracts:
+  E1.C1: Will Alexandre Curi win the most votes in the 2026 Paraná Senate election?
+  E1.C2: Will Cristina Reis Graeml win the most votes in the 2026 Paraná Senate election?
+  E1.C3: Will Deltan Dallagnol win the most votes in the 2026 Paraná Senate election?
+  E1.C4: Will Dr. Rosinha win the most votes in the 2026 Paraná Senate election?
+  E1.C5: Will Filipe Barros win the most votes in the 2026 Paraná Senate election?
+  E1.C6: Will Gleisi win the most votes in the 2026 Paraná Senate election?
+  E1.C7: Will Joaquim do MLB win the most votes in the 2026 Paraná Senate election?
+  E1.C8: Will Karen Guerreiro win the most votes in the 2026 Paraná Senate election?
+  E1.C9: Will Marcelo Marcelino win the most votes in the 2026 Paraná Senate election?
+  E1.C10: Will Candidate A win the most votes in the 2026 Paraná Senate election?
+  E1.C11: Will Candidate B win the most votes in the 2026 Paraná Senate election?
+  E1.C12: Will Candidate C win the most votes in the 2026 Paraná Senate election?
+  E1.C13: Will Candidate D win the most votes in the 2026 Paraná Senate election?
+  E1.C14: Will Candidate E win the most votes in the 2026 Paraná Senate election?
+  E1.C15: Will Candidate F win the most votes in the 2026 Paraná Senate election?
+  E1.C16: Will Candidate G win the most votes in the 2026 Paraná Senate election?
+  E1.C17: Will Candidate H win the most votes in the 2026 Paraná Senate election?
+  E1.C18: Will Candidate I win the most votes in the 2026 Paraná Senate election?
+  E1.C19: Will Candidate J win the most votes in the 2026 Paraná Senate election?
+  E1.C20: Will Candidate K win the most votes in the 2026 Paraná Senate election?
+  E1.C21: Will Candidate L win the most votes in the 2026 Paraná Senate election?
+  E1.C22: Will Candidate M win the most votes in the 2026 Paraná Senate election?
+  E1.C23: Will Candidate N win the most votes in the 2026 Paraná Senate election?
+  E1.C24: Will Candidate O win the most votes in the 2026 Paraná Senate election?
+  E1.C25: Will Candidate P win the most votes in the 2026 Paraná Senate election?
+  E1.C26: Will Candidate Q win the most votes in the 2026 Paraná Senate election?
+  E1.C27: Will Candidate R win the most votes in the 2026 Paraná Senate election?
+  E1.C28: Will Candidate S win the most votes in the 2026 Paraná Senate election?
+  E1.C29: Will Candidate T win the most votes in the 2026 Paraná Senate election?
+  E1.C30: Will Candidate U win the most votes in the 2026 Paraná Senate election?
+  E1.C31: Will Candidate V win the most votes in the 2026 Paraná Senate election?
+  E1.C32: Will Candidate W win the most votes in the 2026 Paraná Senate election?
+  E1.C33: Will Candidate X win the most votes in the 2026 Paraná Senate election?
+  E1.C34: Will Candidate Y win the most votes in the 2026 Paraná Senate election?
+  E1.C35: Will Candidate Z win the most votes in the 2026 Paraná Senate election?
+  E1.C36: Will someone else win the most votes in the 2026 Paraná Senate election?
+What to write for E1:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E2 (as of 2026-10-01): Rosemont Quebec National Assembly Election Winner
+Rules:
+Parliamentary elections to elect all 127 seats of the National Assembly of Quebec are scheduled to take place in Quebec on October 5, 2026.
+
+This market will resolve according to the candidate who wins the next Rosemont Quebec National Assembly election for a full term beginning in October 2026 or thereafter.
+
+If the election results are not known definitively by March 31, 2027, 11:59 PM ET, this market will resolve to "Other".
+
+The resolution source for this market will be a consensus of credible reporting. In case of ambiguity, this market will resolve solely based on official election results as published by Elections Quebec (https://www.electionsquebec.qc.ca/).
+Contracts:
+  E2.C1: Will Pierre-Luc Brillant win the next Rosemont Quebec National Assembly election?
+  E2.C2: Will Nour Aliyah Attié win the next Rosemont Quebec National Assembly election?
+  E2.C3: Will David Lavoie win the next Rosemont Quebec National Assembly election?
+  E2.C4: Will Gisèle Pouhe Njall win the next Rosemont Quebec National Assembly election?
+  E2.C5: Will Mildred Mathieu win the next Rosemont Quebec National Assembly election?
+  E2.C6: Will Person A win the next Rosemont Quebec National Assembly election?
+  E2.C7: Will Person B win the next Rosemont Quebec National Assembly election?
+  E2.C8: Will Person C win the next Rosemont Quebec National Assembly election?
+  E2.C9: Will Person D win the next Rosemont Quebec National Assembly election?
+  E2.C10: Will Person E win the next Rosemont Quebec National Assembly election?
+  E2.C11: Will Person F win the next Rosemont Quebec National Assembly election?
+  E2.C12: Will Person G win the next Rosemont Quebec National Assembly election?
+  E2.C13: Will Person H win the next Rosemont Quebec National Assembly election?
+  E2.C14: Will Person I win the next Rosemont Quebec National Assembly election?
+  E2.C15: Will Person J win the next Rosemont Quebec National Assembly election?
+  E2.C16: Will Person K win the next Rosemont Quebec National Assembly election?
+  E2.C17: Will Person L win the next Rosemont Quebec National Assembly election?
+  E2.C18: Will Person M win the next Rosemont Quebec National Assembly election?
+  E2.C19: Will Person N win the next Rosemont Quebec National Assembly election?
+  E2.C20: Will Person O win the next Rosemont Quebec National Assembly election?
+  E2.C21: Will Person P win the next Rosemont Quebec National Assembly election?
+  E2.C22: Will Person Q win the next Rosemont Quebec National Assembly election?
+  E2.C23: Will Person R win the next Rosemont Quebec National Assembly election?
+  E2.C24: Will Person S win the next Rosemont Quebec National Assembly election?
+  E2.C25: Will Person T win the next Rosemont Quebec National Assembly election?
+  E2.C26: Will Person U win the next Rosemont Quebec National Assembly election?
+  E2.C27: Will Person V win the next Rosemont Quebec National Assembly election?
+  E2.C28: Will Person W win the next Rosemont Quebec National Assembly election?
+  E2.C29: Will Person X win the next Rosemont Quebec National Assembly election?
+  E2.C30: Will Person Y win the next Rosemont Quebec National Assembly election?
+  E2.C31: Will Person Z win the next Rosemont Quebec National Assembly election?
+  E2.C32: Will another candidate win the next Rosemont Quebec National Assembly election?
+What to write for E2:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E3 (as of 2026-10-01): Quebec General Election: CAQ # Seats?
+Rules:
+Parliamentary elections to elect all 127 seats of the National Assembly of Quebec are scheduled to take place in Quebec on October 5, 2026.
+
+This market will resolve according to the number of seats won by the Coalition Avenir Québec (CAQ) in the National Assembly of Quebec as a result of this election.
+
+This market's resolution will be based solely on the number of seats won by candidates whose political affiliation is listed as the specified party in the official election results, not any coalition or parliamentary group of which the party may be part. Seats won by candidates listed under any other affiliation will not be counted, regardless of any endorsement or association with the specified party. Any post-election change in seat ownership or party affiliation, including floor crossings, resignations, or by-elections, will not be considered.
+
+If the results of this election are not known definitively by January 31, 2027, 11:59 PM ET, this market will resolve to the lowest bracket.
+
+This market will resolve based on the result of the election as indicated by a consensus of credible reporting. If there is ambiguity, this market will resolve based solely on the official results as reported by Élections Québec (https://www.electionsquebec.qc.ca).
+Contracts:
+  E3.C1: Will the CAQ win fewer than 5 seats in the National Assembly of Quebec in this election?
+  E3.C2: Will the CAQ win 5-9 seats in the National Assembly of Quebec in this election?
+  E3.C3: Will the CAQ win 10-14 seats in the National Assembly of Quebec in this election?
+  E3.C4: Will the CAQ win 15-19 seats in the National Assembly of Quebec in this election?
+  E3.C5: Will the CAQ win 20-24 seats in the National Assembly of Quebec in this election?
+  E3.C6: Will the CAQ win 25-29 seats in the National Assembly of Quebec in this election?
+  E3.C7: Will the CAQ win 30 or more seats in the National Assembly of Quebec in this election?
+What to write for E3:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E4 (as of 2026-10-01): France United Left Primary Winner
+Rules:
+The 2026 United Left primary is currently scheduled to be held on October 11, 2026, to select a joint candidate for the 2027 French presidential election among participating left-wing parties and movements.
+
+This market will resolve according to the candidate who wins the nomination as a joint candidate of the participating left-wing parties and movements as a result of this election.
+
+This market will resolve to “Canceled” if the organizers of the 2026 United Left primary officially announce that it will not take place, or if at least three of L’Après, Les Écologistes, Debout!, and Génération.s officially announce that they will not participate. A postponement of the scheduled date will not qualify.
+
+If no qualifying nominee is announced by March 31, 2027, 11:59 PM ET, this market will resolve to "Other". 
+
+The resolution source for this market will be a consensus of credible reporting. In the case of ambiguity, this market will resolve based solely on official announcements from the primary organizers or participating parties.
+
+Any replacement of the nominee before election day will not change the resolution of the market.
+Contracts:
+  E4.C1: Will the 2026 United Left primary for the 2027 French presidential election be canceled?
+  E4.C2: Will Clémentine Autain be the joint left nominee for the 2027 French presidential election?
+  E4.C3: Will Lydie Massard be the joint left nominee for the 2027 French presidential election?
+  E4.C4: Will François Ruffin be the joint left nominee for the 2027 French presidential election?
+  E4.C5: Will Marine Tondelier be the joint left nominee for the 2027 French presidential election?
+  E4.C6: Will Benjamin Lucas-Lundy be the joint left nominee for the 2027 French presidential election?
+  E4.C7: Will any other individual be the joint left nominee for the 2027 French presidential election?
+  E4.C8: Will Placeholder C be the joint left nominee for the 2027 French presidential election?
+  E4.C9: Will Placeholder D be the joint left nominee for the 2027 French presidential election?
+  E4.C10: Will Placeholder E be the joint left nominee for the 2027 French presidential election?
+  E4.C11: Will Placeholder F be the joint left nominee for the 2027 French presidential election?
+  E4.C12: Will Placeholder G be the joint left nominee for the 2027 French presidential election?
+  E4.C13: Will Placeholder H be the joint left nominee for the 2027 French presidential election?
+  E4.C14: Will Placeholder I be the joint left nominee for the 2027 French presidential election?
+  E4.C15: Will Placeholder J be the joint left nominee for the 2027 French presidential election?
+  E4.C16: Will Placeholder K be the joint left nominee for the 2027 French presidential election?
+  E4.C17: Will Placeholder L be the joint left nominee for the 2027 French presidential election?
+  E4.C18: Will Placeholder M be the joint left nominee for the 2027 French presidential election?
+  E4.C19: Will Placeholder N be the joint left nominee for the 2027 French presidential election?
+  E4.C20: Will Placeholder O be the joint left nominee for the 2027 French presidential election?
+  E4.C21: Will Placeholder P be the joint left nominee for the 2027 French presidential election?
+  E4.C22: Will Placeholder Q be the joint left nominee for the 2027 French presidential election?
+  E4.C23: Will Placeholder R be the joint left nominee for the 2027 French presidential election?
+  E4.C24: Will Placeholder S be the joint left nominee for the 2027 French presidential election?
+  E4.C25: Will Placeholder T be the joint left nominee for the 2027 French presidential election?
+What to write for E4:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E5 (as of 2026-10-01): Pernambuco Senate Election: 1st Place
+Rules:
+The Brazilian Federal Senate election for Pernambuco is scheduled to take place on October 4, 2026.
+
+This market will resolve according to the candidate who wins the most valid votes of any candidate at the specified election.
+
+Candidates will be primarily ranked by order of valid votes won. If two or more candidates are tied for any position, ties will be broken by alphabetical order of the candidates’ listed full names as they appear in this market. This market will resolve to the candidate that occupies the highest finishing position after applying this ranking.
+
+If the result of this election isn't definitively known by June 30, 2027, 11:59 PM ET, the market will resolve to "Other".
+
+This market will resolve based on the result of the election, as indicated by a consensus of credible reporting. If there is ambiguity, this market will resolve based solely on the official results as reported by the Brazilian government, specifically the Superior Electoral Court (Tribunal Superior Eleitoral, TSE) (e.g., www.tse.jus.br/eleicoes/resultados-eleicoes).
+Contracts:
+  E5.C1: Will Carlos Sant'Anna win the most votes in the 2026 Pernambuco Senate election?
+  E5.C2: Will Eduardo da Fonte win the most votes in the 2026 Pernambuco Senate election?
+  E5.C3: Will Gorett Bitu win the most votes in the 2026 Pernambuco Senate election?
+  E5.C4: Will Humberto Costa win the most votes in the 2026 Pernambuco Senate election?
+  E5.C5: Will Mailson da Silva Neto win the most votes in the 2026 Pernambuco Senate election?
+  E5.C6: Will Mariano Macedo win the most votes in the 2026 Pernambuco Senate election?
+  E5.C7: Will Marília Arraes win the most votes in the 2026 Pernambuco Senate election?
+  E5.C8: Will Mendonça Filho win the most votes in the 2026 Pernambuco Senate election?
+  E5.C9: Will Pastor Gilvan Costa win the most votes in the 2026 Pernambuco Senate election?
+  E5.C10: Will Paulo Rubem Santiago win the most votes in the 2026 Pernambuco Senate election?
+  E5.C11: Will Samuel Timoteo win the most votes in the 2026 Pernambuco Senate election?
+  E5.C12: Will Túlio Gadêlha win the most votes in the 2026 Pernambuco Senate election?
+  E5.C13: Will Candidate A win the most votes in the 2026 Pernambuco Senate election?
+  E5.C14: Will Candidate B win the most votes in the 2026 Pernambuco Senate election?
+  E5.C15: Will Candidate C win the most votes in the 2026 Pernambuco Senate election?
+  E5.C16: Will Candidate D win the most votes in the 2026 Pernambuco Senate election?
+  E5.C17: Will Candidate E win the most votes in the 2026 Pernambuco Senate election?
+  E5.C18: Will Candidate F win the most votes in the 2026 Pernambuco Senate election?
+  E5.C19: Will Candidate G win the most votes in the 2026 Pernambuco Senate election?
+  E5.C20: Will Candidate H win the most votes in the 2026 Pernambuco Senate election?
+  E5.C21: Will Candidate I win the most votes in the 2026 Pernambuco Senate election?
+  E5.C22: Will Candidate J win the most votes in the 2026 Pernambuco Senate election?
+  E5.C23: Will Candidate K win the most votes in the 2026 Pernambuco Senate election?
+  E5.C24: Will Candidate L win the most votes in the 2026 Pernambuco Senate election?
+  E5.C25: Will Candidate M win the most votes in the 2026 Pernambuco Senate election?
+  E5.C26: Will Candidate N win the most votes in the 2026 Pernambuco Senate election?
+  E5.C27: Will Candidate O win the most votes in the 2026 Pernambuco Senate election?
+  E5.C28: Will Candidate P win the most votes in the 2026 Pernambuco Senate election?
+  E5.C29: Will Candidate Q win the most votes in the 2026 Pernambuco Senate election?
+  E5.C30: Will Candidate R win the most votes in the 2026 Pernambuco Senate election?
+  E5.C31: Will Candidate S win the most votes in the 2026 Pernambuco Senate election?
+  E5.C32: Will Candidate T win the most votes in the 2026 Pernambuco Senate election?
+  E5.C33: Will Candidate U win the most votes in the 2026 Pernambuco Senate election?
+  E5.C34: Will Candidate V win the most votes in the 2026 Pernambuco Senate election?
+  E5.C35: Will Candidate W win the most votes in the 2026 Pernambuco Senate election?
+  E5.C36: Will Candidate X win the most votes in the 2026 Pernambuco Senate election?
+  E5.C37: Will Candidate Y win the most votes in the 2026 Pernambuco Senate election?
+  E5.C38: Will Candidate Z win the most votes in the 2026 Pernambuco Senate election?
+  E5.C39: Will someone else win the most votes in the 2026 Pernambuco Senate election?
+What to write for E5:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E6 (as of 2026-10-01): Trujillo Mayoral Election Winner
+Rules:
+The 2026 Trujillo, Peru mayoral election is currently scheduled to be held on October 4, 2026.
+
+This market will resolve according to the candidate who becomes the next Mayor of the Provincial Municipality of Trujillo as a result of this election.
+
+Temporary, interim, or placeholder mayors appointed before the election will not be considered.
+
+If this election is annulled or the result of this election isn't known by June 30, 2027, 11:59 PM ET, the market will resolve to "Other".
+
+The primary resolution source for this market will be a consensus of credible reporting; however, if there is any ambiguity in the results, this market will resolve according to official information from the Peruvian government, including the National Jury of Elections (Jurado Nacional de Elecciones, JNE, https://jne.gob.pe) and the National Office of Electoral Processes (Oficina Nacional de Procesos Electorales, ONPE, https://www.onpe.gob.pe/).
+Contracts:
+  E6.C1: Will Carlos Enrique Alva Rojas win the next Trujillo mayoral elections?
+  E6.C2: Will Mario Colberth Reyna Rodríguez win the next Trujillo mayoral elections?
+  E6.C3: Will Alfredo Manuel Galindo Peralta win the next Trujillo mayoral elections?
+  E6.C4: Will José Rodar Miranda Prado win the next Trujillo mayoral elections?
+  E6.C5: Will José María Alberto Arcila Corales win the next Trujillo mayoral elections?
+  E6.C6: Will Wilmar Alfredo Moreno Fuentes win the next Trujillo mayoral elections?
+  E6.C7: Will Gheyli Katherin Tirado Rafael win the next Trujillo mayoral elections?
+  E6.C8: Will Raúl Edgardo Aldana Dioses win the next Trujillo mayoral elections?
+  E6.C9: Will Luis Ángel Zavala Espino win the next Trujillo mayoral elections?
+  E6.C10: Will Milton Marcelino Ramírez Herrera win the next Trujillo mayoral elections?
+  E6.C11: Will Roy Charlie Arbaiza Corcuera win the next Trujillo mayoral elections?
+  E6.C12: Will Víctor Robert De La Cruz Rosas win the next Trujillo mayoral elections?
+  E6.C13: Will Víctor Julio León Álvarez win the next Trujillo mayoral elections?
+  E6.C14: Will Víctor Alfonso Castañeda Carrera win the next Trujillo mayoral elections?
+  E6.C15: Will Benjamín Kalhet Reyes Rebaza win the next Trujillo mayoral elections?
+  E6.C16: Will Jesús Alverto Velásquez Reyna win the next Trujillo mayoral elections?
+  E6.C17: Will Person A win the next Trujillo mayoral elections?
+  E6.C18: Will Person B win the next Trujillo mayoral elections?
+  E6.C19: Will Person C win the next Trujillo mayoral elections?
+  E6.C20: Will Person D win the next Trujillo mayoral elections?
+  E6.C21: Will Person E win the next Trujillo mayoral elections?
+  E6.C22: Will Person F win the next Trujillo mayoral elections?
+  E6.C23: Will Person G win the next Trujillo mayoral elections?
+  E6.C24: Will Person H win the next Trujillo mayoral elections?
+  E6.C25: Will Person I win the next Trujillo mayoral elections?
+  E6.C26: Will Person J win the next Trujillo mayoral elections?
+  E6.C27: Will Person K win the next Trujillo mayoral elections?
+  E6.C28: Will Person L win the next Trujillo mayoral elections?
+  E6.C29: Will Person M win the next Trujillo mayoral elections?
+  E6.C30: Will Person N win the next Trujillo mayoral elections?
+  E6.C31: Will Person O win the next Trujillo mayoral elections?
+  E6.C32: Will Person P win the next Trujillo mayoral elections?
+  E6.C33: Will Person Q win the next Trujillo mayoral elections?
+  E6.C34: Will Person R win the next Trujillo mayoral elections?
+  E6.C35: Will Person S win the next Trujillo mayoral elections?
+  E6.C36: Will Person T win the next Trujillo mayoral elections?
+  E6.C37: Will Person U win the next Trujillo mayoral elections?
+  E6.C38: Will Person V win the next Trujillo mayoral elections?
+  E6.C39: Will Person W win the next Trujillo mayoral elections?
+  E6.C40: Will Person X win the next Trujillo mayoral elections?
+  E6.C41: Will Person Y win the next Trujillo mayoral elections?
+  E6.C42: Will Person Z win the next Trujillo mayoral elections?
+  E6.C43: Will someone else win the next Trujillo mayoral elections?
+What to write for E6:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).

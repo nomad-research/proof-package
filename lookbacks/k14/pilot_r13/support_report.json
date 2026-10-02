@@ -1,0 +1,67 @@
+{
+ "round": "pilot-13 (2025 re-run, non-qualifying)",
+ "node": "el_teniente_copper_supply",
+ "threshold": 0.3,
+ "open": [
+  {
+   "find_id": "O1",
+   "entity": "Codelco filing on the El Teniente stoppage",
+   "kind": "filing",
+   "kind_reviewed": true,
+   "v16_holdable_kind": false,
+   "hops": [
+    {
+     "i": 1,
+     "from": "el_teniente_copper_supply",
+     "relation": "binds",
+     "to": "Codelco filing on the El Teniente stoppage",
+     "effect": "state>obligation",
+     "transform": 0.9,
+     "discount": 0.8,
+     "factor": 0.7200000000000001,
+     "cumulative": 0.7200000000000001,
+     "quote_verified": true
+    }
+   ],
+   "final_support": 0.7200000000000001,
+   "reach_ok": true,
+   "reasons": [],
+   "expression": {
+    "claim": "role",
+    "relation": null,
+    "entity": null
+   }
+  }
+ ],
+ "closed": [
+  {
+   "find_id": "C1",
+   "entity": "Codelco",
+   "kind": "company",
+   "kind_reviewed": true,
+   "v16_holdable_kind": true,
+   "hops": [
+    {
+     "i": 1,
+     "from": "el_teniente_copper_supply",
+     "relation": "ownership",
+     "to": "Codelco",
+     "effect": "availability>availability",
+     "transform": 1.0,
+     "discount": 0.85,
+     "factor": 0.85,
+     "cumulative": 0.85,
+     "quote_verified": true
+    }
+   ],
+   "final_support": 0.85,
+   "reach_ok": true,
+   "reasons": [],
+   "expression": {
+    "claim": "role",
+    "relation": null,
+    "entity": null
+   }
+  }
+ ]
+}

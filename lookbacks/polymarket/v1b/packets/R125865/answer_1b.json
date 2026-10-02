@@ -1,0 +1,72 @@
+{
+ "hedges": [
+  {
+   "event": "E35",
+   "direction": "reach",
+   "tier": "moderate",
+   "reason": "Silver is the leveraged version of gold, and in dollar-debasement or Fed-credibility episodes it usually moves more than gold. If gold settles at $6,000 or above, roughly +20-30% from the implied late-March level, silver would likely rise by more. That would carry front-month SI through the lower-middle rungs of its upside ladder ($120-130). This covers the main melt-up way the primary basket fails."
+  },
+  {
+   "event": "E35",
+   "direction": "dip",
+   "tier": "moderate",
+   "reason": "This covers the secondary failure, a violent crash in precious metals. A hawkish repricing, a spike in the dollar and real yields, and a leveraged unwind after a parabolic top would hit silver harder than gold. So a gold collapse through $3,800 would likely come with SI breaking through the middle of its downside ladder ($55-60)."
+  }
+ ],
+ "claims": [
+  {
+   "if": {
+    "contract": "C8",
+    "resolves": "YES"
+   },
+   "then": {
+    "event": "E35",
+    "direction": "reach",
+    "tier": "moderate",
+    "resolves": "YES"
+   },
+   "reason": "Gold reaching $6,000 on a settlement basis within one quarter would take a debasement or reserve-flight bid across all precious metals. Silver has a beta to gold well above 1 and a thin market with shortage dynamics, so it would rise by a larger percentage and reach the moderate upside rungs."
+  },
+  {
+   "if": {
+    "contract": "C5",
+    "resolves": "YES"
+   },
+   "then": {
+    "event": "E35",
+    "direction": "reach",
+    "tier": "moderate",
+    "resolves": "YES"
+   },
+   "reason": "A gold settlement at $7,000 would be a regime-break melt-up of about +40-50%. Silver moves with gold on the same monetary drivers and with higher beta, so it would almost certainly pass the moderate upside rungs."
+  },
+  {
+   "if": {
+    "contract": "C12",
+    "resolves": "YES"
+   },
+   "then": {
+    "event": "E35",
+    "direction": "dip",
+    "tier": "moderate",
+    "resolves": "YES"
+   },
+   "reason": "Gold falling to $3,800 would mean a precious-metals liquidation of about 20% or more, driven by a stronger dollar and higher real yields plus forced deleveraging. Silver has more speculative positioning and an industrial-demand link, so it falls harder than gold in such unwinds and would breach the moderate downside rungs."
+  },
+  {
+   "if": {
+    "contract": "C13",
+    "resolves": "YES"
+   },
+   "then": {
+    "event": "E35",
+    "direction": "dip",
+    "tier": "moderate",
+    "resolves": "YES"
+   },
+   "reason": "A gold collapse to $3,400 is a 2013-style crash or worse. Silver's higher beta and forced selling across the complex make a moderate breach on the downside close to certain in that world."
+  }
+ ],
+ "no_instrument": false,
+ "recalls_outcome": false
+}

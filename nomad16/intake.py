@@ -159,8 +159,15 @@ def intake_decide(db: DB, cand_id: str, decision: str, reason: str, failing_q: s
 
 def submit_event(db: DB, cand_id: str, round_id: str, event_line: str, node: str, node_type: str,
                  stratum: str, knowable_from: str, confirmed_by: str, size_band: str,
-                 operator_cutoff: str, cutoff_basis: str, human_q: dict) -> dict:
-    """Admission: the human has confirmed Q3, Q4, Q6, Q8 and picked the size band."""
+                 operator_cutoff: str, cutoff_basis: str, human_q: dict, logic_version: str = "v16") -> dict:
+    """Admission: the human has confirmed Q3, Q4, Q6, Q8 and picked the size band.
+
+    ``logic_version`` is ``v16`` (default) or ``v17``. A v17 round writes its admission record as a document
+    entity (so its first ``stated`` statement has something to cite) and refuses typed ``knowable_from`` dates."""
+    if logic_version not in {"v16", "v17"}:
+        raise Refused("logic_version is v16 or v17")
+    if logic_version == "v17" and db.get("entity_kinds", "organisation") is None:
+        raise Refused("a v17 round needs the v17 registry: run seed_v17 (and migrate_v17 on an old store) first")
     from .positions import node_upsert
     op_model = config.operator_model()
     head, dirty = git_state()
@@ -213,7 +220,7 @@ def submit_event(db: DB, cand_id: str, round_id: str, event_line: str, node: str
               node=node, node_type=node_type, stratum=stratum, feed_set="nrc_en_power_reactor",
               intake_mode="strict_v3", round_class=rclass, live=False, operator_model=op_model,
               operator_cutoff=operator_cutoff, operator_runtime=None, harness_version=config.harness_version(),
-              logic_version=config.LOGIC_VERSION, config_hash=config.config_hash(), presort_active=False,
+              logic_version=logic_version, config_hash=config.config_hash(), presort_active=False,
               domain_pref="not applied (single passing candidate)", candidate_id=cand_id, q_results=q)
     for t in tags:
         db.append("round_tags", round_id=round_id, tag=t, basis="Event Requirements v3 tag rules")
@@ -225,7 +232,12 @@ def submit_event(db: DB, cand_id: str, round_id: str, event_line: str, node: str
     db.append("segments", round_id=round_id, idx=0, clock=q["event_date"], opened_by_ack_id=None,
               opened_by_firing_id=None, locked_at=None, lock_hash=None, manifest_id=None, wall_clock=None)
     set_state(db, round_id, "admitted", f"admitted by {confirmed_by}; class {rclass}")
-    return {"round_id": round_id, "class": rclass, "class_reasons": reasons, "tags": tags, "q": q}
+    out = {"round_id": round_id, "class": rclass, "class_reasons": reasons, "tags": tags, "q": q,
+           "logic_version": logic_version}
+    if logic_version == "v17":
+        from .documents import admission_record
+        out["admission_record"] = admission_record(db, round_id)["key"]
+    return out
 
 
 def reveal_event(db: DB, round_id: str) -> dict:

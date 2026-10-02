@@ -83,6 +83,16 @@ def require_pre_lock(db: DB, round_id: str):
         raise Refused(f"segment {seg['idx']} of {round_id} is locked; nothing may change it")
 
 
+def active_logic(db: DB) -> str:
+    """The logic_version of the round the phase file names ('v16' when none). v17 rounds refuse typed dates."""
+    try:
+        rid = json.loads(PHASE_FILE.read_text()).get("round_id")
+        r = db.one("rounds", "round_id=?", (rid,)) if rid else None
+    except (OSError, ValueError):
+        return "v16"
+    return (r or {}).get("logic_version") or "v16"
+
+
 def write_phase(db: DB, round_id: str):
     seg = None
     try:

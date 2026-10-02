@@ -1,0 +1,216 @@
+You will be shown 6 questions from a prediction market. Each has one or more contracts that resolve YES or NO under the rules shown. Each question gives the date your view is "as of": answer as you would on that date.
+
+Use only what you already know. Do not search for or look up anything: reading this file is the only tool call you may make. There are no prices in this file and you should not try to estimate what any market thinks; give your own view.
+
+Each question says what to write for it. Whole percents run from 1 to 99. Levels are plain numbers in the units the contracts use (for example 95000 for $95,000, 3.25 for 3.25%). Dates are YYYY-MM-DD.
+
+For each question also say whether you recognise how it actually turned out ("recognised": true only if you believe you remember the real outcome; otherwise false).
+
+Reply with one JSON object and nothing else:
+{"events": [{"label": "E1", "recognised": false, ...the fields that question asks for...}]}
+
+=== E1 (as of 2026-08-19): Alphabet’s Market Cap end of September 2026?
+Rules:
+This market will resolve according to Alphabet's public market capitalization at the close of regular trading on the final trading day of the specified month.
+
+If the determined value falls exactly on the boundary between two brackets, this market will resolve to the higher bracket.
+
+Public market capitalization will be determined through appropriate calculation using the final official regular-hours closing prices published for the company's listed equities on its primary exchange for the last trading day of the specified month, multiplied by the company's total number of shares outstanding at the relevant time. If necessary, to accurately capture the company’s total market capitalization, rather than a stock-class-specific market capitalization, the calculation will include all outstanding share classes and apply any stated conversion ratios to the publicly traded class. Where no conversion right exists, such shares will be counted at their stated outstanding amount without discount, unless official filings explicitly specify differently. The number of outstanding shares will be determined from official company filings or disclosures (e.g., SEC filings).
+
+If the listed company merges with or acquires another entity and remains the parent company, no change to resolution methodology applies.
+
+If the listed company is acquired, merges into another entity and is no longer the surviving parent company, or otherwise ceases to exist as an independent entity prior to the end of the period, the public market capitalizations achieved prior to completion of the transaction will be considered for resolution. No transaction, acquisition, or merger consideration will be considered for resolution.
+
+The resolution source for this market is official exchange trading data and publicly reported share counts.
+Contracts:
+  E1.C1: Will Alphabet’s market capitalization be less than $3.50T at the end of September 2026?
+  E1.C2: Will Alphabet’s market capitalization be between $3.50T and $4.00T at the end of September 2026?
+  E1.C3: Will Alphabet’s market capitalization be between $4.00T and $4.50T at the end of September 2026?
+  E1.C4: Will Alphabet’s market capitalization be between $4.50T and $5.00T at the end of September 2026?
+  E1.C5: Will Alphabet’s market capitalization be between $5.00T and $5.50T at the end of September 2026?
+  E1.C6: Will Alphabet’s market capitalization be between $5.50T and $6.00T at the end of September 2026?
+  E1.C7: Will Alphabet’s market capitalization be at least $6.00T at the end of September 2026?
+What to write for E1:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E2 (as of 2026-05-13): Malta Parliamentary Election Winner
+Rules:
+General elections are scheduled to be held in Malta on May 30, 2026.
+
+This market will resolve according to the political party that wins the greatest number of seats in the House of Representatives (parliament of Malta) as a result of the 2026 Maltese general election.
+
+If the results of this election are not known definitively by March 31, 2027, 11:59 PM ET, this market will resolve to "Other".
+
+Parties will primarily be ranked by the number of seats won. In the event of a tie, the party with the greater number of valid votes will rank higher. If a tie persists, the party whose name appears first in alphabetical order will rank higher. This market will resolve to the party that occupies the highest finishing position after applying this ranking.
+
+This market’s resolution will be based solely on the number of seats won by the named party in the House of Representatives in the 2026 Maltese general election, not any coalition it may be a part of.
+
+This market will resolve based on the results of the 2026 Maltese general election, as indicated by a consensus of credible reporting. If there is ambiguity, this market will resolve solely on the official results reported by the Government of Malta, such as those published by the Electoral Commission of Malta (https://electoral.gov.mt/).
+Contracts:
+  E2.C1: Will Labour Party win the most seats in the House of Representatives in the 2026 Maltese general election?
+  E2.C2: Will Nationalist Party win the most seats in the House of Representatives in the 2026 Maltese general election?
+  E2.C3: Will AD+PD win the most seats in the House of Representatives in the 2026 Maltese general election?
+  E2.C4: Will Momentum win the most seats in the House of Representatives in the 2026 Maltese general election?
+  E2.C5: Will Imperium Europa win the most seats in the House of Representatives in the 2026 Maltese general election?
+  E2.C6: Will Aħwa Maltin win the most seats in the House of Representatives in the 2026 Maltese general election?
+What to write for E2:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E3 (as of 2026-04-01): Will Audemars Piguet prices hit __ by April 30?
+Rules:
+This market will resolve to “Yes” if, for any day between market creation and April 30, 2026, the Bloomberg x Subdial Watch Index for Audemars Piguet price is equal to or above the listed price. Otherwise, this market will resolve to “No.”
+
+The resolution source for this market is Subdial — specifically, the Audemars Piguet Index chart available at https://subdial.com/market. The daily values in USD shown on the chart will be used for resolution. 
+
+This market refers to prices displayed in USD. To switch the display currency, use the currency toggle located at the left beneath the graph and select “USD” instead of “GBP”.
+
+This market will resolve as soon as the price shown on the Bloomberg x Subdial Watch Index for Audemars Piguet chart reaches the listed price, or once the value for April 30, 2026, is published, and the listed price has not been reached. If no data for April 30, 2026, has been published by May 14, 2026, this market will resolve based on the data available at that time.
+
+Revisions made to published data points on the Bloomberg x Subdial Watch Index for Audemars Piguet chart before the April 30, 2026 data point has been published will be considered; however, they will not disqualify a previously published data point from resolving this market. Revisions made after the April 30, 2026, data point has been finalized will not be considered.
+Contracts:
+  E3.C1: Will the Audemars Piguet Index hit $44,000 (HIGH) by April 30?
+  E3.C2: Will the Audemars Piguet Index hit $43,000 (HIGH) by April 30?
+  E3.C3: Will the Audemars Piguet Index hit $42,500 (HIGH) by April 30?
+  E3.C4: Will the Audemars Piguet Index hit $42,250 (HIGH) by April 30?
+  E3.C5: Will the Audemars Piguet Index hit $42,000 (HIGH) by April 30?
+  E3.C6: Will the Audemars Piguet Index hit $41,750 (HIGH) by April 30?
+  E3.C7: Will the Audemars Piguet Index hit $41,500 (HIGH) by April 30?
+  E3.C8: Will the Audemars Piguet Index hit $41,000 (LOW) by April 30?
+    Contract rules: This market will resolve to “Yes” if, for any day between market creation and April 30, 2026, the Bloomberg x Subdial Watch Index for Audemars Piguet price is equal to or below the listed price. Otherwise, this market will resolve to “No.”
+
+The resolution source for this market is Subdial — specifically, the Audemars Piguet Index chart available at https://subdial.com/market. The daily values in USD shown on the chart will be used for resolution. 
+
+This market refers to prices displayed in USD. To switch the display currency, use the currency toggle located at the left beneath the graph and select “USD” instead of “GBP”.
+
+This market will resolve as soon as the price shown on the Bloomberg x Subdial Watch Index for Audemars Piguet chart reaches the listed price, or once the value for April 30, 2026, is published, and the listed price has not been reached. If no data for April 30, 2026, has been published by May 14, 2026, this market will resolve based on the data available at that time.
+
+Revisions made to published data points on the Bloomberg x Subdial Watch Index for Audemars Piguet chart before the April 30, 2026 data point has been published will be considered; however, they will not disqualify a previously published data point from resolving this market. Revisions made after the April 30, 2026, data point has been finalized will not be considered.
+  E3.C9: Will the Audemars Piguet Index hit $40,750 (LOW) by April 30?
+    Contract rules: This market will resolve to “Yes” if, for any day between market creation and April 30, 2026, the Bloomberg x Subdial Watch Index for Audemars Piguet price is equal to or below the listed price. Otherwise, this market will resolve to “No.”
+
+The resolution source for this market is Subdial — specifically, the Audemars Piguet Index chart available at https://subdial.com/market. The daily values in USD shown on the chart will be used for resolution. 
+
+This market refers to prices displayed in USD. To switch the display currency, use the currency toggle located at the left beneath the graph and select “USD” instead of “GBP”.
+
+This market will resolve as soon as the price shown on the Bloomberg x Subdial Watch Index for Audemars Piguet chart reaches the listed price, or once the value for April 30, 2026, is published, and the listed price has not been reached. If no data for April 30, 2026, has been published by May 14, 2026, this market will resolve based on the data available at that time.
+
+Revisions made to published data points on the Bloomberg x Subdial Watch Index for Audemars Piguet chart before the April 30, 2026 data point has been published will be considered; however, they will not disqualify a previously published data point from resolving this market. Revisions made after the April 30, 2026, data point has been finalized will not be considered.
+  E3.C10: Will the Audemars Piguet Index hit $40,500 (LOW) by April 30?
+    Contract rules: This market will resolve to “Yes” if, for any day between market creation and April 30, 2026, the Bloomberg x Subdial Watch Index for Audemars Piguet price is equal to or below the listed price. Otherwise, this market will resolve to “No.”
+
+The resolution source for this market is Subdial — specifically, the Audemars Piguet Index chart available at https://subdial.com/market. The daily values in USD shown on the chart will be used for resolution. 
+
+This market refers to prices displayed in USD. To switch the display currency, use the currency toggle located at the left beneath the graph and select “USD” instead of “GBP”.
+
+This market will resolve as soon as the price shown on the Bloomberg x Subdial Watch Index for Audemars Piguet chart reaches the listed price, or once the value for April 30, 2026, is published, and the listed price has not been reached. If no data for April 30, 2026, has been published by May 14, 2026, this market will resolve based on the data available at that time.
+
+Revisions made to published data points on the Bloomberg x Subdial Watch Index for Audemars Piguet chart before the April 30, 2026 data point has been published will be considered; however, they will not disqualify a previously published data point from resolving this market. Revisions made after the April 30, 2026, data point has been finalized will not be considered.
+  E3.C11: Will the Audemars Piguet Index hit $40,250 (LOW) by April 30?
+    Contract rules: This market will resolve to “Yes” if, for any day between market creation and April 30, 2026, the Bloomberg x Subdial Watch Index for Audemars Piguet price is equal to or below the listed price. Otherwise, this market will resolve to “No.”
+
+The resolution source for this market is Subdial — specifically, the Audemars Piguet Index chart available at https://subdial.com/market. The daily values in USD shown on the chart will be used for resolution. 
+
+This market refers to prices displayed in USD. To switch the display currency, use the currency toggle located at the left beneath the graph and select “USD” instead of “GBP”.
+
+This market will resolve as soon as the price shown on the Bloomberg x Subdial Watch Index for Audemars Piguet chart reaches the listed price, or once the value for April 30, 2026, is published, and the listed price has not been reached. If no data for April 30, 2026, has been published by May 14, 2026, this market will resolve based on the data available at that time.
+
+Revisions made to published data points on the Bloomberg x Subdial Watch Index for Audemars Piguet chart before the April 30, 2026 data point has been published will be considered; however, they will not disqualify a previously published data point from resolving this market. Revisions made after the April 30, 2026, data point has been finalized will not be considered.
+  E3.C12: Will the Audemars Piguet Index hit $40,000 (LOW) by April 30?
+    Contract rules: This market will resolve to “Yes” if, for any day between market creation and April 30, 2026, the Bloomberg x Subdial Watch Index for Audemars Piguet price is equal to or below the listed price. Otherwise, this market will resolve to “No.”
+
+The resolution source for this market is Subdial — specifically, the Audemars Piguet Index chart available at https://subdial.com/market. The daily values in USD shown on the chart will be used for resolution. 
+
+This market refers to prices displayed in USD. To switch the display currency, use the currency toggle located at the left beneath the graph and select “USD” instead of “GBP”.
+
+This market will resolve as soon as the price shown on the Bloomberg x Subdial Watch Index for Audemars Piguet chart reaches the listed price, or once the value for April 30, 2026, is published, and the listed price has not been reached. If no data for April 30, 2026, has been published by May 14, 2026, this market will resolve based on the data available at that time.
+
+Revisions made to published data points on the Bloomberg x Subdial Watch Index for Audemars Piguet chart before the April 30, 2026 data point has been published will be considered; however, they will not disqualify a previously published data point from resolving this market. Revisions made after the April 30, 2026, data point has been finalized will not be considered.
+  E3.C13: Will the Audemars Piguet Index hit $39,000 (LOW) by April 30?
+    Contract rules: This market will resolve to “Yes” if, for any day between market creation and April 30, 2026, the Bloomberg x Subdial Watch Index for Audemars Piguet price is equal to or below the listed price. Otherwise, this market will resolve to “No.”
+
+The resolution source for this market is Subdial — specifically, the Audemars Piguet Index chart available at https://subdial.com/market. The daily values in USD shown on the chart will be used for resolution. 
+
+This market refers to prices displayed in USD. To switch the display currency, use the currency toggle located at the left beneath the graph and select “USD” instead of “GBP”.
+
+This market will resolve as soon as the price shown on the Bloomberg x Subdial Watch Index for Audemars Piguet chart reaches the listed price, or once the value for April 30, 2026, is published, and the listed price has not been reached. If no data for April 30, 2026, has been published by May 14, 2026, this market will resolve based on the data available at that time.
+
+Revisions made to published data points on the Bloomberg x Subdial Watch Index for Audemars Piguet chart before the April 30, 2026 data point has been published will be considered; however, they will not disqualify a previously published data point from resolving this market. Revisions made after the April 30, 2026, data point has been finalized will not be considered.
+What to write for E3:
+  Write "high": for each chance 10, 25, 50, 75 and 90, the level you give that chance of being reached (at or above) within the period. The 10 level is the highest.
+  Write "low": for each chance 10, 25, 50, 75 and 90, the level you give that chance of being reached (at or below) within the period. The 10 level is the lowest.
+
+=== E4 (as of 2026-04-29): NYC Mayor # posts April 28 - May 5, 2026?
+Rules:
+This market will resolve according to the number of times NYC Mayor Zohran Mamdani (@NYCMayor), posts on X between April 28, 12:00 PM ET and May 5, 2026, 12:00 PM ET.
+
+For the purposes of this market, only main feed posts, quote posts and reposts will count.
+
+Replies will NOT count towards the total - however, replies which are recorded on the main feed will be counted by the tracker.
+
+Deleted posts will count as long as they remain available long enough to be captured by the tracker (~5 minutes).
+
+The resolution source for this market is the "Post Counter" figure for posts found at https://xtracker.polymarket.com. Individual posts can be viewed by clicking "Export Data". If the tracker does not update correctly in accordance with the rules, X itself may be used as a secondary resolution source.
+Contracts:
+  E4.C1: Will NYC Mayor post 0-19 posts from April 28 to May 5, 2026?
+  E4.C2: Will NYC Mayor post 20-39 posts from April 28 to May 5, 2026?
+  E4.C3: Will NYC Mayor post 40-59 posts from April 28 to May 5, 2026?
+  E4.C4: Will NYC Mayor post 60-79 posts from April 28 to May 5, 2026?
+  E4.C5: Will NYC Mayor post 80-99 posts from April 28 to May 5, 2026?
+  E4.C6: Will NYC Mayor post 100-119 posts from April 28 to May 5, 2026?
+  E4.C7: Will NYC Mayor post 120-139 posts from April 28 to May 5, 2026?
+  E4.C8: Will NYC Mayor post 140-159 posts from April 28 to May 5, 2026?
+  E4.C9: Will NYC Mayor post 160-179 posts from April 28 to May 5, 2026?
+  E4.C10: Will NYC Mayor post 180-199 posts from April 28 to May 5, 2026?
+  E4.C11: Will NYC Mayor post 200+ posts from April 28 to May 5, 2026?
+What to write for E4:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E5 (as of 2026-05-20): Will Palo Alto Networks Q3 Next-Generation Security ARR be above __?
+Rules:
+This market will resolve to "Yes" if Palo Alto Networks' Next Generation-Security ARR for the third fiscal quarter of 2026, as reported in its official company earnings materials, is above the listed amount. Otherwise, this market will resolve to "No".
+
+The specified metric will be considered as reported in the company's official earnings materials. Subsequent revisions will not be considered.
+
+If the specified company's official earnings materials for the specified quarter are released, and the specified metric is not included, this market will resolve to "No".
+
+If the specified company does not release quarterly earnings materials for the specified quarter by July 31, 2026, 11:59 PM ET, this market will resolve to "No".
+
+If the specified metric is reported as a range rather than a specific number, the midpoint of the range will be used for resolution of this market.
+
+The resolution source for this market is Palo Alto Networks' official company earnings materials, including press releases, investor presentations, and regulatory filings. If the specified metric is not reported in these materials, recordings or transcripts of the company's earnings webcast may also be used.
+
+Note: This market will resolve based on the most numerically precise version of the specified metric reported in the company's official earnings materials. Only the specified metric will be considered; alternate versions that differ in definition or scope from the specified metric will not be considered.
+Contracts:
+  E5.C1: Will Palo Alto Networks Q3 Next-Generation Security ARR be above $7.5B?
+  E5.C2: Will Palo Alto Networks Q3 Next-Generation Security ARR be above $8.0B?
+  E5.C3: Will Palo Alto Networks Q3 Next-Generation Security ARR be above $8.5B?
+What to write for E5:
+  Write "levels": for each chance 10, 25, 50, 75 and 90, the level you give that chance of the measured quantity being at or above when it resolves. The 10 level is the highest and the 90 level the lowest. Example: {"10": 120, "25": 110, "50": 100, "75": 92, "90": 85}.
+
+=== E6 (as of 2026-04-01): Will Meta (META) finish week of March 30 above___?
+Rules:
+This market will resolve to "Yes" if the official closing price for Meta Platforms, Inc. (META) on the final day of trading of the specified week (normally Friday) is higher than the listed price. Otherwise, this market will resolve to "No."
+
+If the final session is shortened (for example, due to a market-holiday schedule), the official closing price published for that shortened session will still be used for resolution.
+
+If no official closing price is published for that session (for example, due to a trading halt into the close, system issue, delisting, or other disruption), the market will use the last valid on-exchange trade price of the regular session as the effective closing price.
+
+The resolution source for this market is Yahoo Finance, specifically the Meta Platforms, Inc. (META) "Close" prices available at https://finance.yahoo.com/quote/META/history, published under "Historical Prices."
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Yahoo Finance.
+Contracts:
+  E6.C1: Will Meta (META) finish week of March 30 above $490?
+  E6.C2: Will Meta (META) finish week of March 30 above $500?
+  E6.C3: Will Meta (META) finish week of March 30 above $510?
+  E6.C4: Will Meta (META) finish week of March 30 above $520?
+  E6.C5: Will Meta (META) finish week of March 30 above $530?
+  E6.C6: Will Meta (META) finish week of March 30 above $540?
+  E6.C7: Will Meta (META) finish week of March 30 above $550?
+  E6.C8: Will Meta (META) finish week of March 30 above $560?
+  E6.C9: Will Meta (META) finish week of March 30 above $570?
+  E6.C10: Will Meta (META) finish week of March 30 above $580?
+  E6.C11: Will Meta (META) finish week of March 30 above $590?
+  E6.C12: Will Meta (META) finish week of March 30 above $600?
+  E6.C13: Will Meta (META) finish week of March 30 above $610?
+What to write for E6:
+  Write "levels": for each chance 10, 25, 50, 75 and 90, the level you give that chance of the measured quantity being at or above when it resolves. The 10 level is the highest and the 90 level the lowest. Example: {"10": 120, "25": 110, "50": 100, "75": 92, "90": 85}.

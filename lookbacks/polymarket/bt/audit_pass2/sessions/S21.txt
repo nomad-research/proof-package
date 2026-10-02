@@ -1,0 +1,242 @@
+You will be shown 10 questions from a prediction market. Each question has one or more contracts, and each contract resolves YES or NO under the rules shown.
+
+For every contract, give your probability, as a whole percent from 1 to 99, that it resolves YES. Use only what you already know. Do not search for or look up anything: reading this file is the only tool call you may make.
+
+For each question, also say whether you recognise how it actually turned out ("recognised": true only if you believe you remember the real outcome; otherwise false).
+
+Where a question's contracts are mutually exclusive (exactly one can resolve YES), your numbers for it should add up to about 100. Where they are nested thresholds or dates, keep them consistent with each other.
+
+Reply with one JSON object and nothing else, in this form:
+{"events": [{"label": "E1", "recognised": false, "p": {"E1.C1": 35, "E1.C2": 60}}]}
+
+Every contract label below must appear exactly once in your reply.
+
+=== E1: Trump-Denmark Greenland deal signed by June 30?
+Rules:
+This market will resolve to “Yes” if both Denmark and the United States sign a deal, treaty, or similar international agreement of any kind relating to Greenland by June 30, 2026, 11:59 PM ET. Otherwise, this market will resolve to “No”.
+
+Any U.S.–Danish agreement relating to Greenland will qualify, regardless of subject matter, including but not limited to sovereignty, governance, security arrangements, or access to natural resources.
+
+Examples of qualifying deals include but are not limited to a treaty that makes any portion of Greenland a U.S. territory or possession (even if the handover date for such territory or possession is later); or, a Guantánamo-style arrangement treaty establishing a defined zone in Greenland under exclusive or primary U.S. jurisdiction and control, where Denmark and Greenland’s ordinary legal authority does not apply except by U.S. permission; or agreements permitting additional U.S. troop stationing, basing access, or resource extraction rights in Greenland.
+
+This market will resolve to “Yes” only if a qualifying agreement is formally signed by authorized representatives of both Denmark and the United States. Official announcements, statements of intent, or declarations that an agreement has been reached will not suffice unless accompanied by signatures from both sides. Whether or not a qualifying deal is later passed by the respective parliaments or enters into force will not affect this market’s resolution. Signaling from Greenland’s population will not be considered.
+
+Announcements, negotiations, proposals, frameworks, or understandings that are not formally signed by both parties will not qualify. Any qualifying U.S. jurisdiction, control, basing rights, or access arrangements in Greenland that existed at market creation will not count as new qualifying agreements.
+
+The primary resolution source for this market will be official information from the governments of the United States and Denmark; however, a consensus of credible reporting may also be used.
+Contracts:
+  E1.C1: Trump-Denmark Greenland deal signed by June 30?
+
+=== E2: Peru Election 2nd Round: Margin of Victory?
+Rules:
+The second round of the Peru presidential election is scheduled to be held on June 7, 2026.
+
+This market will resolve according to the margin of victory between the top two candidates in the second round of the 2026 Peruvian presidential elections.
+
+For the purpose of this market, the “margin of victory” is defined as the absolute difference between the percentages of valid votes received by the first-place and second-place candidates. Percentages of the valid votes received by each candidate will be determined by dividing the total number of valid votes each of the top two candidates receives by the sum of all valid votes cast in the election.
+
+If the reported value falls exactly between two brackets, then this market will resolve to the higher range bracket.
+
+If two candidates receive the exact same highest number of valid votes and both are listed, this market will resolve to the lowest bracket for the tied candidate whose last name comes first alphabetically.
+
+This market will resolve based on the official vote count once the count has been made official.
+
+If the results of the specified election are not known definitively by December 31, 2026, 11:59 PM ET, this market will resolve to “Other”.
+
+This market will resolve based on the results of this election, as indicated by a consensus of credible reporting. If there is ambiguity, this market will resolve solely on the official results as reported by the Peruvian government, specifically the National Office of Electoral Processes (Oficina Nacional de Procesos Electorales, ONPE) (https://www.onpe.gob.pe/elecciones/) and the National Jury of Elections (Jurado Nacional de Elecciones, JNE) (https://portal.jne.gob.pe/portal/)
+
+If a recount is initiated before the vote total has been made official, the market will remain open until the recount is completed and the vote is made official.
+Contracts:
+  E2.C1: Will Fujimori win the 2nd round of the 2026 Peru presidential election by 12%+?
+  E2.C2: Will Fujimori win the 2nd round of the 2026 Peru presidential election by 8–12%?
+  E2.C3: Will Fujimori win the 2nd round of the 2026 Peru presidential election by 4–8%?
+  E2.C4: Will Fujimori win the 2nd round of the 2026 Peru presidential election by 0–4%?
+  E2.C5: Will Sánchez win the 2nd round of the 2026 Peru presidential election by 0–4%?
+  E2.C6: Will Sánchez win the 2nd round of the 2026 Peru presidential election by 4–8%?
+  E2.C7: Will Sánchez win the 2nd round of the 2026 Peru presidential election by 8–12%?
+  E2.C8: Will Sánchez win the 2nd round of the 2026 Peru presidential election by 12%+?
+
+=== E3: SCOTUS bars counting mail ballots after election day?
+Rules:
+This market will resolve to “Yes” if the United States Supreme Court, in Watson v. Republican National Committee, rules that the federal election-day statutes preempt a state law that allows ballots cast by federal Election Day to be received and counted after election day, by August 1, 2026, 11:59 PM ET. Otherwise, this market will resolve to “No”.
+
+This market will resolve based on the Supreme Court’s decision in this case. Other related cases or legislation will not affect resolution.
+
+The resolution source for this market will be official information from the U.S. Supreme Court; however, a consensus of credible reporting will also be used.
+Contracts:
+  E3.C1: SCOTUS bars counting mail ballots after election day?
+
+=== E4: What places will Trump mention during the State of the Union address?
+Rules:
+Donald Trump is scheduled to deliver the 2026 State of the Union address on February 24. You can read more about that here: https://mikejohnson.house.gov/news/documentsingle.aspx?DocumentID=2812
+
+This market will resolve to "Yes" if Donald Trump says the listed term during his appearance at the specified event. Otherwise, the market will resolve to "No".
+
+Pluralization/possessive of the listed term will count toward the resolution of this market.
+
+Instances where the term is used in a compound word will count regardless of context (e.g. joyful is not a compound word for "joy," however "killjoy" is a compounding of the words "kill" and "joy").
+
+If this market requires a specified number of mentions of a person’s first or last name, a full-name mention will count as one mention (e.g., if a market is about “Joe / Biden 5+ times,” a mention of “Joe Biden” will count once).
+
+AI-generated audio or video will not count toward this market's resolution.
+
+This market is explicitly about Donald Trump's scheduled delivery of the 2026 State of the Union address. Speeches, events, or comments that occur outside of the named, scheduled event will not qualify toward this market's resolution. If the event contains a Q&A, it will count toward the resolution of this market.
+
+If this event is definitively cancelled, or otherwise is not aired by February 28, 2026, 11:59 PM ET, this market will resolve to "No".
+
+The resolution source will be video of the events. Only remarks which are broadcast or streamed live will count toward this market's resolution.
+Contracts:
+  E4.C1: Will Trump say "Afghanistan" during the State of the Union address?
+  E4.C2: Will Trump say "Arizona" during the State of the Union address?
+  E4.C3: Will Trump say "California" during the State of the Union address?
+  E4.C4: Will Trump say "Canada" during the State of the Union address?
+  E4.C5: Will Trump say "Chicago" during the State of the Union address?
+  E4.C6: Will Trump say "China" during the State of the Union address?
+  E4.C7: Will Trump say "Colombia" during the State of the Union address?
+  E4.C8: Will Trump say "Congo" during the State of the Union address?
+  E4.C9: Will Trump say "Cuba" during the State of the Union address?
+  E4.C10: Will Trump say "El Salvador" during the State of the Union address?
+  E4.C11: Will Trump say "Europe" or "European" during the State of the Union address?
+  E4.C12: Will Trump say "Georgia" during the State of the Union address?
+
+=== E5: TX-19 Republican Primary Winner
+Rules:
+This market will resolve according to the candidate who wins the nomination for the Republican Party to contest the TX-19 congressional district seat in the U.S. House of Representatives in the 2026 midterm elections. The Republican primary will take place on March 3, 2026.
+
+If no nominee is announced by November 3, 2026, 11:59PM ET, this market will resolve to "Other".
+
+The resolution source for this market will be a consensus of official Republican sources, including https://www.rnc.org/.
+
+Any replacement of the nominee before election day will not change the resolution of the market.
+Contracts:
+  E5.C1: Will James Barbee be the Republican Nominee for TX-19?
+  E5.C2: Will Jason Corley be the Republican Nominee for TX-19?
+  E5.C3: Will Abraham Enriquez be the Republican Nominee for TX-19?
+  E5.C4: Will Donald May be the Republican Nominee for TX-19?
+  E5.C5: Will Tom Sell be the Republican Nominee for TX-19?
+  E5.C6: Will Matthew Smith be the Republican Nominee for TX-19?
+  E5.C7: Will Ryan Zink be the Republican Nominee for TX-19?
+
+=== E6: Another critical Cloudflare incident by...?
+Rules:
+This market will resolve to “Yes” if Cloudflare experiences any incident classified as Critical (red) by December 31, 2025, 11:59 PM ET. Otherwise, this market will resolve to “No”.
+
+Qualifying incidents may include outages and other issues that Cloudflare may classify as Critical.
+
+Revisions to the impact classification of any such incident will be considered as long as those revisions are published within this market’s timeframe.
+
+If an incident is ongoing at this market’s resolution time, the market may remain open until that incident receives an official impact classification, and it will resolve based on the first such classification published, regardless of subsequent revisions or corrections.
+
+The primary resolution source for this market will be official information from Cloudflare (for example, on cloudflarestatus.com or cloudflarestatus.com/history); however, a consensus of credible reporting may also be used.
+Contracts:
+  E6.C1: Another critical Cloudflare incident by January 31?
+    Contract rules: This market will resolve to “Yes” if Cloudflare experiences any incident classified as Critical (red) by January 31, 2026, 11:59 PM ET. Otherwise, this market will resolve to “No”.
+
+Qualifying incidents may include outages and other issues that Cloudflare may classify as Critical.
+
+Revisions to the impact classification of any such incident will be considered as long as those revisions are published within this market’s timeframe.
+
+If an incident is ongoing at this market’s resolution time, the market may remain open until that incident receives an official impact classification, and it will resolve based on the first such classification published, regardless of subsequent revisions or corrections.
+
+The primary resolution source for this market will be official information from Cloudflare (for example, on cloudflarestatus.com or cloudflarestatus.com/history); however, a consensus of credible reporting may also be used.
+  E6.C2: Another critical Cloudflare incident by February 28?
+    Contract rules: This market will resolve to “Yes” if Cloudflare experiences any incident classified as Critical (red) by February 28, 2026, 11:59 PM ET. Otherwise, this market will resolve to “No”.
+
+Qualifying incidents may include outages and other issues that Cloudflare may classify as Critical.
+
+Revisions to the impact classification of any such incident will be considered as long as those revisions are published within this market’s timeframe.
+
+If an incident is ongoing at this market’s resolution time, the market may remain open until that incident receives an official impact classification, and it will resolve based on the first such classification published, regardless of subsequent revisions or corrections.
+
+The primary resolution source for this market will be official information from Cloudflare (for example, on cloudflarestatus.com or cloudflarestatus.com/history); however, a consensus of credible reporting may also be used.
+  E6.C3: Another critical Cloudflare incident by March 31?
+    Contract rules: This market will resolve to “Yes” if Cloudflare experiences any incident classified as Critical (red) by March 31, 2026, 11:59 PM ET. Otherwise, this market will resolve to “No”.
+
+Qualifying incidents may include outages and other issues that Cloudflare may classify as Critical.
+
+Revisions to the impact classification of any such incident will be considered as long as those revisions are published within this market’s timeframe.
+
+If an incident is ongoing at this market’s resolution time, the market may remain open until that incident receives an official impact classification, and it will resolve based on the first such classification published, regardless of subsequent revisions or corrections.
+
+The primary resolution source for this market will be official information from Cloudflare (for example, on cloudflarestatus.com or cloudflarestatus.com/history); however, a consensus of credible reporting may also be used.
+
+=== E7: USD x Iranian rials End of July?
+Rules:
+This market will resolve according to the finalized USD exchange rate on Bonbast for July 31, 2026. 
+
+If the recorded data falls exactly between two brackets, this market will resolve to the higher bracket.
+
+This market will resolve according to the finalized free-market USD exchange rate for the specified date as displayed on Bonbast (https://www.bonbast.com/graph/usd), which publishes prices in Iranian toman, where 1 Iranian toman equals 10 Iranian rials (IRR).
+
+A daily figure will be considered finalized once the following day’s figure is released.
+
+Resolution will occur once the specified exchange rate data point is finalized. If the relevant data is not finalized by the end of the 7th calendar day after the specified date (ET), this market will resolve according to the latest data available at that time. Revisions made after the relevant figure has been finalized will not be considered.
+
+The resolution source for this market will be Bonbast (https://www.bonbast.com/graph/usd). If the resolution source becomes permanently unavailable, another resolution source will be chosen.
+Contracts:
+  E7.C1: Will USD be less than 1.4M Iranian rials on July 31?
+  E7.C2: Will USD be between 1.4M and 1.5M Iranian rials on July 31?
+  E7.C3: Will USD be between 1.5M and 1.6M Iranian rials on July 31?
+  E7.C4: Will USD be between 1.6M and 1.7M Iranian rials on July 31?
+  E7.C5: Will USD be between 1.7M and 1.8M Iranian rials on July 31?
+  E7.C6: Will USD be between 1.8M and 1.9M Iranian rials on July 31?
+  E7.C7: Will USD be at least 1.9M Iranian rials on July 31?
+
+=== E8: Will the US conduct a cyberattack on Iran by March 31?
+Rules:
+This market will resolve to "Yes" if the United States conducts a major cyberattack against Iran between market creation and March 31, 2026, 11:59 PM ET. Otherwise, this market will resolve to “No”.
+
+For the purposes of this market, a qualifying “major cyberattack” is a cyber operation attributable to the United States that causes significant disruption, damage, or unauthorized access affecting core Iranian national systems—such as critical infrastructure, state institutions, the financial system (including major state operated banks), defense networks, or nuclear facilities.
+
+To qualify, the cyberattack must be either (i) officially acknowledged by the U.S. government (or an authorized U.S. government representative), or (ii) confirmed by a broad consensus of credible reporting attributing the operation to the United States. 
+
+Smaller-scale incidents—such as attacks on individual companies or organizations that do not target core national systems—will not qualify.
+
+Cyber incidents that are thwarted without significant disruption, damage, or unauthorized access will not qualify.
+
+Cyber operations that are directly related to, coordinated with, or executed as part of kinetic military action (including, but not limited to, airstrikes, missile/drone strikes, raids, ground incursions, or other physical combat operations) will not qualify, even if they cause significant cyber effects.
+
+The primary resolution source for this market will be official statements from the U.S. government and/or a consensus of credible reporting.
+Contracts:
+  E8.C1: Will the US conduct a cyberattack on Iran by March 31?
+
+=== E9: How many NYT banner headlines by Feb 28?
+Rules:
+This market will resolve according to the number of dates on which a front page banner headline is published in the standard-issue New York Times daily paper between market creation and February 28, 2026, 11:59 PM ET. 
+
+Banner Headline refers to a New York Times front page headline which is bordered on the sides only by white space. 
+
+Previous examples may be viewed through the New York Times Front Page Reprint portal (https://store.nytimes.com/products/new-york-times-front-page-reprint). Dates of qualifying examples include the banner headlines on January 5, 2026, January 4, 2026, November 7, 2024, February 25, 2022, and July 21, 1969.
+
+The resolution source for this market will be the New York Times Front Page Reprint portal (https://store.nytimes.com/products/new-york-times-front-page-reprint). If this portal has not published a front page for a date within this market’s timeframe by the listed end date, a consensus of credible sources displaying the New York Times standard-issue front page for that day may be used.
+Contracts:
+  E9.C1: Will there be no NYT banner headlines by February 28?
+  E9.C2: Will there be 1 NYT banner headline by February 28?
+  E9.C3: Will there be at least 2 NYT banner headlines by February 28?
+
+=== E10: Japan General Election Winner?
+Rules:
+General elections are scheduled to be held in Japan on February 8, 2026.
+
+This market will resolve according to the political party that wins the greatest number of seats in the next Japanese House of Representatives (衆議院, Shūgiin) election.
+
+If the results are not known definitively by November 30, 2026, 11:59 PM ET, this market will resolve to "Other".
+
+In the event of a tie between multiple parties for the most seats won, this market will resolve in favor of the party that received a greater number of valid votes. In the event that results in a tie, this market will resolve in favor of the party whose listed abbreviation appears first in alphabetical order.
+
+This market’s resolution will be based solely on the number of seats won by the named party in the House of Representatives of the Japanese National Diet.
+
+This market will resolve based on the results of the election as indicated by a consensus of credible reporting. If there is ambiguity, this market will resolve based solely on the official results reported by the Japanese government, including the Ministry of Internal Affairs and Communications (https://www.soumu.go.jp/) or e-Stat (Japan’s government statistics portal; https://www.e-stat.go.jp/).
+
+Note: If a listed party contests the election as part of a jointly listed coalition with one or more parties not listed in this market (including through merger), the market corresponding to the listed party will represent the coalition and will count all seats won by the coalition collectively. If two or more listed parties contest the election as a jointly listed coalition (including through merger), with or without additional parties not listed in this market, the market corresponding to the party within that coalition that won the most seats in the previous election will represent the coalition and will count all seats won by the coalition collectively. If such a coalition dissolves, each market will again represent its respective party individually.
+Contracts:
+  E10.C1: Will the Liberal Democratic Party win the most seats in the 2026 Japanese general election?
+  E10.C2: Will the Centrist Reform Alliance win the most seats in the 2026 Japanese general election?
+  E10.C3: Will the Japan Innovation Party win the most seats in the 2026 Japanese general election?
+  E10.C4: Will the Democratic Party for the People win the most seats in the 2026 Japanese general election?
+  E10.C5: Will Sanseitō win the most seats in the 2026 Japanese general election?
+  E10.C6: Will Reiwa Shinsengumi win the most seats in the 2026 Japanese general election?
+  E10.C7: Will the Japanese Communist Party win the most seats in the 2026 Japanese general election?
+  E10.C8: Will the Conservative Party of Japan win the most seats in the 2026 Japanese general election?
+  E10.C9: Will Team Mirai win the most seats in the 2026 Japanese general election?
+  E10.C10: Will the Social Democratic Party win the most seats in the 2026 Japanese general election?

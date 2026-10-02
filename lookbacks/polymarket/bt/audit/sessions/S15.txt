@@ -1,0 +1,241 @@
+You will be shown 10 questions from a prediction market. Each question has one or more contracts, and each contract resolves YES or NO under the rules shown.
+
+For every contract, give your probability, as a whole percent from 1 to 99, that it resolves YES. Use only what you already know. Do not search for or look up anything: reading this file is the only tool call you may make.
+
+For each question, also say whether you recognise how it actually turned out ("recognised": true only if you believe you remember the real outcome; otherwise false).
+
+Where a question's contracts are mutually exclusive (exactly one can resolve YES), your numbers for it should add up to about 100. Where they are nested thresholds or dates, keep them consistent with each other.
+
+Reply with one JSON object and nothing else, in this form:
+{"events": [{"label": "E1", "recognised": false, "p": {"E1.C1": 35, "E1.C2": 60}}]}
+
+Every contract label below must appear exactly once in your reply.
+
+=== E1: Who will Trump meet with in July?
+Rules:
+This market will resolve to "Yes" if the listed individual meets with Donald Trump between July 1 and July 31, 2026, 11:59 PM ET. Otherwise, this market will resolve to "No".
+
+A meeting is defined as any encounter where both the listed individual and Trump are present and interact with each other in person.
+
+The resolution source will be a consensus of credible reporting.
+Contracts:
+  E1.C1: Will Trump meet with Kim Jong Un in July 2026?
+  E1.C2: Will Trump meet with Xi Jinping in July 2026?
+  E1.C3: Will Trump meet with Mohammed bin Salman in July 2026?
+  E1.C4: Will Trump meet with Vladimir Putin in July 2026?
+  E1.C5: Will Trump meet with Luiz Inácio Lula da Silva in July 2026?
+  E1.C6: Will Trump meet with Giorgia Meloni in July 2026?
+  E1.C7: Will Trump meet with Elon Musk in July 2026?
+  E1.C8: Will Trump meet with Benjamin Netanyahu in July 2026?
+  E1.C9: Will Trump meet with Joseph Aoun in July 2026?
+  E1.C10: Will Trump meet with Miguel Díaz-Canel in July 2026?
+
+=== E2: Moltbook shutdown by Feb 28?
+Rules:
+This market will resolve to “Yes” if Moltbook shuts down by February 28, 2026, 11:59 PM ET. Otherwise, this market will resolve to “No”.
+
+For the purposes of this market, a shutdown means Moltbook ceases operations such that its primary website is no longer publicly accessible and the platform is discontinued. An official announcement that Moltbook is closing, winding down, or discontinuing the service will qualify regardless of when the shutdown is fully implemented.
+
+Temporary outages, maintenance, cyberattacks, domain or hosting issues, paywalls, limited functionality, invite-only transitions, ownership changes, restructurings, bankruptcies, acquisitions, or migrations to a new domain will not qualify so long as the core platform remains operational in any publicly accessible form.
+
+The primary resolution source will be official statements from Moltbook; however, a consensus of credible reporting may also be used.
+Contracts:
+  E2.C1: Moltbook shutdown by Feb 28?
+
+=== E3: What price will Ethena hit in June?
+Rules:
+What price will Ethena hit in June?
+Contracts:
+  E3.C1: Will Ethena reach $0.32 in June?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for ENA/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last) has a final High price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the ENA/USDT High prices available at https://www.binance.com/en/trade/ENA_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance ENA/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E3.C2: Will Ethena reach $0.28 in June?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for ENA/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last) has a final High price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the ENA/USDT High prices available at https://www.binance.com/en/trade/ENA_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance ENA/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E3.C3: Will Ethena reach $0.24 in June?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for ENA/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last) has a final High price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the ENA/USDT High prices available at https://www.binance.com/en/trade/ENA_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance ENA/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E3.C4: Will Ethena reach $0.20 in June?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for ENA/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last) has a final High price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the ENA/USDT High prices available at https://www.binance.com/en/trade/ENA_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance ENA/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E3.C5: Will Ethena reach $0.16 in June?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for ENA/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last) has a final High price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the ENA/USDT High prices available at https://www.binance.com/en/trade/ENA_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance ENA/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E3.C6: Will Ethena reach $0.12 in June?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for ENA/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last) has a final High price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the ENA/USDT High prices available at https://www.binance.com/en/trade/ENA_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance ENA/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E3.C7: Will Ethena dip to $0.04 in June?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for ENA/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last) has a final Low price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the ENA/USDT Low prices available at https://www.binance.com/en/trade/ENA_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance ENA/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+
+=== E4: Will any European country expel an Israeli ambassador by March 31?
+Rules:
+This market will resolve to “Yes” if any Israeli ambassador is expelled from their assigned European country by the respective government between market creation and March 31, 2026, 11:59:59 PM ET. Otherwise, this market will resolve to "No".
+
+Any expulsion from a European country where an Israeli ambassador is assigned as of the time of this market’s creation will qualify.
+
+For the purposes of this market, a “European country” is defined as any of the following sovereign states: Albania, Andorra, Austria, Belarus, Belgium, Bosnia and Herzegovina, Bulgaria, Croatia, Cyprus, Czechia, Denmark, Estonia, Finland, France, Georgia, Germany, Greece, Hungary, Iceland, Ireland, Italy, Kosovo, Latvia, Liechtenstein, Lithuania, Luxembourg, Malta, Moldova, Monaco, Montenegro, Netherlands, North Macedonia, Norway, Poland, Portugal, Romania, San Marino, Serbia, Slovakia, Slovenia, Spain, Sweden, Switzerland, Turkey, Ukraine, United Kingdom, and Vatican City.
+
+For the purposes of resolving this market, an official announcement that an Israeli ambassador will be or is being expelled will suffice, regardless of whether or not the respective ambassador leaves the country within this market’s timeframe.
+
+Qualifying announcements must be definitive, unambiguous, official statements issued by an authorized governmental person or entity.
+
+Whether the ambassador resigns, is recalled, or otherwise departs voluntarily will have no bearing on the resolution of this market.
+
+The primary resolution source for this market will be official information from the government of Israel, including the Ministry of Foreign Affairs, as well as official information from the relevant expelling government; however, an overwhelming consensus of credible reporting may also be used.
+Contracts:
+  E4.C1: Will any European country expel an Israeli ambassador by March 31?
+
+=== E5: JOLTS Job Openings — July 2026
+Rules:
+This is a market about the seasonally adjusted total number of job openings in the United States in July 2026, as reported by the Bureau of Labor Statistics (BLS) Job Openings and Labor Turnover Survey (JOLTS).
+
+This market will resolve to the bracket containing the seasonally adjusted total number of job openings for the total nonfarm sector in July 2026, as reported in the monthly JOLTS report published by the BLS.
+
+The resolution source for this market will be the BLS Job Openings and Labor Turnover Survey report released for July 2026 (https://www.bls.gov/jlt/), currently scheduled to be released on September 1, 2026, at 10:00 AM ET. Resolution of this market will take place upon release of the aforementioned data.
+
+Note: the resolution source for this market will be the official monthly JOLTS report, which reports job openings in thousands of openings. Thus, this is the level of precision that will be used when resolving the market. Rounding employed in the headline figure will not impact settlement, where a more precise figure is reported.
+
+If the reported value falls exactly between two brackets, this market will resolve to the higher range bracket.
+
+If the BLS does not release the relevant figures on the scheduled date, this market may remain open up until the scheduled release time of the next JOLTS report (https://www.bls.gov/schedule/2026/home.htm). If the information is not released by that time, this market will resolve according to the figures of the most recent previous month with available data.
+Contracts:
+  E5.C1: Will JOLTS Job Openings be below 7.1M in July?
+  E5.C2: Will JOLTS Job Openings be between 7.1M and 7.2M in July?
+  E5.C3: Will JOLTS Job Openings be between 7.2M and 7.3M in July?
+  E5.C4: Will JOLTS Job Openings be between 7.3M and 7.4M in July?
+  E5.C5: Will JOLTS Job Openings be between 7.4M and 7.5M in July?
+  E5.C6: Will JOLTS Job Openings be between 7.5M and 7.6M in July?
+  E5.C7: Will JOLTS Job Openings be between 7.6M and 7.7M in July?
+  E5.C8: Will JOLTS Job Openings be at least 7.7M in July?
+
+=== E6: Mecklenburg-Vorpommern Parliamentary Election: 3rd Place
+Rules:
+Parliamentary elections to elect the Landtag of Mecklenburg-Vorpommern are scheduled to take place on September 20, 2026.
+
+This market will resolve to the political party that wins the third-greatest number of seats in the state parliament of Mecklenburg-Vorpommern (Landtag) as a result of this election.
+
+If voting in the Mecklenburg-Vorpommern election for the Landtag does not occur by January 31, 2027, this market will resolve to "Other".
+
+The named parties or coalitions will be primarily ranked by the number of seats won in the specified election. If two or more parties are tied on seats, ties will be broken by the total number of valid second votes (Zweitstimme) received, with higher vote totals ranking higher. If parties remain tied, ties will be broken by alphabetical order of the listed party names/abbreviations. This market will resolve to the party that occupies the third finishing position after applying this ranking.
+
+This market's resolution will be based solely on the number of seats won by the named party or coalition.
+
+This market will resolve based on the result of the election, as indicated by a consensus of credible reporting. If there is ambiguity, this market will resolve based solely on the official results as published on the official Mecklenburg-Vorpommern elections page of the Landesamt für innere Verwaltung (www.laiv-mv.de/Wahlen/Landtagswahlen/2026/).
+Contracts:
+  E6.C1: Will CDU win the third-most seats in the 2026 Mecklenburg-Vorpommern parliamentary elections?
+  E6.C2: Will AfD win the third-most seats in the 2026 Mecklenburg-Vorpommern parliamentary elections?
+  E6.C3: Will Grüne win the third-most seats in the 2026 Mecklenburg-Vorpommern parliamentary elections?
+  E6.C4: Will SPD win the third-most seats in the 2026 Mecklenburg-Vorpommern parliamentary elections?
+  E6.C5: Will FDP win the third-most seats in the 2026 Mecklenburg-Vorpommern parliamentary elections?
+  E6.C6: Will Linke win the third-most seats in the 2026 Mecklenburg-Vorpommern parliamentary elections?
+  E6.C7: Will FW win the third-most seats in the 2026 Mecklenburg-Vorpommern parliamentary elections?
+  E6.C8: Will BSW win the third-most seats in the 2026 Mecklenburg-Vorpommern parliamentary elections?
+
+=== E7: January Unemployment Rate
+Rules:
+This market will resolve according to the seasonally adjusted unemployment rate (total unemployed, as a percent of the civilian labor force, official unemployment rate denoted as U-3) reported by the Bureau of Labor Statistics in the Employment Situation Report for January 2026.
+
+The resolution source for this market is the Monthly Employment Situation Report, published by the BLS every month at https://www.bls.gov/bls/news-release/empsit.htm, specifically the U-3 measure in Table A-15 for the month in question.
+
+The next data release is scheduled for February 11, 2026, at 8:30 AM ET. This market will resolve as soon as the relevant data is issued. Any revisions to the data after the first release will not count toward this market's resolution.
+
+If no data for January is released by the date the next month's data is scheduled to be released, this market will resolve based on data from the last available month.
+
+Note: the resolution source for this market reports unemployment to one decimal point. Thus, this is the level of precision that will be used when resolving the market.
+Contracts:
+  E7.C1: Will the January 2026 unemployment rate be ≤4.2%?
+  E7.C2: Will the January 2026 unemployment rate be 4.3%?
+  E7.C3: Will the January 2026 unemployment rate be 4.4%?
+  E7.C4: Will the January 2026 unemployment rate be 4.5%?
+  E7.C5: Will the January 2026 unemployment rate be 4.6%?
+  E7.C6: Will the January 2026 unemployment rate be ≥4.7%?
+
+=== E8: Berlin State Election: Grüne Vote Share?
+Rules:
+Parliamentary elections to elect the Abgeordnetenhaus of Berlin are scheduled to take place in Berlin on September 20, 2026.
+
+This market will resolve according to the percentage of valid second votes (Zweitstimme) received by Grüne in the specified election.
+
+If the reported value falls exactly between two brackets, then this market will resolve to the higher range bracket.
+
+This market will resolve solely based on the percentage of valid second votes (Zweitstimme) won by the specified party, defined as the number of valid second votes won by the specified party divided by the total number of valid second votes in the specified election.
+
+Valid vote percentages will be counted only where the Election Office of Berlin (Landeswahlleiter Berlin) attributes them to the aforementioned party. Vote percentages attributed to other parties or electoral designations will not count, regardless of electoral cooperation, endorsements, coalition agreements, or subsequent parliamentary-group arrangements. If the specified party formally merges into a successor party before the election and does not contest separately, the valid vote percentage of the successor party will count towards resolution.
+
+If the results of this election are not definitively known by December 31, 2026, 11:59 PM ET, this market will resolve to the lowest range bracket.
+
+This market will resolve based on the results of this election as indicated by a consensus of credible reporting. If there is ambiguity, this market will resolve based solely on the official results as reported by the Election Office of Berlin (Landeswahlleiter Berlin https://www.berlin.de/wahlen/).
+Contracts:
+  E8.C1: Will Grüne win less than 14% of all valid second votes?
+  E8.C2: Will Grüne win between 14% and 17% of all valid second votes?
+  E8.C3: Will Grüne win between 17% and 20% of all valid second votes?
+  E8.C4: Will Grüne win at least 20% of all valid second votes?
+
+=== E9: FL-09 Republican Primary Winner
+Rules:
+This market will resolve according to the candidate who wins the nomination for the Republican Party to contest the FL-09 congressional district seat in the U.S. House of Representatives in the 2026 midterm elections. The Republican primary will take place on August 18, 2026.
+
+If no nominee is announced by November 3, 2026, 11:59PM ET, this market will resolve to "Other".
+
+The resolution source for this market will be a consensus of official Republican sources, including https://www.rnc.org/.
+
+Any replacement of the nominee before election day will not change the resolution of the market.
+Contracts:
+  E9.C1: Will Marcus Carter be the Republican nominee for FL-09?
+  E9.C2: Will Thomas Chalifoux be the Republican nominee for FL-09?
+  E9.C3: Will Jorge Malavet be the Republican nominee for FL-09?
+  E9.C4: Will Howard Steven Rance be the Republican nominee for FL-09?
+  E9.C5: Will Justin Story be the Republican nominee for FL-09?
+  E9.C6: Will Ben Butler be the Republican nominee for FL-09?
+  E9.C7: Will Dan Green be the Republican nominee for FL-09?
+  E9.C8: Will Jorge Martinez be the Republican nominee for FL-09?
+  E9.C9: Will Steve Rance be the Republican nominee for FL-09?
+
+=== E10: Yevhen Khmara appointed as Ukrainian Minister of Defence by...?
+Rules:
+This market will resolve to “Yes” if the Verkhovna Rada appoints Yevhen Khmara as Minister of Defence of Ukraine by July 31, 2026, at 11:59 PM Kyiv time. Otherwise, this market will resolve to “No.”
+
+An appointment will be considered to have occurred when the Verkhovna Rada adopts a resolution appointing Yevhen Khmara as Minister of Defence of Ukraine.
+
+A nomination submitted by President Volodymyr Zelenskyy, parliamentary committee recommendation, public statement, media report, expression of intent, informal announcement, or appointment of Yevhen Khmara to perform the minister’s duties on an acting basis will not qualify.
+
+An appointment resolution adopted by the Verkhovna Rada before the market deadline will qualify regardless of when Yevhen Khmara takes the oath of office or begins performing the duties of the position.
+
+If the Verkhovna Rada does not adopt a resolution appointing Yevhen Khmara as Minister of Defence of Ukraine by July 31, 2026, at 11:59 PM Kyiv time, this market will resolve to “No.”
+
+The primary resolution source for this market will be official information and records from the Verkhovna Rada, including adopted appointment resolutions and official voting records; however, official information from the President of Ukraine and a consensus of credible reporting may also be used.
+Contracts:
+  E10.C1: Yevhen Khmara appointed as Ukrainian Minister of Defence by August 31?
+    Contract rules: This market will resolve to “Yes” if the Verkhovna Rada appoints Yevhen Khmara as Minister of Defence of Ukraine by August 31, 2026, at 11:59 PM Kyiv time. Otherwise, this market will resolve to “No.”
+
+An appointment will be considered to have occurred when the Verkhovna Rada adopts a resolution appointing Yevhen Khmara as Minister of Defence of Ukraine.
+
+A nomination submitted by President Volodymyr Zelenskyy, parliamentary committee recommendation, public statement, media report, expression of intent, informal announcement, or appointment of Yevhen Khmara to perform the minister’s duties on an acting basis will not qualify.
+
+An appointment resolution adopted by the Verkhovna Rada before the market deadline will qualify regardless of when Yevhen Khmara takes the oath of office or begins performing the duties of the position.
+
+If the Verkhovna Rada does not adopt a resolution appointing Yevhen Khmara as Minister of Defence of Ukraine by July 31, 2026, at 11:59 PM Kyiv time, this market will resolve to “No.”
+
+The primary resolution source for this market will be official information and records from the Verkhovna Rada, including adopted appointment resolutions and official voting records; however, official information from the President of Ukraine and a consensus of credible reporting may also be used.

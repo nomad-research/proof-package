@@ -1,0 +1,189 @@
+You will be shown 10 questions from a prediction market. Each question has one or more contracts, and each contract resolves YES or NO under the rules shown.
+
+For every contract, give your probability, as a whole percent from 1 to 99, that it resolves YES. Use only what you already know. Do not search for or look up anything: reading this file is the only tool call you may make.
+
+For each question, also say whether you recognise how it actually turned out ("recognised": true only if you believe you remember the real outcome; otherwise false).
+
+Where a question's contracts are mutually exclusive (exactly one can resolve YES), your numbers for it should add up to about 100. Where they are nested thresholds or dates, keep them consistent with each other.
+
+Reply with one JSON object and nothing else, in this form:
+{"events": [{"label": "E1", "recognised": false, "p": {"E1.C1": 35, "E1.C2": 60}}]}
+
+Every contract label below must appear exactly once in your reply.
+
+=== E1: June Inflation US - Annual
+Rules:
+This is a market about inflation over the 12-month period ending June 2026, before seasonal adjustment, as reported by the Bureau of Labor Statistics.
+
+This market will resolve to the percentage change in the Consumer Price Index (CPI) over the 12-month period ending in June 2026 according to the monthly Bureau of Labor Statistics (BLS) report.
+
+The resolution source for this market will be the BLS Consumer Price Index report released for June 2026 (https://www.bls.gov/bls/news-release/cpi.htm), currently scheduled to be released on July 14, 2026, at 8:30 AM ET. Resolution of this market will take place upon release of the aforementioned data.
+
+Note: the resolution source for this market will be the official monthly BLS CPI news release, which reports inflation over 12-month periods to only one decimal point (e.g., 2.9%). Thus, this is the level of precision that will be used when resolving the market.
+
+If the BLS does not release the relevant figures on the scheduled date, this market may remain open up until the scheduled release time of the next CPI report (https://www.bls.gov/schedule). If the information is not released by that time, this market will resolve according to the figures of the most recent previous month with available data.
+Contracts:
+  E1.C1: Will annual inflation be 3.6% or less in June?
+  E1.C2: Will annual inflation be 3.7% in June?
+  E1.C3: Will annual inflation be 3.8% in June?
+  E1.C4: Will annual inflation be 3.9% in June?
+  E1.C5: Will annual inflation be 4.0% in June?
+  E1.C6: Will annual inflation be 4.1% in June?
+  E1.C7: Will annual inflation be 4.2% in June?
+  E1.C8: Will annual inflation be 4.3% in June?
+  E1.C9: Will annual inflation be 4.4% in June?
+  E1.C10: Will annual inflation be 4.5% in June?
+  E1.C11: Will annual inflation be 4.6% in June?
+  E1.C12: Will annual inflation be 4.7% or more in June?
+
+=== E2: Russia x Ukraine ceasefire by April 30, 2026?
+Rules:
+This market will resolve to "Yes" if there is an official ceasefire agreement, defined as a publicly announced and mutually agreed halt in military engagement, between Russia and Ukraine by April 30, 2026, 11:59 PM ET. Otherwise, this market will resolve to "No".
+
+If the agreement is officially reached before the resolution date, this market will resolve to "Yes," regardless of whether the ceasefire officially starts afterward.
+
+Only ceasefires that constitute a general pause in the conflict will qualify. Ceasefires that only apply to energy infrastructure, the Black Sea, or other similar agreements will not qualify.
+
+Any form of informal agreement will not be considered an official ceasefire. Humanitarian pauses will not count toward the resolution of this market.
+
+A peace deal or political framework will qualify if it includes a publicly announced and mutually agreed halt in military engagement, effective on a specific date. Frameworks or agreements that outline terms for a future peace but do not include an explicit, dated commitment to stop fighting will not count.
+
+This market's resolution will be based on official announcements from both Russia and Ukraine; however, a wide consensus of credible media reporting stating an official ceasefire agreement between Russia and Ukraine has been reached will suffice.
+Contracts:
+  E2.C1: Russia x Ukraine ceasefire by April 30, 2026?
+
+=== E3: April Unemployment Rate
+Rules:
+This market will resolve according to the seasonally adjusted unemployment rate (total unemployed, as a percent of the civilian labor force, official unemployment rate denoted as U-3) reported by the Bureau of Labor Statistics in the Employment Situation Report for April 2026.
+
+The resolution source for this market is the Monthly Employment Situation Report, published by the BLS every month at https://www.bls.gov/bls/news-release/empsit.htm, specifically the U-3 measure in Table A-15 for the month in question.
+
+The relevant data release is scheduled for May 8, 2026, at 8:30 AM ET. This market will resolve as soon as the relevant data is issued. Any revisions to the data after the first release will not count toward this market's resolution.
+
+If no data for the specified month is released by the date the next month's data is scheduled to be released, this market will resolve based on data from the last available month.
+
+Note: the resolution source for this market reports unemployment to one decimal point. Thus, this is the level of precision that will be used when resolving the market.
+Contracts:
+  E3.C1: Will the April 2026 unemployment rate be ≤3.9%?
+  E3.C2: Will the April 2026 unemployment rate be 4.0%?
+  E3.C3: Will the April 2026 unemployment rate be 4.1%?
+  E3.C4: Will the April 2026 unemployment rate be 4.2%?
+  E3.C5: Will the April 2026 unemployment rate be 4.3%?
+  E3.C6: Will the April 2026 unemployment rate be 4.4%?
+  E3.C7: Will the April 2026 unemployment rate be 4.5%?
+  E3.C8: Will the April 2026 unemployment rate be 4.6%?
+  E3.C9: Will the April 2026 unemployment rate be ≥4.7%?
+
+=== E4: Will USD reach 1.7M Iranian rials by February 28?
+Rules:
+This market will resolve to “Yes” if the finalized USD exchange rate on Bonbast reaches or exceeds 170,000 Iranian toman (equivalent to 1,700,000 Iranian rials) at any point between market creation and February 28, 2026. Otherwise, this market will resolve to “No”.
+
+This market will resolve according to the daily finalized free-market USD exchange rate as displayed on Bonbast (https://www.bonbast.com/graph/usd), which publishes prices in Iranian toman, where 1 Iranian toman equals 10 Iranian rials (IRR).
+
+A daily figure will be considered finalized once the following day’s figure is released.
+
+Revisions or corrections to daily figures indicating a qualifying exchange rate will be considered only if they occur before all relevant figures for this market have been finalized.
+
+The resolution source for this market will be Bonbast (https://www.bonbast.com/graph/usd). Resolution will occur once the February 28, 2026, exchange rate data is finalized. If the resolution source becomes permanently unavailable, another resolution source will be chosen.
+Contracts:
+  E4.C1: Will USD reach 1.7M Iranian rials by February 28?
+
+=== E5: West Bengal Legislative Assembly Election Winner
+Rules:
+Parliamentary elections are to be scheduled to be held in West Bengal, India, in March–April 2026.
+
+This market will resolve according to the political party that wins the greatest number of seats in the next West Bengal Legislative Assembly election. 
+
+If the results are not known definitively by October 31, 2026, 11:59 PM ET, this market will resolve to "Other".
+
+In the event of a tie between multiple parties for the most seats won, this market will resolve in favor of the party that received a greater number of valid votes. In the event that results in a tie, this market will resolve in favor of the party whose listed abbreviation appears first in alphabetical order.
+
+This market's resolution will be based solely on the number of seats won by the named party in the West Bengal Parliament. 
+
+This market will resolve based on the results of this election as indicated by a consensus of credible reporting. If there is ambiguity, this market will resolve based solely on the official results as reported by the Indian government, specifically the Election Commission of India (ECI) (eci.gov.in). If there are multiple reports, this market will resolve based on the one that includes the most Assembly Constituents (AC).
+Contracts:
+  E5.C1: Will the All India Trinamool Congress (AITC) win the most seats in the 2026 West Bengal Legislative Assembly election?
+  E5.C2: Will the Bharatiya Janata Party (BJP) win the most seats in the 2026 West Bengal Legislative Assembly election?
+  E5.C3: Will the Indian National Congress (INC) win the most seats in the 2026 West Bengal Legislative Assembly election?
+  E5.C4: Will the Communist Party of India (CPI) win the most seats in the 2026 West Bengal Legislative Assembly election?
+  E5.C5: Will the Communist Party of India (Marxist) (CPI(M)) win the most seats in the 2026 West Bengal Legislative Assembly election?
+  E5.C6: Will the Bharatiya Gorkha Prajatantrik Morcha (BGPM) win the most seats in the 2026 West Bengal Legislative Assembly election?
+
+=== E6: Gemini 3.5 released by...?
+Rules:
+This market will resolve to "Yes" if Google's Gemini 3.5 model is made available to the general public by June 30, 2026, 11:59 PM ET. Otherwise, this market will resolve to "No."
+
+For this market to resolve to "Yes," Gemini 3.5 must be launched and publicly accessible, including via open beta or open rolling waitlist signups. A closed beta or any form of private access will not suffice. The release must be clearly defined and publicly announced by Google as being accessible to the general public.
+
+Gemini 3.5 refers to a product explicitly named Gemini 3.5 (e.g., Gemini 3.5 Pro would count), or one that is recognized as a successor to Gemini 3, similar to the progression from Gemini 2.0 to Gemini 2.5. Products labeled as Gemini 4 or similar will not count for this market's resolution. Additional Gemini 3 models (e.g. a release of Gemini 3 Flash-lite) will not count.
+
+The primary resolution source for this market will be official information from Google, with additional verification from a consensus of credible reporting.
+Contracts:
+  E6.C1: Gemini 3.5 released by May 31?
+    Contract rules: This market will resolve to "Yes" if Google's Gemini 3.5 model is made available to the general public by May 31, 2026, 11:59 PM ET. Otherwise, this market will resolve to "No."
+
+For this market to resolve to "Yes," Gemini 3.5 must be launched and publicly accessible, including via open beta or open rolling waitlist signups. A closed beta or any form of private access will not suffice. The release must be clearly defined and publicly announced by Google as being accessible to the general public.
+
+Gemini 3.5 refers to a product explicitly named Gemini 3.5 (e.g., Gemini 3.5 Pro would count), or one that is recognized as a successor to Gemini 3, similar to the progression from Gemini 2.0 to Gemini 2.5. Products labeled as Gemini 4 or similar will not count for this market's resolution. Additional Gemini 3 models (e.g. a release of Gemini 3 Flash-lite) will not count.
+
+The primary resolution source for this market will be official information from Google, with additional verification from a consensus of credible reporting.
+  E6.C2: Gemini 3.5 released by June 30?
+
+=== E7: Zhang Youxia seen in public by February 28?
+Rules:
+This market will resolve to "Yes" if Chinese General Zhang Youxia is photographed or videotaped between market creation and February 28, 2026, 11:59 PM ET. Otherwise, this market will resolve to "No".
+
+For this market to resolve to "Yes," the images or video must be taken and released within this market's timeframe. The images or video must be authentic, not the result of artificial intelligence or video editing.
+
+Digital appearances, including live broadcasts, will count for this market.
+
+The resolution source for this market will be the image/video of Zhang Youxia, and a consensus of credible reporting as to whether it is real.
+Contracts:
+  E7.C1: Zhang Youxia seen in public by February 28?
+
+=== E8: TX-08 Republican Primary Winner
+Rules:
+This market will resolve according to the candidate who wins the nomination for the Republican Party to contest the TX-08 congressional district seat in the U.S. House of Representatives in the 2026 midterm elections. The Republican primary will take place on March 3, 2026.
+
+If no nominee is announced by November 3, 2026, 11:59PM ET, this market will resolve to "Other".
+
+The resolution source for this market will be a consensus of official Republican sources, including https://www.rnc.org/.
+
+Any replacement of the nominee before election day will not change the resolution of the market.
+Contracts:
+  E8.C1: Will Jay Fondren be the Republican Nominee for TX-08?
+  E8.C2: Will Brett Jensen be the Republican Nominee for TX-08?
+  E8.C3: Will Stephen Long be the Republican Nominee for TX-08?
+  E8.C4: Will Jessica Steinmann be the Republican Nominee for TX-08?
+  E8.C5: Will Nick Tran be the Republican Nominee for TX-08?
+  E8.C6: Will Deddrick Wilmer be the Republican Nominee for TX-08?
+
+=== E9: Israel military action against Fordow nuclear facility by...?
+Rules:
+This market will resolve to “Yes” if Israel carries out a kinetic military strike against the Fordow Fuel Enrichment Plant in Iran between the time of market creation and the listed date, 11:59 PM ET. Otherwise, this market will resolve to “No”.
+
+This includes, but is not limited to, drone and missile strikes, aerial bombings, and kinetic actions carried out by Israeli operatives on the ground. Cyber attacks, sanctions, or diplomatic actions will not count toward the resolution of this market.
+
+Israeli air, missile, or drone strikes that are intercepted, shot down, or miss their target will not be considered for this market.
+
+The resolution source for this market will be a consensus of credible reporting.
+Contracts:
+  E9.C1: Israel military action against Fordow nuclear facility by April 15?
+  E9.C2: Israel military action against Fordow nuclear facility by April 30?
+
+=== E10: What will the median home value in Chicago be on April 1?
+Rules:
+This market will resolve according to the median home value for all property types in Chicago on April 1, 2026.
+
+If the reported value falls exactly between two brackets, then this market will resolve to the higher range bracket.
+
+The resolution source will be official data from the Parcl Labs Sales Price Index for Chicago, IL (Parcl_ID: 2899845). The settlement price will be calculated by multiplying the published price index value (price per square foot) by 1500 square feet, which is the median home size in Chicago. Parcl is set to publish this data on April 1, 2026. If no data for April 1 is released by April 10, 2026, 11:59PM ET, this market will resolve according to the most recently published data. (see: https://app.parcllabs.com/prediction-market-resolutions/22)
+Contracts:
+  E10.C1: Will the median home value in Chicago be less than $321,000 on April 1?
+  E10.C2: Will the median home value in Chicago be between $321,000 and $324,000 on April 1?
+  E10.C3: Will the median home value in Chicago be between $324,000 and $327,000 on April 1?
+  E10.C4: Will the median home value in Chicago be between $327,000 and $330,000 on April 1?
+  E10.C5: Will the median home value in Chicago be between $330,000 and $333,000 on April 1?
+  E10.C6: Will the median home value in Chicago be between $333,000 and $336,000 on April 1?
+  E10.C7: Will the median home value in Chicago be between $336,000 and $339,000 on April 1?
+  E10.C8: Will the median home value in Chicago be greater than $339,000 on April 1?

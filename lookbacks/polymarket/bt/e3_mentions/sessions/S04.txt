@@ -1,0 +1,204 @@
+You will be shown 6 questions from a prediction market. Each has one or more contracts that resolve YES or NO under the rules shown. Each question gives the date your view is "as of": answer as you would on that date.
+
+Use only what you already know. Do not search for or look up anything: reading this file is the only tool call you may make. There are no prices in this file and you should not try to estimate what any market thinks; give your own view.
+
+Each question says what to write for it. Whole percents run from 1 to 99. Levels are plain numbers in the units the contracts use (for example 95000 for $95,000, 3.25 for 3.25%). Dates are YYYY-MM-DD.
+
+For each question also say whether you recognise how it actually turned out ("recognised": true only if you believe you remember the real outcome; otherwise false).
+
+Reply with one JSON object and nothing else:
+{"events": [{"label": "E1", "recognised": false, ...the fields that question asks for...}]}
+
+=== E1 (as of 2026-09-06): What will John Ternus say during his Apple Keynote?
+Rules:
+John Ternus is scheduled to participate in Apple's "Surprise and Shine" event on September 9, 2026, 1 PM ET (https://www.apple.com/apple-events/).
+
+This market will resolve to "Yes" if John Ternus says the listed term at any point during the event. Otherwise, the market will resolve to "No".
+
+If John Ternus does not speak during the event, the event is definitively cancelled, or otherwise is not aired by September 10, 2026, 11:59 PM ET, "-No Qualifying Event-" will resolve to "Yes" and all other brackets will resolve to "No".
+
+The resolution source for this market will be video of the event.
+
+For full rules, see: https://polymarket-upload.s3.us-east-2.amazonaws.com/market_products/Mentions/Event+Mentions+Contract+DeFi.pdf
+Contracts:
+  E1.C1: Will John Ternus say "AI" or "Artificial Intelligence" 10+ times during his Apple Keynote?
+  E1.C2: Will John Ternus say "Million" or "Billion" or "Trillion" 10+ times during his Apple Keynote?
+  E1.C3: Will John Ternus say "Fold" or "Folding" or "Foldable" 10+ times during his Apple Keynote?
+  E1.C4: Will John Ternus say "One More Thing" 3+ times during his Apple Keynote?
+  E1.C5: Will John Ternus say "Battery Life" 3+ times during his Apple Keynote?
+  E1.C6: Will John Ternus say "Steve Jobs" during his Apple Keynote?
+  E1.C7: Will John Ternus say "Flexible" during his Apple Keynote?
+  E1.C8: Will John Ternus say "Hardware" during his Apple Keynote?
+  E1.C9: Will John Ternus say "Chip" during his Apple Keynote?
+  E1.C10: Will John Ternus say "Aluminum" during his Apple Keynote?
+  E1.C11: Will John Ternus say "Apple TV" during his Apple Keynote?
+  E1.C12: Will John Ternus say "AirPods Pro" during his Apple Keynote?
+  E1.C13: Will John Ternus say "Afford" or "Affordable" during his Apple Keynote?
+  E1.C14: Will John Ternus say "Apple Intelligence" during his Apple Keynote?
+  E1.C15: Will John Ternus say "AirTag" during his Apple Keynote?
+  E1.C16: Will John Ternus not speak during the event, or the event not air?
+What to write for E1:
+  Write "p": a whole percent for every contract label, your chance that it resolves YES.
+
+=== E2 (as of 2026-07-21): What will American Express say during their next earnings call?
+Rules:
+This market will resolve based on the next earnings announcement of American Express currently scheduled to take place on July 24, 2026 at 8:30 AM ET.
+
+This market will resolve to "Yes" if the listed term is mentioned by anyone during this event. Otherwise, the market will resolve to "No".
+
+If this event is definitely cancelled, or otherwise is not aired by July 25, 2026, 11:59 PM ET, "-No Qualifying Event-" will resolve to "Yes" and all other brackets will resolve to "No".
+
+The resolution source will be audio of the event.
+
+For full rules, see: https://polymarket-upload.s3.us-east-2.amazonaws.com/market_products/Event+Mentions+Contract+DeFi.pdf
+Contracts:
+  E2.C1: Will American Express say "Income" 10+ times during earnings call?
+  E2.C2: Will American Express say "Quarter" 10+ times during earnings call?
+  E2.C3: Will American Express say "Fiscal" 10+ times during earnings call?
+  E2.C4: Will American Express say "Airline" during earnings call?
+  E2.C5: Will American Express say "Restaurant" during earnings call?
+  E2.C6: Will American Express say "Luxury" during earnings call?
+  E2.C7: Will American Express say "Crypto" during earnings call?
+  E2.C8: Will American Express say "Tariff" during earnings call?
+  E2.C9: Will American Express say "Volatility" during earnings call?
+  E2.C10: Will American Express say "Inventory" during earnings call?
+  E2.C11: Will American Express say "Commercial" during earnings call?
+  E2.C12: Will American Express say "Expense" during earnings call?
+  E2.C13: Will American Express say "Refresh" during earnings call?
+  E2.C14: Will American Express say "Retention" during earnings call?
+  E2.C15: Will American Express say "Acquisition" during earnings call?
+  E2.C16: Will American Express say "Wealth" during earnings call?
+  E2.C17: Will American Express say "Fraud" during earnings call?
+  E2.C18: Will American Express say "Cybersecurity" during earnings call?
+  E2.C19: Will American Express say "Automation" during earnings call?
+  E2.C20: Will American Express say "Reservation" during earnings call?
+  E2.C21: Will the earnings call not air?
+What to write for E2:
+  Write "p": a whole percent for every contract label, your chance that it resolves YES.
+
+=== E3 (as of 2026-08-28): What will Kevin Warsh say during his speech at Jackson Hole?
+Rules:
+Kevin Warsh is scheduled to deliver a speech at the Jackson Hole Economic Policy Symposium on August 28, 2026, 10 AM ET.
+
+This market will resolve to "Yes" if Warsh says the listed term during his appearance at this event. Otherwise, the market will resolve to "No".
+
+If this event is definitely cancelled, or otherwise is not aired by August 29, 2026, 11:59 PM ET, "-No Qualifying Event-" will resolve to "Yes" and all other brackets will resolve to "No".
+
+The resolution source is the audio/video of the listed event.
+
+For full rules, see: https://polymarket-upload.s3.us-east-2.amazonaws.com/market_products/Mentions/Event+Mentions+Contract+DeFi.pdf
+Contracts:
+  E3.C1: Will Warsh say "Bank" or "Asset" 10+ times during Jackson Hole speech on August 28?
+  E3.C2: Will Warsh say "Task Force" 5+ times during Jackson Hole speech on August 28?
+  E3.C3: Will Warsh say "Stable" 5+ times during Jackson Hole speech on August 28?
+  E3.C4: Will Warsh say "AI" or "Artificial Intelligence" 3+ times during Jackson Hole speech on August 28?
+  E3.C5: Will Warsh say "Challenge" during Jackson Hole speech on August 28?
+  E3.C6: Will Warsh say "Framework" during Jackson Hole speech on August 28?
+  E3.C7: Will Warsh say "Prediction" or "Predictive" during Jackson Hole speech on August 28?
+  E3.C8: Will Warsh say "CapEx" or "Capital Expenditure" during Jackson Hole speech on August 28?
+  E3.C9: Will Warsh say "Regime" during Jackson Hole speech on August 28?
+  E3.C10: Will Warsh say "Integrity" during Jackson Hole speech on August 28?
+  E3.C11: Will Warsh say "Productivity" during Jackson Hole speech on August 28?
+  E3.C12: Will Warsh say "Independent" or "Independence" during Jackson Hole speech on August 28?
+  E3.C13: Will Warsh say "2008" or "Financial Crisis" during Jackson Hole speech on August 28?
+  E3.C14: Will Warsh say "Good Day" during Jackson Hole speech on August 28?
+  E3.C15: Will Warsh say "Good Morning" during Jackson Hole speech on August 28?
+  E3.C16: Will Warsh say "Trump" during Jackson Hole speech on August 28?
+  E3.C17: Will Warsh say "Bitcoin" or "Crypto" or "Cryptocurrency" during Jackson Hole speech on August 28?
+  E3.C18: Will Warsh say "Gold" during Jackson Hole speech on August 28?
+  E3.C19: Will Warsh say "Too Late" during Jackson Hole speech on August 28?
+  E3.C20: Will Warsh say "Payment System" during Jackson Hole speech on August 28?
+  E3.C21: Will Warsh say "Community" during Jackson Hole speech on August 28?
+  E3.C22: Will Warsh say "Ingenuity" during Jackson Hole speech on August 28?
+  E3.C23: Will Warsh’s remarks not air?
+What to write for E3:
+  Write "p": a whole percent for every contract label, your chance that it resolves YES.
+
+=== E4 (as of 2026-08-04): What will AMD say during their next earnings call?
+Rules:
+This market will resolve based on the next earnings announcement of AMD currently scheduled to take place on August 4, 2026 at 5:00 PM ET.
+
+This market will resolve to "Yes" if the listed term is mentioned by anyone during this event. Otherwise, the market will resolve to "No".
+
+If this event is definitely cancelled, or otherwise is not aired by August 5, 2026, 11:59 PM ET, "-No Qualifying Event-" will resolve to "Yes" and all other brackets will resolve to "No".
+
+The resolution source will be audio of the event.
+
+For full rules, see: https://polymarket-upload.s3.us-east-2.amazonaws.com/market_products/Event+Mentions+Contract+DeFi.pdf
+Contracts:
+  E4.C1: Will AMD say "AI" or "Artificial Intelligence" 20+ times during earnings call?
+  E4.C2: Will AMD say "CPU" 20+ times during earnings call?
+  E4.C3: Will AMD say "GPU" 10+ times during earnings call?
+  E4.C4: Will AMD say "Data Center" 10+ times during earnings call?
+  E4.C5: Will AMD say "Game" or "Gaming" 5+ times during earnings call?
+  E4.C6: Will AMD say "Desktop" during earnings call?
+  E4.C7: Will AMD say "Pipeline" during earnings call?
+  E4.C8: Will AMD say "Helios" during earnings call?
+  E4.C9: Will AMD say "China" during earnings call?
+  E4.C10: Will AMD say "Microsoft" or "Azure" during earnings call?
+  E4.C11: Will AMD say "Meta" during earnings call?
+  E4.C12: Will AMD say "Supply Chain" during earnings call?
+  E4.C13: Will AMD say "Frontier" during earnings call?
+  E4.C14: Will AMD say "Oracle" during earnings call?
+  E4.C15: Will AMD say "TSMC" during earnings call?
+  E4.C16: Will the earnings call not air?
+What to write for E4:
+  Write "p": a whole percent for every contract label, your chance that it resolves YES.
+
+=== E5 (as of 2026-08-26): What will Trump say this week? (August 24 - August 30)
+Rules:
+This market will resolve to “Yes” if Donald Trump mentions the listed term between August 24, 2026, 12:00 AM ET and August 30, 2026, 11:59 PM ET. Otherwise, this market will resolve to “No”.
+
+Written usages of terms (e.g. Truth Social posts, written statements, etc.) will not count toward this market's resolution.
+
+Videos posted on his social media which were filmed outside this market's time frame will not qualify for a "Yes" resolution.
+
+For full rules, see: https://polymarket-upload.s3.us-east-2.amazonaws.com/market_products/Mentions/Period+Mentions+Contract+DeFi.pdf
+Contracts:
+  E5.C1: Will Trump say "Boom" or "Booming" this week?
+  E5.C2: Will Trump say "Incompetent" this week?
+  E5.C3: Will Trump say "World War" this week?
+  E5.C4: Will Trump say "Maduro" this week?
+  E5.C5: Will Trump say "Little Rocket Man" this week?
+  E5.C6: Will Trump say "Human Printer" this week?
+  E5.C7: Will Trump say "Hunter" this week?
+  E5.C8: Will Trump say "Through The Roof" this week?
+  E5.C9: Will Trump say "God" this week?
+  E5.C10: Will Trump say "Who Are You" this week?
+  E5.C11: Will Trump say "Six Seven" this week?
+  E5.C12: Will Trump say "Barack Hussein Obama" this week?
+What to write for E5:
+  Write "p": a whole percent for every contract label, your chance that it resolves YES.
+
+=== E6 (as of 2026-08-24): What will Scott Bessent say during press conference?
+Rules:
+Scott Bessent is scheduled to hold a press conference on August 24, 2026. (https://x.com/AlArabiya_Eng/status/2090459137008078912). 
+
+This market will resolve to "Yes" if Scott Bessent says the listed term during the specified appearance. Otherwise, the market will resolve to "No".
+
+This market is explicitly about Scott Bessent's remarks during the press conference scheduled for August 24, 2026. Speeches, events, or comments that occur outside of the named, scheduled event will not qualify toward this market's resolution.
+
+If this event is definitively cancelled, or otherwise is not available by August 25, 2026, 11:59 PM ET, "-No Qualifying Event-" will resolve to "Yes" and all other brackets will resolve to "No".
+
+The resolution source will be audio/video of the event.
+
+For full rules, see: https://polymarket-upload.s3.us-east-2.amazonaws.com/market_products/Event+Mentions+Contract+DeFi.pdf
+Contracts:
+  E6.C1: Will Bessent say "Iran" 10+ times during press conference?
+  E6.C2: Will Bessent say "President" or "Trump" 10+ times during press conference?
+  E6.C3: Will Bessent say "Administration" 5+ times during press conference?
+  E6.C4: Will Bessent say "Secondary" during press conference?
+  E6.C5: Will Bessent say "Facilitator" or "Facilitate" or "Facilitates" during press conference?
+  E6.C6: Will Bessent say "Shadow" during press conference?
+  E6.C7: Will Bessent say "Maximum Pressure" during press conference?
+  E6.C8: Will Bessent say "Regime" during press conference?
+  E6.C9: Will Bessent say "Network" during press conference?
+  E6.C10: Will Bessent say "Evade" or "Evasion" during press conference?
+  E6.C11: Will Bessent say "Negotiate" or "Negotiation" during press conference?
+  E6.C12: Will Bessent say "Asset" during press conference?
+  E6.C13: Will Bessent say "Cost" or "Price" during press conference?
+  E6.C14: Will Bessent say "Oil" or "Gas" or "Gasoline" during press conference?
+  E6.C15: Will Bessent say "Bitcoin" or "Crypto" or "Cryptocurrency" during press conference?
+  E6.C16: Will Bessent's remarks not air?
+What to write for E6:
+  Write "p": a whole percent for every contract label, your chance that it resolves YES.

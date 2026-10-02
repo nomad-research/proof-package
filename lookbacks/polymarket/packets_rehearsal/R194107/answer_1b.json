@@ -1,0 +1,65 @@
+{
+ "hedges": [
+  {
+   "event": "E53",
+   "direction": "dip",
+   "tier": "moderate",
+   "reason": "Nothing on the list is a clean macro-volatility or crypto-equity instrument: no VIX, Nasdaq, MSTR or COIN. The closest expression of the hedge thesis is ETH on the same Binance 1-minute touch mechanics over the same February window. ETH has higher beta to the same liquidity channel: a cross-asset deleveraging that pushes BTC through $50k goes through the same perp liquidation engines, stablecoin collateral and ETF-outflow flows, and it hits ETH harder. So the ETH dip rungs pay in the downside-failure worlds of the primary basket."
+  },
+  {
+   "event": "E53",
+   "direction": "dip",
+   "tier": "severe",
+   "reason": "Covers the deeper tail. If BTC reaches $45k (C16 fails), the cascade is systemic, and ETH, being more leveraged and lower in the collateral chain, should break its deepest listed rung too."
+  },
+  {
+   "event": "E53",
+   "direction": "reach",
+   "tier": "mild",
+   "reason": "Covers the less likely upside-failure world. A short squeeze or dovish-liquidity rally strong enough to carry BTC through $80-90k would lift ETH by at least as much in percentage terms, reaching the lowest ETH upside rung. This is a weaker link, because the ETH rung may sit proportionally further out than BTC $80k."
+  }
+ ],
+ "claims": [
+  {
+   "if": {
+    "contract": "C15",
+    "resolves": "YES"
+   },
+   "then": {
+    "event": "E53",
+    "direction": "dip",
+    "tier": "moderate",
+    "resolves": "YES"
+   },
+   "reason": "BTC dropping about 25% from its post-capitulation range to $50k within February implies a forced-liquidation cascade across crypto. ETH has historically fallen at least as much as BTC in percentage terms in such cascades, because of higher leverage, DeFi collateral liquidations and thinner spot demand. So the ETH moderate dip rung is touched in the same window."
+  },
+  {
+   "if": {
+    "contract": "C16",
+    "resolves": "YES"
+   },
+   "then": {
+    "event": "E53",
+    "direction": "dip",
+    "tier": "severe",
+    "resolves": "YES"
+   },
+   "reason": "A BTC print at $45k would be a systemic event: a large-holder unwind, an exchange or stablecoin failure, or a macro crash. ETH's beta to BTC in systemic drawdowns is above 1, and on-chain liquidations make the move worse, so ETH's deepest listed dip rung would be breached as well."
+  },
+  {
+   "if": {
+    "contract": "C9",
+    "resolves": "YES"
+   },
+   "then": {
+    "event": "E53",
+    "direction": "reach",
+    "tier": "mild",
+    "resolves": "YES"
+   },
+   "reason": "BTC reaching $90k in February means a rally of more than 30% driven by a liquidity or policy shock and a short squeeze. ETH typically outperforms in liquidity-driven relief rallies, so it would touch its lowest listed upside rung in the same window."
+  }
+ ],
+ "no_instrument": false,
+ "recalls_outcome": false
+}

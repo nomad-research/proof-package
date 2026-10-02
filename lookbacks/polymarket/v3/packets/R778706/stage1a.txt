@@ -1,0 +1,31 @@
+You are one of several independent analysts. Work only from what is written below. Apart from reading the file that held this text, do not use any tool, do not look anything up, and do not use anything you
+know that happened after 2026-09-30: reason as of that date. You are shown no market prices, and you are not asked for any probability.
+
+EVENT: Bank of England decision in November?   (structure: partition exact)
+RULES (as of 2026-09-30):
+This market will resolve according to the change in basis points in the Bank Rate resulting from the November 2026 meeting of the Bank of England’s Monetary Policy Committee, relative to the level it was prior to this meeting.
+
+The resolution source will be official information from the Bank of England, including the statement or release from its November 2026 Monetary Policy Committee meeting, scheduled for November 5, 2026, as listed on the official Bank of England calendar (https://www.bankofengland.co.uk/monetary-policy/upcoming-mpc-dates). This market may resolve as soon as the statement or release of the Bank of England's November 2026 Monetary Policy Committee meeting with relevant data is issued.
+
+If the specified rate is defined by an upper and lower bound, the relevant change will be the change to the upper bound.
+
+If the specified rate is changed to a level not expressed in the displayed options, the change will be rounded according to the following guidelines. Increases or decreases of less than 25 bps will be rounded to 25 bps (e.g. an increase or decrease of 10 bps would be considered to be an increase or decrease of 25 bps). Increases or decreases of greater than 25 bps will be rounded to the nearest 25 bps and will be rounded away from 0 in cases of equidistance (e.g., an increase or decrease of 37.5 bps would be considered to be an increase or decrease of 50 bps). Displayed options of “Increase” or “Decrease” will include policy rate increases or decreases of any size.
+
+If the specified meeting is postponed to a date and time before the start of the next scheduled meeting, this market will resolve based on the outcome of that postponed meeting. If the specified meeting is cancelled, or postponed such that no decision is announced by the start of the next scheduled meeting, this market will resolve to the “No Change” bracket. Emergency changes to the specified rate not resulting from the specified meeting will not be considered.
+
+CONTRACTS (each pays $1 if its statement is true when the event resolves, $0 otherwise; you may name YES or NO on any contract):
+  C1: Bank of England decreases interest rates by 50+ bps after November 2026 meeting?  [50+ bps decrease]
+  C2: Bank of England decreases interest rates by 25 bps after November 2026 meeting?  [25 bps decrease]
+  C3: No change in Bank of England’s interest rates after November 2026 meeting?  [No change]
+  C4: Bank of England increases interest rates by 25 bps after November 2026 meeting?  [25 bps increase]
+  C5: Bank of England increases interest rates by 50+ bps after November 2026 meeting?  [50+ bps increase]
+
+Task. Write your own view as documents-and-mechanism reasoning, not as odds.
+1. primary: a thesis about how this event resolves and a basket of at most 4 contracts from the list that expresses it (long only: a contract with YES or NO).
+2. failure_narrative: the specific way the thesis is wrong (what would have to happen for the basket to lose).
+3. hedge_thesis: a second narrative, about a DIFFERENT part of the world, that would tend to be true in exactly the worlds where the primary fails. Say why, in mechanism terms.
+4. search_terms: 3 to 8 words or names (entities, assets, places, institutions) that instruments for the hedge thesis would carry. Lower-case single words or short names.
+5. recalls_outcome: true if you already know, or think you know, how this event (or any part of it) actually turned out; otherwise false. Be honest: a true answer is not penalised, it only means this item is set aside.
+
+Answer with one JSON object and nothing else:
+{"primary": {"thesis": "...", "basket": [{"contract": "C1", "side": "YES", "reason": "..."}]}, "failure_narrative": "...", "hedge_thesis": "...", "search_terms": ["..."], "recalls_outcome": false}

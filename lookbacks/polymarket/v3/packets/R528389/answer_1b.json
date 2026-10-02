@@ -1,0 +1,33 @@
+{
+ "hedges": [
+  {
+   "event": "E58",
+   "direction": "by_date",
+   "tier": "mild",
+   "reason": "This is the closest direct instrument for the hedge mechanism. The worlds where the no-meeting basket loses are mostly worlds where a Russia-Ukraine ceasefire or framework deal becomes signable in Q4 2026, and Trump stages a summit to sign or bless it. The list has no Ukrainian bonds, Rheinmetall, ruble or TTF, so the ceasefire date ladder stands in for them. The latest rung (Dec 31) matches the primary's window."
+  },
+  {
+   "event": "E59",
+   "direction": "by_date",
+   "tier": "mild",
+   "reason": "A Trump-Putin summit before year-end would sit inside an active negotiating process, and that process almost always includes official Russia-Ukraine delegation meetings, as with the Istanbul rounds around the 2025 summit push. Talks by Dec 31 pay out in the meeting worlds where the primary fails."
+  }
+ ],
+ "claims": [
+  {
+   "if": {
+    "contract": "C13",
+    "resolves": "NO"
+   },
+   "then": {
+    "event": "E59",
+    "direction": "by_date",
+    "tier": "mild",
+    "resolves": "YES"
+   },
+   "reason": "A Trump-Putin meeting in Q4 2026 happens only when a Ukraine settlement track is live enough to justify a summit. A live track means authorized Russian and Ukrainian representatives meet before or around it to negotiate ceasefire terms. A leader summit with no Russia-Ukraine diplomatic contact at all in the same year-end window is not a combination I expect."
+  }
+ ],
+ "no_instrument": false,
+ "recalls_outcome": false
+}

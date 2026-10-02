@@ -1,0 +1,46 @@
+{
+ "hedges": [
+  {
+   "event": "E36",
+   "direction": "reach",
+   "tier": "moderate",
+   "reason": "My ETH basket loses on the upside when a broad crypto squeeze or risk-on repricing pushes ETH up about 25% or more in the second half of July. ETH moves roughly 1.2-1.5 times as much as BTC, and those moves are usually led by or shared with BTC. That is the same kind of shock that would carry BTC to a moderate upside rung on its July touch ladder, resolved the same way on Binance 1-minute highs."
+  },
+  {
+   "event": "E36",
+   "direction": "dip",
+   "tier": "moderate",
+   "reason": "My ETH basket loses on the downside when a risk-off or liquidation cascade drags ETH down about 25% or more. Such cascades run across the whole crypto perpetual-futures complex: funding flips, cross-margined longs are liquidated, and BTC's 1-minute lows wick down as well. BTC would plausibly hit a moderate downside rung on its July ladder in the same worlds."
+  }
+ ],
+ "claims": [
+  {
+   "if": {
+    "contract": "C3",
+    "resolves": "YES"
+   },
+   "then": {
+    "event": "E36",
+    "direction": "reach",
+    "tier": "moderate",
+    "resolves": "YES"
+   },
+   "reason": "A rally of 25% or more to 2,300 within half a month almost never happens to ETH alone. It needs market-wide inflows or a short squeeze across crypto perpetual futures. With ETH moving roughly 1.2-1.5 times as much as BTC, BTC would move up roughly 15-20%, which reaches a moderate upside rung."
+  },
+  {
+   "if": {
+    "contract": "C11",
+    "resolves": "YES"
+   },
+   "then": {
+    "event": "E36",
+    "direction": "dip",
+    "tier": "moderate",
+    "resolves": "YES"
+   },
+   "reason": "A 1-minute wick down to 1,400 (about 25% or more) needs a leveraged liquidation cascade. Those cascades spread across venues and assets on shared collateral and cross-margin, so BTC's 1-minute lows on Binance would fall about 15% or more at the same time and reach a moderate downside rung."
+  }
+ ],
+ "no_instrument": false,
+ "recalls_outcome": false
+}

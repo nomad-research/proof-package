@@ -1,0 +1,278 @@
+You will be shown 6 questions from a prediction market. Each has one or more contracts that resolve YES or NO under the rules shown. Each question gives the date your view is "as of": answer as you would on that date.
+
+Use only what you already know. Do not search for or look up anything: reading this file is the only tool call you may make. There are no prices in this file and you should not try to estimate what any market thinks; give your own view.
+
+Each question says what to write for it. Whole percents run from 1 to 99. Levels are plain numbers in the units the contracts use (for example 95000 for $95,000, 3.25 for 3.25%). Dates are YYYY-MM-DD.
+
+For each question also say whether you recognise how it actually turned out ("recognised": true only if you believe you remember the real outcome; otherwise false).
+
+Reply with one JSON object and nothing else:
+{"events": [{"label": "E1", "recognised": false, ...the fields that question asks for...}]}
+
+=== E1 (as of 2026-10-01): Maranhão Governor Election Winner
+Rules:
+The Maranhão gubernatorial election is scheduled to take place in Brazil on October 4, 2026, with a runoff on October 25, 2026, if no candidate receives a majority of the valid votes in the first round.
+
+This market will resolve according to the candidate who wins this election.
+
+Temporary, interim, or placeholder governors appointed by any means before the specified election will not be considered.
+
+If the result of this election isn't known by June 30, 2027, 11:59 PM ET, the market will resolve to "Other".
+
+This market will resolve based on the result of the election, as indicated by a consensus of credible reporting. If there is ambiguity, this market will resolve based solely on the official results as reported by the Brazilian government, specifically the Superior Electoral Court (Tribunal Superior Eleitoral, TSE) (e.g., www.tse.jus.br/eleicoes/resultados-eleicoes).
+Contracts:
+  E1.C1: Will Felipe Camarão win the Governor of Maranhão election?
+  E1.C2: Will André Luís win the Governor of Maranhão election?
+  E1.C3: Will Orleans Brandão win the Governor of Maranhão election?
+  E1.C4: Will Lahesio Bonfim win the Governor of Maranhão election?
+  E1.C5: Will Enilton Rodrigues win the Governor of Maranhão election?
+  E1.C6: Will Eduardo Braide win the Governor of Maranhão election?
+  E1.C7: Will Candidate A win the Governor of Maranhão election?
+  E1.C8: Will Candidate B win the Governor of Maranhão election?
+  E1.C9: Will Candidate C win the Governor of Maranhão election?
+  E1.C10: Will Candidate D win the Governor of Maranhão election?
+  E1.C11: Will Candidate E win the Governor of Maranhão election?
+  E1.C12: Will Candidate F win the Governor of Maranhão election?
+  E1.C13: Will Candidate G win the Governor of Maranhão election?
+  E1.C14: Will Candidate H win the Governor of Maranhão election?
+  E1.C15: Will Candidate I win the Governor of Maranhão election?
+  E1.C16: Will Candidate J win the Governor of Maranhão election?
+  E1.C17: Will Other win the Governor of Maranhão election?
+What to write for E1:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E2 (as of 2026-10-01): Paraíba Senate Election: 2nd Place
+Rules:
+The Brazilian Federal Senate election for Paraíba is scheduled to take place on October 4, 2026.
+
+This market will resolve according to the candidate who wins the second-most valid votes of any candidate at the specified election.
+
+Candidates will be primarily ranked by order of valid votes won. If two or more candidates are tied for any position, ties will be broken by alphabetical order of the candidates’ listed full names as they appear in this market. This market will resolve to the candidate that occupies the second-highest finishing position after applying this ranking.
+
+If the result of this election isn't definitively known by June 30, 2027, 11:59 PM ET, the market will resolve to "Other".
+
+This market will resolve based on the result of the election, as indicated by a consensus of credible reporting. If there is ambiguity, this market will resolve based solely on the official results as reported by the Brazilian government, specifically the Superior Electoral Court (Tribunal Superior Eleitoral, TSE) (e.g., www.tse.jus.br/eleicoes/resultados-eleicoes).
+Contracts:
+  E2.C1: Will Adriano Trajano win the second-most votes in the 2026 Paraíba Senate election?
+  E2.C2: Will André Gadelha win the second-most votes in the 2026 Paraíba Senate election?
+  E2.C3: Will Dr. Marcelo Queiroga win the second-most votes in the 2026 Paraíba Senate election?
+  E2.C4: Will Joao Azevêdo win the second-most votes in the 2026 Paraíba Senate election?
+  E2.C5: Will João Batista win the second-most votes in the 2026 Paraíba Senate election?
+  E2.C6: Will Major Fábio win the second-most votes in the 2026 Paraíba Senate election?
+  E2.C7: Will Nabor win the second-most votes in the 2026 Paraíba Senate election?
+  E2.C8: Will Rinaldo Júnior win the second-most votes in the 2026 Paraíba Senate election?
+  E2.C9: Will Rosilene Santana win the second-most votes in the 2026 Paraíba Senate election?
+  E2.C10: Will Veneziano win the second-most votes in the 2026 Paraíba Senate election?
+  E2.C11: Will Candidate A win the second-most votes in the 2026 Paraíba Senate election?
+  E2.C12: Will Candidate B win the second-most votes in the 2026 Paraíba Senate election?
+  E2.C13: Will Candidate C win the second-most votes in the 2026 Paraíba Senate election?
+  E2.C14: Will Candidate D win the second-most votes in the 2026 Paraíba Senate election?
+  E2.C15: Will Candidate E win the second-most votes in the 2026 Paraíba Senate election?
+  E2.C16: Will Candidate F win the second-most votes in the 2026 Paraíba Senate election?
+  E2.C17: Will Candidate G win the second-most votes in the 2026 Paraíba Senate election?
+  E2.C18: Will Candidate H win the second-most votes in the 2026 Paraíba Senate election?
+  E2.C19: Will Candidate I win the second-most votes in the 2026 Paraíba Senate election?
+  E2.C20: Will Candidate J win the second-most votes in the 2026 Paraíba Senate election?
+  E2.C21: Will Candidate K win the second-most votes in the 2026 Paraíba Senate election?
+  E2.C22: Will Candidate L win the second-most votes in the 2026 Paraíba Senate election?
+  E2.C23: Will Candidate M win the second-most votes in the 2026 Paraíba Senate election?
+  E2.C24: Will Candidate N win the second-most votes in the 2026 Paraíba Senate election?
+  E2.C25: Will Candidate O win the second-most votes in the 2026 Paraíba Senate election?
+  E2.C26: Will Candidate P win the second-most votes in the 2026 Paraíba Senate election?
+  E2.C27: Will Candidate Q win the second-most votes in the 2026 Paraíba Senate election?
+  E2.C28: Will Candidate R win the second-most votes in the 2026 Paraíba Senate election?
+  E2.C29: Will Candidate S win the second-most votes in the 2026 Paraíba Senate election?
+  E2.C30: Will Candidate T win the second-most votes in the 2026 Paraíba Senate election?
+  E2.C31: Will Candidate U win the second-most votes in the 2026 Paraíba Senate election?
+  E2.C32: Will Candidate V win the second-most votes in the 2026 Paraíba Senate election?
+  E2.C33: Will Candidate W win the second-most votes in the 2026 Paraíba Senate election?
+  E2.C34: Will Candidate X win the second-most votes in the 2026 Paraíba Senate election?
+  E2.C35: Will Candidate Y win the second-most votes in the 2026 Paraíba Senate election?
+  E2.C36: Will Candidate Z win the second-most votes in the 2026 Paraíba Senate election?
+  E2.C37: Will someone else win the second-most votes in the 2026 Paraíba Senate election?
+What to write for E2:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E3 (as of 2026-10-01): Brazil Presidential Election First Round: 1st Place in Goiás
+Rules:
+A presidential election is scheduled to take place in Goiás, Brazil on October 4, 2026.
+
+This market will resolve according to the listed candidate who receives the most valid votes in the first round of this election from Goiás.
+
+Candidates will be primarily ranked by order of valid votes won in Goiás. If two or more candidates are tied for any position, ties will be broken by alphabetical order of the candidates’ listed full names as they appear in this market. This market will resolve to the candidate that occupies the highest finishing position after applying this ranking.
+
+If the result of this election isn't known definitively by June 30, 2027, 11:59 PM ET, the market will resolve to "Other".
+
+This market will resolve based on the result of the election, as indicated by a consensus of credible reporting. If there is ambiguity, this market will resolve based solely on the official results as reported by the Brazilian government, specifically the Superior Electoral Court (Tribunal Superior Eleitoral, TSE) (e.g., https://dadosabertos.tse.jus.br/).
+Contracts:
+  E3.C1: Will Clariana Barao win the most votes in the next Brazil presidential election from Goiás?
+  E3.C2: Will Edmilson Costa win the most votes in the next Brazil presidential election from Goiás?
+  E3.C3: Will Escritor Augusto Cury win the most votes in the next Brazil presidential election from Goiás?
+  E3.C4: Will Flavio Bolsonaro win the most votes in the next Brazil presidential election from Goiás?
+  E3.C5: Will Hertz Dias win the most votes in the next Brazil presidential election from Goiás?
+  E3.C6: Will Lula win the most votes in the next Brazil presidential election from Goiás?
+  E3.C7: Will Pablo Marçal win the most votes in the next Brazil presidential election from Goiás?
+  E3.C8: Will Renan Santos win the most votes in the next Brazil presidential election from Goiás?
+  E3.C9: Will Ronaldo Caiado win the most votes in the next Brazil presidential election from Goiás?
+  E3.C10: Will Rui Costa Pimenta win the most votes in the next Brazil presidential election from Goiás?
+  E3.C11: Will Samara win the most votes in the next Brazil presidential election from Goiás?
+  E3.C12: Will Veterinário Wilson Grassi win the most votes in the next Brazil presidential election from Goiás?
+  E3.C13: Will Zema win the most votes in the next Brazil presidential election from Goiás?
+  E3.C14: Will Candidate A win the most votes in the next Brazil presidential election from Goiás?
+  E3.C15: Will Candidate B win the most votes in the next Brazil presidential election from Goiás?
+  E3.C16: Will Candidate C win the most votes in the next Brazil presidential election from Goiás?
+  E3.C17: Will Candidate D win the most votes in the next Brazil presidential election from Goiás?
+  E3.C18: Will Candidate E win the most votes in the next Brazil presidential election from Goiás?
+  E3.C19: Will Candidate F win the most votes in the next Brazil presidential election from Goiás?
+  E3.C20: Will Candidate G win the most votes in the next Brazil presidential election from Goiás?
+  E3.C21: Will Candidate H win the most votes in the next Brazil presidential election from Goiás?
+  E3.C22: Will Candidate I win the most votes in the next Brazil presidential election from Goiás?
+  E3.C23: Will Candidate J win the most votes in the next Brazil presidential election from Goiás?
+  E3.C24: Will Candidate K win the most votes in the next Brazil presidential election from Goiás?
+  E3.C25: Will Candidate L win the most votes in the next Brazil presidential election from Goiás?
+  E3.C26: Will Candidate M win the most votes in the next Brazil presidential election from Goiás?
+  E3.C27: Will Candidate N win the most votes in the next Brazil presidential election from Goiás?
+  E3.C28: Will Candidate O win the most votes in the next Brazil presidential election from Goiás?
+  E3.C29: Will Candidate P win the most votes in the next Brazil presidential election from Goiás?
+  E3.C30: Will Candidate Q win the most votes in the next Brazil presidential election from Goiás?
+  E3.C31: Will Candidate R win the most votes in the next Brazil presidential election from Goiás?
+  E3.C32: Will Candidate S win the most votes in the next Brazil presidential election from Goiás?
+  E3.C33: Will Candidate T win the most votes in the next Brazil presidential election from Goiás?
+  E3.C34: Will Candidate U win the most votes in the next Brazil presidential election from Goiás?
+  E3.C35: Will Candidate V win the most votes in the next Brazil presidential election from Goiás?
+  E3.C36: Will Candidate W win the most votes in the next Brazil presidential election from Goiás?
+  E3.C37: Will Candidate X win the most votes in the next Brazil presidential election from Goiás?
+  E3.C38: Will Candidate Y win the most votes in the next Brazil presidential election from Goiás?
+  E3.C39: Will Candidate Z win the most votes in the next Brazil presidential election from Goiás?
+  E3.C40: Will someone else win the most votes in the next Brazil presidential election from Goiás?
+What to write for E3:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E4 (as of 2026-10-01): Charlesbourg Quebec National Assembly Election Winner
+Rules:
+Parliamentary elections to elect all 127 seats of the National Assembly of Quebec are scheduled to take place in Quebec on October 5, 2026.
+
+This market will resolve according to the candidate who wins the next Charlesbourg Quebec National Assembly election for a full term beginning in October 2026 or thereafter.
+
+If the election results are not known definitively by March 31, 2027, 11:59 PM ET, this market will resolve to "Other".
+
+The resolution source for this market will be a consensus of credible reporting. In case of ambiguity, this market will resolve solely based on official election results as published by Elections Quebec (https://www.electionsquebec.qc.ca/).
+Contracts:
+  E4.C1: Will Gabriel Coulombe win the next Charlesbourg Quebec National Assembly election?
+  E4.C2: Will Marie-Josée Morency win the next Charlesbourg Quebec National Assembly election?
+  E4.C3: Will Seynabou Top win the next Charlesbourg Quebec National Assembly election?
+  E4.C4: Will Georges Goma win the next Charlesbourg Quebec National Assembly election?
+  E4.C5: Will Éloïse Coulombe win the next Charlesbourg Quebec National Assembly election?
+  E4.C6: Will Person A win the next Charlesbourg Quebec National Assembly election?
+  E4.C7: Will Person B win the next Charlesbourg Quebec National Assembly election?
+  E4.C8: Will Person C win the next Charlesbourg Quebec National Assembly election?
+  E4.C9: Will Person D win the next Charlesbourg Quebec National Assembly election?
+  E4.C10: Will Person E win the next Charlesbourg Quebec National Assembly election?
+  E4.C11: Will Person F win the next Charlesbourg Quebec National Assembly election?
+  E4.C12: Will Person G win the next Charlesbourg Quebec National Assembly election?
+  E4.C13: Will Person H win the next Charlesbourg Quebec National Assembly election?
+  E4.C14: Will Person I win the next Charlesbourg Quebec National Assembly election?
+  E4.C15: Will Person J win the next Charlesbourg Quebec National Assembly election?
+  E4.C16: Will Person K win the next Charlesbourg Quebec National Assembly election?
+  E4.C17: Will Person L win the next Charlesbourg Quebec National Assembly election?
+  E4.C18: Will Person M win the next Charlesbourg Quebec National Assembly election?
+  E4.C19: Will Person N win the next Charlesbourg Quebec National Assembly election?
+  E4.C20: Will Person O win the next Charlesbourg Quebec National Assembly election?
+  E4.C21: Will Person P win the next Charlesbourg Quebec National Assembly election?
+  E4.C22: Will Person Q win the next Charlesbourg Quebec National Assembly election?
+  E4.C23: Will Person R win the next Charlesbourg Quebec National Assembly election?
+  E4.C24: Will Person S win the next Charlesbourg Quebec National Assembly election?
+  E4.C25: Will Person T win the next Charlesbourg Quebec National Assembly election?
+  E4.C26: Will Person U win the next Charlesbourg Quebec National Assembly election?
+  E4.C27: Will Person V win the next Charlesbourg Quebec National Assembly election?
+  E4.C28: Will Person W win the next Charlesbourg Quebec National Assembly election?
+  E4.C29: Will Person X win the next Charlesbourg Quebec National Assembly election?
+  E4.C30: Will Person Y win the next Charlesbourg Quebec National Assembly election?
+  E4.C31: Will Person Z win the next Charlesbourg Quebec National Assembly election?
+  E4.C32: Will another candidate win the next Charlesbourg Quebec National Assembly election?
+What to write for E4:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E5 (as of 2026-10-01): How many jobs added in September?
+Rules:
+This market will resolve according to the change in the total nonfarm payroll employment reported by the BLS "Employment Situation Summary" for September 2026, scheduled to be released on October 2, 2026, at 8:30 AM ET.
+
+If the reported value falls exactly between two brackets, then this market will resolve to the higher range bracket. 
+
+If no data for the specified month is released by the date the next month's data is scheduled to be released, this market will resolve based on data from the last available month.
+
+The BLS "Employment Situation Summary" may be found here: https://www.bls.gov/bls/newsrels.htm
+Contracts:
+  E5.C1: Will the US lose more than 50k jobs in September?
+  E5.C2: Will the US lose between 0 and 50k jobs in September?
+  E5.C3: Will the US add between 0 and 50k jobs in September?
+  E5.C4: Will the US add between 50k and 100k jobs in September?
+  E5.C5: Will the US add between 100k and 150k jobs in September?
+  E5.C6: Will the US add between 150k and 200k jobs in September?
+  E5.C7: Will the US add at least 200k jobs in September?
+What to write for E5:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E6 (as of 2026-10-01): Lima Mayoral Election Winner
+Rules:
+The 2026 Lima, Peru mayoral election is currently scheduled to be held on October 4, 2026.
+
+This market will resolve according to the candidate who becomes the next Mayor of Lima as a result of this election.
+
+Temporary, interim, or placeholder mayors appointed before the election will not be considered.
+
+If the result of this election isn't known by June 30, 2027, 11:59 PM ET, the market will resolve to "Other".
+
+The primary resolution source for this market will be a consensus of credible reporting; however, if there is any ambiguity in the results, this market will resolve according to official information from the Peruvian government, including the National Jury of Elections (Jurado Nacional de Elecciones, JNE, https://jne.gob.pe) and the National Office of Electoral Processes (Oficina Nacional de Procesos Electorales, ONPE, https://www.onpe.gob.pe/).
+Contracts:
+  E6.C1: Will Santiago Rosendo Abarca León win the next Lima mayoral elections?
+  E6.C2: Will Luis Isael Rubio Idrogo win the next Lima mayoral elections?
+  E6.C3: Will Daniel Belizario Urresti Elera win the next Lima mayoral elections?
+  E6.C4: Will Luis Alberto Huette Tolentino win the next Lima mayoral elections?
+  E6.C5: Will Edgardo Renán De Pomar Vizcarra win the next Lima mayoral elections?
+  E6.C6: Will Sandro Caller Gutiérrez win the next Lima mayoral elections?
+  E6.C7: Will Jessica Viviana Linares Romero win the next Lima mayoral elections?
+  E6.C8: Will Rubén José Ramírez Mateo win the next Lima mayoral elections?
+  E6.C9: Will Elizabeth María del Rosario León Chinchay win the next Lima mayoral elections?
+  E6.C10: Will Victoria Betzabé La Cruz Garcés win the next Lima mayoral elections?
+  E6.C11: Will Carlos Ricardo Bruce Montes de Oca win the next Lima mayoral elections?
+  E6.C12: Will Ricardo Pablo Belmont Cassinelli win the next Lima mayoral elections?
+  E6.C13: Will Flor de María Hurtado Valdez win the next Lima mayoral elections?
+  E6.C14: Will Oswaldo Hernán Vargas Cuéllar win the next Lima mayoral elections?
+  E6.C15: Will Rubén Daniel Bonilla Espinoza win the next Lima mayoral elections?
+  E6.C16: Will Samuel Marcos Daza Taype win the next Lima mayoral elections?
+  E6.C17: Will Segundo Valdez Zavala win the next Lima mayoral elections?
+  E6.C18: Will Samir Frank Quispe Caballero win the next Lima mayoral elections?
+  E6.C19: Will Yehude Simón Munaro win the next Lima mayoral elections?
+  E6.C20: Will Francis James Allison Oyague win the next Lima mayoral elections?
+  E6.C21: Will Susel Ana María Paredes Piqué win the next Lima mayoral elections?
+  E6.C22: Will Carlos Alberto Tejada Noriega win the next Lima mayoral elections?
+  E6.C23: Will Rafael López Aliaga win the next Lima mayoral elections?
+  E6.C24: Will Person B win the next Lima mayoral elections?
+  E6.C25: Will Person C win the next Lima mayoral elections?
+  E6.C26: Will Person D win the next Lima mayoral elections?
+  E6.C27: Will Person E win the next Lima mayoral elections?
+  E6.C28: Will Person F win the next Lima mayoral elections?
+  E6.C29: Will Person G win the next Lima mayoral elections?
+  E6.C30: Will Person H win the next Lima mayoral elections?
+  E6.C31: Will Person I win the next Lima mayoral elections?
+  E6.C32: Will Person J win the next Lima mayoral elections?
+  E6.C33: Will Person K win the next Lima mayoral elections?
+  E6.C34: Will Person L win the next Lima mayoral elections?
+  E6.C35: Will Person M win the next Lima mayoral elections?
+  E6.C36: Will Person N win the next Lima mayoral elections?
+  E6.C37: Will Person O win the next Lima mayoral elections?
+  E6.C38: Will Person P win the next Lima mayoral elections?
+  E6.C39: Will Person Q win the next Lima mayoral elections?
+  E6.C40: Will Person R win the next Lima mayoral elections?
+  E6.C41: Will Person S win the next Lima mayoral elections?
+  E6.C42: Will Person T win the next Lima mayoral elections?
+  E6.C43: Will Person U win the next Lima mayoral elections?
+  E6.C44: Will Person V win the next Lima mayoral elections?
+  E6.C45: Will Person W win the next Lima mayoral elections?
+  E6.C46: Will Person X win the next Lima mayoral elections?
+  E6.C47: Will Person Y win the next Lima mayoral elections?
+  E6.C48: Will Person Z win the next Lima mayoral elections?
+  E6.C49: Will someone else win the next Lima mayoral elections?
+What to write for E6:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).

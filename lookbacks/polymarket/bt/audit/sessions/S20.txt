@@ -1,0 +1,271 @@
+You will be shown 10 questions from a prediction market. Each question has one or more contracts, and each contract resolves YES or NO under the rules shown.
+
+For every contract, give your probability, as a whole percent from 1 to 99, that it resolves YES. Use only what you already know. Do not search for or look up anything: reading this file is the only tool call you may make.
+
+For each question, also say whether you recognise how it actually turned out ("recognised": true only if you believe you remember the real outcome; otherwise false).
+
+Where a question's contracts are mutually exclusive (exactly one can resolve YES), your numbers for it should add up to about 100. Where they are nested thresholds or dates, keep them consistent with each other.
+
+Reply with one JSON object and nothing else, in this form:
+{"events": [{"label": "E1", "recognised": false, "p": {"E1.C1": 35, "E1.C2": 60}}]}
+
+Every contract label below must appear exactly once in your reply.
+
+=== E1: Which countries will send warships through the Strait of Hormuz by May 31?
+Rules:
+This market will resolve to "Yes" if a national government, its military, or a broad consensus of credible reporting confirms that the listed country's warships transited through the Strait of Hormuz between market creation and May 31, 2026, 11:59 PM ET. Otherwise, this market will resolve to “No”.
+
+A "warship transit" is defined as a military vessel passing through the Strait of Hormuz. Military cargo or support vessels will be considered “warships”; however, commercial or civilian vessels will not qualify.
+
+For the purposes of this market, only transits through the Strait of Hormuz will be considered, defined as passage through the narrowest portion of the waterway between Iran and Oman. Operations solely in the Persian Gulf, Gulf of Oman, or Arabian Sea without passage through this narrowest section will not qualify.
+
+Official confirmation by a national government or its military that its vessels transited through the Strait of Hormuz during the specified timeframe will resolve this market immediately. An overwhelming consensus of credible reporting confirming that such a transit occurred during the specified timeframe will also suffice.
+
+Qualifying confirmations include statements such as official announcements that a country has deployed naval vessels to transit or escort shipping through the Strait of Hormuz.
+
+Confirmations referring only to naval presence in the broader region, including the Persian Gulf, Gulf of Oman, or Arabian Sea, without confirmed transit through the Strait itself, as well as aerial operations, cyber operations, or actions by proxies or third parties, will not alone qualify.
+
+The primary resolution source for this market will be official information by the respective national governments or their militaries; however, an overwhelming consensus of credible reporting will also suffice.
+Contracts:
+  E1.C1: Will the United Kingdom send warships through the Strait of Hormuz by May 31, 2026?
+  E1.C2: Will France send warships through the Strait of Hormuz by May 31, 2026?
+  E1.C3: Will Germany send warships through the Strait of Hormuz by May 31, 2026?
+  E1.C4: Will Italy send warships through the Strait of Hormuz by May 31, 2026?
+  E1.C5: Will the Netherlands send warships through the Strait of Hormuz by May 31, 2026?
+  E1.C6: Will Japan send warships through the Strait of Hormuz by May 31, 2026?
+  E1.C7: Will Canada send warships through the Strait of Hormuz by May 31, 2026?
+  E1.C8: Will India send warships through the Strait of Hormuz by May 31, 2026?
+  E1.C9: Will Greece send warships through the Strait of Hormuz by May 31, 2026?
+  E1.C10: Will Pakistan send warships through the Strait of Hormuz by May 31, 2026?
+  E1.C11: Will Saudi Arabia send warships through the Strait of Hormuz by May 31, 2026?
+  E1.C12: Will the United Arab Emirates send warships through the Strait of Hormuz by May 31, 2026?
+
+=== E2: Will Vance visit the Middle East by..?
+Rules:
+Rules:
+Contracts:
+  E2.C1: Will Vance visit the Middle East by March 31?
+    Contract rules: If U.S. Vice President J.D. Vance visits the Greater Middle East between market creation and the listed date and 11:59 PM ET, this market will resolve to "Yes". Otherwise, this market will resolve to "No".
+
+For the purposes of this market, the Greater Middle East refers to the region comprising Iran, Iraq, Israel, Jordan, Lebanon, Syria, Saudi Arabia, Kuwait, Bahrain, Qatar, the United Arab Emirates, Oman, Yemen, Turkey, Afghanistan, and Pakistan.
+
+For the purpose of this market, a "visit" is defined as Vance physically entering the terrestrial or maritime territory of a listed country. Whether or not Vance enters the country's airspace during the timeframe of this market will have no bearing on a positive resolution.
+
+The primary resolution source for this information will be official information from government of the United States of America, official information from Vance or released by his verified social media accounts, however, a consensus of credible reporting will also be used.
+  E2.C2: Will Vance visit the Middle East by April 10?
+    Contract rules: If U.S. Vice President J.D. Vance visits the Greater Middle East between market creation and the listed date and 11:59 PM ET, this market will resolve to "Yes". Otherwise, this market will resolve to "No".
+
+For the purposes of this market, the Greater Middle East refers to the region comprising Iran, Iraq, Israel, Jordan, Lebanon, Syria, Saudi Arabia, Kuwait, Bahrain, Qatar, the United Arab Emirates, Oman, Yemen, Turkey, Afghanistan, and Pakistan.
+
+For the purpose of this market, a "visit" is defined as Vance physically entering the terrestrial or maritime territory of a listed country. Whether or not Vance enters the country's airspace during the timeframe of this market will have no bearing on a positive resolution.
+
+The primary resolution source for this information will be official information from government of the United States of America, official information from Vance or released by his verified social media accounts, however, a consensus of credible reporting will also be used.
+
+=== E3: Hyperliquid flips Bybit in SOL Open Interest in 2025?
+Rules:
+This market will resolve to “Yes” if Hyperliquid’s Open Interest in Solana perpetual futures exceeds Bybit’s at any point by December 31, 2025 11:59 PM ET. Otherwise, the market will resolve to “No”.
+
+The resolution source for this market is Velo, specifically the "SOL Open Interest" chart set on "1w" available at https://velo.xyz/futures/SOL, specifically the value displayed when hovering on the respective charts for Bybit and Hyperliquid.
+Contracts:
+  E3.C1: Hyperliquid flips Bybit in SOL Open Interest in 2025?
+
+=== E4: 1k+ container ship transits of Suez Canal in Q1 2026?
+Rules:
+Container shipping through the Suez Canal has been severely impacted since late 2023 due to security concerns in the Red Sea related to Houthi attacks, with major carriers rerouting around the Cape of Good Hope. Prior to these concerns, the Suez Canal Authority (SCA) reported 5,847 container ship transits of the canal for the full year of 2023, for an average of about 1,461 container ship transits per quarter. Following the Houthi attacks, the number of container ships transiting the canal has dropped significantly, with a reported average of around 437 container ship transits of the canal per quarter in 2024.
+
+This market will resolve to "Yes" if there are 1000 or more container ship transits of the Suez Canal during the first quarter of 2026. Otherwise, this market will resolve to “No”.
+
+The primary source of resolution for this market will be the Suez Canal Authority (SCA), specifically the number of “Container Ships” reported in the SCA “Quarter Number & Net Ton by Ship Type” report for Q1 2026 (https://www.suezcanal.gov.eg/English/Navigation/Pages/NavigationStatistics.aspx). If this resolution source becomes unavailable, another SCA resolution source may be chosen. If the SCA does not publish specific data on the number of container ship transits of the Suez Canal for the first quarter of 2026 by June 1, 2026, 11:59 PM ET, credible third-party maritime data providers (e.g., IMF PortWatch, Clarkson Research, or Lloyd's List), citing SCA figures or satellite tracking data, will be used to determine the count, with the relevant time period being January 1, 2026 through March 31, 2026.
+Contracts:
+  E4.C1: 1k+ container ship transits of Suez Canal in Q1 2026?
+
+=== E5: GPU rental prices (RTX 5090) end of August?
+Rules:
+This market will resolve according to the finalized Ornn RTX 5090 Index price for August 31, 2026. 
+
+If the recorded data falls exactly between two brackets, this market will resolve to the higher bracket.
+
+The resolution source for this market is Ornnai.com (ornnai.com), specifically, the RTX 5090 Index chart data available at https://dashboard.ornnai.com. The specified finalized daily value shown on the chart will be used for resolution. Daily data will be considered finalized once the following day’s data point is published.
+
+Resolution will occur once the specified data point is finalized. If the relevant data is not finalized by the end of the 7th calendar day after the specified date (ET), this market will resolve according to the latest data available at that time. Revisions made after the relevant figure has been finalized will not be considered.
+Contracts:
+  E5.C1: Will the Ornn RTX 5090 Index be less than $0.40 on August 31, 2026?
+  E5.C2: Will the Ornn RTX 5090 Index be between $0.40 and $0.45 on August 31, 2026?
+  E5.C3: Will the Ornn RTX 5090 Index be between $0.45 and $0.50 on August 31, 2026?
+  E5.C4: Will the Ornn RTX 5090 Index be between $0.50 and $0.55 on August 31, 2026?
+  E5.C5: Will the Ornn RTX 5090 Index be between $0.55 and $0.60 on August 31, 2026?
+  E5.C6: Will the Ornn RTX 5090 Index be at least $0.60 on August 31, 2026?
+
+=== E6: Lewisham Mayoral Election Winner
+Rules:
+The 2026 Lewisham mayoral election is currently scheduled to be held on May 7, 2026.
+
+This market will resolve according to the candidate who becomes the next mayor of Lewisham as a result of this election.
+
+Temporary, interim, or placeholder mayors appointed before the election will not be considered.
+
+If the result of this election isn't known by April 30, 2027, 11:59 PM ET, the market will resolve to "Other".
+
+The primary resolution source for this market will be a consensus of credible reporting; however, if there is any ambiguity in the results, this market will resolve according to official information from the Lewisham Council.
+Contracts:
+  E6.C1: Will Jay Coward win the 2026 London Borough of Lewisham mayoral election?
+  E6.C2: Will Kayode Damali win the 2026 London Borough of Lewisham mayoral election?
+  E6.C3: Will Amanda De Ryk win the 2026 London Borough of Lewisham mayoral election?
+  E6.C4: Will Josh Matthews win the 2026 London Borough of Lewisham mayoral election?
+  E6.C5: Will Roger Mighton win the 2026 London Borough of Lewisham mayoral election?
+  E6.C6: Will Peter Newman win the 2026 London Borough of Lewisham mayoral election?
+  E6.C7: Will Liam Shrivastava win the 2026 London Borough of Lewisham mayoral election?
+  E6.C8: Will Sylbourne Sydial win the 2026 London Borough of Lewisham mayoral election?
+
+=== E7: Precipitation in Hong Kong in March?
+Rules:
+This market will resolve according to the total precipitation in mm in Hong Kong between March 1 and March 31, 2026, according to the Hong Kong Observatory.
+
+The resolution source for this market will be the Hong Kong Observatory, specifically the "Total Rainfall (mm)" figure for all days in March 2026 under the "Daily Extract" at the https://www.weather.gov.hk/en/cis/climat.htm link once figures are finalized for the specified range.
+
+If the reported data falls exactly between two brackets, this market will resolve to the higher bracket.
+
+If the relevant data is not available by May 7, 2026, 11:59 PM ET, another credible resolution source will be chosen.
+
+The resolution source for this market measures precipitation to 1 decimal place (e.g., 1.5), thus, this is the level of precision that will be used when resolving this market. Any revisions to precipitation recorded after data is finalized for this market's timeframe will not be considered for this market's resolution.
+Contracts:
+  E7.C1: Will Hong Kong have less than 150mm of precipitation in March?
+  E7.C2: Will Hong Kong have between 150-160mm of precipitation in March?
+  E7.C3: Will Hong Kong have between 160-170mm of precipitation in March?
+  E7.C4: Will Hong Kong have between 170-180mm of precipitation in March?
+  E7.C5: Will Hong Kong have between 180-190mm of precipitation in March?
+  E7.C6: Will Hong Kong have between 190-200mm of precipitation in March?
+  E7.C7: Will Hong Kong have 200mm or more of precipitation in March?
+
+=== E8: Calgary-Shaw Provincial By-Election Winner
+Rules:
+A by-election for the Alberta provincial electoral district of Calgary-Shaw is currently scheduled to be held on September 14, 2026.
+
+This market will resolve according to the candidate who wins the 2026 Calgary-Shaw provincial by-election.
+
+If the election results are not known definitively by December 31, 2026, 11:59 PM ET, this market will resolve to "Other".
+
+The resolution source for this market will be a consensus of credible reporting. In case of ambiguity, this market will resolve solely based on official election results as published by Elections Alberta (https://www.elections.ab.ca/).
+Contracts:
+  E8.C1: Will Mike Derry win the 2026 Calgary-Shaw provincial by-election?
+  E8.C2: Will Kyle Campbell win the 2026 Calgary-Shaw provincial by-election?
+  E8.C3: Will John Roggeveen win the 2026 Calgary-Shaw provincial by-election?
+  E8.C4: Will Kyle Joseph win the 2026 Calgary-Shaw provincial by-election?
+
+=== E9: What Trump-named things will Trump mention in April?
+Rules:
+This market will resolve to "Yes" if Donald Trump says the listed term between April 1, 2026, 12:00AM ET and April 30, 2026, 11:59PM ET. Otherwise, the market will resolve to "No".
+
+Plural and possessive forms of the listed term will count toward the resolution of this market regardless of context; however, other forms will NOT count.
+
+If this market requires a specified number of mentions of a person’s first or last name, a full-name mention will count as one mention (e.g., if a market is about “Joe / Biden 5+ times,” a mention of “Joe Biden” will count once).
+
+A ‘mention’ will include any verbal mention which is recorded (audio or video) and publicly accessible.
+
+Written usages of terms (e.g. Truth Social posts, written statements, etc.) will not count toward this market's resolution.
+
+AI-generated audio or video will not count toward this market's resolution.
+
+Videos posted on his social media which were filmed outside this market's time frame will not qualify for a "Yes" resolution.
+Contracts:
+  E9.C1: Will Trump say "Arc de Trump" or "Arch de Trump" or "Trump Arch" in April?
+  E9.C2: Will Trump say "Donroe Doctrine" or "Trump Doctrine" in April?
+  E9.C3: Will Trump say "Mount Trump" or "Mount Trumpmore" in April?
+  E9.C4: Will Trump say "Trump Account" in April?
+  E9.C5: Will Trump say "Trump Card" or "Trump Gold Card" in April?
+  E9.C6: Will Trump say "Trump Coin" in April?
+  E9.C7: Will Trump say "Trump Derangement Syndrome" in April?
+  E9.C8: Will Trump say "Trump Force One" in April?
+  E9.C9: Will Trump say "Trump International Airport" or "Trump Airport" in April?
+  E9.C10: Will Trump say "Trump National" or "Trump International" in April?
+  E9.C11: Will Trump say "Trump Organization" in April?
+  E9.C12: Will Trump say "Trump Peace" or "Trump Accord" in April?
+
+=== E10: What will NYSE Composite (NYA) hit in March?
+Rules:
+What will NYSE Composite (NYA) hit in March?
+Contracts:
+  E10.C1: Will NYSE Composite (NYA) hit 18800 (LOW) in March?
+    Contract rules: This market will resolve to "Yes" if, at any point during March 2026, any 1-minute candle for NYSE Composite (NYA) shows a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No."
+
+All prices recorded during regular trading hours of the primary exchange for the instrument, as reflected in Yahoo Finance's 1-minute interval ("1m") data, will be considered.
+
+Periods when the market is officially closed (e.g., holidays or maintenance breaks) will not be considered.
+
+All times referenced are local to the primary exchange on which the index trades.
+
+The resolution source for this market is Yahoo Finance — specifically, the 1-minute interval ("1m") chart data for NYSE Composite (NYA).
+
+Note: NYSE Composite (NYA) is represented by ^NYA on Yahoo Finance.
+  E10.C2: Will NYSE Composite (NYA) hit 18600 (LOW) in March?
+    Contract rules: This market will resolve to "Yes" if, at any point during March 2026, any 1-minute candle for NYSE Composite (NYA) shows a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No."
+
+All prices recorded during regular trading hours of the primary exchange for the instrument, as reflected in Yahoo Finance's 1-minute interval ("1m") data, will be considered.
+
+Periods when the market is officially closed (e.g., holidays or maintenance breaks) will not be considered.
+
+All times referenced are local to the primary exchange on which the index trades.
+
+The resolution source for this market is Yahoo Finance — specifically, the 1-minute interval ("1m") chart data for NYSE Composite (NYA).
+
+Note: NYSE Composite (NYA) is represented by ^NYA on Yahoo Finance.
+  E10.C3: Will NYSE Composite (NYA) hit 18400 (LOW) in March?
+    Contract rules: This market will resolve to "Yes" if, at any point during March 2026, any 1-minute candle for NYSE Composite (NYA) shows a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No."
+
+All prices recorded during regular trading hours of the primary exchange for the instrument, as reflected in Yahoo Finance's 1-minute interval ("1m") data, will be considered.
+
+Periods when the market is officially closed (e.g., holidays or maintenance breaks) will not be considered.
+
+All times referenced are local to the primary exchange on which the index trades.
+
+The resolution source for this market is Yahoo Finance — specifically, the 1-minute interval ("1m") chart data for NYSE Composite (NYA).
+
+Note: NYSE Composite (NYA) is represented by ^NYA on Yahoo Finance.
+  E10.C4: Will NYSE Composite (NYA) hit 18100 (LOW) in March?
+    Contract rules: This market will resolve to "Yes" if, at any point during March 2026, any 1-minute candle for NYSE Composite (NYA) shows a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No."
+
+All prices recorded during regular trading hours of the primary exchange for the instrument, as reflected in Yahoo Finance's 1-minute interval ("1m") data, will be considered.
+
+Periods when the market is officially closed (e.g., holidays or maintenance breaks) will not be considered.
+
+All times referenced are local to the primary exchange on which the index trades.
+
+The resolution source for this market is Yahoo Finance — specifically, the 1-minute interval ("1m") chart data for NYSE Composite (NYA).
+
+Note: NYSE Composite (NYA) is represented by ^NYA on Yahoo Finance.
+  E10.C5: Will NYSE Composite (NYA) hit 17800 (LOW) in March?
+    Contract rules: This market will resolve to "Yes" if, at any point during March 2026, any 1-minute candle for NYSE Composite (NYA) shows a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No."
+
+All prices recorded during regular trading hours of the primary exchange for the instrument, as reflected in Yahoo Finance's 1-minute interval ("1m") data, will be considered.
+
+Periods when the market is officially closed (e.g., holidays or maintenance breaks) will not be considered.
+
+All times referenced are local to the primary exchange on which the index trades.
+
+The resolution source for this market is Yahoo Finance — specifically, the 1-minute interval ("1m") chart data for NYSE Composite (NYA).
+
+Note: NYSE Composite (NYA) is represented by ^NYA on Yahoo Finance.
+  E10.C6: Will NYSE Composite (NYA) hit 17400 (LOW) in March?
+    Contract rules: This market will resolve to "Yes" if, at any point during March 2026, any 1-minute candle for NYSE Composite (NYA) shows a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No."
+
+All prices recorded during regular trading hours of the primary exchange for the instrument, as reflected in Yahoo Finance's 1-minute interval ("1m") data, will be considered.
+
+Periods when the market is officially closed (e.g., holidays or maintenance breaks) will not be considered.
+
+All times referenced are local to the primary exchange on which the index trades.
+
+The resolution source for this market is Yahoo Finance — specifically, the 1-minute interval ("1m") chart data for NYSE Composite (NYA).
+
+Note: NYSE Composite (NYA) is represented by ^NYA on Yahoo Finance.
+  E10.C7: Will NYSE Composite (NYA) hit 16900 (LOW) in March?
+    Contract rules: This market will resolve to "Yes" if, at any point during March 2026, any 1-minute candle for NYSE Composite (NYA) shows a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No."
+
+All prices recorded during regular trading hours of the primary exchange for the instrument, as reflected in Yahoo Finance's 1-minute interval ("1m") data, will be considered.
+
+Periods when the market is officially closed (e.g., holidays or maintenance breaks) will not be considered.
+
+All times referenced are local to the primary exchange on which the index trades.
+
+The resolution source for this market is Yahoo Finance — specifically, the 1-minute interval ("1m") chart data for NYSE Composite (NYA).
+
+Note: NYSE Composite (NYA) is represented by ^NYA on Yahoo Finance.

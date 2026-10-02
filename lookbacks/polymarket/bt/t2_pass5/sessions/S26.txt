@@ -1,0 +1,316 @@
+You will be shown 6 questions from a prediction market. Each has one or more contracts that resolve YES or NO under the rules shown. Each question gives the date your view is "as of": answer as you would on that date.
+
+Use only what you already know. Do not search for or look up anything: reading this file is the only tool call you may make. There are no prices in this file and you should not try to estimate what any market thinks; give your own view.
+
+Each question says what to write for it. Whole percents run from 1 to 99. Levels are plain numbers in the units the contracts use (for example 95000 for $95,000, 3.25 for 3.25%). Dates are YYYY-MM-DD.
+
+For each question also say whether you recognise how it actually turned out ("recognised": true only if you believe you remember the real outcome; otherwise false).
+
+Reply with one JSON object and nothing else:
+{"events": [{"label": "E1", "recognised": false, ...the fields that question asks for...}]}
+
+=== E1 (as of 2026-05-06): Solana price on May 8?
+Rules:
+This market will resolve according to the final "Close" price of the Binance 1 minute candle for SOL/USDT 12:00 in the ET timezone (noon) on the date specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the SOL/USDT "Close" prices currently available at https://www.binance.com/en/trade/SOL_USDT with "1m" and "Candles" selected on the top bar.
+
+If the reported value falls exactly between two brackets, then this market will resolve to the higher range bracket.
+
+Please note that this market is about the price according to Binance SOL/USDT, not according to other exchanges or trading pairs.
+Contracts:
+  E1.C1: Will the price of Solana be less than $40 on May 8?
+  E1.C2: Will the price of Solana be between $40 and $50 on May 8?
+  E1.C3: Will the price of Solana be between $50 and $60 on May 8?
+  E1.C4: Will the price of Solana be between $60 and $70 on May 8?
+  E1.C5: Will the price of Solana be between $70 and $80 on May 8?
+  E1.C6: Will the price of Solana be between $80 and $90 on May 8?
+  E1.C7: Will the price of Solana be between $90 and $100 on May 8?
+  E1.C8: Will the price of Solana be between $100 and $110 on May 8?
+  E1.C9: Will the price of Solana be between $110 and $120 on May 8?
+  E1.C10: Will the price of Solana be between $120 and $130 on May 8?
+  E1.C11: Will the price of Solana be greater than $130 on May 8?
+What to write for E1:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E2 (as of 2026-04-22): XRP above ___ on April 27?
+Rules:
+This market will resolve to "Yes" if the Binance 1 minute candle for XRP/USDT 12:00 in the ET timezone (noon) on the date specified in the title has a final "Close" price higher than the price specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the XRP/USDT "Close" prices currently available at https://www.binance.com/en/trade/XRP_USDT with "1m" and "Candles" selected on the top bar.
+
+Please note that this market is about the price according to Binance XRP/USDT, not according to other exchanges or trading pairs.
+
+Price precision is determined by the number of decimal places in the source.
+Contracts:
+  E2.C1: Will the price of XRP be above $0.90 on April 27?
+  E2.C2: Will the price of XRP be above $1.00 on April 27?
+  E2.C3: Will the price of XRP be above $1.10 on April 27?
+  E2.C4: Will the price of XRP be above $1.20 on April 27?
+  E2.C5: Will the price of XRP be above $1.30 on April 27?
+  E2.C6: Will the price of XRP be above $1.40 on April 27?
+  E2.C7: Will the price of XRP be above $1.50 on April 27?
+  E2.C8: Will the price of XRP be above $1.60 on April 27?
+  E2.C9: Will the price of XRP be above $1.70 on April 27?
+  E2.C10: Will the price of XRP be above $1.80 on April 27?
+  E2.C11: Will the price of XRP be above $1.90 on April 27?
+What to write for E2:
+  Write "levels": for each chance 10, 25, 50, 75 and 90, the level you give that chance of the measured quantity being at or above when it resolves. The 10 level is the highest and the 90 level the lowest. Example: {"10": 120, "25": 110, "50": 100, "75": 92, "90": 85}.
+
+=== E3 (as of 2026-06-24): XRP above ___ on June 28?
+Rules:
+This market will resolve to "Yes" if the Binance 1 minute candle for XRP/USDT 12:00 in the ET timezone (noon) on the date specified in the title has a final "Close" price higher than the price specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the XRP/USDT "Close" prices currently available at https://www.binance.com/en/trade/XRP_USDT with "1m" and "Candles" selected on the top bar.
+
+Please note that this market is about the price according to Binance XRP/USDT, not according to other exchanges or trading pairs.
+
+Price precision is determined by the number of decimal places in the source.
+Contracts:
+  E3.C1: Will the price of XRP be above $0.60 on June 28?
+  E3.C2: Will the price of XRP be above $0.70 on June 28?
+  E3.C3: Will the price of XRP be above $0.80 on June 28?
+  E3.C4: Will the price of XRP be above $0.90 on June 28?
+  E3.C5: Will the price of XRP be above $1.00 on June 28?
+  E3.C6: Will the price of XRP be above $1.10 on June 28?
+  E3.C7: Will the price of XRP be above $1.20 on June 28?
+  E3.C8: Will the price of XRP be above $1.30 on June 28?
+  E3.C9: Will the price of XRP be above $1.40 on June 28?
+  E3.C10: Will the price of XRP be above $1.50 on June 28?
+  E3.C11: Will the price of XRP be above $1.60 on June 28?
+What to write for E3:
+  Write "levels": for each chance 10, 25, 50, 75 and 90, the level you give that chance of the measured quantity being at or above when it resolves. The 10 level is the highest and the 90 level the lowest. Example: {"10": 120, "25": 110, "50": 100, "75": 92, "90": 85}.
+
+=== E4 (as of 2026-04-15): What will Tesla, Inc. (TSLA) hit Week of April 13 2026?
+Rules:
+What will Tesla, Inc. (TSLA) hit Week of April 13 2026?
+Contracts:
+  E4.C1: Will Tesla, Inc. (TSLA) hit (HIGH) $397.50 Week of April 13 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of April 13 2026, any 1-minute candle for Tesla, Inc. (TSLA) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Tesla, Inc. (TSLA) "High" prices available at https://pythdata.app/explore/Equity.US.TSLA%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.TSLA%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E4.C2: Will Tesla, Inc. (TSLA) hit (HIGH) $390 Week of April 13 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of April 13 2026, any 1-minute candle for Tesla, Inc. (TSLA) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Tesla, Inc. (TSLA) "High" prices available at https://pythdata.app/explore/Equity.US.TSLA%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.TSLA%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E4.C3: Will Tesla, Inc. (TSLA) hit (HIGH) $382.50 Week of April 13 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of April 13 2026, any 1-minute candle for Tesla, Inc. (TSLA) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Tesla, Inc. (TSLA) "High" prices available at https://pythdata.app/explore/Equity.US.TSLA%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.TSLA%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E4.C4: Will Tesla, Inc. (TSLA) hit (HIGH) $375 Week of April 13 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of April 13 2026, any 1-minute candle for Tesla, Inc. (TSLA) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Tesla, Inc. (TSLA) "High" prices available at https://pythdata.app/explore/Equity.US.TSLA%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.TSLA%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E4.C5: Will Tesla, Inc. (TSLA) hit (LOW) $345 Week of April 13 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of April 13 2026, any 1-minute candle for Tesla, Inc. (TSLA) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Tesla, Inc. (TSLA) "Low" prices available at https://pythdata.app/explore/Equity.US.TSLA%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.TSLA%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E4.C6: Will Tesla, Inc. (TSLA) hit (LOW) $337.50 Week of April 13 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of April 13 2026, any 1-minute candle for Tesla, Inc. (TSLA) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Tesla, Inc. (TSLA) "Low" prices available at https://pythdata.app/explore/Equity.US.TSLA%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.TSLA%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E4.C7: Will Tesla, Inc. (TSLA) hit (LOW) $330 Week of April 13 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of April 13 2026, any 1-minute candle for Tesla, Inc. (TSLA) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Tesla, Inc. (TSLA) "Low" prices available at https://pythdata.app/explore/Equity.US.TSLA%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.TSLA%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E4.C8: Will Tesla, Inc. (TSLA) hit (LOW) $322.50 Week of April 13 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of April 13 2026, any 1-minute candle for Tesla, Inc. (TSLA) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Tesla, Inc. (TSLA) "Low" prices available at https://pythdata.app/explore/Equity.US.TSLA%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.TSLA%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E4.C9: Will Tesla, Inc. (TSLA) hit (LOW) $315 Week of April 13 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of April 13 2026, any 1-minute candle for Tesla, Inc. (TSLA) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Tesla, Inc. (TSLA) "Low" prices available at https://pythdata.app/explore/Equity.US.TSLA%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.TSLA%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E4.C10: Will Tesla, Inc. (TSLA) hit (LOW) $307.50 Week of April 13 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of April 13 2026, any 1-minute candle for Tesla, Inc. (TSLA) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Tesla, Inc. (TSLA) "Low" prices available at https://pythdata.app/explore/Equity.US.TSLA%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.TSLA%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E4.C11: Will Tesla, Inc. (TSLA) hit (LOW) $300 Week of April 13 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of April 13 2026, any 1-minute candle for Tesla, Inc. (TSLA) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Tesla, Inc. (TSLA) "Low" prices available at https://pythdata.app/explore/Equity.US.TSLA%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.TSLA%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+What to write for E4:
+  Write "high": for each chance 10, 25, 50, 75 and 90, the level you give that chance of being reached (at or above) within the period. The 10 level is the highest.
+  Write "low": for each chance 10, 25, 50, 75 and 90, the level you give that chance of being reached (at or below) within the period. The 10 level is the lowest.
+
+=== E5 (as of 2026-06-03): Zelenskyy # posts June 2 - June 9, 2026?
+Rules:
+This market will resolve according to the number of times Volodymyr Zelenskyy (@ZelenskyyUa), posts on X between June 2, 12:00 PM ET and June 9, 2026, 12:00 PM ET.
+
+For the purposes of this market, only main feed posts, quote posts and reposts will count.
+
+Replies will NOT count towards the total - however, replies which are recorded on the main feed will be counted by the tracker.
+
+Deleted posts will count as long as they remain available long enough to be captured by the tracker (~5 minutes).
+
+The resolution source for this market is the "Post Counter" figure for posts found at https://xtracker.polymarket.com. Individual posts can be viewed by clicking "Export Data". If the tracker does not update correctly in accordance with the rules, X itself may be used as a secondary resolution source.
+Contracts:
+  E5.C1: Will Zelenskyy post 0-19 posts from June 2 to June 9, 2026?
+  E5.C2: Will Zelenskyy post 20-39 posts from June 2 to June 9, 2026?
+  E5.C3: Will Zelenskyy post 40-59 posts from June 2 to June 9, 2026?
+  E5.C4: Will Zelenskyy post 60-79 posts from June 2 to June 9, 2026?
+  E5.C5: Will Zelenskyy post 80-99 posts from June 2 to June 9, 2026?
+  E5.C6: Will Zelenskyy post 100-119 posts from June 2 to June 9, 2026?
+  E5.C7: Will Zelenskyy post 120-139 posts from June 2 to June 9, 2026?
+  E5.C8: Will Zelenskyy post 140-159 posts from June 2 to June 9, 2026?
+  E5.C9: Will Zelenskyy post 160-179 posts from June 2 to June 9, 2026?
+  E5.C10: Will Zelenskyy post 180-199 posts from June 2 to June 9, 2026?
+  E5.C11: Will Zelenskyy post 200+ posts from June 2 to June 9, 2026?
+What to write for E5:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E6 (as of 2026-07-29): Solana above ___ on August 4?
+Rules:
+This market will resolve to "Yes" if the Binance 1 minute candle for SOL/USDT 12:00 in the ET timezone (noon) on the date specified in the title has a final "Close" price higher than the price specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the SOL/USDT "Close" prices currently available at https://www.binance.com/en/trade/SOL_USDT with "1m" and "Candles" selected on the top bar.
+
+Please note that this market is about the price according to Binance SOL/USDT, not according to other exchanges or trading pairs.
+
+Price precision is determined by the number of decimal places in the source.
+Contracts:
+  E6.C1: Will the price of Solana be above $20 on August 4?
+  E6.C2: Will the price of Solana be above $30 on August 4?
+  E6.C3: Will the price of Solana be above $40 on August 4?
+  E6.C4: Will the price of Solana be above $50 on August 4?
+  E6.C5: Will the price of Solana be above $60 on August 4?
+  E6.C6: Will the price of Solana be above $70 on August 4?
+  E6.C7: Will the price of Solana be above $80 on August 4?
+  E6.C8: Will the price of Solana be above $90 on August 4?
+  E6.C9: Will the price of Solana be above $100 on August 4?
+  E6.C10: Will the price of Solana be above $110 on August 4?
+  E6.C11: Will the price of Solana be above $120 on August 4?
+What to write for E6:
+  Write "levels": for each chance 10, 25, 50, 75 and 90, the level you give that chance of the measured quantity being at or above when it resolves. The 10 level is the highest and the 90 level the lowest. Example: {"10": 120, "25": 110, "50": 100, "75": 92, "90": 85}.

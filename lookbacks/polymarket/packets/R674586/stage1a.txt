@@ -1,0 +1,30 @@
+You are one of several independent analysts. Work only from what is written below. Apart from reading the file that held this text, do not use any tool, do not look anything up, and do not use anything you
+know that happened after 2026-08-14: reason as of that date. You are shown no market prices, and you are not asked for any probability.
+
+EVENT: AfD wins the most seats in how many September state elections?   (structure: partition exact)
+RULES (as of 2026-08-14):
+Parliamentary elections to elect the Landtag of Sachsen-Anhalt (also known as Saxony-Anhalt), the Landtag of Mecklenburg-Vorpommern, and the Abgeordnetenhaus of Berlin are scheduled to take place in September of 2026. 
+
+This market will resolve to the number of elections, among those three listed, in which Alternative für Deutschland, also referred to as AfD or Alternative for Germany, wins or ties for the greatest number of seats in these elections.
+
+No other election in a German state parliamentary body will be considered, even if it is held in September of 2026. 
+
+A delayed election to any of the three referenced bodies will be considered so long as voting is completed by December 31, 2026 at 11:59PM ET. 
+
+This market will resolve based on the results of the elections, as indicated by a consensus of credible reporting. If there is ambiguity, this market will resolve based solely on the official results as published on the official websites of the listed parliamentary bodies. No potential challenge or invalidation of an election that occurs after the publication of the official results will be relevant to this market.
+
+CONTRACTS (each pays $1 if its statement is true when the event resolves, $0 otherwise; you may name YES or NO on any contract):
+  C1: Will AfD win the most seats in 0 German state elections in September 2026?  [0]
+  C2: Will AfD win the most seats in 1 German state election in September 2026?  [1]
+  C3: Will AfD win the most seats in 2 German state elections in September 2026?  [2]
+  C4: Will AfD win the most seats in 3 German state elections in September 2026?  [3]
+
+Task. Write your own view as documents-and-mechanism reasoning, not as odds.
+1. primary: a thesis about how this event resolves and a basket of at most 4 contracts from the list that expresses it (long only: a contract with YES or NO).
+2. failure_narrative: the specific way the thesis is wrong (what would have to happen for the basket to lose).
+3. hedge_thesis: a second narrative, about a DIFFERENT part of the world, that would tend to be true in exactly the worlds where the primary fails. Say why, in mechanism terms.
+4. search_terms: 3 to 8 words or names (entities, assets, places, institutions) that instruments for the hedge thesis would carry. Lower-case single words or short names.
+5. recalls_outcome: true if you already know, or think you know, how this event (or any part of it) actually turned out; otherwise false. Be honest: a true answer is not penalised, it only means this item is set aside.
+
+Answer with one JSON object and nothing else:
+{"primary": {"thesis": "...", "basket": [{"contract": "C1", "side": "YES", "reason": "..."}]}, "failure_narrative": "...", "hedge_thesis": "...", "search_terms": ["..."], "recalls_outcome": false}

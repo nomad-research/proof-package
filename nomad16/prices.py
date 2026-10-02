@@ -205,3 +205,83 @@ def next_session_after(view, symbol: str, knowable_from: str) -> tuple:
     else:
         first = (pd.Timestamp(day(knowable_from)) + _dt.timedelta(days=1)).strftime("%Y-%m-%d")
     return price_on_or_after(view, symbol, first)
+
+
+# ---------------------------------------------------------------------------------------------------------------------------------------------------------
+# Polymarket price history (Polymarket frame, V1 pre-registration A2). Same discipline as the daily store: a hashed vintage, verified against its own shape,
+# truncated at the lock **before anything is written**, drift recorded. The series is intraday points keyed by **token id** (never question text), kept in the same
+# ledger table with source ``polymarket_clob_prices_history`` and payload ``{"symbol": token_id, "points": [[t, p], ...]}``. Price is attentional (R6): these
+# points are read at expression, sizing and scoring, never as evidence.
+# ---------------------------------------------------------------------------------------------------------------------------------------------------------
+PM_SOURCE = "polymarket_clob_prices_history"
+PM_HISTORY = "https://clob.polymarket.com/prices-history?market={tok}&startTs={p1}&endTs={p2}&fidelity={fid}"
+PM_MAX_AGE_S = 48 * 3600      # V1 A2: a price older than this at the lock is not a price for that contract
+
+
+def fetch_polymarket(db: DB, token_id: str, from_ts: int, to_ts: int, ceiling_ts: int | None, fidelity: int = 60) -> dict:
+    """Fetch a token's price history into a new vintage. ``ceiling_ts`` drops points at or after it (the lock) before storage."""
+    raw = curl(PM_HISTORY.format(tok=token_id, p1=int(from_ts), p2=int(to_ts), fid=int(fidelity)))
+    try:
+        hist = json.loads(raw)["history"]
+    except (ValueError, KeyError, TypeError):
+        raise Refused(f"price history for token {token_id[:12]} returned no history ({raw[:120]})")
+    pts, problems = [], []
+    for h in hist:
+        try:
+            t, p = int(h["t"]), float(h["p"])
+        except (KeyError, TypeError, ValueError):
+            problems.append("a point without numeric t and p")
+            break
+        if not 0.0 <= p <= 1.0:
+            problems.append(f"price {p} outside [0, 1]")
+            break
+        if ceiling_ts is not None and t >= int(ceiling_ts):
+            continue                                   # truncated before anything reaches disk
+        pts.append([t, p])
+    ts_ = [t for t, _ in pts]
+    if ts_ != sorted(set(ts_)):
+        problems.append("times not strictly increasing")
+    if problems:
+        raise Refused(f"price payload for token {token_id[:12]} failed verification: {problems}")
+    payload = {"symbol": token_id, "points": pts}
+    phash = sha(canon(payload))
+    drift_of, drift = None, []
+    prev = [r for r in db.rows("price_vintages", "symbol=?", (token_id,)) if r["source"] == PM_SOURCE]
+    if prev:
+        old = {t: p for t, p in prev[-1]["payload"]["points"]}
+        drift = [t for t, p in pts if t in old and abs(old[t] - p) > 1e-9]
+        if drift:
+            drift_of = prev[-1]["vintage_id"]
+    vid = f"V{len(db.rows('price_vintages')) + 1:05d}"
+    iso = lambda t: _dt.datetime.fromtimestamp(t, _dt.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+    db.append("price_vintages", vintage_id=vid, symbol=token_id, source=PM_SOURCE, retrieved_at=now_iso(), from_date=iso(from_ts),
+              to_date=iso(pts[-1][0]) if pts else None, payload=payload, payload_hash=phash,
+              metadata={"fidelity_min": int(fidelity), "ceiling_ts": ceiling_ts, "n": len(pts)}, drift_of=drift_of)
+    return {"vintage_id": vid, "token": token_id, "n_points": len(pts), "first": pts[0][0] if pts else None, "last": pts[-1][0] if pts else None,
+            "payload_hash": phash[:16], "drift_of": drift_of, "drift_times": drift[:10], "ceiling_ts": ceiling_ts}
+
+
+def pm_points(view, token_id: str, before_ts: int | None = None) -> list[tuple[int, float]]:
+    """A token's points from its vintages (later vintages win per time), sorted; ``before_ts`` keeps only points strictly earlier. Records use like ``frame``."""
+    merged, used = {}, set()
+    for v in vintages(view, token_id):
+        if v["source"] != PM_SOURCE:
+            continue
+        for t, p in v["payload"]["points"]:
+            merged[int(t)] = float(p)
+        used.add(v["vintage_id"])
+    if not hasattr(view, "read_vintages"):
+        view.read_vintages = set()
+    view.read_vintages |= used
+    out = sorted(merged.items())
+    return [(t, p) for t, p in out if before_ts is None or t < int(before_ts)]
+
+
+def pm_price_at(view, token_id: str, at_ts: int, max_age_s: int = PM_MAX_AGE_S) -> tuple[float | None, float | None]:
+    """(price, age in hours) of the last point at or before ``at_ts`` no older than ``max_age_s``; (None, None) means no eligible price (V1 A2)."""
+    pts = [(t, p) for t, p in pm_points(view, token_id) if t <= int(at_ts)]
+    if not pts:
+        return None, None
+    t, p = pts[-1]
+    age = int(at_ts) - t
+    return (p, age / 3600.0) if age <= max_age_s else (None, None)

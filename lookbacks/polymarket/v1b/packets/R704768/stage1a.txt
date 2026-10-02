@@ -1,0 +1,34 @@
+You are one of several independent analysts. Work only from what is written below. Apart from reading the file that held this text, do not use any tool, do not look anything up, and do not use anything you
+know that happened after 2026-07-21: reason as of that date. You are shown no market prices, and you are not asked for any probability.
+
+EVENT: Next Claude Opus: Text Arena Debut?   (structure: price ladder)
+RULES (as of 2026-07-21):
+This market will resolve to "Yes" if the next Claude Opus model added to the Arena.AI Leaderboard (https://arena.ai/leaderboard/text/overall-no-style-control) has at least the specified score at 12:00 PM ET on the calendar date following the date on which it first appears on the leaderboard. Otherwise, this market will resolve to "No".
+
+Any Claude model newly added to the leaderboard and labeled as "Opus" may qualify (e.g., claude-Opus-4.9, claude-Opus-5.0-thinking, claude-Opus-5.1-preview, or similar). Claude models labeled only as Sonnet, Haiku, or another non-Opus variant will not qualify.
+
+Results from the "Score" column under the "Text Arena | Overall" Leaderboard tab at https://arena.ai/leaderboard/text/overall-no-style-control with style control off will be used to resolve this market. This market will resolve solely based on the specified score in the Score column of the leaderboard, regardless of any underlying granular or unrounded data presented elsewhere.
+
+If multiple models are added to the leaderboard on the same calendar date (ET), the highest-scoring model will be used for resolution. Models added to the leaderboard on the calendar date following the initial qualifying model’s first appearance will not be considered.
+
+A qualifying model must be newly added to the Arena.AI Leaderboard. Whether the model was previously released, publicly accessible, in beta, or otherwise available before appearing on the leaderboard is irrelevant for this market.
+
+The resolution source for this market is the Chatbot Arena LLM Leaderboard found at arena.ai/leaderboard/text. If this resolution source is unavailable at 12:00 PM ET on the calendar date following the date on which the qualifying model first appears on the leaderboard, this market will resolve based on the first subsequent instance at which such a score becomes available on the leaderboard. If it remains unavailable through the end of the seventh day after the qualifying model first appears on the leaderboard or if no qualifying model release occurs by December 31, 2026, 11:59 PM ET, this market will resolve to "No".
+
+CONTRACTS (each pays $1 if its statement is true when the event resolves, $0 otherwise; you may name YES or NO on any contract):
+  C1: Will the next Claude Opus debut at a score of at least 1470 by December 31, 2026?  [1470+]
+  C2: Will the next Claude Opus debut at a score of at least 1480 by December 31, 2026?  [1480+]
+  C3: Will the next Claude Opus debut at a score of at least 1490 by December 31, 2026?  [1490+]
+  C4: Will the next Claude Opus debut at a score of at least 1500 by December 31, 2026?  [1500+]
+  C5: Will the next Claude Opus debut at a score of at least 1510 by December 31, 2026?  [1510+]
+  C6: Will the next Claude Opus debut at a score of at least 1520 by December 31, 2026?  [1520+]
+
+Task. Write your own view as documents-and-mechanism reasoning, not as odds.
+1. primary: a thesis about how this event resolves and a basket of at most 4 contracts from the list that expresses it (long only: a contract with YES or NO).
+2. failure_narrative: the specific way the thesis is wrong (what would have to happen for the basket to lose).
+3. hedge_thesis: a second narrative, about a DIFFERENT part of the world, that would tend to be true in exactly the worlds where the primary fails. Say why, in mechanism terms.
+4. search_terms: 3 to 8 words or names (entities, assets, places, institutions) that instruments for the hedge thesis would carry. Lower-case single words or short names.
+5. recalls_outcome: true if you already know, or think you know, how this event (or any part of it) actually turned out; otherwise false. Be honest: a true answer is not penalised, it only means this item is set aside.
+
+Answer with one JSON object and nothing else:
+{"primary": {"thesis": "...", "basket": [{"contract": "C1", "side": "YES", "reason": "..."}]}, "failure_narrative": "...", "hedge_thesis": "...", "search_terms": ["..."], "recalls_outcome": false}

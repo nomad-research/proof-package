@@ -1,0 +1,65 @@
+{
+ "hedges": [
+  {
+   "event": "E21",
+   "direction": "dip",
+   "tier": "moderate",
+   "reason": "The main way the primary basket fails is a BTC liquidation cascade through $52.5k, about 17-18% down. ETH/USDT on Binance runs on the same cross-margined perp books and usually moves with higher beta than BTC in a deleveraging. So a BTC wick that deep should push ETH down to the moderate-dip rungs, around $1,600, within the same window."
+  },
+  {
+   "event": "E21",
+   "direction": "dip",
+   "tier": "severe",
+   "reason": "This covers the deeper failure, BTC wicking to $47.5k (C15 YES), about 25% down. In that crash ETH, with its higher beta and leveraged longs being forcibly sold at the same time, should reach the severe-dip rungs around $1,400-1,500."
+  },
+  {
+   "event": "E21",
+   "direction": "reach",
+   "tier": "moderate",
+   "reason": "This covers the less likely failure, a squeeze or flow-driven rally that takes BTC past $77.5k (C4 YES). ETH usually rises more than BTC in risk-on crypto rallies, so in that world it should touch the moderate upside rungs around $2,200-2,300."
+  }
+ ],
+ "claims": [
+  {
+   "if": {
+    "contract": "C13",
+    "resolves": "YES"
+   },
+   "then": {
+    "event": "E21",
+    "direction": "dip",
+    "tier": "moderate",
+    "resolves": "YES"
+   },
+   "reason": "A move from about $63k to $52.5k on BTC is a market-wide leverage flush. The same Binance margin engine liquidates ETH longs alongside BTC ones, and ETH's higher beta means its percentage drop matches or beats BTC's. That is enough to touch a moderate dip rung."
+  },
+  {
+   "if": {
+    "contract": "C15",
+    "resolves": "YES"
+   },
+   "then": {
+    "event": "E21",
+    "direction": "dip",
+    "tier": "severe",
+    "resolves": "YES"
+   },
+   "reason": "A BTC wick of about 25% down is a crash on the scale of a crisis. In past episodes like that, ETH has fallen as far as BTC or further in percentage terms, because it has thinner liquidity and heavier leveraged positioning. A severe dip rung would then be touched."
+  },
+  {
+   "if": {
+    "contract": "C4",
+    "resolves": "YES"
+   },
+   "then": {
+    "event": "E21",
+    "direction": "reach",
+    "tier": "moderate",
+    "resolves": "YES"
+   },
+   "reason": "A BTC rally of about 20% in two weeks would need a broad crypto risk-on move or a short squeeze. ETH usually has higher beta in those moves, so it should also clear a moderate upside rung."
+  }
+ ],
+ "no_instrument": false,
+ "recalls_outcome": false
+}

@@ -1,0 +1,954 @@
+{
+ "_meta": {
+  "authored": "2026-09-29 builder, from docs/nomad_v17_open_entity.md \u00a71.3, \u00a71.4, \u00a72, \u00a73.1; every entry here is a proposal until its D-row is ratified (docs/RATIFICATIONS.md)"
+ },
+ "entity_kinds": [
+  {
+   "kind": "organisation",
+   "parent": null,
+   "scale_attribute": "revenue|capacity|aum|none",
+   "capabilities": [
+    "party_to_contract"
+   ],
+   "review": "reviewed",
+   "description": "an organised body"
+  },
+  {
+   "kind": "company",
+   "parent": "organisation",
+   "scale_attribute": "revenue",
+   "capabilities": [
+    "operates_assets",
+    "issues_debt",
+    "has_operating_scale"
+   ],
+   "review": "reviewed",
+   "description": ""
+  },
+  {
+   "kind": "agency",
+   "parent": "organisation",
+   "scale_attribute": "none",
+   "capabilities": [],
+   "review": "reviewed",
+   "description": ""
+  },
+  {
+   "kind": "central_bank",
+   "parent": "organisation",
+   "scale_attribute": "none",
+   "capabilities": [],
+   "review": "reviewed",
+   "description": ""
+  },
+  {
+   "kind": "court",
+   "parent": "organisation",
+   "scale_attribute": "none",
+   "capabilities": [],
+   "review": "reviewed",
+   "description": ""
+  },
+  {
+   "kind": "exchange",
+   "parent": "organisation",
+   "scale_attribute": "none",
+   "capabilities": [],
+   "review": "reviewed",
+   "description": ""
+  },
+  {
+   "kind": "cooperative",
+   "parent": "organisation",
+   "scale_attribute": "none",
+   "capabilities": [],
+   "review": "reviewed",
+   "description": ""
+  },
+  {
+   "kind": "fund",
+   "parent": "organisation",
+   "scale_attribute": "aum",
+   "capabilities": [],
+   "review": "reviewed",
+   "description": ""
+  },
+  {
+   "kind": "sovereign",
+   "parent": "organisation",
+   "scale_attribute": "none",
+   "capabilities": [
+    "issues_debt",
+    "controls"
+   ],
+   "review": "reviewed",
+   "description": ""
+  },
+  {
+   "kind": "facility",
+   "parent": null,
+   "scale_attribute": "capacity",
+   "capabilities": [
+    "has_operating_scale"
+   ],
+   "review": "reviewed",
+   "description": "a physical asset"
+  },
+  {
+   "kind": "plant",
+   "parent": "facility",
+   "scale_attribute": "capacity",
+   "capabilities": [],
+   "review": "reviewed",
+   "description": ""
+  },
+  {
+   "kind": "reactor_unit",
+   "parent": "facility",
+   "scale_attribute": "capacity",
+   "capabilities": [],
+   "review": "reviewed",
+   "description": ""
+  },
+  {
+   "kind": "mine",
+   "parent": "facility",
+   "scale_attribute": "capacity",
+   "capabilities": [],
+   "review": "reviewed",
+   "description": ""
+  },
+  {
+   "kind": "field",
+   "parent": "facility",
+   "scale_attribute": "capacity",
+   "capabilities": [],
+   "review": "reviewed",
+   "description": ""
+  },
+  {
+   "kind": "vessel",
+   "parent": "facility",
+   "scale_attribute": "capacity",
+   "capabilities": [],
+   "review": "reviewed",
+   "description": ""
+  },
+  {
+   "kind": "pipeline",
+   "parent": "facility",
+   "scale_attribute": "capacity",
+   "capabilities": [],
+   "review": "reviewed",
+   "description": ""
+  },
+  {
+   "kind": "port",
+   "parent": "facility",
+   "scale_attribute": "capacity",
+   "capabilities": [],
+   "review": "reviewed",
+   "description": ""
+  },
+  {
+   "kind": "data_centre",
+   "parent": "facility",
+   "scale_attribute": "capacity",
+   "capabilities": [],
+   "review": "reviewed",
+   "description": ""
+  },
+  {
+   "kind": "warehouse",
+   "parent": "facility",
+   "scale_attribute": "capacity",
+   "capabilities": [],
+   "review": "reviewed",
+   "description": ""
+  },
+  {
+   "kind": "person",
+   "parent": null,
+   "scale_attribute": "none",
+   "capabilities": [
+    "holds_office",
+    "controls"
+   ],
+   "review": "reviewed",
+   "description": "a person in public capacity only (see PERSON_INGEST)"
+  },
+  {
+   "kind": "instrument",
+   "parent": null,
+   "scale_attribute": "price_band",
+   "capabilities": [],
+   "review": "unreviewed",
+   "description": ""
+  },
+  {
+   "kind": "share",
+   "parent": "instrument",
+   "scale_attribute": "price_band",
+   "capabilities": [],
+   "review": "unreviewed",
+   "description": ""
+  },
+  {
+   "kind": "bond",
+   "parent": "instrument",
+   "scale_attribute": "price_band",
+   "capabilities": [],
+   "review": "unreviewed",
+   "description": ""
+  },
+  {
+   "kind": "option",
+   "parent": "instrument",
+   "scale_attribute": "price_band",
+   "capabilities": [],
+   "review": "unreviewed",
+   "description": ""
+  },
+  {
+   "kind": "future",
+   "parent": "instrument",
+   "scale_attribute": "price_band",
+   "capabilities": [],
+   "review": "unreviewed",
+   "description": ""
+  },
+  {
+   "kind": "etf",
+   "parent": "instrument",
+   "scale_attribute": "price_band",
+   "capabilities": [],
+   "review": "unreviewed",
+   "description": ""
+  },
+  {
+   "kind": "event_contract",
+   "parent": "instrument",
+   "scale_attribute": "price_band",
+   "capabilities": [],
+   "review": "unreviewed",
+   "description": ""
+  },
+  {
+   "kind": "cds",
+   "parent": "instrument",
+   "scale_attribute": "price_band",
+   "capabilities": [],
+   "review": "unreviewed",
+   "description": ""
+  },
+  {
+   "kind": "commodity_grade",
+   "parent": null,
+   "scale_attribute": "volume",
+   "capabilities": [],
+   "review": "unreviewed",
+   "description": ""
+  },
+  {
+   "kind": "currency",
+   "parent": null,
+   "scale_attribute": "none",
+   "capabilities": [],
+   "review": "unreviewed",
+   "description": ""
+  },
+  {
+   "kind": "index",
+   "parent": null,
+   "scale_attribute": "none",
+   "capabilities": [],
+   "review": "unreviewed",
+   "description": ""
+  },
+  {
+   "kind": "place",
+   "parent": null,
+   "scale_attribute": "none",
+   "capabilities": [],
+   "review": "unreviewed",
+   "description": ""
+  },
+  {
+   "kind": "region",
+   "parent": "place",
+   "scale_attribute": "none",
+   "capabilities": [],
+   "review": "unreviewed",
+   "description": ""
+  },
+  {
+   "kind": "zone",
+   "parent": "place",
+   "scale_attribute": "none",
+   "capabilities": [],
+   "review": "unreviewed",
+   "description": ""
+  },
+  {
+   "kind": "strait",
+   "parent": "place",
+   "scale_attribute": "none",
+   "capabilities": [],
+   "review": "unreviewed",
+   "description": ""
+  },
+  {
+   "kind": "port_area",
+   "parent": "place",
+   "scale_attribute": "none",
+   "capabilities": [],
+   "review": "unreviewed",
+   "description": ""
+  },
+  {
+   "kind": "hazard_area",
+   "parent": "place",
+   "scale_attribute": "none",
+   "capabilities": [],
+   "review": "unreviewed",
+   "description": ""
+  },
+  {
+   "kind": "document",
+   "parent": null,
+   "scale_attribute": "notional",
+   "capabilities": [
+    "party_to_contract"
+   ],
+   "review": "reviewed",
+   "description": "a thing that states a fact or is a relation or a rule"
+  },
+  {
+   "kind": "filing",
+   "parent": "document",
+   "scale_attribute": "notional",
+   "capabilities": [],
+   "review": "reviewed",
+   "description": ""
+  },
+  {
+   "kind": "contract",
+   "parent": "document",
+   "scale_attribute": "notional",
+   "capabilities": [],
+   "review": "reviewed",
+   "description": ""
+  },
+  {
+   "kind": "statute",
+   "parent": "document",
+   "scale_attribute": "notional",
+   "capabilities": [],
+   "review": "reviewed",
+   "description": ""
+  },
+  {
+   "kind": "regulation",
+   "parent": "document",
+   "scale_attribute": "notional",
+   "capabilities": [],
+   "review": "reviewed",
+   "description": ""
+  },
+  {
+   "kind": "licence",
+   "parent": "document",
+   "scale_attribute": "notional",
+   "capabilities": [],
+   "review": "reviewed",
+   "description": ""
+  },
+  {
+   "kind": "tariff",
+   "parent": "document",
+   "scale_attribute": "notional",
+   "capabilities": [],
+   "review": "reviewed",
+   "description": ""
+  },
+  {
+   "kind": "notice",
+   "parent": "document",
+   "scale_attribute": "notional",
+   "capabilities": [],
+   "review": "reviewed",
+   "description": ""
+  },
+  {
+   "kind": "ruling",
+   "parent": "document",
+   "scale_attribute": "notional",
+   "capabilities": [],
+   "review": "reviewed",
+   "description": ""
+  },
+  {
+   "kind": "report",
+   "parent": "document",
+   "scale_attribute": "notional",
+   "capabilities": [],
+   "review": "reviewed",
+   "description": ""
+  },
+  {
+   "kind": "release",
+   "parent": "document",
+   "scale_attribute": "notional",
+   "capabilities": [],
+   "review": "reviewed",
+   "description": ""
+  },
+  {
+   "kind": "dataset",
+   "parent": "document",
+   "scale_attribute": "notional",
+   "capabilities": [],
+   "review": "reviewed",
+   "description": ""
+  },
+  {
+   "kind": "document_series",
+   "parent": null,
+   "scale_attribute": "none",
+   "capabilities": [],
+   "review": "unreviewed",
+   "description": "a composite of documents by issuer, class and cadence (a carrier); V2"
+  },
+  {
+   "kind": "composite",
+   "parent": null,
+   "scale_attribute": "derived_from_members",
+   "capabilities": [],
+   "review": "unreviewed",
+   "description": "membership plus an aggregation rule; V3"
+  },
+  {
+   "kind": "supply_chain",
+   "parent": "composite",
+   "scale_attribute": "derived_from_members",
+   "capabilities": [],
+   "review": "unreviewed",
+   "description": ""
+  },
+  {
+   "kind": "corridor",
+   "parent": "composite",
+   "scale_attribute": "derived_from_members",
+   "capabilities": [],
+   "review": "unreviewed",
+   "description": ""
+  },
+  {
+   "kind": "market",
+   "parent": "composite",
+   "scale_attribute": "derived_from_members",
+   "capabilities": [],
+   "review": "unreviewed",
+   "description": ""
+  },
+  {
+   "kind": "ownership_group",
+   "parent": "composite",
+   "scale_attribute": "derived_from_members",
+   "capabilities": [],
+   "review": "unreviewed",
+   "description": ""
+  },
+  {
+   "kind": "cluster",
+   "parent": "composite",
+   "scale_attribute": "derived_from_members",
+   "capabilities": [],
+   "review": "unreviewed",
+   "description": ""
+  },
+  {
+   "kind": "regime",
+   "parent": "composite",
+   "scale_attribute": "derived_from_members",
+   "capabilities": [],
+   "review": "unreviewed",
+   "description": ""
+  },
+  {
+   "kind": "class",
+   "parent": "composite",
+   "scale_attribute": "derived_from_members",
+   "capabilities": [],
+   "review": "unreviewed",
+   "description": ""
+  },
+  {
+   "kind": "story",
+   "parent": null,
+   "scale_attribute": "none",
+   "capabilities": [],
+   "review": "unreviewed",
+   "description": ""
+  },
+  {
+   "kind": "factor",
+   "parent": null,
+   "scale_attribute": "none",
+   "capabilities": [],
+   "review": "unreviewed",
+   "description": ""
+  }
+ ],
+ "capabilities": [
+  {
+   "capability": "party_to_contract",
+   "meaning": "Can be bound by a document",
+   "mode": "declared",
+   "note": ""
+  },
+  {
+   "capability": "files_reports",
+   "meaning": "Files periodic or event reports with a regulator or exchange",
+   "mode": "declared",
+   "note": "declared per entity, evidenced by a document"
+  },
+  {
+   "capability": "issues_debt",
+   "meaning": "Has or can have coupons and maturities",
+   "mode": "declared",
+   "note": ""
+  },
+  {
+   "capability": "operates_assets",
+   "meaning": "Operates facilities",
+   "mode": "declared",
+   "note": ""
+  },
+  {
+   "capability": "holds_office",
+   "meaning": "Can hold an office",
+   "mode": "declared",
+   "note": "on person"
+  },
+  {
+   "capability": "controls",
+   "meaning": "Can be the controlling party in a control relation",
+   "mode": "declared",
+   "note": ""
+  },
+  {
+   "capability": "has_operating_scale",
+   "meaning": "Has a scale attribute",
+   "mode": "declared",
+   "note": ""
+  },
+  {
+   "capability": "expressible",
+   "meaning": "At least one instrument references it directly",
+   "mode": "derived",
+   "note": "V4: from references edges at the clock; used by expression and intake preference, never by derivation, reach or conditions"
+  },
+  {
+   "capability": "expressible_by_proxy",
+   "meaning": "An instrument references an entity it is documented to be exposed to",
+   "mode": "derived",
+   "note": "V4; same restriction"
+  },
+  {
+   "capability": "observable_by",
+   "meaning": "A reports_on edge from a series of that carrier kind exists",
+   "mode": "derived",
+   "note": "V2"
+  }
+ ],
+ "position_attributes": [
+  {
+   "attribute": "document_state",
+   "type": "enum",
+   "unit": null,
+   "allowed": [
+    "draft",
+    "executed",
+    "in_force",
+    "amended",
+    "suspended",
+    "terminated",
+    "expired",
+    "revoked",
+    "superseded"
+   ],
+   "description": "lifecycle state of a document (\u00a72.2)"
+  },
+  {
+   "attribute": "content_hash",
+   "type": "text",
+   "unit": null,
+   "allowed": [],
+   "description": "sha256 of the document's stored content"
+  },
+  {
+   "attribute": "published_at",
+   "type": "text",
+   "unit": null,
+   "allowed": [],
+   "description": "when the document was first knowable (the data product's knowable_at)"
+  },
+  {
+   "attribute": "notional_amount",
+   "type": "numeric",
+   "unit": "currency units",
+   "allowed": [],
+   "description": "notional or obligation amount the document carries"
+  },
+  {
+   "attribute": "office_held",
+   "type": "text",
+   "unit": null,
+   "allowed": [],
+   "description": "an office held in public capacity, from an appointment or filing"
+  },
+  {
+   "attribute": "control_share",
+   "type": "numeric",
+   "unit": "percent",
+   "allowed": [],
+   "description": "a disclosed control or ownership stake"
+  },
+  {
+   "attribute": "signatory_status",
+   "type": "bool",
+   "unit": null,
+   "allowed": [],
+   "description": "signatory or authorised representative on a document"
+  },
+  {
+   "attribute": "insider_status",
+   "type": "bool",
+   "unit": null,
+   "allowed": [],
+   "description": "disclosed insider status"
+  },
+  {
+   "attribute": "disclosed_transaction",
+   "type": "text",
+   "unit": null,
+   "allowed": [],
+   "description": "a transaction disclosed in a public filing"
+  }
+ ],
+ "attribute_scope": {
+  "sign_of_exposure": {
+   "kinds": [
+    "*"
+   ],
+   "note": "generic; any kind except person"
+  },
+  "share": {
+   "kinds": [
+    "*"
+   ],
+   "note": "generic; any kind except person"
+  },
+  "tier": {
+   "kinds": [
+    "*"
+   ],
+   "note": "generic; any kind except person"
+  },
+  "priority": {
+   "kinds": [
+    "*"
+   ],
+   "note": "generic; any kind except person"
+  },
+  "substitutability": {
+   "kinds": [
+    "*"
+   ],
+   "note": "generic; any kind except person"
+  },
+  "duration": {
+   "kinds": [
+    "*"
+   ],
+   "note": "generic; any kind except person"
+  },
+  "role": {
+   "kinds": [
+    "*"
+   ],
+   "note": "generic; any kind except person"
+  },
+  "contract_type": {
+   "kinds": [
+    "*"
+   ],
+   "note": "generic; any kind except person"
+  },
+  "exposure_sign": {
+   "kinds": [
+    "*"
+   ],
+   "note": "generic; any kind except person"
+  },
+  "node_exposure": {
+   "kinds": [
+    "*"
+   ],
+   "note": "generic; any kind except person"
+  },
+  "inventory_days": {
+   "kinds": [
+    "*"
+   ],
+   "note": "generic; any kind except person"
+  },
+  "input_share": {
+   "kinds": [
+    "*"
+   ],
+   "note": "generic; any kind except person"
+  },
+  "hedge_ratio": {
+   "kinds": [
+    "*"
+   ],
+   "note": "generic; any kind except person"
+  },
+  "listed": {
+   "kinds": [
+    "*"
+   ],
+   "note": "generic; any kind except person"
+  },
+  "listed_domestic_filer": {
+   "kinds": [
+    "*"
+   ],
+   "note": "generic; any kind except person"
+  },
+  "event_impact_share": {
+   "kinds": [
+    "*"
+   ],
+   "note": "generic; any kind except person"
+  },
+  "pending_application": {
+   "kinds": [
+    "*"
+   ],
+   "note": "generic; any kind except person"
+  },
+  "obligation_to_serve": {
+   "kinds": [
+    "*"
+   ],
+   "note": "generic; any kind except person"
+  },
+  "uncommitted_capacity_share": {
+   "kinds": [
+    "*"
+   ],
+   "note": "generic; any kind except person"
+  },
+  "coupon_due_days": {
+   "kinds": [
+    "*"
+   ],
+   "note": "generic; any kind except person"
+  },
+  "covers_node_transit": {
+   "kinds": [
+    "*"
+   ],
+   "note": "generic; any kind except person"
+  },
+  "regulatory_regime": {
+   "kinds": [
+    "*"
+   ],
+   "note": "generic; any kind except person"
+  },
+  "capacity_lost_share": {
+   "kinds": [
+    "*"
+   ],
+   "note": "generic; any kind except person"
+  },
+  "contracted_buyers": {
+   "kinds": [
+    "*"
+   ],
+   "note": "generic; any kind except person"
+  },
+  "owns_unit": {
+   "kinds": [
+    "*"
+   ],
+   "note": "generic; any kind except person"
+  },
+  "constituent_weight": {
+   "kinds": [
+    "*"
+   ],
+   "note": "generic; any kind except person"
+  },
+  "cost_recovery_passthrough": {
+   "kinds": [
+    "*"
+   ],
+   "note": "generic; any kind except person"
+  },
+  "unit_status": {
+   "kinds": [
+    "facility",
+    "organisation",
+    "composite"
+   ],
+   "note": "asset state"
+  },
+  "operating_status": {
+   "kinds": [
+    "facility",
+    "organisation",
+    "composite"
+   ],
+   "note": "asset state"
+  },
+  "capacity": {
+   "kinds": [
+    "facility",
+    "organisation",
+    "composite"
+   ],
+   "note": "asset state"
+  },
+  "failed_component_class": {
+   "kinds": [
+    "facility",
+    "organisation",
+    "composite"
+   ],
+   "note": "asset state"
+  },
+  "repair_lead_days": {
+   "kinds": [
+    "facility",
+    "organisation",
+    "composite"
+   ],
+   "note": "asset state"
+  },
+  "substitute_lead_days": {
+   "kinds": [
+    "facility",
+    "organisation",
+    "composite"
+   ],
+   "note": "asset state"
+  },
+  "market_region": {
+   "kinds": [
+    "facility",
+    "organisation",
+    "composite"
+   ],
+   "note": "asset state"
+  },
+  "merchant_share": {
+   "kinds": [
+    "facility",
+    "organisation",
+    "composite"
+   ],
+   "note": "asset state"
+  },
+  "daily_status_published": {
+   "kinds": [
+    "facility",
+    "organisation",
+    "composite"
+   ],
+   "note": "asset state"
+  },
+  "licensed_facility": {
+   "kinds": [
+    "facility",
+    "organisation",
+    "composite"
+   ],
+   "note": "asset state"
+  },
+  "reportable_event_notified": {
+   "kinds": [
+    "facility",
+    "organisation",
+    "composite"
+   ],
+   "note": "asset state"
+  },
+  "shared_access": {
+   "kinds": [
+    "facility",
+    "organisation",
+    "composite"
+   ],
+   "note": "asset state"
+  },
+  "document_state": {
+   "kinds": [
+    "document"
+   ],
+   "note": "document attribute"
+  },
+  "content_hash": {
+   "kinds": [
+    "document"
+   ],
+   "note": "document attribute"
+  },
+  "published_at": {
+   "kinds": [
+    "document"
+   ],
+   "note": "document attribute"
+  },
+  "notional_amount": {
+   "kinds": [
+    "document"
+   ],
+   "note": "document attribute"
+  },
+  "office_held": {
+   "kinds": [
+    "person"
+   ],
+   "note": "public-capacity list (\u00a73.1); anything else is refused for a person"
+  },
+  "control_share": {
+   "kinds": [
+    "person"
+   ],
+   "note": "public-capacity list (\u00a73.1); anything else is refused for a person"
+  },
+  "signatory_status": {
+   "kinds": [
+    "person"
+   ],
+   "note": "public-capacity list (\u00a73.1); anything else is refused for a person"
+  },
+  "insider_status": {
+   "kinds": [
+    "person"
+   ],
+   "note": "public-capacity list (\u00a73.1); anything else is refused for a person"
+  },
+  "disclosed_transaction": {
+   "kinds": [
+    "person"
+   ],
+   "note": "public-capacity list (\u00a73.1); anything else is refused for a person"
+  }
+ }
+}

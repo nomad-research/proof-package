@@ -1,0 +1,39 @@
+You are one of several independent analysts. Work only from what is written below. Apart from reading the file that held this text, do not use any tool, do not look anything up, and do not use anything you
+know that happened after 2026-09-30: reason as of that date. You are shown no market prices, and you are not asked for any probability.
+
+EVENT: 2026 Taiwanese Local Elections: Party Winner   (structure: partition open)
+RULES (as of 2026-09-30):
+Taiwanese local elections are scheduled to be held on November 28, 2026. 
+
+This market will resolve according to the party whose official candidates win the most head of local government (mayor or magistrate) elections for Taiwan’s major special municipalities, counties, and cities during these elections.
+
+A candidate will be considered an official candidate of a party if they are officially nominated by that party and are registered for the relevant election in affiliation with that party. Independent candidates will not count for any party.
+
+Taiwan’s local governments include the following cities, special municipalities, and counties:
+
+Cities/special municipalities (mayoral elections): Taipei City, New Taipei City, Taoyuan City, Taichung City, Tainan City, Kaohsiung City, Keelung City, Hsinchu City, Chiayi City
+
+Counties (magistrate elections): Yilan County, Hsinchu County, Miaoli County, Changhua County, Nantou County, Yunlin County, Chiayi County, Pingtung County, Taitung County, Hualien County, Penghu County, Lienchiang County, Kinmen County
+
+Only elections for the listed cities, special municipalities or counties will be counted for this market. A party will have won as soon as it becomes mathematically impossible for any other party to equal or surpass its number of wins in these elections.
+
+In the case of a tie between two or more parties for the greatest number of relevant head of local government elections won, this market will resolve in favor of the party whose English name comes first in alphabetical order, as listed in this market group.
+
+Resolution of this market will be based on the results of the relevant elections, once those results are official. This market will remain open until a party has won or until the results of all of the relevant elections are made official. If the results of any of the relevant 2026 Taiwanese local elections aren’t known by June 30, 2027 11:59 PM ET, the winning party will be determined based on the available results up to that point. If none of the results of the relevant 2026 Taiwanese local elections are known by that time, this market will resolve to “Other”.
+
+This market will resolve based on the results of the elections as indicated by a consensus of credible reporting. If there is ambiguity, this market will resolve based solely on the official results as reported by the Taiwanese government, specifically the Central Election Commission (https://db.cec.gov.tw/).
+
+CONTRACTS (each pays $1 if its statement is true when the event resolves, $0 otherwise; you may name YES or NO on any contract):
+  C1: Will Kuomintang (KMT) win the most head of local government elections in the 2026 Taiwan local elections?  [Kuomintang (KMT)]
+  C2: Will the Democratic Progressive Party (DPP) win the most head of local government elections in the 2026 Taiwan local elections?  [Democratic Progressive Party (DPP)]
+  C3: Will the Taiwan People’s Party (TPP) win the most head of local government elections in the 2026 Taiwan local elections?  [Taiwan People’s Party (TPP)]
+
+Task. Write your own view as documents-and-mechanism reasoning, not as odds.
+1. primary: a thesis about how this event resolves and a basket of at most 4 contracts from the list that expresses it (long only: a contract with YES or NO).
+2. failure_narrative: the specific way the thesis is wrong (what would have to happen for the basket to lose).
+3. hedge_thesis: a second narrative, about a DIFFERENT part of the world, that would tend to be true in exactly the worlds where the primary fails. Say why, in mechanism terms.
+4. search_terms: 3 to 8 words or names (entities, assets, places, institutions) that instruments for the hedge thesis would carry. Lower-case single words or short names.
+5. recalls_outcome: true if you already know, or think you know, how this event (or any part of it) actually turned out; otherwise false. Be honest: a true answer is not penalised, it only means this item is set aside.
+
+Answer with one JSON object and nothing else:
+{"primary": {"thesis": "...", "basket": [{"contract": "C1", "side": "YES", "reason": "..."}]}, "failure_narrative": "...", "hedge_thesis": "...", "search_terms": ["..."], "recalls_outcome": false}

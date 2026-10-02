@@ -1,0 +1,172 @@
+You will be shown 10 questions from a prediction market. Each question has one or more contracts, and each contract resolves YES or NO under the rules shown.
+
+For every contract, give your probability, as a whole percent from 1 to 99, that it resolves YES. Use only what you already know. Do not search for or look up anything: reading this file is the only tool call you may make.
+
+For each question, also say whether you recognise how it actually turned out ("recognised": true only if you believe you remember the real outcome; otherwise false).
+
+Where a question's contracts are mutually exclusive (exactly one can resolve YES), your numbers for it should add up to about 100. Where they are nested thresholds or dates, keep them consistent with each other.
+
+Reply with one JSON object and nothing else, in this form:
+{"events": [{"label": "E1", "recognised": false, "p": {"E1.C1": 35, "E1.C2": 60}}]}
+
+Every contract label below must appear exactly once in your reply.
+
+=== E1: Will Trump & Elon reduce the deficit in 2025? 
+Rules:
+The U.S. federal budget deficit for December 2024 was $86,731,619,013.29 (see: https://fiscaldata.treasury.gov/datasets/monthly-treasury-statement/summary-of-receipts-outlays-and-the-deficit-surplus-of-the-u-s-government). 
+
+This market will resolve to "Yes" if the Monthly Treasury Statement (MTS) reports a lower monthly deficit in December 2025 than in December 2024. Otherwise, this market will resolve to "No."
+
+The resolution source will be the Monthly Treasury Statement (MTS) published by the U.S. Department of the Treasury (fiscaldata.treasury.gov). The month surplus can be found in the column labeled "Current Month Deficit Surplus Amount" in the the table "Summary of Receipts, Outlays, and Surplus or Deficit” in the MTS (see: https://fiscaldata.treasury.gov/datasets/monthly-treasury-statement/summary-of-receipts-outlays-and-the-deficit-surplus-of-the-u-s-government).  If no report is published by February 28, 2026, 11:59 PM ET another credible source will be used.
+Contracts:
+  E1.C1: Will Trump & Elon reduce the deficit in 2025? 
+
+=== E2: Will LDP win a majority in the 2026 Japanese snap election?
+Rules:
+General elections are scheduled to be held in Japan on February 8, 2026.
+
+This market will resolve to "Yes" if the Liberal Democratic Party (LDP) wins a majority of seats, at least 233, in the Japanese House of Representatives (衆議院, Shūgiin) as a result of the next Japanese general election. Otherwise, this market will resolve to "No".
+
+If the results of this election aren't known by November 30, 2026, 11:59 PM ET, this market will resolve 50-50.
+
+This market's resolution will be based solely on the number of seats won by the respective party, not any coalition or alliance of which it may be a part.
+
+This market will resolve based on the results of the election as indicated by a consensus of credible reporting. If there is ambiguity, this market will resolve based solely on the official results reported by the Japanese government, including the Ministry of Internal Affairs and Communications (https://www.soumu.go.jp/) or e-Stat (Japan’s government statistics portal; https://www.e-stat.go.jp/).
+Contracts:
+  E2.C1: Will LDP win a majority in the 2026 Japanese snap election?
+
+=== E3: Iran agrees to end enrichment of uranium by April 30?
+Rules:
+This market will resolve to "Yes" if Iran publicly agrees to end all enrichment of uranium by April 30, 2026, 11:59 PM ET. Otherwise, this market will resolve to “No”.
+
+An official pledge by Iran to end all enrichment of Uranium will qualify for a “Yes” resolution whether as a unilateral announcement or part of an agreement with the U.S. or Israel.
+
+Any agreement or pledge made before the resolution date of this market will qualify, regardless of if/when the agreement goes into effect.
+
+An agreement by Iran to end all enrichment of uranium for any amount of time will count.
+
+An agreement by Iran to end all enrichment of uranium as a precondition of a more comprehensive peace process or deal will qualify, even if the agreement is not finalized or part of a formalized peace deal. 
+
+Agreements to merely limit or cap the level or quality of enrichment—such as reducing enrichment to below weapons-grade thresholds—will not qualify.
+
+The primary resolution source for this market will be a consensus of credible reporting.
+Contracts:
+  E3.C1: Iran agrees to end enrichment of uranium by April 30?
+
+=== E4: Illinois Republican Senate Primary Winner
+Rules:
+This market will resolve according to the winner of the Republican Primary for United States Senator from Illinois.
+
+If no 2026 Illinois Republican Senate Primary takes place, this market will resolve to "Other".
+
+The resolution source for this market will be the first announcement of the results from the Illinois Republican party, however an overwhelming consensus of credible reporting may suffice.
+Contracts:
+  E4.C1: Will Panagioti Bartzis be the Republican nominee for Senate in Illinois?
+  E4.C2: Will Doug Bennett be the Republican nominee for Senate in Illinois?
+  E4.C3: Will R. Cary Capparelli be the Republican nominee for Senate in Illinois?
+  E4.C4: Will Casey Chlebek be the Republican nominee for Senate in Illinois?
+  E4.C5: Will CaSándra Claiborne be the Republican nominee for Senate in Illinois?
+  E4.C6: Will Jeannie Evans be the Republican nominee for Senate in Illinois?
+  E4.C7: Will John Goodman be the Republican nominee for Senate in Illinois?
+  E4.C8: Will Lloyd Jones be the Republican nominee for Senate in Illinois?
+  E4.C9: Will Pamela Denise Long be the Republican nominee for Senate in Illinois?
+  E4.C10: Will Januario Ortega be the Republican nominee for Senate in Illinois?
+  E4.C11: Will Jimmy Lee Tillman II be the Republican nominee for Senate in Illinois?
+  E4.C12: Will Don Tracy be the Republican nominee for Senate in Illinois?
+
+=== E5: Dutch parliamentary election: CDA seats
+Rules:
+The ruling coalition of the Netherlands collapsed on June 3, 2025. New parliamentary elections are expected to be scheduled soon.
+
+This market will resolve according to the number of seats held by the Christian Democratic Appeal (CDA) in the House of Representatives as a result of this election.
+
+If voting in the Netherlands election for the House does not occur by July 31, 2026, this market will resolve to the lowest range bracket.
+
+This market’s resolution will be based solely on the number of seats won by the Christian Democratic Appeal (CDA).
+
+This market will resolve based on the result of the election as indicated by a consensus of credible reporting. If there is ambiguity, this market will resolve based solely on the official results as reported by the Electoral Council (Kiesraad) (https://www.kiesraad.nl/).
+Contracts:
+  E5.C1: Will CDA win 21 or fewer seats in the 2025 Netherlands parliamentary election?
+  E5.C2: Will CDA win 22–24 seats in the 2025 Netherlands parliamentary election?
+  E5.C3: Will CDA win 25–27 seats in the 2025 Netherlands parliamentary election?
+  E5.C4: Will CDA win 28 or more seats in the 2025 Netherlands parliamentary election?
+
+=== E6: Will Mamdani make NYC buses free by March 31?
+Rules:
+This market will resolve to “Yes”  if both the following occur: 
+
+1. Zohran Mamdani wins the 2025 NYC Mayoral election. 
+
+2. The New York City Metropolitan Transportation Authority implements a policy under which the base local fare for regularly scheduled MTA bus routes operating within New York City (New York City Transit and MTA Bus Company) is $0 by March 31, 2026, 11:59 PM ET. 
+
+The policy will be considered to have been implemented if it is actively in effect by the resolution date. The enactment of a policy without its implementation will not alone qualify. Policies which are blocked by legal or other means before they go into effect will similarly not qualify.  
+
+Limited pilots (e.g., a subset of routes or specific days), temporary “fare holidays,” or targeted free-fare programs (e.g., only youth, seniors, or low-income riders) do not qualify.
+
+Policies which include limited exceptions such as express-bus fares, fares on specific lines (such as Airport lines) or other exclusions will still qualify as long as a general policy of $0 fare  for regularly scheduled MTA bus routes is in effect. 
+
+If Mamdani is confirmed to have lost the 2025 NYC Mayoral election by a consensus of credible reporting this market will immediately resolve to “No”.
+
+The resolution source for this market will be a consensus of credible reporting.
+Contracts:
+  E6.C1: Will Mamdani make NYC buses free by March 31?
+
+=== E7: Markwayne Mullin confirmed as DHS Secretary by...?
+Rules:
+This market will resolve to “Yes” if Markwayne Mullin is confirmed as the United States Secretary of Homeland Security by the specified date, 11:59 PM ET. Otherwise, this market will resolve to “No”.
+
+If Markwayne Mullin is formally nominated for the role, and his nomination is then formally withdrawn, or if the Senate rejects the nomination, this market will immediately resolve to “No”.
+
+The Senate must confirm Markwayne Mullin as Secretary of Homeland Security for this market to resolve to "Yes". Recess appointments or assumption of the position in an acting capacity without Senate confirmation will not count toward a "Yes" resolution.
+
+The primary resolution source for this market is official information from the U.S. Senate; however, a consensus of credible reporting may also be used.
+Contracts:
+  E7.C1: Markwayne Mullin confirmed as DHS Secretary by March 31, 2026?
+  E7.C2: Markwayne Mullin confirmed as DHS Secretary by April 30, 2026?
+
+=== E8: 2026 January 1st, 2nd, 3rd hottest on record?
+Rules:
+This market will resolve based on the data for the Global Land-Ocean Temperature Index for January 2026 versus the data points available for all other Januaries on record.
+
+Note: If January 2026 is tied for first, second, or third hottest with another year, it will qualify for the bracket it ties with.
+
+The primary resolution source for this market will be the figures found in the table titled "GLOBAL Land-Ocean Temperature Index in 0.01 degrees Celsius" under the column "Jan" (https://data.giss.nasa.gov/gistemp/tabledata_v4/GLB.Ts+dSST.txt). If NASA's "Global Temperature Index" is rendered permanently unavailable, other information from NASA may be used.
+If no information for January 2026 is provided by NASA by February 28, 2026, 11:59 PM ET, a consensus of credible sources will be used to resolve this market.
+Contracts:
+  E8.C1: Will January 2026 be the 1st hottest on record?
+  E8.C2: Will January 2026 be the 2nd hottest on record?
+  E8.C3: Will January 2026 be the 3rd hottest on record?
+  E8.C4: Will January 2026 be the 4th or lower hottest on record?
+
+=== E9: Michigan Democratic Senate Primary: Washtenaw County (Ann Arbor) Winner
+Rules:
+This market will resolve according to the candidate who receives the most valid votes from Washtenaw County in the Democratic Primary for United States Senator from Michigan, which is scheduled to be held on August 4, 2026.
+
+The named candidates will be primarily ranked by the number of valid votes received in the specified election. If two or more candidates are tied on valid votes, ties will be broken by alphabetical order of the candidates' last names. This market will resolve to the candidate that occupies the highest finishing position after applying this ranking.
+
+If the Washtenaw County results of this election are not definitively known by December 31, 2026, this market will resolve to “Other.”
+
+This market will resolve based on a consensus of credible reporting. If there is ambiguity, this market will resolve based solely on the official results as reported by the government of Michigan, including the Office of the Secretary of State and the government of Washtenaw County.
+Contracts:
+  E9.C1: Will Abdul El-Sayed win Washtenaw County in the Michigan Senate Democratic primary?
+  E9.C2: Will Haley Stevens win Washtenaw County in the Michigan Senate Democratic primary?
+
+=== E10: Fed Decision in September?
+Rules:
+The FED interest rates are defined in this market by the upper bound of the target federal funds range. The decisions on the target federal funds range are made by the Federal Open Market Committee (FOMC) meetings.
+
+This market will resolve to the amount of basis points the upper bound of the target federal funds rate is changed by versus the level it was prior to the Federal Reserve's September 2026 meeting.
+
+If the target federal funds rate is changed to a level not expressed in the displayed options, the change will be rounded up to the nearest 25 and will resolve to the relevant bracket. (e.g. if there's a cut/increase of 12.5 bps it will be considered to be 25 bps)
+
+The resolution source for this market is the FOMC’s statement after its meeting scheduled for September 15-16, 2026 according to the official calendar: https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm.
+
+The level and change of the target federal funds rate is also published at the official website of the Federal Reserve at https://www.federalreserve.gov/monetarypolicy/openmarket.htm.
+
+This market may resolve as soon as the FOMC’s statement for their September meeting with relevant data is issued. If no statement is released by the end date of the next scheduled meeting, this market will resolve to the "No change" bracket.
+Contracts:
+  E10.C1: Will the Fed decrease interest rates by 50+ bps after the September 2026 meeting?
+  E10.C2: Will the Fed decrease interest rates by 25 bps after the September 2026 meeting?
+  E10.C3: Will there be no change in Fed interest rates after the September 2026 meeting?
+  E10.C4: Will the Fed increase interest rates by 25 bps after the September 2026 meeting?
+  E10.C5: Will the Fed increase interest rates by 50+ bps after the September 2026 meeting?

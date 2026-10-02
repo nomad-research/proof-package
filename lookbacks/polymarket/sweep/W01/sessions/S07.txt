@@ -1,0 +1,436 @@
+You will be shown 6 questions from a prediction market. Each has one or more contracts that resolve YES or NO under the rules shown. Each question gives the date your view is "as of": answer as you would on that date.
+
+Use only what you already know. Do not search for or look up anything: reading this file is the only tool call you may make. There are no prices in this file and you should not try to estimate what any market thinks; give your own view.
+
+Each question says what to write for it. Whole percents run from 1 to 99. Levels are plain numbers in the units the contracts use (for example 95000 for $95,000, 3.25 for 3.25%). Dates are YYYY-MM-DD.
+
+For each question also say whether you recognise how it actually turned out ("recognised": true only if you believe you remember the real outcome; otherwise false).
+
+Reply with one JSON object and nothing else:
+{"events": [{"label": "E1", "recognised": false, ...the fields that question asks for...}]}
+
+=== E1 (as of 2026-10-01): Paraná Governor Election Winner
+Rules:
+The Paraná gubernatorial election is scheduled to take place in Brazil on October 4, 2026, with a runoff on October 25, 2026, if no candidate receives a majority of the valid votes in the first round.
+
+This market will resolve according to the candidate who wins this election.
+
+Temporary, interim, or placeholder governors appointed by any means before the specified election will not be considered.
+
+If the result of this election isn't known by June 30, 2027, 11:59 PM ET, the market will resolve to "Other".
+
+This market will resolve based on the result of the election, as indicated by a consensus of credible reporting. If there is ambiguity, this market will resolve based solely on the official results as reported by the Brazilian government, specifically the Superior Electoral Court (Tribunal Superior Eleitoral, TSE) (e.g., www.tse.jus.br/eleicoes/resultados-eleicoes).
+Contracts:
+  E1.C1: Will Sergio Moro win the Governor of Paraná election?
+  E1.C2: Will Requião Filho win the Governor of Paraná election?
+  E1.C3: Will Rafael Greca win the Governor of Paraná election?
+  E1.C4: Will Guto Silva win the Governor of Paraná election?
+  E1.C5: Will Alexandre Curi win the Governor of Paraná election?
+  E1.C6: Will Beto Richa win the Governor of Paraná election?
+  E1.C7: Will Enio Verri win the Governor of Paraná election?
+  E1.C8: Will Luiz França win the Governor of Paraná election?
+  E1.C9: Will Sandro Alex win the Governor of Paraná election?
+  E1.C10: Will Candidate C win the Governor of Paraná election?
+  E1.C11: Will Candidate D win the Governor of Paraná election?
+  E1.C12: Will Candidate E win the Governor of Paraná election?
+  E1.C13: Will Candidate F win the Governor of Paraná election?
+  E1.C14: Will Candidate G win the Governor of Paraná election?
+  E1.C15: Will Candidate H win the Governor of Paraná election?
+  E1.C16: Will Candidate I win the Governor of Paraná election?
+  E1.C17: Will Candidate J win the Governor of Paraná election?
+  E1.C18: Will Other win the Governor of Paraná election?
+What to write for E1:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E2 (as of 2026-10-01): Ethereum above ___ on October 1?
+Rules:
+This market will resolve to "Yes" if the Binance 1 minute candle for ETH/USDT 12:00 in the ET timezone (noon) on the date specified in the title has a final "Close" price higher than the price specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the ETH/USDT "Close" prices currently available at https://www.binance.com/en/trade/ETH_USDT with "1m" and "Candles" selected on the top bar.
+
+Please note that this market is about the price according to Binance ETH/USDT, not according to other exchanges or trading pairs.
+
+Price precision is determined by the number of decimal places in the source.
+Contracts:
+  E2.C1: Will the price of Ethereum be above $2,200 on October 1?
+  E2.C2: Will the price of Ethereum be above $2,300 on October 1?
+  E2.C3: Will the price of Ethereum be above $2,400 on October 1?
+  E2.C4: Will the price of Ethereum be above $2,500 on October 1?
+  E2.C5: Will the price of Ethereum be above $2,600 on October 1?
+  E2.C6: Will the price of Ethereum be above $2,700 on October 1?
+  E2.C7: Will the price of Ethereum be above $2,800 on October 1?
+  E2.C8: Will the price of Ethereum be above $2,900 on October 1?
+  E2.C9: Will the price of Ethereum be above $3,000 on October 1?
+  E2.C10: Will the price of Ethereum be above $3,100 on October 1?
+  E2.C11: Will the price of Ethereum be above $3,200 on October 1?
+What to write for E2:
+  Write "levels": for each chance 10, 25, 50, 75 and 90, the level you give that chance of the measured quantity being at or above when it resolves. The 10 level is the highest and the 90 level the lowest. Example: {"10": 120, "25": 110, "50": 100, "75": 92, "90": 85}.
+
+=== E3 (as of 2026-10-01): Hochelaga-Maisonneuve Quebec National Assembly Election Winner
+Rules:
+Parliamentary elections to elect all 127 seats of the National Assembly of Quebec are scheduled to take place in Quebec on October 5, 2026.
+
+This market will resolve according to the candidate who wins the next Hochelaga-Maisonneuve Quebec National Assembly election for a full term beginning in October 2026 or thereafter.
+
+If the election results are not known definitively by March 31, 2027, 11:59 PM ET, this market will resolve to "Other".
+
+The resolution source for this market will be a consensus of credible reporting. In case of ambiguity, this market will resolve solely based on official election results as published by Elections Quebec (https://www.electionsquebec.qc.ca/).
+Contracts:
+  E3.C1: Will Maude Brossard-Sabourin win the next Hochelaga-Maisonneuve Quebec National Assembly election?
+  E3.C2: Will Béatrice Hodonou win the next Hochelaga-Maisonneuve Quebec National Assembly election?
+  E3.C3: Will Janny Gaspard win the next Hochelaga-Maisonneuve Quebec National Assembly election?
+  E3.C4: Will Alexandre Leduc win the next Hochelaga-Maisonneuve Quebec National Assembly election?
+  E3.C5: Will Elena Penta win the next Hochelaga-Maisonneuve Quebec National Assembly election?
+  E3.C6: Will Person A win the next Hochelaga-Maisonneuve Quebec National Assembly election?
+  E3.C7: Will Person B win the next Hochelaga-Maisonneuve Quebec National Assembly election?
+  E3.C8: Will Person C win the next Hochelaga-Maisonneuve Quebec National Assembly election?
+  E3.C9: Will Person D win the next Hochelaga-Maisonneuve Quebec National Assembly election?
+  E3.C10: Will Person E win the next Hochelaga-Maisonneuve Quebec National Assembly election?
+  E3.C11: Will Person F win the next Hochelaga-Maisonneuve Quebec National Assembly election?
+  E3.C12: Will Person G win the next Hochelaga-Maisonneuve Quebec National Assembly election?
+  E3.C13: Will Person H win the next Hochelaga-Maisonneuve Quebec National Assembly election?
+  E3.C14: Will Person I win the next Hochelaga-Maisonneuve Quebec National Assembly election?
+  E3.C15: Will Person J win the next Hochelaga-Maisonneuve Quebec National Assembly election?
+  E3.C16: Will Person K win the next Hochelaga-Maisonneuve Quebec National Assembly election?
+  E3.C17: Will Person L win the next Hochelaga-Maisonneuve Quebec National Assembly election?
+  E3.C18: Will Person M win the next Hochelaga-Maisonneuve Quebec National Assembly election?
+  E3.C19: Will Person N win the next Hochelaga-Maisonneuve Quebec National Assembly election?
+  E3.C20: Will Person O win the next Hochelaga-Maisonneuve Quebec National Assembly election?
+  E3.C21: Will Person P win the next Hochelaga-Maisonneuve Quebec National Assembly election?
+  E3.C22: Will Person Q win the next Hochelaga-Maisonneuve Quebec National Assembly election?
+  E3.C23: Will Person R win the next Hochelaga-Maisonneuve Quebec National Assembly election?
+  E3.C24: Will Person S win the next Hochelaga-Maisonneuve Quebec National Assembly election?
+  E3.C25: Will Person T win the next Hochelaga-Maisonneuve Quebec National Assembly election?
+  E3.C26: Will Person U win the next Hochelaga-Maisonneuve Quebec National Assembly election?
+  E3.C27: Will Person V win the next Hochelaga-Maisonneuve Quebec National Assembly election?
+  E3.C28: Will Person W win the next Hochelaga-Maisonneuve Quebec National Assembly election?
+  E3.C29: Will Person X win the next Hochelaga-Maisonneuve Quebec National Assembly election?
+  E3.C30: Will Person Y win the next Hochelaga-Maisonneuve Quebec National Assembly election?
+  E3.C31: Will Person Z win the next Hochelaga-Maisonneuve Quebec National Assembly election?
+  E3.C32: Will another candidate win the next Hochelaga-Maisonneuve Quebec National Assembly election?
+What to write for E3:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E4 (as of 2026-10-01): What will Trump say this week? (September 28 - October 4)
+Rules:
+This market will resolve to "Yes" if Donald Trump mentions the listed term between September 28, 2026, 12:00 AM ET and October 4, 2026, 11:59 PM ET. Otherwise, this market will resolve to "No".
+
+Written usages of terms (e.g. Truth Social posts, written statements, etc.) will not count toward this market's resolution.
+
+Videos posted on his social media which were filmed outside this market's time frame will not qualify for a "Yes" resolution.
+
+For full rules, see: https://polymarket-upload.s3.us-east-2.amazonaws.com/market_products/Mentions/Period+Mentions+Contract+DeFi.pdf
+Contracts:
+  E4.C1: Will Trump say "Tiger" this week?
+  E4.C2: Will Trump say "Pearl Harbor" this week?
+  E4.C3: Will Trump say "Ticket" this week?
+  E4.C4: Will Trump say "Bridge" this week?
+  E4.C5: Will Trump say "Dark Age" this week?
+  E4.C6: Will Trump say "Six Seven" this week?
+  E4.C7: Will Trump say "Bitcoin" or "Crypto" or "Cryptocurrency" this week?
+What to write for E4:
+  Write "p": a whole percent for every contract label, your chance that it resolves YES.
+
+=== E5 (as of 2026-10-01): São Paulo Senate Election: 1st Place
+Rules:
+The Brazilian Federal Senate election for São Paulo is scheduled to take place on October 4, 2026.
+
+This market will resolve according to the candidate who wins the most valid votes of any candidate at the specified election.
+
+Candidates will be primarily ranked by order of valid votes won. If two or more candidates are tied for any position, ties will be broken by alphabetical order of the candidates’ listed full names as they appear in this market. This market will resolve to the candidate that occupies the highest finishing position after applying this ranking.
+
+If the result of this election isn't definitively known by June 30, 2027, 11:59 PM ET, the market will resolve to "Other".
+
+This market will resolve based on the result of the election, as indicated by a consensus of credible reporting. If there is ambiguity, this market will resolve based solely on the official results as reported by the Brazilian government, specifically the Superior Electoral Court (Tribunal Superior Eleitoral, TSE) (e.g., www.tse.jus.br/eleicoes/resultados-eleicoes).
+Contracts:
+  E5.C1: Will André do Prado win the most votes in the 2026 São Paulo Senate election?
+  E5.C2: Will Dra. Eliana Ferreira win the most votes in the 2026 São Paulo Senate election?
+  E5.C3: Will Ednelson Cesaretti win the most votes in the 2026 São Paulo Senate election?
+  E5.C4: Will Geraldo Rufino win the most votes in the 2026 São Paulo Senate election?
+  E5.C5: Will Guilherme Derrite win the most votes in the 2026 São Paulo Senate election?
+  E5.C6: Will Maíra de Souza win the most votes in the 2026 São Paulo Senate election?
+  E5.C7: Will Marcio Alves win the most votes in the 2026 São Paulo Senate election?
+  E5.C8: Will Marina Silva win the most votes in the 2026 São Paulo Senate election?
+  E5.C9: Will Petter Maahs win the most votes in the 2026 São Paulo Senate election?
+  E5.C10: Will Salles win the most votes in the 2026 São Paulo Senate election?
+  E5.C11: Will Simone Tebet win the most votes in the 2026 São Paulo Senate election?
+  E5.C12: Will Soninha Francine win the most votes in the 2026 São Paulo Senate election?
+  E5.C13: Will Weller Gonçalves win the most votes in the 2026 São Paulo Senate election?
+  E5.C14: Will William Teixeira win the most votes in the 2026 São Paulo Senate election?
+  E5.C15: Will Candidate A win the most votes in the 2026 São Paulo Senate election?
+  E5.C16: Will Candidate B win the most votes in the 2026 São Paulo Senate election?
+  E5.C17: Will Candidate C win the most votes in the 2026 São Paulo Senate election?
+  E5.C18: Will Candidate D win the most votes in the 2026 São Paulo Senate election?
+  E5.C19: Will Candidate E win the most votes in the 2026 São Paulo Senate election?
+  E5.C20: Will Candidate F win the most votes in the 2026 São Paulo Senate election?
+  E5.C21: Will Candidate G win the most votes in the 2026 São Paulo Senate election?
+  E5.C22: Will Candidate H win the most votes in the 2026 São Paulo Senate election?
+  E5.C23: Will Candidate I win the most votes in the 2026 São Paulo Senate election?
+  E5.C24: Will Candidate J win the most votes in the 2026 São Paulo Senate election?
+  E5.C25: Will Candidate K win the most votes in the 2026 São Paulo Senate election?
+  E5.C26: Will Candidate L win the most votes in the 2026 São Paulo Senate election?
+  E5.C27: Will Candidate M win the most votes in the 2026 São Paulo Senate election?
+  E5.C28: Will Candidate N win the most votes in the 2026 São Paulo Senate election?
+  E5.C29: Will Candidate O win the most votes in the 2026 São Paulo Senate election?
+  E5.C30: Will Candidate P win the most votes in the 2026 São Paulo Senate election?
+  E5.C31: Will Candidate Q win the most votes in the 2026 São Paulo Senate election?
+  E5.C32: Will Candidate R win the most votes in the 2026 São Paulo Senate election?
+  E5.C33: Will Candidate S win the most votes in the 2026 São Paulo Senate election?
+  E5.C34: Will Candidate T win the most votes in the 2026 São Paulo Senate election?
+  E5.C35: Will Candidate U win the most votes in the 2026 São Paulo Senate election?
+  E5.C36: Will Candidate V win the most votes in the 2026 São Paulo Senate election?
+  E5.C37: Will Candidate W win the most votes in the 2026 São Paulo Senate election?
+  E5.C38: Will Candidate X win the most votes in the 2026 São Paulo Senate election?
+  E5.C39: Will Candidate Y win the most votes in the 2026 São Paulo Senate election?
+  E5.C40: Will Candidate Z win the most votes in the 2026 São Paulo Senate election?
+  E5.C41: Will someone else win the most votes in the 2026 São Paulo Senate election?
+What to write for E5:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E6 (as of 2026-10-01): What will Silver (XAGUSD) hit Week of September 28 2026?
+Rules:
+What will Silver (XAGUSD) hit Week of September 28 2026?
+Contracts:
+  E6.C1: Will Silver (XAGUSD) hit (HIGH) $71 Week of September 28 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during a trading session of the week of September 28 2026, any 1-minute candle for Silver (XAGUSD) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during an applicable trading session of the specified timeframe's business days will be considered. The trading session for a given business day typically begins at 6:00 PM ET on the prior calendar date. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If Silver (XAGUSD) does not trade at all during the listed time frame, this market will resolve to "No".
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Silver (XAGUSD) "High" and "Low" prices available at https://pythdata.app/explore/Metal.XAG%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published for the relevant CME COMEX futures contract for the underlying metal—COMEX Silver Futures (SI)—may be used to determine whether the listed price was reached during the applicable trading session.
+  E6.C2: Will Silver (XAGUSD) hit (HIGH) $70 Week of September 28 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during a trading session of the week of September 28 2026, any 1-minute candle for Silver (XAGUSD) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during an applicable trading session of the specified timeframe's business days will be considered. The trading session for a given business day typically begins at 6:00 PM ET on the prior calendar date. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If Silver (XAGUSD) does not trade at all during the listed time frame, this market will resolve to "No".
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Silver (XAGUSD) "High" and "Low" prices available at https://pythdata.app/explore/Metal.XAG%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published for the relevant CME COMEX futures contract for the underlying metal—COMEX Silver Futures (SI)—may be used to determine whether the listed price was reached during the applicable trading session.
+  E6.C3: Will Silver (XAGUSD) hit (HIGH) $69 Week of September 28 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during a trading session of the week of September 28 2026, any 1-minute candle for Silver (XAGUSD) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during an applicable trading session of the specified timeframe's business days will be considered. The trading session for a given business day typically begins at 6:00 PM ET on the prior calendar date. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If Silver (XAGUSD) does not trade at all during the listed time frame, this market will resolve to "No".
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Silver (XAGUSD) "High" and "Low" prices available at https://pythdata.app/explore/Metal.XAG%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published for the relevant CME COMEX futures contract for the underlying metal—COMEX Silver Futures (SI)—may be used to determine whether the listed price was reached during the applicable trading session.
+  E6.C4: Will Silver (XAGUSD) hit (HIGH) $68 Week of September 28 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during a trading session of the week of September 28 2026, any 1-minute candle for Silver (XAGUSD) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during an applicable trading session of the specified timeframe's business days will be considered. The trading session for a given business day typically begins at 6:00 PM ET on the prior calendar date. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If Silver (XAGUSD) does not trade at all during the listed time frame, this market will resolve to "No".
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Silver (XAGUSD) "High" and "Low" prices available at https://pythdata.app/explore/Metal.XAG%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published for the relevant CME COMEX futures contract for the underlying metal—COMEX Silver Futures (SI)—may be used to determine whether the listed price was reached during the applicable trading session.
+  E6.C5: Will Silver (XAGUSD) hit (HIGH) $67 Week of September 28 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during a trading session of the week of September 28 2026, any 1-minute candle for Silver (XAGUSD) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during an applicable trading session of the specified timeframe's business days will be considered. The trading session for a given business day typically begins at 6:00 PM ET on the prior calendar date. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If Silver (XAGUSD) does not trade at all during the listed time frame, this market will resolve to "No".
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Silver (XAGUSD) "High" and "Low" prices available at https://pythdata.app/explore/Metal.XAG%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published for the relevant CME COMEX futures contract for the underlying metal—COMEX Silver Futures (SI)—may be used to determine whether the listed price was reached during the applicable trading session.
+  E6.C6: Will Silver (XAGUSD) hit (HIGH) $66 Week of September 28 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during a trading session of the week of September 28 2026, any 1-minute candle for Silver (XAGUSD) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during an applicable trading session of the specified timeframe's business days will be considered. The trading session for a given business day typically begins at 6:00 PM ET on the prior calendar date. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If Silver (XAGUSD) does not trade at all during the listed time frame, this market will resolve to "No".
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Silver (XAGUSD) "High" and "Low" prices available at https://pythdata.app/explore/Metal.XAG%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published for the relevant CME COMEX futures contract for the underlying metal—COMEX Silver Futures (SI)—may be used to determine whether the listed price was reached during the applicable trading session.
+  E6.C7: Will Silver (XAGUSD) hit (HIGH) $65 Week of September 28 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during a trading session of the week of September 28 2026, any 1-minute candle for Silver (XAGUSD) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during an applicable trading session of the specified timeframe's business days will be considered. The trading session for a given business day typically begins at 6:00 PM ET on the prior calendar date. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If Silver (XAGUSD) does not trade at all during the listed time frame, this market will resolve to "No".
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Silver (XAGUSD) "High" and "Low" prices available at https://pythdata.app/explore/Metal.XAG%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published for the relevant CME COMEX futures contract for the underlying metal—COMEX Silver Futures (SI)—may be used to determine whether the listed price was reached during the applicable trading session.
+  E6.C8: Will Silver (XAGUSD) hit (HIGH) $64 Week of September 28 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during a trading session of the week of September 28 2026, any 1-minute candle for Silver (XAGUSD) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during an applicable trading session of the specified timeframe's business days will be considered. The trading session for a given business day typically begins at 6:00 PM ET on the prior calendar date. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If Silver (XAGUSD) does not trade at all during the listed time frame, this market will resolve to "No".
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Silver (XAGUSD) "High" and "Low" prices available at https://pythdata.app/explore/Metal.XAG%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published for the relevant CME COMEX futures contract for the underlying metal—COMEX Silver Futures (SI)—may be used to determine whether the listed price was reached during the applicable trading session.
+  E6.C9: Will Silver (XAGUSD) hit (HIGH) $63 Week of September 28 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during a trading session of the week of September 28 2026, any 1-minute candle for Silver (XAGUSD) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during an applicable trading session of the specified timeframe's business days will be considered. The trading session for a given business day typically begins at 6:00 PM ET on the prior calendar date. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If Silver (XAGUSD) does not trade at all during the listed time frame, this market will resolve to "No".
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Silver (XAGUSD) "High" and "Low" prices available at https://pythdata.app/explore/Metal.XAG%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published for the relevant CME COMEX futures contract for the underlying metal—COMEX Silver Futures (SI)—may be used to determine whether the listed price was reached during the applicable trading session.
+  E6.C10: Will Silver (XAGUSD) hit (HIGH) $62 Week of September 28 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during a trading session of the week of September 28 2026, any 1-minute candle for Silver (XAGUSD) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during an applicable trading session of the specified timeframe's business days will be considered. The trading session for a given business day typically begins at 6:00 PM ET on the prior calendar date. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If Silver (XAGUSD) does not trade at all during the listed time frame, this market will resolve to "No".
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Silver (XAGUSD) "High" and "Low" prices available at https://pythdata.app/explore/Metal.XAG%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published for the relevant CME COMEX futures contract for the underlying metal—COMEX Silver Futures (SI)—may be used to determine whether the listed price was reached during the applicable trading session.
+  E6.C11: Will Silver (XAGUSD) hit (LOW) $59 Week of September 28 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during a trading session of the week of September 28 2026, any 1-minute candle for Silver (XAGUSD) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during an applicable trading session of the specified timeframe's business days will be considered. The trading session for a given business day typically begins at 6:00 PM ET on the prior calendar date. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If Silver (XAGUSD) does not trade at all during the listed time frame, this market will resolve to "No".
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Silver (XAGUSD) "High" and "Low" prices available at https://pythdata.app/explore/Metal.XAG%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published for the relevant CME COMEX futures contract for the underlying metal—COMEX Silver Futures (SI)—may be used to determine whether the listed price was reached during the applicable trading session.
+  E6.C12: Will Silver (XAGUSD) hit (LOW) $58 Week of September 28 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during a trading session of the week of September 28 2026, any 1-minute candle for Silver (XAGUSD) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during an applicable trading session of the specified timeframe's business days will be considered. The trading session for a given business day typically begins at 6:00 PM ET on the prior calendar date. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If Silver (XAGUSD) does not trade at all during the listed time frame, this market will resolve to "No".
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Silver (XAGUSD) "High" and "Low" prices available at https://pythdata.app/explore/Metal.XAG%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published for the relevant CME COMEX futures contract for the underlying metal—COMEX Silver Futures (SI)—may be used to determine whether the listed price was reached during the applicable trading session.
+  E6.C13: Will Silver (XAGUSD) hit (LOW) $57 Week of September 28 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during a trading session of the week of September 28 2026, any 1-minute candle for Silver (XAGUSD) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during an applicable trading session of the specified timeframe's business days will be considered. The trading session for a given business day typically begins at 6:00 PM ET on the prior calendar date. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If Silver (XAGUSD) does not trade at all during the listed time frame, this market will resolve to "No".
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Silver (XAGUSD) "High" and "Low" prices available at https://pythdata.app/explore/Metal.XAG%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published for the relevant CME COMEX futures contract for the underlying metal—COMEX Silver Futures (SI)—may be used to determine whether the listed price was reached during the applicable trading session.
+  E6.C14: Will Silver (XAGUSD) hit (LOW) $56 Week of September 28 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during a trading session of the week of September 28 2026, any 1-minute candle for Silver (XAGUSD) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during an applicable trading session of the specified timeframe's business days will be considered. The trading session for a given business day typically begins at 6:00 PM ET on the prior calendar date. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If Silver (XAGUSD) does not trade at all during the listed time frame, this market will resolve to "No".
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Silver (XAGUSD) "High" and "Low" prices available at https://pythdata.app/explore/Metal.XAG%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published for the relevant CME COMEX futures contract for the underlying metal—COMEX Silver Futures (SI)—may be used to determine whether the listed price was reached during the applicable trading session.
+  E6.C15: Will Silver (XAGUSD) hit (LOW) $55 Week of September 28 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during a trading session of the week of September 28 2026, any 1-minute candle for Silver (XAGUSD) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during an applicable trading session of the specified timeframe's business days will be considered. The trading session for a given business day typically begins at 6:00 PM ET on the prior calendar date. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If Silver (XAGUSD) does not trade at all during the listed time frame, this market will resolve to "No".
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Silver (XAGUSD) "High" and "Low" prices available at https://pythdata.app/explore/Metal.XAG%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published for the relevant CME COMEX futures contract for the underlying metal—COMEX Silver Futures (SI)—may be used to determine whether the listed price was reached during the applicable trading session.
+What to write for E6:
+  Write "high": for each chance 10, 25, 50, 75 and 90, the level you give that chance of being reached (at or above) within the period. The 10 level is the highest.
+  Write "low": for each chance 10, 25, 50, 75 and 90, the level you give that chance of being reached (at or below) within the period. The 10 level is the lowest.

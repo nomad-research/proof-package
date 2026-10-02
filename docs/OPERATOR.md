@@ -81,3 +81,18 @@ at a time**. `pit_fetch` refuses anything more than one day past the frontier, a
 - Satellite counts, GDELT tallies and any model reading are attentional or analogical. They may
   **propose**, and never **support** (§6).
 - The round is `learning` (provisional appetite values). Play it exactly as if it were clean.
+
+
+## v17 rounds (admitted with `logic_version: "v17"`)
+
+A v17 round writes positions with `statement_add`, not `position_add`.
+
+- Cite the documents: `links: [{"evidence_id": "EV…", "role": "states", "span": "<a quote from the document>"}]`.
+  A `states` link needs its quoted span to occur in the document's stored text (and, for a numeric or enumerated
+  attribute, to contain the value); otherwise it is stored as `component`. `component` is the default.
+- **Do not type a `knowable_from`**: it is derived (earliest verified `states` link, else latest `component`
+  link, else the statement's own time) and a typed one is refused. `embargo_until` with a reason may only make it later.
+- A statement about a subject's own state passes `node: null`.
+- The admission record (`admission_record`) is a document your first stated statement can cite.
+- A person can't be stored (`PERSON_INGEST` is off). Kinds you introduce register `unreviewed`: they may propose and
+  never support.

@@ -1,0 +1,124 @@
+You will be shown 6 questions from a prediction market. Each has one or more contracts that resolve YES or NO under the rules shown. Each question gives the date your view is "as of": answer as you would on that date.
+
+Use only what you already know. Do not search for or look up anything: reading this file is the only tool call you may make. There are no prices in this file and you should not try to estimate what any market thinks; give your own view.
+
+Each question says what to write for it. Whole percents run from 1 to 99. Levels are plain numbers in the units the contracts use (for example 95000 for $95,000, 3.25 for 3.25%). Dates are YYYY-MM-DD.
+
+For each question also say whether you recognise how it actually turned out ("recognised": true only if you believe you remember the real outcome; otherwise false).
+
+Reply with one JSON object and nothing else:
+{"events": [{"label": "E1", "recognised": false, ...the fields that question asks for...}]}
+
+=== E1 (as of 2026-09-02): Sachsen-Anhalt Parliamentary Elections: AfD # of seats?
+Rules:
+Parliamentary elections to elect the Landtag of Sachsen-Anhalt are scheduled to take place on September 6, 2026.
+
+This market will resolve according to the number of seats won by the AfD party in the Landtag of Sachsen-Anhalt as a result of this election.
+
+If the AfD party contests this election as part of a joint candidate list with one or more parties, all seats won by the joint candidate list will be counted. If the AfD party merges with another party prior to the election, all seats won by the resultant merged party, or any joint candidate list through which it contests the election, will be counted.
+
+If the results of this election are not definitively known by September 30, 2027, 11:59 PM ET, this market will resolve to the lowest range bracket.
+
+This market's resolution will be based solely on the number of seats won by the AfD party in this election.
+
+This market will resolve based on the result of the election, as indicated by a consensus of credible reporting. If there is ambiguity, this market will resolve based solely on the official results as published on the official website of the Landtag of Sachsen-Anhalt (https://www.landtag.sachsen-anhalt.de/).
+Contracts:
+  E1.C1: Will AfD win fewer than 34 seats in the 2026 Sachsen-Anhalt parliamentary elections?
+  E1.C2: Will AfD win 34-37 seats in the 2026 Sachsen-Anhalt parliamentary elections?
+  E1.C3: Will AfD win 38-41 seats in the 2026 Sachsen-Anhalt parliamentary elections?
+  E1.C4: Will AfD win 42-45 seats in the 2026 Sachsen-Anhalt parliamentary elections?
+  E1.C5: Will AfD win 46-49 seats in the 2026 Sachsen-Anhalt parliamentary elections?
+  E1.C6: Will AfD win 50 or more seats in the 2026 Sachsen-Anhalt parliamentary elections?
+What to write for E1:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E2 (as of 2026-07-22): How many 5.5 or above earthquakes July 20 - July 26?
+Rules:
+This market will resolve according to the total number of earthquakes with a magnitude of 5.5 or higher that occur anywhere on Earth between July 20, 2026, 12:00 AM ET, and July 26, 2026, 11:59 PM ET.
+
+The resolution source for this market is the United States Geological Survey (USGS) Earthquake Hazards Program, with the minimum magnitude set to 5.5 and the date parameters set to the relevant dates for this market's timeframe (https://earthquake.usgs.gov/earthquakes/search/).
+
+If an earthquake of substantial size has occurred within this market's timeframe but not yet appeared on the resolution source, this market may remain open until July 28, 2026, 11:59 PM ET, or until the earthquake in question otherwise appears on the resolution source. If such an earthquake has not appeared on the resolution source by that date, another credible resolution source will be used.
+
+This market may not resolve until the timeframe of this market has concluded. If a qualifying earthquake has been recorded on the final day, this market may remain open for 24 hours to allow for revisions to the recorded magnitude. After 24 hours, this market will resolve according to the latest provided data.
+Contracts:
+  E2.C1: Will there be 8 or fewer earthquakes of magnitude 5.5 or higher worldwide from July 20 - July 26?
+  E2.C2: Will there be exactly 9 earthquakes of magnitude 5.5 or higher worldwide from July 20 - July 26?
+  E2.C3: Will there be exactly 10 earthquakes of magnitude 5.5 or higher worldwide from July 20 - July 26?
+  E2.C4: Will there be exactly 11 earthquakes of magnitude 5.5 or higher worldwide from July 20 - July 26?
+  E2.C5: Will there be exactly 12 earthquakes of magnitude 5.5 or higher worldwide from July 20 - July 26?
+  E2.C6: Will there be exactly 13 earthquakes of magnitude 5.5 or higher worldwide from July 20 - July 26?
+  E2.C7: Will there be exactly 14 earthquakes of magnitude 5.5 or higher worldwide from July 20 - July 26?
+  E2.C8: Will there be more than 14 earthquakes of magnitude 5.5 or higher worldwide from July 20 - July 26?
+What to write for E2:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E3 (as of 2026-07-01): Megaquake by July 31?
+Rules:
+A "megaquake" is defined as an earthquake with a magnitude of 8.0 or greater.
+
+This market will resolve to “Yes” if 1 or more earthquakes with a magnitude of 8.0 or higher occur anywhere on Earth between market creation and July 31, 2026, 11:59 PM ET. Otherwise, this market will resolve to “No”.
+
+The resolution source for this market is the United States Geological Survey (USGS) Earthquake Hazards Program (https://earthquake.usgs.gov/earthquakes/browse/significant.php#sigdef).
+
+If an earthquake of substantial size has occurred within this market's timeframe but not yet appeared on the resolution source, this market may remain open until the end of the seventh day after the resolution time, or until the earthquake in question otherwise appears on the resolution source. If such an earthquake has not appeared on the resolution source by that date, another credible resolution source will be used.
+
+After a qualifying earthquake is registered, this market will remain open for 24 hours to account for any revisions to its recorded magnitude. After 24 hours, this market will resolve according to the latest provided data.
+Contracts:
+  E3.C1: Megaquake by July 31?
+What to write for E3:
+  Write "dates": for each chance 10, 25, 50, 75 and 90, the date by which you give it that chance of having happened, or null if you do not give it that chance by the last date the contracts cover. Dates must not go earlier as the chance rises.
+
+=== E4 (as of 2026-08-05): Will Walt Disney (DIS) beat quarterly earnings?
+Rules:
+As of market creation, Walt Disney is estimated to release earnings on August 5, 2026. The Street consensus estimate for Walt Disney’s non-GAAP EPS for the relevant quarter is $1.86 as of market creation. This market will resolve to "Yes" if Walt Disney reports non-GAAP EPS greater than $1.86 for the relevant quarter in its next quarterly earnings release. Otherwise, it will resolve to "No." The resolution source will be the non-GAAP EPS listed in the company’s official earnings documents. 
+
+If Walt Disney releases earnings without non-GAAP EPS, then the market will resolve according to the non-GAAP EPS figure reported by SeekingAlpha. If no such figure is published within 96h of market close (4:00:00pm ET) on the day earnings are announced, the market will resolve according to the GAAP EPS listed in the company’s official earnings documents; or, if not published there, according to the GAAP EPS provided by SeekingAlpha. If no GAAP EPS number is available from either source at that time, the market will resolve to “No.” (For the purposes of this market, GAAP EPS refers to diluted GAAP EPS, unless it is not published, in which case it refers to basic GAAP EPS.)
+
+If the company does not release earnings within 45 calendar days of the estimated earnings date, this market will resolve to “No.” 
+
+Note: Subsequent restatements, corrections, or revisions made to the initially announced non-GAAP EPS figure will not qualify for resolution, except in the case of obvious and immediate mistakes (e.g., fat finger errors, as with Lyft's (LYFT) earnings release in February 2024).
+Note: The strike prices used in these markets are derived from SeekingAlpha estimates, and reflect the consensus of sell-side analyst estimates for non-GAAP EPS.
+Note: All figures will be rounded to the nearest cent using standard rounding.
+Note: For the purposes of this market, IFRS EPS will be treated as GAAP EPS.
+Note: If multiple versions of non-GAAP EPS are published, the market will resolve according to the primary headline non-GAAP EPS number, which is typically presented on a diluted basis. If diluted is not published, then basic non-GAAP EPS will qualify.
+Note: All figures are expressed in USD, unless otherwise indicated.
+Note: For primarily internationally listed companies, this market refers specifically to the shares traded in the United States on U.S. stock exchanges such as the NYSE or Nasdaq. In cases where the company trades in the U.S. through an American Depositary Receipt (ADR) or American Depositary Share (ADS), this market will refer to the ADR/ADS.
+Contracts:
+  E4.C1: Will Walt Disney (DIS) beat quarterly earnings?
+What to write for E4:
+  Write "p": a whole percent for every contract label, your chance that it resolves YES.
+
+=== E5 (as of 2026-07-01): Trump out as President by July 31?
+Rules:
+This market will resolve to “Yes” if Donald Trump resigns or is removed as President or otherwise ceases to be the President of the United States for any period of time by July 31, 2026, 11:59 PM ET. Otherwise, this market will resolve to “No”.
+
+An announcement of Donald Trump's resignation/removal before this market's end date will immediately resolve this market to "Yes", regardless of when the announced resignation/removal goes into effect.
+
+Only permanent removal from office will qualify. Temporary removal (e.g. temporary invocation of the 25th Amendment under Section 3 or a Section 4 invocation not sustained by both Houses of Congress) or impeachment without removal will not count.
+
+A sustained invocation of the Twenty-Fifth Amendment, Section 4 (i.e., if both Houses of Congress, by two-thirds vote, uphold the Vice President and Cabinet’s determination of presidential inability) will qualify for a "Yes" resolution. 
+
+The resolution source for this market will be a consensus of credible reporting.
+Contracts:
+  E5.C1: Trump out as President by July 31?
+What to write for E5:
+  Write "dates": for each chance 10, 25, 50, 75 and 90, the date by which you give it that chance of having happened, or null if you do not give it that chance by the last date the contracts cover. Dates must not go earlier as the chance rises.
+
+=== E6 (as of 2026-07-22): MI-10 Republican Primary Winner
+Rules:
+This market will resolve according to the candidate who wins the nomination for the Republican Party to contest the MI-10 congressional district seat in the U.S. House of Representatives in the 2026 midterm elections. The Republican primary will take place on August 4, 2026.
+
+If no nominee is announced by November 3, 2026, 11:59PM ET, this market will resolve to "Other".
+
+The resolution source for this market will be a consensus of official Republican sources, including https://www.rnc.org/.
+
+Any replacement of the nominee before election day will not change the resolution of the market.
+Contracts:
+  E6.C1: Will Mike Bouchard be the Republican Nominee for MI-10?
+  E6.C2: Will Robert Lulgjuraj be the Republican Nominee for MI-10?
+  E6.C3: Will Casey Armitage be the Republican Nominee for MI-10?
+  E6.C4: Will Steven Elliott be the Republican Nominee for MI-10?
+  E6.C5: Will Justin Kirk be the Republican Nominee for MI-10?
+What to write for E6:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).

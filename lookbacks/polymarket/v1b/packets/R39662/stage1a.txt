@@ -1,0 +1,29 @@
+You are one of several independent analysts. Work only from what is written below. Apart from reading the file that held this text, do not use any tool, do not look anything up, and do not use anything you
+know that happened after 2026-01-27: reason as of that date. You are shown no market prices, and you are not asked for any probability.
+
+EVENT: Israel x Syria security agreement by...?   (structure: date ladder)
+RULES (as of 2026-01-27):
+This market will resolve to "Yes" if there is an official security agreement, defined as a publicly announced and mutually agreed deal between the governments of Israel and Syria by January 31, 2026, 11:59 PM ET. Otherwise, this market will resolve to "No".
+
+This market refers only to agreements which directly address border security and demarcation, normalization, or diplomatic recognition or otherwise creates a formalized security framework between the two states.    
+
+Ceasefire announcements or other announced de-escalations such as those relating to the July 16-18 skirmishes with the Druze, or any other future military engagements, which do not address the broader security relationship will not qualify.
+
+Only deals which are officially announced will qualify. Informal announcements which do not constitute a formalized agreement will not count.
+
+The primary resolution source will be official statements from the Israeli and Syrian governments. However, an agreement which is announced by only of the parties will qualify if an overwhelming consensus of credible reporting confirms that such a formal agreement has been reached.
+
+CONTRACTS (each pays $1 if its statement is true when the event resolves, $0 otherwise; you may name YES or NO on any contract):
+  C1: Israel x Syria security agreement by January 31?  [January 31]
+  C2: Israel x Syria security agreement by March 31?  [March 31]
+  C3: Israel x Syria security agreement by June 30?  [June 30]
+
+Task. Write your own view as documents-and-mechanism reasoning, not as odds.
+1. primary: a thesis about how this event resolves and a basket of at most 4 contracts from the list that expresses it (long only: a contract with YES or NO).
+2. failure_narrative: the specific way the thesis is wrong (what would have to happen for the basket to lose).
+3. hedge_thesis: a second narrative, about a DIFFERENT part of the world, that would tend to be true in exactly the worlds where the primary fails. Say why, in mechanism terms.
+4. search_terms: 3 to 8 words or names (entities, assets, places, institutions) that instruments for the hedge thesis would carry. Lower-case single words or short names.
+5. recalls_outcome: true if you already know, or think you know, how this event (or any part of it) actually turned out; otherwise false. Be honest: a true answer is not penalised, it only means this item is set aside.
+
+Answer with one JSON object and nothing else:
+{"primary": {"thesis": "...", "basket": [{"contract": "C1", "side": "YES", "reason": "..."}]}, "failure_narrative": "...", "hedge_thesis": "...", "search_terms": ["..."], "recalls_outcome": false}

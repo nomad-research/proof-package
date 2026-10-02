@@ -1,0 +1,79 @@
+You are reading a group of prediction-market questions that may affect each other. Your view is as of 2026-10-01.
+
+You may search the web and fetch public pages to inform your view (load the WebSearch and WebFetch tools if needed). Rules for that:
+- Every web search must pass blocked_domains = ["polymarket.com", "kalshi.com", "predictit.org", "manifold.markets", "metaculus.com", "betfair.com", "smarkets.com", "oddschecker.com", "electionbettingodds.com", "polymarketanalytics.com", "gjopen.com", "goodjudgment.com", "insightprediction.com", "limitless.exchange", "myriad.markets", "betmgm.com", "draftkings.com", "fanduel.com", "williamhill.com", "paddypower.com", "bet365.com", "ladbrokes.com", "polymarket.co"].
+- Never open a prediction-market, betting or odds site, and never use or mention what any market, bookmaker or trader thinks. Give your own view from the evidence.
+- No other tools: only reading this file, searching and fetching.
+
+First decide which questions belong together. For any you judge unrelated to the rest, put its label in "drop" with a one-line reason; write nothing else for it.
+
+For every question you keep, write what it asks for. Whole percents run from 1 to 99. Levels are plain numbers in the units the contracts use. Dates are YYYY-MM-DD.
+
+CLAIMS. Where you believe one event's outcome changes the chances of another in this group, write a claim:
+  {"if": {"contract": "E1.C2", "resolves": "YES"}, "then_event": "E3", "if_true": <what you would write for E3 if that happens>, "if_false": <what you would write for E3 if it does not>}
+"if_true" and "if_false" use exactly the fields E3 asks for (the same "p", "levels", "high", "low" or "dates" object). Write as many claims as you believe in, including none.
+
+SCALE. For every question you keep that measures a quantity, a count, a price, a size or a date, also write "scale": the kind of thing this is and where you expect this instance to land among instances of that kind.
+  "scale": {"class": "<the reference class, e.g. monthly US core CPI prints since 2010>", "percentile": <0 to 100: where your middle view of this instance sits among instances of that class; 50 is an ordinary one>}
+Write "scale": null for a question with no scale (a plain yes/no about whether something happens).
+
+Also list the pages you relied on in "sources" (URLs).
+
+Reply with one JSON object and nothing else:
+{"drop": {"E5": "reason"}, "events": [{"label": "E1", ...the fields it asks for..., "scale": {"class": "...", "percentile": 50}}], "claims": [...], "sources": ["https://..."]}
+
+=== E1 (as of 2026-10-01): How many UK parliamentary by-elections in 2026?
+Rules:
+This market will resolve according to the total number of UK parliamentary by-elections held in 2026.
+
+Qualifying by-elections must be elections to the UK House of Commons for a vacant parliamentary seat, with polling day scheduled and held within the 2026 calendar year.
+
+The resolution source for this market will be a consensus of credible reporting. In case of ambiguity, this market will resolve solely based on official information from the UK Parliament (https://www.parliament.uk/).
+Contracts:
+  E1.C1: Will there be 5 or fewer UK parliamentary by-elections in 2026?
+  E1.C2: Will there be exactly 6 UK parliamentary by-elections in 2026?
+  E1.C3: Will there be exactly 7 UK parliamentary by-elections in 2026?
+  E1.C4: Will there be exactly 8 UK parliamentary by-elections in 2026?
+  E1.C5: Will there be exactly 9 UK parliamentary by-elections in 2026?
+  E1.C6: Will there be at least 10 UK parliamentary by-elections in 2026?
+What to write for E1:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E2 (as of 2026-10-01): Next leader out of power before 2027?
+Rules:
+This market will resolve according to the first listed individual who ceases to occupy their listed office.
+
+An announcement of a resignation/removal, or a scheduled departure from office due to the outcome of an election, will not alone qualify.
+
+Only permanent removal from office will qualify for resolution. Temporary removals, such as impeachment suspensions (e.g., Yoon Suk Yeol's recent impeachment), temporary invocation of the 25th Amendment, or any similar provisional transfers of power, will not count.
+
+Additionally, if an individual continues in a caretaker or interim role (e.g., Gabriel Attal remaining as caretaker Prime Minister of France), they will not be considered to have ceased occupying the office for the purposes of this market.
+
+If this criterion has not been met for any of the listed individuals by December 31, 2026, 11:59 PM ET, this market will resolve to “None before 2027”. No additional individuals will be added to this market after its creation.
+
+The resolution source for this market will be a consensus of credible reporting.
+Contracts:
+  E2.C1: Will Emmanuel Macron be the next leader out before 2027?
+  E2.C2: Will Recep Tayyip Erdoğan be the next leader out before 2027?
+  E2.C3: Will Kim Jong Un be the next leader out before 2027?
+  E2.C4: Will Xi Jinping be the next leader out before 2027?
+  E2.C5: Will Benjamin Netanyahu be the next leader out before 2027?
+  E2.C6: Will Anthony Albanese be the next leader out before 2027?
+  E2.C7: Will Gavin Newsom be the next leader out before 2027?
+  E2.C8: Will Javier Milei be the next leader out before 2027?
+  E2.C9: Will Donald Trump be the next leader out before 2027?
+  E2.C10: Will Volodymyr Zelenskyy be the next leader out before 2027?
+  E2.C11: Will Vladimir Putin be the next leader out before 2027?
+  E2.C12: Will Luiz Inácio Lula da Silva be the next leader out before 2027?
+  E2.C13: Will Sébastien Lecornu be the next leader out before 2027?
+  E2.C14: Will Sanae Takaichi be the next leader out before 2027?
+  E2.C15: Will Mahmoud Abbas be the next leader out before 2027?
+  E2.C16: Will Friedrich Merz be the next leader out before 2027?
+  E2.C17: Will Pedro Sánchez be the next leader out before 2027?
+  E2.C18: Will Claudia Sheinbaum be the next leader out before 2027?
+  E2.C19: Will Miguel Díaz-Canel be the next leader out before 2027?
+  E2.C20: Will Delcy Rodríguez be the next leader out before 2027?
+  E2.C21: Will Ahmed al-Sharaa be the next leader out before 2027?
+  E2.C22: Will no listed leader be out before 2027?
+What to write for E2:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).

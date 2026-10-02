@@ -1,0 +1,33 @@
+You are one of several independent analysts. Work only from what is written below. Apart from reading the file that held this text, do not use any tool, do not look anything up, and do not use anything you
+know that happened after 2026-09-30: reason as of that date. You are shown no market prices, and you are not asked for any probability.
+
+EVENT: Houthis enter Aden by...?   (structure: date ladder)
+RULES (as of 2026-09-30):
+This market will resolve to "Yes" if Houthi military forces enter any part of Aden, Yemen by the specified date, 11:59 PM ET. Otherwise, this market will resolve to "No".
+
+"Houthi military forces" refers to the military forces of the Houthi movement (Ansar Allah), including any armed force operating under its direction or on its behalf.
+
+"Aden" refers to the following districts of Aden Governorate, Yemen: Craiter (Sirah), At Tawahi, Al Mualla, Khur Maksar, Ash Shaikh Outhman, Dar Sad, and Al Mansura. Al Buraiqeh district (Little Aden) is excluded and entry into Al Buraiqeh alone will not qualify.
+
+"Enter" means that the Houthi military forces, even temporarily, deliberately operate within any part of Aden, other than as prisoners of war or as emissaries as described below. Bombardment, sabotage, naval presence offshore, or temporary disruption of activity will not qualify on their own. An announcement, threat, or claim of Houthi entry will not qualify without actual entry being established.
+
+The entrance of Houthi emissaries for the purpose of negotiating an agreement or other diplomatic or commercial endeavors will not alone qualify.
+
+In the event of genuine ambiguity, this market may remain open for three days after the specified date. If Houthi entry into Aden is not established by the end of the third calendar day, 11:59 PM ET, this market will resolve to "No".
+
+The resolution source for this market will be a consensus of credible reporting.
+
+CONTRACTS (each pays $1 if its statement is true when the event resolves, $0 otherwise; you may name YES or NO on any contract):
+  C1: Houthis enter Aden by September 30, 2026?  [September 30]
+  C2: Houthis enter Aden by October 31, 2026?  [October 31]
+  C3: Houthis enter Aden by December 31, 2026?  [December 31]
+
+Task. Write your own view as documents-and-mechanism reasoning, not as odds.
+1. primary: a thesis about how this event resolves and a basket of at most 4 contracts from the list that expresses it (long only: a contract with YES or NO).
+2. failure_narrative: the specific way the thesis is wrong (what would have to happen for the basket to lose).
+3. hedge_thesis: a second narrative, about a DIFFERENT part of the world, that would tend to be true in exactly the worlds where the primary fails. Say why, in mechanism terms.
+4. search_terms: 3 to 8 words or names (entities, assets, places, institutions) that instruments for the hedge thesis would carry. Lower-case single words or short names.
+5. recalls_outcome: true if you already know, or think you know, how this event (or any part of it) actually turned out; otherwise false. Be honest: a true answer is not penalised, it only means this item is set aside.
+
+Answer with one JSON object and nothing else:
+{"primary": {"thesis": "...", "basket": [{"contract": "C1", "side": "YES", "reason": "..."}]}, "failure_narrative": "...", "hedge_thesis": "...", "search_terms": ["..."], "recalls_outcome": false}

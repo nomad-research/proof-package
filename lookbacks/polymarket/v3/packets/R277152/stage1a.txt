@@ -1,0 +1,49 @@
+You are one of several independent analysts. Work only from what is written below. Apart from reading the file that held this text, do not use any tool, do not look anything up, and do not use anything you
+know that happened after 2026-09-30: reason as of that date. You are shown no market prices, and you are not asked for any probability.
+
+EVENT: What level will the Dubai Real Estate Index hit in 2026?   (structure: touch ladder)
+RULES (as of 2026-09-30):
+This market will immediately resolve to "Yes" if any TradingView 1 minute candle for the DFM Real Estate Index between the creation of this market and December 31, 2026, 23:59 in the ET timezone has a final "High" value equal to or greater than the value specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is TradingView, specifically the DFM Real Estate Index "High" values available at https://www.tradingview.com/chart/?symbol=DFM%3ADFMREI, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+If, for any trading day, the relevant TradingView data is unavailable, the official daily high value for the DFM Real Estate Index published by the Dubai Financial Market will be used to determine whether the listed value was reached during the applicable trading session. If price data remains unavailable from both sources for 72 hours after market close on the final trading day of the specified period, this market will resolve based on the price data published up to that point.
+
+CONTRACTS (each pays $1 if its statement is true when the event resolves, $0 otherwise; you may name YES or NO on any contract):
+  C1: Will the DFM Real Estate Index hit 18,000 in 2026?  [↑ 18,000]
+  C2: Will the DFM Real Estate Index hit 16,000 in 2026?  [↑ 16,000]
+  C3: Will the DFM Real Estate Index hit 14,000 in 2026?  [↑ 14,000]
+  C4: Will the DFM Real Estate Index dip to 10,000 in 2026?  [↓ 10,000]
+      extra rules: This market will immediately resolve to "Yes" if any TradingView 1 minute candle for the DFM Real Estate Index between the creation of this market and December 31, 2026, 23:59 in the ET timezone has a final "Low" value equal to or lower than the value specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is TradingView, specifically the DFM Real Estate Index "Low" values available at https://www.tradingview.com/chart/?symbol=DFM%3ADFMREI, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+If, for any trading day, the relevant TradingView data is unavailable, the official daily high value for the DFM Real Estate Index published by the Dubai Financial Market will be used to determine whether the listed value was reached during the applicable trading session. If price data remains unavailable from both sources for 72 hours after market close on the final trading day of the specified period, this market will resolve based on the price data published up to that point.
+  C5: Will the DFM Real Estate Index dip to 8,000 in 2026?  [↓ 8,000]
+      extra rules: This market will immediately resolve to "Yes" if any TradingView 1 minute candle for the DFM Real Estate Index between the creation of this market and December 31, 2026, 23:59 in the ET timezone has a final "Low" value equal to or lower than the value specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is TradingView, specifically the DFM Real Estate Index "Low" values available at https://www.tradingview.com/chart/?symbol=DFM%3ADFMREI, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+If, for any trading day, the relevant TradingView data is unavailable, the official daily high value for the DFM Real Estate Index published by the Dubai Financial Market will be used to determine whether the listed value was reached during the applicable trading session. If price data remains unavailable from both sources for 72 hours after market close on the final trading day of the specified period, this market will resolve based on the price data published up to that point.
+  C6: Will the DFM Real Estate Index dip to 6,000 in 2026?  [↓ 6,000]
+      extra rules: This market will immediately resolve to "Yes" if any TradingView 1 minute candle for the DFM Real Estate Index between the creation of this market and December 31, 2026, 23:59 in the ET timezone has a final "Low" value equal to or lower than the value specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is TradingView, specifically the DFM Real Estate Index "Low" values available at https://www.tradingview.com/chart/?symbol=DFM%3ADFMREI, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+If, for any trading day, the relevant TradingView data is unavailable, the official daily high value for the DFM Real Estate Index published by the Dubai Financial Market will be used to determine whether the listed value was reached during the applicable trading session. If price data remains unavailable from both sources for 72 hours after market close on the final trading day of the specified period, this market will resolve based on the price data published up to that point.
+  C7: Will the DFM Real Estate Index dip to 4,000 in 2026?  [↓ 4,000]
+      extra rules: This market will immediately resolve to "Yes" if any TradingView 1 minute candle for the DFM Real Estate Index between the creation of this market and December 31, 2026, 23:59 in the ET timezone has a final "Low" value equal to or lower than the value specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is TradingView, specifically the DFM Real Estate Index "Low" values available at https://www.tradingview.com/chart/?symbol=DFM%3ADFMREI, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+If, for any trading day, the relevant TradingView data is unavailable, the official daily high value for the DFM Real Estate Index published by the Dubai Financial Market will be used to determine whether the listed value was reached during the applicable trading session. If price data remains unavailable from both sources for 72 hours after market close on the final trading day of the specified period, this market will resolve based on the price data published up to that point.
+
+Task. Write your own view as documents-and-mechanism reasoning, not as odds.
+1. primary: a thesis about how this event resolves and a basket of at most 4 contracts from the list that expresses it (long only: a contract with YES or NO).
+2. failure_narrative: the specific way the thesis is wrong (what would have to happen for the basket to lose).
+3. hedge_thesis: a second narrative, about a DIFFERENT part of the world, that would tend to be true in exactly the worlds where the primary fails. Say why, in mechanism terms.
+4. search_terms: 3 to 8 words or names (entities, assets, places, institutions) that instruments for the hedge thesis would carry. Lower-case single words or short names.
+5. recalls_outcome: true if you already know, or think you know, how this event (or any part of it) actually turned out; otherwise false. Be honest: a true answer is not penalised, it only means this item is set aside.
+
+Answer with one JSON object and nothing else:
+{"primary": {"thesis": "...", "basket": [{"contract": "C1", "side": "YES", "reason": "..."}]}, "failure_narrative": "...", "hedge_thesis": "...", "search_terms": ["..."], "recalls_outcome": false}

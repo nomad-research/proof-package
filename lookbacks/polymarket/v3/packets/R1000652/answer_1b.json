@@ -1,0 +1,62 @@
+{
+ "hedges": [
+  {
+   "event": "E21",
+   "direction": "by_date",
+   "tier": "moderate",
+   "side": "NO",
+   "reason": "The hedge is on the US-Iran ceasefire breaking (a US strike on Iran) by mid-to-late October, so it is held on the NO side of the 'continues through' ladder. Houthi merchant-ship attacks have historically been Iran-axis retaliation. If the US strikes Iran, the most likely response is a declared Houthi blockade, and that is exactly the world where C3 fails."
+  },
+  {
+   "event": "E40",
+   "direction": "by_date",
+   "tier": "moderate",
+   "side": "NO",
+   "reason": "The hedge is on the Israel-Iran ceasefire breaking by October 31. An Israel-Iran exchange is the other main trigger for the Houthis to resume anti-shipping strikes, since they tie their campaign to Israel. An Israeli strike on Iran also tends to bring Israeli strikes on Hodeidah and Sanaa, and the Houthis answer those by hitting merchant ships."
+  },
+  {
+   "event": "E34",
+   "direction": "by_date",
+   "tier": "moderate",
+   "side": "NO",
+   "reason": "The hedge is on the Saudi East-West pipeline NOT being announced as restarted by October 15. The pipeline ends at Yanbu on the Red Sea. In a world where the Houthis are hitting merchant ships in the Red Sea, the Yanbu export route and its terminals are under threat. The regional escalation that caused the shutdown would also be continuing, not easing, so a restart announcement is less likely."
+  },
+  {
+   "event": "E53",
+   "direction": "by_date",
+   "tier": "moderate",
+   "side": "NO",
+   "reason": "The hedge is on NO US-Iran Hormuz agreement by October 15. A Houthi return to merchant-ship strikes signals that the Iran axis is escalating, not settling. That is incompatible with Tehran signing a shipping-traffic deal with Washington in the same two weeks."
+  }
+ ],
+ "claims": [
+  {
+   "if": {
+    "contract": "C3",
+    "resolves": "YES"
+   },
+   "then": {
+    "event": "E34",
+    "direction": "by_date",
+    "tier": "moderate",
+    "resolves": "NO"
+   },
+   "reason": "A confirmed Houthi strike or seizure on a merchant ship by October 15 means the Red Sea is an active war zone. The Yanbu terminal that the East-West pipeline serves is then exposed, and the escalation that shut the pipeline is still running. Saudi Arabia would not announce the pipeline back in operation in that same window."
+  },
+  {
+   "if": {
+    "contract": "C3",
+    "resolves": "YES"
+   },
+   "then": {
+    "event": "E53",
+    "direction": "by_date",
+    "tier": "moderate",
+    "resolves": "NO"
+   },
+   "reason": "An Iran-backed proxy restarting a shipping campaign by mid-October is incompatible with Iran agreeing to shipping-traffic commitments with the US in the same period. The two outcomes reflect opposite states of the Iran-US relationship."
+  }
+ ],
+ "no_instrument": false,
+ "recalls_outcome": false
+}

@@ -1,0 +1,360 @@
+You will be shown 10 questions from a prediction market. Each question has one or more contracts, and each contract resolves YES or NO under the rules shown.
+
+For every contract, give your probability, as a whole percent from 1 to 99, that it resolves YES. Use only what you already know. Do not search for or look up anything: reading this file is the only tool call you may make.
+
+For each question, also say whether you recognise how it actually turned out ("recognised": true only if you believe you remember the real outcome; otherwise false).
+
+Where a question's contracts are mutually exclusive (exactly one can resolve YES), your numbers for it should add up to about 100. Where they are nested thresholds or dates, keep them consistent with each other.
+
+Reply with one JSON object and nothing else, in this form:
+{"events": [{"label": "E1", "recognised": false, "p": {"E1.C1": 35, "E1.C2": 60}}]}
+
+Every contract label below must appear exactly once in your reply.
+
+=== E1: January Inflation Argentina - Annual
+Rules:
+This is a market about Argentinian inflation over the 12-month period ending January 2026, before seasonal adjustment, as reported by the National Institute of Statistics and Census (INDEC) of Argentina.
+
+This market will resolve according to the percentage increase in Consumer Price Index (CPI / IPC) over the 12-month period ending in January 2026 (Variación % interanual Total nacional) according to the monthly INDEC report.
+
+The resolution source for this market will be the INDEC Consumer Price Index report released for January 2026 (https://www.indec.gob.ar/), currently scheduled to be released on February 10, 2026. Resolution of this market will take place upon release of the aforementioned data. If the report for January 2026 is not released by February 28, 2026, this market will resolve according to the last figure published.
+
+You can find this report by clicking on the “Precios al consumidor” option on the home page of https://www.indec.gob.ar/, and searching the PDF for the figure under “Variación % interanual Total nacional”.
+
+Note: the resolution source for this market will be the official monthly INDEC CPI (IPC) news release, which reports inflation over 12-month periods to only one decimal point (e.g., 33.6%). Thus, this is the level of precision that will be used when resolving the market.
+Contracts:
+  E1.C1: Will annual inflation in Argentina increase by less than 24% in January 2026?
+  E1.C2: Will annual inflation in Argentina increase by between 24% and 26.9% in January 2026?
+  E1.C3: Will annual inflation in Argentina increase by between 27% and 29.9% in January 2026?
+  E1.C4: Will annual inflation in Argentina increase by between 30% and 32.9% in January 2026?
+  E1.C5: Will annual inflation in Argentina increase by between 33% and 35.9% in January 2026?
+  E1.C6: Will annual inflation in Argentina increase by between 36% and 38.9% in January 2026?
+  E1.C7: Will annual inflation in Argentina increase by 39% or higher in January 2026?
+
+=== E2: What price will Bitcoin hit in May?
+Rules:
+What price will Bitcoin hit in May?
+Contracts:
+  E2.C1: Will Bitcoin reach $150,000 in May?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for BTC/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last), has a final High price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the BTC/USDT High prices available at https://www.binance.com/en/trade/BTC_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance BTC/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E2.C2: Will Bitcoin reach $120,000 in May?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for BTC/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last), has a final High price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the BTC/USDT High prices available at https://www.binance.com/en/trade/BTC_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance BTC/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E2.C3: Will Bitcoin reach $115,000 in May?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for BTC/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last), has a final High price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the BTC/USDT High prices available at https://www.binance.com/en/trade/BTC_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance BTC/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E2.C4: Will Bitcoin reach $110,000 in May?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for BTC/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last), has a final High price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the BTC/USDT High prices available at https://www.binance.com/en/trade/BTC_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance BTC/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E2.C5: Will Bitcoin reach $105,000 in May?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for BTC/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last), has a final High price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the BTC/USDT High prices available at https://www.binance.com/en/trade/BTC_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance BTC/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E2.C6: Will Bitcoin reach $100,000 in May?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for BTC/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last), has a final High price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the BTC/USDT High prices available at https://www.binance.com/en/trade/BTC_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance BTC/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E2.C7: Will Bitcoin reach $95,000 in May?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for BTC/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last), has a final High price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the BTC/USDT High prices available at https://www.binance.com/en/trade/BTC_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance BTC/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E2.C8: Will Bitcoin reach $90,000 in May?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for BTC/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last), has a final High price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the BTC/USDT High prices available at https://www.binance.com/en/trade/BTC_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance BTC/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E2.C9: Will Bitcoin reach $85,000 in May?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for BTC/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last), has a final High price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the BTC/USDT High prices available at https://www.binance.com/en/trade/BTC_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance BTC/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E2.C10: Will Bitcoin dip to $75,000 in May?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for BTC/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last), has a final Low price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the BTC/USDT Low prices available at https://www.binance.com/en/trade/BTC_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance BTC/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E2.C11: Will Bitcoin dip to $70,000 in May?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for BTC/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last), has a final Low price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the BTC/USDT Low prices available at https://www.binance.com/en/trade/BTC_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance BTC/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E2.C12: Will Bitcoin dip to $60,000 in May?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for BTC/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last), has a final Low price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the BTC/USDT Low prices available at https://www.binance.com/en/trade/BTC_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance BTC/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+
+=== E3: What price will Chainlink hit in April?
+Rules:
+What price will Chainlink hit in April?
+Contracts:
+  E3.C1: Will Chainlink reach $20 in April?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for LINK/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last) has a final High price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the LINK/USDT High prices available at https://www.binance.com/en/trade/LINK_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance LINK/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E3.C2: Will Chainlink reach $18 in April?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for LINK/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last) has a final High price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the LINK/USDT High prices available at https://www.binance.com/en/trade/LINK_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance LINK/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E3.C3: Will Chainlink reach $16 in April?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for LINK/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last) has a final High price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the LINK/USDT High prices available at https://www.binance.com/en/trade/LINK_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance LINK/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E3.C4: Will Chainlink reach $14 in April?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for LINK/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last) has a final High price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the LINK/USDT High prices available at https://www.binance.com/en/trade/LINK_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance LINK/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E3.C5: Will Chainlink reach $12 in April?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for LINK/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last) has a final High price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the LINK/USDT High prices available at https://www.binance.com/en/trade/LINK_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance LINK/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E3.C6: Will Chainlink reach $10 in April?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for LINK/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last) has a final High price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the LINK/USDT High prices available at https://www.binance.com/en/trade/LINK_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance LINK/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E3.C7: Will Chainlink dip to $8 in April?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for LINK/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last) has a final Low price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the LINK/USDT Low prices available at https://www.binance.com/en/trade/LINK_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance LINK/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E3.C8: Will Chainlink dip to $6 in April?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for LINK/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last) has a final Low price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the LINK/USDT Low prices available at https://www.binance.com/en/trade/LINK_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance LINK/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E3.C9: Will Chainlink dip to $4 in April?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for LINK/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last) has a final Low price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the LINK/USDT Low prices available at https://www.binance.com/en/trade/LINK_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance LINK/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E3.C10: Will Chainlink dip to $2 in April?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for LINK/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last) has a final Low price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the LINK/USDT Low prices available at https://www.binance.com/en/trade/LINK_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance LINK/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+
+=== E4: LA Mayoral Election: Who will advance to the 2nd round?
+Rules:
+The 2026 Los Angeles mayoral election will be held on June 2, 2026, to elect the mayor of Los Angeles, California. If no candidate receives a majority of the vote, a runoff election will be held on November 3, 2026.
+
+This market will resolve according to the listed pair of candidates that advance to the second round of the 2026 Los Angeles Mayoral election.
+
+If any candidate wins this election outright in the first round, this market will resolve to “1st Round Outright Winner”.
+
+If any candidate pair other than the listed pairs advances to the second round of the 2026 Los Angeles Mayoral election, this market will resolve to “Other”.
+
+If the results of the first round of the 2026 Los Angeles Mayoral election are not known by December 31, 2026, 11:59 PM ET, this market will resolve to "Other".
+
+This market will resolve based on the results of this election as indicated by a consensus of credible reporting. If there is ambiguity, this market will resolve based solely on the official results as reported by the city and county of Los Angeles.
+Contracts:
+  E4.C1: Will Karen Bass & Nithya Raman advance to the second round of the 2026 Los Angeles mayoral election?
+  E4.C2: Will Karen Bass & Spencer Pratt advance to the second round of the 2026 Los Angeles mayoral election?
+  E4.C3: Will Nithya Raman & Spencer Pratt advance to the second round of the 2026 Los Angeles mayoral election?
+  E4.C4: Will another pair of candidates advance to the second round of the 2026 Los Angeles mayoral election?
+  E4.C5: Will a candidate win the 2026 Los Angeles mayoral election in the first round?
+
+=== E5: China GDP growth in Q4 2025?
+Rules:
+This market will resolve according to China's Y/Y Growth Rate of Gross Domestic Product (GDP) in the "Preliminary Accounting Results of GDP" release for Q4 of 2025, scheduled for some time in January, 2026.
+
+If the reported value falls exactly between two brackets, then this market will resolve to the higher range bracket.
+
+The GDP release will be made available here: https://www.stats.gov.cn/english/PressRelease/
+
+If no data for the specified quarter is released by the date the next quarter's data is scheduled to be released, this market will resolve based on data from the last available month.
+
+Note: data from the initial release of the referenced GDP report is what will be used to resolve this market. Data may be revised during the following quarter or as a part of the next estimate's publication, however any revisions to GDP report data made after the initial release will not be considered for this market's resolution.
+Contracts:
+  E5.C1: Will China GDP growth in Q4 2025 be less than 2.5%?
+  E5.C2: Will China GDP growth in Q4 2025 be between 2.5% and 3.0%?
+  E5.C3: Will China GDP growth in Q4 2025 be between 3.0% and 3.5%?
+  E5.C4: Will China GDP growth in Q4 2025 be between 3.5% and 4.0%?
+  E5.C5: Will China GDP growth in Q4 2025 be between 4.0% and 4.5%?
+  E5.C6: Will China GDP growth in Q4 2025 be between 4.5% and 5.0%?
+  E5.C7: Will China GDP growth in Q4 2025 be over 5.0%?
+
+=== E6: Central Bank of Colombia Decision in April?
+Rules:
+This market will resolve according to the change in the target for the monetary policy rate as a result of the Central Bank of Colombia's April 2026 meeting versus the level it was prior to this meeting.
+
+The resolution source for this market is information released by the Central Bank of Colombia after its April 30, 2026 policy meeting, as listed on the official Central Bank of Colombia calendar: https://www.banrep.gov.co/es/calendario-eventos.
+
+This market may resolve as soon as the Central Bank of Colombia's statement for their April meeting with relevant data is issued. If no statement is released by the end date of the next scheduled meeting, this market will resolve to the "No change" bracket.
+Contracts:
+  E6.C1: Will the Central Bank of Colombia announce a decrease at the April meeting?
+  E6.C2: Will the Central Bank of Colombia announce no change at the April meeting?
+  E6.C3: Will the Central Bank of Colombia announce an increase at the April meeting?
+
+=== E7: What will WTI Crude Oil (WTI) hit in June 2026?
+Rules:
+This market will resolve to "Yes" if, at any point after market creation and during a trading session of June 2026, any 1-minute candle for the Active Month of WTI Crude Oil futures has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If the Active Month contract does not trade at all during the listed time frame, this market will resolve to "No".
+
+Only prices achieved during an applicable trading session of the specified timeframe’s business days will be considered. The trading session for a given business day typically begins at 6:00 PM ET on the prior calendar date. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours.
+
+The active month changes at the start of the second trading session prior to the nearest listed contract's last trading session. At that point, the next listed contract becomes the active month (i.e., for the final three trading sessions of the nearest listed contract, the contract for the next month is the active month). 
+
+Per CME contract specifications for WTI Crude Oil (CL) futures, a contract's last trading day is three business days prior to the 25th calendar day of the month preceding the contract's delivery month (or four business days prior if the 25th calendar day is not a business day).
+
+For example, if the 25th of the month is a Saturday, the last trading session for the nearest listed contract is the session for Tuesday the 21st, and the next listed contract becomes the active month at the start of the trading session for Friday the 17th (6:00 PM ET on Thursday), assuming a standard trading calendar.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published for the Active Month WTI Crude Oil (CL) futures contract by CME Group may be used to determine whether the listed price was reached during the applicable trading session.
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the underlying market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Active Month WTI Crude Oil futures "High" and "Low" prices available at https://pythdata.app/explore?search=WTI, with the chart settings configured for 1-minute candles. Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+Contracts:
+  E7.C1: Will WTI Crude Oil (WTI) hit (HIGH) $200 in June?
+  E7.C2: Will WTI Crude Oil (WTI) hit (HIGH) $175 in June?
+  E7.C3: Will WTI Crude Oil (WTI) hit (HIGH) $150 in June?
+  E7.C4: Will WTI Crude Oil (WTI) hit (HIGH) $140 in June?
+  E7.C5: Will WTI Crude Oil (WTI) hit (HIGH) $130 in June?
+  E7.C6: Will WTI Crude Oil (WTI) hit (HIGH) $125 in June?
+  E7.C7: Will WTI Crude Oil (WTI) hit (HIGH) $120 in June?
+  E7.C8: Will WTI Crude Oil (WTI) hit (HIGH) $115 in June?
+  E7.C9: Will WTI Crude Oil (WTI) hit (HIGH) $110 in June?
+  E7.C10: Will WTI Crude Oil (WTI) hit (HIGH) $105 in June?
+  E7.C11: Will WTI Crude Oil (WTI) hit (HIGH) $100 in June?
+  E7.C12: Will WTI Crude Oil (WTI) hit (HIGH) $95 in June?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during a trading session of the month specified in the title, any 1-minute candle for the Active Month of WTI Crude Oil futures has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No". Price action before this market's creation will not be considered.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If the Active Month contract does not trade at all during the listed time frame, this market will resolve to "No".
+
+Only prices achieved during an applicable trading session of the specified timeframe’s business days will be considered. The trading session for a given business day typically begins at 6:00 PM ET on the prior calendar date. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours.
+
+The active month changes at the start of the second trading session prior to the nearest listed contract's last trading session. At that point, the next listed contract becomes the active month (i.e., for the final three trading sessions of the nearest listed contract, the contract for the next month is the active month).
+
+Per CME contract specifications for WTI Crude Oil (CL) futures, a contract's last trading day is three business days prior to the 25th calendar day of the month preceding the contract's delivery month (or four business days prior if the 25th calendar day is not a business day).
+
+For example, if the 25th of the month is a Saturday, the last trading session for the nearest listed contract is the session for Tuesday the 21st, and the next listed contract becomes the active month at the start of the trading session for Friday the 17th (6:00 PM ET on Thursday), assuming a standard trading calendar.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published for the Active Month WTI Crude Oil (CL) futures contract by CME Group may be used to determine whether the listed price was reached during the applicable trading session.
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the underlying market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Active Month WTI Crude Oil futures "High" and "Low" prices available at https://pythdata.app/explore?search=WTI, with the chart settings configured for 1-minute candles. Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+
+=== E8: What price will Ethena hit in February?
+Rules:
+What price will Ethena hit in February?
+Contracts:
+  E8.C1: Will Ethena reach $0.36 in February?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for ENA/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last) has a final High price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the ENA/USDT High prices available at https://www.binance.com/en/trade/ENA_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance ENA/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E8.C2: Will Ethena reach $0.32 in February?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for ENA/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last) has a final High price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the ENA/USDT High prices available at https://www.binance.com/en/trade/ENA_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance ENA/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E8.C3: Will Ethena reach $0.28 in February?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for ENA/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last) has a final High price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the ENA/USDT High prices available at https://www.binance.com/en/trade/ENA_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance ENA/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E8.C4: Will Ethena reach $0.24 in February?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for ENA/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last) has a final High price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the ENA/USDT High prices available at https://www.binance.com/en/trade/ENA_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance ENA/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E8.C5: Will Ethena reach $0.20 in February?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for ENA/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last) has a final High price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the ENA/USDT High prices available at https://www.binance.com/en/trade/ENA_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance ENA/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E8.C6: Will Ethena reach $0.16 in February?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for ENA/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last) has a final High price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the ENA/USDT High prices available at https://www.binance.com/en/trade/ENA_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance ENA/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E8.C7: Will Ethena dip to $0.08 in February?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for ENA/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last) has a final Low price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the ENA/USDT Low prices available at https://www.binance.com/en/trade/ENA_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance ENA/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E8.C8: Will Ethena dip to $0.04 in February?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for ENA/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last) has a final Low price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the ENA/USDT Low prices available at https://www.binance.com/en/trade/ENA_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance ENA/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+
+=== E9: Nothing Ever Happens: Khamenei
+Rules:
+This market will resolve to “No” if any of the following conditions are met between market creation and March 31, 2026, 11:59 ET:
+
+- Khamenei out as Supreme Leader of Iran
+- Khamenei leaves Iran
+
+Otherwise, this market will resolve to “Yes”.
+
+Khamenei out as Supreme Leader of Iran:
+This market will resolve to "No" if Iran's Supreme Leader, Ali Khamenei, is removed from power for any length of time during this market’s above-specified time frame. Khamenei will be considered to be removed from power if he resigns, is detained, or otherwise loses his position or is prevented from fulfilling his duties as Supreme Leader of Iran within this market's timeframe. The primary resolution source for this market will be a consensus of credible reporting.
+
+Khamenei leaves Iran:
+This market will resolve to "No" if it is confirmed that Ali Khamenei has left Iran for any length of time during this market’s above-specified time frame. In cases where Ali Khamenei may have exited Iranian airspace on a plane, he must be confirmed to have exited the plane in a country other than Iran for this market to resolve to "No". If Ali Khamenei exits Iranian maritime territory on a boat to international waters, this market may resolve to "No". The resolution source for this market will be a consensus of credible reporting.
+Contracts:
+  E9.C1: Nothing Ever Happens: Khamenei
+
+=== E10: Fact Check: Maduro capture staged?
+Rules:
+This market will resolve to "Yes" if it is widely and credibly confirmed that the operation to capture Nicolás Maduro was staged or pre-arranged with Maduro (i.e., facilitated, permitted, or agreed to in advance such that Maduro’s capture was not the result of an adversarial raid) by March 31, 2026, 11:59 PM ET. Otherwise, this market will resolve to "No".
+
+Statements from the U.S. government claiming that the operation was staged or pre-arranged will qualify for a "Yes" resolution. If no broad consensus has been reached by March 31, 2026, 11:59 PM ET, this market will resolve to "No".
+
+The resolution source will be a consensus of credible reporting.
+Contracts:
+  E10.C1: Fact Check: Maduro capture staged?

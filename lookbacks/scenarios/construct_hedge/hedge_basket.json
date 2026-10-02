@@ -1,0 +1,39 @@
+{
+  "hedging_thesis": "On a Federal Reserve policy-statement day, a dovish outcome (the 5-year Treasury yield falls by 5 basis points or more) lifts long-duration, highly levered, rate-financed equities. Lower intermediate yields cut their marginal borrowing and refinancing costs, lower the rate at which their long, bond-like cash flows are discounted, make their fixed dividend yields relatively more attractive against Treasuries, and, for homebuilders, lower the mortgage rates that decide whether buyers can afford a home. Thesis set: {dovish}. This covers the bank basket's failure set exactly, because a dovish outcome compresses bank net interest margins on the same day it helps these names.",
+  "mechanism_chain": [
+    "Hop 1 (policy signal to the curve): a dovish statement lowers the expected path of the policy rate, and the 5-year Treasury yield falls by 5 bp or more. The 5-year point prices the next several years of expected short rates, so it responds directly to the statement.",
+    "Hop 2 (financing cost): corporate bond, term-loan and mortgage rates are priced as a spread over intermediate Treasuries, so a lower 5-year yield directly lowers the cost of new and refinanced debt. The companies that gain most are those whose business depends on continually raising debt: REITs, regulated utilities funding capital spending, and homebuilders' buyers.",
+    "Hop 3 (end-customer financing, the way a company earns): 30-year mortgage rates track the 5- to 10-year part of the Treasury curve, so lower yields improve monthly-payment affordability, increase buyer traffic and orders, and let homebuilders spend less on mortgage-rate buydowns, which lifts gross margin.",
+    "Hop 4 (leverage): highly levered equity holders keep any saving in interest expense. For a company with large floating-rate or near-term maturing debt, a lower refinancing rate raises funds from operations and AFFO per share by a multiple of the change in rates.",
+    "Hop 5 (duration and discounting of cash flows): long-lived, contracted or regulated cash flows (triple-net leases, tower leases, rate-base returns) behave like long-duration bonds. A lower risk-free rate lowers the discount rate and raises their present value, and their dividend yields widen relative to Treasuries (the bond-proxy effect), which draws yield-seeking buyers.",
+    "Hop 6 (reaching the stocks on the day): because these channels work through prices, not later reported earnings, equity investors reprice these stocks within the same session as the Treasury move. That is the same horizon over which the bank basket is hurt."
+  ],
+  "exclusions": [
+    {
+      "outcome": "hawkish (5-year yield change of +5 bp or more)",
+      "reason": "Every hop runs in reverse: financing and mortgage costs rise, levered equity absorbs higher interest expense, and long-duration cash flows are discounted at a higher rate. The thesis would predict losses for these stocks, so this outcome cannot be in its thesis set. That is acceptable because the bank thesis already covers the hawkish outcome."
+    },
+    {
+      "outcome": "neutral (5-year yield change between -5 bp and +5 bp)",
+      "reason": "Within ±5 bp, the change in the rate that feeds hops 2 to 5 is too small to move financing costs, mortgage affordability or discount rates by a material amount. The mechanism therefore gives no directional prediction, and the thesis makes no claim. That is acceptable because the bank thesis already covers the neutral outcome."
+    }
+  ],
+  "basket": [
+    {
+      "ticker": "DHI",
+      "hop": "Hop 3 (end-customer financing): as the largest US homebuilder by volume, with a focus on entry-level buyers, D.R. Horton's orders and margins depend on the mortgage rates its buyers face, and those rates fall with the 5-year and longer Treasury yields."
+    },
+    {
+      "ticker": "O",
+      "hop": "Hop 5 (duration and discounting) and Hop 2 (financing cost): Realty Income's long, fixed-escalator triple-net leases are bond-like cash flows priced partly on their dividend spread to Treasuries, and it grows by continually issuing debt to buy properties at a spread to its cost of capital, so lower yields both raise the present value of its leases and widen its investment spread."
+    },
+    {
+      "ticker": "AMT",
+      "hop": "Hop 4 (leverage) and Hop 5 (duration): American Tower is a highly levered tower REIT with long-dated contracted leases, so lower rates cut refinancing costs on its large debt load, which raises AFFO per share, and lower the discount rate applied to its long lease stream."
+    },
+    {
+      "ticker": "NEE",
+      "hop": "Hop 2 (financing cost): NextEra funds a very large regulated-utility and renewables capital-spending program with debt and equity, so a lower 5-year yield reduces the financing cost of that build-out and supports its valuation as a rate-sensitive, dividend-paying bond proxy."
+    }
+  ]
+}

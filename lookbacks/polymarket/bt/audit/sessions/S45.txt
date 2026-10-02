@@ -1,0 +1,312 @@
+You will be shown 10 questions from a prediction market. Each question has one or more contracts, and each contract resolves YES or NO under the rules shown.
+
+For every contract, give your probability, as a whole percent from 1 to 99, that it resolves YES. Use only what you already know. Do not search for or look up anything: reading this file is the only tool call you may make.
+
+For each question, also say whether you recognise how it actually turned out ("recognised": true only if you believe you remember the real outcome; otherwise false).
+
+Where a question's contracts are mutually exclusive (exactly one can resolve YES), your numbers for it should add up to about 100. Where they are nested thresholds or dates, keep them consistent with each other.
+
+Reply with one JSON object and nothing else, in this form:
+{"events": [{"label": "E1", "recognised": false, "p": {"E1.C1": 35, "E1.C2": 60}}]}
+
+Every contract label below must appear exactly once in your reply.
+
+=== E1: Precipitation in Hong Kong in April?
+Rules:
+This market will resolve according to the total precipitation in mm in Hong Kong between April 1 and April 30, 2026, according to the Hong Kong Observatory.
+
+The resolution source for this market will be the Hong Kong Observatory, specifically the "Total Rainfall (mm)" figure for all days in April 2026 under the "Daily Extract" at the https://www.weather.gov.hk/en/cis/climat.htm link once figures are finalized for the specified range.
+
+If the reported data falls exactly between two brackets, this market will resolve to the higher bracket.
+
+If the relevant data is not available by June 7, 2026, 11:59 PM ET, another credible resolution source will be chosen.
+
+The resolution source for this market measures precipitation to 1 decimal place (e.g., 1.5), thus, this is the level of precision that will be used when resolving this market. Any revisions to precipitation recorded after data is finalized for this market's timeframe will not be considered for this market's resolution.
+Contracts:
+  E1.C1: Will Hong Kong have less than 130mm of precipitation in April?
+  E1.C2: Will Hong Kong have between 130-140mm of precipitation in April?
+  E1.C3: Will Hong Kong have between 140-150mm of precipitation in April?
+  E1.C4: Will Hong Kong have between 150-160mm of precipitation in April?
+  E1.C5: Will Hong Kong have between 160-170mm of precipitation in April?
+  E1.C6: Will Hong Kong have between 170-180mm of precipitation in April?
+  E1.C7: Will Hong Kong have between 180-190mm of precipitation in April?
+  E1.C8: Will Hong Kong have 190mm or more of precipitation in April?
+
+=== E2: Gold (GC) above ___ end of March?
+Rules:
+This market will resolve to "Yes" if the official CME settlement price for the Active Month of Gold futures on the final trading day of March 2026 is higher than the listed price. Otherwise, the market will resolve to "No".
+
+For CME Gold (GC) futures contracts, the Active Month is the nearest of CME's designated delivery-cycle months (February, April, June, August, October, December) that is not the spot month. The Active Month changes automatically on the contract's First Position Date, at which point the next eligible contract month becomes the Active Month.
+
+Only the Active Month's official settlement price published by CME Group will be considered. Intraday trades, highs, lows, bids, offers, midpoint values, or indicative prices do not count.
+
+Note that the settlement price may differ from the last traded price. CME's methodology to determine the settlement price can vary by commodity and contract.
+
+Only days during March on which CME publishes an official settlement price for the Active Month will be included. Days without settlement prices (weekends, holidays, or market closures) are ignored.
+
+This market will resolve based on the settlement price as it appears on the CME settlement page at the time it is first published for that trading day, regardless of any later corrections or updates.
+
+The resolution source for this market is the CME Group website — specifically, the daily "Settlement" price for the Active Month of Gold (GC) futures.
+Contracts:
+  E2.C1: Will Gold (GC) settle over $7,000 on the final trading day of March 2026?
+  E2.C2: Will Gold (GC) settle over $6,500 on the final trading day of March 2026?
+  E2.C3: Will Gold (GC) settle over $6,000 on the final trading day of March 2026?
+  E2.C4: Will Gold (GC) settle over $5,800 on the final trading day of March 2026?
+  E2.C5: Will Gold (GC) settle over $5,600 on the final trading day of March 2026?
+  E2.C6: Will Gold (GC) settle over $5,400 on the final trading day of March 2026?
+  E2.C7: Will Gold (GC) settle over $5,200 on the final trading day of March 2026?
+  E2.C8: Will Gold (GC) settle over $5,000 on the final trading day of March 2026?
+  E2.C9: Will Gold (GC) settle over $4,800 on the final trading day of March 2026?
+  E2.C10: Will Gold (GC) settle over $4,600 on the final trading day of March 2026?
+  E2.C11: Will Gold (GC) settle over $4,400 on the final trading day of March 2026?
+  E2.C12: Will Gold (GC) settle over $4,000 on the final trading day of March 2026?
+
+=== E3: What price will Bitcoin hit in January?
+Rules:
+What price will Bitcoin hit in January?
+Contracts:
+  E3.C1: Will Bitcoin reach $150,000 in January?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for BTC/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last), has a final High price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the BTC/USDT High prices available at https://www.binance.com/en/trade/BTC_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance BTC/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E3.C2: Will Bitcoin reach $130,000 in January?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for BTC/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last), has a final High price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the BTC/USDT High prices available at https://www.binance.com/en/trade/BTC_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance BTC/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E3.C3: Will Bitcoin reach $125,000 in January?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for BTC/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last), has a final High price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the BTC/USDT High prices available at https://www.binance.com/en/trade/BTC_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance BTC/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E3.C4: Will Bitcoin reach $120,000 in January?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for BTC/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last), has a final High price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the BTC/USDT High prices available at https://www.binance.com/en/trade/BTC_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance BTC/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E3.C5: Will Bitcoin reach $115,000 in January?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for BTC/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last), has a final High price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the BTC/USDT High prices available at https://www.binance.com/en/trade/BTC_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance BTC/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E3.C6: Will Bitcoin reach $110,000 in January?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for BTC/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last), has a final High price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the BTC/USDT High prices available at https://www.binance.com/en/trade/BTC_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance BTC/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E3.C7: Will Bitcoin reach $105,000 in January?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for BTC/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last), has a final High price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the BTC/USDT High prices available at https://www.binance.com/en/trade/BTC_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance BTC/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E3.C8: Will Bitcoin reach $100,000 in January?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for BTC/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last), has a final High price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the BTC/USDT High prices available at https://www.binance.com/en/trade/BTC_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance BTC/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E3.C9: Will Bitcoin dip to $85,000 in January?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for BTC/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last), has a final Low price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the BTC/USDT Low prices available at https://www.binance.com/en/trade/BTC_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance BTC/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E3.C10: Will Bitcoin dip to $80,000 in January?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for BTC/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last), has a final Low price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the BTC/USDT Low prices available at https://www.binance.com/en/trade/BTC_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance BTC/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E3.C11: Will Bitcoin dip to $75,000 in January?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for BTC/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last), has a final Low price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the BTC/USDT Low prices available at https://www.binance.com/en/trade/BTC_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance BTC/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E3.C12: Will Bitcoin dip to $70,000 in January?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for BTC/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last), has a final Low price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the BTC/USDT Low prices available at https://www.binance.com/en/trade/BTC_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance BTC/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+
+=== E4: What will Trump say during bilateral events with King Charles? 
+Rules:
+King Charles is scheduled to visit the White House from April 27 to April 30, 2026 (https://time.com/article/2026/04/01/king-charles-camilla-royal-state-visit-washington-america-trump/). 
+
+This market will resolve to "Yes" if Donald Trump says the listed term during his appearance at events featuring King Charles from April 27 through April 30, 2026. Otherwise, the market will resolve to "No".
+
+Plural and possessive forms of the listed term will count toward the resolution of this market regardless of context; however, other forms will NOT count.
+
+Instances where the term is used in a compound word will count regardless of context (e.g. joyful is not a compound word for "joy," however "killjoy" is a compounding of the words "kill" and "joy").
+
+If this market requires a specified number of mentions of a person’s first or last name, a full-name mention will count as one mention (e.g., if a market is about “Joe / Biden 5+ times,” a mention of “Joe Biden” will count once).
+
+AI-generated audio or video will not count toward this market's resolution.
+
+This market is explicitly about events featuring both Donald Trump and King Charles from April 27 through April 30, 2026. All such events featuring both on these dates count. Speeches, events, or comments which feature one named individual but not the other, will not qualify toward this market's resolution. If the events contain a Q&A, it will count toward the resolution of this market.
+
+If this visit is definitively cancelled, or otherwise is not aired by May 31, 2026, 11:59 PM ET, this market will resolve to "No".
+
+The resolution source will be video of the events. Only remarks which are broadcast or streamed live will count toward this market's resolution.
+Contracts:
+  E4.C1: Will Trump say "Immigration" or "Immigrant" during King Charles visit?
+  E4.C2: Will Trump say "Somali" or "Somalia" or "Somalian" during King Charles visit?
+  E4.C3: Will Trump say "Keir" or "Starmer" during King Charles visit?
+  E4.C4: Will Trump say "Elizabeth" during King Charles visit?
+  E4.C5: Will Trump say "Hottest" during King Charles visit?
+  E4.C6: Will Trump say "Free World" during King Charles visit?
+  E4.C7: Will Trump say "Winston" or "Churchill" during King Charles visit?
+  E4.C8: Will Trump say "Shakespeare" during King Charles visit?
+  E4.C9: Will Trump say "Farmer" during King Charles visit?
+  E4.C10: Will Trump say "Windsor" during King Charles visit?
+  E4.C11: Will Trump say "Normandy" during King Charles visit?
+  E4.C12: Will Trump say "Declaration of Independence" during King Charles visit?
+
+=== E5: What price will Ethena hit in March?
+Rules:
+What price will Ethena hit in March?
+Contracts:
+  E5.C1: Will Ethena reach $0.32 in March?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for ENA/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last) has a final High price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the ENA/USDT High prices available at https://www.binance.com/en/trade/ENA_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance ENA/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E5.C2: Will Ethena reach $0.28 in March?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for ENA/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last) has a final High price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the ENA/USDT High prices available at https://www.binance.com/en/trade/ENA_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance ENA/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E5.C3: Will Ethena reach $0.24 in March?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for ENA/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last) has a final High price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the ENA/USDT High prices available at https://www.binance.com/en/trade/ENA_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance ENA/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E5.C4: Will Ethena reach $0.20 in March?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for ENA/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last) has a final High price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the ENA/USDT High prices available at https://www.binance.com/en/trade/ENA_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance ENA/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E5.C5: Will Ethena reach $0.16 in March?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for ENA/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last) has a final High price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the ENA/USDT High prices available at https://www.binance.com/en/trade/ENA_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance ENA/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E5.C6: Will Ethena dip to $0.08 in March?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for ENA/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last) has a final Low price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the ENA/USDT Low prices available at https://www.binance.com/en/trade/ENA_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance ENA/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E5.C7: Will Ethena dip to $0.04 in March?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for ENA/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last) has a final Low price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the ENA/USDT Low prices available at https://www.binance.com/en/trade/ENA_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance ENA/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E5.C8: Will Ethena dip to $0.00 in March?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for ENA/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last) has a final Low price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the ENA/USDT Low prices available at https://www.binance.com/en/trade/ENA_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance ENA/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+
+=== E6: Will Amazon (AMZN) close above ___ end of February?
+Rules:
+This market will resolve to "Yes" if the official closing price for Amazon.com, Inc. (AMZN) on the final trading day of February 2026 is higher than the listed price. Otherwise, this market will resolve to "No".
+
+If the final trading day of the month is shortened (for example, due to a market-holiday schedule), the official closing price published for that shortened session will still be used for resolution.
+
+If no official closing price is published for that session (for example, due to a trading halt into the close, system issue, or other disruption), the market will use the last valid on-exchange trade price of the regular session as the effective closing price.
+
+The resolution source for this market is Yahoo Finance — specifically, the Amazon.com, Inc. (AMZN) "Close" prices available at https://finance.yahoo.com/quote/AMZN/history, published under "Historical Prices."
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Yahoo Finance.
+Contracts:
+  E6.C1: Will Amazon (AMZN) close above $180 end of February?
+  E6.C2: Will Amazon (AMZN) close above $190 end of February?
+  E6.C3: Will Amazon (AMZN) close above $200 end of February?
+  E6.C4: Will Amazon (AMZN) close above $210 end of February?
+  E6.C5: Will Amazon (AMZN) close above $220 end of February?
+  E6.C6: Will Amazon (AMZN) close above $230 end of February?
+  E6.C7: Will Amazon (AMZN) close above $240 end of February?
+  E6.C8: Will Amazon (AMZN) close above $250 end of February?
+  E6.C9: Will Amazon (AMZN) close above $260 end of February?
+  E6.C10: Will Amazon (AMZN) close above $270 end of February?
+  E6.C11: Will Amazon (AMZN) close above $280 end of February?
+  E6.C12: Will Amazon (AMZN) close above $290 end of February?
+
+=== E7: U.S. evacuates Baghdad Embassy by January 31?
+Rules:
+This market will resolve to "Yes" if the U.S. government announces a full evacuation of the U.S. Embassy in Baghdad, Iraq, or a full evacuation of the embassy is otherwise confirmed by January 31, 2026, 11:59 PM ET. Otherwise, this market will resolve to "No".
+
+A full evacuation announced within this market's timeframe will qualify for a "Yes" resolution regardless of whether an actual evacuation subsequently takes place within the timeframe.
+
+Announcements of a partial evacuation, where some staff are intended to remain, will not count.
+
+The resolution source will be official statements from the U.S. government, or a consensus of credible reporting confirming the evacuation of the embassy.
+Contracts:
+  E7.C1: U.S. evacuates Baghdad Embassy by January 31?
+
+=== E8: Bank of Russia decision in April?
+Rules:
+This market will resolve according to the change in the key rate resulting from the Bank of Russia’s April meeting, relative to the level it was prior to this meeting.
+
+The resolution source for this market is information released by the Bank of Russia after its April 24, 2026 meeting as listed on the official Bank of Russia calendar: https://www.cbr.ru/eng/dkp/cal_mp/#t13
+
+This market may resolve as soon as the Bank of Russia’s press release for their April 24, 2026 meeting with relevant data is issued. If no decision on the key rate is issued by the end date of the next scheduled meeting, this market will resolve to the "No change" bracket.
+Contracts:
+  E8.C1: Will the Bank of Russia decrease the key rate after the April Meeting?
+  E8.C2: Will the Bank of Russia make no change to the key rate after the April Meeting?
+  E8.C3: Will the Bank of Russia increase the key rate after the April Meeting?
+
+=== E9: Turnout in 2026 Hungary Parliamentary Election
+Rules:
+Parliamentary elections are scheduled to be held in Hungary on April 12, 2026.
+
+This market will resolve based on the official voter turnout rate for the 2026 Hungary Parliamentary election, defined as the total number of votes cast divided by the total number of eligible voters. All eligible voters includes eligible voters voting by mail or without a Hungarian address.
+
+If the reported value falls exactly between two brackets, this market will resolve to the higher bracket.
+
+If the results of this election are not known by October 31, 2026, 11:59 PM ET, this market will resolve to the lowest bracket.
+
+This market will resolve based on the official results as reported by the Hungarian government, including the Hungarian Election Authority (Nemzeti Választási Iroda) (valasztas.hu).
+Contracts:
+  E9.C1: Will voter turnout be <65% in the 2026 Hungarian parliamentary election?
+  E9.C2: Will voter turnout be 65–68% in the 2026 Hungarian parliamentary election?
+  E9.C3: Will voter turnout be 68–71% in the 2026 Hungarian parliamentary election?
+  E9.C4: Will voter turnout be 71–74% in the 2026 Hungarian parliamentary election?
+  E9.C5: Will voter turnout be 74–77% in the 2026 Hungarian parliamentary election?
+  E9.C6: Will voter turnout be 77–80% in the 2026 Hungarian parliamentary election?
+  E9.C7: Will voter turnout be 80%+ in the 2026 Hungarian parliamentary election?
+
+=== E10: Bank of Japan Decision in September?
+Rules:
+This market will resolve according to the change in basis points in the uncollateralized overnight call rate resulting from the September 2026 meeting of the Bank of Japan, relative to the level it was prior to this meeting.
+
+The resolution source will be official information from the Bank of Japan, including the statement or release from its September 2026 meeting, scheduled for September 17-18, 2026, as listed on the official Bank of Japan calendar (https://www.boj.or.jp/en/mopo/mpmsche_minu/index.htm). This market may resolve as soon as the statement or release of the Bank of Japan’s September 2026 meeting with relevant data is issued.
+
+If the specified rate is defined by an upper and lower bound, the relevant change will be the change to the upper bound.
+
+If the specified rate is changed to a level not expressed in the displayed options, the change will be rounded according to the following guidelines. Increases or decreases of less than 25 bps will be rounded to 25 bps (e.g. an increase or decrease of 10 bps would be considered to be an increase or decrease of 25 bps). Increases or decreases of greater than 25 bps will be rounded to the nearest 25 bps and will be rounded away from 0 in cases of equidistance (e.g., an increase or decrease of 37.5 bps would be considered to be an increase or decrease of 50 bps). Displayed options of “Increase” or “Decrease” will include policy rate increases or decreases of any size.
+
+If the specified meeting is postponed to a date and time before the start of the next scheduled meeting, this market will resolve based on the outcome of that postponed meeting. If the specified meeting is cancelled, or postponed such that no decision is announced by the start of the next scheduled meeting, this market will resolve to the “No Change” bracket. Emergency changes to the specified rate not resulting from the specified meeting will not be considered.
+Contracts:
+  E10.C1: Will the Bank of Japan announce a 50+ bps decrease at the September 2026 meeting?
+  E10.C2: Will the Bank of Japan announce a 25 bps decrease at the September 2026 meeting?
+  E10.C3: Will the Bank of Japan announce no change at the September 2026 meeting?
+  E10.C4: Will the Bank of Japan announce a 25 bps increase at the September 2026 meeting?
+  E10.C5: Will the Bank of Japan announce a 50+ bps increase at the September 2026 meeting?

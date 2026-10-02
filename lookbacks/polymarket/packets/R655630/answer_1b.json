@@ -1,0 +1,65 @@
+{
+ "hedges": [
+  {
+   "event": "E21",
+   "direction": "dip",
+   "tier": "moderate",
+   "reason": "ETH/USDT on Binance is the listed instrument most tightly tied to BTC realized volatility, and its beta to BTC is usually above 1. A crypto-wide liquidation cascade, whether from macro risk-off or a crypto-specific forced seller, that drags BTC toward 55k would push ETH through its moderate downside rungs. This pays in the downside-failure worlds of C12 and C13 NO."
+  },
+  {
+   "event": "E21",
+   "direction": "dip",
+   "tier": "severe",
+   "reason": "This is the deeper tail of the same cascade. A move of BTC to about 52.5k (roughly -17%) means a crash regime. ETH's higher beta and thinner liquidity would then send it to its deep downside rungs, offsetting a C13 NO loss."
+  },
+  {
+   "event": "E21",
+   "direction": "reach",
+   "tier": "moderate",
+   "reason": "This is the upside-failure path. A short squeeze or risk-on rotation strong enough to lift BTC about 10% to 70k would lift ETH by a similar or larger amount, through its moderate upside rungs. This pays in the worlds where C7 NO loses."
+  }
+ ],
+ "claims": [
+  {
+   "if": {
+    "contract": "C12",
+    "resolves": "YES"
+   },
+   "then": {
+    "event": "E21",
+    "direction": "dip",
+    "tier": "moderate",
+    "resolves": "YES"
+   },
+   "reason": "A 13-14% BTC drop inside two weeks happens only through deleveraging across the crypto market. Perpetual liquidations, ETF and treasury selling, and market-maker de-risking hit ETH at the same moment, and usually harder, so a moderate ETH dip rung would also be touched on a 1-minute low."
+  },
+  {
+   "if": {
+    "contract": "C13",
+    "resolves": "YES"
+   },
+   "then": {
+    "event": "E21",
+    "direction": "dip",
+    "tier": "severe",
+    "resolves": "YES"
+   },
+   "reason": "A BTC wick to 52.5k is a crash-regime event. In every past episode of that size, ETH's drawdown has matched or exceeded BTC's in percentage terms because of higher leverage and thinner books. That puts ETH at its severe downside rungs."
+  },
+  {
+   "if": {
+    "contract": "C7",
+    "resolves": "YES"
+   },
+   "then": {
+    "event": "E21",
+    "direction": "reach",
+    "tier": "moderate",
+    "resolves": "YES"
+   },
+   "reason": "A 10% BTC rally in the second half of the month would come from a broad squeeze or risk-on flow, such as a dovish Fed or ETF inflows. Those forces also lift ETH, typically with a higher beta, so ETH would touch its moderate upside rungs."
+  }
+ ],
+ "no_instrument": false,
+ "recalls_outcome": false
+}

@@ -1,0 +1,304 @@
+You will be shown 6 questions from a prediction market. Each has one or more contracts that resolve YES or NO under the rules shown. Each question gives the date your view is "as of": answer as you would on that date.
+
+Use only what you already know. Do not search for or look up anything: reading this file is the only tool call you may make. There are no prices in this file and you should not try to estimate what any market thinks; give your own view.
+
+Each question says what to write for it. Whole percents run from 1 to 99. Levels are plain numbers in the units the contracts use (for example 95000 for $95,000, 3.25 for 3.25%). Dates are YYYY-MM-DD.
+
+For each question also say whether you recognise how it actually turned out ("recognised": true only if you believe you remember the real outcome; otherwise false).
+
+Reply with one JSON object and nothing else:
+{"events": [{"label": "E1", "recognised": false, ...the fields that question asks for...}]}
+
+=== E1 (as of 2026-10-01): Piura Mayoral Election Winner
+Rules:
+The 2026 Piura, Peru mayoral election is currently scheduled to be held on October 4, 2026.
+
+This market will resolve according to the candidate who becomes the next Mayor of the Provincial Municipality of Piura as a result of this election.
+
+Temporary, interim, or placeholder mayors appointed before the election will not be considered.
+
+If this election is annulled or the result of this election isn't known by June 30, 2027, 11:59 PM ET, the market will resolve to "Other".
+
+The primary resolution source for this market will be a consensus of credible reporting; however, if there is any ambiguity in the results, this market will resolve according to official information from the Peruvian government, including the National Jury of Elections (Jurado Nacional de Elecciones, JNE, https://jne.gob.pe) and the National Office of Electoral Processes (Oficina Nacional de Procesos Electorales, ONPE, https://www.onpe.gob.pe/).
+Contracts:
+  E1.C1: Will John Alexander Do Santos Ocmin win the next Piura mayoral elections?
+  E1.C2: Will Segundo Buenaventura Chávez Albirena win the next Piura mayoral elections?
+  E1.C3: Will Jorge Hilton Flores Bazán win the next Piura mayoral elections?
+  E1.C4: Will Martín Gerardo Olivares Chanduví win the next Piura mayoral elections?
+  E1.C5: Will Kelly Ann Stefany Morillas Bogado win the next Piura mayoral elections?
+  E1.C6: Will Carlos Eduardo Cruz Michilot win the next Piura mayoral elections?
+  E1.C7: Will Paul Anthony Lizama Quinde win the next Piura mayoral elections?
+  E1.C8: Will Miguel Gerardo Cueva Celi win the next Piura mayoral elections?
+  E1.C9: Will Guillermo Chávez Timoteo win the next Piura mayoral elections?
+  E1.C10: Will José Luis Morey Requejo win the next Piura mayoral elections?
+  E1.C11: Will Javier Fernando Miguel Atkins Lerggios win the next Piura mayoral elections?
+  E1.C12: Will Walther Guerrero Silva win the next Piura mayoral elections?
+  E1.C13: Will Alberto Alonso Ordinola Niño win the next Piura mayoral elections?
+  E1.C14: Will Ricardo Eliseo Paulini Palacios win the next Piura mayoral elections?
+  E1.C15: Will Mercedes Paola Maza Valencia win the next Piura mayoral elections?
+  E1.C16: Will Person A win the next Piura mayoral elections?
+  E1.C17: Will Person B win the next Piura mayoral elections?
+  E1.C18: Will Person C win the next Piura mayoral elections?
+  E1.C19: Will Person D win the next Piura mayoral elections?
+  E1.C20: Will Person E win the next Piura mayoral elections?
+  E1.C21: Will Person F win the next Piura mayoral elections?
+  E1.C22: Will Person G win the next Piura mayoral elections?
+  E1.C23: Will Person H win the next Piura mayoral elections?
+  E1.C24: Will Person I win the next Piura mayoral elections?
+  E1.C25: Will Person J win the next Piura mayoral elections?
+  E1.C26: Will Person K win the next Piura mayoral elections?
+  E1.C27: Will Person L win the next Piura mayoral elections?
+  E1.C28: Will Person M win the next Piura mayoral elections?
+  E1.C29: Will Person N win the next Piura mayoral elections?
+  E1.C30: Will Person O win the next Piura mayoral elections?
+  E1.C31: Will Person P win the next Piura mayoral elections?
+  E1.C32: Will Person Q win the next Piura mayoral elections?
+  E1.C33: Will Person R win the next Piura mayoral elections?
+  E1.C34: Will Person S win the next Piura mayoral elections?
+  E1.C35: Will Person T win the next Piura mayoral elections?
+  E1.C36: Will Person U win the next Piura mayoral elections?
+  E1.C37: Will Person V win the next Piura mayoral elections?
+  E1.C38: Will Person W win the next Piura mayoral elections?
+  E1.C39: Will Person X win the next Piura mayoral elections?
+  E1.C40: Will Person Y win the next Piura mayoral elections?
+  E1.C41: Will Person Z win the next Piura mayoral elections?
+  E1.C42: Will someone else win the next Piura mayoral elections?
+What to write for E1:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E2 (as of 2026-10-01): Eli Lilly licenses Peptron’s SmartDepot by October 7?
+Rules:
+This market will resolve to “Yes” if Eli Lilly signs a commercial licensing agreement, technology transfer agreement, or equivalent binding agreement with Peptron that grants Eli Lilly commercial rights to Peptron’s SmartDepot technology by the specified date, 11:59 PM Korea Standard Time. Otherwise, this market will resolve to “No”.
+
+Only commercial licensing agreements, technology transfer agreements, or equivalent binding agreements that grant Eli Lilly direct commercial rights to develop, manufacture, sell, or otherwise commercialize Peptron’s SmartDepot technology will qualify. 
+
+Co-development agreements will not qualify. Extensions of the existing Technology Evaluation Agreement or other agreements which are non-binding or do not grant Eli Lilly direct commercial rights to SmartDepot will not qualify.
+
+The primary resolution source for this market will be official information from Eli Lilly and Peptron; however, a consensus of credible reporting may also be used.
+Contracts:
+  E2.C1: Eli Lilly licenses Peptron’s SmartDepot by October 7?
+What to write for E2:
+  Write "dates": for each chance 10, 25, 50, 75 and 90, the date by which you give it that chance of having happened, or null if you do not give it that chance by the last date the contracts cover. Dates must not go earlier as the chance rises.
+
+=== E3 (as of 2026-10-01): Latvian Parliamentary Election Winner
+Rules:
+Parliamentary elections are expected to be held in Latvia on October 3, 2026.
+
+This market will resolve according to the listed political party or coalition that wins the greatest number of seats in the Latvian Parliament (Saeima) in the next Latvian Parliamentary election. 
+
+In the event of a tie between multiple parties/coalitions for the most seats won, this market will resolve in favor of the party or coalition that received a greater number of valid votes. In the event that results in a tie, this market will resolve in favor of the party or coalition whose listed abbreviation appears first in alphabetical order.
+
+This market's resolution will be based solely on the number of seats won by the named party or coalition in the Latvian Parliament. If a named coalition dissolves and does not contest this election, the corresponding market will resolve based on the number of seats won by the constituent party within that coalition that held the largest number of seats before the election.
+
+If the results of this election are not known definitively by June 30, 2027 11:59 PM ET, this market will resolve to "Other".
+
+This market will resolve based on the results of this election as indicated by a consensus of credible reporting. If there is ambiguity, this market will resolve based solely on the official results as reported by the Latvian government, specifically the Latvian Central Election Commission (https://www.cvk.lv/lv).
+Contracts:
+  E3.C1: Will Jaunā Vienotība (JV) win the most seats in the 2026 Latvian parliamentary election?
+  E3.C2: Will Zaļo un Zemnieku Savienība (ZZS) win the most seats in the 2026 Latvian parliamentary election?
+  E3.C3: Will Apvienotais Saraksts (AS) win the most seats in the 2026 Latvian parliamentary election?
+  E3.C4: Will Nacionālā Apvienība (NA) win the most seats in the 2026 Latvian parliamentary election?
+  E3.C5: Will Stabilitātei! (ST!) win the most seats in the 2026 Latvian parliamentary election?
+  E3.C6: Will Latvija Pirmajā Vietā (LPV) win the most seats in the 2026 Latvian parliamentary election?
+  E3.C7: Will Progresīvie (PRO) win the most seats in the 2026 Latvian parliamentary election?
+  E3.C8: Will Suverēnā Vara (SV) win the most seats in the 2026 Latvian parliamentary election?
+  E3.C9: Will Sociāldemokrātiskā Partija “Saskaņa” (S) win the most seats in the 2026 Latvian parliamentary election?
+  E3.C10: Will another party win the most seats in the 2026 Latvian parliamentary election?
+  E3.C11: Will Party A win the most seats in the 2026 Latvian parliamentary election?
+  E3.C12: Will Party B win the most seats in the 2026 Latvian parliamentary election?
+  E3.C13: Will Party C win the most seats in the 2026 Latvian parliamentary election?
+  E3.C14: Will Party D win the most seats in the 2026 Latvian parliamentary election?
+  E3.C15: Will Party E win the most seats in the 2026 Latvian parliamentary election?
+  E3.C16: Will Party F win the most seats in the 2026 Latvian parliamentary election?
+  E3.C17: Will Party G win the most seats in the 2026 Latvian parliamentary election?
+  E3.C18: Will Party H win the most seats in the 2026 Latvian parliamentary election?
+  E3.C19: Will Party I win the most seats in the 2026 Latvian parliamentary election?
+  E3.C20: Will Party J win the most seats in the 2026 Latvian parliamentary election?
+  E3.C21: Will Party K win the most seats in the 2026 Latvian parliamentary election?
+  E3.C22: Will Party L win the most seats in the 2026 Latvian parliamentary election?
+  E3.C23: Will Party M win the most seats in the 2026 Latvian parliamentary election?
+  E3.C24: Will Party N win the most seats in the 2026 Latvian parliamentary election?
+  E3.C25: Will Party O win the most seats in the 2026 Latvian parliamentary election?
+  E3.C26: Will Party P win the most seats in the 2026 Latvian parliamentary election?
+  E3.C27: Will Party Q win the most seats in the 2026 Latvian parliamentary election?
+  E3.C28: Will Party R win the most seats in the 2026 Latvian parliamentary election?
+  E3.C29: Will Party S win the most seats in the 2026 Latvian parliamentary election?
+  E3.C30: Will Party T win the most seats in the 2026 Latvian parliamentary election?
+  E3.C31: Will Party U win the most seats in the 2026 Latvian parliamentary election?
+  E3.C32: Will Party V win the most seats in the 2026 Latvian parliamentary election?
+  E3.C33: Will Party W win the most seats in the 2026 Latvian parliamentary election?
+  E3.C34: Will Party X win the most seats in the 2026 Latvian parliamentary election?
+  E3.C35: Will Party Y win the most seats in the 2026 Latvian parliamentary election?
+  E3.C36: Will Party Z win the most seats in the 2026 Latvian parliamentary election?
+What to write for E3:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E4 (as of 2026-10-01): Piauí Senate Election: 1st Place
+Rules:
+The Brazilian Federal Senate election for Piauí is scheduled to take place on October 4, 2026.
+
+This market will resolve according to the candidate who wins the most valid votes of any candidate at the specified election.
+
+Candidates will be primarily ranked by order of valid votes won. If two or more candidates are tied for any position, ties will be broken by alphabetical order of the candidates’ listed full names as they appear in this market. This market will resolve to the candidate that occupies the highest finishing position after applying this ranking.
+
+If the result of this election isn't definitively known by June 30, 2027, 11:59 PM ET, the market will resolve to "Other".
+
+This market will resolve based on the result of the election, as indicated by a consensus of credible reporting. If there is ambiguity, this market will resolve based solely on the official results as reported by the Brazilian government, specifically the Superior Electoral Court (Tribunal Superior Eleitoral, TSE) (e.g., www.tse.jus.br/eleicoes/resultados-eleicoes).
+Contracts:
+  E4.C1: Will Alexandre Mariano win the most votes in the 2026 Piauí Senate election?
+  E4.C2: Will Antônio Barros win the most votes in the 2026 Piauí Senate election?
+  E4.C3: Will Antônio José Lira win the most votes in the 2026 Piauí Senate election?
+  E4.C4: Will Ciro Nogueira win the most votes in the 2026 Piauí Senate election?
+  E4.C5: Will Cloves José win the most votes in the 2026 Piauí Senate election?
+  E4.C6: Will Danniel Rocha win the most votes in the 2026 Piauí Senate election?
+  E4.C7: Will Dionisio Carvalho win the most votes in the 2026 Piauí Senate election?
+  E4.C8: Will Francinaldo Leão win the most votes in the 2026 Piauí Senate election?
+  E4.C9: Will Irmão Evandro Marques win the most votes in the 2026 Piauí Senate election?
+  E4.C10: Will Jardenya Bezerra win the most votes in the 2026 Piauí Senate election?
+  E4.C11: Will Jorge Lopes win the most votes in the 2026 Piauí Senate election?
+  E4.C12: Will Julio Cesar win the most votes in the 2026 Piauí Senate election?
+  E4.C13: Will Major Paulo Roberto win the most votes in the 2026 Piauí Senate election?
+  E4.C14: Will Marcelo Castro win the most votes in the 2026 Piauí Senate election?
+  E4.C15: Will Maria Madalena Nunes win the most votes in the 2026 Piauí Senate election?
+  E4.C16: Will Missionário Evandro Craveiro win the most votes in the 2026 Piauí Senate election?
+  E4.C17: Will Pastor Sena win the most votes in the 2026 Piauí Senate election?
+  E4.C18: Will Pedro Laurentino win the most votes in the 2026 Piauí Senate election?
+  E4.C19: Will Tiago Junqueira win the most votes in the 2026 Piauí Senate election?
+  E4.C20: Will Toinho Dufrango win the most votes in the 2026 Piauí Senate election?
+  E4.C21: Will Candidate A win the most votes in the 2026 Piauí Senate election?
+  E4.C22: Will Candidate B win the most votes in the 2026 Piauí Senate election?
+  E4.C23: Will Candidate C win the most votes in the 2026 Piauí Senate election?
+  E4.C24: Will Candidate D win the most votes in the 2026 Piauí Senate election?
+  E4.C25: Will Candidate E win the most votes in the 2026 Piauí Senate election?
+  E4.C26: Will Candidate F win the most votes in the 2026 Piauí Senate election?
+  E4.C27: Will Candidate G win the most votes in the 2026 Piauí Senate election?
+  E4.C28: Will Candidate H win the most votes in the 2026 Piauí Senate election?
+  E4.C29: Will Candidate I win the most votes in the 2026 Piauí Senate election?
+  E4.C30: Will Candidate J win the most votes in the 2026 Piauí Senate election?
+  E4.C31: Will Candidate K win the most votes in the 2026 Piauí Senate election?
+  E4.C32: Will Candidate L win the most votes in the 2026 Piauí Senate election?
+  E4.C33: Will Candidate M win the most votes in the 2026 Piauí Senate election?
+  E4.C34: Will Candidate N win the most votes in the 2026 Piauí Senate election?
+  E4.C35: Will Candidate O win the most votes in the 2026 Piauí Senate election?
+  E4.C36: Will Candidate P win the most votes in the 2026 Piauí Senate election?
+  E4.C37: Will Candidate Q win the most votes in the 2026 Piauí Senate election?
+  E4.C38: Will Candidate R win the most votes in the 2026 Piauí Senate election?
+  E4.C39: Will Candidate S win the most votes in the 2026 Piauí Senate election?
+  E4.C40: Will Candidate T win the most votes in the 2026 Piauí Senate election?
+  E4.C41: Will Candidate U win the most votes in the 2026 Piauí Senate election?
+  E4.C42: Will Candidate V win the most votes in the 2026 Piauí Senate election?
+  E4.C43: Will Candidate W win the most votes in the 2026 Piauí Senate election?
+  E4.C44: Will Candidate X win the most votes in the 2026 Piauí Senate election?
+  E4.C45: Will Candidate Y win the most votes in the 2026 Piauí Senate election?
+  E4.C46: Will Candidate Z win the most votes in the 2026 Piauí Senate election?
+  E4.C47: Will someone else win the most votes in the 2026 Piauí Senate election?
+What to write for E4:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E5 (as of 2026-10-01): Maynas Mayoral Election Winner
+Rules:
+The 2026 Maynas, Peru mayoral election is currently scheduled to be held on October 4, 2026.
+
+This market will resolve according to the candidate who becomes the next Mayor of the Provincial Municipality of Maynas as a result of this election.
+
+Temporary, interim, or placeholder mayors appointed before the election will not be considered.
+
+If this election is annulled or the result of this election isn't known by June 30, 2027, 11:59 PM ET, the market will resolve to "Other".
+
+The primary resolution source for this market will be a consensus of credible reporting; however, if there is any ambiguity in the results, this market will resolve according to official information from the Peruvian government, including the National Jury of Elections (Jurado Nacional de Elecciones, JNE, https://jne.gob.pe) and the National Office of Electoral Processes (Oficina Nacional de Procesos Electorales, ONPE, https://www.onpe.gob.pe/).
+Contracts:
+  E5.C1: Will Richard Arturo Vásquez Salazar win the next Maynas mayoral elections?
+  E5.C2: Will Enrique Augusto Rodríguez Morales win the next Maynas mayoral elections?
+  E5.C3: Will Joel Ronal Parimango Álvarez win the next Maynas mayoral elections?
+  E5.C4: Will Deiby Marín Ortega win the next Maynas mayoral elections?
+  E5.C5: Will Cleiver Inuma Chávez win the next Maynas mayoral elections?
+  E5.C6: Will Sivily Maritza Paz Pérez win the next Maynas mayoral elections?
+  E5.C7: Will Nery Mozombite Cerrón win the next Maynas mayoral elections?
+  E5.C8: Will Boris Guido Morey Sifuentes win the next Maynas mayoral elections?
+  E5.C9: Will Antony Jhonatan Pinedo Lozano win the next Maynas mayoral elections?
+  E5.C10: Will Jean Pier López Sifuentes win the next Maynas mayoral elections?
+  E5.C11: Will Roger Cristóbal Gronerth Pinedo win the next Maynas mayoral elections?
+  E5.C12: Will Ernesto Concha La Torre win the next Maynas mayoral elections?
+  E5.C13: Will Rubén Antonio Hernández Del Águila win the next Maynas mayoral elections?
+  E5.C14: Will Jenson Harold Rolando Mariñas Cárdenas win the next Maynas mayoral elections?
+  E5.C15: Will Cynthia Stefani Gómez Gómez win the next Maynas mayoral elections?
+  E5.C16: Will Euler Carlos Hernández Arévalo win the next Maynas mayoral elections?
+  E5.C17: Will Tony Jonatan Mori Vargas win the next Maynas mayoral elections?
+  E5.C18: Will Juan Aguilar Gómez win the next Maynas mayoral elections?
+  E5.C19: Will Sergio Antonio Donayre Ramírez win the next Maynas mayoral elections?
+  E5.C20: Will Person A win the next Maynas mayoral elections?
+  E5.C21: Will Person B win the next Maynas mayoral elections?
+  E5.C22: Will Person C win the next Maynas mayoral elections?
+  E5.C23: Will Person D win the next Maynas mayoral elections?
+  E5.C24: Will Person E win the next Maynas mayoral elections?
+  E5.C25: Will Person F win the next Maynas mayoral elections?
+  E5.C26: Will Person G win the next Maynas mayoral elections?
+  E5.C27: Will Person H win the next Maynas mayoral elections?
+  E5.C28: Will Person I win the next Maynas mayoral elections?
+  E5.C29: Will Person J win the next Maynas mayoral elections?
+  E5.C30: Will Person K win the next Maynas mayoral elections?
+  E5.C31: Will Person L win the next Maynas mayoral elections?
+  E5.C32: Will Person M win the next Maynas mayoral elections?
+  E5.C33: Will Person N win the next Maynas mayoral elections?
+  E5.C34: Will Person O win the next Maynas mayoral elections?
+  E5.C35: Will Person P win the next Maynas mayoral elections?
+  E5.C36: Will Person Q win the next Maynas mayoral elections?
+  E5.C37: Will Person R win the next Maynas mayoral elections?
+  E5.C38: Will Person S win the next Maynas mayoral elections?
+  E5.C39: Will Person T win the next Maynas mayoral elections?
+  E5.C40: Will Person U win the next Maynas mayoral elections?
+  E5.C41: Will Person V win the next Maynas mayoral elections?
+  E5.C42: Will Person W win the next Maynas mayoral elections?
+  E5.C43: Will Person X win the next Maynas mayoral elections?
+  E5.C44: Will Person Y win the next Maynas mayoral elections?
+  E5.C45: Will Person Z win the next Maynas mayoral elections?
+  E5.C46: Will someone else win the next Maynas mayoral elections?
+What to write for E5:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E6 (as of 2026-10-01): Brazil Presidential Election First Round: 3rd Place
+Rules:
+A presidential election is scheduled to take place in Brazil on October 4, 2026.
+
+This market will resolve according to the listed candidate who receives the third-most valid votes in the first round of this election.
+
+The named candidates will be primarily ranked by the number of valid votes received in the specified election. If two or more candidates are tied on valid votes, ties will be broken by alphabetical order of the candidates' last names. This market will resolve to the candidate that occupies the third-highest finishing position after applying this ranking.
+
+If the result of this election isn't known definitively by June 30, 2027, 11:59 PM ET, the market will resolve to "Other".
+
+This market will resolve based on the result of the election, as indicated by a consensus of credible reporting. If there is ambiguity, this market will resolve based solely on the official results as reported by the Brazilian government, specifically the Superior Electoral Court (Tribunal Superior Eleitoral, TSE) (e.g., https://dadosabertos.tse.jus.br/).
+Contracts:
+  E6.C1: Will Tarcisio de Freitas finish in third place in the first round of the 2026 Brazilian presidential election?
+  E6.C2: Will Luiz Inácio Lula da Silva finish in third place in the first round of the 2026 Brazilian presidential election?
+  E6.C3: Will Jair Bolsonaro finish in third place in the first round of the 2026 Brazilian presidential election?
+  E6.C4: Will Fernando Haddad finish in third place in the first round of the 2026 Brazilian presidential election?
+  E6.C5: Will Michelle Bolsonaro finish in third place in the first round of the 2026 Brazilian presidential election?
+  E6.C6: Will Eduardo Bolsonaro finish in third place in the first round of the 2026 Brazilian presidential election?
+  E6.C7: Will Carlos Roberto Massa Júnior finish in third place in the first round of the 2026 Brazilian presidential election?
+  E6.C8: Will Renan Santos finish in third place in the first round of the 2026 Brazilian presidential election?
+  E6.C9: Will Flávio Bolsonaro finish in third place in the first round of the 2026 Brazilian presidential election?
+  E6.C10: Will Ronaldo Caiado finish in third place in the first round of the 2026 Brazilian presidential election?
+  E6.C11: Will Romeu Zema finish in third place in the first round of the 2026 Brazilian presidential election?
+  E6.C12: Will Camilo Santana finish in third place in the first round of the 2026 Brazilian presidential election?
+  E6.C13: Will Geraldo Alckmin finish in third place in the first round of the 2026 Brazilian presidential election?
+  E6.C14: Will Aldo Rebelo finish in third place in the first round of the 2026 Brazilian presidential election?
+  E6.C15: Will Eduardo Leite finish in third place in the first round of the 2026 Brazilian presidential election?
+  E6.C16: Will Tereza Cristina finish in third place in the first round of the 2026 Brazilian presidential election?
+  E6.C17: Will Helder Barbalho finish in third place in the first round of the 2026 Brazilian presidential election?
+  E6.C18: Will Augusto Cury finish in third place in the first round of the 2026 Brazilian presidential election?
+  E6.C19: Will Pablo Marçal finish in third place in the first round of the 2026 Brazilian presidential election?
+  E6.C20: Will Person O finish in third place in the first round of the 2026 Brazilian presidential election?
+  E6.C21: Will Person P finish in third place in the first round of the 2026 Brazilian presidential election?
+  E6.C22: Will Person Q finish in third place in the first round of the 2026 Brazilian presidential election?
+  E6.C23: Will Person R finish in third place in the first round of the 2026 Brazilian presidential election?
+  E6.C24: Will Person S finish in third place in the first round of the 2026 Brazilian presidential election?
+  E6.C25: Will Person T finish in third place in the first round of the 2026 Brazilian presidential election?
+  E6.C26: Will Person U finish in third place in the first round of the 2026 Brazilian presidential election?
+  E6.C27: Will Person V finish in third place in the first round of the 2026 Brazilian presidential election?
+  E6.C28: Will Person W finish in third place in the first round of the 2026 Brazilian presidential election?
+  E6.C29: Will Person X finish in third place in the first round of the 2026 Brazilian presidential election?
+  E6.C30: Will Person Y finish in third place in the first round of the 2026 Brazilian presidential election?
+  E6.C31: Will Person Z finish in third place in the first round of the 2026 Brazilian presidential election?
+  E6.C32: Will another person finish in third place in the first round of the 2026 Brazilian presidential election?
+What to write for E6:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).

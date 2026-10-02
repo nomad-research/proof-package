@@ -1,0 +1,147 @@
+You will be shown 6 questions from a prediction market. Each has one or more contracts that resolve YES or NO under the rules shown. Each question gives the date your view is "as of": answer as you would on that date.
+
+Use only what you already know. Do not search for or look up anything: reading this file is the only tool call you may make. There are no prices in this file and you should not try to estimate what any market thinks; give your own view.
+
+Each question says what to write for it. Whole percents run from 1 to 99. Levels are plain numbers in the units the contracts use (for example 95000 for $95,000, 3.25 for 3.25%). Dates are YYYY-MM-DD.
+
+For each question also say whether you recognise how it actually turned out ("recognised": true only if you believe you remember the real outcome; otherwise false).
+
+Reply with one JSON object and nothing else:
+{"events": [{"label": "E1", "recognised": false, ...the fields that question asks for...}]}
+
+=== E1 (as of 2026-05-20): Solana above ___ on May 24?
+Rules:
+This market will resolve to "Yes" if the Binance 1 minute candle for SOL/USDT 12:00 in the ET timezone (noon) on the date specified in the title has a final "Close" price higher than the price specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the SOL/USDT "Close" prices currently available at https://www.binance.com/en/trade/SOL_USDT with "1m" and "Candles" selected on the top bar.
+
+Please note that this market is about the price according to Binance SOL/USDT, not according to other exchanges or trading pairs.
+
+Price precision is determined by the number of decimal places in the source.
+Contracts:
+  E1.C1: Will the price of Solana be above $40 on May 24?
+  E1.C2: Will the price of Solana be above $50 on May 24?
+  E1.C3: Will the price of Solana be above $60 on May 24?
+  E1.C4: Will the price of Solana be above $70 on May 24?
+  E1.C5: Will the price of Solana be above $80 on May 24?
+  E1.C6: Will the price of Solana be above $90 on May 24?
+  E1.C7: Will the price of Solana be above $100 on May 24?
+  E1.C8: Will the price of Solana be above $110 on May 24?
+  E1.C9: Will the price of Solana be above $120 on May 24?
+  E1.C10: Will the price of Solana be above $130 on May 24?
+  E1.C11: Will the price of Solana be above $140 on May 24?
+What to write for E1:
+  Write "levels": for each chance 10, 25, 50, 75 and 90, the level you give that chance of the measured quantity being at or above when it resolves. The 10 level is the highest and the 90 level the lowest. Example: {"10": 120, "25": 110, "50": 100, "75": 92, "90": 85}.
+
+=== E2 (as of 2026-04-29): Google (GOOGL) closes week of Apr 27 at ___?
+Rules:
+This market will resolve according to the official closing price for Google (GOOGL) on the final day of trading of the specified week (normally Friday).
+
+If the reported value falls exactly between two brackets, then this market will resolve to the higher range bracket.
+
+If the final session of the week is shortened (for example, due to a market-holiday schedule), the official closing price published for that shortened session will still be used for resolution.
+
+If no official closing price is published for that session (for example, due to a trading halt into the close, system issue, delisting, or other disruption), the market will use the last valid on-exchange trade price of the regular session as the effective closing price.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Yahoo Finance.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Yahoo Finance after any adjustments have been applied.
+
+The resolution source for this market is Yahoo Finance, specifically the Google (GOOGL) "Close" prices available at https://finance.yahoo.com/quote/GOOGL/history, published under "Historical Prices."
+Contracts:
+  E2.C1: Will Google (GOOGL) close at <$315 on the final day of trading of the week of Apr 27 – May 1?
+  E2.C2: Will Google (GOOGL) close at $315-$320 on the final day of trading of the week of Apr 27 – May 1?
+  E2.C3: Will Google (GOOGL) close at $320-$325 on the final day of trading of the week of Apr 27 – May 1?
+  E2.C4: Will Google (GOOGL) close at $325-$330 on the final day of trading of the week of Apr 27 – May 1?
+  E2.C5: Will Google (GOOGL) close at $330-$335 on the final day of trading of the week of Apr 27 – May 1?
+  E2.C6: Will Google (GOOGL) close at $335-$340 on the final day of trading of the week of Apr 27 – May 1?
+  E2.C7: Will Google (GOOGL) close at $340-$345 on the final day of trading of the week of Apr 27 – May 1?
+  E2.C8: Will Google (GOOGL) close at $345-$350 on the final day of trading of the week of Apr 27 – May 1?
+  E2.C9: Will Google (GOOGL) close at $350-$355 on the final day of trading of the week of Apr 27 – May 1?
+  E2.C10: Will Google (GOOGL) close at $355-$360 on the final day of trading of the week of Apr 27 – May 1?
+  E2.C11: Will Google (GOOGL) close at >$360 on the final day of trading of the week of Apr 27 – May 1?
+What to write for E2:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E3 (as of 2026-06-03): Bank of Brazil decision in August?
+Rules:
+This market will resolve according to the change in basis points in the target for the Selic rate resulting from the August 2026 meeting of the Bank of Brazil’s Monetary Policy Committee (COPOM), relative to the level it was prior to this meeting.
+
+The resolution source will be official information from the Bank of Brazil, including the statement or release from its August 2026 Monetary Policy Committee meeting, scheduled for August 3-4, 2026, as listed on the official Bank of Brazil calendar (https://www.bcb.gov.br/en/about/bcb-calendar?categoria=Monetary%20Policy%20Committee%20(Copom)). This market may resolve as soon as the statement or release of the the Bank of Brazil's August 2026 Monetary Policy Committee meeting with relevant data is issued. 
+
+If the specified rate is defined by an upper and lower bound, the relevant change will be the change to the upper bound. 
+
+If the specified rate is changed to a level not expressed in the displayed options, the change will be rounded according to the following guidelines. Increases or decreases of less than 25 bps will be rounded to 25 bps (e.g. an increase or decrease of 10 bps would be considered to be an increase or decrease of 25 bps). Increases or decreases of greater than 25 bps will be rounded to the nearest 25 bps and will be rounded away from 0 in cases of equidistance (e.g., an increase or decrease of 37.5 bps would be considered to be an increase or decrease of 50 bps). Displayed options of “Increase” or “Decrease” will include policy rate increases or decreases of any size.
+
+If the specified meeting is postponed to a date and time before the start of the next scheduled meeting, this market will resolve based on the outcome of that postponed meeting.  If the specified meeting is cancelled, or postponed such that no decision is announced by the start of the next scheduled meeting, this market will resolve to the “No Change” bracket. Emergency changes to the specified rate not resulting from the specified meeting will not be considered.
+Contracts:
+  E3.C1: Will the Bank of Brazil increase the target for the Selic rate by 50+ bps at the August meeting?
+  E3.C2: Will the Bank of Brazil increase the target for the Selic rate by 25 bps at the August meeting?
+  E3.C3: Will the Bank of Brazil make no change to the target for the Selic rate at the August meeting?
+  E3.C4: Will the Bank of Brazil decrease the target for the Selic rate by 25 bps at the August meeting?
+  E3.C5: Will the Bank of Brazil decrease the target for the Selic rate by 50+ bps at the August meeting?
+What to write for E3:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E4 (as of 2026-04-15): Alabama Democratic Senate Primary Winner
+Rules:
+This market will resolve according to the winner of the Democratic Primary for United States Senator from Alabama.
+
+If no 2026 Alabama Democratic Senate Primary takes place, this market will resolve to "Other".
+
+The resolution source for this market will be the first announcement of the results from the Alabama Democratic party, however an overwhelming consensus of credible reporting may suffice.
+Contracts:
+  E4.C1: Will Dakarai Larriett be the Democratic nominee for Senate in Alabama?
+  E4.C2: Will Lamont Lavender be the Democratic nominee for Senate in Alabama?
+  E4.C3: Will Kyle Sweetser be the Democratic nominee for Senate in Alabama?
+  E4.C4: Will Mark Wheeler be the Democratic nominee for Senate in Alabama?
+What to write for E4:
+  Write "p_not": a whole percent for every contract label, your chance that it is NOT the one that resolves YES. These need not add to any total.
+
+=== E5 (as of 2026-06-17): XRP above ___ on June 23?
+Rules:
+This market will resolve to "Yes" if the Binance 1 minute candle for XRP/USDT 12:00 in the ET timezone (noon) on the date specified in the title has a final "Close" price higher than the price specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the XRP/USDT "Close" prices currently available at https://www.binance.com/en/trade/XRP_USDT with "1m" and "Candles" selected on the top bar.
+
+Please note that this market is about the price according to Binance XRP/USDT, not according to other exchanges or trading pairs.
+
+Price precision is determined by the number of decimal places in the source.
+Contracts:
+  E5.C1: Will the price of XRP be above $0.70 on June 23?
+  E5.C2: Will the price of XRP be above $0.80 on June 23?
+  E5.C3: Will the price of XRP be above $0.90 on June 23?
+  E5.C4: Will the price of XRP be above $1.00 on June 23?
+  E5.C5: Will the price of XRP be above $1.10 on June 23?
+  E5.C6: Will the price of XRP be above $1.20 on June 23?
+  E5.C7: Will the price of XRP be above $1.30 on June 23?
+  E5.C8: Will the price of XRP be above $1.40 on June 23?
+  E5.C9: Will the price of XRP be above $1.50 on June 23?
+  E5.C10: Will the price of XRP be above $1.60 on June 23?
+  E5.C11: Will the price of XRP be above $1.70 on June 23?
+What to write for E5:
+  Write "levels": for each chance 10, 25, 50, 75 and 90, the level you give that chance of the measured quantity being at or above when it resolves. The 10 level is the highest and the 90 level the lowest. Example: {"10": 120, "25": 110, "50": 100, "75": 92, "90": 85}.
+
+=== E6 (as of 2026-06-10): Ethereum above ___ on June 12?
+Rules:
+This market will resolve to "Yes" if the Binance 1 minute candle for ETH/USDT 12:00 in the ET timezone (noon) on the date specified in the title has a final "Close" price higher than the price specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the ETH/USDT "Close" prices currently available at https://www.binance.com/en/trade/ETH_USDT with "1m" and "Candles" selected on the top bar.
+
+Please note that this market is about the price according to Binance ETH/USDT, not according to other exchanges or trading pairs.
+
+Price precision is determined by the number of decimal places in the source.
+Contracts:
+  E6.C1: Will the price of Ethereum be above $1,100 on June 12?
+  E6.C2: Will the price of Ethereum be above $1,200 on June 12?
+  E6.C3: Will the price of Ethereum be above $1,300 on June 12?
+  E6.C4: Will the price of Ethereum be above $1,400 on June 12?
+  E6.C5: Will the price of Ethereum be above $1,500 on June 12?
+  E6.C6: Will the price of Ethereum be above $1,600 on June 12?
+  E6.C7: Will the price of Ethereum be above $1,700 on June 12?
+  E6.C8: Will the price of Ethereum be above $1,800 on June 12?
+  E6.C9: Will the price of Ethereum be above $1,900 on June 12?
+  E6.C10: Will the price of Ethereum be above $2,000 on June 12?
+  E6.C11: Will the price of Ethereum be above $2,100 on June 12?
+What to write for E6:
+  Write "levels": for each chance 10, 25, 50, 75 and 90, the level you give that chance of the measured quantity being at or above when it resolves. The 10 level is the highest and the 90 level the lowest. Example: {"10": 120, "25": 110, "50": 100, "75": 92, "90": 85}.

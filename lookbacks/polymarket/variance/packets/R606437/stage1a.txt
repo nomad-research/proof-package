@@ -1,0 +1,41 @@
+You are one of several independent analysts. Work only from what is written below. Apart from reading the file that held this text, do not use any tool, do not look anything up, and do not use anything you
+know that happened after 2026-08-02: reason as of that date. You are shown no market prices, and you are not asked for any probability.
+
+EVENT: Fed decisions (Jul–Oct)   (structure: partition open)
+RULES (as of 2026-08-02):
+The FED interest rates are defined in this market by the upper bound of the target federal funds rate. The decisions on the target federal funds rate are made by the Federal Open Market Committee (FOMC) meetings.
+
+This market will resolve according to the decisions made by the next three Federal Open Market Committee (FOMC) meetings: July 28-29; September 15-16; and October 27-28.
+
+A qualifying cut occurs when the new upper bound of the target federal funds rate is lower compared to the level it was prior to the respective meeting.
+
+A qualifying hike occurs when the new upper bound of the target federal funds rate is higher compared to the level it was prior to the respective meeting.
+
+A qualifying pause occurs when the new upper bound of the target federal funds rate is equal to the level it was prior to the respective meeting.
+
+If the Fed publishes a different combination than any listed, this market will resolve to "Other". Any rate hike will be encompassed by "Other".
+
+Emergency rate cuts outside the regularly scheduled meetings will not be considered.
+
+The resolution source for this market is the FOMC’s statement after its meetings:
+https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm
+
+The level and change of the target federal funds rate is also published at the official website of the Federal Reserve:
+https://www.federalreserve.gov/monetarypolicy/openmarket.htm
+
+CONTRACTS (each pays $1 if its statement is true when the event resolves, $0 otherwise; you may name YES or NO on any contract):
+  C1: Will the Fed Pause–Pause–Pause in the next three decisions (Jul–Sep–Oct)?  [Pause–Pause–Pause]
+  C2: Will the Fed Pause–Pause–Cut in the next three decisions (Jul–Sep–Oct)?  [Pause–Pause–Cut]
+  C3: Will the Fed Pause–Cut–Pause in the next three decisions (Jul–Sep–Oct)?  [Pause–Cut–Pause]
+  C4: Will the Fed Pause–Cut–Cut in the next three decisions (Jul–Sep–Oct)?  [Pause–Cut–Cut]
+  C5: Will the Fed decide differently in the next three decisions (Jul–Sep–Oct)?  [Other]
+
+Task. Write your own view as documents-and-mechanism reasoning, not as odds.
+1. primary: a thesis about how this event resolves and a basket of at most 4 contracts from the list that expresses it (long only: a contract with YES or NO).
+2. failure_narrative: the specific way the thesis is wrong (what would have to happen for the basket to lose).
+3. hedge_thesis: a second narrative, about a DIFFERENT part of the world, that would tend to be true in exactly the worlds where the primary fails. Say why, in mechanism terms.
+4. search_terms: 3 to 8 words or names (entities, assets, places, institutions) that instruments for the hedge thesis would carry. Lower-case single words or short names.
+5. recalls_outcome: true if you already know, or think you know, how this event (or any part of it) actually turned out; otherwise false. Be honest: a true answer is not penalised, it only means this item is set aside.
+
+Answer with one JSON object and nothing else:
+{"primary": {"thesis": "...", "basket": [{"contract": "C1", "side": "YES", "reason": "..."}]}, "failure_narrative": "...", "hedge_thesis": "...", "search_terms": ["..."], "recalls_outcome": false}

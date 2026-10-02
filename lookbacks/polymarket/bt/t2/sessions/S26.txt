@@ -1,0 +1,110 @@
+You will be shown 6 questions from a prediction market. Each has one or more contracts that resolve YES or NO under the rules shown. Each question gives the date your view is "as of": answer as you would on that date.
+
+Use only what you already know. Do not search for or look up anything: reading this file is the only tool call you may make. There are no prices in this file and you should not try to estimate what any market thinks; give your own view.
+
+Each question says what to write for it. Whole percents run from 1 to 99. Levels are plain numbers in the units the contracts use (for example 95000 for $95,000, 3.25 for 3.25%). Dates are YYYY-MM-DD.
+
+For each question also say whether you recognise how it actually turned out ("recognised": true only if you believe you remember the real outcome; otherwise false).
+
+Reply with one JSON object and nothing else:
+{"events": [{"label": "E1", "recognised": false, ...the fields that question asks for...}]}
+
+=== E1 (as of 2026-08-05): Chicoutimi—Le Fjord By-Election Winner
+Rules:
+A by-election for the Canadian federal electoral district of Chicoutimi—Le Fjord is currently scheduled to be held on August 31, 2026.
+
+This market will resolve according to the candidate who wins the 2026 Chicoutimi—Le Fjord by-election.
+
+If the election results are not known definitively by December 31, 2026, 11:59 PM ET, this market will resolve to "Other".
+
+The resolution source for this market will be a consensus of credible reporting. In case of ambiguity, this market will resolve solely based on official election results as published by Elections Canada (https://www.elections.ca/).
+Contracts:
+  E1.C1: Will Régis Gaudreault win the 2026 Chicoutimi—Le Fjord by-election?
+  E1.C2: Will Caroline Dubé win the 2026 Chicoutimi—Le Fjord by-election?
+  E1.C3: Will Daniel Gobeil win the 2026 Chicoutimi—Le Fjord by-election?
+What to write for E1:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E2 (as of 2026-08-05): Will Super Typhoon Dolphin hit China?
+Rules:
+This market resolves "Yes" if the center of Super Typhoon Dolphin's circulation physically crosses the coastline of China on or before August 15, 2026. Resolution is determined by the Japan Meteorological Agency's (JMA) position advisories placing the storm over Chinese land (https://www.jma.go.jp/bosai/map.html#contents=typhoon&lang=en), or by credible international news reporting confirming the storm hitting Chinese territory. For the purposes of this market, "China" refers to all territory under the administration of the People's Republic of China, including Special Administrative Regions (Hong Kong / Macau) and excluding Taiwan.
+
+The system's classification is determined by the single JMA advisory in effect immediately prior to the observed crossing. Once that advisory fixes classification at the time of impact, no subsequent real-time advisory, reclassification, or post-season best-track reanalysis may retroactively change the outcome.
+
+JMA position advisories are the primary resolution source. If a JMA advisory plots the center on Chinese land, the market resolves "Yes" regardless of what other sources say. If no JMA advisory plots the center on land but credible reporting confirms a crossing occurred between discrete advisory fixes, the market resolves "Yes." A disagreement exists only when a JMA advisory and credible reporting make contradictory claims about the storm's position at the same point in time; in that case, JMA is the default resolution source. In all cases, the classification is taken from the most recently issued JMA advisory prior to the confirmed crossing time.
+
+This is a purely geographic criterion: the storm's center must pass over Chinese land. The most recently issued JMA advisory prior to the crossing must classify Dolphin as a tropical cyclone (tropical depression or higher). If that advisory classifies the system as extratropical, dissipated, or absorbed, the crossing does not count and the market will resolve to "No."
+
+This market resolves "No" if Dolphin has been declared extratropical, dissipated, or absorbed on or before August 15 without having made landfall on Chinese territory, or if no landfall has physically occurred by the close of August 15, 2026.
+Contracts:
+  E2.C1: Will Super Typhoon Dolphin hit China?
+What to write for E2:
+  Write "p": a whole percent for every contract label, your chance that it resolves YES.
+
+=== E3 (as of 2026-07-08): Ethereum above ___ on July 11?
+Rules:
+This market will resolve to "Yes" if the Binance 1 minute candle for ETH/USDT 12:00 in the ET timezone (noon) on the date specified in the title has a final "Close" price higher than the price specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the ETH/USDT "Close" prices currently available at https://www.binance.com/en/trade/ETH_USDT with "1m" and "Candles" selected on the top bar.
+
+Please note that this market is about the price according to Binance ETH/USDT, not according to other exchanges or trading pairs.
+
+Price precision is determined by the number of decimal places in the source.
+Contracts:
+  E3.C1: Will the price of Ethereum be above $1,300 on July 11?
+  E3.C2: Will the price of Ethereum be above $1,400 on July 11?
+  E3.C3: Will the price of Ethereum be above $1,500 on July 11?
+  E3.C4: Will the price of Ethereum be above $1,600 on July 11?
+  E3.C5: Will the price of Ethereum be above $1,700 on July 11?
+  E3.C6: Will the price of Ethereum be above $1,800 on July 11?
+  E3.C7: Will the price of Ethereum be above $1,900 on July 11?
+  E3.C8: Will the price of Ethereum be above $2,000 on July 11?
+  E3.C9: Will the price of Ethereum be above $2,100 on July 11?
+  E3.C10: Will the price of Ethereum be above $2,200 on July 11?
+  E3.C11: Will the price of Ethereum be above $2,300 on July 11?
+What to write for E3:
+  Write "levels": for each chance 10, 25, 50, 75 and 90, the level you give that chance of the measured quantity being at or above when it resolves. The 10 level is the highest and the 90 level the lowest. Example: {"10": 120, "25": 110, "50": 100, "75": 92, "90": 85}.
+
+=== E4 (as of 2026-08-12): Trump out as President by August 31?
+Rules:
+This market will resolve to “Yes” if Donald Trump resigns or is removed as President or otherwise ceases to be the President of the United States for any period of time by August 31, 2026, 11:59 PM ET. Otherwise, this market will resolve to “No”.
+
+An announcement of Donald Trump's resignation/removal before this market's end date will immediately resolve this market to "Yes", regardless of when the announced resignation/removal goes into effect.
+
+Only permanent removal from office will qualify. Temporary removal (e.g. temporary invocation of the 25th Amendment under Section 3 or a Section 4 invocation not sustained by both Houses of Congress) or impeachment without removal will not count.
+
+A sustained invocation of the Twenty-Fifth Amendment, Section 4 (i.e., if both Houses of Congress, by two-thirds vote, uphold the Vice President and Cabinet’s determination of presidential inability) will qualify for a "Yes" resolution. 
+
+The resolution source for this market will be a consensus of credible reporting.
+Contracts:
+  E4.C1: Trump out as President by August 31?
+What to write for E4:
+  Write "dates": for each chance 10, 25, 50, 75 and 90, the date by which you give it that chance of having happened, or null if you do not give it that chance by the last date the contracts cover. Dates must not go earlier as the chance rises.
+
+=== E5 (as of 2026-07-01): Will a new country join the Abraham Accords by July 31?
+Rules:
+This market will resolve to "Yes" if any country not already a part of the Abraham Accords formally signs a normalization agreement with Israel under the framework of the Abraham Accords by July 31, 2026, 11:59 PM ET. Otherwise, this market will resolve to "No".
+
+A formal signing refers to an official agreement between Israel and another country that is publicly acknowledged by both governments and clearly attributed to the Abraham Accords or their continuation. Such a signing will qualify regardless of whether a country had an established diplomatic relationship with Israel predating this event; their becoming a signatory of the Abraham Accords qualifies as normalizing relations under the framework of that agreement.
+
+For the purposes of this market, Somaliland will count as a country.
+
+Countries already part of the Abraham Accords as of market creation—including the United Arab Emirates, Bahrain, Morocco, and Sudan—will not count.
+
+The resolution source will be official government statements, however a consensus for credible reporting may also be used.
+Contracts:
+  E5.C1: Will a new country join the Abraham Accords by July 31?
+What to write for E5:
+  Write "dates": for each chance 10, 25, 50, 75 and 90, the date by which you give it that chance of having happened, or null if you do not give it that chance by the last date the contracts cover. Dates must not go earlier as the chance rises.
+
+=== E6 (as of 2026-07-22): Will Trump pardon SBF by July 31?
+Rules:
+This market will resolve to "Yes" if Sam Bankman-Fried receives a presidential pardon, commutation, or reprieve from Donald Trump by July 31, 2026, 11:59 PM ET. Otherwise, this market will resolve to "No".
+
+If it becomes impossible for Trump to issue a federal pardon, commutation, or reprieve within this market's timeframe, it may immediately resolve to "No".
+
+The primary resolution source for whether a person is pardoned or not will be official information from the US government, however a consensus of credible reporting will also be used.
+Contracts:
+  E6.C1: Will Trump pardon SBF by July 31?
+What to write for E6:
+  Write "dates": for each chance 10, 25, 50, 75 and 90, the date by which you give it that chance of having happened, or null if you do not give it that chance by the last date the contracts cover. Dates must not go earlier as the chance rises.

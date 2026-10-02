@@ -1,0 +1,34 @@
+You are one of several independent analysts. Work only from what is written below. Apart from reading the file that held this text, do not use any tool, do not look anything up, and do not use anything you
+know that happened after 2026-08-18: reason as of that date. You are shown no market prices, and you are not asked for any probability.
+
+EVENT: OpenAI’s Astra released by…?   (structure: date ladder)
+RULES (as of 2026-08-18):
+On August 1, 2026, OpenAI publicly disclosed “Astra,” describing an internal version of Astra as its “next major model.” You can read more about that here: https://openai.com/index/ten-advances-in-mathematics/.
+
+This market will resolve to "Yes" if OpenAI releases "Astra" or a model confirmed to be the same model referenced in the announcement described above, and that model is made available to the general public by the listed date (ET). Otherwise, this market will resolve to "No."
+
+A qualifying model must be named "Astra" (including variants or successor branding such as Astra 1, Astra 6, Astra X, GPT-6 Astra, or similar naming or rebranded versions) or be confirmed to be the same model referenced in the announcement by OpenAI or by a consensus of credible reporting.
+
+Products labeled as GPT-5.7, GPT-6, or similar will only count if they are confirmed to be the same model referenced in the announcement.
+
+For this market to resolve to "Yes," the qualifying model (as defined above) must be launched and publicly accessible, including via open beta or open rolling waitlist signups. A closed beta or any form of private access will not suffice. The release must be clearly defined and publicly announced by OpenAI as being accessible to the general public.
+
+The release must be either clearly defined and publicly announced by OpenAI as being accessible to the general public or otherwise made publicly accessible and explicitly labeled within the company’s official website. Labeling errors, placeholder text, or version names displayed on the website that do not correspond to a model that is actually accessible to the general public will not qualify.
+
+The primary resolution source for this market will be official information from OpenAI; however, a consensus of credible reporting will also be used.
+
+CONTRACTS (each pays $1 if its statement is true when the event resolves, $0 otherwise; you may name YES or NO on any contract):
+  C1: Will OpenAI’s Astra model be released by August 31, 2026?  [August 31]
+  C2: Will OpenAI’s Astra model be released by September 15, 2026?  [September 15]
+  C3: Will OpenAI’s Astra model be released by September 30, 2026?  [September 30]
+  C4: Will OpenAI’s Astra model be released by October 31, 2026?  [October 31]
+
+Task. Write your own view as documents-and-mechanism reasoning, not as odds.
+1. primary: a thesis about how this event resolves and a basket of at most 4 contracts from the list that expresses it (long only: a contract with YES or NO).
+2. failure_narrative: the specific way the thesis is wrong (what would have to happen for the basket to lose).
+3. hedge_thesis: a second narrative, about a DIFFERENT part of the world, that would tend to be true in exactly the worlds where the primary fails. Say why, in mechanism terms.
+4. search_terms: 3 to 8 words or names (entities, assets, places, institutions) that instruments for the hedge thesis would carry. Lower-case single words or short names.
+5. recalls_outcome: true if you already know, or think you know, how this event (or any part of it) actually turned out; otherwise false. Be honest: a true answer is not penalised, it only means this item is set aside.
+
+Answer with one JSON object and nothing else:
+{"primary": {"thesis": "...", "basket": [{"contract": "C1", "side": "YES", "reason": "..."}]}, "failure_narrative": "...", "hedge_thesis": "...", "search_terms": ["..."], "recalls_outcome": false}

@@ -1,0 +1,45 @@
+{
+ "hedges": [
+  {
+   "contract": "E37.4",
+   "side": "NO",
+   "reason": "For Ricketts to lose in an R+ farm state, the national midterm swing has to be large enough that Republicans also lose the House. An R Senate plus R House sweep and an Osborn win are close to mutually exclusive."
+  },
+  {
+   "contract": "E51.2",
+   "side": "NO",
+   "reason": "This pays when Republicans do not win the House. It is the same national-wave mechanism as E37.4, expressed on the House side through a separate contract."
+  },
+  {
+   "contract": "E41.1",
+   "side": "NO",
+   "reason": "Alaska is another red state with a strong non-Republican challenger in Peltola. The same anti-incumbent, rural-economy backlash that would lift Osborn would also threaten Sullivan. The link is weaker than the House legs, so I make no claim on it."
+  }
+ ],
+ "claims": [
+  {
+   "if": {
+    "contract": "C2",
+    "resolves": "NO"
+   },
+   "then": {
+    "contract": "E37.4",
+    "resolves": "NO"
+   },
+   "reason": "Nebraska votes well to the right of the median House seat. A national environment strong enough to beat a well-funded Republican incumbent there moves the many marginal House seats even further, so Republicans cannot keep the House, and the R-R sweep fails."
+  },
+  {
+   "if": {
+    "contract": "C2",
+    "resolves": "NO"
+   },
+   "then": {
+    "contract": "E51.2",
+    "resolves": "NO"
+   },
+   "reason": "The mechanism is the same: a uniform swing large enough to flip Nebraska for an independent flips the House majority. That leaves 'Republican Party wins the House' false whether or not the ACA credits were extended."
+  }
+ ],
+ "no_instrument": false,
+ "recalls_outcome": false
+}

@@ -1,0 +1,367 @@
+You will be shown 10 questions from a prediction market. Each question has one or more contracts, and each contract resolves YES or NO under the rules shown.
+
+For every contract, give your probability, as a whole percent from 1 to 99, that it resolves YES. Use only what you already know. Do not search for or look up anything: reading this file is the only tool call you may make.
+
+For each question, also say whether you recognise how it actually turned out ("recognised": true only if you believe you remember the real outcome; otherwise false).
+
+Where a question's contracts are mutually exclusive (exactly one can resolve YES), your numbers for it should add up to about 100. Where they are nested thresholds or dates, keep them consistent with each other.
+
+Reply with one JSON object and nothing else, in this form:
+{"events": [{"label": "E1", "recognised": false, "p": {"E1.C1": 35, "E1.C2": 60}}]}
+
+Every contract label below must appear exactly once in your reply.
+
+=== E1: FL-22 Republican Primary Winner
+Rules:
+This market will resolve according to the candidate who wins the nomination for the Republican Party to contest the FL-22 congressional district seat in the U.S. House of Representatives in the 2026 midterm elections. The Republican primary will take place on August 18, 2026.
+
+If no nominee is announced by November 3, 2026, 11:59PM ET, this market will resolve to "Other".
+
+The resolution source for this market will be a consensus of official Republican sources, including https://www.rnc.org/.
+
+Any replacement of the nominee before election day will not change the resolution of the market.
+Contracts:
+  E1.C1: Will Casey Askar be the FL-22 Republican nominee?
+  E1.C2: Will David Burck be the FL-22 Republican nominee?
+  E1.C3: Will Michael Carbonara be the FL-22 Republican nominee?
+  E1.C4: Will Richard Evans be the FL-22 Republican nominee?
+  E1.C5: Will Terri Hasdorff be the FL-22 Republican nominee?
+  E1.C6: Will Belinda Keiser be the FL-22 Republican nominee?
+  E1.C7: Will Michael Thompson be the FL-22 Republican nominee?
+
+=== E2: Who will give the next White House press briefing?
+Rules:
+This market will resolve according to the individual who leads the next White House press briefing following the creation of this market. 
+
+Resolution is based on who actually delivers the briefing from the podium, not on who is listed or announced in advance. If the individual scheduled or announced to give a briefing does not ultimately lead it, this market will resolve to the individual who does. An individual who appears at a qualifying briefing only as a guest, or who speaks only after being introduced by the individual leading the briefing, will not qualify.
+
+For the purposes of this market, a White House press briefing is an event listed on the public White House schedule as a press briefing. Any such briefing will qualify, even if the individual leading it has not been formally announced as the Press Secretary or as an acting or interim Press Secretary. "New Media" briefings and special briefings including additional guests will qualify, so long as the individual leads the briefing.
+
+Impromptu press gaggles, and remarks that are not listed on the public schedule as a press briefing, will not qualify.
+
+If two or more individuals jointly lead the next qualifying briefing, this market will resolve to the individual who speaks first.
+
+If no qualifying White House press briefing occurs by September 30, 2026, 11:59 PM ET, this market will resolve to "Other".
+
+This market will resolve based on footage of the briefing, as indicated by a consensus of credible reporting.
+Contracts:
+  E2.C1: Will JD Vance give the next White House press briefing?
+  E2.C2: Will Anna Kelly give the next White House press briefing?
+  E2.C3: Will Harrison Fields give the next White House press briefing?
+  E2.C4: Will Taylor Rogers give the next White House press briefing?
+  E2.C5: Will Kush Desai give the next White House press briefing?
+  E2.C6: Will Liz Huston give the next White House press briefing?
+  E2.C7: Will Margo Martin give the next White House press briefing?
+  E2.C8: Will Scott Jennings give the next White House press briefing?
+  E2.C9: Will Marco Rubio give the next White House press briefing?
+  E2.C10: Will Scott Bessent give the next White House press briefing?
+  E2.C11: Will Stephen Miller give the next White House press briefing?
+  E2.C12: Will Donald Trump give the next White House press briefing?
+
+=== E3: Precipitation in NYC in March?
+Rules:
+This market will resolve according to the total precipitation in inches in Central Park, New York City between March 1 and March 31, 2026, 11:59PM ET according to the National Oceanic and Atmospheric Administration (NOAA).
+
+If the reported value falls exactly between two brackets, then this market will resolve to the higher range bracket.
+
+The resolution source for this market will be NOAA, specifically the figure for March 2026 when the "Monthly summarized data" for "Central Park NY" is selected with the variable set to "Precipitation" at the https://www.weather.gov/wrh/climate?wfo=okx link once that figure is finalized for the whole month of March 2026.
+
+The resolution source for this market measures precipitation to 2 decimal places (e.g., 1.54), thus, this is the level of precision that will be used when resolving this market. Any revisions to precipitation recorded after data is finalized for this market's timeframe will not be considered for this market's resolution.
+Contracts:
+  E3.C1: Will NYC have less than 2 inches of precipitation in March?
+  E3.C2: Will NYC have between 2 and 3 inches of precipitation in March?
+  E3.C3: Will NYC have between 3 and 4 inches of precipitation in March?
+  E3.C4: Will NYC have between 4 and 5 inches of precipitation in March?
+  E3.C5: Will NYC have between 5 and 6 inches of precipitation in March?
+  E3.C6: Will NYC have more than 6 inches of precipitation in March?
+
+=== E4: Best Chinese AI Company end of July?
+Rules:
+This market will resolve according to the company that owns the model that has the highest arena rank among primarily Chinese companies, based on the Chatbot Arena LLM Leaderboard (https://lmarena.ai/) when the table under the "Leaderboard" tab is checked on July 31, 2026, 12:00 PM ET.
+
+Results from the "Rank" column under the "Text Arena | Overall" Leaderboard tab at https://lmarena.ai/leaderboard/text with style control off will be used to resolve this market.
+
+Qualifying Chinese Models will be ordered primarily by their leaderboard rank at the market’s check time. If two or more models are tied on rank, they will be ordered by their Arena score, including any underlying, unrounded, granular values reflected in the data below the leaderboard. If a tie still remains, alphabetical order of company names as listed in this market group will be used as a final tiebreaker (e.g., if the two models are tied by exact arena score, “Meituan” would be ranked ahead of “Xiaomi”). This market will resolve based on the company that occupies first place under this ranking.
+
+The resolution source for this market is the Chatbot Arena LLM Leaderboard found at https://lmarena.ai/. If this resolution source is unavailable at check time, this market will remain open until the leaderboard comes back online and will resolve based on the first check after it becomes available. If it becomes permanently unavailable, this market will resolve based on another resolution source.
+Contracts:
+  E4.C1: Will Alibaba have the best Chinese AI model at the end of July 2026?
+  E4.C2: Will ByteDance have the best Chinese AI model at the end of July 2026?
+  E4.C3: Will Baidu have the best Chinese AI model at the end of July 2026?
+  E4.C4: Will Moonshot have the best Chinese AI model at the end of July 2026?
+  E4.C5: Will Z.ai have the best Chinese AI model at the end of July 2026?
+  E4.C6: Will DeepSeek have the best Chinese AI model at the end of July 2026?
+  E4.C7: Will Meituan have the best Chinese AI model at the end of July 2026?
+  E4.C8: Will Xiaomi have the best Chinese AI model at the end of July 2026?
+  E4.C9: Will StepFun have the best Chinese AI model at the end of July 2026?
+  E4.C10: Will Tencent have the best Chinese AI model at the end of July 2026?
+  E4.C11: Will MiniMax have the best Chinese AI model at the end of July 2026?
+
+=== E5: Germany GDP growth in Q2 2026?
+Rules:
+This market will resolve according to the German GDP growth rate (% change) on the same quarter a year earlier, price adjusted, as reported in the first release of the Destatis Gross Domestic Product press release for Q2 of 2026, expected to be released on July 30, 2026.
+
+The GDP release will be made available here: https://www.destatis.de/EN/Themes/Economy/National-Accounts-Domestic-Product/_node.html
+
+If the reported value falls exactly between two brackets, then this market will resolve to the higher range bracket.
+
+If no data for the specified quarter is released by the date the next quarter's data is scheduled to be released, this market will resolve based on data from the last available quarter.
+
+The resolution source for this market reports GDP growth rates to only one decimal point (e.g. 0.3%). Thus, this is the level of precision that will be used when resolving the market.
+
+Note: data from the initial release of the referenced GDP report is what will be used to resolve this market. Data may be revised during the following quarter, or as a part of the next estimate's publication; however, any revisions to GDP report data made after the initial release of the specified report will not be considered for this market's resolution.
+Contracts:
+  E5.C1: Will Germany GDP growth in Q2 2026 be less than or equal to 0.0%?
+  E5.C2: Will Germany GDP growth in Q2 2026 be between 0.1% and 0.3%?
+  E5.C3: Will Germany GDP growth in Q2 2026 be between 0.4% and 0.6%?
+  E5.C4: Will Germany GDP growth in Q2 2026 be between 0.7% and 0.9%?
+  E5.C5: Will Germany GDP growth in Q2 2026 be between 1.0% and 1.2%?
+  E5.C6: Will Germany GDP growth in Q2 2026 be at least 1.3%?
+
+=== E6: Israel nuclear weapon use against Iran by January 31?
+Rules:
+This market will resolve to “Yes” if Israel initiates a nuclear strike on Iranian soil by January 31, 2026, 11:59 PM ET. Otherwise, this market will resolve to “No.”
+
+Strikes on official Iranian embassies or consulates located outside of Iranian territory will not qualify.
+
+For the purposes of this market, a qualifying “nuclear strike” is defined as a confirmed launch of any nuclear weapon, including but not limited to fission weapons, fusion weapons, thermonuclear devices, or hydrogen bomb warheads, launched by Israeli military forces via missile, aircraft, or other delivery system towards Iranian ground territory.
+
+Launched delivery systems carrying nuclear warheads that are intercepted or that fail to produce a nuclear detonation will qualify regardless.
+
+Actions such as radiological weapons or “dirty bombs” (i.e., devices intended to disperse radioactive material without a nuclear detonation), conventional (non-nuclear) airstrikes, or any other conventional use of force conducted by Israeli forces will not qualify.
+
+The resolution source will be a consensus of credible reporting.
+Contracts:
+  E6.C1: Israel nuclear weapon use against Iran by January 31?
+
+=== E7: OH-01 Republican Primary Winner
+Rules:
+This market will resolve according to the candidate who wins the nomination for the Republican Party to contest the OH-01 congressional district seat in the U.S. House of Representatives in the 2026 midterm elections. The Republican primary will take place on May 5, 2026.
+
+If no nominee is announced by November 3, 2026, 11:59PM ET, this market will resolve to "Other".
+
+The resolution source for this market will be a consensus of official Republican sources, including https://www.rnc.org/.
+
+Any replacement of the nominee before election day will not change the resolution of the market.
+Contracts:
+  E7.C1: Will Holly Adams be the Republican nominee for OH-01?
+  E7.C2: Will Eric Conroy be the Republican nominee for OH-01?
+  E7.C3: Will Steven Erbeck be the Republican nominee for OH-01?
+  E7.C4: Will Rosemary Oglesby-Henry be the Republican nominee for OH-01?
+
+=== E8: Peru Chamber of Deputies Election Winner
+Rules:
+General elections are scheduled to be held in Peru on April 12, 2026.
+
+This market will resolve according to the political party that wins the greatest number of seats in the next Peruvian Chamber of Deputies election. 
+
+If the results are not known definitively by October 31, 2026, 11:59 PM ET, this market will resolve to "Other".
+
+If the 2026 Peruvian general election is conducted under a unicameral legislative system, this market will resolve based on the results of that unicameral congressional election.
+
+In the event of a tie between multiple parties for the most seats won, this market will resolve in favor of the party or coalition that received a greater number of valid votes. In the event that results in a tie, this market will resolve in favor of the party or coalition whose listed abbreviation appears first in alphabetical order.
+
+This market's resolution will be based solely on the number of seats won by the named party in the Peruvian Chamber of Deputies.
+
+This market will resolve based on the results of this election, as indicated by a consensus of credible reporting. If there is ambiguity, this market will resolve solely on the official results as reported by the Peruvian government, specifically the National Office of Electoral Processes (Oficina Nacional de Procesos Electorales, ONPE) (https://www.onpe.gob.pe/elecciones/) and the National Jury of Elections (Jurado Nacional de Elecciones, JNE) (https://portal.jne.gob.pe/portal/).
+Contracts:
+  E8.C1: Will Fuerza Popular (FP) win the most seats in the 2026 Peruvian Chamber of Deputies election?
+  E8.C2: Will Perú Libre (PL) win the most seats in the 2026 Peruvian Chamber of Deputies election?
+  E8.C3: Will Acción Popular (AP) win the most seats in the 2026 Peruvian Chamber of Deputies election?
+  E8.C4: Will Alianza para el Progreso (APP) win the most seats in the 2026 Peruvian Chamber of Deputies election?
+  E8.C5: Will Avanza País – Partido de Integración Social (AvP) win the most seats in the 2026 Peruvian Chamber of Deputies election?
+  E8.C6: Will Renovación Popular (RP) win the most seats in the 2026 Peruvian Chamber of Deputies election?
+  E8.C7: Will Somos Perú (SP) win the most seats in the 2026 Peruvian Chamber of Deputies election?
+  E8.C8: Will Podemos Perú (PP) win the most seats in the 2026 Peruvian Chamber of Deputies election?
+  E8.C9: Will Juntos por el Perú (JP) win the most seats in the 2026 Peruvian Chamber of Deputies election?
+
+=== E9: Will Revolut's valuation hit __ by July 31?
+Rules:
+This market will resolve to "Yes" if Revolut's private market valuation, as measured by the NPM Price reported by Nasdaq Private Market, LLC (NPM) for any date between market creation and July 31, 2026, reaches or exceeds the listed amount. Otherwise, this market will resolve to "No".
+
+NPM Prices are published for trading days only and are updated once daily at 1:00 PM ET on the following calendar day.
+
+If NPM has not published relevant data for all business dates in the specified period by 1:00 PM ET on August 1, 2026, this market may remain open until 11:59 PM ET on August 4, 2026. If no further data is released by that time, the market will resolve according to the data available.
+
+If NPM ceases publishing relevant data prior to the end of the specified period, this market will resolve based on the NPM data published for the period prior to the cessation of coverage, as well as any applicable public market capitalization data following an IPO or direct listing.
+
+If the company completes an IPO or direct listing before the end of the specified period, this market will consider, in addition to the relevant NPM valuations published between market creation and the IPO or direct listing date, the valuation implied by the official IPO or direct listing price, and the company’s public market capitalization between the IPO or direct listing date and the end of the specified period.
+
+Public market capitalization will be determined using the highest/lowest official regular-hours trading price published for the company’s primary listed common equity on its primary exchange for any trading day during the specified period, multiplied by the company’s total outstanding common shares at the relevant time.
+
+If the listed company merges with or acquires another entity and remains the parent company, no change to resolution methodology applies.
+
+If the listed company is acquired, merges into another entity and is no longer the surviving parent company, or otherwise ceases to exist as an independent entity prior to the end of the period, only NPM valuations and applicable public market capitalizations achieved prior to completion of the transaction will be considered for resolution. No transaction, acquisition, or merger consideration will be considered for resolution.
+
+The resolution source for this market is NPM data published here: (https://fe.secondmarket.com/companies/company-70f3c3d1-565b-491a-83df-54d0c8b08186/data). The resolution source for any period following an IPO, direct listing, or relevant corporate action, will be official exchange trading data and publicly reported share counts.
+
+Revisions to previously published NPM data made after their initial release will not be considered, unless made to correct clearly erroneous data.
+Contracts:
+  E9.C1: Will Revolut's valuation hit (HIGH) $125B by July 31?
+  E9.C2: Will Revolut's valuation hit (HIGH) $110B by July 31?
+  E9.C3: Will Revolut's valuation hit (HIGH) $100B by July 31?
+  E9.C4: Will Revolut's valuation hit (HIGH) $95B by July 31?
+  E9.C5: Will Revolut's valuation hit (HIGH) $90B by July 31?
+  E9.C6: Will Revolut's valuation hit (LOW) $82.5B by July 31?
+  E9.C7: Will Revolut's valuation hit (LOW) $77.5B by July 31?
+  E9.C8: Will Revolut's valuation hit (LOW) $70B by July 31?
+  E9.C9: Will Revolut's valuation hit (LOW) $65B by July 31?
+
+=== E10: Tamil Nadu Legislative Assembly Election Winner
+Rules:
+Legislative Assembly elections are to be scheduled to be held in Tamil Nadu, India, in March–May 2026.
+
+This market will resolve according to the political party that wins the greatest number of seats in the Tamil Nadu Legislative Assembly in the 2026 election.
+
+If the results are not known definitively by October 31, 2026, 11:59 PM ET, this market will resolve to "Other".
+
+In the event of a tie between multiple parties for the most seats won, this market will resolve in favor of the party that received a greater number of valid votes statewide. If that also results in a tie, this market will resolve in favor of the party whose listed abbreviation appears first in alphabetical order.
+
+This market’s resolution will be based solely on the number of seats won by the named party in the Tamil Nadu Legislative Assembly.
+
+This market will resolve based on the results of this election as indicated by a consensus of credible reporting. If there is ambiguity, this market will resolve based solely on the official results reported by the Indian government, specifically the Election Commission of India (ECI) (https://eci.gov.in). If multiple official reports differ, this market will resolve based on the one that includes the greatest number of Assembly Constituencies (ACs).
+Contracts:
+  E10.C1: Will the All India Trinamool Congress (AITC) win the most seats in the 2026 Tamil Nadu Legislative Assembly election?
+    Contract rules: Legislative Assembly elections are to be scheduled to be held in Tamil Nadu, India, in March–May 2026.
+
+This market will resolve according to the political party that wins the greatest number of seats in the Tamil Nadu Legislative Assembly in the 2026 election.
+
+If the results are not known definitively by October 31, 2026, 11:59 PM ET, this market will resolve to "Other".
+
+In the event of a tie between multiple parties for the most seats won, this market will resolve in favor of the party that received a greater number of valid votes. If that also results in a tie, this market will resolve in favor of the party whose listed abbreviation appears first in alphabetical order.
+
+This market’s resolution will be based solely on the number of seats won by the named party in the Tamil Nadu Legislative Assembly.
+
+This market will resolve based on the results of this election as indicated by a consensus of credible reporting. If there is ambiguity, this market will resolve based solely on the official results reported by the Indian government, specifically the Election Commission of India (ECI) (https://eci.gov.in). If multiple official reports differ, this market will resolve based on the one that includes the greatest number of Assembly Constituencies (ACs).
+  E10.C2: Will the Bharatiya Janata Party (BJP) win the most seats in the 2026 Tamil Nadu Legislative Assembly election?
+    Contract rules: Legislative Assembly elections are to be scheduled to be held in Tamil Nadu, India, in March–May 2026.
+
+This market will resolve according to the political party that wins the greatest number of seats in the Tamil Nadu Legislative Assembly in the 2026 election.
+
+If the results are not known definitively by October 31, 2026, 11:59 PM ET, this market will resolve to "Other".
+
+In the event of a tie between multiple parties for the most seats won, this market will resolve in favor of the party that received a greater number of valid votes. If that also results in a tie, this market will resolve in favor of the party whose listed abbreviation appears first in alphabetical order.
+
+This market’s resolution will be based solely on the number of seats won by the named party in the Tamil Nadu Legislative Assembly.
+
+This market will resolve based on the results of this election as indicated by a consensus of credible reporting. If there is ambiguity, this market will resolve based solely on the official results reported by the Indian government, specifically the Election Commission of India (ECI) (https://eci.gov.in). If multiple official reports differ, this market will resolve based on the one that includes the greatest number of Assembly Constituencies (ACs).
+  E10.C3: Will the Bahujan Samaj Party (BSP) win the most seats in the 2026 Tamil Nadu Legislative Assembly election?
+    Contract rules: Legislative Assembly elections are to be scheduled to be held in Tamil Nadu, India, in March–May 2026.
+
+This market will resolve according to the political party that wins the greatest number of seats in the Tamil Nadu Legislative Assembly in the 2026 election.
+
+If the results are not known definitively by October 31, 2026, 11:59 PM ET, this market will resolve to "Other".
+
+In the event of a tie between multiple parties for the most seats won, this market will resolve in favor of the party that received a greater number of valid votes. If that also results in a tie, this market will resolve in favor of the party whose listed abbreviation appears first in alphabetical order.
+
+This market’s resolution will be based solely on the number of seats won by the named party in the Tamil Nadu Legislative Assembly.
+
+This market will resolve based on the results of this election as indicated by a consensus of credible reporting. If there is ambiguity, this market will resolve based solely on the official results reported by the Indian government, specifically the Election Commission of India (ECI) (https://eci.gov.in). If multiple official reports differ, this market will resolve based on the one that includes the greatest number of Assembly Constituencies (ACs).
+  E10.C4: Will the Communist Party of India (CPI) win the most seats in the 2026 Tamil Nadu Legislative Assembly election?
+    Contract rules: Legislative Assembly elections are to be scheduled to be held in Tamil Nadu, India, in March–May 2026.
+
+This market will resolve according to the political party that wins the greatest number of seats in the Tamil Nadu Legislative Assembly in the 2026 election.
+
+If the results are not known definitively by October 31, 2026, 11:59 PM ET, this market will resolve to "Other".
+
+In the event of a tie between multiple parties for the most seats won, this market will resolve in favor of the party that received a greater number of valid votes. If that also results in a tie, this market will resolve in favor of the party whose listed abbreviation appears first in alphabetical order.
+
+This market’s resolution will be based solely on the number of seats won by the named party in the Tamil Nadu Legislative Assembly.
+
+This market will resolve based on the results of this election as indicated by a consensus of credible reporting. If there is ambiguity, this market will resolve based solely on the official results reported by the Indian government, specifically the Election Commission of India (ECI) (https://eci.gov.in). If multiple official reports differ, this market will resolve based on the one that includes the greatest number of Assembly Constituencies (ACs).
+  E10.C5: Will the Communist Party of India (Marxist) (CPI(M)) win the most seats in the 2026 Tamil Nadu Legislative Assembly election?
+    Contract rules: Legislative Assembly elections are to be scheduled to be held in Tamil Nadu, India, in March–May 2026.
+
+This market will resolve according to the political party that wins the greatest number of seats in the Tamil Nadu Legislative Assembly in the 2026 election.
+
+If the results are not known definitively by October 31, 2026, 11:59 PM ET, this market will resolve to "Other".
+
+In the event of a tie between multiple parties for the most seats won, this market will resolve in favor of the party that received a greater number of valid votes. If that also results in a tie, this market will resolve in favor of the party whose listed abbreviation appears first in alphabetical order.
+
+This market’s resolution will be based solely on the number of seats won by the named party in the Tamil Nadu Legislative Assembly.
+
+This market will resolve based on the results of this election as indicated by a consensus of credible reporting. If there is ambiguity, this market will resolve based solely on the official results reported by the Indian government, specifically the Election Commission of India (ECI) (https://eci.gov.in). If multiple official reports differ, this market will resolve based on the one that includes the greatest number of Assembly Constituencies (ACs).
+  E10.C6: Will the Indian National Congress (INC) win the most seats in the 2026 Tamil Nadu Legislative Assembly election?
+    Contract rules: Legislative Assembly elections are to be scheduled to be held in Tamil Nadu, India, in March–May 2026.
+
+This market will resolve according to the political party that wins the greatest number of seats in the Tamil Nadu Legislative Assembly in the 2026 election.
+
+If the results are not known definitively by October 31, 2026, 11:59 PM ET, this market will resolve to "Other".
+
+In the event of a tie between multiple parties for the most seats won, this market will resolve in favor of the party that received a greater number of valid votes. If that also results in a tie, this market will resolve in favor of the party whose listed abbreviation appears first in alphabetical order.
+
+This market’s resolution will be based solely on the number of seats won by the named party in the Tamil Nadu Legislative Assembly.
+
+This market will resolve based on the results of this election as indicated by a consensus of credible reporting. If there is ambiguity, this market will resolve based solely on the official results reported by the Indian government, specifically the Election Commission of India (ECI) (https://eci.gov.in). If multiple official reports differ, this market will resolve based on the one that includes the greatest number of Assembly Constituencies (ACs).
+  E10.C7: Will the Nationalist Congress Party (NCP) win the most seats in the 2026 Tamil Nadu Legislative Assembly election?
+    Contract rules: Legislative Assembly elections are to be scheduled to be held in Tamil Nadu, India, in March–May 2026.
+
+This market will resolve according to the political party that wins the greatest number of seats in the Tamil Nadu Legislative Assembly in the 2026 election.
+
+If the results are not known definitively by October 31, 2026, 11:59 PM ET, this market will resolve to "Other".
+
+In the event of a tie between multiple parties for the most seats won, this market will resolve in favor of the party that received a greater number of valid votes. If that also results in a tie, this market will resolve in favor of the party whose listed abbreviation appears first in alphabetical order.
+
+This market’s resolution will be based solely on the number of seats won by the named party in the Tamil Nadu Legislative Assembly.
+
+This market will resolve based on the results of this election as indicated by a consensus of credible reporting. If there is ambiguity, this market will resolve based solely on the official results reported by the Indian government, specifically the Election Commission of India (ECI) (https://eci.gov.in). If multiple official reports differ, this market will resolve based on the one that includes the greatest number of Assembly Constituencies (ACs).
+  E10.C8: Will the National People’s Party (NPEP) win the most seats in the 2026 Tamil Nadu Legislative Assembly election?
+    Contract rules: Legislative Assembly elections are to be scheduled to be held in Tamil Nadu, India, in March–May 2026.
+
+This market will resolve according to the political party that wins the greatest number of seats in the Tamil Nadu Legislative Assembly in the 2026 election.
+
+If the results are not known definitively by October 31, 2026, 11:59 PM ET, this market will resolve to "Other".
+
+In the event of a tie between multiple parties for the most seats won, this market will resolve in favor of the party that received a greater number of valid votes. If that also results in a tie, this market will resolve in favor of the party whose listed abbreviation appears first in alphabetical order.
+
+This market’s resolution will be based solely on the number of seats won by the named party in the Tamil Nadu Legislative Assembly.
+
+This market will resolve based on the results of this election as indicated by a consensus of credible reporting. If there is ambiguity, this market will resolve based solely on the official results reported by the Indian government, specifically the Election Commission of India (ECI) (https://eci.gov.in). If multiple official reports differ, this market will resolve based on the one that includes the greatest number of Assembly Constituencies (ACs).
+  E10.C9: Will the All India Anna Dravida Munnetra Kazhagam (ADMK) win the most seats in the 2026 Tamil Nadu Legislative Assembly election?
+    Contract rules: Legislative Assembly elections are to be scheduled to be held in Tamil Nadu, India, in March–May 2026.
+
+This market will resolve according to the political party that wins the greatest number of seats in the Tamil Nadu Legislative Assembly in the 2026 election.
+
+If the results are not known definitively by October 31, 2026, 11:59 PM ET, this market will resolve to "Other".
+
+In the event of a tie between multiple parties for the most seats won, this market will resolve in favor of the party that received a greater number of valid votes. If that also results in a tie, this market will resolve in favor of the party whose listed abbreviation appears first in alphabetical order.
+
+This market’s resolution will be based solely on the number of seats won by the named party in the Tamil Nadu Legislative Assembly.
+
+This market will resolve based on the results of this election as indicated by a consensus of credible reporting. If there is ambiguity, this market will resolve based solely on the official results reported by the Indian government, specifically the Election Commission of India (ECI) (https://eci.gov.in). If multiple official reports differ, this market will resolve based on the one that includes the greatest number of Assembly Constituencies (ACs).
+  E10.C10: Will the Desiya Murpokku Dravida Kazhagam (DMDK) win the most seats in the 2026 Tamil Nadu Legislative Assembly election?
+    Contract rules: Legislative Assembly elections are to be scheduled to be held in Tamil Nadu, India, in March–May 2026.
+
+This market will resolve according to the political party that wins the greatest number of seats in the Tamil Nadu Legislative Assembly in the 2026 election.
+
+If the results are not known definitively by October 31, 2026, 11:59 PM ET, this market will resolve to "Other".
+
+In the event of a tie between multiple parties for the most seats won, this market will resolve in favor of the party that received a greater number of valid votes. If that also results in a tie, this market will resolve in favor of the party whose listed abbreviation appears first in alphabetical order.
+
+This market’s resolution will be based solely on the number of seats won by the named party in the Tamil Nadu Legislative Assembly.
+
+This market will resolve based on the results of this election as indicated by a consensus of credible reporting. If there is ambiguity, this market will resolve based solely on the official results reported by the Indian government, specifically the Election Commission of India (ECI) (https://eci.gov.in). If multiple official reports differ, this market will resolve based on the one that includes the greatest number of Assembly Constituencies (ACs).
+  E10.C11: Will the Dravida Munnetra Kazhagam (DMK) win the most seats in the 2026 Tamil Nadu Legislative Assembly election?
+    Contract rules: Legislative Assembly elections are to be scheduled to be held in Tamil Nadu, India, in March–May 2026.
+
+This market will resolve according to the political party that wins the greatest number of seats in the Tamil Nadu Legislative Assembly in the 2026 election.
+
+If the results are not known definitively by October 31, 2026, 11:59 PM ET, this market will resolve to "Other".
+
+In the event of a tie between multiple parties for the most seats won, this market will resolve in favor of the party that received a greater number of valid votes. If that also results in a tie, this market will resolve in favor of the party whose listed abbreviation appears first in alphabetical order.
+
+This market’s resolution will be based solely on the number of seats won by the named party in the Tamil Nadu Legislative Assembly.
+
+This market will resolve based on the results of this election as indicated by a consensus of credible reporting. If there is ambiguity, this market will resolve based solely on the official results reported by the Indian government, specifically the Election Commission of India (ECI) (https://eci.gov.in). If multiple official reports differ, this market will resolve based on the one that includes the greatest number of Assembly Constituencies (ACs).
+  E10.C12: Will Tamilaga Vettri Kazhagam (TVK) win the most seats in the 2026 Tamil Nadu Legislative Assembly election?
+    Contract rules: Legislative Assembly elections are to be scheduled to be held in Tamil Nadu, India, in March–May 2026.
+
+This market will resolve according to the political party that wins the greatest number of seats in the Tamil Nadu Legislative Assembly in the 2026 election.
+
+If the results are not known definitively by October 31, 2026, 11:59 PM ET, this market will resolve to "Other".
+
+In the event of a tie between multiple parties for the most seats won, this market will resolve in favor of the party that received a greater number of valid votes. If that also results in a tie, this market will resolve in favor of the party whose listed abbreviation appears first in alphabetical order.
+
+This market’s resolution will be based solely on the number of seats won by the named party in the Tamil Nadu Legislative Assembly.
+
+This market will resolve based on the results of this election as indicated by a consensus of credible reporting. If there is ambiguity, this market will resolve based solely on the official results reported by the Indian government, specifically the Election Commission of India (ECI) (https://eci.gov.in). If multiple official reports differ, this market will resolve based on the one that includes the greatest number of Assembly Constituencies (ACs).

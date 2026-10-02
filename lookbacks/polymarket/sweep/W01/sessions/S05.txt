@@ -1,0 +1,311 @@
+You will be shown 6 questions from a prediction market. Each has one or more contracts that resolve YES or NO under the rules shown. Each question gives the date your view is "as of": answer as you would on that date.
+
+Use only what you already know. Do not search for or look up anything: reading this file is the only tool call you may make. There are no prices in this file and you should not try to estimate what any market thinks; give your own view.
+
+Each question says what to write for it. Whole percents run from 1 to 99. Levels are plain numbers in the units the contracts use (for example 95000 for $95,000, 3.25 for 3.25%). Dates are YYYY-MM-DD.
+
+For each question also say whether you recognise how it actually turned out ("recognised": true only if you believe you remember the real outcome; otherwise false).
+
+Reply with one JSON object and nothing else:
+{"events": [{"label": "E1", "recognised": false, ...the fields that question asks for...}]}
+
+=== E1 (as of 2026-10-01): Goiás Senate Election: 2nd Place
+Rules:
+The Brazilian Federal Senate election for Goiás is scheduled to take place on October 4, 2026.
+
+This market will resolve according to the candidate who wins the second-most valid votes of any candidate at the specified election.
+
+Candidates will be primarily ranked by order of valid votes won. If two or more candidates are tied for any position, ties will be broken by alphabetical order of the candidates’ listed full names as they appear in this market. This market will resolve to the candidate that occupies the second-highest finishing position after applying this ranking.
+
+If the result of this election isn't definitively known by June 30, 2027, 11:59 PM ET, the market will resolve to "Other".
+
+This market will resolve based on the result of the election, as indicated by a consensus of credible reporting. If there is ambiguity, this market will resolve based solely on the official results as reported by the Brazilian government, specifically the Superior Electoral Court (Tribunal Superior Eleitoral, TSE) (e.g., www.tse.jus.br/eleicoes/resultados-eleicoes).
+Contracts:
+  E1.C1: Will Cintia Dias win the second-most votes in the 2026 Goiás Senate election?
+  E1.C2: Will Dr. Zacharias Calil win the second-most votes in the 2026 Goiás Senate election?
+  E1.C3: Will Ernesto Roller win the second-most votes in the 2026 Goiás Senate election?
+  E1.C4: Will Gracinha Caiado win the second-most votes in the 2026 Goiás Senate election?
+  E1.C5: Will Guilherme Darques win the second-most votes in the 2026 Goiás Senate election?
+  E1.C6: Will Gustavo Gayer win the second-most votes in the 2026 Goiás Senate election?
+  E1.C7: Will Gustavo Mendanha win the second-most votes in the 2026 Goiás Senate election?
+  E1.C8: Will Isaura Lemos win the second-most votes in the 2026 Goiás Senate election?
+  E1.C9: Will Iure Castro win the second-most votes in the 2026 Goiás Senate election?
+  E1.C10: Will Oséias Varão win the second-most votes in the 2026 Goiás Senate election?
+  E1.C11: Will Vanderlan Cardoso win the second-most votes in the 2026 Goiás Senate election?
+  E1.C12: Will Candidate A win the second-most votes in the 2026 Goiás Senate election?
+  E1.C13: Will Candidate B win the second-most votes in the 2026 Goiás Senate election?
+  E1.C14: Will Candidate C win the second-most votes in the 2026 Goiás Senate election?
+  E1.C15: Will Candidate D win the second-most votes in the 2026 Goiás Senate election?
+  E1.C16: Will Candidate E win the second-most votes in the 2026 Goiás Senate election?
+  E1.C17: Will Candidate F win the second-most votes in the 2026 Goiás Senate election?
+  E1.C18: Will Candidate G win the second-most votes in the 2026 Goiás Senate election?
+  E1.C19: Will Candidate H win the second-most votes in the 2026 Goiás Senate election?
+  E1.C20: Will Candidate I win the second-most votes in the 2026 Goiás Senate election?
+  E1.C21: Will Candidate J win the second-most votes in the 2026 Goiás Senate election?
+  E1.C22: Will Candidate K win the second-most votes in the 2026 Goiás Senate election?
+  E1.C23: Will Candidate L win the second-most votes in the 2026 Goiás Senate election?
+  E1.C24: Will Candidate M win the second-most votes in the 2026 Goiás Senate election?
+  E1.C25: Will Candidate N win the second-most votes in the 2026 Goiás Senate election?
+  E1.C26: Will Candidate O win the second-most votes in the 2026 Goiás Senate election?
+  E1.C27: Will Candidate P win the second-most votes in the 2026 Goiás Senate election?
+  E1.C28: Will Candidate Q win the second-most votes in the 2026 Goiás Senate election?
+  E1.C29: Will Candidate R win the second-most votes in the 2026 Goiás Senate election?
+  E1.C30: Will Candidate S win the second-most votes in the 2026 Goiás Senate election?
+  E1.C31: Will Candidate T win the second-most votes in the 2026 Goiás Senate election?
+  E1.C32: Will Candidate U win the second-most votes in the 2026 Goiás Senate election?
+  E1.C33: Will Candidate V win the second-most votes in the 2026 Goiás Senate election?
+  E1.C34: Will Candidate W win the second-most votes in the 2026 Goiás Senate election?
+  E1.C35: Will Candidate X win the second-most votes in the 2026 Goiás Senate election?
+  E1.C36: Will Candidate Y win the second-most votes in the 2026 Goiás Senate election?
+  E1.C37: Will Candidate Z win the second-most votes in the 2026 Goiás Senate election?
+  E1.C38: Will someone else win the second-most votes in the 2026 Goiás Senate election?
+What to write for E1:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E2 (as of 2026-10-01): Quebec General Election Winner
+Rules:
+Parliamentary elections to elect all 127 seats of the National Assembly of Quebec are scheduled to take place in Quebec on October 5, 2026.
+
+This market will resolve to the political party that wins the greatest number of seats in the National Assembly of Quebec as a result of this election.
+
+If voting in the 2026 Quebec general election does not occur by January 31, 2027, this market will resolve to "Other".
+
+In the event of a tie for the most seats won between this party and any other, this market will resolve in favor of the party that won the most valid votes in the respective election. If this also results in a tie, this market will resolve in favor of the party or coalition whose listed abbreviation comes first in alphabetical order.
+
+This market's resolution will be based solely on the number of seats won by the named party.
+
+This market will resolve based on the result of the election as indicated by a consensus of credible reporting. If there is ambiguity, this market will resolve based solely on the official results as reported by Élections Québec (https://www.electionsquebec.qc.ca).
+Contracts:
+  E2.C1: Will Coalition Avenir Québec win the most seats in the 2026 Quebec general election?
+  E2.C2: Will Parti Québécois win the most seats in the 2026 Quebec general election?
+  E2.C3: Will Parti libéral du Québec win the most seats in the 2026 Quebec general election?
+  E2.C4: Will Québec solidaire win the most seats in the 2026 Quebec general election?
+  E2.C5: Will Parti conservateur du Québec win the most seats in the 2026 Quebec general election?
+  E2.C6: Will Parti vert du Québec win the most seats in the 2026 Quebec general election?
+  E2.C7: Will Party A win the most seats in the 2026 Quebec general election?
+  E2.C8: Will Party B win the most seats in the 2026 Quebec general election?
+  E2.C9: Will Party C win the most seats in the 2026 Quebec general election?
+  E2.C10: Will Party D win the most seats in the 2026 Quebec general election?
+  E2.C11: Will Party E win the most seats in the 2026 Quebec general election?
+  E2.C12: Will Party F win the most seats in the 2026 Quebec general election?
+  E2.C13: Will Party G win the most seats in the 2026 Quebec general election?
+  E2.C14: Will Party H win the most seats in the 2026 Quebec general election?
+  E2.C15: Will Party I win the most seats in the 2026 Quebec general election?
+  E2.C16: Will Party J win the most seats in the 2026 Quebec general election?
+  E2.C17: Will Party K win the most seats in the 2026 Quebec general election?
+  E2.C18: Will Party L win the most seats in the 2026 Quebec general election?
+  E2.C19: Will Party M win the most seats in the 2026 Quebec general election?
+  E2.C20: Will Party N win the most seats in the 2026 Quebec general election?
+  E2.C21: Will Party O win the most seats in the 2026 Quebec general election?
+  E2.C22: Will Party P win the most seats in the 2026 Quebec general election?
+  E2.C23: Will Party Q win the most seats in the 2026 Quebec general election?
+  E2.C24: Will Party R win the most seats in the 2026 Quebec general election?
+  E2.C25: Will Party S win the most seats in the 2026 Quebec general election?
+  E2.C26: Will Party T win the most seats in the 2026 Quebec general election?
+  E2.C27: Will Party U win the most seats in the 2026 Quebec general election?
+  E2.C28: Will Party V win the most seats in the 2026 Quebec general election?
+  E2.C29: Will Party W win the most seats in the 2026 Quebec general election?
+  E2.C30: Will Party X win the most seats in the 2026 Quebec general election?
+  E2.C31: Will Party Y win the most seats in the 2026 Quebec general election?
+  E2.C32: Will Party Z win the most seats in the 2026 Quebec general election?
+  E2.C33: Will another party win the most seats in the 2026 Quebec general election?
+What to write for E2:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E3 (as of 2026-10-01): Minas Gerais Senate Election: 1st Place
+Rules:
+The Brazilian Federal Senate election for Minas Gerais is scheduled to take place on October 4, 2026.
+
+This market will resolve according to the candidate who wins the most valid votes of any candidate at the specified election.
+
+Candidates will be primarily ranked by order of valid votes won. If two or more candidates are tied for any position, ties will be broken by alphabetical order of the candidates’ listed full names as they appear in this market. This market will resolve to the candidate that occupies the highest finishing position after applying this ranking.
+
+If the result of this election isn't definitively known by June 30, 2027, 11:59 PM ET, the market will resolve to "Other".
+
+This market will resolve based on the result of the election, as indicated by a consensus of credible reporting. If there is ambiguity, this market will resolve based solely on the official results as reported by the Brazilian government, specifically the Superior Electoral Court (Tribunal Superior Eleitoral, TSE) (e.g., www.tse.jus.br/eleicoes/resultados-eleicoes).
+Contracts:
+  E3.C1: Will Ana Luiza do MLB win the most votes in the 2026 Minas Gerais Senate election?
+  E3.C2: Will Arcanjo Pimenta win the most votes in the 2026 Minas Gerais Senate election?
+  E3.C3: Will Áurea Carolina win the most votes in the 2026 Minas Gerais Senate election?
+  E3.C4: Will Carlin Moura win the most votes in the 2026 Minas Gerais Senate election?
+  E3.C5: Will Carlos Viana win the most votes in the 2026 Minas Gerais Senate election?
+  E3.C6: Will Domingos Sávio win the most votes in the 2026 Minas Gerais Senate election?
+  E3.C7: Will Fidélis Alcântara win the most votes in the 2026 Minas Gerais Senate election?
+  E3.C8: Will Gustavo Galassi win the most votes in the 2026 Minas Gerais Senate election?
+  E3.C9: Will Jordano Metalúrgico win the most votes in the 2026 Minas Gerais Senate election?
+  E3.C10: Will Juiz Ramon Moreira win the most votes in the 2026 Minas Gerais Senate election?
+  E3.C11: Will Manoel Carvalho win the most votes in the 2026 Minas Gerais Senate election?
+  E3.C12: Will Marcelo Aro win the most votes in the 2026 Minas Gerais Senate election?
+  E3.C13: Will Marcelo Heringer win the most votes in the 2026 Minas Gerais Senate election?
+  E3.C14: Will Marco Antônio Superman win the most votes in the 2026 Minas Gerais Senate election?
+  E3.C15: Will Marília Campos win the most votes in the 2026 Minas Gerais Senate election?
+  E3.C16: Will Tião Pessoa win the most votes in the 2026 Minas Gerais Senate election?
+  E3.C17: Will Victória Mello Vic win the most votes in the 2026 Minas Gerais Senate election?
+  E3.C18: Will Aécio Neves win the most votes in the 2026 Minas Gerais Senate election?
+  E3.C19: Will Candidate B win the most votes in the 2026 Minas Gerais Senate election?
+  E3.C20: Will Candidate C win the most votes in the 2026 Minas Gerais Senate election?
+  E3.C21: Will Candidate D win the most votes in the 2026 Minas Gerais Senate election?
+  E3.C22: Will Candidate E win the most votes in the 2026 Minas Gerais Senate election?
+  E3.C23: Will Candidate F win the most votes in the 2026 Minas Gerais Senate election?
+  E3.C24: Will Candidate G win the most votes in the 2026 Minas Gerais Senate election?
+  E3.C25: Will Candidate H win the most votes in the 2026 Minas Gerais Senate election?
+  E3.C26: Will Candidate I win the most votes in the 2026 Minas Gerais Senate election?
+  E3.C27: Will Candidate J win the most votes in the 2026 Minas Gerais Senate election?
+  E3.C28: Will Candidate K win the most votes in the 2026 Minas Gerais Senate election?
+  E3.C29: Will Candidate L win the most votes in the 2026 Minas Gerais Senate election?
+  E3.C30: Will Candidate M win the most votes in the 2026 Minas Gerais Senate election?
+  E3.C31: Will Candidate N win the most votes in the 2026 Minas Gerais Senate election?
+  E3.C32: Will Candidate O win the most votes in the 2026 Minas Gerais Senate election?
+  E3.C33: Will Candidate P win the most votes in the 2026 Minas Gerais Senate election?
+  E3.C34: Will Candidate Q win the most votes in the 2026 Minas Gerais Senate election?
+  E3.C35: Will Candidate R win the most votes in the 2026 Minas Gerais Senate election?
+  E3.C36: Will Candidate S win the most votes in the 2026 Minas Gerais Senate election?
+  E3.C37: Will Candidate T win the most votes in the 2026 Minas Gerais Senate election?
+  E3.C38: Will Candidate U win the most votes in the 2026 Minas Gerais Senate election?
+  E3.C39: Will Candidate V win the most votes in the 2026 Minas Gerais Senate election?
+  E3.C40: Will Candidate W win the most votes in the 2026 Minas Gerais Senate election?
+  E3.C41: Will Candidate X win the most votes in the 2026 Minas Gerais Senate election?
+  E3.C42: Will Candidate Y win the most votes in the 2026 Minas Gerais Senate election?
+  E3.C43: Will Candidate Z win the most votes in the 2026 Minas Gerais Senate election?
+  E3.C44: Will someone else win the most votes in the 2026 Minas Gerais Senate election?
+What to write for E3:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E4 (as of 2026-10-01): Brazil Presidential Election First Round: 1st Place in Sergipe
+Rules:
+A presidential election is scheduled to take place in Sergipe, Brazil on October 4, 2026.
+
+This market will resolve according to the listed candidate who receives the most valid votes in the first round of this election from Sergipe.
+
+Candidates will be primarily ranked by order of valid votes won in Sergipe. If two or more candidates are tied for any position, ties will be broken by alphabetical order of the candidates’ listed full names as they appear in this market. This market will resolve to the candidate that occupies the highest finishing position after applying this ranking.
+
+If the result of this election isn't known definitively by June 30, 2027, 11:59 PM ET, the market will resolve to "Other".
+
+This market will resolve based on the result of the election, as indicated by a consensus of credible reporting. If there is ambiguity, this market will resolve based solely on the official results as reported by the Brazilian government, specifically the Superior Electoral Court (Tribunal Superior Eleitoral, TSE) (e.g., https://dadosabertos.tse.jus.br/).
+Contracts:
+  E4.C1: Will Clariana Barao win the most votes in the next Brazil presidential election from Sergipe?
+  E4.C2: Will Edmilson Costa win the most votes in the next Brazil presidential election from Sergipe?
+  E4.C3: Will Escritor Augusto Cury win the most votes in the next Brazil presidential election from Sergipe?
+  E4.C4: Will Flavio Bolsonaro win the most votes in the next Brazil presidential election from Sergipe?
+  E4.C5: Will Hertz Dias win the most votes in the next Brazil presidential election from Sergipe?
+  E4.C6: Will Lula win the most votes in the next Brazil presidential election from Sergipe?
+  E4.C7: Will Pablo Marçal win the most votes in the next Brazil presidential election from Sergipe?
+  E4.C8: Will Renan Santos win the most votes in the next Brazil presidential election from Sergipe?
+  E4.C9: Will Ronaldo Caiado win the most votes in the next Brazil presidential election from Sergipe?
+  E4.C10: Will Rui Costa Pimenta win the most votes in the next Brazil presidential election from Sergipe?
+  E4.C11: Will Samara win the most votes in the next Brazil presidential election from Sergipe?
+  E4.C12: Will Veterinário Wilson Grassi win the most votes in the next Brazil presidential election from Sergipe?
+  E4.C13: Will Zema win the most votes in the next Brazil presidential election from Sergipe?
+  E4.C14: Will Candidate A win the most votes in the next Brazil presidential election from Sergipe?
+  E4.C15: Will Candidate B win the most votes in the next Brazil presidential election from Sergipe?
+  E4.C16: Will Candidate C win the most votes in the next Brazil presidential election from Sergipe?
+  E4.C17: Will Candidate D win the most votes in the next Brazil presidential election from Sergipe?
+  E4.C18: Will Candidate E win the most votes in the next Brazil presidential election from Sergipe?
+  E4.C19: Will Candidate F win the most votes in the next Brazil presidential election from Sergipe?
+  E4.C20: Will Candidate G win the most votes in the next Brazil presidential election from Sergipe?
+  E4.C21: Will Candidate H win the most votes in the next Brazil presidential election from Sergipe?
+  E4.C22: Will Candidate I win the most votes in the next Brazil presidential election from Sergipe?
+  E4.C23: Will Candidate J win the most votes in the next Brazil presidential election from Sergipe?
+  E4.C24: Will Candidate K win the most votes in the next Brazil presidential election from Sergipe?
+  E4.C25: Will Candidate L win the most votes in the next Brazil presidential election from Sergipe?
+  E4.C26: Will Candidate M win the most votes in the next Brazil presidential election from Sergipe?
+  E4.C27: Will Candidate N win the most votes in the next Brazil presidential election from Sergipe?
+  E4.C28: Will Candidate O win the most votes in the next Brazil presidential election from Sergipe?
+  E4.C29: Will Candidate P win the most votes in the next Brazil presidential election from Sergipe?
+  E4.C30: Will Candidate Q win the most votes in the next Brazil presidential election from Sergipe?
+  E4.C31: Will Candidate R win the most votes in the next Brazil presidential election from Sergipe?
+  E4.C32: Will Candidate S win the most votes in the next Brazil presidential election from Sergipe?
+  E4.C33: Will Candidate T win the most votes in the next Brazil presidential election from Sergipe?
+  E4.C34: Will Candidate U win the most votes in the next Brazil presidential election from Sergipe?
+  E4.C35: Will Candidate V win the most votes in the next Brazil presidential election from Sergipe?
+  E4.C36: Will Candidate W win the most votes in the next Brazil presidential election from Sergipe?
+  E4.C37: Will Candidate X win the most votes in the next Brazil presidential election from Sergipe?
+  E4.C38: Will Candidate Y win the most votes in the next Brazil presidential election from Sergipe?
+  E4.C39: Will Candidate Z win the most votes in the next Brazil presidential election from Sergipe?
+  E4.C40: Will someone else win the most votes in the next Brazil presidential election from Sergipe?
+What to write for E4:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E5 (as of 2026-10-01): Rondônia Senate Election: 1st Place
+Rules:
+The Brazilian Federal Senate election for Rondônia is scheduled to take place on October 4, 2026.
+
+This market will resolve according to the candidate who wins the most valid votes of any candidate at the specified election.
+
+Candidates will be primarily ranked by order of valid votes won. If two or more candidates are tied for any position, ties will be broken by alphabetical order of the candidates’ listed full names as they appear in this market. This market will resolve to the candidate that occupies the highest finishing position after applying this ranking.
+
+If the result of this election isn't definitively known by June 30, 2027, 11:59 PM ET, the market will resolve to "Other".
+
+This market will resolve based on the result of the election, as indicated by a consensus of credible reporting. If there is ambiguity, this market will resolve based solely on the official results as reported by the Brazilian government, specifically the Superior Electoral Court (Tribunal Superior Eleitoral, TSE) (e.g., www.tse.jus.br/eleicoes/resultados-eleicoes).
+Contracts:
+  E5.C1: Will Acir Gurgacz win the most votes in the 2026 Rondônia Senate election?
+  E5.C2: Will Aires Mota win the most votes in the 2026 Rondônia Senate election?
+  E5.C3: Will Bruno Bolsonaro Scheid win the most votes in the 2026 Rondônia Senate election?
+  E5.C4: Will Dr. Fernando Máximo win the most votes in the 2026 Rondônia Senate election?
+  E5.C5: Will Engenheiro Thulio win the most votes in the 2026 Rondônia Senate election?
+  E5.C6: Will Luciana Oliveira win the most votes in the 2026 Rondônia Senate election?
+  E5.C7: Will Luis Fernando win the most votes in the 2026 Rondônia Senate election?
+  E5.C8: Will Mariana Carvalho win the most votes in the 2026 Rondônia Senate election?
+  E5.C9: Will Neidinha win the most votes in the 2026 Rondônia Senate election?
+  E5.C10: Will Sílvia Cristina win the most votes in the 2026 Rondônia Senate election?
+  E5.C11: Will Candidate A win the most votes in the 2026 Rondônia Senate election?
+  E5.C12: Will Candidate B win the most votes in the 2026 Rondônia Senate election?
+  E5.C13: Will Candidate C win the most votes in the 2026 Rondônia Senate election?
+  E5.C14: Will Candidate D win the most votes in the 2026 Rondônia Senate election?
+  E5.C15: Will Candidate E win the most votes in the 2026 Rondônia Senate election?
+  E5.C16: Will Candidate F win the most votes in the 2026 Rondônia Senate election?
+  E5.C17: Will Candidate G win the most votes in the 2026 Rondônia Senate election?
+  E5.C18: Will Candidate H win the most votes in the 2026 Rondônia Senate election?
+  E5.C19: Will Candidate I win the most votes in the 2026 Rondônia Senate election?
+  E5.C20: Will Candidate J win the most votes in the 2026 Rondônia Senate election?
+  E5.C21: Will Candidate K win the most votes in the 2026 Rondônia Senate election?
+  E5.C22: Will Candidate L win the most votes in the 2026 Rondônia Senate election?
+  E5.C23: Will Candidate M win the most votes in the 2026 Rondônia Senate election?
+  E5.C24: Will Candidate N win the most votes in the 2026 Rondônia Senate election?
+  E5.C25: Will Candidate O win the most votes in the 2026 Rondônia Senate election?
+  E5.C26: Will Candidate P win the most votes in the 2026 Rondônia Senate election?
+  E5.C27: Will Candidate Q win the most votes in the 2026 Rondônia Senate election?
+  E5.C28: Will Candidate R win the most votes in the 2026 Rondônia Senate election?
+  E5.C29: Will Candidate S win the most votes in the 2026 Rondônia Senate election?
+  E5.C30: Will Candidate T win the most votes in the 2026 Rondônia Senate election?
+  E5.C31: Will Candidate U win the most votes in the 2026 Rondônia Senate election?
+  E5.C32: Will Candidate V win the most votes in the 2026 Rondônia Senate election?
+  E5.C33: Will Candidate W win the most votes in the 2026 Rondônia Senate election?
+  E5.C34: Will Candidate X win the most votes in the 2026 Rondônia Senate election?
+  E5.C35: Will Candidate Y win the most votes in the 2026 Rondônia Senate election?
+  E5.C36: Will Candidate Z win the most votes in the 2026 Rondônia Senate election?
+  E5.C37: Will someone else win the most votes in the 2026 Rondônia Senate election?
+What to write for E5:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E6 (as of 2026-10-01): Quebec General Election: Third Place
+Rules:
+Parliamentary elections to elect all 127 seats of the National Assembly of Quebec are scheduled to take place in Quebec on October 5, 2026.
+
+This market will resolve to the political party that wins the third-greatest number of seats in the National Assembly of Quebec as a result of this election.
+
+If voting in the 2026 Quebec general election does not occur, or the results thereof are not known definitively, by January 31, 2027, 11:59 PM ET, this market will resolve to "Other".
+
+Parties will be primarily ranked by the number of seats won in the specified election. If two or more parties are tied on seats, ties will be broken by the total number of valid votes received, with higher vote totals ranking higher. If parties remain tied, ties will be broken by alphabetical order of the listed party abbreviations. This market will resolve to the party that occupies the third finishing position after applying this ranking.
+
+This market's resolution will be based solely on the number of seats won by the named party.
+
+This market will resolve based on the result of the election as indicated by a consensus of credible reporting. If there is ambiguity, this market will resolve based solely on the official results as reported by Élections Québec (https://www.electionsquebec.qc.ca).
+Contracts:
+  E6.C1: Will CAQ finish in third place in the Quebec general election?
+  E6.C2: Will PQ finish in third place in the Quebec general election?
+  E6.C3: Will PLQ finish in third place in the Quebec general election?
+  E6.C4: Will QS finish in third place in the Quebec general election?
+  E6.C5: Will PCQ finish in third place in the Quebec general election?
+  E6.C6: Will PVQ finish in third place in the Quebec general election?
+  E6.C7: Will Party A finish in third place in the Quebec general election?
+  E6.C8: Will Party B finish in third place in the Quebec general election?
+  E6.C9: Will Party C finish in third place in the Quebec general election?
+  E6.C10: Will Party D finish in third place in the Quebec general election?
+  E6.C11: Will Party E finish in third place in the Quebec general election?
+  E6.C12: Will Party F finish in third place in the Quebec general election?
+  E6.C13: Will Party G finish in third place in the Quebec general election?
+  E6.C14: Will Party H finish in third place in the Quebec general election?
+  E6.C15: Will another party finish in third place in the Quebec general election?
+What to write for E6:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).

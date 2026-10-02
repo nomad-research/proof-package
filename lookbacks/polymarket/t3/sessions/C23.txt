@@ -1,0 +1,222 @@
+You are reading a group of prediction-market questions that may affect each other. Your view is as of 2026-10-01.
+
+You may search the web and fetch public pages to inform your view (load the WebSearch and WebFetch tools if needed). Rules for that:
+- Every web search must pass blocked_domains = ["polymarket.com", "kalshi.com", "predictit.org", "manifold.markets", "metaculus.com", "betfair.com", "smarkets.com", "oddschecker.com", "electionbettingodds.com", "polymarketanalytics.com", "gjopen.com", "goodjudgment.com", "insightprediction.com", "limitless.exchange", "myriad.markets", "betmgm.com", "draftkings.com", "fanduel.com", "williamhill.com", "paddypower.com", "bet365.com", "ladbrokes.com", "polymarket.co"].
+- Never open a prediction-market, betting or odds site, and never use or mention what any market, bookmaker or trader thinks. Give your own view from the evidence.
+- No other tools: only reading this file, searching and fetching.
+
+First decide which questions belong together. For any you judge unrelated to the rest, put its label in "drop" with a one-line reason; write nothing else for it.
+
+For every question you keep, write what it asks for. Whole percents run from 1 to 99. Levels are plain numbers in the units the contracts use. Dates are YYYY-MM-DD.
+
+CLAIMS. Where you believe one event's outcome changes the chances of another in this group, write a claim:
+  {"if": {"contract": "E1.C2", "resolves": "YES"}, "then_event": "E3", "if_true": <what you would write for E3 if that happens>, "if_false": <what you would write for E3 if it does not>}
+"if_true" and "if_false" use exactly the fields E3 asks for (the same "p", "levels", "high", "low" or "dates" object). Write as many claims as you believe in, including none.
+
+SCALE. For every question you keep that measures a quantity, a count, a price, a size or a date, also write "scale": the kind of thing this is and where you expect this instance to land among instances of that kind.
+  "scale": {"class": "<the reference class, e.g. monthly US core CPI prints since 2010>", "percentile": <0 to 100: where your middle view of this instance sits among instances of that class; 50 is an ordinary one>}
+Write "scale": null for a question with no scale (a plain yes/no about whether something happens).
+
+Also list the pages you relied on in "sources" (URLs).
+
+Reply with one JSON object and nothing else:
+{"drop": {"E5": "reason"}, "events": [{"label": "E1", ...the fields it asks for..., "scale": {"class": "...", "percentile": 50}}], "claims": [...], "sources": ["https://..."]}
+
+=== E1 (as of 2026-10-01): Tabi FDV above ___ one day after launch?
+Rules:
+This market will resolve to "Yes" if the Fully Diluted Valuation of Tabi's governance token is greater than the value specified in the title 1 day after launch. Otherwise, the market will resolve to "No."
+
+The token must be actively, publicly transferable and tradable to be considered a launch.
+
+The FDV will be determined using the total token supply multiplied by the token price.
+
+"1 day after launch" is defined as 4:00 PM ET on the calendar day following launch. The resolution source for this market is the most liquid price source available. If Tabi (https://x.com/Tabivibe) doesn't launch a token by December 31, 2026, 11:59 PM ET, this market will resolve to "No".
+Contracts:
+  E1.C1: Tabi FDV above $100M one day after launch?
+    Contract rules: This market will resolve to "Yes" if the Fully Diluted Valuation of Tabi's governance token is greater than the value specified in the title 1 day after launch. Otherwise, the market will resolve to "No."
+
+The token must be actively, publicly transferable and tradable to be considered a launch.
+
+The FDV will be determined using the total token supply multiplied by the token price.
+
+"1 day after launch" is defined as 4:00 PM ET on the calendar day following launch. The resolution source for this market is the most liquid price source available. If Tabi (https://x.com/Tabichain) doesn't launch a token by December 31, 2026, 11:59 PM ET, this market will resolve to "No".
+  E1.C2: Tabi FDV above $250M one day after launch?
+    Contract rules: This market will resolve to "Yes" if the Fully Diluted Valuation of Tabi's governance token is greater than the value specified in the title 1 day after launch. Otherwise, the market will resolve to "No."
+
+The token must be actively, publicly transferable and tradable to be considered a launch.
+
+The FDV will be determined using the total token supply multiplied by the token price.
+
+"1 day after launch" is defined as 4:00 PM ET on the calendar day following launch. The resolution source for this market is the most liquid price source available. If Tabi (https://x.com/Tabichain) doesn't launch a token by December 31, 2026, 11:59 PM ET, this market will resolve to "No".
+  E1.C3: Tabi FDV above $500M one day after launch?
+    Contract rules: This market will resolve to "Yes" if the Fully Diluted Valuation of Tabi's governance token is greater than the value specified in the title 1 day after launch. Otherwise, the market will resolve to "No."
+
+The token must be actively, publicly transferable and tradable to be considered a launch.
+
+The FDV will be determined using the total token supply multiplied by the token price.
+
+"1 day after launch" is defined as 4:00 PM ET on the calendar day following launch. The resolution source for this market is the most liquid price source available. If Tabi (https://x.com/Tabichain) doesn't launch a token by December 31, 2026, 11:59 PM ET, this market will resolve to "No".
+  E1.C4: Tabi FDV above $1B one day after launch?
+    Contract rules: This market will resolve to "Yes" if the Fully Diluted Valuation of Tabi's governance token is greater than the value specified in the title 1 day after launch. Otherwise, the market will resolve to "No."
+
+The token must be actively, publicly transferable and tradable to be considered a launch.
+
+The FDV will be determined using the total token supply multiplied by the token price.
+
+"1 day after launch" is defined as 4:00 PM ET on the calendar day following launch. The resolution source for this market is the most liquid price source available. If Tabi (https://x.com/Tabichain) doesn't launch a token by December 31, 2026, 11:59 PM ET, this market will resolve to "No".
+  E1.C5: Tabi FDV above $2B one day after launch?
+    Contract rules: This market will resolve to "Yes" if the Fully Diluted Valuation of Tabi's governance token is greater than the value specified in the title 1 day after launch. Otherwise, the market will resolve to "No."
+
+The token must be actively, publicly transferable and tradable to be considered a launch.
+
+The FDV will be determined using the total token supply multiplied by the token price.
+
+"1 day after launch" is defined as 4:00 PM ET on the calendar day following launch. The resolution source for this market is the most liquid price source available. If Tabi (https://x.com/Tabichain) doesn't launch a token by December 31, 2026, 11:59 PM ET, this market will resolve to "No".
+  E1.C6: Tabi FDV above $3B one day after launch?
+    Contract rules: This market will resolve to "Yes" if the Fully Diluted Valuation of Tabi's governance token is greater than the value specified in the title 1 day after launch. Otherwise, the market will resolve to "No."
+
+The token must be actively, publicly transferable and tradable to be considered a launch.
+
+The FDV will be determined using the total token supply multiplied by the token price.
+
+"1 day after launch" is defined as 4:00 PM ET on the calendar day following launch. The resolution source for this market is the most liquid price source available. If Tabi (https://x.com/Tabichain) doesn't launch a token by December 31, 2026, 11:59 PM ET, this market will resolve to "No".
+What to write for E1:
+  Write "levels": for each chance 10, 25, 50, 75 and 90, the level you give that chance of the measured quantity being at or above when it resolves. The 10 level is the highest and the 90 level the lowest. Example: {"10": 120, "25": 110, "50": 100, "75": 92, "90": 85}.
+
+=== E2 (as of 2026-10-01): Will Ostium launch a token by ___ ?
+Rules:
+This market will resolve to "Yes" if Ostium Labs officially launches a token by December 31, 2025, 11:59 PM ET. Otherwise, this market will resolve to "No".
+
+The token must be actively and publicly transferable and tradable. Announcements alone do not qualify
+
+The primary resolution source for this market will be information from Ostium Labs, however a consensus of credible reporting will also be used.
+Contracts:
+  E2.C1: Will Ostium launch a token by December 31, 2026?
+    Contract rules: This market will resolve to "Yes" if Ostium Labs officially launches a token by 11:59 PM ET on the date specified in the title. Otherwise, this market will resolve to "No".
+
+The token must be actively and publicly transferable and tradable. Announcements alone do not qualify
+
+The primary resolution source for this market will be information from Ostium Labs, however a consensus of credible reporting will also be used.
+What to write for E2:
+  Write "dates": for each chance 10, 25, 50, 75 and 90, the date by which you give it that chance of having happened, or null if you do not give it that chance by the last date the contracts cover. Dates must not go earlier as the chance rises.
+
+=== E3 (as of 2026-10-01): Opensea FDV above ___ one day after launch?
+Rules:
+This market will resolve to "Yes" if the Fully Diluted Valuation of Opensea's token is greater than the value specified in the title 1 day after launch. Otherwise, the market will resolve to "No."
+
+The token must be actively, publicly transferable and tradable to be considered a launch.
+
+"1 day after launch" is defined as 4:00 PM ET on the calendar day following launch. The resolution source for this market is the most liquid price source available. If Opensea doesn't launch a token by December 31, 2026, 11:59 PM ET, this market will resolve to "No".
+Contracts:
+  E3.C1: Opensea FDV above $100M one day after launch?
+  E3.C2: Opensea FDV above $100M one day after launch?
+  E3.C3: Opensea FDV above $300M one day after launch?
+  E3.C4: Opensea FDV above $500M one day after launch?
+  E3.C5: Opensea FDV above $1B one day after launch?
+  E3.C6: Opensea FDV above $2B one day after launch?
+  E3.C7: Opensea FDV above $3B one day after launch?
+  E3.C8: Opensea FDV above $5B one day after launch?
+What to write for E3:
+  Write "levels": for each chance 10, 25, 50, 75 and 90, the level you give that chance of the measured quantity being at or above when it resolves. The 10 level is the highest and the 90 level the lowest. Example: {"10": 120, "25": 110, "50": 100, "75": 92, "90": 85}.
+
+=== E4 (as of 2026-10-01): Puffpaw FDV above ___ one day after launch?
+Rules:
+This market will resolve to "Yes" if the Fully Diluted Valuation of Puffpaw's governance token is greater than the value specified in the title 1 day after launch. Otherwise, the market will resolve to "No."
+
+The token must be actively, publicly transferable and tradable to be considered a launch.
+
+The FDV will be determined using the total token supply multiplied by the token price.
+
+"1 day after launch" is defined as 4:00 PM ET on the calendar day following launch. The resolution source for this market is the most liquid price source available. If Puffpaw (https://www.puffpaw.xyz/) doesn't launch a token by December 31, 2026, 11:59 PM ET, this market will resolve to "No".
+Contracts:
+  E4.C1: Puffpaw FDV above $50M one day after launch?
+  E4.C2: Puffpaw FDV above $100M one day after launch?
+  E4.C3: Puffpaw FDV above $200M one day after launch?
+  E4.C4: Puffpaw FDV above $300M one day after launch?
+  E4.C5: Puffpaw FDV above $400M one day after launch?
+What to write for E4:
+  Write "levels": for each chance 10, 25, 50, 75 and 90, the level you give that chance of the measured quantity being at or above when it resolves. The 10 level is the highest and the 90 level the lowest. Example: {"10": 120, "25": 110, "50": 100, "75": 92, "90": 85}.
+
+=== E5 (as of 2026-10-01): Hurupay FDV above ___ one day after launch?
+Rules:
+This market will resolve to "Yes" if the Fully Diluted Valuation of Hurupay's governance token is greater than the value specified in the title 1 day after launch. Otherwise, the market will resolve to "No."
+
+The token must be actively, publicly transferable and tradable to be considered a launch.
+
+The FDV will be determined using the total token supply multiplied by the token price.
+
+"1 day after launch" is defined as 4:00 PM ET on the calendar day following launch. The resolution source for this market is the most liquid price source available. If Hurupay (https://x.com/HurupayApp) doesn't launch a token by December 31, 2026, 11:59 PM ET, this market will resolve to "No".
+Contracts:
+  E5.C1: Hurupay FDV above $5M one day after launch?
+  E5.C2: Hurupay FDV above $10M one day after launch?
+  E5.C3: Hurupay FDV above $20M one day after launch?
+  E5.C4: Hurupay FDV above $30M one day after launch?
+  E5.C5: Hurupay FDV above $40M one day after launch?
+  E5.C6: Hurupay FDV above $50M one day after launch?
+  E5.C7: Hurupay FDV above $100M one day after launch?
+  E5.C8: Hurupay FDV above $200M one day after launch?
+What to write for E5:
+  Write "levels": for each chance 10, 25, 50, 75 and 90, the level you give that chance of the measured quantity being at or above when it resolves. The 10 level is the highest and the 90 level the lowest. Example: {"10": 120, "25": 110, "50": 100, "75": 92, "90": 85}.
+
+=== E6 (as of 2026-10-01): MagicBlock FDV above ___ one day after launch?
+Rules:
+This market will resolve to "Yes" if the Fully Diluted Valuation of MagicBlock's governance token is greater than the value specified in the title 1 day after launch. Otherwise, the market will resolve to "No."
+
+The token must be actively, publicly transferable and tradable to be considered a launch.
+
+The FDV will be determined using the total token supply multiplied by the token price.
+
+"1 day after launch" is defined as 4:00 PM ET on the calendar day following launch. The resolution source for this market is the most liquid price source available. If MagicBlock (https://x.com/magicblock) doesn't launch a token by December 31, 2026, 11:59 PM ET, this market will resolve to "No".
+Contracts:
+  E6.C1: MagicBlock FDV above $10M one day after launch?
+  E6.C2: MagicBlock FDV above $20M one day after launch?
+  E6.C3: MagicBlock FDV above $40M one day after launch?
+  E6.C4: MagicBlock FDV above $60M one day after launch?
+  E6.C5: MagicBlock FDV above $100M one day after launch?
+  E6.C6: MagicBlock FDV above $200M one day after launch?
+  E6.C7: MagicBlock FDV above $300M one day after launch?
+What to write for E6:
+  Write "levels": for each chance 10, 25, 50, 75 and 90, the level you give that chance of the measured quantity being at or above when it resolves. The 10 level is the highest and the 90 level the lowest. Example: {"10": 120, "25": 110, "50": 100, "75": 92, "90": 85}.
+
+=== E7 (as of 2026-10-01): HUDL FDV above ___ one day after launch?
+Rules:
+This market will resolve to "Yes" if the Fully Diluted Valuation of Huddle's governance token is greater than the value specified in the title 1 day after launch. Otherwise, the market will resolve to "No."
+
+The token must be actively, publicly transferable and tradable to be considered a launch.
+
+The FDV will be determined using the total token supply multiplied by the token price.
+
+"1 day after launch" is defined as 4:00 PM ET on the calendar day following launch. The resolution source for this market is the most liquid price source available. If Huddle (https://x.com/huddle01com) doesn't launch a token by December 31, 2026, 11:59 PM ET, this market will resolve to "No".
+Contracts:
+  E7.C1: Huddle FDV above $10M one day after launch?
+  E7.C2: Huddle FDV above $20M one day after launch?
+  E7.C3: Huddle FDV above $50M one day after launch?
+  E7.C4: Huddle FDV above $100M one day after launch?
+  E7.C5: Huddle FDV above $200M one day after launch?
+  E7.C6: Huddle FDV above $400M one day after launch?
+What to write for E7:
+  Write "levels": for each chance 10, 25, 50, 75 and 90, the level you give that chance of the measured quantity being at or above when it resolves. The 10 level is the highest and the 90 level the lowest. Example: {"10": 120, "25": 110, "50": 100, "75": 92, "90": 85}.
+
+=== E8 (as of 2026-10-01): Ostium FDV above ___ one day after launch?
+Rules:
+This market will resolve to "Yes" if the Fully Diluted Valuation of Ostium's token is greater than the value specified in the title 1 day after launch. Otherwise, the market will resolve to "No."
+
+The token must be actively, publicly transferable and tradable to be considered a launch.
+
+The FDV will be determined using the total token supply multiplied by the token price.
+
+"1 day after launch" is defined as 4:00 PM ET on the calendar day following launch. The resolution source for this market is the most liquid price source available. If Ostium doesn't launch a token by December 31, 2026, 11:59 PM ET, this market will resolve to "No".
+Contracts:
+  E8.C1: Ostium FDV above $50M one day after launch?
+  E8.C2: Ostium FDV above $75M one day after launch?
+  E8.C3: Ostium FDV above $100M one day after launch?
+  E8.C4: Ostium FDV above $200M one day after launch?
+  E8.C5: Ostium FDV above $300M one day after launch?
+  E8.C6: Ostium FDV above $500M one day after launch?
+  E8.C7: Ostium FDV above $700M one day after launch?
+  E8.C8: Ostium FDV above $1B one day after launch?
+  E8.C9: Ostium FDV above $2B one day after launch?
+  E8.C10: Ostium FDV above $3B one day after launch?
+  E8.C11: Ostium FDV above $4B one day after launch?
+What to write for E8:
+  Write "levels": for each chance 10, 25, 50, 75 and 90, the level you give that chance of the measured quantity being at or above when it resolves. The 10 level is the highest and the 90 level the lowest. Example: {"10": 120, "25": 110, "50": 100, "75": 92, "90": 85}.

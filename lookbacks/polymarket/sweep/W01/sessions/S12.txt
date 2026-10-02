@@ -1,0 +1,467 @@
+You will be shown 6 questions from a prediction market. Each has one or more contracts that resolve YES or NO under the rules shown. Each question gives the date your view is "as of": answer as you would on that date.
+
+Use only what you already know. Do not search for or look up anything: reading this file is the only tool call you may make. There are no prices in this file and you should not try to estimate what any market thinks; give your own view.
+
+Each question says what to write for it. Whole percents run from 1 to 99. Levels are plain numbers in the units the contracts use (for example 95000 for $95,000, 3.25 for 3.25%). Dates are YYYY-MM-DD.
+
+For each question also say whether you recognise how it actually turned out ("recognised": true only if you believe you remember the real outcome; otherwise false).
+
+Reply with one JSON object and nothing else:
+{"events": [{"label": "E1", "recognised": false, ...the fields that question asks for...}]}
+
+=== E1 (as of 2026-10-01): Brazil Presidential Election First Round: 1st Place in Rio de Janeiro
+Rules:
+A presidential election is scheduled to take place in Rio de Janeiro, Brazil on October 4, 2026.
+
+This market will resolve according to the listed candidate who receives the most valid votes in the first round of this election from Rio de Janeiro.
+
+Candidates will be primarily ranked by order of valid votes won in Rio de Janeiro. If two or more candidates are tied for any position, ties will be broken by alphabetical order of the candidates’ listed full names as they appear in this market. This market will resolve to the candidate that occupies the highest finishing position after applying this ranking.
+
+If the result of this election isn't known definitively by June 30, 2027, 11:59 PM ET, the market will resolve to "Other".
+
+This market will resolve based on the result of the election, as indicated by a consensus of credible reporting. If there is ambiguity, this market will resolve based solely on the official results as reported by the Brazilian government, specifically the Superior Electoral Court (Tribunal Superior Eleitoral, TSE) (e.g., https://dadosabertos.tse.jus.br/).
+Contracts:
+  E1.C1: Will Clariana Barao win the most votes in the next Brazil presidential election from Rio de Janeiro?
+  E1.C2: Will Edmilson Costa win the most votes in the next Brazil presidential election from Rio de Janeiro?
+  E1.C3: Will Escritor Augusto Cury win the most votes in the next Brazil presidential election from Rio de Janeiro?
+  E1.C4: Will Flavio Bolsonaro win the most votes in the next Brazil presidential election from Rio de Janeiro?
+  E1.C5: Will Hertz Dias win the most votes in the next Brazil presidential election from Rio de Janeiro?
+  E1.C6: Will Lula win the most votes in the next Brazil presidential election from Rio de Janeiro?
+  E1.C7: Will Pablo Marçal win the most votes in the next Brazil presidential election from Rio de Janeiro?
+  E1.C8: Will Renan Santos win the most votes in the next Brazil presidential election from Rio de Janeiro?
+  E1.C9: Will Ronaldo Caiado win the most votes in the next Brazil presidential election from Rio de Janeiro?
+  E1.C10: Will Rui Costa Pimenta win the most votes in the next Brazil presidential election from Rio de Janeiro?
+  E1.C11: Will Samara win the most votes in the next Brazil presidential election from Rio de Janeiro?
+  E1.C12: Will Veterinário Wilson Grassi win the most votes in the next Brazil presidential election from Rio de Janeiro?
+  E1.C13: Will Zema win the most votes in the next Brazil presidential election from Rio de Janeiro?
+  E1.C14: Will Candidate A win the most votes in the next Brazil presidential election from Rio de Janeiro?
+  E1.C15: Will Candidate B win the most votes in the next Brazil presidential election from Rio de Janeiro?
+  E1.C16: Will Candidate C win the most votes in the next Brazil presidential election from Rio de Janeiro?
+  E1.C17: Will Candidate D win the most votes in the next Brazil presidential election from Rio de Janeiro?
+  E1.C18: Will Candidate E win the most votes in the next Brazil presidential election from Rio de Janeiro?
+  E1.C19: Will Candidate F win the most votes in the next Brazil presidential election from Rio de Janeiro?
+  E1.C20: Will Candidate G win the most votes in the next Brazil presidential election from Rio de Janeiro?
+  E1.C21: Will Candidate H win the most votes in the next Brazil presidential election from Rio de Janeiro?
+  E1.C22: Will Candidate I win the most votes in the next Brazil presidential election from Rio de Janeiro?
+  E1.C23: Will Candidate J win the most votes in the next Brazil presidential election from Rio de Janeiro?
+  E1.C24: Will Candidate K win the most votes in the next Brazil presidential election from Rio de Janeiro?
+  E1.C25: Will Candidate L win the most votes in the next Brazil presidential election from Rio de Janeiro?
+  E1.C26: Will Candidate M win the most votes in the next Brazil presidential election from Rio de Janeiro?
+  E1.C27: Will Candidate N win the most votes in the next Brazil presidential election from Rio de Janeiro?
+  E1.C28: Will Candidate O win the most votes in the next Brazil presidential election from Rio de Janeiro?
+  E1.C29: Will Candidate P win the most votes in the next Brazil presidential election from Rio de Janeiro?
+  E1.C30: Will Candidate Q win the most votes in the next Brazil presidential election from Rio de Janeiro?
+  E1.C31: Will Candidate R win the most votes in the next Brazil presidential election from Rio de Janeiro?
+  E1.C32: Will Candidate S win the most votes in the next Brazil presidential election from Rio de Janeiro?
+  E1.C33: Will Candidate T win the most votes in the next Brazil presidential election from Rio de Janeiro?
+  E1.C34: Will Candidate U win the most votes in the next Brazil presidential election from Rio de Janeiro?
+  E1.C35: Will Candidate V win the most votes in the next Brazil presidential election from Rio de Janeiro?
+  E1.C36: Will Candidate W win the most votes in the next Brazil presidential election from Rio de Janeiro?
+  E1.C37: Will Candidate X win the most votes in the next Brazil presidential election from Rio de Janeiro?
+  E1.C38: Will Candidate Y win the most votes in the next Brazil presidential election from Rio de Janeiro?
+  E1.C39: Will Candidate Z win the most votes in the next Brazil presidential election from Rio de Janeiro?
+  E1.C40: Will someone else win the most votes in the next Brazil presidential election from Rio de Janeiro?
+What to write for E1:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E2 (as of 2026-10-01): Will Glean's valuation hit __ by September 30?
+Rules:
+This market will resolve to "Yes" if Glean's private market valuation, as measured by the NPM Price reported by Nasdaq Private Market, LLC (NPM) for any date between market creation and September 30, 2026, reaches or exceeds the listed amount. Otherwise, this market will resolve to "No".
+
+NPM Prices are published for trading days only and are updated once daily at 1:00 PM ET on the following calendar day.
+
+If NPM has not published relevant data for all business dates in the specified period by 1:00 PM ET on the calendar date following the specified date, this market will remain open until 11:59 PM ET on the third business day following the specified date. If no further data is released by that time, the market will resolve according to the data available.
+
+If NPM ceases publishing relevant data prior to the end of the specified period, this market will resolve based on the NPM data published for the period prior to the cessation of coverage, as well as any applicable public market capitalization data following an IPO or direct listing.
+
+If the company completes an IPO or direct listing before the end of the specified period, this market will consider, in addition to the relevant NPM valuations published between market creation and the IPO or direct listing date, the valuation implied by the official IPO or direct listing price, and the company’s public market capitalization between the IPO or direct listing date and the end of the specified period.
+
+Public market capitalization will be determined through appropriate calculation using official regular-hours trading prices published for the company’s listed equities on its primary exchange for any trading day during the specified period, multiplied by the company's total number of shares outstanding at the relevant time. If necessary, to accurately capture the company’s total market capitalization, rather than a stock-class-specific market capitalization, the calculation will include all outstanding share classes and apply any stated conversion ratios to the publicly traded class. Where no conversion right exists, such shares will be counted at their stated outstanding amount without discount, unless official filings explicitly specify differently. The number of outstanding shares will be determined from official company filings or disclosures (e.g., SEC filings).
+
+If the listed company merges with or acquires another entity and remains the parent company, no change to resolution methodology applies.
+
+If the listed company is acquired, merges into another entity and is no longer the surviving parent company, or otherwise ceases to exist as an independent entity prior to the end of the period, only NPM valuations and applicable public market capitalizations achieved prior to completion of the transaction will be considered for resolution. No transaction, acquisition, or merger consideration will be considered for resolution.
+
+The resolution source for this market is NPM data published here: (https://fe.secondmarket.com/companies/data?start_date=2025-12-31&view=valuation&companies=company-77127aa8-38b7-4737-b764-a5024345b19b). The resolution source for any period following an IPO, direct listing, or relevant corporate action, will be the relevant Market Cap figure displayed on https://www.nasdaq.com/ as well as official exchange trading data and publicly reported share counts.
+
+Revisions to previously published NPM data made after their initial release will not be considered, unless made to correct clearly erroneous data.
+Contracts:
+  E2.C1: Will Glean's valuation hit (HIGH) $10.5B by September 30?
+  E2.C2: Will Glean's valuation hit (HIGH) $9.5B by September 30?
+  E2.C3: Will Glean's valuation hit (HIGH) $8.5B by September 30?
+  E2.C4: Will Glean's valuation hit (HIGH) $8.25B by September 30?
+  E2.C5: Will Glean's valuation hit (HIGH) $8B by September 30?
+  E2.C6: Will Glean's valuation hit (HIGH) $7.75B by September 30?
+  E2.C7: Will Glean's valuation hit (LOW) $6.5B by September 30?
+  E2.C8: Will Glean's valuation hit (LOW) $6B by September 30?
+What to write for E2:
+  Write "high": for each chance 10, 25, 50, 75 and 90, the level you give that chance of being reached (at or above) within the period. The 10 level is the highest.
+  Write "low": for each chance 10, 25, 50, 75 and 90, the level you give that chance of being reached (at or below) within the period. The 10 level is the lowest.
+
+=== E3 (as of 2026-10-01): How many ships transit the Strait of Hormuz week of September 28?
+Rules:
+This market will resolve according to the total number of transit calls that IMF Portwatch reports for the Strait of Hormuz for all days from September 28, 2026, through October 4, 2026, inclusive.
+
+Transit calls include container, dry bulk, roll-on/roll-off, general cargo, and tanker ships. Ships not reported by IMF Portwatch will not be considered.
+
+This market will resolve as soon as all relevant data has been published. If the relevant data is not published within 14 calendar days of the specified date, this market will resolve based on the most recent data published up to that point.
+
+In case of obvious data integrity issues (i.e., erroneous data), the market may remain open until the end of the third calendar day (ET) after the date on which such data is first released to allow for corrections. Data integrity issues refer only to clerical or other similar errors in the underlying data, and do not include cases where IMF Portwatch differs from alternative sources.
+
+Only revisions to previously published data points made before all relevant data has been published will be considered.
+
+The resolution source for this market will be IMF Portwatch, specifically the transit calls data published for the Strait of Hormuz at https://portwatch.imf.org/pages/cb5856222a5b4105adc6ee7e880a1730, both in the chart and through downloadable files.
+Contracts:
+  E3.C1: Will fewer than 20 ships transit the Strait of Hormuz between September 28-October 4?
+  E3.C2: Will 20-24 ships transit the Strait of Hormuz between September 28-October 4?
+  E3.C3: Will 25-29 ships transit the Strait of Hormuz between September 28-October 4?
+  E3.C4: Will 30-34 ships transit the Strait of Hormuz between September 28-October 4?
+  E3.C5: Will 35-39 ships transit the Strait of Hormuz between September 28-October 4?
+  E3.C6: Will 40 or more ships transit the Strait of Hormuz between September 28-October 4?
+What to write for E3:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E4 (as of 2026-10-01): Next Brazil Senate Election: Most Seats Held
+Rules:
+The next federal Senate election is scheduled to take place in Brazil on October 4, 2026, in which two-thirds of the Senate’s 81 seats will be contested.
+
+This market will resolve according to the political party that holds the greatest number of seats in the next Brazilian Senate as a result of the next Brazilian Senate election. 
+
+All seats, not only the ones contested in the next Brazilian Senate election, will be considered.
+
+In the event of a tie between multiple parties for the most seats held, this market will resolve in favor of the party whose listed abbreviation appears first in alphabetical order.
+
+This market's resolution will be based solely on the number of seats held by the named party in the Brazilian Senate as a result of the next Brazilian Senate election, not by any federation or coalition it may be a part of.
+
+If the result of this election isn't known definitively by June 30, 2027, 11:59 PM ET, the market will resolve to "Other".
+
+This market will resolve based on the result of the election, as indicated by a consensus of credible reporting. If there is ambiguity, this market will resolve based solely on the official results as reported by the Brazilian government, specifically the Superior Electoral Court (Tribunal Superior Eleitoral, TSE) (e.g., www.tse.jus.br/eleicoes/resultados-eleicoes) or the Brazilian Senate (https://www25.senado.leg.br/web/senadores/em-exercicio/-/e/por-partido).
+Contracts:
+  E4.C1: Will Partido Liberal (PL) hold the most seats as a result of the next Brazilian Senate election?
+  E4.C2: Will Partido Social Democrático (PSD) hold the most seats as a result of the next Brazilian Senate election?
+  E4.C3: Will Movimento Democrático Brasileiro (MDB) hold the most seats as a result of the next Brazilian Senate election?
+  E4.C4: Will Partido dos Trabalhadores (PT) hold the most seats as a result of the next Brazilian Senate election?
+  E4.C5: Will União Brasil (UNIÃO) hold the most seats as a result of the next Brazilian Senate election?
+  E4.C6: Will Progressistas (PP) hold the most seats as a result of the next Brazilian Senate election?
+  E4.C7: Will Partido Socialista Brasileiro (PSB) hold the most seats as a result of the next Brazilian Senate election?
+  E4.C8: Will Podemos (PODEMOS) hold the most seats as a result of the next Brazilian Senate election?
+  E4.C9: Will Republicanos (REPUBLICANOS) hold the most seats as a result of the next Brazilian Senate election?
+  E4.C10: Will Partido da Social Democracia Brasileira (PSDB) hold the most seats as a result of the next Brazilian Senate election?
+  E4.C11: Will Partido Democrático Trabalhista (PDT) hold the most seats as a result of the next Brazilian Senate election?
+  E4.C12: Will Partido Novo (NOVO) hold the most seats as a result of the next Brazilian Senate election?
+  E4.C13: Will another party hold the most seats as a result of the next Brazilian Senate election?
+  E4.C14: Will Party A (A) hold the most seats as a result of the next Brazilian Senate election?
+  E4.C15: Will Party B (B) hold the most seats as a result of the next Brazilian Senate election?
+  E4.C16: Will Party C (C) hold the most seats as a result of the next Brazilian Senate election?
+  E4.C17: Will Party D (D) hold the most seats as a result of the next Brazilian Senate election?
+  E4.C18: Will Party E (E) hold the most seats as a result of the next Brazilian Senate election?
+  E4.C19: Will Party F (F) hold the most seats as a result of the next Brazilian Senate election?
+  E4.C20: Will Party G (G) hold the most seats as a result of the next Brazilian Senate election?
+  E4.C21: Will Party H (H) hold the most seats as a result of the next Brazilian Senate election?
+  E4.C22: Will Party I (I) hold the most seats as a result of the next Brazilian Senate election?
+  E4.C23: Will Party J (J) hold the most seats as a result of the next Brazilian Senate election?
+  E4.C24: Will Party K (K) hold the most seats as a result of the next Brazilian Senate election?
+  E4.C25: Will Party L (L) hold the most seats as a result of the next Brazilian Senate election?
+  E4.C26: Will Party M (M) hold the most seats as a result of the next Brazilian Senate election?
+  E4.C27: Will Party N (N) hold the most seats as a result of the next Brazilian Senate election?
+  E4.C28: Will Party O (O) hold the most seats as a result of the next Brazilian Senate election?
+  E4.C29: Will Party P (P) hold the most seats as a result of the next Brazilian Senate election?
+  E4.C30: Will Party Q (Q) hold the most seats as a result of the next Brazilian Senate election?
+  E4.C31: Will Party R (R) hold the most seats as a result of the next Brazilian Senate election?
+  E4.C32: Will Party S (S) hold the most seats as a result of the next Brazilian Senate election?
+  E4.C33: Will Party T (T) hold the most seats as a result of the next Brazilian Senate election?
+  E4.C34: Will Party U (U) hold the most seats as a result of the next Brazilian Senate election?
+  E4.C35: Will Party V (V) hold the most seats as a result of the next Brazilian Senate election?
+  E4.C36: Will Party W (W) hold the most seats as a result of the next Brazilian Senate election?
+  E4.C37: Will Party X (X) hold the most seats as a result of the next Brazilian Senate election?
+  E4.C38: Will Party Y (Y) hold the most seats as a result of the next Brazilian Senate election?
+  E4.C39: Will Party Z (Z) hold the most seats as a result of the next Brazilian Senate election?
+What to write for E4:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E5 (as of 2026-10-01): Brazil Presidential Election First Round: 1st Place in Paraíba
+Rules:
+A presidential election is scheduled to take place in Paraíba, Brazil on October 4, 2026.
+
+This market will resolve according to the listed candidate who receives the most valid votes in the first round of this election from Paraíba.
+
+Candidates will be primarily ranked by order of valid votes won in Paraíba. If two or more candidates are tied for any position, ties will be broken by alphabetical order of the candidates’ listed full names as they appear in this market. This market will resolve to the candidate that occupies the highest finishing position after applying this ranking.
+
+If the result of this election isn't known definitively by June 30, 2027, 11:59 PM ET, the market will resolve to "Other".
+
+This market will resolve based on the result of the election, as indicated by a consensus of credible reporting. If there is ambiguity, this market will resolve based solely on the official results as reported by the Brazilian government, specifically the Superior Electoral Court (Tribunal Superior Eleitoral, TSE) (e.g., https://dadosabertos.tse.jus.br/).
+Contracts:
+  E5.C1: Will Clariana Barao win the most votes in the next Brazil presidential election from Paraíba?
+  E5.C2: Will Edmilson Costa win the most votes in the next Brazil presidential election from Paraíba?
+  E5.C3: Will Escritor Augusto Cury win the most votes in the next Brazil presidential election from Paraíba?
+  E5.C4: Will Flavio Bolsonaro win the most votes in the next Brazil presidential election from Paraíba?
+  E5.C5: Will Hertz Dias win the most votes in the next Brazil presidential election from Paraíba?
+  E5.C6: Will Lula win the most votes in the next Brazil presidential election from Paraíba?
+  E5.C7: Will Pablo Marçal win the most votes in the next Brazil presidential election from Paraíba?
+  E5.C8: Will Renan Santos win the most votes in the next Brazil presidential election from Paraíba?
+  E5.C9: Will Ronaldo Caiado win the most votes in the next Brazil presidential election from Paraíba?
+  E5.C10: Will Rui Costa Pimenta win the most votes in the next Brazil presidential election from Paraíba?
+  E5.C11: Will Samara win the most votes in the next Brazil presidential election from Paraíba?
+  E5.C12: Will Veterinário Wilson Grassi win the most votes in the next Brazil presidential election from Paraíba?
+  E5.C13: Will Zema win the most votes in the next Brazil presidential election from Paraíba?
+  E5.C14: Will Candidate A win the most votes in the next Brazil presidential election from Paraíba?
+  E5.C15: Will Candidate B win the most votes in the next Brazil presidential election from Paraíba?
+  E5.C16: Will Candidate C win the most votes in the next Brazil presidential election from Paraíba?
+  E5.C17: Will Candidate D win the most votes in the next Brazil presidential election from Paraíba?
+  E5.C18: Will Candidate E win the most votes in the next Brazil presidential election from Paraíba?
+  E5.C19: Will Candidate F win the most votes in the next Brazil presidential election from Paraíba?
+  E5.C20: Will Candidate G win the most votes in the next Brazil presidential election from Paraíba?
+  E5.C21: Will Candidate H win the most votes in the next Brazil presidential election from Paraíba?
+  E5.C22: Will Candidate I win the most votes in the next Brazil presidential election from Paraíba?
+  E5.C23: Will Candidate J win the most votes in the next Brazil presidential election from Paraíba?
+  E5.C24: Will Candidate K win the most votes in the next Brazil presidential election from Paraíba?
+  E5.C25: Will Candidate L win the most votes in the next Brazil presidential election from Paraíba?
+  E5.C26: Will Candidate M win the most votes in the next Brazil presidential election from Paraíba?
+  E5.C27: Will Candidate N win the most votes in the next Brazil presidential election from Paraíba?
+  E5.C28: Will Candidate O win the most votes in the next Brazil presidential election from Paraíba?
+  E5.C29: Will Candidate P win the most votes in the next Brazil presidential election from Paraíba?
+  E5.C30: Will Candidate Q win the most votes in the next Brazil presidential election from Paraíba?
+  E5.C31: Will Candidate R win the most votes in the next Brazil presidential election from Paraíba?
+  E5.C32: Will Candidate S win the most votes in the next Brazil presidential election from Paraíba?
+  E5.C33: Will Candidate T win the most votes in the next Brazil presidential election from Paraíba?
+  E5.C34: Will Candidate U win the most votes in the next Brazil presidential election from Paraíba?
+  E5.C35: Will Candidate V win the most votes in the next Brazil presidential election from Paraíba?
+  E5.C36: Will Candidate W win the most votes in the next Brazil presidential election from Paraíba?
+  E5.C37: Will Candidate X win the most votes in the next Brazil presidential election from Paraíba?
+  E5.C38: Will Candidate Y win the most votes in the next Brazil presidential election from Paraíba?
+  E5.C39: Will Candidate Z win the most votes in the next Brazil presidential election from Paraíba?
+  E5.C40: Will someone else win the most votes in the next Brazil presidential election from Paraíba?
+What to write for E5:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E6 (as of 2026-10-01): What will Airbnb, Inc. (ABNB) hit Week of September 28 2026?
+Rules:
+What will Airbnb, Inc. (ABNB) hit Week of September 28 2026?
+Contracts:
+  E6.C1: Will Airbnb, Inc. (ABNB) hit (HIGH) $172 Week of September 28 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of September 28 2026, any 1-minute candle for Airbnb, Inc. (ABNB) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Airbnb, Inc. (ABNB) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.ABNB%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.ABNB%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E6.C2: Will Airbnb, Inc. (ABNB) hit (HIGH) $170 Week of September 28 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of September 28 2026, any 1-minute candle for Airbnb, Inc. (ABNB) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Airbnb, Inc. (ABNB) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.ABNB%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.ABNB%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E6.C3: Will Airbnb, Inc. (ABNB) hit (HIGH) $168 Week of September 28 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of September 28 2026, any 1-minute candle for Airbnb, Inc. (ABNB) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Airbnb, Inc. (ABNB) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.ABNB%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.ABNB%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E6.C4: Will Airbnb, Inc. (ABNB) hit (HIGH) $166 Week of September 28 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of September 28 2026, any 1-minute candle for Airbnb, Inc. (ABNB) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Airbnb, Inc. (ABNB) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.ABNB%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.ABNB%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E6.C5: Will Airbnb, Inc. (ABNB) hit (HIGH) $164 Week of September 28 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of September 28 2026, any 1-minute candle for Airbnb, Inc. (ABNB) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Airbnb, Inc. (ABNB) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.ABNB%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.ABNB%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E6.C6: Will Airbnb, Inc. (ABNB) hit (HIGH) $162 Week of September 28 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of September 28 2026, any 1-minute candle for Airbnb, Inc. (ABNB) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Airbnb, Inc. (ABNB) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.ABNB%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.ABNB%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E6.C7: Will Airbnb, Inc. (ABNB) hit (LOW) $158 Week of September 28 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of September 28 2026, any 1-minute candle for Airbnb, Inc. (ABNB) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Airbnb, Inc. (ABNB) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.ABNB%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.ABNB%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E6.C8: Will Airbnb, Inc. (ABNB) hit (LOW) $156 Week of September 28 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of September 28 2026, any 1-minute candle for Airbnb, Inc. (ABNB) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Airbnb, Inc. (ABNB) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.ABNB%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.ABNB%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E6.C9: Will Airbnb, Inc. (ABNB) hit (LOW) $154 Week of September 28 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of September 28 2026, any 1-minute candle for Airbnb, Inc. (ABNB) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Airbnb, Inc. (ABNB) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.ABNB%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.ABNB%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E6.C10: Will Airbnb, Inc. (ABNB) hit (LOW) $152 Week of September 28 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of September 28 2026, any 1-minute candle for Airbnb, Inc. (ABNB) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Airbnb, Inc. (ABNB) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.ABNB%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.ABNB%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E6.C11: Will Airbnb, Inc. (ABNB) hit (LOW) $150 Week of September 28 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of September 28 2026, any 1-minute candle for Airbnb, Inc. (ABNB) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Airbnb, Inc. (ABNB) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.ABNB%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.ABNB%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E6.C12: Will Airbnb, Inc. (ABNB) hit (LOW) $148 Week of September 28 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of September 28 2026, any 1-minute candle for Airbnb, Inc. (ABNB) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Airbnb, Inc. (ABNB) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.ABNB%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.ABNB%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E6.C13: Will Airbnb, Inc. (ABNB) hit (LOW) $146 Week of September 28 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of September 28 2026, any 1-minute candle for Airbnb, Inc. (ABNB) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Airbnb, Inc. (ABNB) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.ABNB%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.ABNB%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E6.C14: Will Airbnb, Inc. (ABNB) hit (LOW) $144 Week of September 28 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of September 28 2026, any 1-minute candle for Airbnb, Inc. (ABNB) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Airbnb, Inc. (ABNB) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.ABNB%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.ABNB%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+What to write for E6:
+  Write "high": for each chance 10, 25, 50, 75 and 90, the level you give that chance of being reached (at or above) within the period. The 10 level is the highest.
+  Write "low": for each chance 10, 25, 50, 75 and 90, the level you give that chance of being reached (at or below) within the period. The 10 level is the lowest.

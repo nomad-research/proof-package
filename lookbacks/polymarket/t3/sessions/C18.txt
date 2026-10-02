@@ -1,0 +1,169 @@
+You are reading a group of prediction-market questions that may affect each other. Your view is as of 2026-10-01.
+
+You may search the web and fetch public pages to inform your view (load the WebSearch and WebFetch tools if needed). Rules for that:
+- Every web search must pass blocked_domains = ["polymarket.com", "kalshi.com", "predictit.org", "manifold.markets", "metaculus.com", "betfair.com", "smarkets.com", "oddschecker.com", "electionbettingodds.com", "polymarketanalytics.com", "gjopen.com", "goodjudgment.com", "insightprediction.com", "limitless.exchange", "myriad.markets", "betmgm.com", "draftkings.com", "fanduel.com", "williamhill.com", "paddypower.com", "bet365.com", "ladbrokes.com", "polymarket.co"].
+- Never open a prediction-market, betting or odds site, and never use or mention what any market, bookmaker or trader thinks. Give your own view from the evidence.
+- No other tools: only reading this file, searching and fetching.
+
+First decide which questions belong together. For any you judge unrelated to the rest, put its label in "drop" with a one-line reason; write nothing else for it.
+
+For every question you keep, write what it asks for. Whole percents run from 1 to 99. Levels are plain numbers in the units the contracts use. Dates are YYYY-MM-DD.
+
+CLAIMS. Where you believe one event's outcome changes the chances of another in this group, write a claim:
+  {"if": {"contract": "E1.C2", "resolves": "YES"}, "then_event": "E3", "if_true": <what you would write for E3 if that happens>, "if_false": <what you would write for E3 if it does not>}
+"if_true" and "if_false" use exactly the fields E3 asks for (the same "p", "levels", "high", "low" or "dates" object). Write as many claims as you believe in, including none.
+
+SCALE. For every question you keep that measures a quantity, a count, a price, a size or a date, also write "scale": the kind of thing this is and where you expect this instance to land among instances of that kind.
+  "scale": {"class": "<the reference class, e.g. monthly US core CPI prints since 2010>", "percentile": <0 to 100: where your middle view of this instance sits among instances of that class; 50 is an ordinary one>}
+Write "scale": null for a question with no scale (a plain yes/no about whether something happens).
+
+Also list the pages you relied on in "sources" (URLs).
+
+Reply with one JSON object and nothing else:
+{"drop": {"E5": "reason"}, "events": [{"label": "E1", ...the fields it asks for..., "scale": {"class": "...", "percentile": 50}}], "claims": [...], "sources": ["https://..."]}
+
+=== E1 (as of 2026-10-01): Bank of England rate hike in 2026?
+Rules:
+This market will resolve to “Yes” if the Bank of England's Bank Rate is increased at any point between market creation and December 31, 2026, 11:59 PM ET. Otherwise, this market will resolve to “No”.
+
+This market may not resolve to "No" until December 31, 2026, 11:59 PM ET has passed.
+
+The primary resolution source for this market will be the official website of the Bank of England (https://www.bankofengland.co.uk/), however a consensus of credible reporting may also be used.
+Contracts:
+  E1.C1: Bank of England rate hike in 2026?
+What to write for E1:
+  Write "p": a whole percent for every contract label, your chance that it resolves YES.
+
+=== E2 (as of 2026-10-01): Reserve Bank of India decision in October
+Rules:
+This market will resolve according to the change in basis points in the policy repo rate resulting from the October 2026 meeting of the Reserve Bank of India Monetary Policy Committee, relative to the level it was prior to this meeting.
+
+The resolution source will be official information from the Reserve Bank of India Monetary Policy Committee, including the statement or release from its October 2026 meeting, scheduled for October 5 to 7, 2026, with the decision to be announced on October 7, 2026, as listed on the official Reserve Bank of India calendar (https://www.rbi.org.in/scripts/BS_PressReleaseDisplay.aspx?prid=62422). This market may resolve as soon as the statement or release of the Reserve Bank of India Monetary Policy Committee resulting from its October 2026 meeting with relevant data is issued.
+
+If the specified rate is defined by an upper and lower bound, the relevant change will be the change to the upper bound.
+
+If the specified rate is changed to a level not expressed in the displayed options, the change will be rounded according to the following guidelines. Increases or decreases of less than 25 bps will be rounded to 25 bps (e.g. an increase or decrease of 10 bps would be considered to be an increase or decrease of 25 bps). Increases or decreases of greater than 25 bps will be rounded to the nearest 25 bps and will be rounded away from 0 in cases of equidistance (e.g., an increase or decrease of 37.5 bps would be considered to be an increase or decrease of 50 bps). Displayed options of “Increase” or “Decrease” will include policy rate increases or decreases of any size.
+
+If the specified meeting is postponed to a date and time before the start of the next scheduled meeting, this market will resolve based on the outcome of that postponed meeting. If the specified meeting is cancelled, or postponed such that no decision is announced by the start of the next scheduled meeting, this market will resolve to the “No Change” bracket. Emergency changes to the specified rate not resulting from the specified meeting will not be considered.
+Contracts:
+  E2.C1: Will the Reserve Bank of India increase the policy repo rate by 50+ bps at the October meeting?
+  E2.C2: Will the Reserve Bank of India increase the policy repo rate by 25 bps at the October meeting?
+  E2.C3: Will the Reserve Bank of India make no change to the policy repo rate at the October meeting?
+  E2.C4: Will the Reserve Bank of India decrease the policy repo rate by 25 bps at the October meeting?
+  E2.C5: Will the Reserve Bank of India decrease the policy repo rate by 50+ bps at the October meeting?
+What to write for E2:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E3 (as of 2026-10-01): Bank of Mexico Decision in November?
+Rules:
+This market will resolve according to the change in basis points in the target for the overnight interbank interest rate resulting from the November 2026 meeting of the Bank of Mexico, relative to the level it was prior to this meeting.
+
+The resolution source will be official information from the Bank of Mexico, including the statement or release from its November 2026 meeting, scheduled for November 5, 2026, as listed on the official Bank of Mexico calendar (https://www.banxico.org.mx/viewers2/JSP/calendarioDifusion_es.jsp). This market may resolve as soon as the statement or release of the Bank of Mexico resulting from its November 2026 meeting with relevant data is issued. 
+
+If the specified rate is defined by an upper and lower bound, the relevant change will be the change to the upper bound. 
+
+If the specified rate is changed to a level not expressed in the displayed options, the change will be rounded according to the following guidelines. Increases or decreases of less than 25 bps will be rounded to 25 bps (e.g. an increase or decrease of 10 bps would be considered to be an increase or decrease of 25 bps). Increases or decreases of greater than 25 bps will be rounded to the nearest 25 bps and will be rounded away from 0 in cases of equidistance (e.g., an increase or decrease of 37.5 bps would be considered to be an increase or decrease of 50 bps). Displayed options of “Increase” or “Decrease” will include policy rate increases or decreases of any size.
+
+If the specified meeting is postponed to a date and time before the start of the next scheduled meeting, this market will resolve based on the outcome of that postponed meeting.  If the specified meeting is cancelled, or postponed such that no decision is announced by the start of the next scheduled meeting, this market will resolve to the “No Change” bracket. Emergency changes to the specified rate not resulting from the specified meeting will not be considered.
+Contracts:
+  E3.C1: Bank of Mexico decreases interest rates by 50+ bps after November 2026 meeting?
+  E3.C2: Bank of Mexico decreases interest rates by 25 bps after November 2026 meeting?
+  E3.C3: No change in Bank of Mexico’s interest rates after November 2026 meeting?
+  E3.C4: Bank of Mexico increases interest rates by 25 bps after November 2026 meeting?
+  E3.C5: Bank of Mexico increases interest rates by 50+ bps after November 2026 meeting?
+What to write for E3:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E4 (as of 2026-10-01): ECB Interest Rates: October 2026
+Rules:
+This market will resolve according to the change in basis points in the deposit facility rate resulting from the October 2026 meeting of the European Central Bank, relative to the level it was prior to this meeting.
+
+The resolution source will be official information from the European Central Bank, including the statement or release from its October 2026 meeting, scheduled for October 28-29, 2026, as listed on the official European Central Bank calendar (https://www.ecb.europa.eu/press/calendars/mgcgc/html/index.en.html). This market may resolve as soon as the statement or release of the European Central Bank's October 2026 meeting with relevant data is issued.
+
+If the specified rate is defined by an upper and lower bound, the relevant change will be the change to the upper bound.
+
+If the specified rate is changed to a level not expressed in the displayed options, the change will be rounded according to the following guidelines. Increases or decreases of less than 25 bps will be rounded to 25 bps (e.g. an increase or decrease of 10 bps would be considered to be an increase or decrease of 25 bps). Increases or decreases of greater than 25 bps will be rounded to the nearest 25 bps and will be rounded away from 0 in cases of equidistance (e.g., an increase or decrease of 37.5 bps would be considered to be an increase or decrease of 50 bps). Displayed options of “Increase” or “Decrease” will include policy rate increases or decreases of any size.
+
+If the specified meeting is postponed to a date and time before the start of the next scheduled meeting, this market will resolve based on the outcome of that postponed meeting. If the specified meeting is cancelled, or postponed such that no decision is announced by the start of the next scheduled meeting, this market will resolve to the “No Change” bracket. Emergency changes to the specified rate not resulting from the specified meeting will not be considered.
+Contracts:
+  E4.C1: Will the ECB announce a 50+ bps decrease at the October 2026 meeting?
+  E4.C2: Will the ECB announce a 25 bps decrease at the October 2026 meeting?
+  E4.C3: Will the ECB announce no change at the October 2026 meeting?
+  E4.C4: Will the ECB announce a 25 bps increase at the October 2026 meeting?
+  E4.C5: Will the ECB announce a 50+ bps increase at the October 2026 meeting?
+What to write for E4:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E5 (as of 2026-10-01): Bank of Russia decision in October?
+Rules:
+This market will resolve according to the change in the key rate resulting from the Bank of Russia’s October meeting, relative to the level it was prior to this meeting.
+
+The resolution source for this market is information released by the Bank of Russia after its October 23, 2026 meeting as listed on the official Bank of Russia calendar: https://www.cbr.ru/eng/dkp/cal_mp/#t13
+
+This market may resolve as soon as the Bank of Russia’s press release for their October 2026 meeting with relevant data is issued. If no decision on the key rate is issued by the end date of the next scheduled meeting, this market will resolve to the "No Change" bracket.
+Contracts:
+  E5.C1: Will the Bank of Russia decrease the key rate after the October Meeting?
+  E5.C2: Will the Bank of Russia make no change to the key rate after the October Meeting?
+  E5.C3: Will the Bank of Russia increase the key rate after the October Meeting?
+What to write for E5:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E6 (as of 2026-10-01): Bank of England decision in November?
+Rules:
+This market will resolve according to the change in basis points in the Bank Rate resulting from the November 2026 meeting of the Bank of England’s Monetary Policy Committee, relative to the level it was prior to this meeting.
+
+The resolution source will be official information from the Bank of England, including the statement or release from its November 2026 Monetary Policy Committee meeting, scheduled for November 5, 2026, as listed on the official Bank of England calendar (https://www.bankofengland.co.uk/monetary-policy/upcoming-mpc-dates). This market may resolve as soon as the statement or release of the Bank of England's November 2026 Monetary Policy Committee meeting with relevant data is issued.
+
+If the specified rate is defined by an upper and lower bound, the relevant change will be the change to the upper bound.
+
+If the specified rate is changed to a level not expressed in the displayed options, the change will be rounded according to the following guidelines. Increases or decreases of less than 25 bps will be rounded to 25 bps (e.g. an increase or decrease of 10 bps would be considered to be an increase or decrease of 25 bps). Increases or decreases of greater than 25 bps will be rounded to the nearest 25 bps and will be rounded away from 0 in cases of equidistance (e.g., an increase or decrease of 37.5 bps would be considered to be an increase or decrease of 50 bps). Displayed options of “Increase” or “Decrease” will include policy rate increases or decreases of any size.
+
+If the specified meeting is postponed to a date and time before the start of the next scheduled meeting, this market will resolve based on the outcome of that postponed meeting. If the specified meeting is cancelled, or postponed such that no decision is announced by the start of the next scheduled meeting, this market will resolve to the “No Change” bracket. Emergency changes to the specified rate not resulting from the specified meeting will not be considered.
+Contracts:
+  E6.C1: Bank of England decreases interest rates by 50+ bps after November 2026 meeting?
+  E6.C2: Bank of England decreases interest rates by 25 bps after November 2026 meeting?
+  E6.C3: No change in Bank of England’s interest rates after November 2026 meeting?
+  E6.C4: Bank of England increases interest rates by 25 bps after November 2026 meeting?
+  E6.C5: Bank of England increases interest rates by 50+ bps after November 2026 meeting?
+What to write for E6:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E7 (as of 2026-10-01): Bank of Brazil decision in November?
+Rules:
+This market will resolve according to the change in basis points in the target for the Selic rate resulting from the November 2026 meeting of the Bank of Brazil’s Monetary Policy Committee (COPOM), relative to the level it was prior to this meeting.
+
+The resolution source will be official information from the Bank of Brazil, including the statement or release from its November 2026 Monetary Policy Committee meeting, scheduled for November 3-4, 2026, as listed on the official Bank of Brazil calendar (https://www.bcb.gov.br/en/about/bcb-calendar?categoria=Monetary%20Policy%20Committee%20(Copom)). This market may resolve as soon as the statement or release of the Bank of Brazil's November 2026 Monetary Policy Committee meeting with relevant data is issued. 
+
+If the specified rate is defined by an upper and lower bound, the relevant change will be the change to the upper bound. 
+
+If the specified rate is changed to a level not expressed in the displayed options, the change will be rounded according to the following guidelines. Increases or decreases of less than 25 bps will be rounded to 25 bps (e.g. an increase or decrease of 10 bps would be considered to be an increase or decrease of 25 bps). Increases or decreases of greater than 25 bps will be rounded to the nearest 25 bps and will be rounded away from 0 in cases of equidistance (e.g., an increase or decrease of 37.5 bps would be considered to be an increase or decrease of 50 bps). Displayed options of “Increase” or “Decrease” will include policy rate increases or decreases of any size.
+
+If the specified meeting is postponed to a date and time before the start of the next scheduled meeting, this market will resolve based on the outcome of that postponed meeting.  If the specified meeting is cancelled, or postponed such that no decision is announced by the start of the next scheduled meeting, this market will resolve to the “No Change” bracket. Emergency changes to the specified rate not resulting from the specified meeting will not be considered.
+Contracts:
+  E7.C1: Will the Bank of Brazil increase the target for the Selic rate by 50+ bps at the November meeting?
+  E7.C2: Will the Bank of Brazil increase the target for the Selic rate by 25 bps at the November meeting?
+  E7.C3: Will the Bank of Brazil make no change to the target for the Selic rate at the November meeting?
+  E7.C4: Will the Bank of Brazil decrease the target for the Selic rate by 25 bps at the November meeting?
+  E7.C5: Will the Bank of Brazil decrease the target for the Selic rate by 50+ bps at the November meeting?
+What to write for E7:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E8 (as of 2026-10-01): ECB Interest Rates: December 2026
+Rules:
+This market will resolve according to the change in basis points in the deposit facility rate resulting from the December 2026 meeting of the European Central Bank, relative to the level it was prior to this meeting.
+
+The resolution source will be official information from the European Central Bank, including the statement or release from its December 2026 meeting, scheduled for December 16-17, 2026, as listed on the official European Central Bank calendar (https://www.ecb.europa.eu/press/calendars/mgcgc/html/index.en.html). This market may resolve as soon as the statement or release of the European Central Bank's December 2026 meeting with relevant data is issued.
+
+If the specified rate is defined by an upper and lower bound, the relevant change will be the change to the upper bound.
+
+If the specified rate is changed to a level not expressed in the displayed options, the change will be rounded according to the following guidelines. Increases or decreases of less than 25 bps will be rounded to 25 bps (e.g. an increase or decrease of 10 bps would be considered to be an increase or decrease of 25 bps). Increases or decreases of greater than 25 bps will be rounded to the nearest 25 bps and will be rounded away from 0 in cases of equidistance (e.g., an increase or decrease of 37.5 bps would be considered to be an increase or decrease of 50 bps). Displayed options of “Increase” or “Decrease” will include policy rate increases or decreases of any size.
+
+If the specified meeting is postponed to a date and time before the start of the next scheduled meeting, this market will resolve based on the outcome of that postponed meeting. If the specified meeting is cancelled, or postponed such that no decision is announced by the start of the next scheduled meeting, this market will resolve to the “No Change” bracket. Emergency changes to the specified rate not resulting from the specified meeting will not be considered.
+Contracts:
+  E8.C1: Will the ECB announce a 50+ bps decrease at the December 2026 meeting?
+  E8.C2: Will the ECB announce a 25 bps decrease at the December 2026 meeting?
+  E8.C3: Will the ECB announce no change at the December 2026 meeting?
+  E8.C4: Will the ECB announce a 25 bps increase at the December 2026 meeting?
+  E8.C5: Will the ECB announce a 50+ bps increase at the December 2026 meeting?
+What to write for E8:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).

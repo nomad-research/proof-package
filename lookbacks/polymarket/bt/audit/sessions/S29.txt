@@ -1,0 +1,431 @@
+You will be shown 10 questions from a prediction market. Each question has one or more contracts, and each contract resolves YES or NO under the rules shown.
+
+For every contract, give your probability, as a whole percent from 1 to 99, that it resolves YES. Use only what you already know. Do not search for or look up anything: reading this file is the only tool call you may make.
+
+For each question, also say whether you recognise how it actually turned out ("recognised": true only if you believe you remember the real outcome; otherwise false).
+
+Where a question's contracts are mutually exclusive (exactly one can resolve YES), your numbers for it should add up to about 100. Where they are nested thresholds or dates, keep them consistent with each other.
+
+Reply with one JSON object and nothing else, in this form:
+{"events": [{"label": "E1", "recognised": false, "p": {"E1.C1": 35, "E1.C2": 60}}]}
+
+Every contract label below must appear exactly once in your reply.
+
+=== E1: Will General Dynamics (GD) beat quarterly earnings?
+Rules:
+As of market creation, General Dynamics is estimated to release earnings on April 29, 2026. The Street consensus estimate for General Dynamics's GAAP EPS for the relevant quarter is $3.67 as of market creation. This market will resolve to "Yes" if General Dynamics reports GAAP EPS greater than $3.67 for the relevant quarter in its next quarterly earnings release. Otherwise, it will resolve to "No." The resolution source will be the GAAP EPS listed in the company’s official earnings documents. 
+
+If General Dynamics releases earnings without GAAP EPS, then the market will resolve according to the GAAP EPS figure reported by SeekingAlpha. If no such figure is published within 96h of market close (4:00:00pm ET) on the day earnings are announced, the market will resolve to “No”.
+
+If the company does not release earnings within 45 calendar days of the estimated earnings date, this market will resolve to “No.” 
+
+Note: Subsequent restatements, corrections, or revisions made to the initially announced GAAP EPS figure will not qualify for resolution, except in the case of obvious and immediate mistakes (e.g., fat finger errors, as with Lyft's (LYFT) earnings release in February 2024).
+Note: The strike prices used in these markets are derived from SeekingAlpha estimates, and reflect the consensus of sell-side analyst estimates for GAAP EPS. 
+Note: All figures will be rounded to the nearest cent using standard rounding.
+Note: For the purposes of this market, IFRS EPS will be treated as GAAP EPS.
+Note: For the purposes of this market, GAAP EPS refers to diluted GAAP EPS, unless this is not published, in which case it refers to basic GAAP EPS.
+Note: All figures are expressed in USD, unless otherwise indicated.
+Note: For primarily internationally listed companies, this market refers specifically to the shares traded in the United States on U.S. stock exchanges such as the NYSE or Nasdaq. In cases where the company trades in the U.S. through an American Depositary Receipt (ADR) or American Depositary Share (ADS), this market will refer to the ADR/ADS.
+Contracts:
+  E1.C1: Will General Dynamics (GD) beat quarterly earnings?
+
+=== E2: CA-07 Primary Winners
+Rules:
+The California primary is currently scheduled to take place on June 2, 2026.
+
+This market will resolve "Yes" if the listed candidate advances from the primary to contest the seat for California's 7th congressional district in the U.S. House of Representatives in the 2026 midterm elections. Otherwise, this market will resolve to "No".
+
+If no nominees are announced by November 3, 2026, 11:59 PM ET, this market will resolve to "Other".
+
+The resolution source for this market will be a consensus of official sources, including https://www.sos.ca.gov/.
+
+Any replacement of the nominees before election day will not change the resolution of the market.
+Contracts:
+  E2.C1: Will Doris Matsui advance from the CA-07 primary election?
+  E2.C2: Will Enayat Nazhat advance from the CA-07 primary election?
+  E2.C3: Will Mai Vang advance from the CA-07 primary election?
+  E2.C4: Will Ralph Nwobi advance from the CA-07 primary election?
+  E2.C5: Will Robert Morin advance from the CA-07 primary election?
+  E2.C6: Will Zachariah Wooden advance from the CA-07 primary election?
+
+=== E3: Will the Iranian regime fall by March 31?
+Rules:
+This market will resolve to "Yes" if the Islamic Republic of Iran’s current ruling regime is overthrown, collapsed, or otherwise ceases to govern by March 31, 2026, 11:59 PM ET. Otherwise, this market will resolve to “No”.
+
+This requires a broad consensus of reporting indicating that core structures of the Islamic Republic (e.g. the office of the Supreme Leader, the Guardian Council, IRGC control under clerical authority) have been dissolved, incapacitated, or replaced by a fundamentally different governing system or otherwise lost de facto power over a majority of the population of Iran. This could occur via revolution, civil war, military coup, or voluntary abdication, but only qualifies if the Islamic Republic no longer exercises sovereign power.
+
+Routine political events such as elections, reforms, or leadership succession do not qualify. Internal coups or power shifts that preserve the Islamic Republic’s core structures also do not qualify. Only a clear break in continuity—such as a new provisional government, revolutionary council, or constitution replacing the Islamic Republic will qualify.
+
+Partial loss of territory or challenges from rebel or exile groups will not qualify unless the Islamic Republic no longer administers the majority of the Iranian population within Iran. 
+
+The resolution source will be a consensus of credible reporting.
+Contracts:
+  E3.C1: Will the Iranian regime fall by March 31?
+
+=== E4: What price will XRP hit in May?
+Rules:
+What price will XRP hit in May?
+Contracts:
+  E4.C1: Will XRP reach $3.00 in May?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for XRP/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last), has a final High price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the XRP/USDT High prices available at https://www.binance.com/en/trade/XRP_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance XRP/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E4.C2: Will XRP reach $2.80 in May?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for XRP/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last), has a final High price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the XRP/USDT High prices available at https://www.binance.com/en/trade/XRP_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance XRP/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E4.C3: Will XRP reach $2.60 in May?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for XRP/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last), has a final High price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the XRP/USDT High prices available at https://www.binance.com/en/trade/XRP_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance XRP/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E4.C4: Will XRP reach $2.40 in May?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for XRP/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last), has a final High price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the XRP/USDT High prices available at https://www.binance.com/en/trade/XRP_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance XRP/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E4.C5: Will XRP reach $2.20 in May?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for XRP/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last), has a final High price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the XRP/USDT High prices available at https://www.binance.com/en/trade/XRP_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance XRP/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E4.C6: Will XRP reach $2.00 in May?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for XRP/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last), has a final High price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the XRP/USDT High prices available at https://www.binance.com/en/trade/XRP_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance XRP/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E4.C7: Will XRP reach $1.80 in May?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for XRP/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last), has a final High price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the XRP/USDT High prices available at https://www.binance.com/en/trade/XRP_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance XRP/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E4.C8: Will XRP reach $1.60 in May?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for XRP/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last), has a final High price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the XRP/USDT High prices available at https://www.binance.com/en/trade/XRP_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance XRP/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E4.C9: Will XRP dip to $1.20 in May?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for XRP/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last), has a final Low price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the XRP/USDT Low prices available at https://www.binance.com/en/trade/XRP_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance XRP/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E4.C10: Will XRP dip to $1.00 in May?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for XRP/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last), has a final Low price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the XRP/USDT Low prices available at https://www.binance.com/en/trade/XRP_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance XRP/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E4.C11: Will XRP dip to $0.80 in May?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for XRP/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last), has a final Low price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the XRP/USDT Low prices available at https://www.binance.com/en/trade/XRP_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance XRP/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E4.C12: Will XRP dip to $0.60 in May?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for XRP/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last), has a final Low price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the XRP/USDT Low prices available at https://www.binance.com/en/trade/XRP_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance XRP/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+
+=== E5: Who will sign U.S. x Iran deal?
+Rules:
+This market will resolve to “Yes” if the listed individual signs a written agreement to which both the United States and the Islamic Republic of Iran are parties by July 31, 2026 11:59 PM ET. Otherwise, this market will resolve to “No”.
+
+A qualifying agreement must be signed by the listed individual acting in an official capacity.
+
+The United States and the Islamic Republic of Iran must both be parties to the agreement; however, it is not required that representatives of either or both countries sign the agreement in order for it to qualify.
+
+The listed individual may sign on behalf of either party, a third-party state, an international organization, or any other party to the agreement.
+
+Both physical signatures and officially issued electronic signatures will qualify as signing.
+
+The primary resolution source for this market will be official information from the relevant governments and parties to the agreement; however, a consensus of credible reporting may also be used.
+Contracts:
+  E5.C1: Will Marco Rubio sign a U.S. x Iran deal by July 31?
+  E5.C2: Will Pete Hegseth sign a U.S. x Iran deal by July 31?
+  E5.C3: Will Steve Witkoff sign a U.S. x Iran deal by July 31?
+  E5.C4: Will Abbas Araghchi sign a U.S. x Iran deal by July 31?
+  E5.C5: Will Mojtaba Khamenei sign a U.S. x Iran deal by July 31?
+  E5.C6: Will Benjamin Netanyahu sign a U.S. x Iran deal by July 31?
+  E5.C7: Will Mohammed bin Salman sign a U.S. x Iran deal by July 31?
+  E5.C8: Will Mohamed bin Zayed Al Nahyan sign a U.S. x Iran deal by July 31?
+  E5.C9: Will Sheikh Tamim bin Hamad Al Thani sign a U.S. x Iran deal by July 31?
+  E5.C10: Will Recep Tayyip Erdogan sign a U.S. x Iran deal by July 31?
+  E5.C11: Will Hamad bin Isa Al Khalifa sign a U.S. x Iran deal by July 31?
+  E5.C12: Will Mishal Al-Ahmad Al-Jaber Al-Sabah sign a U.S. x Iran deal by July 31?
+
+=== E6: H.R. 7296 (SAVE America Act) becomes law by...?
+Rules:
+This market will resolve to "Yes" if the SAVE America Act (H.R. 7296) is passed by both chambers of the U.S. Congress and signed into law, or is otherwise enacted into law, by the specified date, 11:59 PM ET. Otherwise, this market will resolve to "No".
+
+The primary resolution sources for this market will be Congress.gov’s legislation tracker (https://www.congress.gov/bill/119th-congress/house-bill/7296) and other official information from the government of the United States; however, a consensus of credible reporting may also be used.
+Contracts:
+  E6.C1: SAVE America Act becomes law by June 30, 2026?
+
+=== E7: Pakistan military action against Kabul by...?
+Rules:
+This market will resolve to "Yes" if Pakistan initiates a drone, missile, or air strike within the municipality of Kabul by the specified date Afghanistan Time (GMT+4:30). Otherwise, this market will resolve to "No".
+
+For the purposes of this market, a qualifying "military action" is defined as the use of aerial bombs, drones, or missiles (including cruise or ballistic missiles) launched by Pakistani military forces that impact within one of the 22 municipal districts of Kabul.
+
+Missiles or drones that are intercepted and surface-to-air missile strikes will not be sufficient for a "Yes" resolution, regardless of whether they land within the municipality of Kabul or cause damage.
+
+Actions such as artillery fire, small arms fire, FPV or ground based ATGM strikes directly, ground incursions, naval shelling, cyberattacks, or other operations conducted by Pakistani ground operatives will not qualify.
+
+The resolution source will be a consensus of credible reporting.
+
+If the date/time of a strike cannot be confirmed by a consensus of credible reporting by the end of the third calendar date after this market's end date, it will resolve to "No" regardless of whether a strike was later confirmed to have taken place.
+Contracts:
+  E7.C1: Pakistan military action against Kabul by March 31?
+  E7.C2: Pakistan military action against Kabul by April 15?
+
+=== E8: Who will Trump talk to in February?
+Rules:
+This market will resolve to "Yes" if the listed individual talks with Donald Trump between Februrary 1 and Februrary 28, 2026, 11:59 PM ET. Otherwise, it will resolve to "No".
+
+A talk is defined as any interaction between the listed individual and Donald Trump, occurring either in person or through verbal communication by phone or video call.
+
+The resolution source will be a consensus of credible reporting.
+Contracts:
+  E8.C1: Will Trump talk to Ali Khamenei in February?
+  E8.C2: Will Trump talk to Jerome Powell in February?
+  E8.C3: Will Trump talk to Mette Frederiksen in February?
+  E8.C4: Will Trump talk to Roger Goodell in February?
+  E8.C5: Will Trump talk to Kevin Warsh in February?
+  E8.C6: Will Trump talk to Christopher Waller in February?
+  E8.C7: Will Trump talk to Rick Rieder in February?
+  E8.C8: Will Trump talk to Kevin Hassett in February?
+  E8.C9: Will Trump talk to Nicolás Maduro in February?
+  E8.C10: Will Trump talk to Reza Pahlavi in February?
+  E8.C11: Will Trump talk to Kim Jong Un in February?
+  E8.C12: Will Trump talk to Volodymyr Zelenskyy in February?
+
+=== E9: What will Silver (XAGUSD) hit in August 2026?
+Rules:
+What will Silver (XAGUSD) hit in August 2026?
+Contracts:
+  E9.C1: Will Silver (XAGUSD) hit (HIGH) $72 in August?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during a trading session of August 2026, any 1-minute candle for Silver (XAGUSD) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during an applicable trading session of the specified timeframe's business days will be considered. The trading session for a given business day typically begins at 6:00 PM ET on the prior calendar date. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If Silver (XAGUSD) does not trade at all during the listed time frame, this market will resolve to "No".
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Silver (XAGUSD) "High" and "Low" prices available at https://pythdata.app/explore/Metal.XAG%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published for the relevant CME COMEX futures contract for the underlying metal—COMEX Silver Futures (SI)—may be used to determine whether the listed price was reached during the applicable trading session.
+  E9.C2: Will Silver (XAGUSD) hit (LOW) $56 in August?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during a trading session of August 2026, any 1-minute candle for Silver (XAGUSD) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during an applicable trading session of the specified timeframe's business days will be considered. The trading session for a given business day typically begins at 6:00 PM ET on the prior calendar date. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If Silver (XAGUSD) does not trade at all during the listed time frame, this market will resolve to "No".
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Silver (XAGUSD) "High" and "Low" prices available at https://pythdata.app/explore/Metal.XAG%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published for the relevant CME COMEX futures contract for the underlying metal—COMEX Silver Futures (SI)—may be used to determine whether the listed price was reached during the applicable trading session.
+  E9.C3: Will Silver (XAGUSD) hit (LOW) $54 in August?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during a trading session of August 2026, any 1-minute candle for Silver (XAGUSD) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during an applicable trading session of the specified timeframe's business days will be considered. The trading session for a given business day typically begins at 6:00 PM ET on the prior calendar date. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If Silver (XAGUSD) does not trade at all during the listed time frame, this market will resolve to "No".
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Silver (XAGUSD) "High" and "Low" prices available at https://pythdata.app/explore/Metal.XAG%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published for the relevant CME COMEX futures contract for the underlying metal—COMEX Silver Futures (SI)—may be used to determine whether the listed price was reached during the applicable trading session.
+  E9.C4: Will Silver (XAGUSD) hit (LOW) $52 in August?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during a trading session of August 2026, any 1-minute candle for Silver (XAGUSD) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during an applicable trading session of the specified timeframe's business days will be considered. The trading session for a given business day typically begins at 6:00 PM ET on the prior calendar date. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If Silver (XAGUSD) does not trade at all during the listed time frame, this market will resolve to "No".
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Silver (XAGUSD) "High" and "Low" prices available at https://pythdata.app/explore/Metal.XAG%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published for the relevant CME COMEX futures contract for the underlying metal—COMEX Silver Futures (SI)—may be used to determine whether the listed price was reached during the applicable trading session.
+  E9.C5: Will Silver (XAGUSD) hit (LOW) $50 in August?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during a trading session of August 2026, any 1-minute candle for Silver (XAGUSD) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during an applicable trading session of the specified timeframe's business days will be considered. The trading session for a given business day typically begins at 6:00 PM ET on the prior calendar date. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If Silver (XAGUSD) does not trade at all during the listed time frame, this market will resolve to "No".
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Silver (XAGUSD) "High" and "Low" prices available at https://pythdata.app/explore/Metal.XAG%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published for the relevant CME COMEX futures contract for the underlying metal—COMEX Silver Futures (SI)—may be used to determine whether the listed price was reached during the applicable trading session.
+  E9.C6: Will Silver (XAGUSD) hit (LOW) $48 in August?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during a trading session of August 2026, any 1-minute candle for Silver (XAGUSD) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during an applicable trading session of the specified timeframe's business days will be considered. The trading session for a given business day typically begins at 6:00 PM ET on the prior calendar date. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If Silver (XAGUSD) does not trade at all during the listed time frame, this market will resolve to "No".
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Silver (XAGUSD) "High" and "Low" prices available at https://pythdata.app/explore/Metal.XAG%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published for the relevant CME COMEX futures contract for the underlying metal—COMEX Silver Futures (SI)—may be used to determine whether the listed price was reached during the applicable trading session.
+  E9.C7: Will Silver (XAGUSD) hit (LOW) $46 in August?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during a trading session of August 2026, any 1-minute candle for Silver (XAGUSD) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during an applicable trading session of the specified timeframe's business days will be considered. The trading session for a given business day typically begins at 6:00 PM ET on the prior calendar date. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If Silver (XAGUSD) does not trade at all during the listed time frame, this market will resolve to "No".
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Silver (XAGUSD) "High" and "Low" prices available at https://pythdata.app/explore/Metal.XAG%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published for the relevant CME COMEX futures contract for the underlying metal—COMEX Silver Futures (SI)—may be used to determine whether the listed price was reached during the applicable trading session.
+  E9.C8: Will Silver (XAGUSD) hit (HIGH) $70 in August?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during a trading session of August 2026, any 1-minute candle for Silver (XAGUSD) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during an applicable trading session of the specified timeframe's business days will be considered. The trading session for a given business day typically begins at 6:00 PM ET on the prior calendar date. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If Silver (XAGUSD) does not trade at all during the listed time frame, this market will resolve to "No".
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Silver (XAGUSD) "High" and "Low" prices available at https://pythdata.app/explore/Metal.XAG%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published for the relevant CME COMEX futures contract for the underlying metal—COMEX Silver Futures (SI)—may be used to determine whether the listed price was reached during the applicable trading session.
+  E9.C9: Will Silver (XAGUSD) hit (HIGH) $68 in August?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during a trading session of August 2026, any 1-minute candle for Silver (XAGUSD) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during an applicable trading session of the specified timeframe's business days will be considered. The trading session for a given business day typically begins at 6:00 PM ET on the prior calendar date. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If Silver (XAGUSD) does not trade at all during the listed time frame, this market will resolve to "No".
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Silver (XAGUSD) "High" and "Low" prices available at https://pythdata.app/explore/Metal.XAG%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published for the relevant CME COMEX futures contract for the underlying metal—COMEX Silver Futures (SI)—may be used to determine whether the listed price was reached during the applicable trading session.
+
+=== E10: Will gas hit __ by end of August?
+Rules:
+This market will resolve to "Yes" if on any day between market creation and August 31, 2026, the average US regular gas price is equal to or above the listed price for options marked ↑ (High), or equal to or below the listed price for options marked ↓ (Low). Otherwise, the market will resolve to "No".
+
+Only the first two decimal digits of the reported price will be considered (e.g., if the price is reported as $3.257, this market will use $3.25 as the price).
+
+The resolution source for this market will be information from the American Automobile Association (AAA), presently found here: https://gasprices.aaa.com/. Specifically, the cell under "Regular" and for the row "Current Avg".
+Contracts:
+  E10.C1: Will gas hit $5.00 (High) by August 31?
+    Contract rules: This market will resolve to "Yes" if on any day between market creation and August 31, 2026, the average US regular gas price is equal to or above the listed price. Otherwise, the market will resolve to "No".
+
+Only the first two decimal digits of the reported price will be considered (e.g., if the price is reported as $3.257, this market will use $3.25 as the price).
+
+The resolution source for this market will be information from the American Automobile Association (AAA), presently found here: https://gasprices.aaa.com/. Specifically, the cell under "Regular" and for the row "Current Avg".
+  E10.C2: Will gas hit $4.75 (High) by August 31?
+    Contract rules: This market will resolve to "Yes" if on any day between market creation and August 31, 2026, the average US regular gas price is equal to or above the listed price. Otherwise, the market will resolve to "No".
+
+Only the first two decimal digits of the reported price will be considered (e.g., if the price is reported as $3.257, this market will use $3.25 as the price).
+
+The resolution source for this market will be information from the American Automobile Association (AAA), presently found here: https://gasprices.aaa.com/. Specifically, the cell under "Regular" and for the row "Current Avg".
+  E10.C3: Will gas hit $4.50 (High) by August 31?
+    Contract rules: This market will resolve to "Yes" if on any day between market creation and August 31, 2026, the average US regular gas price is equal to or above the listed price. Otherwise, the market will resolve to "No".
+
+Only the first two decimal digits of the reported price will be considered (e.g., if the price is reported as $3.257, this market will use $3.25 as the price).
+
+The resolution source for this market will be information from the American Automobile Association (AAA), presently found here: https://gasprices.aaa.com/. Specifically, the cell under "Regular" and for the row "Current Avg".
+  E10.C4: Will gas hit $4.25 (High) by August 31?
+    Contract rules: This market will resolve to "Yes" if on any day between market creation and August 31, 2026, the average US regular gas price is equal to or above the listed price. Otherwise, the market will resolve to "No".
+
+Only the first two decimal digits of the reported price will be considered (e.g., if the price is reported as $3.257, this market will use $3.25 as the price).
+
+The resolution source for this market will be information from the American Automobile Association (AAA), presently found here: https://gasprices.aaa.com/. Specifically, the cell under "Regular" and for the row "Current Avg".
+  E10.C5: Will gas hit $3.90 (Low) by August 31?
+    Contract rules: This market will resolve to "Yes" if on any day between market creation and August 31, 2026, the average US regular gas price is equal to or below the listed price. Otherwise, the market will resolve to "No".
+
+Only the first two decimal digits of the reported price will be considered (e.g., if the price is reported as $3.257, this market will use $3.25 as the price).
+
+The resolution source for this market will be information from the American Automobile Association (AAA), presently found here: https://gasprices.aaa.com/. Specifically, the cell under "Regular" and for the row "Current Avg".
+  E10.C6: Will gas hit $3.70 (Low) by August 31?
+    Contract rules: This market will resolve to "Yes" if on any day between market creation and August 31, 2026, the average US regular gas price is equal to or below the listed price. Otherwise, the market will resolve to "No".
+
+Only the first two decimal digits of the reported price will be considered (e.g., if the price is reported as $3.257, this market will use $3.25 as the price).
+
+The resolution source for this market will be information from the American Automobile Association (AAA), presently found here: https://gasprices.aaa.com/. Specifically, the cell under "Regular" and for the row "Current Avg".
+  E10.C7: Will gas hit $3.50 (Low) by August 31?
+    Contract rules: This market will resolve to "Yes" if on any day between market creation and August 31, 2026, the average US regular gas price is equal to or below the listed price. Otherwise, the market will resolve to "No".
+
+Only the first two decimal digits of the reported price will be considered (e.g., if the price is reported as $3.257, this market will use $3.25 as the price).
+
+The resolution source for this market will be information from the American Automobile Association (AAA), presently found here: https://gasprices.aaa.com/. Specifically, the cell under "Regular" and for the row "Current Avg".
+  E10.C8: Will gas hit $3.25 (Low) by August 31?
+    Contract rules: This market will resolve to "Yes" if on any day between market creation and August 31, 2026, the average US regular gas price is equal to or below the listed price. Otherwise, the market will resolve to "No".
+
+Only the first two decimal digits of the reported price will be considered (e.g., if the price is reported as $3.257, this market will use $3.25 as the price).
+
+The resolution source for this market will be information from the American Automobile Association (AAA), presently found here: https://gasprices.aaa.com/. Specifically, the cell under "Regular" and for the row "Current Avg".
+  E10.C9: Will gas hit $3.00 (Low) by August 31?
+    Contract rules: This market will resolve to "Yes" if on any day between market creation and August 31, 2026, the average US regular gas price is equal to or below the listed price. Otherwise, the market will resolve to "No".
+
+Only the first two decimal digits of the reported price will be considered (e.g., if the price is reported as $3.257, this market will use $3.25 as the price).
+
+The resolution source for this market will be information from the American Automobile Association (AAA), presently found here: https://gasprices.aaa.com/. Specifically, the cell under "Regular" and for the row "Current Avg".
+  E10.C10: Will gas hit $2.50 (Low) by August 31?
+    Contract rules: This market will resolve to "Yes" if on any day between market creation and August 31, 2026, the average US regular gas price is equal to or below the listed price. Otherwise, the market will resolve to "No".
+
+Only the first two decimal digits of the reported price will be considered (e.g., if the price is reported as $3.257, this market will use $3.25 as the price).
+
+The resolution source for this market will be information from the American Automobile Association (AAA), presently found here: https://gasprices.aaa.com/. Specifically, the cell under "Regular" and for the row "Current Avg".

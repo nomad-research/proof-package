@@ -1,0 +1,135 @@
+You are reading a group of prediction-market questions that may affect each other. Your view is as of 2026-10-01.
+
+You may search the web and fetch public pages to inform your view (load the WebSearch and WebFetch tools if needed). Rules for that:
+- Every web search must pass blocked_domains = ["polymarket.com", "kalshi.com", "predictit.org", "manifold.markets", "metaculus.com", "betfair.com", "smarkets.com", "oddschecker.com", "electionbettingodds.com", "polymarketanalytics.com", "gjopen.com", "goodjudgment.com", "insightprediction.com", "limitless.exchange", "myriad.markets", "betmgm.com", "draftkings.com", "fanduel.com", "williamhill.com", "paddypower.com", "bet365.com", "ladbrokes.com", "polymarket.co"].
+- Never open a prediction-market, betting or odds site, and never use or mention what any market, bookmaker or trader thinks. Give your own view from the evidence.
+- No other tools: only reading this file, searching and fetching.
+
+First decide which questions belong together. For any you judge unrelated to the rest, put its label in "drop" with a one-line reason; write nothing else for it.
+
+For every question you keep, write what it asks for. Whole percents run from 1 to 99. Levels are plain numbers in the units the contracts use. Dates are YYYY-MM-DD.
+
+CLAIMS. Where you believe one event's outcome changes the chances of another in this group, write a claim:
+  {"if": {"contract": "E1.C2", "resolves": "YES"}, "then_event": "E3", "if_true": <what you would write for E3 if that happens>, "if_false": <what you would write for E3 if it does not>}
+"if_true" and "if_false" use exactly the fields E3 asks for (the same "p", "levels", "high", "low" or "dates" object). Write as many claims as you believe in, including none.
+
+SCALE. For every question you keep that measures a quantity, a count, a price, a size or a date, also write "scale": the kind of thing this is and where you expect this instance to land among instances of that kind.
+  "scale": {"class": "<the reference class, e.g. monthly US core CPI prints since 2010>", "percentile": <0 to 100: where your middle view of this instance sits among instances of that class; 50 is an ordinary one>}
+Write "scale": null for a question with no scale (a plain yes/no about whether something happens).
+
+Also list the pages you relied on in "sources" (URLs).
+
+Reply with one JSON object and nothing else:
+{"drop": {"E5": "reason"}, "events": [{"label": "E1", ...the fields it asks for..., "scale": {"class": "...", "percentile": 50}}], "claims": [...], "sources": ["https://..."]}
+
+=== E1 (as of 2026-10-01): Will any AI model reach ___ Math Arena Score by December 31?
+Rules:
+This market will resolve to "Yes" if any model on the Arena.AI Leaderboard (arena.ai/leaderboard/text) reaches at least the specified Arena Score on the "Leaderboard" tab for "Math" by December 31, 2026, 11:59 PM ET. Otherwise, this market will resolve to "No".
+
+Results from the "Score" column under the "Text Arena | Math" Leaderboard tab at https://arena.ai/leaderboard/text/math-no-style-control with style control off will be used to resolve this market.
+
+The resolution source for this market is the Chatbot Arena LLM Leaderboard found at arena.ai/leaderboard/text. If this resolution source is unavailable at check time, this market will remain open until the leaderboard comes back online and will resolve based on the first check after it becomes available. If permanently unavailable, this market will resolve to "No".
+Contracts:
+  E1.C1: Will any AI model reach 1575 Math Arena Score by December 31, 2026?
+  E1.C2: Will any AI model reach 1600 Math Arena Score by December 31, 2026?
+What to write for E1:
+  Write "p": a whole percent for every contract label, your chance that it resolves YES.
+
+=== E2 (as of 2026-10-01): Will any AI model reach ___ Coding Arena Score by December 31?
+Rules:
+This market will resolve to "Yes" if any model on the Arena.AI Leaderboard (arena.ai/leaderboard/text) reaches at least the specified Arena Score on the "Leaderboard" tab for "Coding" by December 31, 2026, 11:59 PM ET. Otherwise, this market will resolve to "No".
+
+Results from the "Score" column under the "Text Arena | Coding" Leaderboard tab at https://arena.ai/leaderboard/text/coding-no-style-control with style control off will be used to resolve this market.
+
+The resolution source for this market is the Chatbot Arena LLM Leaderboard found at arena.ai/leaderboard/text. If this resolution source is unavailable at check time, this market will remain open until the leaderboard comes back online and will resolve based on the first check after it becomes available. If permanently unavailable, this market will resolve to "No".
+Contracts:
+  E2.C1: Will any AI model reach 1560 Coding Arena Score by December 31, 2026?
+  E2.C2: Will any AI model reach 1580 Coding Arena Score by December 31, 2026?
+  E2.C3: Will any AI model reach 1600 Coding Arena Score by December 31, 2026?
+What to write for E2:
+  Write "high": for each chance 10, 25, 50, 75 and 90, the level you give that chance of being reached (at or above) within the period. The 10 level is the highest.
+
+=== E3 (as of 2026-10-01): Highest score on Humanity’s Last Exam in 2026?
+Rules:
+This market will resolve to "Yes" if any model achieves at least the specified accuracy on Humanity’s Last Exam by December 31, 2026, 11:59 PM ET. Otherwise, this market will resolve to "No".
+
+For resolution, “accuracy” refers solely to the value labeled “HLE Accuracy” or a clear equivalent metric if the data’s presentation or terminology is restructured, regardless of the model’s Calibration Error or any other displayed metric.
+
+The resolution source will be the official Humanity’s Last Exam leaderboard at https://agi.safe.ai/. If the resolution source becomes unavailable during the listed timeframe, this market will remain open to allow the relevant data to become available again. If the source remains unavailable after the end of the listed timeframe or is otherwise confirmed to be permanently unavailable, official Humanity’s Last Exam results published elsewhere may be used. If no official alternative source is available, this market will resolve to "No".
+Contracts:
+  E3.C1: Will the highest score achieved on Humanity’s Last Exam in 2026 be 60% or higher?
+  E3.C2: Will the highest score achieved on Humanity’s Last Exam in 2026 be 65% or higher?
+  E3.C3: Will the highest score achieved on Humanity’s Last Exam in 2026 be 70% or higher?
+  E3.C4: Will the highest score achieved on Humanity’s Last Exam in 2026 be 75% or higher?
+  E3.C5: Will the highest score achieved on Humanity’s Last Exam in 2026 be 80% or higher?
+  E3.C6: Will the highest score achieved on Humanity’s Last Exam in 2026 be 90% or higher?
+What to write for E3:
+  Write "levels": for each chance 10, 25, 50, 75 and 90, the level you give that chance of the measured quantity being at or above when it resolves. The 10 level is the highest and the 90 level the lowest. Example: {"10": 120, "25": 110, "50": 100, "75": 92, "90": 85}.
+
+=== E4 (as of 2026-10-01): Highest Grok score on Humanity’s Last Exam in 2026?
+Rules:
+This market will resolve to "Yes" if any SpaceXAI Grok model achieves at least the specified accuracy on Humanity’s Last Exam by December 31, 2026, 11:59 PM ET. Otherwise, this market will resolve to "No".
+
+For resolution, “accuracy” refers solely to the value labeled “HLE Accuracy” or a clear equivalent metric if the data’s presentation or terminology is restructured, regardless of the model’s Calibration Error or any other displayed metric.
+
+The resolution source will be the official Humanity’s Last Exam leaderboard at https://agi.safe.ai/. If the resolution source becomes unavailable during the listed timeframe, this market will remain open to allow the relevant data to become available again. If the source remains unavailable after the end of the listed timeframe or is otherwise confirmed to be permanently unavailable, official Humanity’s Last Exam results published elsewhere may be used. If no official alternative source is available, this market will resolve to "No".
+Contracts:
+  E4.C1: Will the highest score achieved by a SpaceXAI Grok model on Humanity’s Last Exam in 2026 be 45% or higher?
+  E4.C2: Will the highest score achieved by a SpaceXAI Grok model on Humanity’s Last Exam in 2026 be 50% or higher?
+  E4.C3: Will the highest score achieved by a SpaceXAI Grok model on Humanity’s Last Exam in 2026 be 55% or higher?
+  E4.C4: Will the highest score achieved by a SpaceXAI Grok model on Humanity’s Last Exam in 2026 be 60% or higher?
+  E4.C5: Will the highest score achieved by a SpaceXAI Grok model on Humanity’s Last Exam in 2026 be 65% or higher?
+What to write for E4:
+  Write "levels": for each chance 10, 25, 50, 75 and 90, the level you give that chance of the measured quantity being at or above when it resolves. The 10 level is the highest and the 90 level the lowest. Example: {"10": 120, "25": 110, "50": 100, "75": 92, "90": 85}.
+
+=== E5 (as of 2026-10-01): AI wins IMO gold medal in 2026?
+Rules:
+This market will resolve to "Yes" if any AI gets a gold medal in the International Math Olympiad between January 1, 2026 and December 31, 2026, 11:59 PM ET. Otherwise this market will resolve to "No."
+
+The resolution source is the IMO Grand Challenge (https://imo-grand-challenge.github.io/) and the Artificial Intelligence Math Olympiad (AIMO, https://aimoprize.com/). If either source demonstrates that an AI has won the challenge/prize before the resolution date, this market will resolve to "Yes".
+Contracts:
+  E5.C1: AI wins IMO gold medal in 2026?
+What to write for E5:
+  Write "p": a whole percent for every contract label, your chance that it resolves YES.
+
+=== E6 (as of 2026-10-01): Will any AI model reach ___ Overall Arena Score by December 31?
+Rules:
+This market will resolve to "Yes" if any model on the Chatbot Arena LLM Leaderboard (https://lmarena.ai/) reaches at least the specified Arena Score by December 31, 2026, 11:59 PM ET. Otherwise, this market will resolve to "No".
+
+Results from the 'Score' section on the 'Text Arena' Leaderboard tab (https://lmarena.ai/leaderboard/text), with the style control unchecked, will be used to resolve this market.
+
+The resolution source is the Chatbot Arena LLM Leaderboard (https://lmarena.ai/). If this source is temporarily unavailable, the market remains open until it is accessible again; if permanently unavailable, this market will resolve to "No".
+Contracts:
+  E6.C1: Will any AI model reach a Chatbot Arena score of at least 1540 by December 31?
+  E6.C2: Will any AI model reach a Chatbot Arena score of at least 1550 by December 31?
+  E6.C3: Will any AI model reach a Chatbot Arena score of at least 1600 by December 31?
+  E6.C4: Will any AI model reach a Chatbot Arena score of at least 1650 by December 31?
+  E6.C5: Will any AI model reach a Chatbot Arena score of at least 1700 by December 31?
+What to write for E6:
+  Write "high": for each chance 10, 25, 50, 75 and 90, the level you give that chance of being reached (at or above) within the period. The 10 level is the highest.
+
+=== E7 (as of 2026-10-01): OpenAI announces it has achieved AGI before 2027?
+Rules:
+This market will resolve to "Yes" if OpenAI or an official representative of the company announces that it has created an artificial general intelligence (AGI) by December 31, 2026 ET. Otherwise, this market will resolve to "No".
+
+The primary resolution source for this market will be official information from OpenAI and/or its official representative, however a consensus of credible reporting will also be used.
+Contracts:
+  E7.C1: OpenAI announces it has achieved AGI before 2027?
+What to write for E7:
+  Write "dates": for each chance 10, 25, 50, 75 and 90, the date by which you give it that chance of having happened, or null if you do not give it that chance by the last date the contracts cover. Dates must not go earlier as the chance rises.
+
+=== E8 (as of 2026-10-01): Highest Kimi score on Humanity’s Last Exam in 2026?
+Rules:
+This market will resolve to "Yes" if any Moonshot Kimi model achieves at least the specified accuracy on Humanity’s Last Exam by December 31, 2026, 11:59 PM ET. Otherwise, this market will resolve to "No".
+
+For resolution, “accuracy” refers solely to the value labeled “HLE Accuracy” or a clear equivalent metric if the data’s presentation or terminology is restructured, regardless of the model’s Calibration Error or any other displayed metric.
+
+The resolution source will be the official Humanity’s Last Exam leaderboard at https://agi.safe.ai/. If the resolution source becomes unavailable during the listed timeframe, this market will remain open to allow the relevant data to become available again. If the source remains unavailable after the end of the listed timeframe or is otherwise confirmed to be permanently unavailable, official Humanity’s Last Exam results published elsewhere may be used. If no official alternative source is available, this market will resolve to "No".
+Contracts:
+  E8.C1: Will the highest score achieved by a Moonshot Kimi model on Humanity’s Last Exam in 2026 be 45% or higher?
+  E8.C2: Will the highest score achieved by a Moonshot Kimi model on Humanity’s Last Exam in 2026 be 50% or higher?
+  E8.C3: Will the highest score achieved by a Moonshot Kimi model on Humanity’s Last Exam in 2026 be 55% or higher?
+  E8.C4: Will the highest score achieved by a Moonshot Kimi model on Humanity’s Last Exam in 2026 be 60% or higher?
+  E8.C5: Will the highest score achieved by a Moonshot Kimi model on Humanity’s Last Exam in 2026 be 65% or higher?
+What to write for E8:
+  Write "levels": for each chance 10, 25, 50, 75 and 90, the level you give that chance of the measured quantity being at or above when it resolves. The 10 level is the highest and the 90 level the lowest. Example: {"10": 120, "25": 110, "50": 100, "75": 92, "90": 85}.

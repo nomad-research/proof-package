@@ -1,0 +1,168 @@
+You will be shown 10 questions from a prediction market. Each question has one or more contracts, and each contract resolves YES or NO under the rules shown.
+
+For every contract, give your probability, as a whole percent from 1 to 99, that it resolves YES. Use only what you already know. Do not search for or look up anything: reading this file is the only tool call you may make.
+
+For each question, also say whether you recognise how it actually turned out ("recognised": true only if you believe you remember the real outcome; otherwise false).
+
+Where a question's contracts are mutually exclusive (exactly one can resolve YES), your numbers for it should add up to about 100. Where they are nested thresholds or dates, keep them consistent with each other.
+
+Reply with one JSON object and nothing else, in this form:
+{"events": [{"label": "E1", "recognised": false, "p": {"E1.C1": 35, "E1.C2": 60}}]}
+
+Every contract label below must appear exactly once in your reply.
+
+=== E1: April Inflation US - Monthly
+Rules:
+This is a market about the one-month percent change in the seasonally adjusted Consumer Price Index for All Urban Consumers (CPI-U) published by the Bureau of Labor Statistics (BLS).
+
+This market will resolve to the one-month percent change in the seasonally adjusted Consumer Price Index for All Urban Consumers (CPI-U) in April 2026 according to the monthly BLS report.
+
+The resolution source for this market will be the BLS Consumer Price Index report released for April 2026 (https://www.bls.gov/bls/news-release/cpi.htm), currently scheduled to be released on May 12, 2026, at 8:30 AM ET. Resolution of this market will take place upon release of the aforementioned data.
+
+Note: the resolution source for this market will be the official monthly Consumer Price Index for All Urban Consumers (CPI-U) which BLS reports to one decimal point (e.g. 0.4%). Thus, this is the level of precision that will be used when resolving the market.
+
+If the BLS does not release the relevant figures on the scheduled date, this market may remain open up until the scheduled release time of the next CPI report (https://www.bls.gov/schedule). If the information is not released by that time, this market will resolve according to the figures of the most recent previous month with available data.
+Contracts:
+  E1.C1: Will monthly inflation increase by 0.3% or less in April?
+  E1.C2: Will monthly inflation increase by 0.4% in April?
+  E1.C3: Will monthly inflation increase by 0.5% in April?
+  E1.C4: Will monthly inflation increase by 0.6% in April?
+  E1.C5: Will monthly inflation increase by 0.7% in April?
+  E1.C6: Will monthly inflation increase by 0.8% in April?
+  E1.C7: Will monthly inflation increase by 0.9% in April?
+  E1.C8: Will monthly inflation increase by 1.0% in April?
+  E1.C9: Will monthly inflation increase by ≥1.1% in April?
+
+=== E2: Epstein "I beat Bush" Email unredacted by March 31?
+Rules:
+On February 12, 2026, Rep. Ro Khanna posted a document on X that displays an email with the subject line "I beat Bush" addressed to Jeffrey Epstein, calling for the sender’s identity to be unredacted. You can read more about that here: https://x.com/reprokhanna/status/2022046192478327156?s=46.
+
+This market will resolve to “Yes” if the document is publicly unredacted in a manner that clearly and definitively reveals the sender’s email account or identity by the listed date (ET).
+
+Official statements regarding the sender’s identity, or any other form of confirmation that does not involve the public unredaction of the specified document, including access to the unredacted document limited to House members, congressional committees, or other restricted parties, will not alone qualify.
+
+The resolution source for this market will be a consensus of credible reporting.
+Contracts:
+  E2.C1: Epstein "I beat Bush" Email unredacted by March 31?
+
+=== E3: How many countries will Israel conduct military action against in April?
+Rules:
+This market will resolve according to the total number of different sovereign UN member states' soil that Israel initiates a drone, missile, or air strike between April 1, 2026, 12:00 AM ET and April 30, 2026, 11:59 PM ET.
+
+Strikes on embassies or consulates will count towards the country where the embassy or consulate is located, not towards the country they represent.
+
+Strikes within the territory controlled by Israel as of market creation, as well as strikes within the West Bank or the Gaza Strip, will not be counted towards this market's resolution.
+
+For the purposes of this market, a qualifying "strike" is defined as the use of aerial bombs, drones, or missiles (including cruise or ballistic missiles) launched by Israeli military forces that impact another country's ground territory that is officially acknowledged by the Israeli government or a consensus of credible reporting.
+
+Missiles or drones that are intercepted and surface-to-air missile strikes will not count towards the resolution of this market, regardless of whether they land on another country's territory or cause damage.
+
+Actions such as artillery fire, small arms fire, FPV or ATGM strikes directly, ground incursions, naval shelling, cyberattacks, or other operations conducted by Israeli ground operatives will not qualify.
+
+The resolution source will be a consensus of credible reporting.
+Contracts:
+  E3.C1: Will Israel strike 2 countries in April 2026?
+  E3.C2: Will Israel strike 3 countries in April 2026?
+  E3.C3: Will Israel strike ≥4 countries in April 2026?
+
+=== E4: What will the median home value in New York City be on April 1?
+Rules:
+This market will resolve according to the median home value for all property types in New York City, New York on April 1, 2026.
+
+If the reported value falls exactly between two brackets, then this market will resolve to the higher range bracket.
+
+The resolution source will be official data from the Parcl Labs Sales Price Index for New York City (Parcl_ID: 5372594). The settlement price will be calculated by multiplying the published price index value (price per square foot) by 1000 square feet, which is the median home size in New York City. Parcl is set to publish this data on April 1, 2026. If no data for April 1 is released by April 10, 2026, 11:59PM ET, this market will resolve according to the most recently published data. (see: https://app.parcllabs.com/prediction-market-resolutions/18)
+Contracts:
+  E4.C1: Will the median home value in New York City be less than $570,000 on April 1?
+  E4.C2: Will the median home value in New York City be between $570,000 and $575,000 on April 1?
+  E4.C3: Will the median home value in New York City be between $575,000 and $580,000 on April 1?
+  E4.C4: Will the median home value in New York City be between $580,000 and $585,000 on April 1?
+  E4.C5: Will the median home value in New York City be between $585,000 and $590,000 on April 1?
+  E4.C6: Will the median home value in New York City be between $590,000 and $595,000 on April 1?
+  E4.C7: Will the median home value in New York City be between $595,000 and $600,000 on April 1?
+  E4.C8: Will the median home value in New York City be greater than $600,000 on April 1?
+
+=== E5: Bank of England decision in June?
+Rules:
+The summary for the Bank of England's Monetary Policy Committee meeting for June 2026 is scheduled to be released on June 18, 2026.
+
+This market will resolve to the amount of basis points the upper bound of the Bank Rate is changed by versus the level it was prior to the Bank of England's June 2026 meeting.
+
+The primary resolution source for this market will be the official website of the Bank of England (https://www.bankofengland.co.uk/monetary-policy/upcoming-mpc-dates), however a consensus of credible reporting may also be used.
+
+If the Bank Rate is changed to a level not expressed in the displayed options, the change will be rounded up to the nearest 25 and will resolve to the relevant bracket. (e.g. if there's a cut/increase of 12.5 bps it will be considered to be 25 bps)
+
+This market may resolve as soon as the Bank of England's statement for their June meeting with relevant data is issued. If no statement is released by the start date of the next scheduled meeting, this market will resolve to the "No change" bracket.
+Contracts:
+  E5.C1: Bank of England decreases interest rates by 50+ bps after June 2026 meeting?
+  E5.C2: Bank of England decreases interest rates by 25 bps after June 2026 meeting?
+  E5.C3: No change in Bank of England’s interest rates after June 2026 meeting?
+  E5.C4: Bank of England increases interest rates by 25 bps after June 2026 meeting?
+  E5.C5: Bank of England increases interest rates by 50+ bps after June 2026 meeting?
+
+=== E6: Maduro leaves Venezuela by March 31?
+Rules:
+This market will resolve to "Yes" if it is confirmed that Nicolás Maduro has left Venezuela for any length of time between November 24, 2025, and March 31, 2026, 11:59 PM ET. Otherwise, this market will resolve to "No".
+
+In cases where Maduro may have exited Venezuelan airspace on a plane, he must be confirmed to have exited the plane in a country other than Venezuela for this market to resolve to "Yes".
+
+If Maduro exits Venezuela maritime territory on a boat to international waters, this market may resolve to "Yes".
+
+If it is not confirmed by the resolution date that Maduro left Venezuela, this market will resolve to "No".
+
+The resolution source for this market will be a consensus of credible reporting.
+Contracts:
+  E6.C1: Maduro leaves Venezuela by March 31?
+
+=== E7: Idaho Democratic Senate Primary Winner
+Rules:
+This market will resolve according to the winner of the Democratic Primary for United States Senator from Idaho.
+
+If no 2026 Idaho Democratic Senate Primary takes place, this market will resolve to "Other".
+
+The resolution source for this market will be the first announcement of the results from the Idaho Democratic party, however an overwhelming consensus of credible reporting may suffice.
+Contracts:
+  E7.C1: Will David Roth be the Democratic nominee for Senate in Idaho?
+  E7.C2: Will Brad Moore be the Democratic nominee for Senate in Idaho?
+  E7.C3: Will Nickolas Bonds be the Democratic nominee for Senate in Idaho?
+
+=== E8: Precipitation in NYC in May?
+Rules:
+This market will resolve according to the total precipitation in inches in Central Park, New York City between May 1 and May 31, 2026, 11:59PM ET according to the National Oceanic and Atmospheric Administration (NOAA).
+
+If the reported value falls exactly between two brackets, then this market will resolve to the higher range bracket.
+
+The resolution source for this market will be NOAA, specifically the figure for May 2026 when the "Monthly summarized data" for "Central Park NY" is selected with the variable set to "Precipitation" at the https://www.weather.gov/wrh/climate?wfo=okx link once that figure is finalized for the whole month of May 2026.
+
+The resolution source for this market measures precipitation to 2 decimal places (e.g., 1.54), thus, this is the level of precision that will be used when resolving this market. Any revisions to precipitation recorded after data is finalized for this market's timeframe will not be considered for this market's resolution.
+Contracts:
+  E8.C1: Will NYC have less than 2 inches of precipitation in May?
+  E8.C2: Will NYC have between 2 and 3 inches of precipitation in May?
+  E8.C3: Will NYC have between 3 and 4 inches of precipitation in May?
+  E8.C4: Will NYC have between 4 and 5 inches of precipitation in May?
+  E8.C5: Will NYC have between 5 and 6 inches of precipitation in May?
+  E8.C6: Will NYC have more than 6 inches of precipitation in May?
+
+=== E9: Reserve Bank of Australia Decision in February
+Rules:
+This market will resolve according to the change in the target for the cash rate resulting from the Reserve Bank of Australia Monetary Policy Board’s February meeting, relative to the level it was prior to this meeting.
+
+The resolution source for this market is information released by the Reserve Bank of Australia after its February 3, 2026 meeting, as listed on the official Reserve Bank of Australia calendar: https://www.rba.gov.au/schedules-events/board-meeting-schedules.html
+
+This market may resolve as soon as the Reserve Bank of Australia's media release for their February 3, 2026 meeting with relevant data is issued. If no decision on the target for the cash rate is issued by the end date of the next scheduled meeting, this market will resolve to the "No Change" bracket.
+Contracts:
+  E9.C1: Will the Reserve Bank of Australia decrease the target for the cash rate after the February Meeting?
+  E9.C2: Will the Reserve Bank of Australia make no change to the target for the cash rate after the February Meeting?
+  E9.C3: Will the Reserve Bank of Australia increase the target for the cash rate after the February Meeting?
+
+=== E10: How high will 10-year Treasury yield go by March 31?
+Rules:
+This market will resolve to "Yes" if the Treasury 10-year yield reaches or is higher than the listed value for any date between December 9, 2025 and March 31, 2026. Otherwise this market will resolve to "No".
+
+The resolution source for this market is the Department of the Treasury, specially the data listed under "Daily Treasury Par Yield Curve Rates" for the column "10 Yr" (see: https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve&field_tdr_date_value=2025).
+Contracts:
+  E10.C1: Will the 10-year treasury yield hit 4.4% by March 31?
+  E10.C2: Will the 10-year treasury yield hit 4.5% by March 31?
+  E10.C3: Will the 10-year treasury yield hit 4.6% by March 31?
+  E10.C4: Will the 10-year treasury yield hit 4.8% by March 31?
+  E10.C5: Will the 10-year treasury yield hit 5.0% by March 31?

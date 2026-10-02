@@ -1,0 +1,175 @@
+You will be shown 10 questions from a prediction market. Each question has one or more contracts, and each contract resolves YES or NO under the rules shown.
+
+For every contract, give your probability, as a whole percent from 1 to 99, that it resolves YES. Use only what you already know. Do not search for or look up anything: reading this file is the only tool call you may make.
+
+For each question, also say whether you recognise how it actually turned out ("recognised": true only if you believe you remember the real outcome; otherwise false).
+
+Where a question's contracts are mutually exclusive (exactly one can resolve YES), your numbers for it should add up to about 100. Where they are nested thresholds or dates, keep them consistent with each other.
+
+Reply with one JSON object and nothing else, in this form:
+{"events": [{"label": "E1", "recognised": false, "p": {"E1.C1": 35, "E1.C2": 60}}]}
+
+Every contract label below must appear exactly once in your reply.
+
+=== E1: 2026 United Kingdom Local Elections: Green wins ___ seats?
+Rules:
+United Kingdom local elections are scheduled to be held on May 7, 2026. 
+
+This market will resolve to "Yes" if the Green Party wins at least the listed number of council seats for the United Kingdom's metropolitan boroughs, London borough councils, unitary authorities, county councils, and district councils as a result of this election. Otherwise, this market will resolve to "No".
+
+A candidate will be considered an official candidate of the Green Party if they are officially nominated by the Green Party and are registered for the relevant election in affiliation with the Green Party. Independent candidates will not count for any party.
+
+Only elections for the United Kingdom’s metropolitan boroughs, London borough councils, unitary authorities, county councils, and district councils taking place on May 7, 2026, or rescheduled to within seven days thereafter, will be counted for this market.
+
+Resolution of this market will be based on the results of the relevant elections, once those results are official. If the results of any of the relevant 2026 United Kingdom local elections aren’t known by April 30, 2027 11:59 PM ET, this market will resolve based on the available results up to that point. If none of the results of the relevant 2026 United Kingdom local elections are known by that time, this market will resolve to “No”.
+
+This market will resolve based on the results of the elections as indicated by a consensus of credible reporting. If there is ambiguity, this market will resolve based solely on the official results as reported by the respective council government.
+Contracts:
+  E1.C1: Will the Green Party win at least 500 council seat elections in the 2026 United Kingdom local elections?
+  E1.C2: Will the Green Party win at least 600 council seat elections in the 2026 United Kingdom local elections?
+  E1.C3: Will the Green Party win at least 700 council seat elections in the 2026 United Kingdom local elections?
+
+=== E2: Which countries will send warships through the Strait of Hormuz by July 31?
+Rules:
+This market will resolve to "Yes" if a national government, its military, or a broad consensus of credible reporting confirms that the listed country's warships transited through the Strait of Hormuz between market creation and July 31, 2026, 11:59 PM ET. Otherwise, this market will resolve to “No”.
+
+A "warship transit" is defined as a military vessel passing through the Strait of Hormuz. Military cargo or support vessels will be considered “warships”; however, commercial or civilian vessels will not qualify.
+
+For the purposes of this market, only transits through the Strait of Hormuz will be considered, defined as passage through the narrowest portion of the waterway between Iran and Oman. Operations solely in the Persian Gulf, Gulf of Oman, or Arabian Sea without passage through this narrowest section will not qualify.
+
+Official confirmation by a national government or its military that its vessels transited through the Strait of Hormuz during the specified timeframe will resolve this market immediately. An overwhelming consensus of credible reporting confirming that such a transit occurred during the specified timeframe will also suffice.
+
+Qualifying confirmations include statements such as official announcements that a country has deployed naval vessels to transit or escort shipping through the Strait of Hormuz.
+
+Confirmations referring only to naval presence in the broader region, including the Persian Gulf, Gulf of Oman, or Arabian Sea, without confirmed transit through the Strait itself, as well as aerial operations, cyber operations, or actions by proxies or third parties, will not alone qualify.
+
+The primary resolution source for this market will be official information by the respective national governments or their militaries; however, an overwhelming consensus of credible reporting will also suffice.
+Contracts:
+  E2.C1: Will the United Kingdom send warships through the Strait of Hormuz by July 31, 2026?
+  E2.C2: Will France send warships through the Strait of Hormuz by July 31, 2026?
+  E2.C3: Will the United States send warships through the Strait of Hormuz by July 31, 2026?
+  E2.C4: Will the Netherlands send warships through the Strait of Hormuz by July 31, 2026?
+  E2.C5: Will Greece send warships through the Strait of Hormuz by July 31, 2026?
+  E2.C6: Will Italy send warships through the Strait of Hormuz by July 31, 2026?
+  E2.C7: Will Germany send warships through the Strait of Hormuz by July 31, 2026?
+  E2.C8: Will Australia send warships through the Strait of Hormuz by July 31, 2026?
+
+=== E3: How many Tornadoes in the US in January?
+Rules:
+This market will resolve according to the number of tornadoes recorded in the United States during the specified month, based on the monthly count published on the National Centers for Environmental Information U.S. Tornadoes Time Series page (see: https://www.ncei.noaa.gov/access/monitoring/tornadoes/time-series).
+
+Only tornadoes appearing in the final NCEI dataset for that month will count.
+
+As of market creation, the relevant report is scheduled to be released on February 9, 2026, at 5:01 PM GMT+1 or 11:01 AM ET (Release schedule: https://www.ncei.noaa.gov/access/monitoring/dyk/monthly-releases). The market will resolve based on the first relevant tornado count published on the NCEI tornado time-series page after this scheduled release time.
+
+If the value published after this scheduled release time is labeled preliminary, it will still determine resolution, and the market will resolve independently of any subsequent revisions, corrections, or retroactive adjustments. 
+
+The market will not resolve based on any preliminary values published before the scheduled release time.
+
+If no data is published by the scheduled release time, or if the NCEI website is temporarily unavailable, this market will remain open until that data is made available. If the relevant data is not made available by the date of the next scheduled publication ET, this market will resolve based on available data for the most recent prior month. If the NCEI website becomes permanently unavailable, this market will resolve using another credible source.
+Contracts:
+  E3.C1: Will fewer than 30 tornadoes occur in the United States in January 2026?
+  E3.C2: Will 30 to 59 tornadoes occur in the United States in January 2026?
+  E3.C3: Will 60 to 89 tornadoes occur in the United States in January 2026?
+  E3.C4: Will 90 to 119 tornadoes occur in the United States in January 2026?
+  E3.C5: Will 120 or more tornadoes occur in the United States in January 2026?
+
+=== E4: Uber # of trips above __ in Q1?
+Rules:
+This market will resolve to “Yes” if Uber’s total number of trips for the first fiscal quarter of 2026, as reported in its official company earnings materials, is above the listed amount. Otherwise, this market will resolve to “No”.
+
+The specified metric will be considered as reported in the company’s official earnings materials. Subsequent revisions will not be considered.
+
+If the specified company’s official earnings materials for the specified quarter are released and the specified metric is not included, this market will resolve to “No”. 
+
+If the specified company does not release quarterly earnings materials for the specified quarter by June 30, 2026, 11:59 PM ET, this market will resolve to “No”.
+
+If the specified metric is reported as a range rather than a specific number, the midpoint of the range will be used for resolution of this market. 
+
+The resolution source for this market is Uber’s official company earnings materials, including press releases, investor presentations, and regulatory filings. If the specified metric is not reported in these materials, recordings or transcripts of the company’s earnings webcast may also be used.
+
+Note: This market will resolve based on the most numerically precise version of the specified metric reported in the company’s official earnings materials. Only the specified metric will be considered; alternate versions that differ in definition or scope from the specified metric will not be considered.
+Contracts:
+  E4.C1: Uber # of trips above 3.2B in Q1?
+  E4.C2: Uber # of trips above 3.4B in Q1?
+  E4.C3: Uber # of trips above 3.6B in Q1?
+  E4.C4: Uber # of trips above 3.8B in Q1?
+  E4.C5: Uber # of trips above 4B in Q1?
+  E4.C6: Uber # of trips above 4.2B in Q1?
+  E4.C7: Uber # of trips above 4.4B in Q1?
+  E4.C8: Uber # of trips above 4.6B in Q1?
+  E4.C9: Uber # of trips above 4.8B in Q1?
+  E4.C10: Uber # of trips above 5B in Q1?
+
+=== E5: Swalwell, Mills, Gonzales, and Cherfilus-McCormick all out by May 31?
+Rules:
+This market will resolve to “Yes” if Eric Swalwell, Cory Mills, Tony Gonzales and Sheila Cherfilus-Mccormick all cease to be United States Representatives for any period of time between market creation and the specified date (ET). Otherwise, this market will resolve to “No”.
+
+An official announcement of a listed individual’s resignation or removal before this market’s end date will be sufficient for that individual to be considered to have ceased to hold their position, regardless of when the announced resignation or removal goes into effect.
+
+The resolution source for this market will be official information from Cory Mills and the U.S. government; however, a consensus of credible reporting may also be used.
+Contracts:
+  E5.C1: Swalwell, Mills, Gonzales, and Cherfilus-McCormick all out by May 31?
+
+=== E6: Precipitation in NYC in April?
+Rules:
+This market will resolve according to the total precipitation in inches in Central Park, New York City between April 1 and April 30, 2026, 11:59PM ET according to the National Oceanic and Atmospheric Administration (NOAA).
+
+If the reported value falls exactly between two brackets, then this market will resolve to the higher range bracket.
+
+The resolution source for this market will be NOAA, specifically the figure for April 2026 when the "Monthly summarized data" for "Central Park NY" is selected with the variable set to "Precipitation" at the https://www.weather.gov/wrh/climate?wfo=okx link once that figure is finalized for the whole month of April 2026.
+
+The resolution source for this market measures precipitation to 2 decimal places (e.g., 1.54), thus, this is the level of precision that will be used when resolving this market. Any revisions to precipitation recorded after data is finalized for this market's timeframe will not be considered for this market's resolution.
+Contracts:
+  E6.C1: Will NYC have less than 2 inches of precipitation in April?
+  E6.C2: Will NYC have between 2 and 3 inches of precipitation in April?
+  E6.C3: Will NYC have between 3 and 4 inches of precipitation in April?
+  E6.C4: Will NYC have between 4 and 5 inches of precipitation in April?
+  E6.C5: Will NYC have between 5 and 6 inches of precipitation in April?
+  E6.C6: Will NYC have more than 6 inches of precipitation in April?
+
+=== E7: Arizona Attorney General Republican Primary Winner
+Rules:
+This market will resolve according to the winner of the Republican nomination for Attorney General of Arizona. The Republican primary is scheduled to take place on July 21, 2026. 
+
+If no nominee is announced by November 3, 2026, 11:59PM ET, this market will resolve to "Other".
+
+The resolution source for this market will be the first official announcement of the results from the Arizona Republican Party; however, an overwhelming consensus of credible reporting may suffice.
+Contracts:
+  E7.C1: Will Rodney Glassman be the Arizona Attorney General Republican nominee?
+  E7.C2: Will Warren Petersen be the Arizona Attorney General Republican nominee?
+
+=== E8: Will any Minnesota politician be charged with fraud by March 31?
+Rules:
+This market will resolve to “Yes” if any Federal or State jurisdiction of the United States formally charges or otherwise announces a criminal indictment of any state or federally elected Minnesota politician for fraud, by March 31, 2026, 11:59 PM ET. Otherwise, this market will resolve to “No”.
+
+For the purposes of this market, the District of Columbia and any county, municipality, or other subdivision of a State shall be included within the definition of a State.
+
+The primary resolution source for this market will be official information from US governmental sources; however, a wide consensus of credible reporting will also be used.
+Contracts:
+  E8.C1: Will any Minnesota politician be charged with fraud by March 31?
+
+=== E9: What will the median home value in New York City be on February 1?
+Rules:
+This market will resolve according to the median home value for all property types in New York City, New York on February 1, 2026.
+
+If the reported value falls exactly between two brackets, then this market will resolve to the higher range bracket.
+
+The resolution source will be official data from the Parcl Labs Sales Price Index for New York City (Parcl_ID: 5372594). The settlement price will be calculated by multiplying the published price index value (price per square foot) by 1000 square feet, which is the median home size in New York City. Parcl is set to publish this data on February 1, 2026. If no data for February 1 is released by February 10, 2026, 11:59PM ET, this market will resolve according to the most recently published data. (see: https://app.parcllabs.com/prediction-market-resolutions/1)
+Contracts:
+  E9.C1: Will the median home value in New York City be less than $560,000 by February 1?
+  E9.C2: Will the median home value in New York City be between $560,000 and $570,000 by February 1?
+  E9.C3: Will the median home value in New York City be between $570,000 and $580,000 by February 1?
+  E9.C4: Will the median home value in New York City be between $580,000 and $590,000 by February 1?
+  E9.C5: Will the median home value in New York City be between $590,000 and $600,000 by February 1?
+  E9.C6: Will the median home value in New York City be greater than $600,000 by February 1?
+
+=== E10: Will Trump issue a Gold Card by March 31?
+Rules:
+This market will resolve to "Yes" if the first U.S. "Gold Card" visa, is officially issued by March 31, 2026, at 11:59 PM ET. Otherwise, this market will resolve to "No."
+
+Any new visa or pathway to citizenship which is granted as part of a new program created by the Trump Administration after February 26, 2025, which is either referred to as a Gold Card, or involves a new pathway to U.S. citizenship, work permits, or any other form of legal residency status in exchange for payments or investment will qualify.
+
+The primary resolution source will be official information form the Trump administration however a consensus of credible reporting may also be used.
+Contracts:
+  E10.C1: Will Trump issue a Gold Card by March 31?

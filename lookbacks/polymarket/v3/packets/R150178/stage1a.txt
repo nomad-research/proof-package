@@ -1,0 +1,35 @@
+You are one of several independent analysts. Work only from what is written below. Apart from reading the file that held this text, do not use any tool, do not look anything up, and do not use anything you
+know that happened after 2026-09-30: reason as of that date. You are shown no market prices, and you are not asked for any probability.
+
+EVENT: China Annual Inflation 2026   (structure: partition exact)
+RULES (as of 2026-09-30):
+This is a market about the variation of consumer prices in China over the 12-month period ending December 2026, as reported by the National Bureau of Statistics (NBS) of China.
+
+This market will resolve according to the percentage change in the Consumer Price Index (CPI) during the 12-month period ending December 2026 according to the monthly NBS report.
+
+The resolution source for this market will be the NBS Consumer Price Index monthly report released for December 2026 (https://www.stats.gov.cn/english/PressRelease/), currently expected to be released in January 2027. Resolution of this market will take place upon release of the aforementioned data. If no data for the specified month is released by the date the next month's data is scheduled to be released, this market will resolve based on data from the last available month.
+
+You can find the relevant figure by locating the report for December 2026 on the Press Releases page (see: https://www.stats.gov.cn/english/PressRelease/), locating the table named "Consumer Price Indexes in December 2026", and finding the consumer price index figure in the column labeled "Growth Rate Y/Y (%)".
+
+Note: the resolution source for this market will be the official monthly NBS CPI news release which reports inflation during 12-month periods to only one decimal point (e.g. 1.9%). Thus, this is the level of precision that will be used when resolving the market. For the full release schedule, see: https://www.stats.gov.cn/english/PressRelease/ReleaseCalendar/
+
+CONTRACTS (each pays $1 if its statement is true when the event resolves, $0 otherwise; you may name YES or NO on any contract):
+  C1: Will China's annual inflation in 2026 be less than -1.0%?  [<-1.0%]
+  C2: Will China's annual inflation in 2026 be between -0.9% and -0.5%?  [-0.9 – -0.5%]
+  C3: Will China's annual inflation in 2026 be between -0.4% and 0.0%?  [-0.4 – 0.0%]
+  C4: Will China's annual inflation in 2026 be between 0.1% and 0.5%?  [0.1 – 0.5%]
+  C5: Will China's annual inflation in 2026 be between 0.6% and 1.0%?  [0.6 – 1.0%]
+  C6: Will China's annual inflation in 2026 be between 1.1% and 1.5%?  [1.1 – 1.5%]
+  C7: Will China's annual inflation in 2026 be between 1.6% and 2.0%?  [1.6 – 2.0%]
+  C8: Will China's annual inflation in 2026 be between 2.0% and 2.4%?  [2.0-2.4%]
+  C9: Will China's annual inflation in 2026 be at least 2.5%?  [2.5%+]
+
+Task. Write your own view as documents-and-mechanism reasoning, not as odds.
+1. primary: a thesis about how this event resolves and a basket of at most 4 contracts from the list that expresses it (long only: a contract with YES or NO).
+2. failure_narrative: the specific way the thesis is wrong (what would have to happen for the basket to lose).
+3. hedge_thesis: a second narrative, about a DIFFERENT part of the world, that would tend to be true in exactly the worlds where the primary fails. Say why, in mechanism terms.
+4. search_terms: 3 to 8 words or names (entities, assets, places, institutions) that instruments for the hedge thesis would carry. Lower-case single words or short names.
+5. recalls_outcome: true if you already know, or think you know, how this event (or any part of it) actually turned out; otherwise false. Be honest: a true answer is not penalised, it only means this item is set aside.
+
+Answer with one JSON object and nothing else:
+{"primary": {"thesis": "...", "basket": [{"contract": "C1", "side": "YES", "reason": "..."}]}, "failure_narrative": "...", "hedge_thesis": "...", "search_terms": ["..."], "recalls_outcome": false}

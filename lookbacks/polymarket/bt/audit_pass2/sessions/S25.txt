@@ -1,0 +1,343 @@
+You will be shown 10 questions from a prediction market. Each question has one or more contracts, and each contract resolves YES or NO under the rules shown.
+
+For every contract, give your probability, as a whole percent from 1 to 99, that it resolves YES. Use only what you already know. Do not search for or look up anything: reading this file is the only tool call you may make.
+
+For each question, also say whether you recognise how it actually turned out ("recognised": true only if you believe you remember the real outcome; otherwise false).
+
+Where a question's contracts are mutually exclusive (exactly one can resolve YES), your numbers for it should add up to about 100. Where they are nested thresholds or dates, keep them consistent with each other.
+
+Reply with one JSON object and nothing else, in this form:
+{"events": [{"label": "E1", "recognised": false, "p": {"E1.C1": 35, "E1.C2": 60}}]}
+
+Every contract label below must appear exactly once in your reply.
+
+=== E1: Which countries will conduct military action against Iran by April 30?
+Rules:
+This market will resolve to "Yes" if the listed country initiates a drone, missile, or air strike on Iranian soil or any official Iranian embassy or consulate between market creation and April 30, 2026, 11:59 PM ET. Otherwise, this market will resolve to "No".
+
+For the purposes of this market, a qualifying "strike" is defined as the use of aerial bombs, drones, or missiles (including cruise or ballistic missiles) launched by the listed country's military forces that impact Iranian ground territory or any official Iranian embassy or consulate (e.g., if a weapons depot on Iranian soil is hit by a missile launched by the listed country, this market will resolve to "Yes").
+
+Missiles or drones that are intercepted and surface-to-air missile strikes will not be sufficient for a "Yes" resolution, regardless of whether they land on Iranian territory or cause damage.
+
+Actions such as artillery fire, small arms fire, FPV or ATGM strikes directly, ground incursions, naval shelling, cyberattacks, or other operations conducted by ground operatives of the listed country will not qualify.
+
+The resolution source will be a consensus of credible reporting.
+Contracts:
+  E1.C1: Will UAE strike Iran by April 30?
+  E1.C2: Will UK strike Iran by April 30?
+  E1.C3: Will France strike Iran by April 30?
+  E1.C4: Will Jordan strike Iran by April 30?
+  E1.C5: Will Turkey strike Iran by April 30?
+  E1.C6: Will Canada strike Iran by April 30?
+  E1.C7: Will Germany strike Iran by April 30?
+  E1.C8: Will Qatar strike Iran by April 30?
+  E1.C9: Will Bahrain strike Iran by April 30?
+  E1.C10: Will Saudi Arabia strike Iran by April 30?
+  E1.C11: Will Oman strike Iran by April 30?
+  E1.C12: Will Kuwait strike Iran by April 30?
+
+=== E2: Will USD hit ___ Iranian rials by May 31?
+Rules:
+This market will resolve to “Yes” if the finalized USD exchange rate on Bonbast is equal to or above the specified price for any day between market creation and May 31, 2026. Otherwise, this market will resolve to “No”.
+
+This market will resolve according to the daily finalized free-market USD exchange rate as displayed on Bonbast (https://www.bonbast.com/graph/usd), which publishes prices in Iranian toman, where 1 Iranian toman equals 10 Iranian rials (IRR).
+
+A daily figure will be considered finalized once the following day’s figure is released.
+
+Revisions or corrections to daily figures indicating a qualifying exchange rate will be considered only if they occur before all relevant figures for this market have been finalized.
+
+The resolution source for this market will be Bonbast (https://www.bonbast.com/graph/usd). Resolution will occur once the final exchange rate data point of the specified timeframe is finalized. If the resolution source becomes permanently unavailable, another resolution source will be chosen.
+Contracts:
+  E2.C1: Will USD reach 2.0M Iranian rials by May 31?
+  E2.C2: Will USD reach 1.9M Iranian rials by May 31?
+  E2.C3: Will USD fall to 1.7M Iranian rials by May 31?
+    Contract rules: This market will resolve to “Yes” if the finalized USD exchange rate on Bonbast is equal to or below the specified price for any day between market creation and May 31, 2026. Otherwise, this market will resolve to “No”.
+
+This market will resolve according to the daily finalized free-market USD exchange rate as displayed on Bonbast (https://www.bonbast.com/graph/usd), which publishes prices in Iranian toman, where 1 Iranian toman equals 10 Iranian rials (IRR).
+
+A daily figure will be considered finalized once the following day’s figure is released.
+
+Revisions or corrections to daily figures indicating a qualifying exchange rate will be considered only if they occur before all relevant figures for this market have been finalized.
+
+The resolution source for this market will be Bonbast (https://www.bonbast.com/graph/usd). Resolution will occur once the final exchange rate data point of the specified timeframe is finalized. If the resolution source becomes permanently unavailable, another resolution source will be chosen.
+  E2.C4: Will USD fall to 1.6M Iranian rials by May 31?
+    Contract rules: This market will resolve to “Yes” if the finalized USD exchange rate on Bonbast is equal to or below the specified price for any day between market creation and May 31, 2026. Otherwise, this market will resolve to “No”.
+
+This market will resolve according to the daily finalized free-market USD exchange rate as displayed on Bonbast (https://www.bonbast.com/graph/usd), which publishes prices in Iranian toman, where 1 Iranian toman equals 10 Iranian rials (IRR).
+
+A daily figure will be considered finalized once the following day’s figure is released.
+
+Revisions or corrections to daily figures indicating a qualifying exchange rate will be considered only if they occur before all relevant figures for this market have been finalized.
+
+The resolution source for this market will be Bonbast (https://www.bonbast.com/graph/usd). Resolution will occur once the final exchange rate data point of the specified timeframe is finalized. If the resolution source becomes permanently unavailable, another resolution source will be chosen.
+  E2.C5: Will USD fall to 1.5M Iranian rials by May 31?
+    Contract rules: This market will resolve to “Yes” if the finalized USD exchange rate on Bonbast is equal to or below the specified price for any day between market creation and May 31, 2026. Otherwise, this market will resolve to “No”.
+
+This market will resolve according to the daily finalized free-market USD exchange rate as displayed on Bonbast (https://www.bonbast.com/graph/usd), which publishes prices in Iranian toman, where 1 Iranian toman equals 10 Iranian rials (IRR).
+
+A daily figure will be considered finalized once the following day’s figure is released.
+
+Revisions or corrections to daily figures indicating a qualifying exchange rate will be considered only if they occur before all relevant figures for this market have been finalized.
+
+The resolution source for this market will be Bonbast (https://www.bonbast.com/graph/usd). Resolution will occur once the final exchange rate data point of the specified timeframe is finalized. If the resolution source becomes permanently unavailable, another resolution source will be chosen.
+
+=== E3: Will __ ships transit the Strait of Hormuz on any day by May 31?
+Rules:
+This market will resolve to “Yes” if IMF Portwatch publishes a daily number of transit calls (“Arrivals of Ships”) for the Strait of Hormuz equal to or above the listed value for any date between market creation and May 31, 2026. Otherwise, this market will resolve to “No”.
+
+The number of daily transit calls/arrivals includes container, dry bulk, roll-on/roll-off, general cargo, and tanker ships. Ships not reported by IMF Portwatch will not be considered.
+
+This market will resolve as soon as IMF Portwatch publishes a daily number of transit calls equal to or above the specified level, or once data has been published for the final date in the specified period and no such value has been published. If no data has been published for the final date of the specified period within 14 calendar days (ET) after the end of that period, this market will resolve based on data published up to that point.
+
+Revisions to previously published data points, made within this market’s timeframe, will be considered. However, they will not disqualify a previously published data point from qualifying. Revisions to previously published data points after data is published for May 31, 2026, however, will not be considered.
+
+The resolution source for this market will be IMF Portwatch, specifically the transit calls data published for the Strait of Hormuz at https://portwatch.imf.org/pages/cb5856222a5b4105adc6ee7e880a1730, both in the chart and through downloadable files.
+Contracts:
+  E3.C1: Will 20 ships transit the Strait of Hormuz on any day by May 31?
+  E3.C2: Will 40 ships transit the Strait of Hormuz on any day by May 31?
+  E3.C3: Will 60 ships transit the Strait of Hormuz on any day by May 31?
+  E3.C4: Will 80 ships transit the Strait of Hormuz on any day by May 31?
+
+=== E4: Reserve Bank of India decision in April
+Rules:
+This market will resolve according to the change in the policy repo rate resulting from the Reserve Bank of India Monetary Policy Committee’s April meeting, relative to the level it was prior to this meeting.
+
+The resolution source for this market is information released by the Reserve Bank of India after its meeting scheduled for April 8, 2026.
+
+This market may resolve as soon as the Reserve Bank of India's monetary policy statement for their April 2026 meeting with relevant data is issued. The statement will be made available here: https://rbi.org.in/Scripts/BS_PressReleaseDisplay.aspx. If no decision on the policy repo rate is issued by the end date of the next scheduled meeting, this market will resolve to the "No change" bracket.
+Contracts:
+  E4.C1: Will the Reserve Bank of India decrease the policy repo rate after the April Meeting?
+  E4.C2: Will the Reserve Bank of India make no change to the policy repo rate after the April Meeting?
+  E4.C3: Will the Reserve Bank of India increase the policy repo rate after the April Meeting?
+
+=== E5: Hungary Parliamentary Election Winner
+Rules:
+Parliamentary elections are to be scheduled to be held in Hungary in early April 2026.
+
+This market will resolve according to the political party that wins the greatest number of seats in the next Hungarian National Assembly (Országgyűlés) election. 
+
+If the results are not known definitively by October 31, 2026, 11:59 PM ET, this market will resolve to "Other".
+
+In the event of a tie between multiple parties for the most seats won, this market will resolve in favor of the party or coalition that received a greater number of valid votes. In the event that results in a tie, this market will resolve in favor of the party or coalition whose listed abbreviation appears first in alphabetical order.
+
+This market's resolution will be based solely on the number of seats won by the named party or coalition in the Hungarian Parliament. If a named coalition dissolves, this market will resolve based on the seat total of the constituent party within that coalition that held the largest number of seats before the election.
+
+This market will resolve based on the results of this election as indicated by a consensus of credible reporting. If there is ambiguity, this market will resolve based solely on the official results as reported by the Hungarian government, specifically the Hungarian Election Authority (Nemzeti Választási Iroda) (valasztas.hu).
+Contracts:
+  E5.C1: Will Fidesz–KDNP win the most seats in the next Hungarian parliamentary election?
+    Contract rules: Parliamentary elections are to be scheduled to be held in Hungary on April 12, 2026.
+
+This market will resolve according to the political party that wins the greatest number of seats in the next Hungarian National Assembly (Országgyűlés) election. 
+
+If the results are not known definitively by October 31, 2026, 11:59 PM ET, this market will resolve to "Other".
+
+In the event of a tie between multiple parties for the most seats won, this market will resolve in favor of the party or coalition that received a greater number of valid votes. In the event that results in a tie, this market will resolve in favor of the party or coalition whose listed abbreviation appears first in alphabetical order.
+
+This market's resolution will be based solely on the number of seats won by the named party or coalition in the Hungarian Parliament. If a named coalition dissolves, this market will resolve based on the seat total of the constituent party within that coalition that held the largest number of seats before the election.
+
+This market will resolve based on the results of this election as indicated by a consensus of credible reporting. If there is ambiguity, this market will resolve based solely on the official results as reported by the Hungarian government, specifically the Hungarian Election Authority (Nemzeti Választási Iroda) (valasztas.hu).
+  E5.C2: Will the Christian Democratic People’s Party (KDNP) win the most seats in the next Hungarian parliamentary election?
+    Contract rules: Parliamentary elections are to be scheduled to be held in Hungary on April 12, 2026.
+
+This market will resolve according to the political party that wins the greatest number of seats in the next Hungarian National Assembly (Országgyűlés) election. 
+
+If the results are not known definitively by October 31, 2026, 11:59 PM ET, this market will resolve to "Other".
+
+In the event of a tie between multiple parties for the most seats won, this market will resolve in favor of the party or coalition that received a greater number of valid votes. In the event that results in a tie, this market will resolve in favor of the party or coalition whose listed abbreviation appears first in alphabetical order.
+
+This market's resolution will be based solely on the number of seats won by the named party or coalition in the Hungarian Parliament. If a named coalition dissolves, this market will resolve based on the seat total of the constituent party within that coalition that held the largest number of seats before the election.
+
+This market will resolve based on the results of this election as indicated by a consensus of credible reporting. If there is ambiguity, this market will resolve based solely on the official results as reported by the Hungarian government, specifically the Hungarian Election Authority (Nemzeti Választási Iroda) (valasztas.hu).
+  E5.C3: Will the Democratic Coalition (DK) win the most seats in the next Hungarian parliamentary election?
+    Contract rules: Parliamentary elections are to be scheduled to be held in Hungary on April 12, 2026.
+
+This market will resolve according to the political party that wins the greatest number of seats in the next Hungarian National Assembly (Országgyűlés) election. 
+
+If the results are not known definitively by October 31, 2026, 11:59 PM ET, this market will resolve to "Other".
+
+In the event of a tie between multiple parties for the most seats won, this market will resolve in favor of the party or coalition that received a greater number of valid votes. In the event that results in a tie, this market will resolve in favor of the party or coalition whose listed abbreviation appears first in alphabetical order.
+
+This market's resolution will be based solely on the number of seats won by the named party or coalition in the Hungarian Parliament. If a named coalition dissolves, this market will resolve based on the seat total of the constituent party within that coalition that held the largest number of seats before the election.
+
+This market will resolve based on the results of this election as indicated by a consensus of credible reporting. If there is ambiguity, this market will resolve based solely on the official results as reported by the Hungarian government, specifically the Hungarian Election Authority (Nemzeti Választási Iroda) (valasztas.hu).
+  E5.C4: Will the Hungarian Socialist Party (MSZP) win the most seats in the next Hungarian parliamentary election?
+    Contract rules: Parliamentary elections are to be scheduled to be held in Hungary on April 12, 2026.
+
+This market will resolve according to the political party that wins the greatest number of seats in the next Hungarian National Assembly (Országgyűlés) election. 
+
+If the results are not known definitively by October 31, 2026, 11:59 PM ET, this market will resolve to "Other".
+
+In the event of a tie between multiple parties for the most seats won, this market will resolve in favor of the party or coalition that received a greater number of valid votes. In the event that results in a tie, this market will resolve in favor of the party or coalition whose listed abbreviation appears first in alphabetical order.
+
+This market's resolution will be based solely on the number of seats won by the named party or coalition in the Hungarian Parliament. If a named coalition dissolves, this market will resolve based on the seat total of the constituent party within that coalition that held the largest number of seats before the election.
+
+This market will resolve based on the results of this election as indicated by a consensus of credible reporting. If there is ambiguity, this market will resolve based solely on the official results as reported by the Hungarian government, specifically the Hungarian Election Authority (Nemzeti Választási Iroda) (valasztas.hu).
+  E5.C5: Will Dialogue for Hungary (Párbeszéd) win the most seats in the next Hungarian parliamentary election?
+    Contract rules: Parliamentary elections are to be scheduled to be held in Hungary on April 12, 2026.
+
+This market will resolve according to the political party that wins the greatest number of seats in the next Hungarian National Assembly (Országgyűlés) election. 
+
+If the results are not known definitively by October 31, 2026, 11:59 PM ET, this market will resolve to "Other".
+
+In the event of a tie between multiple parties for the most seats won, this market will resolve in favor of the party or coalition that received a greater number of valid votes. In the event that results in a tie, this market will resolve in favor of the party or coalition whose listed abbreviation appears first in alphabetical order.
+
+This market's resolution will be based solely on the number of seats won by the named party or coalition in the Hungarian Parliament. If a named coalition dissolves, this market will resolve based on the seat total of the constituent party within that coalition that held the largest number of seats before the election.
+
+This market will resolve based on the results of this election as indicated by a consensus of credible reporting. If there is ambiguity, this market will resolve based solely on the official results as reported by the Hungarian government, specifically the Hungarian Election Authority (Nemzeti Választási Iroda) (valasztas.hu).
+  E5.C6: Will TISZA – Respect and Freedom Party (TISZA) win the most seats in the next Hungarian parliamentary election?
+    Contract rules: Parliamentary elections are to be scheduled to be held in Hungary on April 12, 2026.
+
+This market will resolve according to the political party that wins the greatest number of seats in the next Hungarian National Assembly (Országgyűlés) election. 
+
+If the results are not known definitively by October 31, 2026, 11:59 PM ET, this market will resolve to "Other".
+
+In the event of a tie between multiple parties for the most seats won, this market will resolve in favor of the party or coalition that received a greater number of valid votes. In the event that results in a tie, this market will resolve in favor of the party or coalition whose listed abbreviation appears first in alphabetical order.
+
+This market's resolution will be based solely on the number of seats won by the named party or coalition in the Hungarian Parliament. If a named coalition dissolves, this market will resolve based on the seat total of the constituent party within that coalition that held the largest number of seats before the election.
+
+This market will resolve based on the results of this election as indicated by a consensus of credible reporting. If there is ambiguity, this market will resolve based solely on the official results as reported by the Hungarian government, specifically the Hungarian Election Authority (Nemzeti Választási Iroda) (valasztas.hu).
+  E5.C7: Will the Momentum Movement (Momentum) win the most seats in the next Hungarian parliamentary election?
+    Contract rules: Parliamentary elections are to be scheduled to be held in Hungary on April 12, 2026.
+
+This market will resolve according to the political party that wins the greatest number of seats in the next Hungarian National Assembly (Országgyűlés) election. 
+
+If the results are not known definitively by October 31, 2026, 11:59 PM ET, this market will resolve to "Other".
+
+In the event of a tie between multiple parties for the most seats won, this market will resolve in favor of the party or coalition that received a greater number of valid votes. In the event that results in a tie, this market will resolve in favor of the party or coalition whose listed abbreviation appears first in alphabetical order.
+
+This market's resolution will be based solely on the number of seats won by the named party or coalition in the Hungarian Parliament. If a named coalition dissolves, this market will resolve based on the seat total of the constituent party within that coalition that held the largest number of seats before the election.
+
+This market will resolve based on the results of this election as indicated by a consensus of credible reporting. If there is ambiguity, this market will resolve based solely on the official results as reported by the Hungarian government, specifically the Hungarian Election Authority (Nemzeti Választási Iroda) (valasztas.hu).
+  E5.C8: Will Movement for a Better Hungary (Jobbik) win the most seats in the next Hungarian parliamentary election?
+    Contract rules: Parliamentary elections are to be scheduled to be held in Hungary on April 12, 2026.
+
+This market will resolve according to the political party that wins the greatest number of seats in the next Hungarian National Assembly (Országgyűlés) election. 
+
+If the results are not known definitively by October 31, 2026, 11:59 PM ET, this market will resolve to "Other".
+
+In the event of a tie between multiple parties for the most seats won, this market will resolve in favor of the party or coalition that received a greater number of valid votes. In the event that results in a tie, this market will resolve in favor of the party or coalition whose listed abbreviation appears first in alphabetical order.
+
+This market's resolution will be based solely on the number of seats won by the named party or coalition in the Hungarian Parliament. If a named coalition dissolves, this market will resolve based on the seat total of the constituent party within that coalition that held the largest number of seats before the election.
+
+This market will resolve based on the results of this election as indicated by a consensus of credible reporting. If there is ambiguity, this market will resolve based solely on the official results as reported by the Hungarian government, specifically the Hungarian Election Authority (Nemzeti Választási Iroda) (valasztas.hu).
+  E5.C9: Will LMP – Hungary’s Green Party (LMP) win the most seats in the next Hungarian parliamentary election?
+    Contract rules: Parliamentary elections are to be scheduled to be held in Hungary on April 12, 2026.
+
+This market will resolve according to the political party that wins the greatest number of seats in the next Hungarian National Assembly (Országgyűlés) election. 
+
+If the results are not known definitively by October 31, 2026, 11:59 PM ET, this market will resolve to "Other".
+
+In the event of a tie between multiple parties for the most seats won, this market will resolve in favor of the party or coalition that received a greater number of valid votes. In the event that results in a tie, this market will resolve in favor of the party or coalition whose listed abbreviation appears first in alphabetical order.
+
+This market's resolution will be based solely on the number of seats won by the named party or coalition in the Hungarian Parliament. If a named coalition dissolves, this market will resolve based on the seat total of the constituent party within that coalition that held the largest number of seats before the election.
+
+This market will resolve based on the results of this election as indicated by a consensus of credible reporting. If there is ambiguity, this market will resolve based solely on the official results as reported by the Hungarian government, specifically the Hungarian Election Authority (Nemzeti Választási Iroda) (valasztas.hu).
+  E5.C10: Will Our Homeland Movement (Mi Hazánk) win the most seats in the next Hungarian parliamentary election?
+    Contract rules: Parliamentary elections are to be scheduled to be held in Hungary on April 12, 2026.
+
+This market will resolve according to the political party that wins the greatest number of seats in the next Hungarian National Assembly (Országgyűlés) election. 
+
+If the results are not known definitively by October 31, 2026, 11:59 PM ET, this market will resolve to "Other".
+
+In the event of a tie between multiple parties for the most seats won, this market will resolve in favor of the party or coalition that received a greater number of valid votes. In the event that results in a tie, this market will resolve in favor of the party or coalition whose listed abbreviation appears first in alphabetical order.
+
+This market's resolution will be based solely on the number of seats won by the named party or coalition in the Hungarian Parliament. If a named coalition dissolves, this market will resolve based on the seat total of the constituent party within that coalition that held the largest number of seats before the election.
+
+This market will resolve based on the results of this election as indicated by a consensus of credible reporting. If there is ambiguity, this market will resolve based solely on the official results as reported by the Hungarian government, specifically the Hungarian Election Authority (Nemzeti Választási Iroda) (valasztas.hu).
+
+=== E6: ECB Interest Rates: February 2026
+Rules:
+This market will resolve to the amount of basis points the upper bound of the deposit facility rate is changed by versus the level it was prior to the European Central Bank's (ECB) February 2026 meeting.
+
+If the deposit facility rate is changed to a level not expressed in the displayed options, the change will be rounded up to the nearest 25 basis points and will resolve to the relevant bracket.
+For example, if the deposit facility rate is increased or decreased by 12.5 basis points, it will be treated as a 25 basis point change for the purposes of resolution.
+
+The resolution source for this market is information released by the European Central Bank after its February 5, 2026 policy meeting, as listed on the official ECB calendar:
+https://www.ecb.europa.eu/press/calendars/mgcgc/html/index.en.html
+
+The level and change of the deposit facility rate is also published at the official ECB interest rates page:
+https://www.ecb.europa.eu/stats/policy_and_exchange_rates/key_ecb_interest_rates/html/index.en.html
+
+This market may resolve as soon as the ECB releases its interest rate decision following the February 5, 2026, meeting.
+
+If no interest rate decision or update is published by February 28, 2026, 11:59 PM ET, this market will resolve to the “No change” bracket.
+Contracts:
+  E6.C1: Will the ECB announce a 50+ bps decrease at the February 2026 meeting?
+  E6.C2: Will the ECB announce a 25 bps decrease at the February 2026 meeting?
+  E6.C3: Will the ECB announce no change at the February 2026 meeting?
+  E6.C4: Will the ECB announce an increase at the February 2026 meeting?
+
+=== E7: Mexico GDP growth in Q2 2026?
+Rules:
+This market will resolve according to Mexico's Y/Y Growth Rate of Gross Domestic Product (GDP) in the "Timely Estimate of Quarterly GDP" release for Q2 of 2026, scheduled for release on July 30, 2026.
+
+If the reported value falls exactly between two brackets, then this market will resolve to the higher range bracket.
+
+The GDP release will be made available here: https://en.www.inegi.org.mx/app/saladeprensa/
+
+If no data for the specified quarter is released by the date the next quarter's data is scheduled to be released, this market will resolve based on data from the last available quarter.
+
+Note: data from the initial release of the referenced GDP report is what will be used to resolve this market. Data may be revised during the following quarter or as a part of the next estimate's publication, however any revisions to GDP report data made after the initial release will not be considered for this market's resolution.
+Contracts:
+  E7.C1: Will Mexico GDP growth in Q2 2026 be less than -0.5%?
+  E7.C2: Will Mexico GDP growth in Q2 2026 be between -0.5% and 0.0%?
+  E7.C3: Will Mexico GDP growth in Q2 2026 be between 0.0% and 0.5%?
+  E7.C4: Will Mexico GDP growth in Q2 2026 be between 0.5% and 1.0%?
+  E7.C5: Will Mexico GDP growth in Q2 2026 be between 1.0% and 1.5%?
+  E7.C6: Will Mexico GDP growth in Q2 2026 be between 1.5% and 2.0%?
+  E7.C7: Will Mexico GDP growth in Q2 2026 be between 2.0% and 2.5%?
+  E7.C8: Will Mexico GDP growth in Q2 2026 be at least 2.5%?
+
+=== E8: # of CRA seats after the 2026 Japanese snap election?
+Rules:
+General elections are scheduled to be held in Japan on February 8, 2026.
+
+This market will resolve according to the number of seats held by the Centrist Reform Alliance (CRA) in the Japanese House of Representatives (衆議院, Shūgiin) as a result of the next Japanese general election.
+
+If the results of this election are not definitively known by November 30, 2026, 11:59 PM ET, this market will resolve to the lowest range bracket.
+
+This market's resolution will be based solely on the number of seats won by the Centrist Reform Alliance (CRA), not any coalition or alliance of which it may be a part.
+
+This market will resolve based on the results of the election as indicated by a consensus of credible reporting. If there is ambiguity, this market will resolve based solely on the official results reported by the Japanese government, including the Ministry of Internal Affairs and Communications (https://www.soumu.go.jp/) or e-Stat (https://www.e-stat.go.jp/).
+Contracts:
+  E8.C1: Will the Centrist Reform Alliance win fewer than 150 seats in the 2026 Japanese snap general election?
+  E8.C2: Will the Centrist Reform Alliance win between 150 and 159 seats in the 2026 Japanese snap general election?
+  E8.C3: Will the Centrist Reform Alliance win between 160 and 169 seats in the 2026 Japanese snap general election?
+  E8.C4: Will the Centrist Reform Alliance win between 170 and 179 seats in the 2026 Japanese snap general election?
+  E8.C5: Will the Centrist Reform Alliance win between 180 and 189 seats in the 2026 Japanese snap general election?
+  E8.C6: Will the Centrist Reform Alliance win 190 or more seats in the 2026 Japanese snap general election?
+
+=== E9: Will USD hit ___ Iranian rials by July 31?
+Rules:
+This market will resolve to “Yes” if the finalized USD exchange rate on Bonbast is equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the specified price for any day between market creation and July 31, 2026. Otherwise, this market will resolve to “No”.
+
+This market will resolve according to the daily finalized free-market USD exchange rate as displayed on Bonbast (https://www.bonbast.com/graph/usd), which publishes prices in Iranian toman, where 1 Iranian toman equals 10 Iranian rials (IRR).
+
+A daily figure will be considered finalized once the following day’s figure is released.
+
+Revisions or corrections to daily figures indicating a qualifying exchange rate will be considered only if they occur before all relevant figures for this market have been finalized.
+
+The resolution source for this market will be Bonbast (https://www.bonbast.com/graph/usd). Resolution will occur once the final exchange rate data point of the specified timeframe is finalized. If the resolution source becomes permanently unavailable, another resolution source will be chosen.
+Contracts:
+  E9.C1: Will USD reach 1.9M Iranian rials by July 31?
+  E9.C2: Will USD fall to 1.6M Iranian rials by July 31?
+  E9.C3: Will USD fall to 1.5M Iranian rials by July 31?
+  E9.C4: Will USD fall to 1.4M Iranian rials by July 31?
+
+=== E10: GPU rental prices (H100) end of June?
+Rules:
+This market will resolve according to the finalized Ornn H100 Index price for June 30, 2026. 
+
+If the recorded data falls exactly between two brackets, this market will resolve to the higher bracket.
+
+The resolution source for this market is Ornnai.com (ornnai.com), specifically, the H100 Index chart data available at https://dashboard.ornnai.com. The specified finalized daily value shown on the chart will be used for resolution. Daily data will be considered finalized once the following day’s data point is published.
+
+Resolution will occur once the specified data point is finalized. If the relevant data is not finalized by the end of the 7th calendar day after the specified date (ET), this market will resolve according to the latest data available at that time. Revisions made after the relevant figure has been finalized will not be considered.
+Contracts:
+  E10.C1: Will the Ornn H100 Index be less than $2.00 on June 30, 2026?
+  E10.C2: Will the Ornn H100 Index be between $2.00 and $2.30 on June 30, 2026?
+  E10.C3: Will the Ornn H100 Index be between $2.30 and $2.60 on June 30, 2026?
+  E10.C4: Will the Ornn H100 Index be between $2.60 and $2.90 on June 30, 2026?
+  E10.C5: Will the Ornn H100 Index be between $2.90 and $3.20 on June 30, 2026?
+  E10.C6: Will the Ornn H100 Index be between $3.20 and $3.50 on June 30, 2026?
+  E10.C7: Will the Ornn H100 Index be at least $3.50 on June 30, 2026?

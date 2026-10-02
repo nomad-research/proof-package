@@ -1,0 +1,72 @@
+{
+ "hedges": [
+  {
+   "contract": "E3.7",
+   "side": "YES",
+   "reason": "Pause-Cut-Pause is the most natural path for my failure narrative. July holds, as in my on-hold base case. Summer payrolls weaken and core PCE cools, so September brings an 'insurance' 25bp cut, and then the committee pauses again. None of the listed instruments carries my asset-market channel (2-year yields, gold, dollar, unemployment). This is the only one that pays directly in the worlds where the September cut sinks C3."
+  },
+  {
+   "contract": "E3.8",
+   "side": "YES",
+   "reason": "Pause-Cut-Cut covers the same failure world with worse data: weakening labor data turns into a cutting cycle, which is also where a growth scare or credit event could force a larger September move."
+  },
+  {
+   "contract": "E3.3",
+   "side": "YES",
+   "reason": "Cut-Cut-Pause covers the case where the softening is already clear by late July. The committee cuts in July and again in September, which would also make C3 lose."
+  },
+  {
+   "contract": "E3.4",
+   "side": "YES",
+   "reason": "Cut-Cut-Cut is the deep-softening tail: a recession-style easing run, which is also where a 50bp September cut (C1) becomes possible. Together with E3.3, E3.7 and E3.8, this covers every path with a September cut."
+  }
+ ],
+ "claims": [
+  {
+   "if": {
+    "contract": "C3",
+    "resolves": "YES"
+   },
+   "then": {
+    "contract": "E3.7",
+    "resolves": "NO"
+   },
+   "reason": "Both markets resolve on the same September 15-16 FOMC decision. No change in September means the second leg is a pause, so a path with a September cut cannot resolve YES."
+  },
+  {
+   "if": {
+    "contract": "C3",
+    "resolves": "YES"
+   },
+   "then": {
+    "contract": "E3.8",
+    "resolves": "NO"
+   },
+   "reason": "Same September decision: a hold in September rules out Pause-Cut-Cut."
+  },
+  {
+   "if": {
+    "contract": "C3",
+    "resolves": "YES"
+   },
+   "then": {
+    "contract": "E3.3",
+    "resolves": "NO"
+   },
+   "reason": "Same September decision: a hold in September rules out Cut-Cut-Pause."
+  },
+  {
+   "if": {
+    "contract": "C3",
+    "resolves": "YES"
+   },
+   "then": {
+    "contract": "E3.4",
+    "resolves": "NO"
+   },
+   "reason": "Same September decision: a hold in September rules out Cut-Cut-Cut."
+  }
+ ],
+ "no_instrument": false,
+ "recalls_outcome": false
+}

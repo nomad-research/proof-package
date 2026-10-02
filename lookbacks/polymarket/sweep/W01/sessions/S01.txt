@@ -1,0 +1,328 @@
+You will be shown 6 questions from a prediction market. Each has one or more contracts that resolve YES or NO under the rules shown. Each question gives the date your view is "as of": answer as you would on that date.
+
+Use only what you already know. Do not search for or look up anything: reading this file is the only tool call you may make. There are no prices in this file and you should not try to estimate what any market thinks; give your own view.
+
+Each question says what to write for it. Whole percents run from 1 to 99. Levels are plain numbers in the units the contracts use (for example 95000 for $95,000, 3.25 for 3.25%). Dates are YYYY-MM-DD.
+
+For each question also say whether you recognise how it actually turned out ("recognised": true only if you believe you remember the real outcome; otherwise false).
+
+Reply with one JSON object and nothing else:
+{"events": [{"label": "E1", "recognised": false, ...the fields that question asks for...}]}
+
+=== E1 (as of 2026-10-01): Paraíba Senate Election: 1st Place
+Rules:
+The Brazilian Federal Senate election for Paraíba is scheduled to take place on October 4, 2026.
+
+This market will resolve according to the candidate who wins the most valid votes of any candidate at the specified election.
+
+Candidates will be primarily ranked by order of valid votes won. If two or more candidates are tied for any position, ties will be broken by alphabetical order of the candidates’ listed full names as they appear in this market. This market will resolve to the candidate that occupies the highest finishing position after applying this ranking.
+
+If the result of this election isn't definitively known by June 30, 2027, 11:59 PM ET, the market will resolve to "Other".
+
+This market will resolve based on the result of the election, as indicated by a consensus of credible reporting. If there is ambiguity, this market will resolve based solely on the official results as reported by the Brazilian government, specifically the Superior Electoral Court (Tribunal Superior Eleitoral, TSE) (e.g., www.tse.jus.br/eleicoes/resultados-eleicoes).
+Contracts:
+  E1.C1: Will Adriano Trajano win the most votes in the 2026 Paraíba Senate election?
+  E1.C2: Will André Gadelha win the most votes in the 2026 Paraíba Senate election?
+  E1.C3: Will Dr. Marcelo Queiroga win the most votes in the 2026 Paraíba Senate election?
+  E1.C4: Will Joao Azevêdo win the most votes in the 2026 Paraíba Senate election?
+  E1.C5: Will João Batista win the most votes in the 2026 Paraíba Senate election?
+  E1.C6: Will Major Fábio win the most votes in the 2026 Paraíba Senate election?
+  E1.C7: Will Nabor win the most votes in the 2026 Paraíba Senate election?
+  E1.C8: Will Rinaldo Júnior win the most votes in the 2026 Paraíba Senate election?
+  E1.C9: Will Rosilene Santana win the most votes in the 2026 Paraíba Senate election?
+  E1.C10: Will Veneziano win the most votes in the 2026 Paraíba Senate election?
+  E1.C11: Will Candidate A win the most votes in the 2026 Paraíba Senate election?
+  E1.C12: Will Candidate B win the most votes in the 2026 Paraíba Senate election?
+  E1.C13: Will Candidate C win the most votes in the 2026 Paraíba Senate election?
+  E1.C14: Will Candidate D win the most votes in the 2026 Paraíba Senate election?
+  E1.C15: Will Candidate E win the most votes in the 2026 Paraíba Senate election?
+  E1.C16: Will Candidate F win the most votes in the 2026 Paraíba Senate election?
+  E1.C17: Will Candidate G win the most votes in the 2026 Paraíba Senate election?
+  E1.C18: Will Candidate H win the most votes in the 2026 Paraíba Senate election?
+  E1.C19: Will Candidate I win the most votes in the 2026 Paraíba Senate election?
+  E1.C20: Will Candidate J win the most votes in the 2026 Paraíba Senate election?
+  E1.C21: Will Candidate K win the most votes in the 2026 Paraíba Senate election?
+  E1.C22: Will Candidate L win the most votes in the 2026 Paraíba Senate election?
+  E1.C23: Will Candidate M win the most votes in the 2026 Paraíba Senate election?
+  E1.C24: Will Candidate N win the most votes in the 2026 Paraíba Senate election?
+  E1.C25: Will Candidate O win the most votes in the 2026 Paraíba Senate election?
+  E1.C26: Will Candidate P win the most votes in the 2026 Paraíba Senate election?
+  E1.C27: Will Candidate Q win the most votes in the 2026 Paraíba Senate election?
+  E1.C28: Will Candidate R win the most votes in the 2026 Paraíba Senate election?
+  E1.C29: Will Candidate S win the most votes in the 2026 Paraíba Senate election?
+  E1.C30: Will Candidate T win the most votes in the 2026 Paraíba Senate election?
+  E1.C31: Will Candidate U win the most votes in the 2026 Paraíba Senate election?
+  E1.C32: Will Candidate V win the most votes in the 2026 Paraíba Senate election?
+  E1.C33: Will Candidate W win the most votes in the 2026 Paraíba Senate election?
+  E1.C34: Will Candidate X win the most votes in the 2026 Paraíba Senate election?
+  E1.C35: Will Candidate Y win the most votes in the 2026 Paraíba Senate election?
+  E1.C36: Will Candidate Z win the most votes in the 2026 Paraíba Senate election?
+  E1.C37: Will someone else win the most votes in the 2026 Paraíba Senate election?
+What to write for E1:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E2 (as of 2026-10-01): Pará Governor Election Winner
+Rules:
+The Pará gubernatorial election is scheduled to take place in Brazil on October 4, 2026, with a runoff on October 25, 2026, if no candidate receives a majority of the valid votes in the first round.
+
+This market will resolve according to the candidate who wins this election.
+
+Temporary, interim, or placeholder governors appointed by any means before the specified election will not be considered.
+
+If the result of this election isn't known by June 30, 2027, 11:59 PM ET, the market will resolve to "Other".
+
+This market will resolve based on the result of the election, as indicated by a consensus of credible reporting. If there is ambiguity, this market will resolve based solely on the official results as reported by the Brazilian government, specifically the Superior Electoral Court (Tribunal Superior Eleitoral, TSE) (e.g., www.tse.jus.br/eleicoes/resultados-eleicoes).
+Contracts:
+  E2.C1: Will Hana Ghassan win the Governor of Pará election?
+  E2.C2: Will Dr. Daniel Santos win the Governor of Pará election?
+  E2.C3: Will Éder Mauro win the Governor of Pará election?
+  E2.C4: Will Zequinha Marinho win the Governor of Pará election?
+  E2.C5: Will Rogério Barra win the Governor of Pará election?
+  E2.C6: Will Paulo Rocha win the Governor of Pará election?
+  E2.C7: Will Dirceu Ten Caten win the Governor of Pará election?
+  E2.C8: Will Candidate A win the Governor of Pará election?
+  E2.C9: Will Candidate B win the Governor of Pará election?
+  E2.C10: Will Candidate C win the Governor of Pará election?
+  E2.C11: Will Candidate D win the Governor of Pará election?
+  E2.C12: Will Candidate E win the Governor of Pará election?
+  E2.C13: Will Candidate F win the Governor of Pará election?
+  E2.C14: Will Candidate G win the Governor of Pará election?
+  E2.C15: Will Candidate H win the Governor of Pará election?
+  E2.C16: Will Candidate I win the Governor of Pará election?
+  E2.C17: Will Candidate J win the Governor of Pará election?
+  E2.C18: Will Other win the Governor of Pará election?
+What to write for E2:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E3 (as of 2026-10-01): Espírito Santo Governor Election Winner 
+Rules:
+The Espírito Santo gubernatorial election is scheduled to take place in Brazil on October 4, 2026, with a runoff on October 25, 2026, if no candidate receives a majority of the valid votes in the first round.
+
+This market will resolve according to the candidate who wins this election.
+
+Temporary, interim, or placeholder governors appointed by any means before the specified election will not be considered.
+
+If the result of this election isn't known by June 30, 2027, 11:59 PM ET, the market will resolve to "Other".
+
+This market will resolve based on the result of the election, as indicated by a consensus of credible reporting. If there is ambiguity, this market will resolve based solely on the official results as reported by the Brazilian government, specifically the Superior Electoral Court (Tribunal Superior Eleitoral, TSE) (e.g., www.tse.jus.br/eleicoes/resultados-eleicoes).
+Contracts:
+  E3.C1: Will Lorenzo Pazolini win the Governor of Espírito Santo election?
+  E3.C2: Will Ricardo Ferraço win the Governor of Espírito Santo election?
+  E3.C3: Will Sergio Vidigal win the Governor of Espírito Santo election?
+  E3.C4: Will Arnaldinho Borgo win the Governor of Espírito Santo election?
+  E3.C5: Will Euclério Sampaio win the Governor of Espírito Santo election?
+  E3.C6: Will Candidate A win the Governor of Espírito Santo election?
+  E3.C7: Will Candidate B win the Governor of Espírito Santo election?
+  E3.C8: Will Candidate C win the Governor of Espírito Santo election?
+  E3.C9: Will Candidate D win the Governor of Espírito Santo election?
+  E3.C10: Will Candidate E win the Governor of Espírito Santo election?
+  E3.C11: Will Candidate F win the Governor of Espírito Santo election?
+  E3.C12: Will Candidate G win the Governor of Espírito Santo election?
+  E3.C13: Will Candidate H win the Governor of Espírito Santo election?
+  E3.C14: Will Candidate I win the Governor of Espírito Santo election?
+  E3.C15: Will Candidate J win the Governor of Espírito Santo election?
+  E3.C16: Will Other win the Governor of Espírito Santo election?
+What to write for E3:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E4 (as of 2026-10-01): Brazil Presidential Election First Round: 1st Place in Acre
+Rules:
+A presidential election is scheduled to take place in Acre, Brazil on October 4, 2026.
+
+This market will resolve according to the listed candidate who receives the most valid votes in the first round of this election from Acre.
+
+Candidates will be primarily ranked by order of valid votes won in Acre. If two or more candidates are tied for any position, ties will be broken by alphabetical order of the candidates’ listed full names as they appear in this market. This market will resolve to the candidate that occupies the highest finishing position after applying this ranking.
+
+If the result of this election isn't known definitively by June 30, 2027, 11:59 PM ET, the market will resolve to "Other".
+
+This market will resolve based on the result of the election, as indicated by a consensus of credible reporting. If there is ambiguity, this market will resolve based solely on the official results as reported by the Brazilian government, specifically the Superior Electoral Court (Tribunal Superior Eleitoral, TSE) (e.g., https://dadosabertos.tse.jus.br/).
+Contracts:
+  E4.C1: Will Clariana Barao win the most votes in the next Brazil presidential election from Acre?
+  E4.C2: Will Edmilson Costa win the most votes in the next Brazil presidential election from Acre?
+  E4.C3: Will Escritor Augusto Cury win the most votes in the next Brazil presidential election from Acre?
+  E4.C4: Will Flavio Bolsonaro win the most votes in the next Brazil presidential election from Acre?
+  E4.C5: Will Hertz Dias win the most votes in the next Brazil presidential election from Acre?
+  E4.C6: Will Lula win the most votes in the next Brazil presidential election from Acre?
+  E4.C7: Will Pablo Marçal win the most votes in the next Brazil presidential election from Acre?
+  E4.C8: Will Renan Santos win the most votes in the next Brazil presidential election from Acre?
+  E4.C9: Will Ronaldo Caiado win the most votes in the next Brazil presidential election from Acre?
+  E4.C10: Will Rui Costa Pimenta win the most votes in the next Brazil presidential election from Acre?
+  E4.C11: Will Samara win the most votes in the next Brazil presidential election from Acre?
+  E4.C12: Will Veterinário Wilson Grassi win the most votes in the next Brazil presidential election from Acre?
+  E4.C13: Will Zema win the most votes in the next Brazil presidential election from Acre?
+  E4.C14: Will Candidate A win the most votes in the next Brazil presidential election from Acre?
+  E4.C15: Will Candidate B win the most votes in the next Brazil presidential election from Acre?
+  E4.C16: Will Candidate C win the most votes in the next Brazil presidential election from Acre?
+  E4.C17: Will Candidate D win the most votes in the next Brazil presidential election from Acre?
+  E4.C18: Will Candidate E win the most votes in the next Brazil presidential election from Acre?
+  E4.C19: Will Candidate F win the most votes in the next Brazil presidential election from Acre?
+  E4.C20: Will Candidate G win the most votes in the next Brazil presidential election from Acre?
+  E4.C21: Will Candidate H win the most votes in the next Brazil presidential election from Acre?
+  E4.C22: Will Candidate I win the most votes in the next Brazil presidential election from Acre?
+  E4.C23: Will Candidate J win the most votes in the next Brazil presidential election from Acre?
+  E4.C24: Will Candidate K win the most votes in the next Brazil presidential election from Acre?
+  E4.C25: Will Candidate L win the most votes in the next Brazil presidential election from Acre?
+  E4.C26: Will Candidate M win the most votes in the next Brazil presidential election from Acre?
+  E4.C27: Will Candidate N win the most votes in the next Brazil presidential election from Acre?
+  E4.C28: Will Candidate O win the most votes in the next Brazil presidential election from Acre?
+  E4.C29: Will Candidate P win the most votes in the next Brazil presidential election from Acre?
+  E4.C30: Will Candidate Q win the most votes in the next Brazil presidential election from Acre?
+  E4.C31: Will Candidate R win the most votes in the next Brazil presidential election from Acre?
+  E4.C32: Will Candidate S win the most votes in the next Brazil presidential election from Acre?
+  E4.C33: Will Candidate T win the most votes in the next Brazil presidential election from Acre?
+  E4.C34: Will Candidate U win the most votes in the next Brazil presidential election from Acre?
+  E4.C35: Will Candidate V win the most votes in the next Brazil presidential election from Acre?
+  E4.C36: Will Candidate W win the most votes in the next Brazil presidential election from Acre?
+  E4.C37: Will Candidate X win the most votes in the next Brazil presidential election from Acre?
+  E4.C38: Will Candidate Y win the most votes in the next Brazil presidential election from Acre?
+  E4.C39: Will Candidate Z win the most votes in the next Brazil presidential election from Acre?
+  E4.C40: Will someone else win the most votes in the next Brazil presidential election from Acre?
+What to write for E4:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E5 (as of 2026-10-01): What price will Bitcoin hit September 28-October 4?
+Rules:
+What price will Bitcoin hit September 28-October 4?
+Contracts:
+  E5.C1: Will Bitcoin reach $98,000 September 28-October 4?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1-minute candle for BTC/USDT during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "High" price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the BTC/USDT "High" prices available at https://www.binance.com/en/trade/BTC_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance BTC/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E5.C2: Will Bitcoin reach $96,000 September 28-October 4?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1-minute candle for BTC/USDT during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "High" price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the BTC/USDT "High" prices available at https://www.binance.com/en/trade/BTC_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance BTC/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E5.C3: Will Bitcoin reach $94,000 September 28-October 4?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1-minute candle for BTC/USDT during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "High" price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the BTC/USDT "High" prices available at https://www.binance.com/en/trade/BTC_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance BTC/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E5.C4: Will Bitcoin reach $92,000 September 28-October 4?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1-minute candle for BTC/USDT during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "High" price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the BTC/USDT "High" prices available at https://www.binance.com/en/trade/BTC_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance BTC/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E5.C5: Will Bitcoin reach $90,000 September 28-October 4?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1-minute candle for BTC/USDT during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "High" price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the BTC/USDT "High" prices available at https://www.binance.com/en/trade/BTC_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance BTC/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E5.C6: Will Bitcoin reach $88,000 September 28-October 4?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1-minute candle for BTC/USDT during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "High" price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the BTC/USDT "High" prices available at https://www.binance.com/en/trade/BTC_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance BTC/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E5.C7: Will Bitcoin reach $86,000 September 28-October 4?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1-minute candle for BTC/USDT during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "High" price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the BTC/USDT "High" prices available at https://www.binance.com/en/trade/BTC_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance BTC/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E5.C8: Will Bitcoin dip to $82,000 September 28-October 4?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for Bitcoin (BTC/USDT) during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "Low" price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the BTC/USDT "Low" prices available at https://www.binance.com/en/trade/BTC_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance BTC/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E5.C9: Will Bitcoin dip to $80,000 September 28-October 4?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for Bitcoin (BTC/USDT) during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "Low" price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the BTC/USDT "Low" prices available at https://www.binance.com/en/trade/BTC_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance BTC/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E5.C10: Will Bitcoin dip to $78,000 September 28-October 4?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for Bitcoin (BTC/USDT) during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "Low" price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the BTC/USDT "Low" prices available at https://www.binance.com/en/trade/BTC_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance BTC/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E5.C11: Will Bitcoin dip to $76,000 September 28-October 4?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for Bitcoin (BTC/USDT) during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "Low" price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the BTC/USDT "Low" prices available at https://www.binance.com/en/trade/BTC_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance BTC/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E5.C12: Will Bitcoin dip to $74,000 September 28-October 4?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for Bitcoin (BTC/USDT) during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "Low" price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the BTC/USDT "Low" prices available at https://www.binance.com/en/trade/BTC_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance BTC/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E5.C13: Will Bitcoin dip to $72,000 September 28-October 4?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for Bitcoin (BTC/USDT) during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "Low" price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the BTC/USDT "Low" prices available at https://www.binance.com/en/trade/BTC_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance BTC/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E5.C14: Will Bitcoin dip to $70,000 September 28-October 4?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for Bitcoin (BTC/USDT) during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "Low" price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the BTC/USDT "Low" prices available at https://www.binance.com/en/trade/BTC_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance BTC/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+What to write for E5:
+  Write "high": for each chance 10, 25, 50, 75 and 90, the level you give that chance of being reached (at or above) within the period. The 10 level is the highest.
+  Write "low": for each chance 10, 25, 50, 75 and 90, the level you give that chance of being reached (at or below) within the period. The 10 level is the lowest.
+
+=== E6 (as of 2026-10-01): Tocantins Senate Election: 1st Place
+Rules:
+The Brazilian Federal Senate election for Tocantins is scheduled to take place on October 4, 2026.
+
+This market will resolve according to the candidate who wins the most valid votes of any candidate at the specified election.
+
+Candidates will be primarily ranked by order of valid votes won. If two or more candidates are tied for any position, ties will be broken by alphabetical order of the candidates’ listed full names as they appear in this market. This market will resolve to the candidate that occupies the highest finishing position after applying this ranking.
+
+If the result of this election isn't definitively known by June 30, 2027, 11:59 PM ET, the market will resolve to "Other".
+
+This market will resolve based on the result of the election, as indicated by a consensus of credible reporting. If there is ambiguity, this market will resolve based solely on the official results as reported by the Brazilian government, specifically the Superior Electoral Court (Tribunal Superior Eleitoral, TSE) (e.g., www.tse.jus.br/eleicoes/resultados-eleicoes).
+Contracts:
+  E6.C1: Will Alexandre Guimarães win the most votes in the 2026 Tocantins Senate election?
+  E6.C2: Will Apóstolo Flavio Braga win the most votes in the 2026 Tocantins Senate election?
+  E6.C3: Will Eduardo Gomes win the most votes in the 2026 Tocantins Senate election?
+  E6.C4: Will Eli Borges win the most votes in the 2026 Tocantins Senate election?
+  E6.C5: Will Fábio Ribeiro win the most votes in the 2026 Tocantins Senate election?
+  E6.C6: Will Gaguim win the most votes in the 2026 Tocantins Senate election?
+  E6.C7: Will Helio Rodrigues Bolsonaro win the most votes in the 2026 Tocantins Senate election?
+  E6.C8: Will Nilton Santos win the most votes in the 2026 Tocantins Senate election?
+  E6.C9: Will Osvany Luz win the most votes in the 2026 Tocantins Senate election?
+  E6.C10: Will Paulo Mourão win the most votes in the 2026 Tocantins Senate election?
+  E6.C11: Will Professor Osvaldo win the most votes in the 2026 Tocantins Senate election?
+  E6.C12: Will Ronaldo Dimas win the most votes in the 2026 Tocantins Senate election?
+  E6.C13: Will Vanderlei Luxemburgo win the most votes in the 2026 Tocantins Senate election?
+  E6.C14: Will Candidate A win the most votes in the 2026 Tocantins Senate election?
+  E6.C15: Will Candidate B win the most votes in the 2026 Tocantins Senate election?
+  E6.C16: Will Candidate C win the most votes in the 2026 Tocantins Senate election?
+  E6.C17: Will Candidate D win the most votes in the 2026 Tocantins Senate election?
+  E6.C18: Will Candidate E win the most votes in the 2026 Tocantins Senate election?
+  E6.C19: Will Candidate F win the most votes in the 2026 Tocantins Senate election?
+  E6.C20: Will Candidate G win the most votes in the 2026 Tocantins Senate election?
+  E6.C21: Will Candidate H win the most votes in the 2026 Tocantins Senate election?
+  E6.C22: Will Candidate I win the most votes in the 2026 Tocantins Senate election?
+  E6.C23: Will Candidate J win the most votes in the 2026 Tocantins Senate election?
+  E6.C24: Will Candidate K win the most votes in the 2026 Tocantins Senate election?
+  E6.C25: Will Candidate L win the most votes in the 2026 Tocantins Senate election?
+  E6.C26: Will Candidate M win the most votes in the 2026 Tocantins Senate election?
+  E6.C27: Will Candidate N win the most votes in the 2026 Tocantins Senate election?
+  E6.C28: Will Candidate O win the most votes in the 2026 Tocantins Senate election?
+  E6.C29: Will Candidate P win the most votes in the 2026 Tocantins Senate election?
+  E6.C30: Will Candidate Q win the most votes in the 2026 Tocantins Senate election?
+  E6.C31: Will Candidate R win the most votes in the 2026 Tocantins Senate election?
+  E6.C32: Will Candidate S win the most votes in the 2026 Tocantins Senate election?
+  E6.C33: Will Candidate T win the most votes in the 2026 Tocantins Senate election?
+  E6.C34: Will Candidate U win the most votes in the 2026 Tocantins Senate election?
+  E6.C35: Will Candidate V win the most votes in the 2026 Tocantins Senate election?
+  E6.C36: Will Candidate W win the most votes in the 2026 Tocantins Senate election?
+  E6.C37: Will Candidate X win the most votes in the 2026 Tocantins Senate election?
+  E6.C38: Will Candidate Y win the most votes in the 2026 Tocantins Senate election?
+  E6.C39: Will Candidate Z win the most votes in the 2026 Tocantins Senate election?
+  E6.C40: Will someone else win the most votes in the 2026 Tocantins Senate election?
+What to write for E6:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).

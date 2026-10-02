@@ -1,0 +1,195 @@
+You will be shown 10 questions from a prediction market. Each question has one or more contracts, and each contract resolves YES or NO under the rules shown.
+
+For every contract, give your probability, as a whole percent from 1 to 99, that it resolves YES. Use only what you already know. Do not search for or look up anything: reading this file is the only tool call you may make.
+
+For each question, also say whether you recognise how it actually turned out ("recognised": true only if you believe you remember the real outcome; otherwise false).
+
+Where a question's contracts are mutually exclusive (exactly one can resolve YES), your numbers for it should add up to about 100. Where they are nested thresholds or dates, keep them consistent with each other.
+
+Reply with one JSON object and nothing else, in this form:
+{"events": [{"label": "E1", "recognised": false, "p": {"E1.C1": 35, "E1.C2": 60}}]}
+
+Every contract label below must appear exactly once in your reply.
+
+=== E1: Cyclosporiasis cases in U.S. by July 31?
+Rules:
+This market will resolve to "Yes" if there have been the specified amount or more confirmed domestically acquired cases of cyclosporiasis in humans in the territory of the United States of America since May 1, 2026, according to the CDC surveillance count by July 31, 2026, 11:59 PM ET. Otherwise, this market will resolve to "No".
+
+The resolution source for this market will be the CDC Surveillance of Cyclosporiasis page’s “U.S. cases reported to CDC” count (see: https://www.cdc.gov/cyclosporiasis/php/surveillance/index.html) at the resolution time. If the counter becomes unavailable, another credible source will be used.
+
+Note: Only cases reported by the CDC as confirmed domestically acquired cases of cyclosporiasis will qualify, regardless of reports from U.S. State agencies or other sources. Travel-associated cases acquired outside the United States will not qualify.
+Contracts:
+  E1.C1: Will there be at least 5000 cyclosporiasis cases in the U.S. by July 31, 2026?
+  E1.C2: Will there be at least 10000 cyclosporiasis cases in the U.S. by July 31, 2026?
+  E1.C3: Will there be at least 1800 cyclosporiasis cases in the U.S. by July 31, 2026?
+  E1.C4: Will there be at least 2000 cyclosporiasis cases in the U.S. by July 31, 2026?
+  E1.C5: Will there be at least 2500 cyclosporiasis cases in the U.S. by July 31, 2026?
+  E1.C6: Will there be at least 3000 cyclosporiasis cases in the U.S. by July 31, 2026?
+
+=== E2: Will Putin meet with Zelenskyy by March 31, 2026?
+Rules:
+This market will resolve to "Yes" if Vladimir Putin meets with Volodymyr Zelenskyy between this market's creation and March 31, 2026, 11:59 PM ET. Otherwise, this market will resolve to "No".
+
+An exchange of words, handshake, direct conversation, or other clear personal interaction between the named individuals will qualify as a meeting. Merely standing in proximity, making eye contact, or being present in the same room or event without direct interaction will not qualify.
+
+A meeting is defined as any encounter where both Zelenskyy and Putin are present and interact with each other in person.
+
+The resolution source will be a consensus of credible reporting.
+Contracts:
+  E2.C1: Will Putin meet with Zelenskyy by March 31, 2026?
+
+=== E3: Major solar storm by April 30?
+Rules:
+This market will resolve to "Yes" if a solar radiation storm with a severity level of 3 or greater occurs between market creation and April 30, 2026, 11:59PM ET. Otherwise, this market will resolve to "No". 
+
+An S3 event is a solar radiation storm with a "Strong" classification. More information on the space weather classification criteria can be found here: https://www.swpc.noaa.gov/noaa-scales-explanation
+
+This market will resolve immediately upon the occurrence of a qualifying event. Any later revisions or corrections will not be considered.
+
+This market will resolve based on information from the National Oceanic and Atmospheric Administration's Space Weather Prediction Center under the heading marked "Current Space Weather Conditions". (https://www.swpc.noaa.gov/products/alerts-watches-and-warnings#)
+
+If the resolution source becomes permanently unavailable, this market will resolve to "No".
+Contracts:
+  E3.C1: Major solar storm by April 30?
+
+=== E4: Will any European country expel a U.S. ambassador by March 31?
+Rules:
+This market will resolve to “Yes” if any U.S. ambassador is expelled from their assigned European country by the respective government between market creation and March 31, 2026, 11:59:59 PM ET. Otherwise, this market will resolve to "No".
+
+Any expulsion from a European country where a U.S. ambassador is assigned as of the time of this market’s creation will qualify.
+
+For the purposes of this market, a “European country” is defined as any of the following sovereign states: Albania, Andorra, Austria, Belarus, Belgium, Bosnia and Herzegovina, Bulgaria, Croatia, Cyprus, Czechia, Denmark, Estonia, Finland, France, Georgia, Germany, Greece, Hungary, Iceland, Ireland, Italy, Kosovo, Latvia, Liechtenstein, Lithuania, Luxembourg, Malta, Moldova, Monaco, Montenegro, Netherlands, North Macedonia, Norway, Poland, Portugal, Romania, San Marino, Serbia, Slovakia, Slovenia, Spain, Sweden, Switzerland, Turkey, Ukraine, United Kingdom, and Vatican City.
+
+For the purposes of resolving this market, an official announcement that a U.S. ambassador will be or is being expelled will suffice regardless of whether or not the respective ambassador leaves the country within this market’s timeframe.
+
+Qualifying announcements must be definitive, unambiguous, official statements issued by an authorized governmental person or entity.
+
+Whether the ambassador resigns, is recalled, or otherwise departs voluntarily will have no bearing on the resolution of this market.
+
+The primary resolution source for this market will be official information from the government of the United States, including the U.S. Department of State, as well as official information from the relevant expelling government; however, an overwhelming consensus of credible reporting may also be used.
+Contracts:
+  E4.C1: Will any European country expel a U.S. ambassador by March 31?
+
+=== E5: AZ-05 Republican Primary Winner
+Rules:
+This market will resolve according to the candidate who wins the nomination for the Republican Party to contest the AZ-05 congressional district seat in the U.S. House of Representatives in the 2026 midterm elections. The Republican primary will take place on July 21, 2026.
+
+If no nominee is announced by November 3, 2026, 11:59PM ET, this market will resolve to "Other".
+
+The resolution source for this market will be a consensus of official Republican sources, including https://www.rnc.org/.
+
+Any replacement of the nominee before election day will not change the resolution of the market.
+Contracts:
+  E5.C1: Will Mark Lamb be the Republican nominee for AZ-05?
+    Contract rules: This market will resolve according to the candidate who wins the nomination for the Republican Party to contest the AZ-05 congressional district seat in the U.S. House of Representatives in the 2026 midterm elections. The Republican primary will take place on August 4, 2026.
+
+If no nominee is announced by November 3, 2026, 11:59PM ET, this market will resolve to "Other".
+
+The resolution source for this market will be a consensus of official Republican sources, including https://www.rnc.org/.
+
+Any replacement of the nominee before election day will not change the resolution of the market.
+  E5.C2: Will Jay Feely be the Republican nominee for AZ-05?
+    Contract rules: This market will resolve according to the candidate who wins the nomination for the Republican Party to contest the AZ-05 congressional district seat in the U.S. House of Representatives in the 2026 midterm elections. The Republican primary will take place on August 4, 2026.
+
+If no nominee is announced by November 3, 2026, 11:59PM ET, this market will resolve to "Other".
+
+The resolution source for this market will be a consensus of official Republican sources, including https://www.rnc.org/.
+
+Any replacement of the nominee before election day will not change the resolution of the market.
+  E5.C3: Will Travis Grantham be the Republican nominee for AZ-05?
+    Contract rules: This market will resolve according to the candidate who wins the nomination for the Republican Party to contest the AZ-05 congressional district seat in the U.S. House of Representatives in the 2026 midterm elections. The Republican primary will take place on August 4, 2026.
+
+If no nominee is announced by November 3, 2026, 11:59PM ET, this market will resolve to "Other".
+
+The resolution source for this market will be a consensus of official Republican sources, including https://www.rnc.org/.
+
+Any replacement of the nominee before election day will not change the resolution of the market.
+  E5.C4: Will Daniel Keenan be the Republican nominee for AZ-05?
+    Contract rules: This market will resolve according to the candidate who wins the nomination for the Republican Party to contest the AZ-05 congressional district seat in the U.S. House of Representatives in the 2026 midterm elections. The Republican primary will take place on August 4, 2026.
+
+If no nominee is announced by November 3, 2026, 11:59PM ET, this market will resolve to "Other".
+
+The resolution source for this market will be a consensus of official Republican sources, including https://www.rnc.org/.
+
+Any replacement of the nominee before election day will not change the resolution of the market.
+
+=== E6: U.S. evacuates Beirut Embassy by March 31?
+Rules:
+This market will resolve to "Yes" if the U.S. government announces a full evacuation of the U.S. Embassy in Beirut, Lebanon, or a full evacuation of the embassy is otherwise confirmed by March 31, 2026, 11:59 PM ET. Otherwise, this market will resolve to "No".
+
+A full evacuation announced within this market's timeframe will qualify for a "Yes" resolution regardless of whether an actual evacuation subsequently takes place within the timeframe.
+
+Announcements of a partial evacuation, where some staff are intended to remain, will not count.
+
+The resolution source will be official statements from the U.S. government, or a consensus of credible reporting confirming the evacuation of the embassy.
+Contracts:
+  E6.C1: U.S. evacuates Beirut Embassy by March 31?
+
+=== E7: TX-28 Democratic Primary Winner
+Rules:
+This market will resolve according to the candidate who wins the nomination for the Democratic Party to contest the TX-28 congressional district seat in the U.S. House of Representatives in the 2026 midterm elections. The Democratic primary will take place on March 3, 2026.
+
+If no nominee is announced by November 3, 2026, 11:59PM ET, this market will resolve to "Other".
+
+The resolution source for this market will be a consensus of official Democrat sources, including https://democrats.org/.
+
+Any replacement of the nominee before election day will not change the resolution of the market.
+Contracts:
+  E7.C1: Will Henry Cuellar be the Democratic nominee for TX-28?
+  E7.C2: Will Ryan Trevino be the Democratic nominee for TX-28?
+
+=== E8: Best Chinese AI Company end of May?
+Rules:
+This market will resolve according to the company that owns the model that has the highest arena rank among primarily Chinese companies, based on the Chatbot Arena LLM Leaderboard (https://lmarena.ai/) when the table under the "Leaderboard" tab is checked on May 31, 2026, 12:00 PM ET.
+
+Results from the "Rank" column under the "Text Arena | Overall" Leaderboard tab at https://lmarena.ai/leaderboard/text with style control off will be used to resolve this market.
+
+Qualifying Chinese Models will be ordered primarily by their leaderboard rank at the market’s check time. If two or more models are tied on rank, they will be ordered by their Arena score, including any underlying, unrounded, granular values reflected in the data below the leaderboard. If a tie still remains, alphabetical order of company names as listed in this market group will be used as a final tiebreaker (e.g., if the two models are tied by exact arena score, “Meituan” would be ranked ahead of “Xiaomi”). This market will resolve based on the company that occupies first place under this ranking.
+
+The resolution source for this market is the Chatbot Arena LLM Leaderboard found at https://lmarena.ai/. If this resolution source is unavailable at check time, this market will remain open until the leaderboard comes back online and will resolve based on the first check after it becomes available. If it becomes permanently unavailable, this market will resolve based on another resolution source.
+Contracts:
+  E8.C1: Will Alibaba have the best AI model at the end of May 2026?
+  E8.C2: Will ByteDance have the best AI model at the end of May 2026?
+  E8.C3: Will Baidu have the best AI model at the end of May 2026?
+  E8.C4: Will Moonshot have the best AI model at the end of May 2026?
+  E8.C5: Will Z.ai have the best AI model at the end of May 2026?
+  E8.C6: Will DeepSeek have the best AI model at the end of May 2026?
+  E8.C7: Will Meituan have the best AI model at the end of May 2026?
+  E8.C8: Will Xiaomi have the best AI model at the end of May 2026?
+  E8.C9: Will StepFun have the best AI model at the end of May 2026?
+  E8.C10: Will Tencent have the best AI model at the end of May 2026?
+  E8.C11: Will MiniMax have the best AI model at the end of May 2026?
+
+=== E9: Iran x Oman Strait of Hormuz agreement by June 15?
+Rules:
+This market will resolve to "Yes" if an official agreement relating to vessel traffic, transit management, tolling, or fee collection in the Strait of Hormuz, defined as a publicly announced mutual agreement, is reached between Iran and Oman between market creation and the specified date, 11:59 PM ET. Otherwise, this market will resolve to “No”.
+
+If such an agreement is officially reached before the resolution date, this market will resolve to "Yes", regardless of if/when the agreement goes into effect.
+
+Statements describing talks, proposals, negotiations, or non-finalized frameworks that do not constitute a finalized agreement will not qualify.
+
+An agreement will qualify as a mutual agreement if it is confirmed as a mutual agreement by an overwhelming consensus of credible reporting, even if the agreement isn’t formally announced by both governments.
+
+Agreements that include Iran and Oman as parties, even if they also involve other countries, will qualify for resolution.
+
+The primary resolution source for this market will be official information from the governments of Iran and Oman; however, an overwhelming consensus of credible reporting confirming an agreement has been reached will also qualify.
+Contracts:
+  E9.C1: Iran x Oman Strait of Hormuz agreement by June 15?
+
+=== E10: Oregon Republican Senate Primary Winner
+Rules:
+This market will resolve according to the winner of the Republican Primary for United States Senator from Oregon.
+
+If no 2026 Oregon Republican Senate Primary takes place, this market will resolve to "Other".
+
+The resolution source for this market will be the first announcement of the results from the Oregon Republican Party, however an overwhelming consensus of credible reporting may suffice.
+Contracts:
+  E10.C1: Will Joe Johnson be the Republican nominee for Senate in Oregon?
+  E10.C2: Will Douglas T. Muck Jr. be the Republican nominee for Senate in Oregon?
+  E10.C3: Will Tim Skelton be the Republican nominee for Senate in Oregon?
+  E10.C4: Will Russell McAlmond be the Republican nominee for Senate in Oregon?
+  E10.C5: Will Jo Rae Perkins be the Republican nominee for Senate in Oregon?
+  E10.C6: Will David Burch be the Republican nominee for Senate in Oregon?
+  E10.C7: Will David Brock Smith be the Republican nominee for Senate in Oregon?
+  E10.C8: Will Brent Barker be the Republican nominee for Senate in Oregon?
+  E10.C9: Will Deborah C. Brown be the Republican nominee for Senate in Oregon?

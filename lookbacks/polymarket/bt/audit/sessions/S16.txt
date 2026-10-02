@@ -1,0 +1,351 @@
+You will be shown 10 questions from a prediction market. Each question has one or more contracts, and each contract resolves YES or NO under the rules shown.
+
+For every contract, give your probability, as a whole percent from 1 to 99, that it resolves YES. Use only what you already know. Do not search for or look up anything: reading this file is the only tool call you may make.
+
+For each question, also say whether you recognise how it actually turned out ("recognised": true only if you believe you remember the real outcome; otherwise false).
+
+Where a question's contracts are mutually exclusive (exactly one can resolve YES), your numbers for it should add up to about 100. Where they are nested thresholds or dates, keep them consistent with each other.
+
+Reply with one JSON object and nothing else, in this form:
+{"events": [{"label": "E1", "recognised": false, "p": {"E1.C1": 35, "E1.C2": 60}}]}
+
+Every contract label below must appear exactly once in your reply.
+
+=== E1: Will anyone be kicked out of Trump's State of the Union address?
+Rules:
+This market will resolve to "Yes" if any person is ejected or removed against their will from the location of Trump's 2026 State of the Union address, currently scheduled for February 24, 2026 in the Chamber of the U.S. House of Representatives. Otherwise, this market will resolve to "No".
+
+Removal or ejection consists of a person being ordered to leave, or physically removed from the location of Trump's 2026 State of the Union address.
+
+If no State of the Union address takes place by March 31, 2026, 11:59PM ET, this market will resolve to "No".
+
+This market will resolve based on a consensus of credible reporting.
+Contracts:
+  E1.C1: Will anyone be kicked out of Trump's State of the Union address?
+
+=== E2: Will __ ships transit the Strait of Hormuz on any day by July 31?
+Rules:
+This market will resolve to “Yes” if any finalized daily number of transit calls (“Arrivals of Ships”) for the Strait of Hormuz reported by IMF Portwatch is equal to or above the listed value for any date between market creation and July 31, 2026. Otherwise, this market will resolve to “No”.
+
+Transit calls include container, dry bulk, roll-on/roll-off, general cargo, and tanker ships. Ships not reported by IMF Portwatch will not be considered.
+
+Data for a specific date must be finalized before it is considered for this market (namely, once the next date's data point is available, the previous one is finalized).
+
+This market will resolve as soon as a qualifying figure has been finalized or once all relevant data has been finalized. If the data for the final date of the specified timeframe has not been finalized by the end of the third calendar day (ET) after the day on which such data is first released, this market will resolve based on data published up to that point. Additionally, if not all relevant data has been released and finalized within 14 calendar days of the end of the specified period, this market will resolve based on data published up to that point.
+
+In case of obvious data integrity issues (i.e., erroneous data), the market may remain open until the end of the third calendar day (ET) after the date on which such data is first released to allow for corrections. Data integrity issues refer only to clerical or other similar errors in the underlying data, and do not include cases where IMF Portwatch differs from alternative sources.
+
+Only revisions to previously published data points made before the applicable resolution time will be considered.
+
+The resolution source for this market will be IMF Portwatch, specifically the transit calls data published for the Strait of Hormuz at https://portwatch.imf.org/pages/cb5856222a5b4105adc6ee7e880a1730, both in the chart and through downloadable files.
+Contracts:
+  E2.C1: Will 30 ships transit the Strait of Hormuz on any day by July 31, 2026?
+  E2.C2: Will 40 ships transit the Strait of Hormuz on any day by July 31, 2026?
+  E2.C3: Will 50 ships transit the Strait of Hormuz on any day by July 31, 2026?
+  E2.C4: Will 60 ships transit the Strait of Hormuz on any day by July 31, 2026?
+  E2.C5: Will 80 ships transit the Strait of Hormuz on any day by July 31, 2026?
+  E2.C6: Will 100 ships transit the Strait of Hormuz on any day by July 31, 2026?
+
+=== E3: Hungary Election: Popular Vote Margin of Victory
+Rules:
+Parliamentary elections are scheduled to be held in Hungary on April 12, 2026. Hungary uses a mixed electoral system in which most voters cast two votes: one for a candidate in a single-member constituency and one for a national party list. 
+
+This market will resolve according to the margin of victory between the top two parties/coalitions in terms of national party list votes in this election.
+
+For the purposes of this market, the “margin of victory” is defined as the absolute difference between the percentages of valid national list votes received by the party/coalition whose national candidate list wins the most national list votes and the party/coalition whose national candidate list wins the second-most national list votes. Percentages of the valid votes received by each party/coalition will be determined by dividing the total number of valid national list votes each of the top two parties/coalitions receives by the sum of all valid national party list votes cast in the election.
+
+This market will resolve solely based on national party list votes cast in this election. Votes cast for single-member constituencies will not be considered.
+
+If two or more parties/coalitions tie for the most valid national party list votes in this election, this market will resolve to the lowest margin bracket for the party/coalition whose listed name comes first in alphabetical order.
+
+If any unlisted party wins the most national list votes in this election, or the results of this election are not definitively known by December 31, 2026, 11:59 PM ET, this market will resolve to “Other”.
+
+This market will resolve based on the official election results reported by the Hungarian government, specifically the Hungarian Election Authority (Nemzeti Választási Iroda) (valasztas.hu). However, an overwhelming consensus of credible reporting may also suffice.
+
+Note: If the Fidesz-KDNP does not contest this election with a joint national party list, Fidesz-KDNP margin of victory options will represent the national party list officially registered by Fidesz.
+Contracts:
+  E3.C1: Will Tisza win the national list vote in the 2026 Hungarian Parliamentary election by 9%+?
+    Contract rules: Parliamentary elections are scheduled to be held in Hungary on April 12, 2026. Hungary uses a mixed electoral system in which most voters cast two votes: one for a candidate in a single-member constituency and one for a national party list. 
+
+This market will resolve according to the margin of victory between the top two parties/coalitions in terms of national party list votes in this election.
+
+For the purposes of this market, the “margin of victory” is defined as the absolute difference between the percentages of valid national list votes received by the party/coalition whose national candidate list wins the most national list votes and the party/coalition whose national candidate list wins the second-most national list votes. Percentages of the valid votes received by each party/coalition will be determined by dividing the total number of valid national list votes each of the top two parties/coalitions receives by the sum of all valid national party list votes cast in the election.
+
+If the reported value falls exactly between two brackets, then this market will resolve to the higher range bracket.
+
+This market will resolve solely based on national party list votes cast in this election. Votes cast for single-member constituencies will not be considered.
+
+If two or more parties/coalitions tie for the most valid national party list votes in this election, this market will resolve to the lowest margin bracket for the party/coalition whose listed name comes first in alphabetical order.
+
+If any unlisted party wins the most national list votes in this election, or the results of this election are not definitively known by December 31, 2026, 11:59 PM ET, this market will resolve to “Other”.
+
+This market will resolve based on the official election results reported by the Hungarian government, specifically the Hungarian Election Authority (Nemzeti Választási Iroda) (valasztas.hu). However, an overwhelming consensus of credible reporting may also suffice.
+
+Note: If the Fidesz-KDNP does not contest this election with a joint national party list, Fidesz-KDNP margin of victory options will represent the national party list officially registered by Fidesz.
+  E3.C2: Will Tisza win the national list vote in the 2026 Hungarian Parliamentary election by 6-9%?
+    Contract rules: Parliamentary elections are scheduled to be held in Hungary on April 12, 2026. Hungary uses a mixed electoral system in which most voters cast two votes: one for a candidate in a single-member constituency and one for a national party list. 
+
+This market will resolve according to the margin of victory between the top two parties/coalitions in terms of national party list votes in this election.
+
+For the purposes of this market, the “margin of victory” is defined as the absolute difference between the percentages of valid national list votes received by the party/coalition whose national candidate list wins the most national list votes and the party/coalition whose national candidate list wins the second-most national list votes. Percentages of the valid votes received by each party/coalition will be determined by dividing the total number of valid national list votes each of the top two parties/coalitions receives by the sum of all valid national party list votes cast in the election.
+
+If the reported value falls exactly between two brackets, then this market will resolve to the higher range bracket.
+
+This market will resolve solely based on national party list votes cast in this election. Votes cast for single-member constituencies will not be considered.
+
+If two or more parties/coalitions tie for the most valid national party list votes in this election, this market will resolve to the lowest margin bracket for the party/coalition whose listed name comes first in alphabetical order.
+
+If any unlisted party wins the most national list votes in this election, or the results of this election are not definitively known by December 31, 2026, 11:59 PM ET, this market will resolve to “Other”.
+
+This market will resolve based on the official election results reported by the Hungarian government, specifically the Hungarian Election Authority (Nemzeti Választási Iroda) (valasztas.hu). However, an overwhelming consensus of credible reporting may also suffice.
+
+Note: If the Fidesz-KDNP does not contest this election with a joint national party list, Fidesz-KDNP margin of victory options will represent the national party list officially registered by Fidesz.
+  E3.C3: Will Tisza win the national list vote in the 2026 Hungarian Parliamentary election by 3-6%?
+    Contract rules: Parliamentary elections are scheduled to be held in Hungary on April 12, 2026. Hungary uses a mixed electoral system in which most voters cast two votes: one for a candidate in a single-member constituency and one for a national party list. 
+
+This market will resolve according to the margin of victory between the top two parties/coalitions in terms of national party list votes in this election.
+
+For the purposes of this market, the “margin of victory” is defined as the absolute difference between the percentages of valid national list votes received by the party/coalition whose national candidate list wins the most national list votes and the party/coalition whose national candidate list wins the second-most national list votes. Percentages of the valid votes received by each party/coalition will be determined by dividing the total number of valid national list votes each of the top two parties/coalitions receives by the sum of all valid national party list votes cast in the election.
+
+If the reported value falls exactly between two brackets, then this market will resolve to the higher range bracket.
+
+This market will resolve solely based on national party list votes cast in this election. Votes cast for single-member constituencies will not be considered.
+
+If two or more parties/coalitions tie for the most valid national party list votes in this election, this market will resolve to the lowest margin bracket for the party/coalition whose listed name comes first in alphabetical order.
+
+If any unlisted party wins the most national list votes in this election, or the results of this election are not definitively known by December 31, 2026, 11:59 PM ET, this market will resolve to “Other”.
+
+This market will resolve based on the official election results reported by the Hungarian government, specifically the Hungarian Election Authority (Nemzeti Választási Iroda) (valasztas.hu). However, an overwhelming consensus of credible reporting may also suffice.
+
+Note: If the Fidesz-KDNP does not contest this election with a joint national party list, Fidesz-KDNP margin of victory options will represent the national party list officially registered by Fidesz.
+  E3.C4: Will Tisza win the national list vote in the 2026 Hungarian Parliamentary election by 0-3%?
+    Contract rules: Parliamentary elections are scheduled to be held in Hungary on April 12, 2026. Hungary uses a mixed electoral system in which most voters cast two votes: one for a candidate in a single-member constituency and one for a national party list. 
+
+This market will resolve according to the margin of victory between the top two parties/coalitions in terms of national party list votes in this election.
+
+For the purposes of this market, the “margin of victory” is defined as the absolute difference between the percentages of valid national list votes received by the party/coalition whose national candidate list wins the most national list votes and the party/coalition whose national candidate list wins the second-most national list votes. Percentages of the valid votes received by each party/coalition will be determined by dividing the total number of valid national list votes each of the top two parties/coalitions receives by the sum of all valid national party list votes cast in the election.
+
+If the reported value falls exactly between two brackets, then this market will resolve to the higher range bracket.
+
+This market will resolve solely based on national party list votes cast in this election. Votes cast for single-member constituencies will not be considered.
+
+If two or more parties/coalitions tie for the most valid national party list votes in this election, this market will resolve to the lowest margin bracket for the party/coalition whose listed name comes first in alphabetical order.
+
+If any unlisted party wins the most national list votes in this election, or the results of this election are not definitively known by December 31, 2026, 11:59 PM ET, this market will resolve to “Other”.
+
+This market will resolve based on the official election results reported by the Hungarian government, specifically the Hungarian Election Authority (Nemzeti Választási Iroda) (valasztas.hu). However, an overwhelming consensus of credible reporting may also suffice.
+
+Note: If the Fidesz-KDNP does not contest this election with a joint national party list, Fidesz-KDNP margin of victory options will represent the national party list officially registered by Fidesz.
+  E3.C5: Will Fidesz-KDNP win the national list vote in the 2026 Hungarian Parliamentary election by 0-3%?
+    Contract rules: Parliamentary elections are scheduled to be held in Hungary on April 12, 2026. Hungary uses a mixed electoral system in which most voters cast two votes: one for a candidate in a single-member constituency and one for a national party list. 
+
+This market will resolve according to the margin of victory between the top two parties/coalitions in terms of national party list votes in this election.
+
+For the purposes of this market, the “margin of victory” is defined as the absolute difference between the percentages of valid national list votes received by the party/coalition whose national candidate list wins the most national list votes and the party/coalition whose national candidate list wins the second-most national list votes. Percentages of the valid votes received by each party/coalition will be determined by dividing the total number of valid national list votes each of the top two parties/coalitions receives by the sum of all valid national party list votes cast in the election.
+
+If the reported value falls exactly between two brackets, then this market will resolve to the higher range bracket.
+
+This market will resolve solely based on national party list votes cast in this election. Votes cast for single-member constituencies will not be considered.
+
+If two or more parties/coalitions tie for the most valid national party list votes in this election, this market will resolve to the lowest margin bracket for the party/coalition whose listed name comes first in alphabetical order.
+
+If any unlisted party wins the most national list votes in this election, or the results of this election are not definitively known by December 31, 2026, 11:59 PM ET, this market will resolve to “Other”.
+
+This market will resolve based on the official election results reported by the Hungarian government, specifically the Hungarian Election Authority (Nemzeti Választási Iroda) (valasztas.hu). However, an overwhelming consensus of credible reporting may also suffice.
+
+Note: If the Fidesz-KDNP does not contest this election with a joint national party list, Fidesz-KDNP margin of victory options will represent the national party list officially registered by Fidesz.
+  E3.C6: Will Fidesz-KDNP win the national list vote in the 2026 Hungarian Parliamentary election by 3-6%?
+    Contract rules: Parliamentary elections are scheduled to be held in Hungary on April 12, 2026. Hungary uses a mixed electoral system in which most voters cast two votes: one for a candidate in a single-member constituency and one for a national party list. 
+
+This market will resolve according to the margin of victory between the top two parties/coalitions in terms of national party list votes in this election.
+
+For the purposes of this market, the “margin of victory” is defined as the absolute difference between the percentages of valid national list votes received by the party/coalition whose national candidate list wins the most national list votes and the party/coalition whose national candidate list wins the second-most national list votes. Percentages of the valid votes received by each party/coalition will be determined by dividing the total number of valid national list votes each of the top two parties/coalitions receives by the sum of all valid national party list votes cast in the election.
+
+If the reported value falls exactly between two brackets, then this market will resolve to the higher range bracket.
+
+This market will resolve solely based on national party list votes cast in this election. Votes cast for single-member constituencies will not be considered.
+
+If two or more parties/coalitions tie for the most valid national party list votes in this election, this market will resolve to the lowest margin bracket for the party/coalition whose listed name comes first in alphabetical order.
+
+If any unlisted party wins the most national list votes in this election, or the results of this election are not definitively known by December 31, 2026, 11:59 PM ET, this market will resolve to “Other”.
+
+This market will resolve based on the official election results reported by the Hungarian government, specifically the Hungarian Election Authority (Nemzeti Választási Iroda) (valasztas.hu). However, an overwhelming consensus of credible reporting may also suffice.
+
+Note: If the Fidesz-KDNP does not contest this election with a joint national party list, Fidesz-KDNP margin of victory options will represent the national party list officially registered by Fidesz.
+  E3.C7: Will Fidesz-KDNP win the national list vote in the 2026 Hungarian Parliamentary election by 6-9%?
+    Contract rules: Parliamentary elections are scheduled to be held in Hungary on April 12, 2026. Hungary uses a mixed electoral system in which most voters cast two votes: one for a candidate in a single-member constituency and one for a national party list. 
+
+This market will resolve according to the margin of victory between the top two parties/coalitions in terms of national party list votes in this election.
+
+For the purposes of this market, the “margin of victory” is defined as the absolute difference between the percentages of valid national list votes received by the party/coalition whose national candidate list wins the most national list votes and the party/coalition whose national candidate list wins the second-most national list votes. Percentages of the valid votes received by each party/coalition will be determined by dividing the total number of valid national list votes each of the top two parties/coalitions receives by the sum of all valid national party list votes cast in the election.
+
+If the reported value falls exactly between two brackets, then this market will resolve to the higher range bracket.
+
+This market will resolve solely based on national party list votes cast in this election. Votes cast for single-member constituencies will not be considered.
+
+If two or more parties/coalitions tie for the most valid national party list votes in this election, this market will resolve to the lowest margin bracket for the party/coalition whose listed name comes first in alphabetical order.
+
+If any unlisted party wins the most national list votes in this election, or the results of this election are not definitively known by December 31, 2026, 11:59 PM ET, this market will resolve to “Other”.
+
+This market will resolve based on the official election results reported by the Hungarian government, specifically the Hungarian Election Authority (Nemzeti Választási Iroda) (valasztas.hu). However, an overwhelming consensus of credible reporting may also suffice.
+
+Note: If the Fidesz-KDNP does not contest this election with a joint national party list, Fidesz-KDNP margin of victory options will represent the national party list officially registered by Fidesz.
+  E3.C8: Will Fidesz-KDNP win the national list vote in the 2026 Hungarian Parliamentary election by 9%+?
+    Contract rules: Parliamentary elections are scheduled to be held in Hungary on April 12, 2026. Hungary uses a mixed electoral system in which most voters cast two votes: one for a candidate in a single-member constituency and one for a national party list. 
+
+This market will resolve according to the margin of victory between the top two parties/coalitions in terms of national party list votes in this election.
+
+For the purposes of this market, the “margin of victory” is defined as the absolute difference between the percentages of valid national list votes received by the party/coalition whose national candidate list wins the most national list votes and the party/coalition whose national candidate list wins the second-most national list votes. Percentages of the valid votes received by each party/coalition will be determined by dividing the total number of valid national list votes each of the top two parties/coalitions receives by the sum of all valid national party list votes cast in the election.
+
+If the reported value falls exactly between two brackets, then this market will resolve to the higher range bracket.
+
+This market will resolve solely based on national party list votes cast in this election. Votes cast for single-member constituencies will not be considered.
+
+If two or more parties/coalitions tie for the most valid national party list votes in this election, this market will resolve to the lowest margin bracket for the party/coalition whose listed name comes first in alphabetical order.
+
+If any unlisted party wins the most national list votes in this election, or the results of this election are not definitively known by December 31, 2026, 11:59 PM ET, this market will resolve to “Other”.
+
+This market will resolve based on the official election results reported by the Hungarian government, specifically the Hungarian Election Authority (Nemzeti Választási Iroda) (valasztas.hu). However, an overwhelming consensus of credible reporting may also suffice.
+
+Note: If the Fidesz-KDNP does not contest this election with a joint national party list, Fidesz-KDNP margin of victory options will represent the national party list officially registered by Fidesz.
+  E3.C9: Will another outcome occur in the 2026 Hungarian Parliamentary election?
+    Contract rules: Parliamentary elections are scheduled to be held in Hungary on April 12, 2026. Hungary uses a mixed electoral system in which most voters cast two votes: one for a candidate in a single-member constituency and one for a national party list. 
+
+This market will resolve according to the margin of victory between the top two parties/coalitions in terms of national party list votes in this election.
+
+For the purposes of this market, the “margin of victory” is defined as the absolute difference between the percentages of valid national list votes received by the party/coalition whose national candidate list wins the most national list votes and the party/coalition whose national candidate list wins the second-most national list votes. Percentages of the valid votes received by each party/coalition will be determined by dividing the total number of valid national list votes each of the top two parties/coalitions receives by the sum of all valid national party list votes cast in the election.
+
+If the reported value falls exactly between two brackets, then this market will resolve to the higher range bracket.
+
+This market will resolve solely based on national party list votes cast in this election. Votes cast for single-member constituencies will not be considered.
+
+If two or more parties/coalitions tie for the most valid national party list votes in this election, this market will resolve to the lowest margin bracket for the party/coalition whose listed name comes first in alphabetical order.
+
+If any unlisted party wins the most national list votes in this election, or the results of this election are not definitively known by December 31, 2026, 11:59 PM ET, this market will resolve to “Other”.
+
+This market will resolve based on the official election results reported by the Hungarian government, specifically the Hungarian Election Authority (Nemzeti Választási Iroda) (valasztas.hu). However, an overwhelming consensus of credible reporting may also suffice.
+
+Note: If the Fidesz-KDNP does not contest this election with a joint national party list, Fidesz-KDNP margin of victory options will represent the national party list officially registered by Fidesz.
+
+=== E4: Leningrad Oblast Parliament Election: Party Winner
+Rules:
+Parliamentary elections to elect the Legislative Assembly of Leningrad Oblast, Russia are scheduled to take place on September 20, 2026.
+
+This market will resolve to the political party that wins the greatest number of seats in the Legislative Assembly of Leningrad Oblast as a result of this election.
+
+The number of seats will include all members of the Legislative Assembly of Leningrad Oblast serving as a result of this election, including members elected in a single- or multiple-member constituency or by proportional representation, where applicable.
+
+If the results of the specified election are not definitively known by July 31, 2027, this market will resolve to "Other".
+
+In the event of a tie between multiple parties for the most seats won, this market will resolve in favor of the party whose party list received a greater number of valid votes in the specified region’s proportional representation system. Aggregate votes received in constituencies will have no bearing on resolution in a tie. In the event that results in a tie, this market will resolve in favor of the party whose name as listed in this market appears first in alphabetical order.
+
+A constituency-elected member will count towards the party they registered to contest the election with. A member elected by proportional representation will count towards the party whose list they were elected from.
+
+This market's resolution will be based solely on the number of seats won by the named party. Independents will not count towards any party.
+
+This market will resolve based on the results of this election, as indicated by a consensus of credible reporting. If there is ambiguity, this market will resolve solely based on official results as reported by government sources of Leningrad Oblast and Russia, including the Election Commission of Leningrad Oblast and the Central Election Commission of Russia.
+Contracts:
+  E4.C1: Will United Russia win the next Leningrad Oblast Parliament elections?
+  E4.C2: Will CPRF win the next Leningrad Oblast Parliament elections?
+  E4.C3: Will LDPR win the next Leningrad Oblast Parliament elections?
+  E4.C4: Will A Just Russia win the next Leningrad Oblast Parliament elections?
+  E4.C5: Will New People win the next Leningrad Oblast Parliament elections?
+  E4.C6: Will Communists of Russia win the next Leningrad Oblast Parliament elections?
+  E4.C7: Will Rodina win the next Leningrad Oblast Parliament elections?
+  E4.C8: Will Yabloko win the next Leningrad Oblast Parliament elections?
+  E4.C9: Will The Greens win the next Leningrad Oblast Parliament elections?
+
+=== E5: U.S. agrees to give Ukraine security guarantee by June 30? 
+Rules:
+This market will resolve to “Yes” if the United States formally commits to giving Ukraine a security guarantee, defined as a publicly announced and mutually agreed deal between the Trump administration and the Government of Ukraine which creates a binding obligation for the United States to defend or directly intervene on Ukraine’s behalf, by June 30, 2026, 11:59 PM ET. Otherwise, this market will resolve to “No.”
+
+A qualifying “security guarantee” requires language that is equivalent in character to a NATO Article 5–style mutual defense commitment: the United States must commit to responding militarily if Ukraine is attacked, or otherwise guarantee Ukraine’s defense through binding defense obligations. Examples of qualifying language include commitments modeled on the US treaties with Japan, South Korea, or the Philippines, or NATO's Article 5 instrument, which obligates the United States to “act to meet the common danger” through military force if an ally is attacked. Cooperative frameworks, capacity-building measures, consultative mechanisms, or nonbinding pledges will not qualify. 
+
+Examples of non-qualifying arrangements include the June 13, 2024 US–Ukraine bilateral security agreement, the Taiwan Relations Act, or G7/EU “security arrangements” that provide support or consultation but stop short of binding defense guarantees.
+
+A qualifying agreement must be jointly announced and finalized, and take the form of a treaty, executive agreement, memorandum of understanding, joint declaration, or equivalent written instrument. Announcements which are statements of intent, contingent, exploratory, or otherwise not indicative of a formalized policy will not count. 
+
+The primary resolution source will be a consensus of credible reporting.
+Contracts:
+  E5.C1: U.S. agrees to give Ukraine security guarantee by June 30? 
+
+=== E6: GDP growth in 2025
+Rules:
+This market will resolve according to the seasonally adjusted real GDP growth rate for the United States in 2025, as reported in the Bureau of Economic Analysis (BEA) "Advance Estimate" release for Q4 of 2025, scheduled for January 29, 2026.
+
+If the reported value falls exactly between two brackets, then this market will resolve to the higher range bracket.
+
+The GDP release will be made available here: https://www.bea.gov/data/gdp/gross-domestic-product
+
+Note: The relevant data will be the full-year real GDP growth rate as stated in the advance estimate, typically expressed as the percentage change from the annual level in 2024 to the annual level in 2025. Any revisions to this figure made after the release of the advance estimate will not be considered for this market's resolution.
+Contracts:
+  E6.C1: Will US GDP growth in 2025 be less than 0.5%?
+  E6.C2: Will US GDP growth in 2025 be between 0.5% and 1.0%?
+  E6.C3: Will US GDP growth in 2025 be between 1.0% and 1.5%?
+  E6.C4: Will US GDP growth in 2025 be between 1.5% and 2.0%?
+  E6.C5: Will US GDP growth in 2025 be between 2.0% and 2.5%?
+  E6.C6: Will US GDP growth in 2025 be greater than 2.5%?
+
+=== E7: South Carolina Senate Special Republican Primary: First Round Winner
+Rules:
+The first round of the 2026 special Republican Party primary for the United States Senate election in South Carolina will be held on August 11, 2026, with a potential runoff on August 25, 2026.
+
+This market will resolve according to the candidate that wins the most votes in the first round of the special Republican Primary for US Senator from South Carolina.
+
+Candidates will be primarily ranked by the number of valid votes received in the specified election. If two or more candidates are tied on valid votes, ties will be broken by alphabetical order of the candidates' first names, as listed in this market group. This market will resolve to the candidate that occupies the highest finishing position after applying this ranking.
+
+If the results of this election are not definitively known by December 31, 2026, this market will resolve to “Other.”
+
+The primary resolution source for this market will be information from the State of South Carolina, such as official statewide results published by the South Carolina Election Commission (https://scvotes.gov/); however, an overwhelming consensus of credible reporting may suffice.
+Contracts:
+  E7.C1: Will Duke Buckner win the first round of the South Carolina Republican Senate special primary?
+  E7.C2: Will Russell Fry win the first round of the South Carolina Republican Senate special primary?
+  E7.C3: Will Darline Graham Nordone win the first round of the South Carolina Republican Senate special primary?
+  E7.C4: Will Mark Lynch win the first round of the South Carolina Republican Senate special primary?
+  E7.C5: Will Ralph Norman win the first round of the South Carolina Republican Senate special primary?
+  E7.C6: Will Mark Sanford win the first round of the South Carolina Republican Senate special primary?
+  E7.C7: Will Sheri Biggs win the first round of the South Carolina Republican Senate special primary?
+  E7.C8: Will Pamela Evette win the first round of the South Carolina Republican Senate special primary?
+  E7.C9: Will Trey Gowdy win the first round of the South Carolina Republican Senate special primary?
+  E7.C10: Will Henry McMaster win the first round of the South Carolina Republican Senate special primary?
+
+=== E8: What will the Ethereum implied volatility Index hit by May 31?
+Rules:
+What will the Ethereum implied volatility Index hit by May 31?
+Contracts:
+  E8.C1: Will the Ethereum Volatility Index dip to 50 by May 31?
+    Contract rules: This market will immediately resolve to "Yes" if any Volmex 1 minute candle for the Ethereum Volmex Implied Volatility 30 Day Index (EVIV) between the creation of this market and 23:59 ET on the date specified in the title has a final "Low" value equal to or lower than the value specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Volmex, specifically the Ethereum Volmex Implied Volatility 30 Day Index "Low" values available at https://charts.volmex.finance/symbol/EVIV, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the data from the Ethereum Volmex Implied Volatility 30 Day Index chart. Values from other exchanges or different indexes will not be considered for the resolution of this market.
+  E8.C2: Will the Ethereum Volatility Index dip to 40 by May 31?
+    Contract rules: This market will immediately resolve to "Yes" if any Volmex 1 minute candle for the Ethereum Volmex Implied Volatility 30 Day Index (EVIV) between the creation of this market and 23:59 ET on the date specified in the title has a final "Low" value equal to or lower than the value specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Volmex, specifically the Ethereum Volmex Implied Volatility 30 Day Index "Low" values available at https://charts.volmex.finance/symbol/EVIV, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the data from the Ethereum Volmex Implied Volatility 30 Day Index chart. Values from other exchanges or different indexes will not be considered for the resolution of this market.
+
+=== E9: Bank of Brazil Decision in April?
+Rules:
+This market will resolve according to the change in the target for the Selic rate as a result of the monetary policy decision of the Bank of Brazil's April 2026 meeting versus the level it was prior to this meeting.
+
+The resolution source for this market is information released by the Bank of Brazil after its April 2026 policy meeting, currently scheduled for April 27-28, as listed on the official Bank of Brazil calendar: https://www.bcb.gov.br/en/about/bcb-calendar
+
+This market may resolve as soon as the Bank of Brazil's statement for their April meeting with relevant data is issued. If no statement is released by the end date of the meeting, this market will resolve to the "No change" bracket.
+Contracts:
+  E9.C1: Will the Bank of Brazil increase the Selic rate after April 2026 meeting?
+  E9.C2: No change in the Selic rate after Bank of Brazil’s April 2026 meeting?
+  E9.C3: Will the Bank of Brazil decrease the Selic rate after April 2026 meeting?
+
+=== E10: Bank of Israel Decision in July?
+Rules:
+This market will resolve according to the change in the Bank of Israel Interest Rate resulting from the Bank of Israel’s July monetary policy decision, relative to the level it was prior to this decision.
+
+The resolution source for this market is information released by the Bank of Israel after its July 6, 2026 monetary policy decision, as listed on the official Bank of Israel interest rate decision schedule: https://www.boi.org.il/en/economic-roles/monetary-policy/interest-rate-announcement-dates-2025-2026/#
+
+This market may resolve as soon as the Bank of Israel's announcement of their July 6, 2026 decision with relevant data is issued. If no decision on the Bank of Israel Interest Rate is issued by the end date of the next scheduled meeting, this market will resolve to the "No change" bracket.
+Contracts:
+  E10.C1: Will the Bank of Israel decrease the Bank of Israel Interest Rate after the July decision?
+  E10.C2: Will the Bank of Israel make no change to the Bank of Israel Interest Rate after the July decision?
+  E10.C3: Will the Bank of Israel increase the Bank of Israel Interest Rate after the July decision?

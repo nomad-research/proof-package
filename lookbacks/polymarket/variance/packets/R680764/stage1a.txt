@@ -1,0 +1,32 @@
+You are one of several independent analysts. Work only from what is written below. Apart from reading the file that held this text, do not use any tool, do not look anything up, and do not use anything you
+know that happened after 2026-07-27: reason as of that date. You are shown no market prices, and you are not asked for any probability.
+
+EVENT: Clacton by-election: Nigel Farage Vote %   (structure: partition exact)
+RULES (as of 2026-07-27):
+A by-election for the United Kingdom parliamentary constituency of Clacton is expected to be held soon following the announced resignation of incumbent Nigel Farage.
+
+This market will resolve according to the share of valid votes Nigel Farage wins in the Clacton parliamentary by-election.
+
+If the reported value falls exactly between two brackets, then this market will resolve to the higher range bracket.
+
+If the specified candidate does not compete or the results of the specified election are not known definitively by June 30, 2027, 11:59 PM ET, this market will resolve to the lowest bracket.
+
+The resolution source for this market will be a consensus of credible reporting. In case of ambiguity, this market will resolve solely based on official election results as published by Tendring District Council (https://www.tendringdc.gov.uk/) and the UK Parliament (https://www.parliament.uk/).
+
+CONTRACTS (each pays $1 if its statement is true when the event resolves, $0 otherwise; you may name YES or NO on any contract):
+  C1: Will Nigel Farage win less than 40% of votes in the Clacton parliamentary by-election?  [Farage <40%]
+  C2: Will Nigel Farage win 40–50% of votes in the Clacton parliamentary by-election?  [Farage 40–50%]
+  C3: Will Nigel Farage win 50–60% of votes in the Clacton parliamentary by-election?  [Farage 50–60%]
+  C4: Will Nigel Farage win 60–70% of votes in the Clacton parliamentary by-election?  [Farage 60–70%]
+  C5: Will Nigel Farage win 70–80% of votes in the Clacton parliamentary by-election?  [Farage 70–80%]
+  C6: Will Nigel Farage win at least 80% of votes in the Clacton parliamentary by-election?  [Farage 80%+]
+
+Task. Write your own view as documents-and-mechanism reasoning, not as odds.
+1. primary: a thesis about how this event resolves and a basket of at most 4 contracts from the list that expresses it (long only: a contract with YES or NO).
+2. failure_narrative: the specific way the thesis is wrong (what would have to happen for the basket to lose).
+3. hedge_thesis: a second narrative, about a DIFFERENT part of the world, that would tend to be true in exactly the worlds where the primary fails. Say why, in mechanism terms.
+4. search_terms: 3 to 8 words or names (entities, assets, places, institutions) that instruments for the hedge thesis would carry. Lower-case single words or short names.
+5. recalls_outcome: true if you already know, or think you know, how this event (or any part of it) actually turned out; otherwise false. Be honest: a true answer is not penalised, it only means this item is set aside.
+
+Answer with one JSON object and nothing else:
+{"primary": {"thesis": "...", "basket": [{"contract": "C1", "side": "YES", "reason": "..."}]}, "failure_narrative": "...", "hedge_thesis": "...", "search_terms": ["..."], "recalls_outcome": false}

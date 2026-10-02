@@ -1,0 +1,45 @@
+{
+ "hedges": [
+  {
+   "contract": "E39.1",
+   "side": "YES",
+   "reason": "No candidate expresses the market side of my hedge thesis: the shekel, Israeli CDS, TA-35 and Brent. The oil, gold, SPY, US-Iran ceasefire, Hormuz and Saudi pipeline markets all resolve by mid-October, before the October 27 vote, so the Israeli result cannot move them. The instruments that do pay in my failure world are the Israeli election markets themselves. A Netanyahu government almost requires Likud to be the anchor list, and it usually means Likud also wins the most seats, ahead of Bennett's list."
+  },
+  {
+   "contract": "E47.4",
+   "side": "YES",
+   "reason": "Likud winning 30-34 seats is the rally-around-the-flag version of my failure narrative. That kind of total puts the right-wing and religious bloc close to 61 and makes a Netanyahu government likely. It pays in the worlds where C1 NO and C2 YES lose."
+  },
+  {
+   "contract": "E47.1",
+   "side": "NO",
+   "reason": "This loses only if Likud collapses below 20 seats, which is the world where my primary basket wins most clearly. Holding NO pays in every world where Likud stays strong enough to lead a government."
+  }
+ ],
+ "claims": [
+  {
+   "if": {
+    "contract": "C1",
+    "resolves": "YES"
+   },
+   "then": {
+    "contract": "E39.1",
+    "resolves": "YES"
+   },
+   "reason": "Netanyahu can only be sworn in again if the right-wing and religious bloc, with Likud as its core, reaches 61 or brings in defectors. In every realistic path to that, Likud is the largest single list. Bennett, Eizenkot or a merged opposition list finishing first would mean a much weaker bloc than a Netanyahu majority needs."
+  },
+  {
+   "if": {
+    "contract": "C1",
+    "resolves": "YES"
+   },
+   "then": {
+    "contract": "E47.1",
+    "resolves": "NO"
+   },
+   "reason": "A Likud with fewer than 20 seats could not hold together a 61-seat coalition around Netanyahu. Its partners cannot make up that gap, and a result that bad would probably set off a leadership challenge inside Likud instead of a new Netanyahu government."
+  }
+ ],
+ "no_instrument": false,
+ "recalls_outcome": false
+}

@@ -1,0 +1,53 @@
+You are one of several independent analysts. Work only from what is written below. Apart from reading the file that held this text, do not use any tool, do not look anything up, and do not use anything you
+know that happened after 2026-08-25: reason as of that date. You are shown no market prices, and you are not asked for any probability.
+
+EVENT: Which company does Ox Alpha belong to?   (structure: partition open)
+RULES (as of 2026-08-25):
+Ox Alpha is a stealth reasoning model made available on OpenRouter on August 20, 2026, whose developer had not been publicly confirmed as of market creation.
+
+This market will resolve according to the company that developed Ox Alpha, as identified by either the respective company, OpenRouter, or an overwhelming consensus of credible reporting by December 31, 2026, 11:59 PM ET.
+
+A qualifying announcement by OpenRouter or the respective company must be public. Private communications, internal messages, statements by individuals not authorized to speak on behalf of OpenRouter or the respective company, informal statements, statements from unnamed sources, and leaks will not qualify as official announcements.
+
+A qualifying identification must unambiguously state that the company developed Ox Alpha or that Ox Alpha was an early, preview, or internal version of one of its models. Statements that merely speculate about Ox Alpha’s identity, infer its identity from technical similarities, or identify only its operator, host, or underlying model family will not be considered. An overwhelming consensus of credible reporting will qualify only if it unambiguously identifies the developer as fact rather than merely repeating speculation, technical inferences, unnamed claims, or leaks.
+
+If two or more companies are identified as having jointly developed Ox Alpha, this market will resolve to the company identified as its primary developer. If no primary developer is clearly identified, the jointly identified companies will be ordered alphabetically according to their names as listed in this market group, and this market will resolve to the outcome listed first under that ordering. For purposes of this ordering, any jointly identified company not separately listed in this market group will be treated as “Other”.
+
+If Ox Alpha’s developer is not clearly identified through a qualifying identification by December 31, 2026, 11:59 PM ET, this market will resolve to "Other".
+
+The primary resolution sources for this market will be official information from the respective company or its official representatives, as well as official information from OpenRouter, including its official website and official X account; however, an overwhelming consensus of credible reporting may also be used.
+
+CONTRACTS (each pays $1 if its statement is true when the event resolves, $0 otherwise; you may name YES or NO on any contract):
+  C1: Does Ox Alpha belong to Anthropic?  [Anthropic]
+  C2: Does Ox Alpha belong to Meta?  [Meta]
+  C3: Does Ox Alpha belong to Google?  [Google]
+  C4: Does Ox Alpha belong to Alibaba?  [Alibaba]
+  C5: Does Ox Alpha belong to Moonshot AI?  [Moonshot AI]
+  C6: Does Ox Alpha belong to OpenAI?  [OpenAI]
+  C7: Does Ox Alpha belong to Cursor (Anysphere)?  [Cursor]
+  C8: Does Ox Alpha belong to Baidu?  [Baidu]
+  C9: Does Ox Alpha belong to Zhipu AI (Z.ai)?  [Z.ai]
+  C10: Does Ox Alpha belong to Xiaomi?  [Xiaomi]
+  C11: Does Ox Alpha belong to xAI?  [xAI]
+  C12: Does Ox Alpha belong to DeepSeek?  [DeepSeek]
+  C13: Does Ox Alpha belong to Amazon?  [Amazon]
+  C14: Does Ox Alpha belong to ByteDance?  [ByteDance]
+  C15: Does Ox Alpha belong to Nvidia?  [Nvidia]
+  C16: Does Ox Alpha belong to Thinky?  [Thinky]
+  C17: Does Ox Alpha belong to MiniMax?  [MiniMax]
+  C18: Does Ox Alpha belong to Mistral?  [Mistral]
+  C19: Does Ox Alpha belong to Meituan?  [Meituan]
+  C20: Does Ox Alpha belong to Tencent?  [Tencent]
+  C21: Does Ox Alpha belong to StepFun?  [StepFun]
+  C22: Does Ox Alpha belong to Microsoft?  [Microsoft]
+  C23: Does Ox Alpha belong to Safe Superintelligence?  [Safe Superintelligence]
+
+Task. Write your own view as documents-and-mechanism reasoning, not as odds.
+1. primary: a thesis about how this event resolves and a basket of at most 4 contracts from the list that expresses it (long only: a contract with YES or NO).
+2. failure_narrative: the specific way the thesis is wrong (what would have to happen for the basket to lose).
+3. hedge_thesis: a second narrative, about a DIFFERENT part of the world, that would tend to be true in exactly the worlds where the primary fails. Say why, in mechanism terms.
+4. search_terms: 3 to 8 words or names (entities, assets, places, institutions) that instruments for the hedge thesis would carry. Lower-case single words or short names.
+5. recalls_outcome: true if you already know, or think you know, how this event (or any part of it) actually turned out; otherwise false. Be honest: a true answer is not penalised, it only means this item is set aside.
+
+Answer with one JSON object and nothing else:
+{"primary": {"thesis": "...", "basket": [{"contract": "C1", "side": "YES", "reason": "..."}]}, "failure_narrative": "...", "hedge_thesis": "...", "search_terms": ["..."], "recalls_outcome": false}

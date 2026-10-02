@@ -1,0 +1,45 @@
+You are one of several independent analysts. Work only from what is written below. Apart from reading the file that held this text, do not use any tool, do not look anything up, and do not use anything you
+know that happened after 2026-09-30: reason as of that date. You are shown no market prices, and you are not asked for any probability.
+
+EVENT: Prime Minister of Israel after the next election?   (structure: partition open)
+RULES (as of 2026-09-30):
+Legislative elections are schedule to be held in Israel on October 27, 2026. 
+
+This market will resolve to the next individual who is officially appointed and sworn in as Prime Minister of Israel following the 2026 parliamentary election. If an election is called early, this market will immediately resolve to the individual who is officially appointed and sworn in after that election.
+
+To count for resolution, the individual must be formally sworn in. Any interim or caretaker Prime Minister will not count toward the resolution of this market.
+
+If no such Prime Minister is sworn in by December 31, 2027, 11:59 PM ET, this market will resolve to “Other”.
+
+The primary resolution source for this market will be official information from the Government of Israel; however, a consensus of credible reporting may also be used.
+
+CONTRACTS (each pays $1 if its statement is true when the event resolves, $0 otherwise; you may name YES or NO on any contract):
+  C1: Will Benjamin Netanyahu be the next Prime Minister of Israel?  [Benjamin Netanyahu]
+  C2: Will Naftali Bennett be the next Prime Minister of Israel?  [Naftali Bennett]
+  C3: Will Yair Lapid be the next Prime Minister of Israel?  [Yair Lapid]
+  C4: Will Gadi Eizenkot be the next Prime Minister of Israel?  [Gadi Eizenkot]
+  C5: Will Benny Gantz be the next Prime Minister of Israel?  [Benny Gantz]
+  C6: Will Avigdor Lieberman be the next Prime Minister of Israel?  [Avigdor Lieberman]
+  C7: Will Yossi Cohen be the next Prime Minister of Israel?  [Yossi Cohen]
+  C8: Will Yair Golan be the next Prime Minister of Israel?  [Yair Golan]
+  C9: Will Itamar Ben Gvir be the next Prime Minister of Israel?  [Itamar Ben Gvir]
+  C10: Will Gideon Sa’ar be the next Prime Minister of Israel?  [Gideon Sa’ar]
+  C11: Will Yariv Levin be the next Prime Minister of Israel?  [Yariv Levin]
+  C12: Will Moshe Feiglin be the next Prime Minister of Israel?  [Moshe Feiglin]
+  C13: Will Ayelet Shaked be the next Prime Minister of Israel?  [Ayelet Shaked]
+  C14: Will Yoaz Hendel be the next Prime Minister of Israel?  [Yoaz Hendel]
+  C15: Will Israel Katz be the next Prime Minister of Israel?  [Israel Katz]
+  C16: Will Nir Barkat be the next Prime Minister of Israel?  [Nir Barkat]
+  C17: Will Amir Ohana be the next Prime Minister of Israel?  [Amir Ohana]
+  C18: Will Gilad Erdan be the next Prime Minister of Israel?  [Gilad Erdan]
+  C19: Will Ofer Winter be the next Prime Minister of Israel?  [Ofer Winter]
+
+Task. Write your own view as documents-and-mechanism reasoning, not as odds.
+1. primary: a thesis about how this event resolves and a basket of at most 4 contracts from the list that expresses it (long only: a contract with YES or NO).
+2. failure_narrative: the specific way the thesis is wrong (what would have to happen for the basket to lose).
+3. hedge_thesis: a second narrative, about a DIFFERENT part of the world, that would tend to be true in exactly the worlds where the primary fails. Say why, in mechanism terms.
+4. search_terms: 3 to 8 words or names (entities, assets, places, institutions) that instruments for the hedge thesis would carry. Lower-case single words or short names.
+5. recalls_outcome: true if you already know, or think you know, how this event (or any part of it) actually turned out; otherwise false. Be honest: a true answer is not penalised, it only means this item is set aside.
+
+Answer with one JSON object and nothing else:
+{"primary": {"thesis": "...", "basket": [{"contract": "C1", "side": "YES", "reason": "..."}]}, "failure_narrative": "...", "hedge_thesis": "...", "search_terms": ["..."], "recalls_outcome": false}

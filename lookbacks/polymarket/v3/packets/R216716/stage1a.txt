@@ -1,0 +1,43 @@
+You are one of several independent analysts. Work only from what is written below. Apart from reading the file that held this text, do not use any tool, do not look anything up, and do not use anything you
+know that happened after 2026-09-30: reason as of that date. You are shown no market prices, and you are not asked for any probability.
+
+EVENT: Will Russia capture all of Kostyantynivka by...?   (structure: date ladder)
+RULES (as of 2026-09-30):
+This market will resolve to “Yes” if, according to the ISW map, Russia captures the entirety of Kostyantynivka, Donetsk Oblast, (48.528896° N, 37.702514° E) between market creation and the specified date, 11:59 PM ET.
+
+Kostyantynivka will be considered captured if the entirety of the municipality is shaded under a below specified layer on the ISW map (https://storymaps.arcgis.com/stories/36a7f6a6f5a9448496de641cf64bd375) by the resolution date. Otherwise, the market will resolve to “No”.
+
+The boundaries of the municipality are those shown under the “Ukrainian Settlements” layer on the ISW map. If all area within the municipality is shaded under a qualifying layer, however, the shading does not precisely match up with the border such that there is a tiny amount of unshaded area along the border of the municipality, this will still qualify for a "Yes" resolution.
+
+For any change on the ISW map to qualify for this market’s resolution, the relevant shading must persist through the next full ISW daily update cycle. If ISW skips a day, shading must persist until the next finalized ISW update is published, regardless of the date.
+
+Any continuous shading under the following layers will qualify:
+- Assessed Russian-Controlled Terrain
+- Assessed Russian Advances
+
+Shading under the following layers will not qualify:
+- Assessed Russian Infiltration Areas
+- Claimed Russian Territory
+
+Once a qualifying condition is met, any subsequent loss of control will not be considered towards the resolution of this market.
+
+If Russia comes into control of the specified territory as a result of a negotiated settlement, this will qualify for a 'Yes' resolution, regardless of whether it is shaded under a qualifying layer on the ISW map. However, an announcement of a negotiated settlement that gives Russia de jure control will not qualify. Actual control must be established.
+
+The primary resolution source for this market will be the ISW Ukraine map. If the ISW map is rendered unavailable, information from DeepStateMap (https://deepstatemap.live/) may be used. If information from both the ISW and DeepStateMap are rendered permanently unavailable, a consensus of credible reporting may be used.
+
+Note: Any temporary glitches or errors in the map will not be considered.
+
+CONTRACTS (each pays $1 if its statement is true when the event resolves, $0 otherwise; you may name YES or NO on any contract):
+  C1: Will Russia capture all of Kostyantynivka by September 30, 2026?  [September 30]
+  C2: Will Russia capture all of Kostyantynivka by October 31, 2026?  [October 31]
+  C3: Will Russia capture all of Kostyantynivka by December 31, 2026?  [December 31]
+
+Task. Write your own view as documents-and-mechanism reasoning, not as odds.
+1. primary: a thesis about how this event resolves and a basket of at most 4 contracts from the list that expresses it (long only: a contract with YES or NO).
+2. failure_narrative: the specific way the thesis is wrong (what would have to happen for the basket to lose).
+3. hedge_thesis: a second narrative, about a DIFFERENT part of the world, that would tend to be true in exactly the worlds where the primary fails. Say why, in mechanism terms.
+4. search_terms: 3 to 8 words or names (entities, assets, places, institutions) that instruments for the hedge thesis would carry. Lower-case single words or short names.
+5. recalls_outcome: true if you already know, or think you know, how this event (or any part of it) actually turned out; otherwise false. Be honest: a true answer is not penalised, it only means this item is set aside.
+
+Answer with one JSON object and nothing else:
+{"primary": {"thesis": "...", "basket": [{"contract": "C1", "side": "YES", "reason": "..."}]}, "failure_narrative": "...", "hedge_thesis": "...", "search_terms": ["..."], "recalls_outcome": false}

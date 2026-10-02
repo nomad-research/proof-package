@@ -1,0 +1,234 @@
+You will be shown 10 questions from a prediction market. Each question has one or more contracts, and each contract resolves YES or NO under the rules shown.
+
+For every contract, give your probability, as a whole percent from 1 to 99, that it resolves YES. Use only what you already know. Do not search for or look up anything: reading this file is the only tool call you may make.
+
+For each question, also say whether you recognise how it actually turned out ("recognised": true only if you believe you remember the real outcome; otherwise false).
+
+Where a question's contracts are mutually exclusive (exactly one can resolve YES), your numbers for it should add up to about 100. Where they are nested thresholds or dates, keep them consistent with each other.
+
+Reply with one JSON object and nothing else, in this form:
+{"events": [{"label": "E1", "recognised": false, "p": {"E1.C1": 35, "E1.C2": 60}}]}
+
+Every contract label below must appear exactly once in your reply.
+
+=== E1: Will gas hit __ by end of May?
+Rules:
+This market will resolve to "Yes" if on any day between market creation and May 31, 2026, the average US regular gas price is equal to or above the listed price. Otherwise, the market will resolve to "No".
+
+Only the first two decimal digits of the reported price will be considered (e.g., if the price is reported as $3.257, this market will use $3.25 as the price).
+
+The resolution source for this market will be information from the American Automobile Association (AAA), presently found here: https://gasprices.aaa.com/. Specifically, the cell under "Regular" and for the row "Current Avg".
+Contracts:
+  E1.C1: Will gas hit (High) $5.00 by May 31?
+  E1.C2: Will gas hit (High) $4.70 by May 31?
+  E1.C3: Will gas hit (High) $4.60 by May 31?
+  E1.C4: Will gas hit (Low) $4.25 by May 31?
+  E1.C5: Will gas hit (Low) $4.20 by May 31?
+  E1.C6: Will gas hit (Low) $4.10 by May 31?
+  E1.C7: Will gas hit (Low) $4.00 by May 31?
+  E1.C8: Will gas hit (Low) $3.75 by May 31?
+  E1.C9: Will gas hit (Low) $3.50 by May 31?
+
+=== E2: December 2025 Temperature Increase (ºC)
+Rules:
+This market will resolve according to the value reported by the Global Land-Ocean Temperature Index for December 2025 when it is released.
+
+An anomaly within a named bracket for December 2025 is necessary and sufficient to resolve this market immediately once the data becomes available, regardless of whether the figure for December 2025 is later revised.
+
+The primary resolution source for this market will be the figure found in the table titled "GLOBAL Land-Ocean Temperature Index in 0.01 degrees Celsius" under the column "Dec" in the row "2025" (https://data.giss.nasa.gov/gistemp/tabledata_v4/GLB.Ts+dSST.txt).
+
+If NASA’s “Global Temperature Index” is rendered permanently unavailable, other information from NASA may be used.
+If no information for December 2025 is provided by NASA by February 1, 2026, 11:59 PM ET, this market will resolve to the lowest range bracket.
+Contracts:
+  E2.C1: Will global temperature increase by less than 1.00ºC in December 2025?
+  E2.C2: Will global temperature increase by between 1.00ºC and 1.04ºC in December 2025?
+  E2.C3: Will global temperature increase by between 1.05ºC and 1.09ºC in December 2025?
+  E2.C4: Will global temperature increase by between 1.10ºC and 1.14ºC in December 2025?
+  E2.C5: Will global temperature increase by between 1.15ºC and 1.19ºC in December 2025?
+  E2.C6: Will global temperature increase by more than 1.19ºC in December 2025?
+
+=== E3: Canada GDP: June 2026 (MoM)
+Rules:
+This market will resolve according to Canada’s gross domestic product growth rate over the one-month period ending June 2026 (Real GDP monthly change, %), as reported by Statistics Canada’s (StatCan) “Gross domestic product by industry” release for June 2026, scheduled for release on August 28, 2026.
+
+The GDP release and relevant statistics are expected to be made available here: https://www150.statcan.gc.ca/n1/dai-quo/ind1-eng.htm
+
+If the specified release is not published, this market will resolve based on the first published figure for the specified month’s GDP growth rate compared to the prior month. If no data for the specified month is released by the date the next month's data is scheduled to be released, this market will resolve based on data from the last available month.
+
+Note: the resolution source for this market reports GDP growth rates compared to the prior month to only one decimal point (e.g. 0.8%). Thus, this is the level of precision that will be used when resolving the market.
+
+Note: data from the initial release of the referenced GDP report is what will be used to resolve this market. Data may be revised during the following month or as a part of the next estimate's publication, however any revisions to GDP report data made after the initial release will not be considered for this market's resolution. For the full release schedule, see: https://www150.statcan.gc.ca/n1/dai-quo/cal1-eng.htm?sk=3569.
+Contracts:
+  E3.C1: Will Canada's GDP growth rate MoM in June 2026 be less than 0.0%?
+  E3.C2: Will Canada's GDP growth rate MoM in June 2026 be between 0.0% and 0.1%?
+  E3.C3: Will Canada's GDP growth rate MoM in June 2026 be between 0.2% and 0.3%?
+  E3.C4: Will Canada's GDP growth rate MoM in June 2026 be between 0.4% and 0.5%?
+  E3.C5: Will Canada's GDP growth rate MoM in June 2026 be between 0.6% and 0.7%?
+  E3.C6: Will Canada's GDP growth rate MoM in June 2026 be at least 0.8%?
+
+=== E4: Will Silver (SI) hit __ by end of March?
+Rules:
+This market will resolve to "Yes" if, on any trading day, the official CME settlement price for the Active Month (front month) of Silver (SI) futures is equal to or above the listed price by the final trading day of March 2026. Otherwise, the market will resolve to "No".
+
+For CME Silver (SI) futures contracts, the Active Month is the nearest of CME's designated delivery-cycle months (March, May, July, September, December) that is not the spot month. The Active Month becomes a non-active month effective on its First Position Date, at which point the next eligible contract month becomes the Active Month.
+
+Only the Active Month's official settlement price published by CME Group will be considered. Intraday trades, highs, lows, bids, offers, midpoint values, or indicative prices do not count.
+
+Note that the settlement price may differ from the last traded price. CME's methodology to determine the settlement price can vary by commodity and contract.
+
+Only days on which CME publishes an official settlement price for the Active Month will be included. Days without settlement prices (weekends, holidays, or market closures) are ignored.
+
+This market will resolve based on the settlement price as it appears on the CME settlement page at the time it is first published for that trading day, regardless of any later corrections or updates.
+
+The resolution source for this market is the CME Group website — specifically, the daily "Settlement" price for the Active Month of Silver (SI) futures.
+Contracts:
+  E4.C1: Will Silver (SI) hit (HIGH) $200 by end of March?
+  E4.C2: Will Silver (SI) hit (HIGH) $170 by end of March?
+  E4.C3: Will Silver (SI) hit (HIGH) $150 by end of March?
+  E4.C4: Will Silver (SI) hit (HIGH) $140 by end of March?
+  E4.C5: Will Silver (SI) hit (HIGH) $130 by end of March?
+  E4.C6: Will Silver (SI) hit (HIGH) $125 by end of March?
+  E4.C7: Will Silver (SI) hit (HIGH) $120 by end of March?
+  E4.C8: Will Silver (SI) hit (HIGH) $115 by end of March?
+  E4.C9: Will Silver (SI) hit (HIGH) $110 by end of March?
+  E4.C10: Will Silver (SI) hit (HIGH) $105 by end of March?
+  E4.C11: Will Silver (SI) hit (HIGH) $100 by end of March?
+  E4.C12: Will Silver (SI) hit (HIGH) $95 by end of March?
+
+=== E5: What price will Chainlink hit in February?
+Rules:
+What price will Chainlink hit in February?
+Contracts:
+  E5.C1: Will Chainlink reach $20 in February?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for LINK/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last) has a final High price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the LINK/USDT High prices available at https://www.binance.com/en/trade/LINK_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance LINK/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E5.C2: Will Chainlink reach $18 in February?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for LINK/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last) has a final High price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the LINK/USDT High prices available at https://www.binance.com/en/trade/LINK_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance LINK/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E5.C3: Will Chainlink reach $16 in February?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for LINK/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last) has a final High price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the LINK/USDT High prices available at https://www.binance.com/en/trade/LINK_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance LINK/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E5.C4: Will Chainlink reach $14 in February?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for LINK/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last) has a final High price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the LINK/USDT High prices available at https://www.binance.com/en/trade/LINK_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance LINK/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E5.C5: Will Chainlink reach $12 in February?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for LINK/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last) has a final High price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the LINK/USDT High prices available at https://www.binance.com/en/trade/LINK_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance LINK/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E5.C6: Will Chainlink dip to $6 in February?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for LINK/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last) has a final Low price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the LINK/USDT Low prices available at https://www.binance.com/en/trade/LINK_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance LINK/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E5.C7: Will Chainlink dip to $4 in February?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for LINK/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last) has a final Low price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the LINK/USDT Low prices available at https://www.binance.com/en/trade/LINK_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance LINK/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E5.C8: Will Chainlink dip to $2 in February?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for LINK/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last) has a final Low price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the LINK/USDT Low prices available at https://www.binance.com/en/trade/LINK_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance LINK/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+
+=== E6: Polish snap election called in 2025?
+Rules:
+This market will resolve to "Yes" if the date for the next Polish parliamentary election is set between June 2 and December 31, 2025, 11:59 PM ET. Otherwise, this market will resolve to "No".
+
+This market is about whether a date for the next Polish election is announced within the stated timeframe. The date the election is scheduled to take place on will have no effect on the resolution to this market.
+
+The primary resolution source for this market is official information from the Government of Poland however a consensus of credible reporting may also be used.
+Contracts:
+  E6.C1: Polish snap election called in 2025?
+
+=== E7: Core CPI YoY - June 2026
+Rules:
+This is a market about core inflation (excluding food and energy) over the 12-month period ending June 2026, before seasonal adjustment, as reported by the Bureau of Labor Statistics.
+
+This market will resolve to the percentage change in the Consumer Price Index for All Urban Consumers excluding food and energy (Core CPI-U) over the 12-month period ending in June 2026 according to the monthly Bureau of Labor Statistics (BLS) report.
+
+The resolution source for this market will be the BLS Consumer Price Index report released for June 2026 (https://www.bls.gov/bls/news-release/cpi.htm), currently scheduled to be released on July 14, 2026, at 8:30 AM ET. Resolution of this market will take place upon release of the aforementioned data.
+
+Note: the resolution source for this market will be the official monthly BLS CPI news release, which reports core inflation (all items less food and energy) over 12-month periods to only one decimal point (e.g., 2.8%). Thus, this is the level of precision that will be used when resolving the market. For the avoidance of doubt, this market resolves on the core CPI figure — the all items index excluding food and energy — not the headline all items CPI figure.
+
+If the BLS does not release the relevant figures on the scheduled date, this market may remain open up until the scheduled release time of the next CPI report (https://www.bls.gov/schedule). If the information is not released by that time, this market will resolve according to the figures of the most recent previous month with available data.
+Contracts:
+  E7.C1: Will Core CPI YoY be 2.4% or less in June?
+  E7.C2: Will Core CPI YoY be 2.5% in June?
+  E7.C3: Will Core CPI YoY be 2.6% in June?
+  E7.C4: Will Core CPI YoY be 2.7% in June?
+  E7.C5: Will Core CPI YoY be 2.8% in June?
+  E7.C6: Will Core CPI YoY be 2.9% in June?
+  E7.C7: Will Core CPI YoY be 3.0% in June?
+  E7.C8: Will Core CPI YoY be 3.1% in June?
+  E7.C9: Will Core CPI YoY be 3.2% in June?
+  E7.C10: Will Core CPI YoY be 3.3% or more in June?
+
+=== E8: FL-07 Democratic Primary Winner
+Rules:
+This market will resolve according to the candidate who wins the nomination for the Democratic Party to contest the FL-07 congressional district seat in the U.S. House of Representatives in the 2026 midterm elections. The Democratic primary will take place on August 18, 2026.
+
+If no nominee is announced by November 3, 2026, 11:59 PM ET, this market will resolve to "Other".
+
+The resolution source for this market will be a consensus of official Democrat sources, including https://democrats.org/.
+
+Any replacement of the nominee before election day will not change the resolution of the market.
+Contracts:
+  E8.C1: Will Bale Dalton be the FL-07 Democratic nominee?
+  E8.C2: Will Alan Grayson be the FL-07 Democratic nominee?
+  E8.C3: Will Marialana Kinter be the FL-07 Democratic nominee?
+
+=== E9: Kurds declare independence from Iran?
+Rules:
+This market will resolve to "Yes" if PJAK (Party for a Free Life in Kurdistan), the Democratic Party of Iranian Kurdistan (PDKI), Komala, the Kurdistan Freedom Party (PAK), or a successor Kurdish organization with broad recognition among Iranian Kurdish opposition groups, or a Kurdish official within Iran formally declares the creation of a new independent state separate from Iran and asserts governing authority over a specified territory within Iran before June 30, 2026, 11:59 PM ET. Otherwise, this market will resolve to "No".
+
+A qualifying public announcement alone is sufficient for a "Yes" resolution, regardless of whether governing authority is actually established, maintained, or recognized.
+
+A declaration must include a clear public statement by the organization or its leadership announcing the establishment of an independent political entity separate from Iran and claiming governmental authority over an identified geographic area previously under Iranian governance.
+
+The claimed territory does not need to be precisely defined but must be at least partially specified. A majority of the claimed territory must lie within the internationally recognized borders of Iran as they existed at the time of this market’s creation.
+
+The resolution source will be a consensus of credible reporting.
+Contracts:
+  E9.C1: Kurds declare independence from Iran?
+
+=== E10: Osun State Gubernatorial Election Winner
+Rules:
+Gubernatorial elections are currently scheduled to be held in Osun State, Nigeria on August 15, 2026.
+
+This market will resolve according to the listed candidate who wins the 2026 Osun State gubernatorial elections. Any interim or caretaker Governor will not qualify.
+
+This market includes any potential second round. 
+
+If the results are not known definitively by June 30, 2027, 11:59 PM ET, this market will resolve to "Other".
+
+This market will resolve based on the results of this election, as indicated by a consensus of credible reporting. If there is ambiguity, this market will resolve solely based on official results as reported by government sources of Osun State and Nigeria, including the Independent National Electoral Commission (https://inecnigeria.org).
+Contracts:
+  E10.C1: Will Ademola Adeleke win the 2026 Osun State gubernatorial elections?
+  E10.C2: Will Farinloye Olarenwaju win the 2026 Osun State gubernatorial elections?
+  E10.C3: Will Esan Olajide win the 2026 Osun State gubernatorial elections?
+  E10.C4: Will Najeem Salam win the 2026 Osun State gubernatorial elections?
+  E10.C5: Will Adeagbo Opawoye win the 2026 Osun State gubernatorial elections?
+  E10.C6: Will Bola Oyebamiji win the 2026 Osun State gubernatorial elections?
+  E10.C7: Will Adesina Adeyemi-Doro win the 2026 Osun State gubernatorial elections?
+  E10.C8: Will Adewale Adebayo win the 2026 Osun State gubernatorial elections?
+  E10.C9: Will Taofeek Adeleke win the 2026 Osun State gubernatorial elections?
+  E10.C10: Will Saliu Oyelami win the 2026 Osun State gubernatorial elections?
+  E10.C11: Will Adefemi Adesuyi win the 2026 Osun State gubernatorial elections?

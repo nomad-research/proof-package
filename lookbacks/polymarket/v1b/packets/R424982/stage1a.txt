@@ -1,0 +1,52 @@
+You are one of several independent analysts. Work only from what is written below. Apart from reading the file that held this text, do not use any tool, do not look anything up, and do not use anything you
+know that happened after 2026-06-08: reason as of that date. You are shown no market prices, and you are not asked for any probability.
+
+EVENT: Next leader out of power before 2027? (No Orban)   (structure: partition exact)
+RULES (as of 2026-06-08):
+This market will resolve according to the first listed individual who ceases to occupy their listed office.
+
+An announcement of a resignation/removal, or a scheduled departure from office due to the outcome of an election, will not alone qualify.
+
+Only permanent removal from office will qualify for resolution. Temporary removals, such as impeachment suspensions (e.g., Yoon Suk Yeol's recent impeachment), temporary invocation of the 25th Amendment, or any similar provisional transfers of power, will not count.
+
+Additionally, if an individual continues in a caretaker or interim role (e.g., Gabriel Attal remaining as caretaker Prime Minister of France), they will not be considered to have ceased occupying the office for the purposes of this market.
+
+If this criterion has not been met for any of the listed individuals by December 31, 2026, 11:59 PM ET, this market will resolve to “None before 2027”. No additional individuals will be added to this market after its creation.
+
+The resolution source for this market will be a consensus of credible reporting.
+
+CONTRACTS (each pays $1 if its statement is true when the event resolves, $0 otherwise; you may name YES or NO on any contract):
+  C1: Will Emmanuel Macron be the next leader out before 2027?  [Macron - France President]
+  C2: Will Recep Tayyip Erdoğan be the next leader out before 2027?  [Erdoğan - Türkiye President]
+  C3: Will Kim Jong Un be the next leader out before 2027?  [Kim - Supreme Leader of North Korea]
+  C4: Will Xi Jinping be the next leader out before 2027?  [Xi - General Secretary of the CCP]
+  C5: Will Benjamin Netanyahu be the next leader out before 2027?  [Netanyahu - Israel PM]
+  C6: Will Anthony Albanese be the next leader out before 2027?  [Albanese - Australia PM]
+  C7: Will Gavin Newsom be the next leader out before 2027?  [Newsom - California Governor]
+  C8: Will Javier Milei be the next leader out before 2027?  [Milei - Argentina President]
+  C9: Will Keir Starmer be the next leader out before 2027?  [Starmer - UK PM]
+  C10: Will Donald Trump be the next leader out before 2027?  [Trump - USA President]
+  C11: Will Volodymyr Zelenskyy be the next leader out before 2027?  [Zelenskyy - Ukraine President]
+  C12: Will Vladimir Putin be the next leader out before 2027?  [Putin - Russia President]
+  C13: Will Luiz Inácio Lula da Silva be the next leader out before 2027?  [Lula da Silva - Brazil President]
+  C14: Will Sébastien Lecornu be the next leader out before 2027?  [Lecornu - France PM]
+  C15: Will Sanae Takaichi be the next leader out before 2027?  [Takaichi - Japan PM]
+  C16: Will Mahmoud Abbas be the next leader out before 2027?  [Abbas - President of Palestine]
+  C17: Will Friedrich Merz be the next leader out before 2027?  [Merz - German Chancellor]
+  C18: Will Pedro Sánchez be the next leader out before 2027?  [Sánchez - Spanish PM]
+  C19: Will Claudia Sheinbaum be the next leader out before 2027?  [Sheinbaum - Mexico President]
+  C20: Will Miguel Díaz-Canel be the next leader out before 2027?  [Díaz-Canel - Cuba President]
+  C21: Will Gustavo Petro be the next leader out before 2027?  [Petro - Colombia President]
+  C22: Will Delcy Rodríguez be the next leader out before 2027?  [Rodríguez - Venezuela Acting President]
+  C23: Will Ahmed al-Sharaa be the next leader out before 2027?  [al-Sharaa - Syria President]
+  C24: Will no listed leader be out before 2027?  [None before 2027]
+
+Task. Write your own view as documents-and-mechanism reasoning, not as odds.
+1. primary: a thesis about how this event resolves and a basket of at most 4 contracts from the list that expresses it (long only: a contract with YES or NO).
+2. failure_narrative: the specific way the thesis is wrong (what would have to happen for the basket to lose).
+3. hedge_thesis: a second narrative, about a DIFFERENT part of the world, that would tend to be true in exactly the worlds where the primary fails. Say why, in mechanism terms.
+4. search_terms: 3 to 8 words or names (entities, assets, places, institutions) that instruments for the hedge thesis would carry. Lower-case single words or short names.
+5. recalls_outcome: true if you already know, or think you know, how this event (or any part of it) actually turned out; otherwise false. Be honest: a true answer is not penalised, it only means this item is set aside.
+
+Answer with one JSON object and nothing else:
+{"primary": {"thesis": "...", "basket": [{"contract": "C1", "side": "YES", "reason": "..."}]}, "failure_narrative": "...", "hedge_thesis": "...", "search_terms": ["..."], "recalls_outcome": false}

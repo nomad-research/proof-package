@@ -1,0 +1,188 @@
+You will be shown 10 questions from a prediction market. Each question has one or more contracts, and each contract resolves YES or NO under the rules shown.
+
+For every contract, give your probability, as a whole percent from 1 to 99, that it resolves YES. Use only what you already know. Do not search for or look up anything: reading this file is the only tool call you may make.
+
+For each question, also say whether you recognise how it actually turned out ("recognised": true only if you believe you remember the real outcome; otherwise false).
+
+Where a question's contracts are mutually exclusive (exactly one can resolve YES), your numbers for it should add up to about 100. Where they are nested thresholds or dates, keep them consistent with each other.
+
+Reply with one JSON object and nothing else, in this form:
+{"events": [{"label": "E1", "recognised": false, "p": {"E1.C1": 35, "E1.C2": 60}}]}
+
+Every contract label below must appear exactly once in your reply.
+
+=== E1: Deel IPO by March 31?
+Rules:
+This market will resolve to "Yes" if Deel completes an Initial Public Offering (IPO) by March 31, 2026, 11:59 PM ET, as confirmed by official company announcements or credible news sources. 
+
+The IPO refers to the first sale of stock by the listed company to the public on any recognized stock exchange.
+
+If Deel merges with another entity, is acquired, or ceases to exist before the market resolves, the market will also resolve to "No".
+
+The resolution source for this market is a consensus of credible reporting.
+Contracts:
+  E1.C1: Deel IPO by March 31?
+
+=== E2: Price of Dozen Eggs in May?
+Rules:
+This market will resolve to the bracket within which the price for "Eggs, Grade A, Large (Cost per Dozen) in U.S. City Average" lies when the May data point is published by the St. Louis Fed (https://fred.stlouisfed.org/series/APU0000708111).
+
+The St. Louis Fed bases its numbers for egg prices on the BLS's CPI release. The May release is presently scheduled for June 10, 2026. Resolution of this market will take place upon the update of the St. Louis Fed's chart. If no data for the specified month is released by the date the next month's data is scheduled to be released, this market will resolve based on data from the last available month.
+
+The resolution source for this market measures prices to the third decimal place. Thus, this is the level of precision that will be used when resolving the market.
+
+If the reported value falls exactly between two brackets, then this market will resolve to the higher range bracket.
+Contracts:
+  E2.C1: Will a dozen eggs cost <$1.50 in May?
+  E2.C2: Will a dozen eggs cost between $1.50–$1.75 in May?
+  E2.C3: Will a dozen eggs cost between $1.75–$2.00 in May?
+  E2.C4: Will a dozen eggs cost between $2.00–$2.25 in May?
+  E2.C5: Will a dozen eggs cost between $2.25–$2.50 in May?
+  E2.C6: Will a dozen eggs cost between $2.50–$2.75 in May?
+  E2.C7: Will a dozen eggs cost between $2.75–$3.00 in May?
+  E2.C8: Will a dozen eggs cost between $3.00–$3.25 in May?
+  E2.C9: Will a dozen eggs cost between $3.25–$3.50 in May?
+  E2.C10: Will a dozen eggs cost ≥$3.50 in May?
+
+=== E3: How many Tesla deliveries in Q4 2025?
+Rules:
+This market will resolve according to Tesla's announced total vehicle deliveries for Q4 2025.
+
+If Tesla does not publish Q4 2025 delivery figures by February 28, 2026, 11:59 PM ET, this market will resolve to the lowest bracket.
+
+If the reported value falls exactly between two brackets, this market will resolve to the higher range bracket.
+
+The resolution source will be https://ir.tesla.com/press.
+Contracts:
+  E3.C1: Will Tesla deliver less than 350000 vehicles in Q4 2025
+  E3.C2: Will Tesla deliver between 350000 and 375000 vehicles in Q4 2025
+  E3.C3: Will Tesla deliver between 375000 and 400000 vehicles in Q4 2025
+  E3.C4: Will Tesla deliver between 400000 and 425000 vehicles in Q4 2025
+  E3.C5: Will Tesla deliver between 425000 and 450000 vehicles in Q4 2025
+  E3.C6: Will Tesla deliver between 450000 and 475000 vehicles in Q4 2025
+  E3.C7: Will Tesla deliver between 475000 and 500000 vehicles in Q4 2025
+  E3.C8: Will Tesla deliver 500000 or more vehicles in Q4 2025
+
+=== E4: Trump drops Powell investigation by February 28?
+Rules:
+Federal prosecutors opened a criminal investigation into Federal Reserve Chair Jerome Powell over his congressional testimony in June about the renovation of the Central Bank’s headquarters (See: https://www.cnn.com/2026/01/11/business/federal-prosecutors-criminal-investigation-federal-reserve-chair-jerome-powell).
+
+This market will resolve to “Yes” if this criminal investigation into Jerome Powell is dropped by February 28, 2026, 11:59 PM ET. Otherwise, this market will resolve to “No”.
+
+The investigation will be considered to be dropped if it is definitively announced by the DoJ, Donald Trump, or other relevant members of the Trump Administration that the investigation is or will be ended without proceeding to any charges or indictment, or if the investigation is otherwise confirmed to have ended without charges by a broad consensus of credible reporting.
+
+Official statements from Donald Trump or other Trump Administration officials will only suffice to resolve this market to “Yes” if they definitively indicate that the investigation is or will be ended without proceeding to any charges or indictment. Suggestions, informal statements, statements that there will be no charges for now, or other statements that do not meet this standard will not alone qualify.
+
+If the United States federal government formally charges or announces a criminal indictment of Jerome Powell as a result of this investigation, within this market’s timeframe, this market will immediately resolve to “No”.
+
+The primary resolution source for this market will be official information from the United States Federal Government; however, a consensus of credible reporting may also be used.
+Contracts:
+  E4.C1: Trump drops Powell investigation by February 28?
+
+=== E5: Will the US embassy in Venezuela reopen by March 31?
+Rules:
+The United States has suspended operations of the Embassy in Venezuela.
+
+This market will resolve to "Yes" if the U.S. government announces the reopening of its embassy in Venezuela or if such a reopening is otherwise confirmed by March 31, 2026, 11:59 PM ET. Otherwise, this market will resolve to "No".
+
+An official announcement made within this market’s timeframe will qualify for a "Yes" resolution regardless of whether an actual embassy opening subsequently takes place within the timeframe.
+
+Any opening of a U.S. embassy in Venezuela will qualify regardless of its exact location.
+
+Announcements that do not clearly commit to opening an embassy, such as general diplomatic statements, exploratory comments, or partial/conditional steps, will not count.
+
+The resolution source will be official statements from the Governments of the U.S. and Venezuela; however, a consensus of credible reporting will also be used.
+Contracts:
+  E5.C1: Will the US embassy in Venezuela reopen by March 31?
+
+=== E6: Another US bank failure by February 28?
+Rules:
+This market will resolve to "Yes" if any US bank fails between this market's creation and the listed date 11:59 PM ET (according to the FDIC's "Failed Bank List"). Otherwise, this market will resolve to "No."
+
+For this market to resolve to "Yes", the bank's closing date as listed by the FDIC must be within this market's above-specified timeframe. If there is a potential bank failure within this market's timeframe and the FDIC "Failed Bank List" has not been updated yet, this market may remain open to allow for the list to be updated.
+
+The primary resolution source for this market will be the Federal Deposit Insurance Corporation (FDIC), specifically the "Failed Bank List" available here: https://www.fdic.gov/resources/resolutions/bank-failures/failed-bank-list/; however, other official statements from the FDIC and government entities will suffice.
+Contracts:
+  E6.C1: Another US bank failure by February 28?
+
+=== E7: Who will Trump announce as next Attorney General by June 30?
+Rules:
+This market will resolve according to the first individual Donald Trump announces as his pick to be United States Attorney General. 
+
+An announcement from Donald Trump or the Trump administration stating their intent to nominate a specific individual for United States Attorney General will suffice to resolve this market, regardless of whether a formal nomination actually occurs.
+
+Qualifying announcements must explicitly present the relevant individual as the nominee or future nominee for Attorney General. Announcements of acting or interim appointments, or announcements which merely reveal potential candidates, will not qualify. Media reports, speculation, or other unofficial information will not qualify.
+
+A formal presidential nomination of an individual to be United States Attorney General will also suffice to resolve this market. Formal nominations are defined as the submission of a nomination message to the U.S. Senate.
+
+If Donald Trump does not announce his pick for the next United States Attorney General by June 30, 2026, 11:59 PM ET, this market will resolve to "No announcement by June 30".
+
+The resolution source for this market will be official information from Donald Trump and the Trump Administration; however, a consensus of credible reporting may also be used.
+Contracts:
+  E7.C1: Will Donald Trump announce Lee Zeldin as the next United States Attorney General by June 30?
+  E7.C2: Will Donald Trump announce Todd Blanche as the next United States Attorney General by June 30?
+  E7.C3: Will Donald Trump announce Jeff Clark as the next United States Attorney General by June 30?
+  E7.C4: Will Donald Trump announce Ken Paxton as the next United States Attorney General by June 30?
+  E7.C5: Will Donald Trump announce Matt Gaetz as the next United States Attorney General by June 30?
+  E7.C6: Will Donald Trump announce Ron DeSantis as the next United States Attorney General by June 30?
+  E7.C7: Will Donald Trump announce Jeanine Pirro as the next United States Attorney General by June 30?
+  E7.C8: Will Donald Trump not announce a next United States Attorney General by June 30?
+  E7.C9: Will Donald Trump announce Mike Lee as the next United States Attorney General by June 30?
+  E7.C10: Will Donald Trump announce Jay Clayton as the next United States Attorney General by June 30?
+  E7.C11: Will Donald Trump announce Harmeet Dhillon as the next United States Attorney General by June 30?
+  E7.C12: Will Donald Trump announce Ted Cruz as the next United States Attorney General by June 30?
+
+=== E8: André Ventura vote share in Portuguese presidential first round?
+Rules:
+First-round presidential elections are scheduled to be held in Portugal on January 18, 2026.
+
+This market will resolve according to the vote share André Ventura wins in the first round of the Portuguese presidential election.
+
+If the reported value falls exactly between two brackets, then this market will resolve to the higher range bracket.
+
+If a recount is initiated before the vote total has been made official, the market will remain open until the recount is completed and the vote is made official.
+
+This market's resolution will be based solely on the proportion of votes won by André Ventura.
+
+If the results of the election aren’t known by June 30, 2026 ET, this market will resolve to the lowest range bracket.
+
+This market will resolve based on the result of the election as indicated by a consensus of credible reporting. If there is ambiguity, this market will resolve based solely on the official results as reported by the Portuguese government, specifically the National Election Commission (Comissão Nacional de Eleições, CNE) (https://www.cne.pt/).
+Contracts:
+  E8.C1: Will André Ventura win less than 16% of votes in the first round?
+  E8.C2: Will André Ventura win between 16% and 18% of votes in the first round?
+  E8.C3: Will André Ventura win between 18% and 20% of votes in the first round?
+  E8.C4: Will André Ventura win between 20% and 22% of votes in the first round?
+  E8.C5: Will André Ventura win between 22% and 24% of votes in the first round?
+  E8.C6: Will André Ventura win between 24% and 26% of votes in the first round?
+  E8.C7: Will André Ventura win more than 26% of votes in the first round?
+
+=== E9: New Gemini reasoning flagship released by...?
+Rules:
+This market will resolve to "Yes" if Google releases or makes available a new Gemini reasoning flagship model to the general public by the specified date (ET). Otherwise, this market will resolve to "No."
+
+Qualifying models must be positioned by Google as a next-generation, reasoning-focused flagship within the Gemini model line. For example, qualifying models include newly released or newly made generally available (GA) reasoning-focused flagship models (e.g, Gemini 3.1 GA), or any new Pro, Deep Think, or Ultra variants (e.g., Gemini 3.2 Pro, Gemini 3.4 Deep Think, Gemini 4 Ultra).
+
+Models explicitly positioned for speed, efficiency, or low-cost inference that compromise reasoning capability will NOT qualify. This includes, but is not limited to, variants such as Gemini Flash, Flash-lite, Nano, or similar lightweight or latency-optimized models, even if released under a new Gemini version number.
+
+Specialized models for non-text modalities such as video generation (e.g., Veo), image generation (e.g., Imagen, Nano Banana), music generation (e.g., Lyria), or robotics (e.g., Gemini Robotics) will NOT qualify, even if released under a qualifying Gemini version number. 
+
+A qualifying model must be launched and publicly accessible, including via open beta or open rolling waitlist signups. A closed beta or any form of private access will not suffice. The release must be either clearly defined and publicly announced by Google as being accessible to the general public or otherwise made publicly accessible and explicitly labeled within the company's official website. Labeling errors, placeholder text, or version names displayed on the website that do not correspond to a model that is actually accessible to the general public will not qualify.
+
+The primary resolution source for this market will be official information from Google, with additional verification from a consensus of credible reporting.
+Contracts:
+  E9.C1: Will a new Gemini flagship be released by June 19, 2026?
+  E9.C2: Will a new Gemini flagship be released by June 30, 2026?
+
+=== E10: Will Trump establish a Gaza “Board of Peace” by March 31?
+Rules:
+This market will resolve to “Yes” if the Trump Administration formally announces the establishment of the “Board of Peace” (or a clearly equivalent oversight board fulfilling the same role) by March 31, 2026, 11:59 PM ET. Otherwise, resolve “No.”
+
+Only official policy announcements will qualify.
+
+Informal statements, plans contingent on future conditions, statements of intent without a formal policy directive, or any other statements that do not constitute a formal policy announcement will not be considered.
+
+A consensus of credible reporting confirming that the “Board of Peace” or equivalent Gaza oversight board has been established, includes U.S. participation and is operational will also qualify.  
+
+The resolution source will be official announcements from the Trump administration however a consensus for credible reporting may also be used.
+Contracts:
+  E10.C1: Will Trump establish a Gaza “Board of Peace” by March 31?

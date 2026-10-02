@@ -1,0 +1,33 @@
+You are one of several independent analysts. Work only from what is written below. Apart from reading the file that held this text, do not use any tool, do not look anything up, and do not use anything you
+know that happened after 2026-06-22: reason as of that date. You are shown no market prices, and you are not asked for any probability.
+
+EVENT: Claude Fable 5 restored for US customers by…?   (structure: date ladder)
+RULES (as of 2026-06-22):
+On June 9, 2026, Anthropic released the AI model “Claude Fable 5” to the general public. On June 12, 2026, Anthropic suspended access to the specified model in response to a directive from the US government.
+
+This market will resolve to "Yes" if Anthropic restores access to “Claude Fable 5,” also known as “Claude Mythos,” or a model confirmed to be the same model to US customers by the listed date, 11:59 PM ET. Otherwise, this market will resolve to "No."
+
+A qualifying model must be named "Claude Fable 5” or “Claude Mythos” (e.g., Claude Mythos 1, Claude Mythos 5, Claude Mythos X, would count), or be confirmed by Anthropic or by a consensus of credible reporting to be the same model as released by Anthropic on June 9, 2026.
+
+Products labeled as Claude Haiku, Sonnet, and Opus 4.7/5.0 or similar will not count for this market's resolution unless they are confirmed to be the same model released by Anthropic on June 9, 2026.
+
+For this market to resolve to "Yes," the qualifying model (as defined above) must be restored to public accessibility within the United States, including via open beta or open rolling waitlist signups. A closed beta or any form of private access will not suffice. The restoration must be clearly defined and publicly announced by Anthropic as being accessible to US customers. If an otherwise qualifying restoration restricts access to certain customers based on nationality, whether geographically inside or outside of the US, that restoration will still qualify.
+
+If a qualifying model is made publicly accessible and labeled with the relevant version name within the company’s official website, this will qualify as “publicly announced”. Labeling errors, placeholder text, or version names displayed on the website that do not correspond to a model that is actually accessible to the general public under the rules will not qualify.
+
+The primary resolution source for this market will be official information from Anthropic; however, a consensus of credible reporting will also be used.
+
+CONTRACTS (each pays $1 if its statement is true when the event resolves, $0 otherwise; you may name YES or NO on any contract):
+  C1: Will Claude Fable 5 be restored for US customers by June 22?  [June 22]
+  C2: Will Claude Fable 5 be restored for US customers by June 26?  [June 26]
+  C3: Will Claude Fable 5 be restored for US customers by July 1?  [July 1]
+
+Task. Write your own view as documents-and-mechanism reasoning, not as odds.
+1. primary: a thesis about how this event resolves and a basket of at most 4 contracts from the list that expresses it (long only: a contract with YES or NO).
+2. failure_narrative: the specific way the thesis is wrong (what would have to happen for the basket to lose).
+3. hedge_thesis: a second narrative, about a DIFFERENT part of the world, that would tend to be true in exactly the worlds where the primary fails. Say why, in mechanism terms.
+4. search_terms: 3 to 8 words or names (entities, assets, places, institutions) that instruments for the hedge thesis would carry. Lower-case single words or short names.
+5. recalls_outcome: true if you already know, or think you know, how this event (or any part of it) actually turned out; otherwise false. Be honest: a true answer is not penalised, it only means this item is set aside.
+
+Answer with one JSON object and nothing else:
+{"primary": {"thesis": "...", "basket": [{"contract": "C1", "side": "YES", "reason": "..."}]}, "failure_narrative": "...", "hedge_thesis": "...", "search_terms": ["..."], "recalls_outcome": false}

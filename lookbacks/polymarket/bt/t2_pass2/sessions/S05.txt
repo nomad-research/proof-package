@@ -1,0 +1,359 @@
+You will be shown 6 questions from a prediction market. Each has one or more contracts that resolve YES or NO under the rules shown. Each question gives the date your view is "as of": answer as you would on that date.
+
+Use only what you already know. Do not search for or look up anything: reading this file is the only tool call you may make. There are no prices in this file and you should not try to estimate what any market thinks; give your own view.
+
+Each question says what to write for it. Whole percents run from 1 to 99. Levels are plain numbers in the units the contracts use (for example 95000 for $95,000, 3.25 for 3.25%). Dates are YYYY-MM-DD.
+
+For each question also say whether you recognise how it actually turned out ("recognised": true only if you believe you remember the real outcome; otherwise false).
+
+Reply with one JSON object and nothing else:
+{"events": [{"label": "E1", "recognised": false, ...the fields that question asks for...}]}
+
+=== E1 (as of 2026-07-08): Bitcoin above ___ on July 12?
+Rules:
+This market will resolve to "Yes" if the Binance 1 minute candle for BTC/USDT 12:00 in the ET timezone (noon) on the date specified in the title has a final "Close" price higher than the price specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the BTC/USDT "Close" prices currently available at https://www.binance.com/en/trade/BTC_USDT with "1m" and "Candles" selected on the top bar.
+
+Please note that this market is about the price according to Binance BTC/USDT, not according to other exchanges or trading pairs.
+
+Price precision is determined by the number of decimal places in the source.
+Contracts:
+  E1.C1: Will the price of Bitcoin be above $52,000 on July 12?
+  E1.C2: Will the price of Bitcoin be above $54,000 on July 12?
+  E1.C3: Will the price of Bitcoin be above $56,000 on July 12?
+  E1.C4: Will the price of Bitcoin be above $58,000 on July 12?
+  E1.C5: Will the price of Bitcoin be above $60,000 on July 12?
+  E1.C6: Will the price of Bitcoin be above $62,000 on July 12?
+  E1.C7: Will the price of Bitcoin be above $64,000 on July 12?
+  E1.C8: Will the price of Bitcoin be above $66,000 on July 12?
+  E1.C9: Will the price of Bitcoin be above $68,000 on July 12?
+  E1.C10: Will the price of Bitcoin be above $70,000 on July 12?
+  E1.C11: Will the price of Bitcoin be above $72,000 on July 12?
+What to write for E1:
+  Write "levels": for each chance 10, 25, 50, 75 and 90, the level you give that chance of the measured quantity being at or above when it resolves. The 10 level is the highest and the 90 level the lowest. Example: {"10": 120, "25": 110, "50": 100, "75": 92, "90": 85}.
+
+=== E2 (as of 2026-08-05): Donald Trump # Truth Social posts August 7 - August 14, 2026?
+Rules:
+This market will resolve according to the number of times Donald Trump (@realDonaldTrump), posts on Truth Social between August 7, 12:00 PM ET and August 14, 2026, 12:00 PM ET.
+
+For the purposes of this market, only main feed posts, quote posts and reposts will count.
+
+Replies will NOT count towards the total - however, replies which are recorded on the main feed will be counted by the tracker.
+
+Deleted posts will count as long as they remain available long enough to be captured by the tracker (~5 minutes).
+
+The resolution source for this market is the "Post Counter" figure for posts found at https://xtracker.polymarket.com. Individual posts can be viewed by clicking "Export Data". If the tracker does not update correctly in accordance with the rules, Truth Social itself may be used as a secondary resolution source.
+Contracts:
+  E2.C1: Will Donald Trump post 0-19 Truth Social posts from August 7 to August 14, 2026?
+  E2.C2: Will Donald Trump post 20-39 Truth Social posts from August 7 to August 14, 2026?
+  E2.C3: Will Donald Trump post 40-59 Truth Social posts from August 7 to August 14, 2026?
+  E2.C4: Will Donald Trump post 60-79 Truth Social posts from August 7 to August 14, 2026?
+  E2.C5: Will Donald Trump post 80-99 Truth Social posts from August 7 to August 14, 2026?
+  E2.C6: Will Donald Trump post 100-119 Truth Social posts from August 7 to August 14, 2026?
+  E2.C7: Will Donald Trump post 120-139 Truth Social posts from August 7 to August 14, 2026?
+  E2.C8: Will Donald Trump post 140-159 Truth Social posts from August 7 to August 14, 2026?
+  E2.C9: Will Donald Trump post 160-179 Truth Social posts from August 7 to August 14, 2026?
+  E2.C10: Will Donald Trump post 180-199 Truth Social posts from August 7 to August 14, 2026?
+  E2.C11: Will Donald Trump post 200+ Truth Social posts from August 7 to August 14, 2026?
+What to write for E2:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E3 (as of 2026-08-05): TN-06 Republican Primary Winner
+Rules:
+This market will resolve according to the candidate who wins the nomination for the Republican Party to contest the TN-06 congressional district seat in the U.S. House of Representatives in the 2026 midterm elections. The Republican primary will take place on August 6, 2026.
+
+If no nominee is announced by November 3, 2026, 11:59 PM ET, this market will resolve to "Other".
+
+The resolution source for this market will be a consensus of official Republican sources, including https://rnc.org/.
+
+Any replacement of the nominee before election day will not change the resolution of the market.
+Contracts:
+  E3.C1: Will Natisha Brooks be the TN-06 Republican nominee?
+  E3.C2: Will Johnny Garrett be the TN-06 Republican nominee?
+  E3.C3: Will Jon Henry be the TN-06 Republican nominee?
+  E3.C4: Will Van Hilleary be the TN-06 Republican nominee?
+What to write for E3:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E4 (as of 2026-09-09): What will Netflix, Inc. (NFLX) hit Week of September 7 2026?
+Rules:
+What will Netflix, Inc. (NFLX) hit Week of September 7 2026?
+Contracts:
+  E4.C1: Will Netflix, Inc. (NFLX) hit (HIGH) $95 Week of September 7 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of September 7 2026, any 1-minute candle for Netflix, Inc. (NFLX) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Netflix, Inc. (NFLX) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.NFLX%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.NFLX%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E4.C2: Will Netflix, Inc. (NFLX) hit (HIGH) $92.50 Week of September 7 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of September 7 2026, any 1-minute candle for Netflix, Inc. (NFLX) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Netflix, Inc. (NFLX) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.NFLX%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.NFLX%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E4.C3: Will Netflix, Inc. (NFLX) hit (HIGH) $90 Week of September 7 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of September 7 2026, any 1-minute candle for Netflix, Inc. (NFLX) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Netflix, Inc. (NFLX) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.NFLX%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.NFLX%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E4.C4: Will Netflix, Inc. (NFLX) hit (HIGH) $87.50 Week of September 7 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of September 7 2026, any 1-minute candle for Netflix, Inc. (NFLX) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Netflix, Inc. (NFLX) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.NFLX%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.NFLX%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E4.C5: Will Netflix, Inc. (NFLX) hit (HIGH) $85 Week of September 7 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of September 7 2026, any 1-minute candle for Netflix, Inc. (NFLX) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Netflix, Inc. (NFLX) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.NFLX%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.NFLX%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E4.C6: Will Netflix, Inc. (NFLX) hit (HIGH) $82.50 Week of September 7 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of September 7 2026, any 1-minute candle for Netflix, Inc. (NFLX) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Netflix, Inc. (NFLX) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.NFLX%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.NFLX%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E4.C7: Will Netflix, Inc. (NFLX) hit (HIGH) $80 Week of September 7 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of September 7 2026, any 1-minute candle for Netflix, Inc. (NFLX) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Netflix, Inc. (NFLX) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.NFLX%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.NFLX%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E4.C8: Will Netflix, Inc. (NFLX) hit (HIGH) $77.50 Week of September 7 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of September 7 2026, any 1-minute candle for Netflix, Inc. (NFLX) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Netflix, Inc. (NFLX) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.NFLX%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.NFLX%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E4.C9: Will Netflix, Inc. (NFLX) hit (LOW) $75 Week of September 7 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of September 7 2026, any 1-minute candle for Netflix, Inc. (NFLX) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Netflix, Inc. (NFLX) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.NFLX%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.NFLX%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E4.C10: Will Netflix, Inc. (NFLX) hit (LOW) $72.50 Week of September 7 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of September 7 2026, any 1-minute candle for Netflix, Inc. (NFLX) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Netflix, Inc. (NFLX) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.NFLX%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.NFLX%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E4.C11: Will Netflix, Inc. (NFLX) hit (LOW) $70 Week of September 7 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of September 7 2026, any 1-minute candle for Netflix, Inc. (NFLX) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Netflix, Inc. (NFLX) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.NFLX%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.NFLX%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E4.C12: Will Netflix, Inc. (NFLX) hit (LOW) $67.50 Week of September 7 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of September 7 2026, any 1-minute candle for Netflix, Inc. (NFLX) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Netflix, Inc. (NFLX) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.NFLX%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.NFLX%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E4.C13: Will Netflix, Inc. (NFLX) hit (LOW) $65 Week of September 7 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of September 7 2026, any 1-minute candle for Netflix, Inc. (NFLX) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Netflix, Inc. (NFLX) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.NFLX%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.NFLX%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E4.C14: Will Netflix, Inc. (NFLX) hit (LOW) $62.50 Week of September 7 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during the week of September 7 2026, any 1-minute candle for Netflix, Inc. (NFLX) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Netflix, Inc. (NFLX) "High" and "Low" prices available at https://pythdata.app/explore/Equity.US.NFLX%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.NFLX%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+What to write for E4:
+  Write "high": for each chance 10, 25, 50, 75 and 90, the level you give that chance of being reached (at or above) within the period. The 10 level is the highest.
+  Write "low": for each chance 10, 25, 50, 75 and 90, the level you give that chance of being reached (at or below) within the period. The 10 level is the lowest.
+
+=== E5 (as of 2026-07-22): Core PCE YoY - June 2026
+Rules:
+This is a market about percentage change in the Personal Consumption Expenditures Price Index excluding food and energy (Core PCE) over the 12-month period ending June 2026, seasonally adjusted, as reported by the Bureau of Economic Analysis.
+
+This market will resolve to the percentage change in the Personal Consumption Expenditures Price Index excluding food and energy (Core PCE) over the 12-month period ending in June 2026 according to the monthly Bureau of Economic Analysis (BEA) report.
+
+The resolution source for this market will be the BEA Personal Income and Outlays report for June 2026 (https://www.bea.gov/data/personal-consumption-expenditures-price-index), currently scheduled to be released on July 30, 2026, at 8:30 AM ET. Resolution of this market will take place upon release of the aforementioned data.
+
+Note: the resolution source for this market will be the official monthly BEA Personal Income and Outlays news release, which reports core inflation (all items less food and energy) over 12-month periods to only one decimal point (e.g., 3.3%). Thus, this is the level of precision that will be used when resolving the market. For the avoidance of doubt, this market resolves on the core PCE figure — the PCE price index excluding food and energy — not the headline all-items (total) PCE price index figure.
+
+If the BEA does not release the relevant figures on the scheduled date, this market may remain open up until the scheduled release time of the next Personal Income and Outlays report (https://www.bea.gov/news/schedule). If the information is not released by that time, this market will resolve according to the figures of the most recent previous month with available data.
+Contracts:
+  E5.C1: Will Core PCE YoY be 3.3% or less in June?
+  E5.C2: Will Core PCE YoY be 3.4% in June?
+  E5.C3: Will Core PCE YoY be 3.5% in June?
+  E5.C4: Will Core PCE YoY be 3.6% in June?
+  E5.C5: Will Core PCE YoY be 3.7% in June?
+  E5.C6: Will Core PCE YoY be 3.8% in June?
+  E5.C7: Will Core PCE YoY be 3.9% or more in June?
+What to write for E5:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E6 (as of 2026-08-19): Amazon (AMZN) closes above ___ on August 19?
+Rules:
+This market will resolve to "Yes" if the Close price for Amazon.com, Inc. (AMZN) on August 19, 2026 is higher than the listed price. Otherwise, this market will resolve to "No."
+
+If the two specified prices are exactly equal, this market will resolve to "No".
+
+Closing prices will be used exactly as published by Pyth, without rounding.
+
+If Amazon.com, Inc. (AMZN) does not trade at all during the regular session, the market will resolve 50-50.
+
+For a standard full trading session, the closing price refers to the Pyth "Close" value of the 1-minute candle corresponding to the final minute of regular trading hours on the primary exchange.
+
+If the specified day has no valid Pyth Close value for the 1-minute candle corresponding to the end of regular trading hours on the primary exchange, the market will use the last valid Pyth price achieved during the regular trading hours of the primary exchange as the effective closing price. If no valid Pyth price exists for that trading day due to a system outage, data failure, or other technical disruption, the official closing price published by the primary exchange on which the listed security trades will be used to determine the closing price for that day.
+
+If the listed date is not a trading day under the applicable trading-hours schedule as listed on Pyth, this market will resolve 50-50.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed security during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth. The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market will be Pyth, specifically the "Close" values for the relevant 1-minute candle available at https://pythdata.app/explore/Equity.US.AMZN%2FUSD.
+Contracts:
+  E6.C1: Will Amazon (AMZN) close above $250 on August 19?
+  E6.C2: Will Amazon (AMZN) close above $255 on August 19?
+  E6.C3: Will Amazon (AMZN) close above $260 on August 19?
+  E6.C4: Will Amazon (AMZN) close above $265 on August 19?
+  E6.C5: Will Amazon (AMZN) close above $270 on August 19?
+What to write for E6:
+  Write "levels": for each chance 10, 25, 50, 75 and 90, the level you give that chance of the measured quantity being at or above when it resolves. The 10 level is the highest and the 90 level the lowest. Example: {"10": 120, "25": 110, "50": 100, "75": 92, "90": 85}.

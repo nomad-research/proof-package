@@ -1,0 +1,44 @@
+You are one of several independent analysts. Work only from what is written below. Apart from reading the file that held this text, do not use any tool, do not look anything up, and do not use anything you
+know that happened after 2026-04-29: reason as of that date. You are shown no market prices, and you are not asked for any probability.
+
+EVENT: Next UK Prime Minister in 2026?   (structure: partition open)
+RULES (as of 2026-04-29):
+This market will resolve to the next individual who is officially appointed as Prime Minister of the United Kingdom by December 31, 2026, 11:59 PM ET.
+
+To count for resolution, the individual must be officially appointed by the United Kingdom Monarch. Any interim or caretaker Prime Minister will not count toward the resolution of this market.
+
+If no such Prime Minister is appointed by December 31, 2026, 11:59 PM ET, this market will resolve to “No Next PM in 2026”.
+
+The primary resolution source for this market will be official information from the Government of the United Kingdom; however, a consensus of credible reporting may also be used.
+
+CONTRACTS (each pays $1 if its statement is true when the event resolves, $0 otherwise; you may name YES or NO on any contract):
+  C1: Will Lucy Powell be the next Prime Minister of the United Kingdom in 2026?  [Lucy Powell]
+  C2: Will Wes Streeting be the next Prime Minister of the United Kingdom in 2026?  [Wes Streeting]
+  C3: Will Angela Rayner be the next Prime Minister of the United Kingdom in 2026?  [Angela Rayner]
+  C4: Will Nigel Farage be the next Prime Minister of the United Kingdom in 2026?  [Nigel Farage]
+  C5: Will Andy Burnham be the next Prime Minister of the United Kingdom in 2026?  [Andy Burnham]
+  C6: Will Kemi Badenoch be the next Prime Minister of the United Kingdom in 2026?  [Kemi Badenoch]
+  C7: Will Yvette Cooper be the next Prime Minister of the United Kingdom in 2026?  [Yvette Cooper]
+  C8: Will Shabana Mahmood be the next Prime Minister of the United Kingdom in 2026?  [Shabana Mahmood]
+  C9: Will Ed Miliband be the next Prime Minister of the United Kingdom in 2026?  [Ed Miliband]
+  C10: Will Boris Johnson be the next Prime Minister of the United Kingdom in 2026?  [Boris Johnson]
+  C11: Will Ed Davey be the next Prime Minister of the United Kingdom in 2026?  [Ed Davey]
+  C12: Will Bridget Phillipson be the next Prime Minister of the United Kingdom in 2026?  [Bridget Phillipson]
+  C13: Will Rupert Lowe be the next Prime Minister of the United Kingdom in 2026?  [Rupert Lowe]
+  C14: Will Rachel Reeves be the next Prime Minister of the United Kingdom in 2026?  [Rachel Reeves]
+  C15: Will Robert Jenrick be the next Prime Minister of the United Kingdom in 2026?  [Robert Jenrick]
+  C16: Will David Lammy be the next Prime Minister of the United Kingdom in 2026?  [David Lammy]
+  C17: Will James Cleverly be the next Prime Minister of the United Kingdom in 2026?  [James Cleverly]
+  C18: Will Darren Jones be the next Prime Minister of the United Kingdom in 2026?  [Darren Jones]
+  C19: Will Al Carns be the next Prime Minister of the United Kingdom in 2026?  [Al Carns]
+  C20: Will no next Prime Minister of the United Kingdom be appointed in 2026?  [No Next PM in 2026]
+
+Task. Write your own view as documents-and-mechanism reasoning, not as odds.
+1. primary: a thesis about how this event resolves and a basket of at most 4 contracts from the list that expresses it (long only: a contract with YES or NO).
+2. failure_narrative: the specific way the thesis is wrong (what would have to happen for the basket to lose).
+3. hedge_thesis: a second narrative, about a DIFFERENT part of the world, that would tend to be true in exactly the worlds where the primary fails. Say why, in mechanism terms.
+4. search_terms: 3 to 8 words or names (entities, assets, places, institutions) that instruments for the hedge thesis would carry. Lower-case single words or short names.
+5. recalls_outcome: true if you already know, or think you know, how this event (or any part of it) actually turned out; otherwise false. Be honest: a true answer is not penalised, it only means this item is set aside.
+
+Answer with one JSON object and nothing else:
+{"primary": {"thesis": "...", "basket": [{"contract": "C1", "side": "YES", "reason": "..."}]}, "failure_narrative": "...", "hedge_thesis": "...", "search_terms": ["..."], "recalls_outcome": false}

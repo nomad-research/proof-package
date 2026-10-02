@@ -1,0 +1,600 @@
+You will be shown 6 questions from a prediction market. Each has one or more contracts that resolve YES or NO under the rules shown. Each question gives the date your view is "as of": answer as you would on that date.
+
+Use only what you already know. Do not search for or look up anything: reading this file is the only tool call you may make. There are no prices in this file and you should not try to estimate what any market thinks; give your own view.
+
+Each question says what to write for it. Whole percents run from 1 to 99. Levels are plain numbers in the units the contracts use (for example 95000 for $95,000, 3.25 for 3.25%). Dates are YYYY-MM-DD.
+
+For each question also say whether you recognise how it actually turned out ("recognised": true only if you believe you remember the real outcome; otherwise false).
+
+Reply with one JSON object and nothing else:
+{"events": [{"label": "E1", "recognised": false, ...the fields that question asks for...}]}
+
+=== E1 (as of 2026-09-02): Solana price on September 7?
+Rules:
+This market will resolve according to the final "Close" price of the Binance 1 minute candle for SOL/USDT 12:00 in the ET timezone (noon) on the date specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the SOL/USDT "Close" prices currently available at https://www.binance.com/en/trade/SOL_USDT with "1m" and "Candles" selected on the top bar.
+
+If the reported value falls exactly between two brackets, then this market will resolve to the higher range bracket.
+
+Please note that this market is about the price according to Binance SOL/USDT, not according to other exchanges or trading pairs.
+Contracts:
+  E1.C1: Will the price of Solana be less than $60 on September 7?
+  E1.C2: Will the price of Solana be between $60 and $70 on September 7?
+  E1.C3: Will the price of Solana be between $70 and $80 on September 7?
+  E1.C4: Will the price of Solana be between $80 and $90 on September 7?
+  E1.C5: Will the price of Solana be between $90 and $100 on September 7?
+  E1.C6: Will the price of Solana be between $100 and $110 on September 7?
+  E1.C7: Will the price of Solana be between $110 and $120 on September 7?
+  E1.C8: Will the price of Solana be between $120 and $130 on September 7?
+  E1.C9: Will the price of Solana be between $130 and $140 on September 7?
+  E1.C10: Will the price of Solana be between $140 and $150 on September 7?
+  E1.C11: Will the price of Solana be greater than $150 on September 7?
+What to write for E1:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E2 (as of 2026-09-23): Bitcoin price on September 29?
+Rules:
+This market will resolve according to the final "Close" price of the Binance 1 minute candle for BTC/USDT 12:00 in the ET timezone (noon) on the date specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the BTC/USDT "Close" prices currently available at https://www.binance.com/en/trade/BTC_USDT with "1m" and "Candles" selected on the top bar.
+
+If the reported value falls exactly between two brackets, then this market will resolve to the higher range bracket.
+
+Please note that this market is about the price according to Binance BTC/USDT, not according to other exchanges or trading pairs.
+Contracts:
+  E2.C1: Will the price of Bitcoin be less than $78,000 on September 29?
+  E2.C2: Will the price of Bitcoin be between $78,000 and $80,000 on September 29?
+  E2.C3: Will the price of Bitcoin be between $80,000 and $82,000 on September 29?
+  E2.C4: Will the price of Bitcoin be between $82,000 and $84,000 on September 29?
+  E2.C5: Will the price of Bitcoin be between $84,000 and $86,000 on September 29?
+  E2.C6: Will the price of Bitcoin be between $86,000 and $88,000 on September 29?
+  E2.C7: Will the price of Bitcoin be between $88,000 and $90,000 on September 29?
+  E2.C8: Will the price of Bitcoin be between $90,000 and $92,000 on September 29?
+  E2.C9: Will the price of Bitcoin be between $92,000 and $94,000 on September 29?
+  E2.C10: Will the price of Bitcoin be between $94,000 and $96,000 on September 29?
+  E2.C11: Will the price of Bitcoin be greater than $96,000 on September 29?
+What to write for E2:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E3 (as of 2026-07-15): Ethereum price on July 21?
+Rules:
+This market will resolve according to the final "Close" price of the Binance 1 minute candle for ETH/USDT 12:00 in the ET timezone (noon) on the date specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the ETH/USDT "Close" prices currently available at https://www.binance.com/en/trade/ETH_USDT with "1m" and "Candles" selected on the top bar.
+
+If the reported value falls exactly between two brackets, then this market will resolve to the higher range bracket.
+
+Please note that this market is about the price according to Binance ETH/USDT, not according to other exchanges or trading pairs.
+Contracts:
+  E3.C1: Will the price of Ethereum be less than $1,400 on July 21?
+  E3.C2: Will the price of Ethereum be between $1,400 and $1,500 on July 21?
+  E3.C3: Will the price of Ethereum be between $1,500 and $1,600 on July 21?
+  E3.C4: Will the price of Ethereum be between $1,600 and $1,700 on July 21?
+  E3.C5: Will the price of Ethereum be between $1,700 and $1,800 on July 21?
+  E3.C6: Will the price of Ethereum be between $1,800 and $1,900 on July 21?
+  E3.C7: Will the price of Ethereum be between $1,900 and $2,000 on July 21?
+  E3.C8: Will the price of Ethereum be between $2,000 and $2,100 on July 21?
+  E3.C9: Will the price of Ethereum be between $2,100 and $2,200 on July 21?
+  E3.C10: Will the price of Ethereum be between $2,200 and $2,300 on July 21?
+  E3.C11: Will the price of Ethereum be greater than $2,300 on July 21?
+What to write for E3:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E4 (as of 2026-07-29): Will OpenAI's valuation hit __ by July 31?
+Rules:
+This market will resolve to "Yes" if OpenAI's private market valuation, as measured by the NPM Price reported by Nasdaq Private Market, LLC (NPM) for any date between market creation and July 31, 2026, reaches or exceeds the listed amount. Otherwise, this market will resolve to "No".
+
+NPM Prices are published for trading days only and are updated once daily at 1:00 PM ET on the following calendar day.
+
+If NPM has not published relevant data for all business dates in the specified period by 1:00 PM ET on August 1, 2026, this market may remain open until 11:59 PM ET on August 4, 2026. If no further data is released by that time, the market will resolve according to the data available.
+
+If NPM ceases publishing relevant data prior to the end of the specified period, this market will resolve based on the NPM data published for the period prior to the cessation of coverage, as well as any applicable public market capitalization data following an IPO or direct listing.
+
+If the company completes an IPO or direct listing before the end of the specified period, this market will consider, in addition to the relevant NPM valuations published between market creation and the IPO or direct listing date, the valuation implied by the official IPO or direct listing price, and the company's public market capitalization between the IPO or direct listing date and the end of the specified period.
+
+Public market capitalization will be determined using the highest/lowest official regular-hours trading price published for the company's primary listed common equity on its primary exchange for any trading day during the specified period, multiplied by the company's total outstanding common shares at the relevant time.
+
+If the listed company merges with or acquires another entity and remains the parent company, no change to resolution methodology applies.
+
+If the listed company is acquired, merges into another entity and is no longer the surviving parent company, or otherwise ceases to exist as an independent entity prior to the end of the period, only NPM valuations and applicable public market capitalizations achieved prior to completion of the transaction will be considered for resolution. No transaction, acquisition, or merger consideration will be considered for resolution.
+
+The resolution source for this market is NPM data published here: (https://fe.secondmarket.com/companies/company-30839e0b-2730-4495-839f-1bf638fa9cca/data). The resolution source for any period following an IPO, direct listing, or relevant corporate action, will be official exchange trading data and publicly reported share counts.
+
+Revisions to previously published NPM data made after their initial release will not be considered, unless made to correct clearly erroneous data.
+Contracts:
+  E4.C1: Will OpenAI's valuation hit (HIGH) $1.5T by July 31?
+  E4.C2: Will OpenAI's valuation hit (HIGH) $1.25T by July 31?
+  E4.C3: Will OpenAI's valuation hit (HIGH) $1.1T by July 31?
+  E4.C4: Will OpenAI's valuation hit (HIGH) $1.0T by July 31?
+  E4.C5: Will OpenAI's valuation hit (HIGH) $950B by July 31?
+  E4.C6: Will OpenAI's valuation hit (HIGH) $900B by July 31?
+  E4.C7: Will OpenAI's valuation hit (LOW) $800B by July 31?
+  E4.C8: Will OpenAI's valuation hit (LOW) $725B by July 31?
+What to write for E4:
+  Write "high": for each chance 10, 25, 50, 75 and 90, the level you give that chance of being reached (at or above) within the period. The 10 level is the highest.
+  Write "low": for each chance 10, 25, 50, 75 and 90, the level you give that chance of being reached (at or below) within the period. The 10 level is the lowest.
+
+=== E5 (as of 2026-09-02): What will Gold (XAUUSD) hit Week of August 31 2026?
+Rules:
+What will Gold (XAUUSD) hit Week of August 31 2026?
+Contracts:
+  E5.C1: Will Gold (XAUUSD) hit (HIGH) $4,800 Week of August 31 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during a trading session of the week of August 31 2026, any 1-minute candle for Gold (XAUUSD) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during an applicable trading session of the specified timeframe's business days will be considered. The trading session for a given business day typically begins at 6:00 PM ET on the prior calendar date. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If Gold (XAUUSD) does not trade at all during the listed time frame, this market will resolve to "No".
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Gold (XAUUSD) "High" and "Low" prices available at https://pythdata.app/explore/Metal.XAU%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published for the relevant CME COMEX futures contract for the underlying metal—COMEX Gold Futures (GC)—may be used to determine whether the listed price was reached during the applicable trading session.
+  E5.C2: Will Gold (XAUUSD) hit (HIGH) $4,750 Week of August 31 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during a trading session of the week of August 31 2026, any 1-minute candle for Gold (XAUUSD) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during an applicable trading session of the specified timeframe's business days will be considered. The trading session for a given business day typically begins at 6:00 PM ET on the prior calendar date. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If Gold (XAUUSD) does not trade at all during the listed time frame, this market will resolve to "No".
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Gold (XAUUSD) "High" and "Low" prices available at https://pythdata.app/explore/Metal.XAU%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published for the relevant CME COMEX futures contract for the underlying metal—COMEX Gold Futures (GC)—may be used to determine whether the listed price was reached during the applicable trading session.
+  E5.C3: Will Gold (XAUUSD) hit (HIGH) $4,700 Week of August 31 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during a trading session of the week of August 31 2026, any 1-minute candle for Gold (XAUUSD) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during an applicable trading session of the specified timeframe's business days will be considered. The trading session for a given business day typically begins at 6:00 PM ET on the prior calendar date. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If Gold (XAUUSD) does not trade at all during the listed time frame, this market will resolve to "No".
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Gold (XAUUSD) "High" and "Low" prices available at https://pythdata.app/explore/Metal.XAU%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published for the relevant CME COMEX futures contract for the underlying metal—COMEX Gold Futures (GC)—may be used to determine whether the listed price was reached during the applicable trading session.
+  E5.C4: Will Gold (XAUUSD) hit (HIGH) $4,650 Week of August 31 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during a trading session of the week of August 31 2026, any 1-minute candle for Gold (XAUUSD) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during an applicable trading session of the specified timeframe's business days will be considered. The trading session for a given business day typically begins at 6:00 PM ET on the prior calendar date. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If Gold (XAUUSD) does not trade at all during the listed time frame, this market will resolve to "No".
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Gold (XAUUSD) "High" and "Low" prices available at https://pythdata.app/explore/Metal.XAU%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published for the relevant CME COMEX futures contract for the underlying metal—COMEX Gold Futures (GC)—may be used to determine whether the listed price was reached during the applicable trading session.
+  E5.C5: Will Gold (XAUUSD) hit (HIGH) $4,600 Week of August 31 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during a trading session of the week of August 31 2026, any 1-minute candle for Gold (XAUUSD) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during an applicable trading session of the specified timeframe's business days will be considered. The trading session for a given business day typically begins at 6:00 PM ET on the prior calendar date. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If Gold (XAUUSD) does not trade at all during the listed time frame, this market will resolve to "No".
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Gold (XAUUSD) "High" and "Low" prices available at https://pythdata.app/explore/Metal.XAU%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published for the relevant CME COMEX futures contract for the underlying metal—COMEX Gold Futures (GC)—may be used to determine whether the listed price was reached during the applicable trading session.
+  E5.C6: Will Gold (XAUUSD) hit (HIGH) $4,550 Week of August 31 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during a trading session of the week of August 31 2026, any 1-minute candle for Gold (XAUUSD) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during an applicable trading session of the specified timeframe's business days will be considered. The trading session for a given business day typically begins at 6:00 PM ET on the prior calendar date. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If Gold (XAUUSD) does not trade at all during the listed time frame, this market will resolve to "No".
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Gold (XAUUSD) "High" and "Low" prices available at https://pythdata.app/explore/Metal.XAU%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published for the relevant CME COMEX futures contract for the underlying metal—COMEX Gold Futures (GC)—may be used to determine whether the listed price was reached during the applicable trading session.
+  E5.C7: Will Gold (XAUUSD) hit (LOW) $4,250 Week of August 31 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during a trading session of the week of August 31 2026, any 1-minute candle for Gold (XAUUSD) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during an applicable trading session of the specified timeframe's business days will be considered. The trading session for a given business day typically begins at 6:00 PM ET on the prior calendar date. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If Gold (XAUUSD) does not trade at all during the listed time frame, this market will resolve to "No".
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Gold (XAUUSD) "High" and "Low" prices available at https://pythdata.app/explore/Metal.XAU%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published for the relevant CME COMEX futures contract for the underlying metal—COMEX Gold Futures (GC)—may be used to determine whether the listed price was reached during the applicable trading session.
+  E5.C8: Will Gold (XAUUSD) hit (LOW) $4,200 Week of August 31 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during a trading session of the week of August 31 2026, any 1-minute candle for Gold (XAUUSD) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during an applicable trading session of the specified timeframe's business days will be considered. The trading session for a given business day typically begins at 6:00 PM ET on the prior calendar date. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If Gold (XAUUSD) does not trade at all during the listed time frame, this market will resolve to "No".
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Gold (XAUUSD) "High" and "Low" prices available at https://pythdata.app/explore/Metal.XAU%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published for the relevant CME COMEX futures contract for the underlying metal—COMEX Gold Futures (GC)—may be used to determine whether the listed price was reached during the applicable trading session.
+  E5.C9: Will Gold (XAUUSD) hit (LOW) $4,150 Week of August 31 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during a trading session of the week of August 31 2026, any 1-minute candle for Gold (XAUUSD) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during an applicable trading session of the specified timeframe's business days will be considered. The trading session for a given business day typically begins at 6:00 PM ET on the prior calendar date. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If Gold (XAUUSD) does not trade at all during the listed time frame, this market will resolve to "No".
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Gold (XAUUSD) "High" and "Low" prices available at https://pythdata.app/explore/Metal.XAU%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published for the relevant CME COMEX futures contract for the underlying metal—COMEX Gold Futures (GC)—may be used to determine whether the listed price was reached during the applicable trading session.
+  E5.C10: Will Gold (XAUUSD) hit (LOW) $4,100 Week of August 31 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during a trading session of the week of August 31 2026, any 1-minute candle for Gold (XAUUSD) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during an applicable trading session of the specified timeframe's business days will be considered. The trading session for a given business day typically begins at 6:00 PM ET on the prior calendar date. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If Gold (XAUUSD) does not trade at all during the listed time frame, this market will resolve to "No".
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Gold (XAUUSD) "High" and "Low" prices available at https://pythdata.app/explore/Metal.XAU%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published for the relevant CME COMEX futures contract for the underlying metal—COMEX Gold Futures (GC)—may be used to determine whether the listed price was reached during the applicable trading session.
+  E5.C11: Will Gold (XAUUSD) hit (HIGH) $4,500 Week of August 31 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during a trading session of the week of August 31 2026, any 1-minute candle for Gold (XAUUSD) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during an applicable trading session of the specified timeframe's business days will be considered. The trading session for a given business day typically begins at 6:00 PM ET on the prior calendar date. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If Gold (XAUUSD) does not trade at all during the listed time frame, this market will resolve to "No".
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Gold (XAUUSD) "High" and "Low" prices available at https://pythdata.app/explore/Metal.XAU%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published for the relevant CME COMEX futures contract for the underlying metal—COMEX Gold Futures (GC)—may be used to determine whether the listed price was reached during the applicable trading session.
+  E5.C12: Will Gold (XAUUSD) hit (HIGH) $4,450 Week of August 31 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during a trading session of the week of August 31 2026, any 1-minute candle for Gold (XAUUSD) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during an applicable trading session of the specified timeframe's business days will be considered. The trading session for a given business day typically begins at 6:00 PM ET on the prior calendar date. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If Gold (XAUUSD) does not trade at all during the listed time frame, this market will resolve to "No".
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Gold (XAUUSD) "High" and "Low" prices available at https://pythdata.app/explore/Metal.XAU%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published for the relevant CME COMEX futures contract for the underlying metal—COMEX Gold Futures (GC)—may be used to determine whether the listed price was reached during the applicable trading session.
+  E5.C13: Will Gold (XAUUSD) hit (HIGH) $4,400 Week of August 31 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during a trading session of the week of August 31 2026, any 1-minute candle for Gold (XAUUSD) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during an applicable trading session of the specified timeframe's business days will be considered. The trading session for a given business day typically begins at 6:00 PM ET on the prior calendar date. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If Gold (XAUUSD) does not trade at all during the listed time frame, this market will resolve to "No".
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Gold (XAUUSD) "High" and "Low" prices available at https://pythdata.app/explore/Metal.XAU%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published for the relevant CME COMEX futures contract for the underlying metal—COMEX Gold Futures (GC)—may be used to determine whether the listed price was reached during the applicable trading session.
+What to write for E5:
+  Write "high": for each chance 10, 25, 50, 75 and 90, the level you give that chance of being reached (at or above) within the period. The 10 level is the highest.
+  Write "low": for each chance 10, 25, 50, 75 and 90, the level you give that chance of being reached (at or below) within the period. The 10 level is the lowest.
+
+=== E6 (as of 2026-09-16): What will Natural Gas (NG) hit Week of September 14 2026?
+Rules:
+What will Natural Gas (NG) hit Week of September 14 2026?
+Contracts:
+  E6.C1: Will Natural Gas (NG) hit (HIGH) $3.50 Week of September 14 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during a trading session of the week of September 14 2026, any 1-minute candle for the Active Month of Natural Gas futures has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If the Active Month contract does not trade at all during the listed time frame, this market will resolve to "No".
+
+Only prices achieved during an applicable trading session of the specified timeframe's business days will be considered. The trading session for a given business day typically begins at 6:00 PM ET on the prior calendar date. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours.
+
+The active month changes at the start of the second trading session prior to that contract's last trading session, at which point the next listed contract becomes the active month (i.e., for the final three trading sessions of the nearest listed contract, the contract for the next month is the active month).
+
+Per CME contract specifications for Natural Gas (NG) futures, the last trading day is defined as the third last business day of the month preceding the contract's delivery month.
+
+For example, if the last business day of the month preceding the contract's delivery month is a Thursday, the last trading session is the session for the prior Tuesday, and the next listed contract becomes the active month at the start of the trading session for the Friday of the previous week (6:00 PM ET on Thursday), assuming a standard trading calendar.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published for the Active Month Natural Gas (NG) futures contract by CME Group may be used to determine whether the listed price was reached during the applicable trading session.
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the underlying market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Active Month Natural Gas futures "High" and "Low" prices available at https://pythdata.app/explore?search=NGD, with the chart settings configured for 1-minute candles. Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+  E6.C2: Will Natural Gas (NG) hit (HIGH) $3.40 Week of September 14 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during a trading session of the week of September 14 2026, any 1-minute candle for the Active Month of Natural Gas futures has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If the Active Month contract does not trade at all during the listed time frame, this market will resolve to "No".
+
+Only prices achieved during an applicable trading session of the specified timeframe's business days will be considered. The trading session for a given business day typically begins at 6:00 PM ET on the prior calendar date. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours.
+
+The active month changes at the start of the second trading session prior to that contract's last trading session, at which point the next listed contract becomes the active month (i.e., for the final three trading sessions of the nearest listed contract, the contract for the next month is the active month).
+
+Per CME contract specifications for Natural Gas (NG) futures, the last trading day is defined as the third last business day of the month preceding the contract's delivery month.
+
+For example, if the last business day of the month preceding the contract's delivery month is a Thursday, the last trading session is the session for the prior Tuesday, and the next listed contract becomes the active month at the start of the trading session for the Friday of the previous week (6:00 PM ET on Thursday), assuming a standard trading calendar.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published for the Active Month Natural Gas (NG) futures contract by CME Group may be used to determine whether the listed price was reached during the applicable trading session.
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the underlying market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Active Month Natural Gas futures "High" and "Low" prices available at https://pythdata.app/explore?search=NGD, with the chart settings configured for 1-minute candles. Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+  E6.C3: Will Natural Gas (NG) hit (HIGH) $3.30 Week of September 14 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during a trading session of the week of September 14 2026, any 1-minute candle for the Active Month of Natural Gas futures has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If the Active Month contract does not trade at all during the listed time frame, this market will resolve to "No".
+
+Only prices achieved during an applicable trading session of the specified timeframe's business days will be considered. The trading session for a given business day typically begins at 6:00 PM ET on the prior calendar date. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours.
+
+The active month changes at the start of the second trading session prior to that contract's last trading session, at which point the next listed contract becomes the active month (i.e., for the final three trading sessions of the nearest listed contract, the contract for the next month is the active month).
+
+Per CME contract specifications for Natural Gas (NG) futures, the last trading day is defined as the third last business day of the month preceding the contract's delivery month.
+
+For example, if the last business day of the month preceding the contract's delivery month is a Thursday, the last trading session is the session for the prior Tuesday, and the next listed contract becomes the active month at the start of the trading session for the Friday of the previous week (6:00 PM ET on Thursday), assuming a standard trading calendar.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published for the Active Month Natural Gas (NG) futures contract by CME Group may be used to determine whether the listed price was reached during the applicable trading session.
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the underlying market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Active Month Natural Gas futures "High" and "Low" prices available at https://pythdata.app/explore?search=NGD, with the chart settings configured for 1-minute candles. Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+  E6.C4: Will Natural Gas (NG) hit (HIGH) $3.20 Week of September 14 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during a trading session of the week of September 14 2026, any 1-minute candle for the Active Month of Natural Gas futures has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If the Active Month contract does not trade at all during the listed time frame, this market will resolve to "No".
+
+Only prices achieved during an applicable trading session of the specified timeframe's business days will be considered. The trading session for a given business day typically begins at 6:00 PM ET on the prior calendar date. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours.
+
+The active month changes at the start of the second trading session prior to that contract's last trading session, at which point the next listed contract becomes the active month (i.e., for the final three trading sessions of the nearest listed contract, the contract for the next month is the active month).
+
+Per CME contract specifications for Natural Gas (NG) futures, the last trading day is defined as the third last business day of the month preceding the contract's delivery month.
+
+For example, if the last business day of the month preceding the contract's delivery month is a Thursday, the last trading session is the session for the prior Tuesday, and the next listed contract becomes the active month at the start of the trading session for the Friday of the previous week (6:00 PM ET on Thursday), assuming a standard trading calendar.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published for the Active Month Natural Gas (NG) futures contract by CME Group may be used to determine whether the listed price was reached during the applicable trading session.
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the underlying market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Active Month Natural Gas futures "High" and "Low" prices available at https://pythdata.app/explore?search=NGD, with the chart settings configured for 1-minute candles. Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+  E6.C5: Will Natural Gas (NG) hit (HIGH) $3.10 Week of September 14 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during a trading session of the week of September 14 2026, any 1-minute candle for the Active Month of Natural Gas futures has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If the Active Month contract does not trade at all during the listed time frame, this market will resolve to "No".
+
+Only prices achieved during an applicable trading session of the specified timeframe's business days will be considered. The trading session for a given business day typically begins at 6:00 PM ET on the prior calendar date. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours.
+
+The active month changes at the start of the second trading session prior to that contract's last trading session, at which point the next listed contract becomes the active month (i.e., for the final three trading sessions of the nearest listed contract, the contract for the next month is the active month).
+
+Per CME contract specifications for Natural Gas (NG) futures, the last trading day is defined as the third last business day of the month preceding the contract's delivery month.
+
+For example, if the last business day of the month preceding the contract's delivery month is a Thursday, the last trading session is the session for the prior Tuesday, and the next listed contract becomes the active month at the start of the trading session for the Friday of the previous week (6:00 PM ET on Thursday), assuming a standard trading calendar.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published for the Active Month Natural Gas (NG) futures contract by CME Group may be used to determine whether the listed price was reached during the applicable trading session.
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the underlying market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Active Month Natural Gas futures "High" and "Low" prices available at https://pythdata.app/explore?search=NGD, with the chart settings configured for 1-minute candles. Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+  E6.C6: Will Natural Gas (NG) hit (HIGH) $3.00 Week of September 14 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during a trading session of the week of September 14 2026, any 1-minute candle for the Active Month of Natural Gas futures has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If the Active Month contract does not trade at all during the listed time frame, this market will resolve to "No".
+
+Only prices achieved during an applicable trading session of the specified timeframe's business days will be considered. The trading session for a given business day typically begins at 6:00 PM ET on the prior calendar date. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours.
+
+The active month changes at the start of the second trading session prior to that contract's last trading session, at which point the next listed contract becomes the active month (i.e., for the final three trading sessions of the nearest listed contract, the contract for the next month is the active month).
+
+Per CME contract specifications for Natural Gas (NG) futures, the last trading day is defined as the third last business day of the month preceding the contract's delivery month.
+
+For example, if the last business day of the month preceding the contract's delivery month is a Thursday, the last trading session is the session for the prior Tuesday, and the next listed contract becomes the active month at the start of the trading session for the Friday of the previous week (6:00 PM ET on Thursday), assuming a standard trading calendar.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published for the Active Month Natural Gas (NG) futures contract by CME Group may be used to determine whether the listed price was reached during the applicable trading session.
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the underlying market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Active Month Natural Gas futures "High" and "Low" prices available at https://pythdata.app/explore?search=NGD, with the chart settings configured for 1-minute candles. Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+  E6.C7: Will Natural Gas (NG) hit (LOW) $2.80 Week of September 14 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during a trading session of the week of September 14 2026, any 1-minute candle for the Active Month of Natural Gas futures has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If the Active Month contract does not trade at all during the listed time frame, this market will resolve to "No".
+
+Only prices achieved during an applicable trading session of the specified timeframe's business days will be considered. The trading session for a given business day typically begins at 6:00 PM ET on the prior calendar date. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours.
+
+The active month changes at the start of the second trading session prior to that contract's last trading session, at which point the next listed contract becomes the active month (i.e., for the final three trading sessions of the nearest listed contract, the contract for the next month is the active month).
+
+Per CME contract specifications for Natural Gas (NG) futures, the last trading day is defined as the third last business day of the month preceding the contract's delivery month.
+
+For example, if the last business day of the month preceding the contract's delivery month is a Thursday, the last trading session is the session for the prior Tuesday, and the next listed contract becomes the active month at the start of the trading session for the Friday of the previous week (6:00 PM ET on Thursday), assuming a standard trading calendar.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published for the Active Month Natural Gas (NG) futures contract by CME Group may be used to determine whether the listed price was reached during the applicable trading session.
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the underlying market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Active Month Natural Gas futures "High" and "Low" prices available at https://pythdata.app/explore?search=NGD, with the chart settings configured for 1-minute candles. Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+  E6.C8: Will Natural Gas (NG) hit (LOW) $2.70 Week of September 14 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during a trading session of the week of September 14 2026, any 1-minute candle for the Active Month of Natural Gas futures has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If the Active Month contract does not trade at all during the listed time frame, this market will resolve to "No".
+
+Only prices achieved during an applicable trading session of the specified timeframe's business days will be considered. The trading session for a given business day typically begins at 6:00 PM ET on the prior calendar date. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours.
+
+The active month changes at the start of the second trading session prior to that contract's last trading session, at which point the next listed contract becomes the active month (i.e., for the final three trading sessions of the nearest listed contract, the contract for the next month is the active month).
+
+Per CME contract specifications for Natural Gas (NG) futures, the last trading day is defined as the third last business day of the month preceding the contract's delivery month.
+
+For example, if the last business day of the month preceding the contract's delivery month is a Thursday, the last trading session is the session for the prior Tuesday, and the next listed contract becomes the active month at the start of the trading session for the Friday of the previous week (6:00 PM ET on Thursday), assuming a standard trading calendar.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published for the Active Month Natural Gas (NG) futures contract by CME Group may be used to determine whether the listed price was reached during the applicable trading session.
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the underlying market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Active Month Natural Gas futures "High" and "Low" prices available at https://pythdata.app/explore?search=NGD, with the chart settings configured for 1-minute candles. Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+  E6.C9: Will Natural Gas (NG) hit (LOW) $2.60 Week of September 14 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during a trading session of the week of September 14 2026, any 1-minute candle for the Active Month of Natural Gas futures has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If the Active Month contract does not trade at all during the listed time frame, this market will resolve to "No".
+
+Only prices achieved during an applicable trading session of the specified timeframe's business days will be considered. The trading session for a given business day typically begins at 6:00 PM ET on the prior calendar date. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours.
+
+The active month changes at the start of the second trading session prior to that contract's last trading session, at which point the next listed contract becomes the active month (i.e., for the final three trading sessions of the nearest listed contract, the contract for the next month is the active month).
+
+Per CME contract specifications for Natural Gas (NG) futures, the last trading day is defined as the third last business day of the month preceding the contract's delivery month.
+
+For example, if the last business day of the month preceding the contract's delivery month is a Thursday, the last trading session is the session for the prior Tuesday, and the next listed contract becomes the active month at the start of the trading session for the Friday of the previous week (6:00 PM ET on Thursday), assuming a standard trading calendar.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published for the Active Month Natural Gas (NG) futures contract by CME Group may be used to determine whether the listed price was reached during the applicable trading session.
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the underlying market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Active Month Natural Gas futures "High" and "Low" prices available at https://pythdata.app/explore?search=NGD, with the chart settings configured for 1-minute candles. Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+  E6.C10: Will Natural Gas (NG) hit (LOW) $2.50 Week of September 14 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during a trading session of the week of September 14 2026, any 1-minute candle for the Active Month of Natural Gas futures has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If the Active Month contract does not trade at all during the listed time frame, this market will resolve to "No".
+
+Only prices achieved during an applicable trading session of the specified timeframe's business days will be considered. The trading session for a given business day typically begins at 6:00 PM ET on the prior calendar date. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours.
+
+The active month changes at the start of the second trading session prior to that contract's last trading session, at which point the next listed contract becomes the active month (i.e., for the final three trading sessions of the nearest listed contract, the contract for the next month is the active month).
+
+Per CME contract specifications for Natural Gas (NG) futures, the last trading day is defined as the third last business day of the month preceding the contract's delivery month.
+
+For example, if the last business day of the month preceding the contract's delivery month is a Thursday, the last trading session is the session for the prior Tuesday, and the next listed contract becomes the active month at the start of the trading session for the Friday of the previous week (6:00 PM ET on Thursday), assuming a standard trading calendar.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published for the Active Month Natural Gas (NG) futures contract by CME Group may be used to determine whether the listed price was reached during the applicable trading session.
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the underlying market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Active Month Natural Gas futures "High" and "Low" prices available at https://pythdata.app/explore?search=NGD, with the chart settings configured for 1-minute candles. Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+  E6.C11: Will Natural Gas (NG) hit (LOW) $2.40 Week of September 14 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during a trading session of the week of September 14 2026, any 1-minute candle for the Active Month of Natural Gas futures has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If the Active Month contract does not trade at all during the listed time frame, this market will resolve to "No".
+
+Only prices achieved during an applicable trading session of the specified timeframe's business days will be considered. The trading session for a given business day typically begins at 6:00 PM ET on the prior calendar date. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours.
+
+The active month changes at the start of the second trading session prior to that contract's last trading session, at which point the next listed contract becomes the active month (i.e., for the final three trading sessions of the nearest listed contract, the contract for the next month is the active month).
+
+Per CME contract specifications for Natural Gas (NG) futures, the last trading day is defined as the third last business day of the month preceding the contract's delivery month.
+
+For example, if the last business day of the month preceding the contract's delivery month is a Thursday, the last trading session is the session for the prior Tuesday, and the next listed contract becomes the active month at the start of the trading session for the Friday of the previous week (6:00 PM ET on Thursday), assuming a standard trading calendar.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published for the Active Month Natural Gas (NG) futures contract by CME Group may be used to determine whether the listed price was reached during the applicable trading session.
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the underlying market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Active Month Natural Gas futures "High" and "Low" prices available at https://pythdata.app/explore?search=NGD, with the chart settings configured for 1-minute candles. Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+  E6.C12: Will Natural Gas (NG) hit (LOW) $2.30 Week of September 14 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during a trading session of the week of September 14 2026, any 1-minute candle for the Active Month of Natural Gas futures has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If the Active Month contract does not trade at all during the listed time frame, this market will resolve to "No".
+
+Only prices achieved during an applicable trading session of the specified timeframe's business days will be considered. The trading session for a given business day typically begins at 6:00 PM ET on the prior calendar date. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours.
+
+The active month changes at the start of the second trading session prior to that contract's last trading session, at which point the next listed contract becomes the active month (i.e., for the final three trading sessions of the nearest listed contract, the contract for the next month is the active month).
+
+Per CME contract specifications for Natural Gas (NG) futures, the last trading day is defined as the third last business day of the month preceding the contract's delivery month.
+
+For example, if the last business day of the month preceding the contract's delivery month is a Thursday, the last trading session is the session for the prior Tuesday, and the next listed contract becomes the active month at the start of the trading session for the Friday of the previous week (6:00 PM ET on Thursday), assuming a standard trading calendar.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published for the Active Month Natural Gas (NG) futures contract by CME Group may be used to determine whether the listed price was reached during the applicable trading session.
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the underlying market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Active Month Natural Gas futures "High" and "Low" prices available at https://pythdata.app/explore?search=NGD, with the chart settings configured for 1-minute candles. Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+  E6.C13: Will Natural Gas (NG) hit (LOW) $2.20 Week of September 14 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during a trading session of the week of September 14 2026, any 1-minute candle for the Active Month of Natural Gas futures has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If the Active Month contract does not trade at all during the listed time frame, this market will resolve to "No".
+
+Only prices achieved during an applicable trading session of the specified timeframe's business days will be considered. The trading session for a given business day typically begins at 6:00 PM ET on the prior calendar date. Under the standard schedule, trading is open from 6:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with a daily break from 5:00:00 PM ET to 6:00:00 PM ET, except where modified by holiday or special-session hours.
+
+The active month changes at the start of the second trading session prior to that contract's last trading session, at which point the next listed contract becomes the active month (i.e., for the final three trading sessions of the nearest listed contract, the contract for the next month is the active month).
+
+Per CME contract specifications for Natural Gas (NG) futures, the last trading day is defined as the third last business day of the month preceding the contract's delivery month.
+
+For example, if the last business day of the month preceding the contract's delivery month is a Thursday, the last trading session is the session for the prior Tuesday, and the next listed contract becomes the active month at the start of the trading session for the Friday of the previous week (6:00 PM ET on Thursday), assuming a standard trading calendar.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high/low price published for the Active Month Natural Gas (NG) futures contract by CME Group may be used to determine whether the listed price was reached during the applicable trading session.
+
+In the event of a contract specification change, feed change, or similar structural modification affecting the underlying market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth — specifically, the Active Month Natural Gas futures "High" and "Low" prices available at https://pythdata.app/explore?search=NGD, with the chart settings configured for 1-minute candles. Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+What to write for E6:
+  Write "high": for each chance 10, 25, 50, 75 and 90, the level you give that chance of being reached (at or above) within the period. The 10 level is the highest.
+  Write "low": for each chance 10, 25, 50, 75 and 90, the level you give that chance of being reached (at or below) within the period. The 10 level is the lowest.

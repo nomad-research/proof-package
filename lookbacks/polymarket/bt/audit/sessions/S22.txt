@@ -1,0 +1,488 @@
+You will be shown 10 questions from a prediction market. Each question has one or more contracts, and each contract resolves YES or NO under the rules shown.
+
+For every contract, give your probability, as a whole percent from 1 to 99, that it resolves YES. Use only what you already know. Do not search for or look up anything: reading this file is the only tool call you may make.
+
+For each question, also say whether you recognise how it actually turned out ("recognised": true only if you believe you remember the real outcome; otherwise false).
+
+Where a question's contracts are mutually exclusive (exactly one can resolve YES), your numbers for it should add up to about 100. Where they are nested thresholds or dates, keep them consistent with each other.
+
+Reply with one JSON object and nothing else, in this form:
+{"events": [{"label": "E1", "recognised": false, "p": {"E1.C1": 35, "E1.C2": 60}}]}
+
+Every contract label below must appear exactly once in your reply.
+
+=== E1: Measles cases in U.S. by June 30?
+Rules:
+This market will resolve to "Yes" if there have been the specified amount or more confirmed cases of Measles (Rubeola) in humans in the territory of the United States of America in 2026, according to the CDC case counter by June 30, 2026, 11:59 PM ET. Otherwise, this market will resolve to "No".
+
+The resolution source for this market will be the CDC Measles (Rubeola) counter 'Total Cases' in 2026 (see: https://www.cdc.gov/measles/data-research/index.html) at the resolution time. If the counter becomes unavailable, another credible source will be used.
+
+Note: Only cases reported by the CDC Measles (Rubeola) counter will qualify, regardless of reports from U.S. State agencies or other sources.
+Contracts:
+  E1.C1: Will there be at least 2150 measles cases in the U.S. by June 30, 2026?
+  E1.C2: Will there be at least 2200 measles cases in the U.S. by June 30, 2026?
+  E1.C3: Will there be at least 2300 measles cases in the U.S. by June 30, 2026?
+  E1.C4: Will there be at least 2400 measles cases in the U.S. by June 30, 2026?
+
+=== E2: What will US Dollar Index (DXY) hit in September 2026?
+Rules:
+What will US Dollar Index (DXY) hit in September 2026?
+Contracts:
+  E2.C1: Will US Dollar Index (DXY) hit (HIGH) 102.50 in September?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during September 2026, any 1-minute candle for the US Dollar Index (DXY) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Trading days will be determined according to the applicable trading-hours schedule as listed on Pyth. Under the standard schedule (time zone America/New_York), trading is open continuously from 5:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with no daily settlement break, except where modified by holiday or special-session hours as listed on Pyth.
+
+Under the standard New York 5:00 PM FX close convention, each trading day begins at 5:00:00 PM ET on the prior calendar day and ends at 5:00:00 PM ET on that calendar day. September 2026 includes all trading days whose calendar date falls within September 2026. E.g., if the final calendar day of the month is a Sunday, the Sunday evening session counts toward the following Monday's trading day and prices published that evening count toward the following month, and the month's final prices are those published up to 5:00:00 PM ET on its final trading day (ordinarily the preceding Friday).
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If the US Dollar Index (DXY) does not trade at all during the listed time frame, this market will resolve to "No".
+
+In the event of an index methodology change, feed change, or similar structural modification affecting the market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth, specifically the US Dollar Index (DXY) "High" and "Low" prices available at https://app.pyth.com/explore/FX.USDXY, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high and low prices published by ICE Futures U.S. for the most actively traded (by open interest) ICE U.S. Dollar Index futures contract (ticker DX) as of the relevant business day may be used to determine whether the listed price was reached during the applicable trading session. Official daily high and low prices are the values shown in the "High" and "Low" columns of the ICE Futures U.S. "Futures Daily Market Report for US Dollar Index" for the relevant contract month on each relevant trading day. This report may be accessed by selecting "End of Day Report" under the "Reports" tab of the product page at https://www.ice.com/products/194/US-Dollar-Index-Futures.
+  E2.C2: Will US Dollar Index (DXY) hit (HIGH) 102.00 in September?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during September 2026, any 1-minute candle for the US Dollar Index (DXY) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Trading days will be determined according to the applicable trading-hours schedule as listed on Pyth. Under the standard schedule (time zone America/New_York), trading is open continuously from 5:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with no daily settlement break, except where modified by holiday or special-session hours as listed on Pyth.
+
+Under the standard New York 5:00 PM FX close convention, each trading day begins at 5:00:00 PM ET on the prior calendar day and ends at 5:00:00 PM ET on that calendar day. September 2026 includes all trading days whose calendar date falls within September 2026. E.g., if the final calendar day of the month is a Sunday, the Sunday evening session counts toward the following Monday's trading day and prices published that evening count toward the following month, and the month's final prices are those published up to 5:00:00 PM ET on its final trading day (ordinarily the preceding Friday).
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If the US Dollar Index (DXY) does not trade at all during the listed time frame, this market will resolve to "No".
+
+In the event of an index methodology change, feed change, or similar structural modification affecting the market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth, specifically the US Dollar Index (DXY) "High" and "Low" prices available at https://app.pyth.com/explore/FX.USDXY, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high and low prices published by ICE Futures U.S. for the most actively traded (by open interest) ICE U.S. Dollar Index futures contract (ticker DX) as of the relevant business day may be used to determine whether the listed price was reached during the applicable trading session. Official daily high and low prices are the values shown in the "High" and "Low" columns of the ICE Futures U.S. "Futures Daily Market Report for US Dollar Index" for the relevant contract month on each relevant trading day. This report may be accessed by selecting "End of Day Report" under the "Reports" tab of the product page at https://www.ice.com/products/194/US-Dollar-Index-Futures.
+  E2.C3: Will US Dollar Index (DXY) hit (LOW) 99.50 in September?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during September 2026, any 1-minute candle for the US Dollar Index (DXY) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Trading days will be determined according to the applicable trading-hours schedule as listed on Pyth. Under the standard schedule (time zone America/New_York), trading is open continuously from 5:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with no daily settlement break, except where modified by holiday or special-session hours as listed on Pyth.
+
+Under the standard New York 5:00 PM FX close convention, each trading day begins at 5:00:00 PM ET on the prior calendar day and ends at 5:00:00 PM ET on that calendar day. September 2026 includes all trading days whose calendar date falls within September 2026. E.g., if the final calendar day of the month is a Sunday, the Sunday evening session counts toward the following Monday's trading day and prices published that evening count toward the following month, and the month's final prices are those published up to 5:00:00 PM ET on its final trading day (ordinarily the preceding Friday).
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If the US Dollar Index (DXY) does not trade at all during the listed time frame, this market will resolve to "No".
+
+In the event of an index methodology change, feed change, or similar structural modification affecting the market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth, specifically the US Dollar Index (DXY) "High" and "Low" prices available at https://app.pyth.com/explore/FX.USDXY, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high and low prices published by ICE Futures U.S. for the most actively traded (by open interest) ICE U.S. Dollar Index futures contract (ticker DX) as of the relevant business day may be used to determine whether the listed price was reached during the applicable trading session. Official daily high and low prices are the values shown in the "High" and "Low" columns of the ICE Futures U.S. "Futures Daily Market Report for US Dollar Index" for the relevant contract month on each relevant trading day. This report may be accessed by selecting "End of Day Report" under the "Reports" tab of the product page at https://www.ice.com/products/194/US-Dollar-Index-Futures.
+  E2.C4: Will US Dollar Index (DXY) hit (LOW) 99.00 in September?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during September 2026, any 1-minute candle for the US Dollar Index (DXY) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Trading days will be determined according to the applicable trading-hours schedule as listed on Pyth. Under the standard schedule (time zone America/New_York), trading is open continuously from 5:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with no daily settlement break, except where modified by holiday or special-session hours as listed on Pyth.
+
+Under the standard New York 5:00 PM FX close convention, each trading day begins at 5:00:00 PM ET on the prior calendar day and ends at 5:00:00 PM ET on that calendar day. September 2026 includes all trading days whose calendar date falls within September 2026. E.g., if the final calendar day of the month is a Sunday, the Sunday evening session counts toward the following Monday's trading day and prices published that evening count toward the following month, and the month's final prices are those published up to 5:00:00 PM ET on its final trading day (ordinarily the preceding Friday).
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If the US Dollar Index (DXY) does not trade at all during the listed time frame, this market will resolve to "No".
+
+In the event of an index methodology change, feed change, or similar structural modification affecting the market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth, specifically the US Dollar Index (DXY) "High" and "Low" prices available at https://app.pyth.com/explore/FX.USDXY, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high and low prices published by ICE Futures U.S. for the most actively traded (by open interest) ICE U.S. Dollar Index futures contract (ticker DX) as of the relevant business day may be used to determine whether the listed price was reached during the applicable trading session. Official daily high and low prices are the values shown in the "High" and "Low" columns of the ICE Futures U.S. "Futures Daily Market Report for US Dollar Index" for the relevant contract month on each relevant trading day. This report may be accessed by selecting "End of Day Report" under the "Reports" tab of the product page at https://www.ice.com/products/194/US-Dollar-Index-Futures.
+  E2.C5: Will US Dollar Index (DXY) hit (LOW) 98.50 in September?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during September 2026, any 1-minute candle for the US Dollar Index (DXY) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Trading days will be determined according to the applicable trading-hours schedule as listed on Pyth. Under the standard schedule (time zone America/New_York), trading is open continuously from 5:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with no daily settlement break, except where modified by holiday or special-session hours as listed on Pyth.
+
+Under the standard New York 5:00 PM FX close convention, each trading day begins at 5:00:00 PM ET on the prior calendar day and ends at 5:00:00 PM ET on that calendar day. September 2026 includes all trading days whose calendar date falls within September 2026. E.g., if the final calendar day of the month is a Sunday, the Sunday evening session counts toward the following Monday's trading day and prices published that evening count toward the following month, and the month's final prices are those published up to 5:00:00 PM ET on its final trading day (ordinarily the preceding Friday).
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If the US Dollar Index (DXY) does not trade at all during the listed time frame, this market will resolve to "No".
+
+In the event of an index methodology change, feed change, or similar structural modification affecting the market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth, specifically the US Dollar Index (DXY) "High" and "Low" prices available at https://app.pyth.com/explore/FX.USDXY, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high and low prices published by ICE Futures U.S. for the most actively traded (by open interest) ICE U.S. Dollar Index futures contract (ticker DX) as of the relevant business day may be used to determine whether the listed price was reached during the applicable trading session. Official daily high and low prices are the values shown in the "High" and "Low" columns of the ICE Futures U.S. "Futures Daily Market Report for US Dollar Index" for the relevant contract month on each relevant trading day. This report may be accessed by selecting "End of Day Report" under the "Reports" tab of the product page at https://www.ice.com/products/194/US-Dollar-Index-Futures.
+  E2.C6: Will US Dollar Index (DXY) hit (LOW) 98.00 in September?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during September 2026, any 1-minute candle for the US Dollar Index (DXY) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Trading days will be determined according to the applicable trading-hours schedule as listed on Pyth. Under the standard schedule (time zone America/New_York), trading is open continuously from 5:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with no daily settlement break, except where modified by holiday or special-session hours as listed on Pyth.
+
+Under the standard New York 5:00 PM FX close convention, each trading day begins at 5:00:00 PM ET on the prior calendar day and ends at 5:00:00 PM ET on that calendar day. September 2026 includes all trading days whose calendar date falls within September 2026. E.g., if the final calendar day of the month is a Sunday, the Sunday evening session counts toward the following Monday's trading day and prices published that evening count toward the following month, and the month's final prices are those published up to 5:00:00 PM ET on its final trading day (ordinarily the preceding Friday).
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If the US Dollar Index (DXY) does not trade at all during the listed time frame, this market will resolve to "No".
+
+In the event of an index methodology change, feed change, or similar structural modification affecting the market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth, specifically the US Dollar Index (DXY) "High" and "Low" prices available at https://app.pyth.com/explore/FX.USDXY, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high and low prices published by ICE Futures U.S. for the most actively traded (by open interest) ICE U.S. Dollar Index futures contract (ticker DX) as of the relevant business day may be used to determine whether the listed price was reached during the applicable trading session. Official daily high and low prices are the values shown in the "High" and "Low" columns of the ICE Futures U.S. "Futures Daily Market Report for US Dollar Index" for the relevant contract month on each relevant trading day. This report may be accessed by selecting "End of Day Report" under the "Reports" tab of the product page at https://www.ice.com/products/194/US-Dollar-Index-Futures.
+  E2.C7: Will US Dollar Index (DXY) hit (LOW) 97.50 in September?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during September 2026, any 1-minute candle for the US Dollar Index (DXY) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Trading days will be determined according to the applicable trading-hours schedule as listed on Pyth. Under the standard schedule (time zone America/New_York), trading is open continuously from 5:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with no daily settlement break, except where modified by holiday or special-session hours as listed on Pyth.
+
+Under the standard New York 5:00 PM FX close convention, each trading day begins at 5:00:00 PM ET on the prior calendar day and ends at 5:00:00 PM ET on that calendar day. September 2026 includes all trading days whose calendar date falls within September 2026. E.g., if the final calendar day of the month is a Sunday, the Sunday evening session counts toward the following Monday's trading day and prices published that evening count toward the following month, and the month's final prices are those published up to 5:00:00 PM ET on its final trading day (ordinarily the preceding Friday).
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If the US Dollar Index (DXY) does not trade at all during the listed time frame, this market will resolve to "No".
+
+In the event of an index methodology change, feed change, or similar structural modification affecting the market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth, specifically the US Dollar Index (DXY) "High" and "Low" prices available at https://app.pyth.com/explore/FX.USDXY, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high and low prices published by ICE Futures U.S. for the most actively traded (by open interest) ICE U.S. Dollar Index futures contract (ticker DX) as of the relevant business day may be used to determine whether the listed price was reached during the applicable trading session. Official daily high and low prices are the values shown in the "High" and "Low" columns of the ICE Futures U.S. "Futures Daily Market Report for US Dollar Index" for the relevant contract month on each relevant trading day. This report may be accessed by selecting "End of Day Report" under the "Reports" tab of the product page at https://www.ice.com/products/194/US-Dollar-Index-Futures.
+  E2.C8: Will US Dollar Index (DXY) hit (LOW) 97.00 in September?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during September 2026, any 1-minute candle for the US Dollar Index (DXY) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Trading days will be determined according to the applicable trading-hours schedule as listed on Pyth. Under the standard schedule (time zone America/New_York), trading is open continuously from 5:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with no daily settlement break, except where modified by holiday or special-session hours as listed on Pyth.
+
+Under the standard New York 5:00 PM FX close convention, each trading day begins at 5:00:00 PM ET on the prior calendar day and ends at 5:00:00 PM ET on that calendar day. September 2026 includes all trading days whose calendar date falls within September 2026. E.g., if the final calendar day of the month is a Sunday, the Sunday evening session counts toward the following Monday's trading day and prices published that evening count toward the following month, and the month's final prices are those published up to 5:00:00 PM ET on its final trading day (ordinarily the preceding Friday).
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If the US Dollar Index (DXY) does not trade at all during the listed time frame, this market will resolve to "No".
+
+In the event of an index methodology change, feed change, or similar structural modification affecting the market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth, specifically the US Dollar Index (DXY) "High" and "Low" prices available at https://app.pyth.com/explore/FX.USDXY, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high and low prices published by ICE Futures U.S. for the most actively traded (by open interest) ICE U.S. Dollar Index futures contract (ticker DX) as of the relevant business day may be used to determine whether the listed price was reached during the applicable trading session. Official daily high and low prices are the values shown in the "High" and "Low" columns of the ICE Futures U.S. "Futures Daily Market Report for US Dollar Index" for the relevant contract month on each relevant trading day. This report may be accessed by selecting "End of Day Report" under the "Reports" tab of the product page at https://www.ice.com/products/194/US-Dollar-Index-Futures.
+  E2.C9: Will US Dollar Index (DXY) hit (LOW) 96.50 in September?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during September 2026, any 1-minute candle for the US Dollar Index (DXY) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Trading days will be determined according to the applicable trading-hours schedule as listed on Pyth. Under the standard schedule (time zone America/New_York), trading is open continuously from 5:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with no daily settlement break, except where modified by holiday or special-session hours as listed on Pyth.
+
+Under the standard New York 5:00 PM FX close convention, each trading day begins at 5:00:00 PM ET on the prior calendar day and ends at 5:00:00 PM ET on that calendar day. September 2026 includes all trading days whose calendar date falls within September 2026. E.g., if the final calendar day of the month is a Sunday, the Sunday evening session counts toward the following Monday's trading day and prices published that evening count toward the following month, and the month's final prices are those published up to 5:00:00 PM ET on its final trading day (ordinarily the preceding Friday).
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If the US Dollar Index (DXY) does not trade at all during the listed time frame, this market will resolve to "No".
+
+In the event of an index methodology change, feed change, or similar structural modification affecting the market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth, specifically the US Dollar Index (DXY) "High" and "Low" prices available at https://app.pyth.com/explore/FX.USDXY, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high and low prices published by ICE Futures U.S. for the most actively traded (by open interest) ICE U.S. Dollar Index futures contract (ticker DX) as of the relevant business day may be used to determine whether the listed price was reached during the applicable trading session. Official daily high and low prices are the values shown in the "High" and "Low" columns of the ICE Futures U.S. "Futures Daily Market Report for US Dollar Index" for the relevant contract month on each relevant trading day. This report may be accessed by selecting "End of Day Report" under the "Reports" tab of the product page at https://www.ice.com/products/194/US-Dollar-Index-Futures.
+  E2.C10: Will US Dollar Index (DXY) hit (LOW) 96.00 in September?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during September 2026, any 1-minute candle for the US Dollar Index (DXY) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Trading days will be determined according to the applicable trading-hours schedule as listed on Pyth. Under the standard schedule (time zone America/New_York), trading is open continuously from 5:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with no daily settlement break, except where modified by holiday or special-session hours as listed on Pyth.
+
+Under the standard New York 5:00 PM FX close convention, each trading day begins at 5:00:00 PM ET on the prior calendar day and ends at 5:00:00 PM ET on that calendar day. September 2026 includes all trading days whose calendar date falls within September 2026. E.g., if the final calendar day of the month is a Sunday, the Sunday evening session counts toward the following Monday's trading day and prices published that evening count toward the following month, and the month's final prices are those published up to 5:00:00 PM ET on its final trading day (ordinarily the preceding Friday).
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If the US Dollar Index (DXY) does not trade at all during the listed time frame, this market will resolve to "No".
+
+In the event of an index methodology change, feed change, or similar structural modification affecting the market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth, specifically the US Dollar Index (DXY) "High" and "Low" prices available at https://app.pyth.com/explore/FX.USDXY, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high and low prices published by ICE Futures U.S. for the most actively traded (by open interest) ICE U.S. Dollar Index futures contract (ticker DX) as of the relevant business day may be used to determine whether the listed price was reached during the applicable trading session. Official daily high and low prices are the values shown in the "High" and "Low" columns of the ICE Futures U.S. "Futures Daily Market Report for US Dollar Index" for the relevant contract month on each relevant trading day. This report may be accessed by selecting "End of Day Report" under the "Reports" tab of the product page at https://www.ice.com/products/194/US-Dollar-Index-Futures.
+  E2.C11: Will US Dollar Index (DXY) hit (HIGH) 101.50 in September?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during September 2026, any 1-minute candle for the US Dollar Index (DXY) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Trading days will be determined according to the applicable trading-hours schedule as listed on Pyth. Under the standard schedule (time zone America/New_York), trading is open continuously from 5:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with no daily settlement break, except where modified by holiday or special-session hours as listed on Pyth.
+
+Under the standard New York 5:00 PM FX close convention, each trading day begins at 5:00:00 PM ET on the prior calendar day and ends at 5:00:00 PM ET on that calendar day. September 2026 includes all trading days whose calendar date falls within September 2026. E.g., if the final calendar day of the month is a Sunday, the Sunday evening session counts toward the following Monday's trading day and prices published that evening count toward the following month, and the month's final prices are those published up to 5:00:00 PM ET on its final trading day (ordinarily the preceding Friday).
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If the US Dollar Index (DXY) does not trade at all during the listed time frame, this market will resolve to "No".
+
+In the event of an index methodology change, feed change, or similar structural modification affecting the market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth, specifically the US Dollar Index (DXY) "High" and "Low" prices available at https://app.pyth.com/explore/FX.USDXY, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high and low prices published by ICE Futures U.S. for the most actively traded (by open interest) ICE U.S. Dollar Index futures contract (ticker DX) as of the relevant business day may be used to determine whether the listed price was reached during the applicable trading session. Official daily high and low prices are the values shown in the "High" and "Low" columns of the ICE Futures U.S. "Futures Daily Market Report for US Dollar Index" for the relevant contract month on each relevant trading day. This report may be accessed by selecting "End of Day Report" under the "Reports" tab of the product page at https://www.ice.com/products/194/US-Dollar-Index-Futures.
+  E2.C12: Will US Dollar Index (DXY) hit (HIGH) 101.00 in September?
+    Contract rules: This market will resolve to "Yes" if, at any point after market creation and during September 2026, any 1-minute candle for the US Dollar Index (DXY) has a final "High" or "Low" price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price. Otherwise, this market will resolve to "No".
+
+Trading days will be determined according to the applicable trading-hours schedule as listed on Pyth. Under the standard schedule (time zone America/New_York), trading is open continuously from 5:00:00 PM ET Sunday through 5:00:00 PM ET Friday, with no daily settlement break, except where modified by holiday or special-session hours as listed on Pyth.
+
+Under the standard New York 5:00 PM FX close convention, each trading day begins at 5:00:00 PM ET on the prior calendar day and ends at 5:00:00 PM ET on that calendar day. September 2026 includes all trading days whose calendar date falls within September 2026. E.g., if the final calendar day of the month is a Sunday, the Sunday evening session counts toward the following Monday's trading day and prices published that evening count toward the following month, and the month's final prices are those published up to 5:00:00 PM ET on its final trading day (ordinarily the preceding Friday).
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+If the US Dollar Index (DXY) does not trade at all during the listed time frame, this market will resolve to "No".
+
+In the event of an index methodology change, feed change, or similar structural modification affecting the market during the listed time frame, this market will resolve based on adjusted prices as displayed on Pyth.
+
+The resolution source for this market is Pyth, specifically the US Dollar Index (DXY) "High" and "Low" prices available at https://app.pyth.com/explore/FX.USDXY, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter.
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high and low prices published by ICE Futures U.S. for the most actively traded (by open interest) ICE U.S. Dollar Index futures contract (ticker DX) as of the relevant business day may be used to determine whether the listed price was reached during the applicable trading session. Official daily high and low prices are the values shown in the "High" and "Low" columns of the ICE Futures U.S. "Futures Daily Market Report for US Dollar Index" for the relevant contract month on each relevant trading day. This report may be accessed by selecting "End of Day Report" under the "Reports" tab of the product page at https://www.ice.com/products/194/US-Dollar-Index-Futures.
+
+=== E3: Zambia Presidential Election Winner
+Rules:
+Presidential elections are currently scheduled to be held in Zambia on August 13, 2026.
+
+This market will resolve according to the listed candidate who wins the next Zambian presidential election. 
+
+This market includes any potential second round. 
+
+If the results are not known definitively by March 31, 2027, 11:59 PM ET, this market will resolve to "Other".
+
+This market will resolve based on the results of this election, as indicated by a consensus of credible reporting. If there is ambiguity, this market will resolve solely based on official results as reported by Zambian government sources, including the Electoral Commission of Zambia (www.elections.org.zm/).
+Contracts:
+  E3.C1: Will Hakainde Hichilema win the 2026 Zambian presidential elections?
+  E3.C2: Will Brian Mundubile win the 2026 Zambian presidential elections?
+  E3.C3: Will Fred M'membe win the 2026 Zambian presidential elections?
+
+=== E4: GPU rental prices (H100) hit___ by May 31?
+Rules:
+This market will resolve to "Yes" if the Ornn H100 Index displays a finalized price equal to or beyond (above for ↑ High Prices, below for ↓ Low Prices) the listed price for any day between market creation and May 31, 2026. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Ornnai.com (ornnai.com), specifically, the H100 Index chart data available at https://dashboard.ornnai.com. The daily values shown on the chart will be used for resolution. Daily data will be considered finalized once the following day’s data point is published.
+
+This market will resolve as soon as the listed price is hit, or once the value for the specified end date is finalized. If not all relevant data has been finalized by the end of the 14th calendar date afterward (ET), this market will resolve based on the data available at that time.
+
+Revisions made to previously published data points, before all relevant data points have been finalized, will be considered; however, they will not disqualify a previously published data point from resolving this market. Revisions made after all relevant data points have been finalized will not be considered.
+Contracts:
+  E4.C1: Will the Ornn H100 Index hit $5.00 (HIGH) by May 31, 2026?
+  E4.C2: Will the Ornn H100 Index hit $4.50 (HIGH) by May 31, 2026?
+  E4.C3: Will the Ornn H100 Index hit $4.00 (HIGH) by May 31, 2026?
+  E4.C4: Will the Ornn H100 Index hit $3.75 (HIGH) by May 31, 2026?
+  E4.C5: Will the Ornn H100 Index hit $3.50 (HIGH) by May 31, 2026?
+  E4.C6: Will the Ornn H100 Index hit $3.40 (HIGH) by May 31, 2026?
+  E4.C7: Will the Ornn H100 Index hit $3.30 (HIGH) by May 31, 2026?
+  E4.C8: Will the Ornn H100 Index hit $3.20 (HIGH) by May 31, 2026?
+  E4.C9: Will the Ornn H100 Index hit $3.00 (LOW) by May 31, 2026?
+  E4.C10: Will the Ornn H100 Index hit $2.75 (LOW) by May 31, 2026?
+  E4.C11: Will the Ornn H100 Index hit $2.50 (LOW) by May 31, 2026?
+  E4.C12: Will the Ornn H100 Index hit $2.00 (LOW) by May 31, 2026?
+
+=== E5: US bank failure by June 30?
+Rules:
+This market will resolve to "Yes" if any US bank fails between this market's creation and the listed date 11:59 PM ET (according to the FDIC's "Failed Bank List"). Otherwise, this market will resolve to "No."
+
+For this market to resolve to "Yes", the bank's closing date as listed by the FDIC must be within this market's above-specified timeframe. If there is a potential bank failure within this market's timeframe and the FDIC "Failed Bank List" has not been updated yet, this market may remain open to allow for the list to be updated.
+
+The primary resolution source for this market will be the Federal Deposit Insurance Corporation (FDIC), specifically the "Failed Bank List" available here: https://www.fdic.gov/resources/resolutions/bank-failures/failed-bank-list/; however, other official statements from the FDIC and government entities will suffice.
+Contracts:
+  E5.C1: US bank failure by June 30?
+
+=== E6: What will Amazon.com, Inc. (AMZN) hit in August 2026?
+Rules:
+What will Amazon.com, Inc. (AMZN) hit in August 2026?
+Contracts:
+  E6.C1: Will Amazon.com, Inc. (AMZN) hit (LOW) $224 in August?
+    Contract rules: This market will resolve to "Yes" if, at any point during August 2026, any 1-minute candle for Amazon.com, Inc. (AMZN) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Amazon.com, Inc. (AMZN) "Low" prices available at https://pythdata.app/explore/Equity.US.AMZN%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.AMZN%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E6.C2: Will Amazon.com, Inc. (AMZN) hit (LOW) $216 in August?
+    Contract rules: This market will resolve to "Yes" if, at any point during August 2026, any 1-minute candle for Amazon.com, Inc. (AMZN) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Amazon.com, Inc. (AMZN) "Low" prices available at https://pythdata.app/explore/Equity.US.AMZN%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.AMZN%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E6.C3: Will Amazon.com, Inc. (AMZN) hit (LOW) $208 in August?
+    Contract rules: This market will resolve to "Yes" if, at any point during August 2026, any 1-minute candle for Amazon.com, Inc. (AMZN) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Amazon.com, Inc. (AMZN) "Low" prices available at https://pythdata.app/explore/Equity.US.AMZN%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.AMZN%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E6.C4: Will Amazon.com, Inc. (AMZN) hit (LOW) $200 in August?
+    Contract rules: This market will resolve to "Yes" if, at any point during August 2026, any 1-minute candle for Amazon.com, Inc. (AMZN) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Amazon.com, Inc. (AMZN) "Low" prices available at https://pythdata.app/explore/Equity.US.AMZN%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.AMZN%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E6.C5: Will Amazon.com, Inc. (AMZN) hit (LOW) $192 in August?
+    Contract rules: This market will resolve to "Yes" if, at any point during August 2026, any 1-minute candle for Amazon.com, Inc. (AMZN) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Amazon.com, Inc. (AMZN) "Low" prices available at https://pythdata.app/explore/Equity.US.AMZN%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.AMZN%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E6.C6: Will Amazon.com, Inc. (AMZN) hit (LOW) $184 in August?
+    Contract rules: This market will resolve to "Yes" if, at any point during August 2026, any 1-minute candle for Amazon.com, Inc. (AMZN) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Amazon.com, Inc. (AMZN) "Low" prices available at https://pythdata.app/explore/Equity.US.AMZN%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.AMZN%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E6.C7: Will Amazon.com, Inc. (AMZN) hit (LOW) $176 in August?
+    Contract rules: This market will resolve to "Yes" if, at any point during August 2026, any 1-minute candle for Amazon.com, Inc. (AMZN) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Amazon.com, Inc. (AMZN) "Low" prices available at https://pythdata.app/explore/Equity.US.AMZN%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.AMZN%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+
+=== E7: Portugal Presidential Election: 1st Round 2nd Place
+Rules:
+Presidential elections are scheduled to be held in Portugal on 18 or 25 January 2026, with a possible second round on 8 or 15 February 2026. A second round will be held if no candidate secures more than 50% of the valid votes in the first round.
+
+This market will resolve according to the listed candidate that receives the second-highest number of valid votes in the first round of this election. 
+
+If the result of this election isn't known by December 31, 2026, 11:59 PM ET, the market will resolve to "Other".
+
+This market will resolve based on the result of the first round of this election as indicated by a consensus of credible reporting. If there is ambiguity, this market will resolve based solely on the official results as reported by the Portuguese government, specifically the National Election Commission (Comissão Nacional de Eleições, CNE) (https://www.cne.pt/).
+Contracts:
+  E7.C1: Will Tim Vieira win 2nd place in the 1st round of the 2026 Portugal presidential election?
+  E7.C2: Will Joana Amaral Dias win 2nd place in the 1st round of the 2026 Portugal presidential election?
+  E7.C3: Will André Pestana win 2nd place in the 1st round of the 2026 Portugal presidential election?
+  E7.C4: Will André Ventura win 2nd place in the 1st round of the 2026 Portugal presidential election?
+  E7.C5: Will Orlando Cruz win 2nd place in the 1st round of the 2026 Portugal presidential election?
+  E7.C6: Will Aristides Teixeira win 2nd place in the 1st round of the 2026 Portugal presidential election?
+  E7.C7: Will Manuela Magno win 2nd place in the 1st round of the 2026 Portugal presidential election?
+  E7.C8: Will Luís Marques Mendes win 2nd place in the 1st round of the 2026 Portugal presidential election?
+  E7.C9: Will Pedro Tinoco de Faria win 2nd place in the 1st round of the 2026 Portugal presidential election?
+  E7.C10: Will Henrique Gouveia e Melo win 2nd place in the 1st round of the 2026 Portugal presidential election?
+  E7.C11: Will António José Seguro win 2nd place in the 1st round of the 2026 Portugal presidential election?
+  E7.C12: Will Vitorino Silva win 2nd place in the 1st round of the 2026 Portugal presidential election?
+
+=== E8: IN-07 Democratic Primary Winner
+Rules:
+This market will resolve according to the candidate who wins the nomination for the Democratic Party to contest the IN-07 congressional district seat in the U.S. House of Representatives in the 2026 midterm elections. The Democratic primary will take place on May 5, 2026.
+
+If no nominee is announced by November 3, 2026, 11:59PM ET, this market will resolve to "Other".
+
+The resolution source for this market will be a consensus of official Democrat sources, including https://democrats.org/.
+
+Any replacement of the nominee before election day will not change the resolution of the market.
+Contracts:
+  E8.C1: Will André Carson be the Democratic nominee for IN-07?
+  E8.C2: Will Denise Paul Hatch be the Democratic nominee for IN-07?
+  E8.C3: Will George Hornedo be the Democratic nominee for IN-07?
+  E8.C4: Will Destiny Scott Wells be the Democratic nominee for IN-07?
+
+=== E9: December Inflation Argentina - Annual
+Rules:
+This is a market about Argentinian inflation over the 12-month period ending December 2025, before seasonal adjustment, as reported by the National Institute of Statistics and Census (INDEC) of Argentina.
+
+This market will resolve according to the percentage increase in Consumer Price Index (CPI / IPC) over the 12-month period ending in December 2025 (Variación % interanual Total nacional) according to the monthly INDEC report.
+
+The resolution source for this market will be the INDEC Consumer Price Index report released for December 2025 (https://www.indec.gob.ar/), scheduled to be released in January 2026. Resolution of this market will take place upon release of the aforementioned data. If the report for December 2025 is not released by January 31, 2026, this market will resolve according to the last figure published.
+
+You can find this report by clicking on the “Precios al consumidor” option on the home page of https://www.indec.gob.ar/, and searching the pdf for the figure under “Variación % interanual Total nacional”.
+
+Note: the resolution source for this market will be the official monthly INDEC CPI (IPC) news release which reports inflation over 12 month periods to only one decimal point (e.g. 33.6%). Thus, this is the level of precision that will be used when resolving the market.
+Contracts:
+  E9.C1: Will annual inflation increase by less than 24% in December?
+  E9.C2: Will annual inflation increase by between 24% and 26.9% in December?
+  E9.C3: Will annual inflation increase by between 27% and 29.9% in December?
+  E9.C4: Will annual inflation increase by between 30% and 32.9% in December?
+  E9.C5: Will annual inflation increase by between 33% and 35.9% in December?
+  E9.C6: Will annual inflation increase by between 36% and 38.9% in December?
+  E9.C7: Will annual inflation increase by 39% or higher in December?
+
+=== E10: PA-03 Democratic Primary Winner
+Rules:
+This market will resolve according to the candidate who wins the nomination for the Democratic Party to contest the PA-03 congressional district seat in the U.S. House of Representatives in the 2026 midterm elections. The Democratic primary will take place on May 19, 2026.
+
+If no nominee is announced by November 3, 2026, 11:59PM ET, this market will resolve to "Other".
+
+The resolution source for this market will be a consensus of official Democrat sources, including https://democrats.org/.
+
+Any replacement of the nominee before election day will not change the resolution of the market.
+Contracts:
+  E10.C1: Will Sharif Street be the Democratic nominee for PA-03?
+  E10.C2: Will Gabriel Caceres be the Democratic nominee for PA-03?
+  E10.C3: Will David Oxman be the Democratic nominee for PA-03?
+  E10.C4: Will Robin Toldens be the Democratic nominee for PA-03?
+  E10.C5: Will Morgan Cephas be the Democratic nominee for PA-03?
+  E10.C6: Will Chris Rabb be the Democratic nominee for PA-03?
+  E10.C7: Will Ala Stanford be the Democratic nominee for PA-03?
