@@ -51,13 +51,13 @@ def gdelt(terms, lock):
             raw = urllib.request.urlopen(urllib.request.Request(url, headers=UA), timeout=60).read().decode("utf-8", "replace")
         except urllib.error.HTTPError as e:
             if e.code == 429:
-                time.sleep(15 * (i + 1)); continue
+                print(f"    GDELT asked us to slow down (429); waiting {15 * (i + 1)}s", flush=True); time.sleep(15 * (i + 1)); continue
             return {"query": q, "error": f"HTTP {e.code}", "articles": []}
-        except Exception:
-            time.sleep(10 * (i + 1)); continue
+        except Exception as e:
+            print(f"    request failed ({type(e).__name__}); waiting {10 * (i + 1)}s", flush=True); time.sleep(10 * (i + 1)); continue
         if not raw.strip().startswith("{"):                  # GDELT answers a rate limit or a bad query with plain text
             if "limit requests" in raw:
-                time.sleep(15 * (i + 1)); continue
+                print(f"    GDELT asked us to slow down; waiting {15 * (i + 1)}s", flush=True); time.sleep(15 * (i + 1)); continue
             return {"query": q, "error": raw.strip()[:160], "articles": []}
         try:
             return {"query": q, "articles": json.loads(raw).get("articles", [])}
@@ -96,6 +96,7 @@ def fetch(d):
     os.makedirs(NEWS, exist_ok=True)
     fr = json.load(open(os.path.join(HERE, "bt", d, "frame.json"), encoding="utf-8"))["events"]
     got = json.load(open(hpath(d), encoding="utf-8")) if os.path.exists(hpath(d)) else {}
+    print(f"{d}: {len(fr)} events, {len(got)} already held; one GDELT request every {SPACING}s", flush=True)
     for i, ev in enumerate(fr):
         if str(ev["id"]) in got and not any(t.get("error") for t in got[str(ev["id"])]["tries"]):
             continue                                          # done; an event that ended on an error is tried again
@@ -107,8 +108,9 @@ def fetch(d):
                 break
             terms = terms[:-1]
         got[str(ev["id"])] = {"title": ev["title"], "lock": ev["lock"], "tries": tries, "headlines": hs}
+        print(f"{d} {i + 1}/{len(fr)}: {len(hs)} headlines | " + " ; ".join(f"{t['query'].replace(' sourcelang:english', '')} -> {t['returned']}" + (f" ({t['error']})" if t["error"] else "") for t in tries), flush=True)
         if (i + 1) % 10 == 0:
-            save(got, d); print(f"{d}: {i + 1}/{len(fr)}", flush=True)
+            save(got, d)
     save(got, d)
     errs = sum(1 for v in got.values() if any(t.get("error") for t in v["tries"]))
     print(f"{d}: done, {len(got)} events, {errs} ended on an error (run again to retry them)", flush=True)
