@@ -122,3 +122,17 @@ Three declared statistics, so the chance of at least one false positive is about
 - the scoring and the declared statistics.
 
 **The output is `bt/news/<pass>_news.json`.** Any earlier partial file from the first version is not used.
+
+## Addendum A3 (2026-10-02, before any headline was kept)
+
+**The source changes to Google News search.**
+- GDELT refused Rob's machine at one request every 12 seconds, backing off 60, 120 and 240 seconds, so the fetch would have taken hours.
+- Google News's RSS search takes date bounds (`after:` and `before:`) and needs no account. It is paced at one request every 2.5 seconds, and waits from 30 seconds, doubling, when refused.
+- **"Seen" is now the publication time** Google gives. A headline is kept only if it was published before the lock, to the second.
+- **Everything else in §1 and addendum A2 is unchanged:**
+  - the batching by term and lock date, and local picking;
+  - the terms;
+  - the 7-day window, English;
+  - the R6 and leak filters;
+  - at most 25 headlines, and the prompt.
+- GDELT stays available (`--gdelt`). A file is never filled from both sources.

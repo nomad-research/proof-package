@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Headlines from the 7 days before each lock, from GDELT (V19_NEWS_prereg.md §1). Standard library only, so it runs on any machine with the repo.
 
-GDELT allows one request every 5 seconds per address. A cloud container shares its address and is refused, so run this on your own machine:
+Google News search by default (addendum A3; add --gdelt for GDELT, which throttles hard). A cloud container is refused by both, so run this on your own machine:
 
     git pull
     python3 lookbacks/polymarket/v19_news_fetch.py t2_pass5 t2_pass4
@@ -9,10 +9,11 @@ GDELT allows one request every 5 seconds per address. A cloud container shares i
 It writes lookbacks/polymarket/bt/news/<pass>_news.json, saving every 10 requests; if stopped, run it again and it carries on.
 It reads only each event's title and lock time from the frozen frame. It never reads prices, outcomes or answers.
 """
-import datetime as dt, json, os, re, sys, time, urllib.error, urllib.parse, urllib.request
+import datetime as dt, email.utils, json, os, re, sys, time, urllib.error, urllib.parse, urllib.request, xml.etree.ElementTree as ET
 
 HERE = os.path.dirname(os.path.abspath(__file__)); NEWS = os.path.join(HERE, "bt", "news")
 WINDOW_D, KEEP, MIN_HITS, MAX_TERMS, SPACING, RECORDS = 7, 25, 5, 3, 12.0, 250
+SOURCE, G_SPACING = "google", 2.5           # addendum A3: Google News search by default; "gdelt" stays available
 STOP = set("""will what who which when where how why whose the a an and or of in on at by for to from with without into over under after before
 during between above below up down than vs versus is are be been was were do does did has have had this that these those it its next
 first second third last highest lowest most least more less any each every other others another price prices close closes closing
@@ -94,6 +95,46 @@ def gdelt(term, lock):
     return {"query": q, "error": "gave up after retries", "articles": []}
 
 
+def google(term, lock):
+    """Google News RSS search for the term, published from 7 days before the lock to the lock's day (the exact cut is made in keep()).
+    Returned in GDELT's article shape: title, seendate (the publication time), domain, language."""
+    day = lambda t: dt.datetime.fromtimestamp(t, dt.timezone.utc).strftime("%Y-%m-%d")
+    q = (term[1:] if term.startswith("&") else f'"{term}"' if " " in term else term)
+    url = "https://news.google.com/rss/search?" + urllib.parse.urlencode(
+        {"q": f"{q} after:{day(lock - WINDOW_D * 86400)} before:{day(lock + 86400)}", "hl": "en-US", "gl": "US", "ceid": "US:en"})
+    for i in range(6):
+        time.sleep(G_SPACING)
+        try:
+            raw = urllib.request.urlopen(urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0 (X11; Linux x86_64) NomadResearch/0.1"}), timeout=60).read()
+        except urllib.error.HTTPError as e:
+            if e.code in (429, 503):
+                print(f"    Google asked us to slow down ({e.code}); waiting {30 * 2 ** i}s", flush=True); time.sleep(30 * 2 ** i); continue
+            return {"query": q, "error": f"HTTP {e.code}", "articles": []}
+        except Exception as e:
+            print(f"    request failed ({type(e).__name__}); waiting {10 * (i + 1)}s", flush=True); time.sleep(10 * (i + 1)); continue
+        try:
+            return {"query": q, "articles": rss_articles(raw)}
+        except ET.ParseError:
+            return {"query": q, "error": "not an RSS feed (a captcha page?)", "articles": []}
+    return {"query": q, "error": "gave up after retries", "articles": []}
+
+
+def rss_articles(raw):
+    out = []
+    for it in ET.fromstring(raw).iter("item"):
+        title, src, pub = it.findtext("title") or "", it.find("source"), it.findtext("pubDate")
+        name = (src.text or "").strip() if src is not None else ""
+        if name and title.endswith(" - " + name):
+            title = title[: -len(" - " + name)]
+        try:
+            ts = email.utils.parsedate_to_datetime(pub).astimezone(dt.timezone.utc)
+        except (TypeError, ValueError):
+            continue
+        host = urllib.parse.urlparse(src.get("url", "")).netloc if src is not None else ""
+        out.append({"title": title, "seendate": ts.strftime("%Y%m%dT%H%M%SZ"), "domain": host or name, "language": "English"})
+    return out
+
+
 def keep(arts, lock, cap=KEEP):
     """English headlines seen before the lock, without prediction-market or odds headlines (R6) or leak-check hits, newest first, at most 25."""
     out, seen = [], set()
@@ -126,14 +167,16 @@ def fetch(d):
     Each event then keeps the headlines containing all its terms, dropping the last term until at least 5 remain (down to one term)."""
     os.makedirs(NEWS, exist_ok=True)
     fr = json.load(open(os.path.join(HERE, "bt", d, "frame.json"), encoding="utf-8"))["events"]
-    got = json.load(open(hpath(d), encoding="utf-8")) if os.path.exists(hpath(d)) else {"requests": {}, "events": {}}
+    got = json.load(open(hpath(d), encoding="utf-8")) if os.path.exists(hpath(d)) else {"source": SOURCE, "requests": {}, "events": {}}
+    if got.get("source", "gdelt") != SOURCE:                  # never mix sources in one file
+        os.replace(hpath(d), hpath(d) + f".{got.get('source', 'gdelt')}_partial"); got = {"source": SOURCE, "requests": {}, "events": {}}
     req = got["requests"]; n_req = len({(t, ev["lock"]) for ev in fr for t in terms_of(ev["title"])[:1]})
-    print(f"{d}: {len(fr)} events, about {n_req} requests, {len(req)} already held; one GDELT request every {SPACING:.0f}s", flush=True)
+    print(f"{d}: {len(fr)} events, about {n_req} requests, {len(req)} already held; source {SOURCE}, one request every {SPACING if SOURCE == 'gdelt' else G_SPACING:.1f}s", flush=True)
 
     def ask(term, lock):
         k = f"{term}|{lock}"
         if k not in req or req[k].get("error"):
-            r = gdelt(term, lock); req[k] = {"query": r["query"], "error": r.get("error"), "articles": keep_all(r["articles"], lock)}
+            r = (gdelt if SOURCE == "gdelt" else google)(term, lock); req[k] = {"query": r["query"], "error": r.get("error"), "articles": keep_all(r["articles"], lock)}
             print(f"  {term} @ {dt.datetime.fromtimestamp(lock, dt.timezone.utc):%Y-%m-%d}: {len(req[k]['articles'])} headlines" + (f" ({r['error']})" if r.get("error") else ""), flush=True)
             if len(req) % 10 == 0:
                 save(got, d)
@@ -173,5 +216,8 @@ def pick(pool, terms):
 
 
 if __name__ == "__main__":
-    for d in sys.argv[1:] or ["t2_pass5", "t2_pass4"]:
+    args = sys.argv[1:]
+    if "--gdelt" in args:
+        SOURCE = "gdelt"; args.remove("--gdelt")
+    for d in args or ["t2_pass5", "t2_pass4"]:
         fetch(d)
