@@ -1,0 +1,315 @@
+You will be shown 6 questions from a prediction market. Each has one or more contracts that resolve YES or NO under the rules shown. Each question gives the date your view is "as of": answer as you would on that date.
+
+Use only what you already know. Do not search for or look up anything: reading this file is the only tool call you may make. There are no prices in this file and you should not try to estimate what any market thinks; give your own view.
+
+Each question says what to write for it. Whole percents run from 1 to 99. Levels are plain numbers in the units the contracts use (for example 95000 for $95,000, 3.25 for 3.25%). Dates are YYYY-MM-DD.
+
+For each question also say whether you recognise how it actually turned out ("recognised": true only if you believe you remember the real outcome; otherwise false).
+
+Reply with one JSON object and nothing else:
+{"events": [{"label": "E1", "recognised": false, ...the fields that question asks for...}]}
+
+=== E1 (as of 2026-04-01): Bitcoin above ___ on April 3?
+Rules:
+This market will resolve to "Yes" if the Binance 1 minute candle for BTC/USDT 12:00 in the ET timezone (noon) on the date specified in the title has a final "Close" price higher than the price specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the BTC/USDT "Close" prices currently available at https://www.binance.com/en/trade/BTC_USDT with "1m" and "Candles" selected on the top bar.
+
+Please note that this market is about the price according to Binance BTC/USDT, not according to other exchanges or trading pairs.
+
+Price precision is determined by the number of decimal places in the source.
+Contracts:
+  E1.C1: Will the price of Bitcoin be above $56,000 on April 3?
+  E1.C2: Will the price of Bitcoin be above $58,000 on April 3?
+  E1.C3: Will the price of Bitcoin be above $60,000 on April 3?
+  E1.C4: Will the price of Bitcoin be above $62,000 on April 3?
+  E1.C5: Will the price of Bitcoin be above $64,000 on April 3?
+  E1.C6: Will the price of Bitcoin be above $66,000 on April 3?
+  E1.C7: Will the price of Bitcoin be above $68,000 on April 3?
+  E1.C8: Will the price of Bitcoin be above $70,000 on April 3?
+  E1.C9: Will the price of Bitcoin be above $72,000 on April 3?
+  E1.C10: Will the price of Bitcoin be above $74,000 on April 3?
+  E1.C11: Will the price of Bitcoin be above $76,000 on April 3?
+What to write for E1:
+  Write "levels": for each chance 10, 25, 50, 75 and 90, the level you give that chance of the measured quantity being at or above when it resolves. The 10 level is the highest and the 90 level the lowest. Example: {"10": 120, "25": 110, "50": 100, "75": 92, "90": 85}.
+
+=== E2 (as of 2026-04-15): What day will the USD.AI token launch be?
+Rules:
+This market will resolve to the first date (in ET) on which USD.AI launches its token.
+
+Only an official token launched by USD.AI will qualify. Stablecoins, memecoins, LSTs and synthetic tokens will not count.
+
+The token must be actively and publicly tradable. Announcements alone do not qualify.
+
+The primary resolution source for this market will be information from USD.AI (https://usd.ai/), however a consensus of credible reporting will also be used.
+Contracts:
+  E2.C1: Will USD.AI launch a token on April 15?
+  E2.C2: Will USD.AI launch a token on April 16?
+  E2.C3: Will USD.AI launch a token on April 17?
+  E2.C4: Will USD.AI launch a token on April 18?
+  E2.C5: Will USD.AI launch a token on April 19?
+  E2.C6: Will USD.AI launch a token on April 20?
+  E2.C7: Will USD.AI launch a token on April 21?
+  E2.C8: Will USD.AI launch a token on April 22?
+  E2.C9: Will USD.AI launch a token on April 23?
+  E2.C10: Will USD.AI launch a token on April 24?
+  E2.C11: Will USD.AI launch a token on April 25?
+  E2.C12: Will USD.AI launch a token on April 26?
+  E2.C13: Will USD.AI launch a token on April 27?
+  E2.C14: Will USD.AI launch a token on April 28?
+  E2.C15: Will USD.AI launch a token on April 29?
+  E2.C16: Will USD.AI launch a token on April 30?
+  E2.C17: No token launch by April 30
+What to write for E2:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E3 (as of 2026-06-17): What will Alphabet Inc. (GOOGL) hit Week of June 15 2026?
+Rules:
+What will Alphabet Inc. (GOOGL) hit Week of June 15 2026?
+Contracts:
+  E3.C1: Will Alphabet Inc. (GOOGL) hit (HIGH) $395 Week of June 15 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of June 15 2026, any 1-minute candle for Alphabet Inc. (GOOGL) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Alphabet Inc. (GOOGL) "High" prices available at https://pythdata.app/explore/Equity.US.GOOGL%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.GOOGL%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E3.C2: Will Alphabet Inc. (GOOGL) hit (HIGH) $390 Week of June 15 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of June 15 2026, any 1-minute candle for Alphabet Inc. (GOOGL) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Alphabet Inc. (GOOGL) "High" prices available at https://pythdata.app/explore/Equity.US.GOOGL%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.GOOGL%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E3.C3: Will Alphabet Inc. (GOOGL) hit (HIGH) $385 Week of June 15 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of June 15 2026, any 1-minute candle for Alphabet Inc. (GOOGL) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Alphabet Inc. (GOOGL) "High" prices available at https://pythdata.app/explore/Equity.US.GOOGL%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.GOOGL%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E3.C4: Will Alphabet Inc. (GOOGL) hit (HIGH) $380 Week of June 15 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of June 15 2026, any 1-minute candle for Alphabet Inc. (GOOGL) has a final "High" price equal to or above the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Alphabet Inc. (GOOGL) "High" prices available at https://pythdata.app/explore/Equity.US.GOOGL%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.GOOGL%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily high price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E3.C5: Will Alphabet Inc. (GOOGL) hit (LOW) $360 Week of June 15 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of June 15 2026, any 1-minute candle for Alphabet Inc. (GOOGL) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Alphabet Inc. (GOOGL) "Low" prices available at https://pythdata.app/explore/Equity.US.GOOGL%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.GOOGL%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E3.C6: Will Alphabet Inc. (GOOGL) hit (LOW) $355 Week of June 15 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of June 15 2026, any 1-minute candle for Alphabet Inc. (GOOGL) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Alphabet Inc. (GOOGL) "Low" prices available at https://pythdata.app/explore/Equity.US.GOOGL%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.GOOGL%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E3.C7: Will Alphabet Inc. (GOOGL) hit (LOW) $350 Week of June 15 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of June 15 2026, any 1-minute candle for Alphabet Inc. (GOOGL) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Alphabet Inc. (GOOGL) "Low" prices available at https://pythdata.app/explore/Equity.US.GOOGL%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.GOOGL%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E3.C8: Will Alphabet Inc. (GOOGL) hit (LOW) $345 Week of June 15 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of June 15 2026, any 1-minute candle for Alphabet Inc. (GOOGL) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Alphabet Inc. (GOOGL) "Low" prices available at https://pythdata.app/explore/Equity.US.GOOGL%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.GOOGL%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E3.C9: Will Alphabet Inc. (GOOGL) hit (LOW) $340 Week of June 15 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of June 15 2026, any 1-minute candle for Alphabet Inc. (GOOGL) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Alphabet Inc. (GOOGL) "Low" prices available at https://pythdata.app/explore/Equity.US.GOOGL%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.GOOGL%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E3.C10: Will Alphabet Inc. (GOOGL) hit (LOW) $335 Week of June 15 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of June 15 2026, any 1-minute candle for Alphabet Inc. (GOOGL) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Alphabet Inc. (GOOGL) "Low" prices available at https://pythdata.app/explore/Equity.US.GOOGL%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.GOOGL%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+  E3.C11: Will Alphabet Inc. (GOOGL) hit (LOW) $330 Week of June 15 2026?
+    Contract rules: This market will resolve to "Yes" if, at any point during the week of June 15 2026, any 1-minute candle for Alphabet Inc. (GOOGL) has a final "Low" price equal to or below the listed price. Otherwise, this market will resolve to "No".
+
+Only prices achieved during the regular trading hours of the primary exchange on which the listed security trades (typically 9:30 AM – 4:00 PM ET) will be considered. Prices occurring during pre-market or after-hours trading will not qualify.
+
+Prices will be used exactly as published by Pyth, without rounding.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Pyth.
+
+The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Pyth after any adjustments have been applied.
+
+The resolution source for this market is Pyth — specifically, the Alphabet Inc. (GOOGL) "Low" prices available at https://pythdata.app/explore/Equity.US.GOOGL%2FUSD, with the chart settings configured for 1-minute candles.
+
+Historical 1-minute candles may be accessed by appending a Unix timestamp (seconds) to the Pyth chart URL using the "t=" parameter. Any timestamp within the listed market time frame may be used to view the relevant candle data (e.g., https://pythdata.app/explore/Equity.US.GOOGL%2FUSD?t=1773432000)
+
+If the relevant Pyth data is unavailable due to a system outage, data failure, or other technical disruption that prevents verification of the required 1-minute candle data, the official daily low price published by the primary exchange on which the listed security trades will be used to determine whether the listed price was reached during the applicable trading session.
+What to write for E3:
+  Write "high": for each chance 10, 25, 50, 75 and 90, the level you give that chance of being reached (at or above) within the period. The 10 level is the highest.
+  Write "low": for each chance 10, 25, 50, 75 and 90, the level you give that chance of being reached (at or below) within the period. The 10 level is the lowest.
+
+=== E4 (as of 2026-06-10): MO-06 Republican Primary Winner
+Rules:
+This market will resolve according to the candidate who wins the nomination for the Republican Party to contest the MO-06 congressional district seat in the U.S. House of Representatives in the 2026 midterm elections. The Republican primary will take place on August 4, 2026.
+
+If no nominee is announced by November 3, 2026, 11:59 PM ET, this market will resolve to "Other".
+
+The resolution source for this market will be a consensus of official Republican sources, including https://www.rnc.org/.
+
+Any replacement of the nominee before election day will not change the resolution of the market.
+Contracts:
+  E4.C1: Will James Ingram be the Republican nominee for MO-06?
+  E4.C2: Will Cody Oshel be the Republican nominee for MO-06?
+  E4.C3: Will Gena Ross be the Republican nominee for MO-06?
+  E4.C4: Will Nathanael Schultz be the Republican nominee for MO-06?
+  E4.C5: Will Chris Stigall be the Republican nominee for MO-06?
+  E4.C6: Will Nathan Willett be the Republican nominee for MO-06?
+What to write for E4:
+  Write "p_not": a whole percent for every contract label, your chance that it is NOT the one that resolves YES. These need not add to any total.
+
+=== E5 (as of 2026-06-03): Bitcoin above ___ on June 3?
+Rules:
+This market will resolve to "Yes" if the Binance 1 minute candle for BTC/USDT 12:00 in the ET timezone (noon) on the date specified in the title has a final "Close" price higher than the price specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the BTC/USDT "Close" prices currently available at https://www.binance.com/en/trade/BTC_USDT with "1m" and "Candles" selected on the top bar.
+
+Please note that this market is about the price according to Binance BTC/USDT, not according to other exchanges or trading pairs.
+
+Price precision is determined by the number of decimal places in the source.
+Contracts:
+  E5.C1: Will the price of Bitcoin be above $66,000 on June 3?
+  E5.C2: Will the price of Bitcoin be above $68,000 on June 3?
+  E5.C3: Will the price of Bitcoin be above $70,000 on June 3?
+  E5.C4: Will the price of Bitcoin be above $72,000 on June 3?
+  E5.C5: Will the price of Bitcoin be above $74,000 on June 3?
+  E5.C6: Will the price of Bitcoin be above $76,000 on June 3?
+  E5.C7: Will the price of Bitcoin be above $78,000 on June 3?
+  E5.C8: Will the price of Bitcoin be above $80,000 on June 3?
+  E5.C9: Will the price of Bitcoin be above $82,000 on June 3?
+  E5.C10: Will the price of Bitcoin be above $84,000 on June 3?
+  E5.C11: Will the price of Bitcoin be above $86,000 on June 3?
+What to write for E5:
+  Write "levels": for each chance 10, 25, 50, 75 and 90, the level you give that chance of the measured quantity being at or above when it resolves. The 10 level is the highest and the 90 level the lowest. Example: {"10": 120, "25": 110, "50": 100, "75": 92, "90": 85}.
+
+=== E6 (as of 2026-06-24): XRP above ___ on June 25?
+Rules:
+This market will resolve to "Yes" if the Binance 1 minute candle for XRP/USDT 12:00 in the ET timezone (noon) on the date specified in the title has a final "Close" price higher than the price specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the XRP/USDT "Close" prices currently available at https://www.binance.com/en/trade/XRP_USDT with "1m" and "Candles" selected on the top bar.
+
+Please note that this market is about the price according to Binance XRP/USDT, not according to other exchanges or trading pairs.
+
+Price precision is determined by the number of decimal places in the source.
+Contracts:
+  E6.C1: Will the price of XRP be above $0.60 on June 25?
+  E6.C2: Will the price of XRP be above $0.70 on June 25?
+  E6.C3: Will the price of XRP be above $0.80 on June 25?
+  E6.C4: Will the price of XRP be above $0.90 on June 25?
+  E6.C5: Will the price of XRP be above $1.00 on June 25?
+  E6.C6: Will the price of XRP be above $1.10 on June 25?
+  E6.C7: Will the price of XRP be above $1.20 on June 25?
+  E6.C8: Will the price of XRP be above $1.30 on June 25?
+  E6.C9: Will the price of XRP be above $1.40 on June 25?
+  E6.C10: Will the price of XRP be above $1.50 on June 25?
+  E6.C11: Will the price of XRP be above $1.60 on June 25?
+What to write for E6:
+  Write "levels": for each chance 10, 25, 50, 75 and 90, the level you give that chance of the measured quantity being at or above when it resolves. The 10 level is the highest and the 90 level the lowest. Example: {"10": 120, "25": 110, "50": 100, "75": 92, "90": 85}.

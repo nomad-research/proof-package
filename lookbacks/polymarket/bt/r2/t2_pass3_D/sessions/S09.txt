@@ -1,0 +1,290 @@
+You will be shown 6 questions from a prediction market. Each has one or more contracts that resolve YES or NO under the rules shown. Each question gives the date your view is "as of": answer as you would on that date.
+
+Use only what you already know. Do not search for or look up anything: reading this file is the only tool call you may make. There are no prices in this file and you should not try to estimate what any market thinks; give your own view.
+
+Each question says what to write for it. Whole percents run from 1 to 99. Levels are plain numbers in the units the contracts use (for example 95000 for $95,000, 3.25 for 3.25%). Dates are YYYY-MM-DD.
+
+For each question also say whether you recognise how it actually turned out ("recognised": true only if you believe you remember the real outcome; otherwise false).
+
+Reply with one JSON object and nothing else:
+{"events": [{"label": "E1", "recognised": false, ...the fields that question asks for...}]}
+
+=== E1 (as of 2026-05-20): Will NVIDIA (NVDA) finish week of May 18 above___?
+Rules:
+This market will resolve to "Yes" if the official closing price for NVIDIA (NVDA) on the final day of trading of the specified week (normally Friday) is higher than the listed price. Otherwise, this market will resolve to "No."
+
+If the final session is shortened (for example, due to a market-holiday schedule), the official closing price published for that shortened session will still be used for resolution.
+
+If no official closing price is published for that session (for example, due to a trading halt into the close, system issue, delisting, or other disruption), the market will use the last valid on-exchange trade price of the regular session as the effective closing price.
+
+The resolution source for this market is Yahoo Finance, specifically the NVIDIA (NVDA) "Close" prices available at https://finance.yahoo.com/quote/NVDA/history, published under "Historical Prices."
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Yahoo Finance.
+Contracts:
+  E1.C1: Will NVIDIA (NVDA) finish week of May 18 above $205?
+  E1.C2: Will NVIDIA (NVDA) finish week of May 18 above $210?
+  E1.C3: Will NVIDIA (NVDA) finish week of May 18 above $215?
+  E1.C4: Will NVIDIA (NVDA) finish week of May 18 above $220?
+  E1.C5: Will NVIDIA (NVDA) finish week of May 18 above $225?
+  E1.C6: Will NVIDIA (NVDA) finish week of May 18 above $230?
+  E1.C7: Will NVIDIA (NVDA) finish week of May 18 above $235?
+  E1.C8: Will NVIDIA (NVDA) finish week of May 18 above $240?
+  E1.C9: Will NVIDIA (NVDA) finish week of May 18 above $245?
+  E1.C10: Will NVIDIA (NVDA) finish week of May 18 above $250?
+  E1.C11: Will NVIDIA (NVDA) finish week of May 18 above $255?
+  E1.C12: Will NVIDIA (NVDA) finish week of May 18 above $260?
+  E1.C13: Will NVIDIA (NVDA) finish week of May 18 above $265?
+What to write for E1:
+  Write "levels": for each chance 10, 25, 50, 75 and 90, the level you give that chance of the measured quantity being at or above when it resolves. The 10 level is the highest and the 90 level the lowest. Example: {"10": 120, "25": 110, "50": 100, "75": 92, "90": 85}.
+
+=== E2 (as of 2026-06-03): What price will Solana hit June 1-7?
+Rules:
+What price will Solana hit June 1-7?
+Contracts:
+  E2.C1: Will Solana reach $150 June 1-7?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1-minute candle for SOL/USDT during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "High" price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the SOL/USDT "High" prices available at https://www.binance.com/en/trade/SOL_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance SOL/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E2.C2: Will Solana reach $140 June 1-7?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1-minute candle for SOL/USDT during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "High" price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the SOL/USDT "High" prices available at https://www.binance.com/en/trade/SOL_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance SOL/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E2.C3: Will Solana reach $130 June 1-7?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1-minute candle for SOL/USDT during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "High" price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the SOL/USDT "High" prices available at https://www.binance.com/en/trade/SOL_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance SOL/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E2.C4: Will Solana reach $120 June 1-7?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1-minute candle for SOL/USDT during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "High" price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the SOL/USDT "High" prices available at https://www.binance.com/en/trade/SOL_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance SOL/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E2.C5: Will Solana reach $110 June 1-7?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1-minute candle for SOL/USDT during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "High" price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the SOL/USDT "High" prices available at https://www.binance.com/en/trade/SOL_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance SOL/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E2.C6: Will Solana reach $100 June 1-7?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1-minute candle for SOL/USDT during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "High" price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the SOL/USDT "High" prices available at https://www.binance.com/en/trade/SOL_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance SOL/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E2.C7: Will Solana reach $90 June 1-7?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1-minute candle for SOL/USDT during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "High" price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the SOL/USDT "High" prices available at https://www.binance.com/en/trade/SOL_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance SOL/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E2.C8: Will Solana dip to $70 June 1-7?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for Solana (SOL/USDT) during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "Low" price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the SOL/USDT "Low" prices available at https://www.binance.com/en/trade/SOL_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance SOL/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E2.C9: Will Solana dip to $60 June 1-7?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for Solana (SOL/USDT) during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "Low" price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the SOL/USDT "Low" prices available at https://www.binance.com/en/trade/SOL_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance SOL/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E2.C10: Will Solana dip to $50 June 1-7?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for Solana (SOL/USDT) during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "Low" price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the SOL/USDT "Low" prices available at https://www.binance.com/en/trade/SOL_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance SOL/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E2.C11: Will Solana dip to $40 June 1-7?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for Solana (SOL/USDT) during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "Low" price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the SOL/USDT "Low" prices available at https://www.binance.com/en/trade/SOL_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance SOL/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E2.C12: Will Solana dip to $30 June 1-7?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for Solana (SOL/USDT) during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "Low" price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the SOL/USDT "Low" prices available at https://www.binance.com/en/trade/SOL_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance SOL/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E2.C13: Will Solana dip to $20 June 1-7?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for Solana (SOL/USDT) during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "Low" price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the SOL/USDT "Low" prices available at https://www.binance.com/en/trade/SOL_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance SOL/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E2.C14: Will Solana dip to $10 June 1-7?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for Solana (SOL/USDT) during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "Low" price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the SOL/USDT "Low" prices available at https://www.binance.com/en/trade/SOL_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance SOL/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+What to write for E2:
+  Write "high": for each chance 10, 25, 50, 75 and 90, the level you give that chance of being reached (at or above) within the period. The 10 level is the highest.
+  Write "low": for each chance 10, 25, 50, 75 and 90, the level you give that chance of being reached (at or below) within the period. The 10 level is the lowest.
+
+=== E3 (as of 2026-04-29): Solana above ___ on April 30?
+Rules:
+This market will resolve to "Yes" if the Binance 1 minute candle for SOL/USDT 12:00 in the ET timezone (noon) on the date specified in the title has a final "Close" price higher than the price specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the SOL/USDT "Close" prices currently available at https://www.binance.com/en/trade/SOL_USDT with "1m" and "Candles" selected on the top bar.
+
+Please note that this market is about the price according to Binance SOL/USDT, not according to other exchanges or trading pairs.
+
+Price precision is determined by the number of decimal places in the source.
+Contracts:
+  E3.C1: Will the price of Solana be above $40 on April 30?
+  E3.C2: Will the price of Solana be above $50 on April 30?
+  E3.C3: Will the price of Solana be above $60 on April 30?
+  E3.C4: Will the price of Solana be above $70 on April 30?
+  E3.C5: Will the price of Solana be above $80 on April 30?
+  E3.C6: Will the price of Solana be above $90 on April 30?
+  E3.C7: Will the price of Solana be above $100 on April 30?
+  E3.C8: Will the price of Solana be above $110 on April 30?
+  E3.C9: Will the price of Solana be above $120 on April 30?
+  E3.C10: Will the price of Solana be above $130 on April 30?
+  E3.C11: Will the price of Solana be above $140 on April 30?
+What to write for E3:
+  Write "levels": for each chance 10, 25, 50, 75 and 90, the level you give that chance of the measured quantity being at or above when it resolves. The 10 level is the highest and the 90 level the lowest. Example: {"10": 120, "25": 110, "50": 100, "75": 92, "90": 85}.
+
+=== E4 (as of 2026-06-03): Bitcoin price on June 6?
+Rules:
+This market will resolve according to the final "Close" price of the Binance 1 minute candle for BTC/USDT 12:00 in the ET timezone (noon) on the date specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the BTC/USDT "Close" prices currently available at https://www.binance.com/en/trade/BTC_USDT with "1m" and "Candles" selected on the top bar.
+
+If the reported value falls exactly between two brackets, then this market will resolve to the higher range bracket.
+
+Please note that this market is about the price according to Binance BTC/USDT, not according to other exchanges or trading pairs.
+Contracts:
+  E4.C1: Will the price of Bitcoin be less than $64,000 on June 6?
+  E4.C2: Will the price of Bitcoin be between $64,000 and $66,000 on June 6?
+  E4.C3: Will the price of Bitcoin be between $66,000 and $68,000 on June 6?
+  E4.C4: Will the price of Bitcoin be between $68,000 and $70,000 on June 6?
+  E4.C5: Will the price of Bitcoin be between $70,000 and $72,000 on June 6?
+  E4.C6: Will the price of Bitcoin be between $72,000 and $74,000 on June 6?
+  E4.C7: Will the price of Bitcoin be between $74,000 and $76,000 on June 6?
+  E4.C8: Will the price of Bitcoin be between $76,000 and $78,000 on June 6?
+  E4.C9: Will the price of Bitcoin be between $78,000 and $80,000 on June 6?
+  E4.C10: Will the price of Bitcoin be between $80,000 and $82,000 on June 6?
+  E4.C11: Will the price of Bitcoin be greater than $82,000 on June 6?
+What to write for E4:
+  Write "p_not": a whole percent for every contract label, your chance that it is NOT the one that resolves YES. These need not add to any total.
+
+=== E5 (as of 2026-06-24): What price will Solana hit June 22-28?
+Rules:
+What price will Solana hit June 22-28?
+Contracts:
+  E5.C1: Will Solana reach $140 June 22-28?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1-minute candle for SOL/USDT during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "High" price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the SOL/USDT "High" prices available at https://www.binance.com/en/trade/SOL_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance SOL/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E5.C2: Will Solana reach $130 June 22-28?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1-minute candle for SOL/USDT during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "High" price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the SOL/USDT "High" prices available at https://www.binance.com/en/trade/SOL_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance SOL/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E5.C3: Will Solana reach $120 June 22-28?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1-minute candle for SOL/USDT during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "High" price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the SOL/USDT "High" prices available at https://www.binance.com/en/trade/SOL_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance SOL/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E5.C4: Will Solana reach $110 June 22-28?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1-minute candle for SOL/USDT during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "High" price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the SOL/USDT "High" prices available at https://www.binance.com/en/trade/SOL_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance SOL/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E5.C5: Will Solana reach $100 June 22-28?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1-minute candle for SOL/USDT during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "High" price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the SOL/USDT "High" prices available at https://www.binance.com/en/trade/SOL_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance SOL/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E5.C6: Will Solana reach $90 June 22-28?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1-minute candle for SOL/USDT during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "High" price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the SOL/USDT "High" prices available at https://www.binance.com/en/trade/SOL_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance SOL/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E5.C7: Will Solana reach $80 June 22-28?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1-minute candle for SOL/USDT during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "High" price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the SOL/USDT "High" prices available at https://www.binance.com/en/trade/SOL_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance SOL/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E5.C8: Will Solana dip to $60 June 22-28?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for Solana (SOL/USDT) during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "Low" price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the SOL/USDT "Low" prices available at https://www.binance.com/en/trade/SOL_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance SOL/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E5.C9: Will Solana dip to $50 June 22-28?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for Solana (SOL/USDT) during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "Low" price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the SOL/USDT "Low" prices available at https://www.binance.com/en/trade/SOL_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance SOL/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E5.C10: Will Solana dip to $40 June 22-28?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for Solana (SOL/USDT) during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "Low" price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the SOL/USDT "Low" prices available at https://www.binance.com/en/trade/SOL_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance SOL/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E5.C11: Will Solana dip to $30 June 22-28?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for Solana (SOL/USDT) during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "Low" price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the SOL/USDT "Low" prices available at https://www.binance.com/en/trade/SOL_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance SOL/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E5.C12: Will Solana dip to $20 June 22-28?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for Solana (SOL/USDT) during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "Low" price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the SOL/USDT "Low" prices available at https://www.binance.com/en/trade/SOL_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance SOL/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E5.C13: Will Solana dip to $10 June 22-28?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for Solana (SOL/USDT) during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "Low" price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the SOL/USDT "Low" prices available at https://www.binance.com/en/trade/SOL_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance SOL/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E5.C14: Will Solana dip to $0 June 22-28?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for Solana (SOL/USDT) during the date range specified in the title (from 12:00 AM ET on the first date to 11:59 PM ET on the last) has a final "Low" price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the SOL/USDT "Low" prices available at https://www.binance.com/en/trade/SOL_USDT, with the chart settings on "1m" candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance SOL/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+What to write for E5:
+  Write "high": for each chance 10, 25, 50, 75 and 90, the level you give that chance of being reached (at or above) within the period. The 10 level is the highest.
+  Write "low": for each chance 10, 25, 50, 75 and 90, the level you give that chance of being reached (at or below) within the period. The 10 level is the lowest.
+
+=== E6 (as of 2026-05-20): Apple (AAPL) closes above ___ on May 20?
+Rules:
+This market will resolve to "Yes" if the official closing price for Apple Inc. (AAPL) on May 20 is higher than the listed price. Otherwise, this market will resolve to "No."
+
+If the final session is shortened (for example, due to a market-holiday schedule), the official closing price published for that shortened session will still be used for resolution.
+
+If no official closing price is published for that session (for example, due to a trading halt into the close, system issue, delisting, or other disruption), the market will use the last valid on-exchange trade price of the regular session as the effective closing price.
+
+In the event of a stock split, reverse stock split, or similar corporate action affecting the listed company during the listed time frame, this market will resolve based on split-adjusted prices as displayed on Yahoo Finance. The target price will be adjusted proportionally to reflect any stock splits. Resolution will be based on the historical price data as shown on Yahoo Finance after any adjustments have been applied.
+
+The resolution source for this market is Yahoo Finance, specifically the Apple Inc. (AAPL) "Close" prices available at https://finance.yahoo.com/quote/AAPL/history, published under "Historical Prices."
+Contracts:
+  E6.C1: Will Apple (AAPL) close above $290 on May 20?
+  E6.C2: Will Apple (AAPL) close above $295 on May 20?
+  E6.C3: Will Apple (AAPL) close above $300 on May 20?
+  E6.C4: Will Apple (AAPL) close above $305 on May 20?
+  E6.C5: Will Apple (AAPL) close above $310 on May 20?
+What to write for E6:
+  Write "levels": for each chance 10, 25, 50, 75 and 90, the level you give that chance of the measured quantity being at or above when it resolves. The 10 level is the highest and the 90 level the lowest. Example: {"10": 120, "25": 110, "50": 100, "75": 92, "90": 85}.
