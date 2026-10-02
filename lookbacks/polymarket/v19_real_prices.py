@@ -44,7 +44,10 @@ def fetch(cid, lock):
     """Prints from 48 hours before to 24 hours after the lock, newest pages first; 'reached' says whether the pull got back past the window's start."""
     keep, n, reached = [], 0, False
     for off in range(0, MAX_OFFSET + 1, PAGE):
-        d = get(f"https://data-api.polymarket.com/trades?market={cid}&limit={PAGE}&offset={off}")
+        try:
+            d = get(f"https://data-api.polymarket.com/trades?market={cid}&limit={PAGE}&offset={off}")
+        except Exception as e:                       # the API keeps failing on this market: unreachable (prereg §1), never a crash
+            return {"prints": keep, "fetched": n, "reached": False, "error": repr(e)[:200]}
         if not isinstance(d, list):
             break
         n += len(d)
