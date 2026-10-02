@@ -552,3 +552,21 @@ Supersedes the starting point's §9 line "nothing is built until the design is a
 - **Still open.**
   - **Where the system's edge comes from, now that** neither the cold nor the news-fed reader beats real prices on the NO side. The mention edge (E3b, +8.1¢) is what stands on the backtests.
   - **Untested:** the two-step reader (habit anchor first, then facts) and fuller news than headlines.
+
+## 26. Build for habit questions, with news mapped over the expression graph (2026-10-02)
+
+- **Rob's words.** "Yes but now we have a data source to map the expression graph over it doesn't necessarily matter if some of it is priced already". Answering whether v19 is built around habit questions, with mention markets as the core, and the reader tried as "habit first, then facts".
+- **Decision.**
+  - **The edge v19 is built for:**
+    - habit questions, priced by a crowd reacting to the news, with mention markets as the core;
+    - plus news, mapped over the expression graph (v18 R16: events are nodes, links are edges, and a view is expressed across the linked contracts).
+  - **A fact's direct effect may already be priced.** The edge sought is where the fact has not yet reached the contracts it implies: the same speaker's other events, an event's other brackets, linked rounds and successors.
+  - **R6 holds.** A belief about a linked contract comes from the news and the link, never from another market's price moving.
+- **Evidence.**
+  - The mention edge (E3b) is the one edge shown at real prices: +8.1¢ (decision 23).
+  - With news, the reader agrees with the market on directly affected questions (decision 25). That is why the propagation, not the direct effect, is the target.
+  - The linked-events mechanism (E2) is a hypothesis: +30 points on 9 claims against matched contracts, and spanning zero when bought at the lock.
+- **Still open.**
+  - **First, whether linked Polymarket contracts lag each other at all.** v18's T1 (coherence along logical edges) was planned and never run. If linked contracts are kept consistent within minutes, there is no propagation to catch.
+  - **The reader's two-step form:** the habit anchor, then facts.
+  - **T3** (forward, clusters) keeps running untouched.
