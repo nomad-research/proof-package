@@ -88,6 +88,12 @@ What it blocks earns about nothing, and every NO position together in P4 earned 
 - **BT-A** has not been checked with the same rule.
 - **The forward test prices at the live ask, so its cost is real.**
 
+**At real prices (2026-10-02, `lookbacks/polymarket/V19_REAL_PRICES_RESULT.md`, registered).** Re-scored at each contract's last trade print within 48 hours before the lock:
+- **E1 does not survive:** +1.1¢ (−1.6 to +3.8), direction only, on 580 events.
+- **A2 on passes 4 and 5:** +4.0¢ (−9.2 to +15.8), direction only.
+- **A2 on BT-A,** the liquid draw: +13.4¢ (+1.8 to +25.5), a secondary.
+- **E1 now rests on the forward tests,** which price at the live ask.
+
 ## E2. Linked events: "if A then B"
 
 **In plain English.** When the session says two events move together and A happens, B holds more often than other contracts of the same kind and price.
@@ -110,6 +116,11 @@ What it blocks earns about nothing, and every NO position together in P4 earned 
 **In plain English.** On markets that pay if a person says a given word or phrase in a window (weekly Trump remarks, an earnings call), the model's NO bets (it won't be said) beat the price by a wide margin.
 
 **Divergence mechanism (hypothesis).** The crowd prices words by salience: what is in the news, what the person said recently. The model prices them by the person's long-run vocabulary and the rules' exact wording (an exact phrase, said by that person, in that window). Exact-phrase rules are easy to over-price when the topic is hot.
+
+**At real prices (2026-10-02, `lookbacks/polymarket/V19_REAL_PRICES_RESULT.md`, registered): the both-sided reading (E3b) is shown.**
+- **E3b:** +8.1¢ (+5.1 to +11.3) on 79 events.
+- **E3's NO picks:** +6.0¢ (+0.9 to +11.4).
+- **Where at least $100 traded near the lock:** +3.1¢ (−1.4 to +7.7), direction only. The edge lives mostly in thin mention markets.
 
 **Framework mechanism.** Price-blind, rules-literal reading with a number on every word. Mention markets list many words at once, so the format makes the model rule many of them out.
 

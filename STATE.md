@@ -764,3 +764,8 @@ Each thesis subgraph is one basket; a basket is which positions, not sizing; lin
   - Found after scoring: 58% of A2's armed backtest positions (passes 1 to 5) were priced at empty-book midpoints, about 50¢, that nobody could trade. Trade prints near the lock show 91¢ to 100¢.
   - On clean prices: A2 +4.2¢ skill (direction only) and +9.8¢ money; −16.9¢ on partitions. Framework out of sample: 8 positions, direction only.
   - Framework replacing A2 in the paper book is held for Rob. Proposed: re-measure every backtest at real trade prices.
+- **Backtests at real prices (decision 23).** Registered before any print was pulled; 11,747 contracts.
+  - E1: +1.1¢ (−1.6 to +3.8), direction only. Does not survive real prices; the forward tests are its only evidence.
+  - A2, passes 4 and 5: +4.0¢, direction only. Of its 464 original armed positions, 86 stay armed and 214 had no trade near the lock. On BT-A (liquid events): +13.4¢ (+1.8 to +25.5).
+  - E3b, mention picks on both sides: +8.1¢ (+5.1 to +11.3), shown at real prices. Where at least $100 traded near the lock: +3.1¢, direction only.
+  - Forward A2 labels (addendum A4) added before W01 settles.

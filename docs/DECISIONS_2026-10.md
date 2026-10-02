@@ -491,3 +491,23 @@ Supersedes the starting point's §9 line "nothing is built until the design is a
 - **Still open.**
   - **Step 1:** re-score E1, A2, the mention edge and BT-A at real prices, registered before it runs.
   - **Step 2:** non-binding forward labels before W01 settles on 4 October: the P5 filter's conditions, Tier 1, and pick-the-winner against other questions.
+
+## 23. At real prices, the mention edge survives and E1 does not (2026-10-02)
+
+- **Rob's words.** "yeah go ahead with both" (decision 22's steps 1 and 2).
+- **Decision.**
+  - **E1's backtest evidence does not survive real prices.** The forward tests (live asks) are now its only evidence.
+    - The reader's NOs beat same-price NOs by +1.1¢ (−1.6 to +3.8), direction only.
+  - **A2 is direction only at real prices:** +4.0¢ (−9.2 to +15.8) on passes 4 and 5. It keeps running unchanged in the forward test. Its thresholds are not re-tuned on backtests.
+  - **The mention edge (E3b) is shown at real prices:** +8.1¢ (+5.1 to +11.3) on 79 events.
+  - **New backtest passes price at the last trade print within 48 hours before the lock, and a written 0% counts as 1%.**
+  - **Forward labels are in place** (A2 registration addendum A4) before W01 settles: Tier 1 and 2, the P5 filter's conditions, pick-the-winner, and suspect books.
+- **Evidence.** `lookbacks/polymarket/V19_REAL_PRICES_RESULT.md`, registered before any print was pulled. 11,747 contracts; 65% to 83% had a real price.
+- **Secondary leads, declaring nothing:**
+  - A2 on BT-A, the liquid draw: +13.4¢ (+1.8 to +25.5), 57 positions.
+  - E3b where at least $100 traded near the lock: +3.1¢, direction only. The mention edge sits mostly in thin markets.
+  - Decision 21's "A2 loses on pick-the-winner" does not hold at real prices: +6.7¢ against +0.1¢ elsewhere, both direction only.
+- **Still open.**
+  - **What the reader is for, now that E1 rests on the forward tests alone.** For Rob.
+  - **The mention book's capacity:** the edge is real at the last print, but it lives where little trades.
+  - **Whether liquidity is where the reader's NOs work** (the BT-A lead). That would be a new rule, registered before forward data.
