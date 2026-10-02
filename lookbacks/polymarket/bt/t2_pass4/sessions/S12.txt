@@ -1,0 +1,269 @@
+You will be shown 6 questions from a prediction market. Each has one or more contracts that resolve YES or NO under the rules shown. Each question gives the date your view is "as of": answer as you would on that date.
+
+Use only what you already know. Do not search for or look up anything: reading this file is the only tool call you may make. There are no prices in this file and you should not try to estimate what any market thinks; give your own view.
+
+Each question says what to write for it. Whole percents run from 1 to 99. Levels are plain numbers in the units the contracts use (for example 95000 for $95,000, 3.25 for 3.25%). Dates are YYYY-MM-DD.
+
+For each question also say whether you recognise how it actually turned out ("recognised": true only if you believe you remember the real outcome; otherwise false).
+
+Reply with one JSON object and nothing else:
+{"events": [{"label": "E1", "recognised": false, ...the fields that question asks for...}]}
+
+=== E1 (as of 2026-04-22): Khamenei # posts April 21 - April 28, 2026?
+Rules:
+This market will resolve according to the number of times Khamenei (@khamenei_ir), posts on X between April 21, 12:00 PM ET and April 28, 2026, 12:00 PM ET.
+
+For the purposes of this market, only main feed posts, quote posts and reposts will count.
+
+Replies will NOT count towards the total - however, replies which are recorded on the main feed will be counted by the tracker.
+
+Deleted posts will count as long as they remain available long enough to be captured by the tracker (~5 minutes).
+
+The resolution source for this market is the "Post Counter" figure for posts found at https://xtracker.polymarket.com. Individual posts can be viewed by clicking "Export Data". If the tracker does not update correctly in accordance with the rules, X itself may be used as a secondary resolution source.
+Contracts:
+  E1.C1: Will Khamenei post 0-4 posts from April 21 to April 28, 2026?
+  E1.C2: Will Khamenei post 5-9 posts from April 21 to April 28, 2026?
+  E1.C3: Will Khamenei post 10-14 posts from April 21 to April 28, 2026?
+  E1.C4: Will Khamenei post 15-19 posts from April 21 to April 28, 2026?
+  E1.C5: Will Khamenei post 20-24 posts from April 21 to April 28, 2026?
+  E1.C6: Will Khamenei post 25-29 posts from April 21 to April 28, 2026?
+  E1.C7: Will Khamenei post 30-34 posts from April 21 to April 28, 2026?
+  E1.C8: Will Khamenei post 35-39 posts from April 21 to April 28, 2026?
+  E1.C9: Will Khamenei post 40-44 posts from April 21 to April 28, 2026?
+  E1.C10: Will Khamenei post 45-49 posts from April 21 to April 28, 2026?
+  E1.C11: Will Khamenei post 50-54 posts from April 21 to April 28, 2026?
+  E1.C12: Will Khamenei post 55-59 posts from April 21 to April 28, 2026?
+  E1.C13: Will Khamenei post 60+ posts from April 21 to April 28, 2026?
+What to write for E1:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E2 (as of 2026-04-08): Bitcoin above ___ on April 11?
+Rules:
+This market will resolve to "Yes" if the Binance 1 minute candle for BTC/USDT 12:00 in the ET timezone (noon) on the date specified in the title has a final "Close" price higher than the price specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the BTC/USDT "Close" prices currently available at https://www.binance.com/en/trade/BTC_USDT with "1m" and "Candles" selected on the top bar.
+
+Please note that this market is about the price according to Binance BTC/USDT, not according to other exchanges or trading pairs.
+
+Price precision is determined by the number of decimal places in the source.
+Contracts:
+  E2.C1: Will the price of Bitcoin be above $58,000 on April 11?
+  E2.C2: Will the price of Bitcoin be above $60,000 on April 11?
+  E2.C3: Will the price of Bitcoin be above $62,000 on April 11?
+  E2.C4: Will the price of Bitcoin be above $64,000 on April 11?
+  E2.C5: Will the price of Bitcoin be above $66,000 on April 11?
+  E2.C6: Will the price of Bitcoin be above $68,000 on April 11?
+  E2.C7: Will the price of Bitcoin be above $70,000 on April 11?
+  E2.C8: Will the price of Bitcoin be above $72,000 on April 11?
+  E2.C9: Will the price of Bitcoin be above $74,000 on April 11?
+  E2.C10: Will the price of Bitcoin be above $76,000 on April 11?
+  E2.C11: Will the price of Bitcoin be above $78,000 on April 11?
+What to write for E2:
+  Write "levels": for each chance 10, 25, 50, 75 and 90, the level you give that chance of the measured quantity being at or above when it resolves. The 10 level is the highest and the 90 level the lowest. Example: {"10": 120, "25": 110, "50": 100, "75": 92, "90": 85}.
+
+=== E3 (as of 2026-04-01): Ethereum price on April 6?
+Rules:
+This market will resolve according to the final "Close" price of the Binance 1 minute candle for ETH/USDT 12:00 in the ET timezone (noon) on the date specified in the title. Otherwise, this market will resolve to "No".
+
+The resolution source for this market is Binance, specifically the ETH/USDT "Close" prices currently available at https://www.binance.com/en/trade/ETH_USDT with "1m" and "Candles" selected on the top bar.
+
+If the reported value falls exactly between two brackets, then this market will resolve to the higher range bracket.
+
+Please note that this market is about the price according to Binance ETH/USDT, not according to other exchanges or trading pairs.
+Contracts:
+  E3.C1: Will the price of Ethereum be less than $1,600 on April 6?
+  E3.C2: Will the price of Ethereum be between $1,600 and $1,700 on April 6?
+  E3.C3: Will the price of Ethereum be between $1,700 and $1,800 on April 6?
+  E3.C4: Will the price of Ethereum be between $1,800 and $1,900 on April 6?
+  E3.C5: Will the price of Ethereum be between $1,900 and $2,000 on April 6?
+  E3.C6: Will the price of Ethereum be between $2,000 and $2,100 on April 6?
+  E3.C7: Will the price of Ethereum be between $2,100 and $2,200 on April 6?
+  E3.C8: Will the price of Ethereum be between $2,200 and $2,300 on April 6?
+  E3.C9: Will the price of Ethereum be between $2,300 and $2,400 on April 6?
+  E3.C10: Will the price of Ethereum be between $2,400 and $2,500 on April 6?
+  E3.C11: Will the price of Ethereum be greater than $2,500 on April 6?
+What to write for E3:
+  Write "p": a whole percent for every contract label, your chance that it is the one that resolves YES. They should add up to about 100 (less if outcomes not listed could win).
+
+=== E4 (as of 2026-08-05): Who will Trump speak to in August?
+Rules:
+This market will resolve to "Yes" if the listed individual speaks with Donald Trump between August 1 and August 31, 2026, 11:59 PM ET. Otherwise, it will resolve to "No".
+
+Speaking is defined as any verbal interaction between the listed individual and Donald Trump, occurring either in person or through verbal communication by phone or video call.
+
+The resolution source will be credible media reporting. However, in the absence of definitive or in the case of contradictory media reporting, statements by either of the specified individuals or their official representatives will also be considered.
+
+Statements by the specified individuals or their official representatives will only be considered conclusive if the claims explicitly, or in context unambiguously, indicate that a qualifying talk occurred within the specified timeframe and took place via verbal communication, and provided that such claims are not contradicted by the other specified individual, their representatives, or credible media reporting by the end of the third calendar date (ET) following the statement in question.
+
+This market will resolve at the earlier of i) a qualifying verbal interaction being confirmed under the above rules or ii) 11:59 PM ET on the third calendar day following this market's above-specified timeframe.
+
+If the date and time of a qualifying talk cannot be confirmed by a consensus of credible reporting by 11:59 PM ET on the third calendar day following this market's above-specified timeframe, it will resolve to "No" regardless of whether it was later confirmed to have taken place.
+Contracts:
+  E4.C1: Will Trump speak to Nicolás Maduro in August?
+  E4.C2: Will Trump speak to Reza Pahlavi in August?
+  E4.C3: Will Trump speak to Kim Jong Un in August?
+  E4.C4: Will Trump speak to Volodymyr Zelenskyy in August?
+  E4.C5: Will Trump speak to Xi Jinping in August?
+  E4.C6: Will Trump speak to Vladimir Putin in August?
+  E4.C7: Will Trump speak to Yoon Suk Yeol in August?
+  E4.C8: Will Trump speak to Maria Corina Machado in August?
+  E4.C9: Will Trump speak to Emmanuel Macron in August?
+  E4.C10: Will Trump speak to Ursula von der Leyen in August?
+  E4.C11: Will Trump speak to Ahmed al-Sharaa in August?
+  E4.C12: Will Trump speak to Mark Rutte in August?
+  E4.C13: Will Trump speak to Friedrich Merz in August?
+  E4.C14: Will Trump speak to Mark Carney in August?
+  E4.C15: Will Trump speak to Masoud Pezeshkian in August?
+  E4.C16: Will Trump speak to Luiz Inácio Lula da Silva in August?
+  E4.C17: Will Trump speak to Elon Musk in August?
+  E4.C18: Will Trump speak to Pope Leo XIV in August?
+  E4.C19: Will Trump speak to Mojtaba Khamenei in August?
+  E4.C20: Will Trump speak to Miguel Díaz-Canel in August?
+  E4.C21: Will Trump speak to Andy Burnham in August?
+What to write for E4:
+  Write "p": a whole percent for every contract label, your chance that it resolves YES.
+
+=== E5 (as of 2026-05-06): OPEC Crude Oil production above __ in May?
+Rules:
+This market will resolve to “Yes” if OPEC crude oil production (barrels per day) for the month of May, 2026, as reported in the June 2026 OPEC Monthly Oil Market Report, is above the listed amount. Otherwise, this market will resolve to “No”.
+
+The June 2026 OPEC Monthly Oil Market Report is scheduled to be published on June 11, 2026
+
+The relevant figure is the Total OPEC crude oil production for the month of May 2026, as reported by secondary sources. This figure is typically published in thousands of barrels per day in the row labeled “Total OPEC” of Table 5-7 of the OPEC Monthly Oil Market Report (DoC crude oil production based on secondary sources, tb/d). The figure will be converted to barrels per day for resolution. 
+
+Crude oil production for non-OPEC (including OPEC+) countries will not be considered.
+
+If the OPEC Monthly Oil Market Report for June 2026 is not released by June 30, 2026, 11:59PM ET, or if it is released and the relevant data is not included, this market will resolve to “No”.
+
+The resolution source for this market will be the June 2026 OPEC Monthly Oil Market Report, typically published at https://www.opec.org/monthly-oil-market-report.html. 
+
+Note: this market’s resolution source publishes crude oil production in thousands of barrels per day. Thus, this is the level of specificity that will be used to resolve this market.
+Contracts:
+  E5.C1: Will OPEC crude oil production be above 18 million barrels per day in May?
+  E5.C2: Will OPEC crude oil production be above 19 million barrels per day in May?
+  E5.C3: Will OPEC crude oil production be above 20 million barrels per day in May?
+  E5.C4: Will OPEC crude oil production be above 21 million barrels per day in May?
+What to write for E5:
+  Write "levels": for each chance 10, 25, 50, 75 and 90, the level you give that chance of the measured quantity being at or above when it resolves. The 10 level is the highest and the 90 level the lowest. Example: {"10": 120, "25": 110, "50": 100, "75": 92, "90": 85}.
+
+=== E6 (as of 2026-05-13): What price will Ethereum hit in May?
+Rules:
+What price will Ethereum hit in May?
+Contracts:
+  E6.C1: Will Ethereum reach $5,000 in May?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for ETH/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last), has a final High price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the ETH/USDT High prices available at https://www.binance.com/en/trade/ETH_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance ETH/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E6.C2: Will Ethereum reach $4,000 in May?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for ETH/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last), has a final High price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the ETH/USDT High prices available at https://www.binance.com/en/trade/ETH_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance ETH/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E6.C3: Will Ethereum reach $3,800 in May?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for ETH/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last), has a final High price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the ETH/USDT High prices available at https://www.binance.com/en/trade/ETH_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance ETH/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E6.C4: Will Ethereum reach $3,600 in May?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for ETH/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last), has a final High price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the ETH/USDT High prices available at https://www.binance.com/en/trade/ETH_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance ETH/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E6.C5: Will Ethereum reach $3,400 in May?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for ETH/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last), has a final High price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the ETH/USDT High prices available at https://www.binance.com/en/trade/ETH_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance ETH/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E6.C6: Will Ethereum reach $3,200 in May?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for ETH/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last), has a final High price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the ETH/USDT High prices available at https://www.binance.com/en/trade/ETH_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance ETH/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E6.C7: Will Ethereum reach $3,000 in May?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for ETH/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last), has a final High price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the ETH/USDT High prices available at https://www.binance.com/en/trade/ETH_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance ETH/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E6.C8: Will Ethereum reach $2,800 in May?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for ETH/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last), has a final High price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the ETH/USDT High prices available at https://www.binance.com/en/trade/ETH_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance ETH/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E6.C9: Will Ethereum reach $2,600 in May?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for ETH/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last), has a final High price equal to or greater than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the ETH/USDT High prices available at https://www.binance.com/en/trade/ETH_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance ETH/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E6.C10: Will Ethereum dip to $2,200 in May?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for ETH/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last), has a final Low price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the ETH/USDT Low prices available at https://www.binance.com/en/trade/ETH_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance ETH/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E6.C11: Will Ethereum dip to $2,000 in May?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for ETH/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last), has a final Low price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the ETH/USDT Low prices available at https://www.binance.com/en/trade/ETH_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance ETH/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E6.C12: Will Ethereum dip to $1,800 in May?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for ETH/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last), has a final Low price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the ETH/USDT Low prices available at https://www.binance.com/en/trade/ETH_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance ETH/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E6.C13: Will Ethereum dip to $1,600 in May?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for ETH/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last), has a final Low price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the ETH/USDT Low prices available at https://www.binance.com/en/trade/ETH_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance ETH/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E6.C14: Will Ethereum dip to $1,400 in May?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for ETH/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last), has a final Low price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the ETH/USDT Low prices available at https://www.binance.com/en/trade/ETH_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance ETH/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E6.C15: Will Ethereum dip to $1,200 in May?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for ETH/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last), has a final Low price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the ETH/USDT Low prices available at https://www.binance.com/en/trade/ETH_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance ETH/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E6.C16: Will Ethereum dip to $1,000 in May?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for ETH/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last), has a final Low price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the ETH/USDT Low prices available at https://www.binance.com/en/trade/ETH_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance ETH/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E6.C17: Will Ethereum dip to $800 in May?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for ETH/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last), has a final Low price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the ETH/USDT Low prices available at https://www.binance.com/en/trade/ETH_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance ETH/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E6.C18: Will Ethereum dip to $600 in May?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for ETH/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last), has a final Low price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the ETH/USDT Low prices available at https://www.binance.com/en/trade/ETH_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance ETH/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+  E6.C19: Will Ethereum dip to $400 in May?
+    Contract rules: This market will immediately resolve to "Yes" if any Binance 1 minute candle for ETH/USDT during the month specified in the title (from 00:00 AM ET on the first day to 11:59 PM ET on the last), has a final Low price equal to or lower than the price specified in the title. Otherwise, this market will resolve to "No."
+
+The resolution source for this market is Binance, specifically the ETH/USDT Low prices available at https://www.binance.com/en/trade/ETH_USDT, with the chart settings on "1m" for one-minute candles selected on the top bar.
+
+Please note that the outcome of this market depends solely on the price data from the Binance ETH/USDT trading pair. Prices from other exchanges, different trading pairs, or spot markets will not be considered for the resolution of this market.
+What to write for E6:
+  Write "high": for each chance 10, 25, 50, 75 and 90, the level you give that chance of being reached (at or above) within the period. The 10 level is the highest.
+  Write "low": for each chance 10, 25, 50, 75 and 90, the level you give that chance of being reached (at or below) within the period. The 10 level is the lowest.
