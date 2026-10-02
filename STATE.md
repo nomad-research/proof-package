@@ -745,3 +745,7 @@ Each thesis subgraph is one basket; a basket is which positions, not sizing; lin
   - The final look moves to late November to late January.
 - **Decision 17:** real money waits for A2's final look to confirm and for paper fills to show the edge survives costs. The money limits adapt to resources at the time.
   - Evidence: armed crypto bets won 19 of 20 through crypto's market-wide losing run; the armed book's own cluster fell on post counts, its weak kind.
+- **Decision 18: v19 runs on paper.** Version 0 is `v19_book.py`, with its report in `v19/BOOK.md`; the fill watcher is `v19_watch_books.py`, for Rob's machine.
+  - W01's armed book: 24 positions, $2,388, 63% of it on Brazil's 4 October election.
+  - The shadow book's early losses are outcomes already decided at the lock, which the 50¢ floor excludes.
+  - Median live spread 3¢; thin senate books 8–24¢.

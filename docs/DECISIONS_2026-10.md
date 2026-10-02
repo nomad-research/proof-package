@@ -381,3 +381,40 @@ Corrects the reading of decision 14, answer 6. Supersedes decision 13's clause t
 - **Still open.**
   - **Fills.** The recorder runs on Rob's machine (`~/polymarket_record` in WSL), so the paper-fill check needs its data or a run there.
   - **Where to focus first to make the system as strong as possible** (Rob: "lets focus on making the best system possible"). Next question.
+
+## 18. Run the system on paper now; improve it from what the running shows (2026-10-02)
+
+Supersedes the starting point's §9 line "nothing is built until the design is agreed".
+
+- **Decision.** The v19 system runs now, on paper, and is improved from its own record. Version 0 is `lookbacks/polymarket/v19_book.py`, with its report in `v19/BOOK.md`.
+  - **Selector and cold reader:** the forward sweep's frozen batches. They are read only, and nothing in them changes.
+  - **Shadow book:** every position the reader produces.
+  - **Armed book:** A2 alone binds (decision 13).
+  - **Labels recorded:** kind, occasion (decision 16) and depth at the lock (A5). A3, A4, A6, D1, D2 and D3 are marked not yet available.
+  - **Execution:** paper fills at the lock ask plus the fee, sized at the lesser of $150 and the dollars on offer within 2¢ (the sweep's capacity reading, §3; C2 has no size yet). A 2¢-worse column sits beside them.
+  - **Ledger:** settled from Gamma as contracts resolve. The book declares nothing; A2 is read only at its looks.
+- **Gate 2, fills (decision 17).** `lookbacks/polymarket/v19_watch_books.py` runs beside the recorder on Rob's machine.
+  - It snapshots, every 15 minutes, the order book of every open armed position and every shadow NO at 50¢ or more.
+  - The recorder keeps books only for its 300 busiest tokens, and the paper book's markets are mostly small.
+  - `fills` prices each paper fill by walking the recorded book and writes `v19/fills.json` to commit.
+- **Rob's words.** "well we cant see how to improve anything without running it." And, on the recorder: "feel free to use whatever you need."
+- **What the first run shows** (W01, 2026-10-02 06:56 UTC; outcomes read for the first time, after A2's registration and its three addenda):
+  - **Armed book.** 24 positions on 20 events, $2,388 staked, none settled yet.
+    - 22 are election markets.
+    - **$1,507 (63%) sits on one occasion,** Brazil's 4 October election. Peru's is another $663.
+  - **Shadow book.** 900 more positions: 114 NO, 786 YES.
+    - 315 sit on contracts priced at 3% or less, or 97% or more, at the lock. 299 of those are YES long shots on asks of a fraction of a cent.
+    - All 13 shadow NOs settled so far lost. They were outcomes already decided at the lock (a day's rain, a closing price), bet against by a reader with no news.
+    - **A2's 50¢ floor keeps every one of these out of the armed book.** D1's narrowed rule ("the outcome already happened", decision 13) would flag the decided ones.
+  - **Reading the ledger early is biased.** A NO that loses usually settles early; one that wins settles at its deadline.
+  - **Fills.**
+    - **At the lock:** 19 of the 24 armed stakes fit within 1¢ of the ask, and the rest within 2¢.
+    - **One live snapshot from this session, 15 hours later:**
+      - every armed market had a book, and the median spread across the 61 watched books was 3¢;
+      - five thin Brazilian senate books had spreads of 8¢ to 24¢, and on one a $150 order could fill only $95, at an average of 91¢ against a 75¢ best ask;
+      - two armed NOs had fallen from 56¢ and 64¢ to 39¢ and 37¢.
+    - Exiting before resolution (C8) would pay those spreads.
+- **Still open.**
+  - **Test 1, sharpening the reader** (several independent sessions averaged, and half the questions framed as "will this not happen"). It is registered before any session runs, on existing backtest events, and can run from this session: transcripts sit where the audit looks.
+  - **D2.** The sweep's reader writes no falsifier, and its prompt is frozen. A falsifier needs a v19 reader pass or a separate step.
+  - **Rob to start the watcher** on his machine (command in `v19_watch_books.py`).
