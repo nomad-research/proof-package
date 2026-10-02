@@ -570,3 +570,19 @@ Supersedes the starting point's §9 line "nothing is built until the design is a
   - **First, whether linked Polymarket contracts lag each other at all.** v18's T1 (coherence along logical edges) was planned and never run. If linked contracts are kept consistent within minutes, there is no propagation to catch.
   - **The reader's two-step form:** the habit anchor, then facts.
   - **T3** (forward, clusters) keeps running untouched.
+
+## 27. Polymarket keeps logically linked contracts in line; logical links are not a source of positions (2026-10-02)
+
+- **Rob's words.** "yeah run it" (T1, before building the news-over-the-graph design of decision 26).
+- **Decision.**
+  - **Logical links are dropped as a source of positions** (`V19_T1_COHERENCE_prereg.md` §4). No family met the registered bar: after a shock, a median episode of 30 minutes or more, with $100 or more traded at violating prices.
+  - **The graph's role narrows to judgment links** ("if A, then B is more likely"). No bot can enforce those, and price cannot test them; they are tested forward through T3 and the reader.
+  - **The habit-question core of decision 26 is unaffected.**
+- **Evidence** (`lookbacks/polymarket/V19_T1_COHERENCE_RESULT.md`; full trade histories of 4,955 linked contracts):
+  - **Across events,** a coin's bracket event against its threshold event, both on the same Binance candle: breaks are closed in a median of 11 seconds after a move, with $38 traded.
+  - **Neighbouring thresholds** are almost never out of line.
+  - **The backtests' ladder and date events:** breaks are closed in a median of 4.6 minutes, with $15 traded.
+  - **The slow breaks with money behind them are rare:** about 40 over 48 coin-dates and 361 events, with gaps of 8¢ to 21¢ and about $200 traded each.
+- **Still open.**
+  - **Judgment links:** forward, through T3 and the reader.
+  - **The reader's two-step form** (habit anchor, then facts) on habit questions, with mention markets as the core.

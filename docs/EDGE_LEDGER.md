@@ -189,6 +189,11 @@ It may help explain why location (S2) never beats the market: the session's best
 - **The market's favourite in multi-outcome markets is fairly priced** (231 markets).
 - **YES contracts run slightly rich next to NO at the same cost:** −2.1¢ against −0.4¢ hit minus cost (BT-T2's contracts).
 - **The no-evidence model knows January to March outcomes and not July to September ones** (BT-A).
+- **Polymarket keeps logically linked contracts in line** (`V19_T1_COHERENCE_RESULT.md`).
+  - A coin's bracket and threshold events on the same candle are re-aligned in a median of 11 seconds after a move.
+  - Thin ladders take minutes, with little money traded while out of line.
+  - Edge from linked events has to come from judgment links, not logical ones.
+- **Lock prices from price history can be empty-book midpoints of about 50¢.** Price backtests at the last trade print within 48 hours (`V19_REAL_PRICES_prereg.md`).
 
 ---
 

@@ -773,3 +773,6 @@ Each thesis subgraph is one basket; a basket is which positions, not sizing; lin
   - Accuracy improves: log score −0.084 cold, −0.036 with news; location calls closer.
   - Betting edge does not: E1 +2.5¢, A2 +2.3¢, news minus cold +1.7¢, all direction only.
   - News stays out of belief on backtest evidence. The mention edge (E3b) is still the one edge shown at real prices.
+- **T1, do linked contracts lag? (decision 27).** Exact logical links on full trade histories (4,955 contracts).
+  - Across coin events, breaks are closed in a median of 11 seconds after a move. On thin ladders the median is 4.6 minutes, with about $15 traded.
+  - Logical links are dropped as a source of positions. The graph's role narrows to judgment links, tested forward.
