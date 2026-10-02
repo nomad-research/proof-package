@@ -187,6 +187,17 @@ It may help explain why location (S2) never beats the market: the session's best
 
 - **A pool chosen by actual close time over-represents "it happened early".** Choose by schedule (`T0_BASE_RATE.md`).
 - **The market's favourite in multi-outcome markets is fairly priced** (231 markets).
+  - **At real prices** (2026-10-02, exploratory: the last trade print within 48 hours, 5,803 contracts in BT-T2 passes 1 to 5), favourites priced 56.8% won 53.7% (294 events).
+  - Calibration by price band, priced against happened:
+    - under 2%: accurate;
+    - 2% to 20%: underpriced by 1 to 2 points;
+    - 35% to 90%: overpriced by 5 to 9 points;
+    - over 98%: accurate.
+  - **Blind NO on contracts priced 35% to 90%:** +4.3¢ after costs (+0.8 to +7.8, 300 occasions). But it is unstable:
+    - April to June: +8.4¢;
+    - July to September: +1.5¢, spanning zero;
+    - macro and commodities: −30¢.
+  - Found by slicing, so it is a lead, not a finding.
 - **YES contracts run slightly rich next to NO at the same cost:** −2.1¢ against −0.4¢ hit minus cost (BT-T2's contracts).
 - **The no-evidence model knows January to March outcomes and not July to September ones** (BT-A).
 - **Polymarket keeps logically linked contracts in line** (`V19_T1_COHERENCE_RESULT.md`).
