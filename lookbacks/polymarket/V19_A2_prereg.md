@@ -171,3 +171,41 @@ Rob has confirmed that `fwd_sweep.py score` has not been run on his machine. No 
 **The cost: the test takes longer.**
 - W01's 24 armed positions sit on 20 events but only 5 occasions: 13 of the events are Brazil's election and 4 are Peru's.
 - If later batches give 5 to 10 armed occasions each, the final look at 80 comes after about 8 to 16 batches: from late November to late January. Before this change it was early to mid November.
+
+## Addendum A4 (2026-10-02, decision 22, before any sweep outcome is read)
+
+**Labels on every forward A2 position.** They declare nothing.
+- Rob: "yeah go ahead with both", to re-scoring the backtests at real prices and adding forward labels before W01 settles.
+- **Nothing has been read.** As of the paper book's run on 2 October (07:56 UTC), all 24 armed W01 positions were open, and `v19_a2.py score` has not been run.
+- **This adds labels only:**
+  - the declared statistic, the looks, the occasion rule and the readings of §3 and addenda A1 to A3 are unchanged;
+  - no label binds, and none is pooled with the declared statistic.
+
+**Why.**
+- Decision 21 found that most of the backtest evidence for A2 rests on empty-book prices of about 50¢.
+- The forward sweep prices at the live ask, so it is the one place these labels can be read at real prices.
+- The P5 filter's conditions and the pick-the-winner split were found on backtests (decision 22, layer 3), so here they are hypotheses.
+
+**The labels** (`v19_a2.py`, `labels_of`; fixed before any outcome is read):
+
+| Label | Rule | Based on |
+|---|---|---|
+| Tier 1 | the reader's YES midpoint `m` is under 5% | the P5 filter (`V19_FRAMEWORK_P5_prereg.md` §1) |
+| Tier 2 | `m` from 5% to under 10% | the same |
+| Timing | the event's last scheduled end is at least 3 days after the lock | the same |
+| Shape | the session kind is not `touch` | the same |
+| P5 filter | tier 1 or 2, and timing, and shape | the same |
+| Pick-the-winner | the session kind is `partition` | A2 at clean backtest prices: −16.9¢ on partitions (decision 21, exploratory) |
+| Suspect book | a partition whose ask midpoints `q` sum above 1.3, or an event whose every `q` is from 0.40 to 0.55 | the backtest rule of `v19_price_check.py` (decision 21) |
+
+**Recorded as fields, with no threshold:**
+- the event's sum of `q` across its contracts;
+- the lock spread (ask_yes + ask_no − 1);
+- the days from lock to scheduled end;
+- the depth within 2¢ (already recorded).
+
+**How they are read.** At each look, beside the declared statistic:
+- armed skill with and without each label, at 95%, resampled by occasion;
+- the paper money at $150 capped by depth for the same splits.
+
+Each is reported and declares nothing. A rule built on a label would be a new rule, registered before the batches it is scored on (addendum A2).

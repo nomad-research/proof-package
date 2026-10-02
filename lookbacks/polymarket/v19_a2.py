@@ -110,6 +110,9 @@ def forward_rows(outcomes=F.outcomes):
             for lab, L in labels.items():
                 ev = fr[L["event_id"]]; res, vol = outcomes(ev["id"]); byc = {c["cid"]: c for c in ev["contracts"]}
                 counts = not ev.get("low_volume_at_snapshot") or (vol or 0) >= 10000          # sweep addendum A1
+                lps = [rec["lock_prices"].get(c["cid"]) or {} for c in ev["contracts"]]        # addendum A4: the event's book shape at the lock
+                qs = [(p["ask_yes"]["ask"] + 1 - p["ask_no"]["ask"]) / 2 for p in lps if p.get("ask_yes") and p.get("ask_no")]
+                shape = {"q_sum": sum(qs) if qs else None, "q_n": len(qs), "q_all_40_55": len(qs) >= 2 and all(0.40 <= x <= 0.55 for x in qs)}
                 for cl, cid in L["contracts"].items():
                     c = byc[cid]; lp = rec["lock_prices"].get(cid) or {}
                     if cid not in res or (res[cid][1] and res[cid][1] <= rec["lock"]):
@@ -134,7 +137,9 @@ def forward_rows(outcomes=F.outcomes):
                             rows.append({"batch": b, "event": ev["id"], "kind": ev["kind"], "mention": ev["mention"], "side": "YES" if yes else "NO",
                                          "counts": counts, "cost": k, "hit": float(won == yes), "money": float(won == yes) - k, "usd_2c": sa.get("usd_2c"),
                                          "m": m, "q": q, "gap": gap_of(yes, m, q), "closed": res[cid][1], "mtype": market_type(ev),
-                                         "subject": subject_of(ev), "end": scheduled_end(ev)})
+                                         "subject": subject_of(ev), "end": scheduled_end(ev), "lock": rec["lock"], "cid": cid,
+                                         "lock_spread": lp["ask_yes"]["ask"] + lp["ask_no"]["ask"] - 1 if lp.get("ask_yes") and lp.get("ask_no") else None,
+                                         **shape})
     for r in rows:
         same = lambda x: x["counts"] and x["event"] != r["event"] and x["kind"] == r["kind"] and x["yes"] == (r["side"] == "YES") and abs(x["cost"] - r["cost"]) <= F.MATCH_BAND
         bs = [x["hit"] - x["cost"] for x in contracts if same(x)]
@@ -144,6 +149,31 @@ def forward_rows(outcomes=F.outcomes):
         r["skill_mention_both"] = r["money"] - (float(np.mean(both)) if both else 0.0)     # the sweep's E3b skill
         r["money_150"] = (min(150.0, r["usd_2c"]) / r["cost"]) * r["money"] if r.get("usd_2c") else None
     return rows
+
+
+LABEL_SUM_MAX, LABEL_FLAT = 1.3, (0.40, 0.55)      # addendum A4: the backtest rule of v19_price_check.py (decision 21)
+
+
+def labels_of(r):
+    """Addendum A4: labels that declare nothing, fixed before any sweep outcome is read."""
+    days = (r["end"] - r["lock"]) / 86400 if r.get("end") and r.get("lock") else None
+    tier = 1 if r["m"] < 0.05 else 2 if r["m"] < 0.10 else None
+    timing = days is not None and days >= 3; shape = r["kind"] != "touch"
+    suspect = (r["kind"] == "partition" and r["q_sum"] is not None and r["q_sum"] > LABEL_SUM_MAX) or r["q_all_40_55"]
+    return {"days": days, "tier": tier, "timing": timing, "shape": shape, "p5_filter": tier is not None and timing and shape,
+            "pick_the_winner": r["kind"] == "partition", "suspect_book": suspect}
+
+
+def label_reads(arm, rng):
+    """Armed skill and depth-capped money with and without each addendum A4 label, at 95%, resampled by occasion."""
+    out = {}
+    for name, f in (("tier_1", lambda r: r["tier"] == 1), ("tier_2", lambda r: r["tier"] == 2), ("timing", lambda r: r["timing"]),
+                    ("shape", lambda r: r["shape"]), ("p5_filter", lambda r: r["p5_filter"]), ("pick_the_winner", lambda r: r["pick_the_winner"]),
+                    ("suspect_book", lambda r: r["suspect_book"])):
+        w, wo = [r for r in arm if f(r)], [r for r in arm if not f(r)]
+        out[name] = {"with": {"skill": read(w, "skill", 95, rng, unit="occ"), "money_150": read(w, "money_150", 95, rng, unit="occ")},
+                     "without": {"skill": read(wo, "skill", 95, rng, unit="occ"), "money_150": read(wo, "money_150", 95, rng, unit="occ")}}
+    return out
 
 
 def armed(r, any_cost=False):
@@ -173,7 +203,7 @@ def week_of(r):
 def summarise(rows):
     rng = np.random.default_rng(SEED)
     for r in rows:
-        r["week"] = week_of(r)
+        r["week"] = week_of(r); r.update(labels_of(r))
     assign_occasions(rows)
     no = [r for r in rows if r["side"] == "NO" and r["counts"]]
     arm_all = [r for r in no if armed(r)]
@@ -213,6 +243,7 @@ def summarise(rows):
                                                                        and 0.45 <= r["cost"] < ARM_COST], "skill", 95, rng)},
             "no_cost_50_up_by_gap": {f"{g:.2f}": read([r for r in no if not r["mention"] and r["cost"] >= ARM_COST and r["gap"] is not None and r["gap"] >= g], "skill", 95, rng) for g in BANDS},
             "no_positions_without_both_asks": sum(1 for r in no if r["q"] is None),
+            "addendum_a4_labels": label_reads(arm, rng),
             "mention_never_pooled_with_e3": {
                 "either_side_cost_50_up": read([r for r in men if armed(r)], "skill_mention_both", 95, rng),
                 "either_side_any_cost": read([r for r in men if armed(r, any_cost=True)], "skill_mention_both", 95, rng),
