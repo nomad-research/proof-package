@@ -1,4 +1,4 @@
-# v19 paper book (version 0), 2026-10-02 06:56 UTC
+# v19 paper book (version 0), 2026-10-02 07:55 UTC
 
 The new system run on paper over the forward sweep's frozen batches. Nothing is traded. The book declares nothing: the rule's test is read only at its looks (`V19_A2_prereg.md`).
 
@@ -16,7 +16,7 @@ Paper fills are at the lock ask plus the fee, each sized at the lesser of $150 a
 
 **Reading the ledger early.** A NO bet that loses usually settles early (the thing happens), while one that wins settles only at its deadline. Settled results lean towards losses until a batch's deadlines pass.
 
-**Already decided at the lock.** 315 shadow positions sit on contracts the market priced at 3% or less, or 97% or more, at the lock; 10 have settled, 0 won. These are mostly outcomes that had already happened (a day's rain, a closing price) that the news-blind reader bet against. A2's 50c floor keeps them out of the armed book; D1's narrowed rule ("the outcome already happened") would flag them.
+**Already decided at the lock.** 315 shadow positions sit on contracts the market priced at 3% or less, or 97% or more, at the lock; 10 have settled, 0 won. Most are YES long shots on asks of a fraction of a cent. The ones settled so far are outcomes already decided at the lock (a day's rain, a closing price) that the news-blind reader bet against. A2's 50c floor keeps all of them out of the armed book; D1's narrowed rule ("the outcome already happened") would flag the decided ones.
 
 **Fill bound from the lock books.** 19 of 24 armed stakes fit within 1c of the ask, the rest within 2c (each stake is capped at the dollars on offer within 2c).
 

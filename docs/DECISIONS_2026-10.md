@@ -431,3 +431,20 @@ Supersedes the starting point's §9 line "nothing is built until the design is a
   - **R2,** the "will this not happen" framing. The reader's errors look systematic, so a change of wording is the better lever.
   - **Reading every eligible market each week** (decision 17, option 2).
   - **A statistical second opinion** (option 3).
+
+## 20. What the design-performance tests settle (2026-10-02)
+
+- **Rob's words.** "execute all tests require to gauge pre structured design performance."
+- **Decision.**
+  - **A2 stays the only binding rule, with its thresholds unchanged.**
+    - Out of sample it reads about +10¢ to +11.5¢ a position.
+    - It is confirmed on BT-A (+11.5¢, +3.3 to +19.1, 82 fresh events) and direction only on P4 (+10.0¢, −7.7 to +23.6).
+    - What it blocks earns about nothing.
+  - **A3 does not earn its place and stays a label.** With P4 added, what it would block earns more than what it passes (+18.3¢ against +11.2¢).
+  - **A higher disagreement bar (30 points)** is a candidate for the shadow book, registered before data. It is not adopted from the backtests.
+  - **The reader is unchanged.** Averaging (R1) and reframing (R2) both read direction only, and the reader's bets proved stable under both.
+  - **Occasion caps are confirmed as necessary before real money.** Out of sample, one occasion (six interest-rate positions) lost $900 together, the worst week.
+- **Evidence.** `lookbacks/polymarket/V19_DESIGN_TESTS_RESULT.md`, `R1_AVERAGING_RESULT.md`, `R2_FRAMING_RESULT.md`. 100 cold, audited sessions today (R1 50, R2 25, P4 25).
+- **Still open.**
+  - **The forward tests,** which only time advances: A2 forward (first look at 40 occasions), the sweep's E1, E3 and E3b, and fills.
+  - **Rob's occasion cap,** and the money limits after paper (decision 17).

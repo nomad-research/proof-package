@@ -70,6 +70,13 @@ The money is the model's choosing: a blind always-NO rule earns about 0 in both 
 - One shock can turn many NOs into YESes at once (v18 §13, correlated tails).
 - So global risk (C1) and position risk (C2) matter more here than in a balanced book.
 
+**After the v19 design tests (2026-10-02, `lookbacks/polymarket/V19_DESIGN_TESTS_RESULT.md`).** The arming rule A2 (NO at 50¢ or more, the reader at least 20 points surer):
+- found at +13.5¢ on passes 1 to 3;
+- **+11.5¢ (+3.3 to +19.1) on BT-A's 82 fresh events, edge shown (registered);**
+- +10.0¢ (−7.7 to +23.6) on P4's 37 fresh events, direction only (registered).
+
+What it blocks earns about nothing, and every NO position together in P4 earned +1.7¢. E1's edge lives in the armed subset.
+
 ## E2. Linked events: "if A then B"
 
 **In plain English.** When the session says two events move together and A happens, B holds more often than other contracts of the same kind and price.

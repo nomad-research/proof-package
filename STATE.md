@@ -753,3 +753,9 @@ Each thesis subgraph is one basket; a basket is which positions, not sizing; lin
   - Independent readings arm 82–87% of the same bets.
   - A2 holds on fresh readings it was not fitted to (+17.9¢, +14.5¢).
   - 50 sessions, all audited, run from this cloud session.
+- **Design-performance tests (decision 20).** 100 cold, audited sessions today.
+  - A2 on fresh events: BT-A +11.5¢ (edge shown); P4 +10.0¢ (direction only). Blocked NOs earn about 0.
+  - R2 framing: direction only; the reader's bets are unchanged by wording.
+  - A3 fails with P4 added and stays a label.
+  - The out-of-sample book returned +29.9% per dollar (money, last trade + 1¢). Its worst week was one interest-rates occasion, −$900.
+  - Forward: A2 has 0 occasions resolved; W01 settles from 4 October.
