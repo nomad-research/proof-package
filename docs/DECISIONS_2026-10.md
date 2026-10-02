@@ -306,7 +306,7 @@ Answers to the six open choices of decision 13, put to Rob in plain English.
    - The four C1 numbers are set after a paper phase, informed by it. Nothing is needed from Rob for them now.
 6. **One-off big events (cascades): never.**
    - Rob: "Never."
-   - **Builder's reading, to confirm:** never bet on them. With real money they are always excluded. On paper they are still recorded and labelled, so the record shows what the rule leaves out.
+   - **Builder's reading, to confirm (corrected in decision 15: Rob meant never rule them out):** never bet on them. With real money they are always excluded. On paper they are still recorded and labelled, so the record shows what the rule leaves out.
 
 **Evidence found while recording these (all after the fact, from frozen files; nothing declares on it).**
 - **Forward week one is mostly one occasion.** By the fixed list of kinds:
@@ -334,3 +334,17 @@ Answers to the six open choices of decision 13, put to Rob in plain English.
 - **Whether A2's test should count events that share one occasion** (the same kind, place or asset, settling the same week) as one unit when measuring its uncertainty. This has to be settled before anyone runs the sweep's scoring. Next question.
 - **Rob to confirm** the reading of answer 6.
 - **What the paper phase must show before real money,** and for how long.
+
+## 15. One-off big events are never ruled out (2026-10-02)
+
+Corrects the reading of decision 14, answer 6. Supersedes decision 13's clause that A1 binds at real money, and amends the starting point's §3 principle 1 and the selector in §4.
+
+- **Decision.**
+  - **One-off cascades are eligible** (a war escalating, a government falling). They are never excluded, on paper or with real money.
+  - **A1 is removed as a rule.** Whether a question is procedural or a cascade may still be recorded as a description, so the record shows how such bets do and whether they lose together. It excludes nothing.
+  - **The selector keeps its other limits:** short-dated, attention-driven, specific outcomes.
+- **Rob's words.** "It's never rule then out."
+- **Evidence.**
+  - The exclusion came from v15's theory, not from a test. No event has ever been labelled procedural or cascade, so nothing in the record says cascade bets lose.
+  - Rob's earlier concern (decision 13: "A1 would look useless right up to the day a cascade flips a dozen NOs") still describes a real risk. With A1 gone, the group caps and the drawdown stop carry it alone, helped by the falsifier field (decision 14, answer 4, source d).
+- **Still open.** Unchanged from decision 14: whether A2's test counts events that share one occasion as one unit.
