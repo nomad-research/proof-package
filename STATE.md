@@ -743,3 +743,5 @@ Each thesis subgraph is one basket; a basket is which positions, not sizing; lin
   - One occasion is the same kind of market, the same place or asset, within 7 days.
   - W01's 20 armed events are 5 occasions.
   - The final look moves to late November to late January.
+- **Decision 17:** real money waits for A2's final look to confirm and for paper fills to show the edge survives costs. The money limits adapt to resources at the time.
+  - Evidence: armed crypto bets won 19 of 20 through crypto's market-wide losing run; the armed book's own cluster fell on post counts, its weak kind.

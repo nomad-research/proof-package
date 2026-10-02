@@ -362,3 +362,22 @@ Corrects the reading of decision 14, answer 6. Supersedes decision 13's clause t
 - **Still open.**
   - **What the paper phase must show before real money,** and for how long.
   - **The same weakness in a running test.** The sweep's own E1, E3 and E3b statistics still resample by event. They are a running test and stay untouched. A2's scorer can report E1 by occasion beside them as a secondary, if wanted.
+
+## 17. What paper must show before real money (2026-10-02)
+
+- **Decision.** Real money waits for two things:
+  1. **A2's final look confirms** (80 occasions; `V19_A2_prereg.md`).
+  2. **Paper fills against the recorded order books show the edge survives real buying costs.**
+
+  The third proposed condition, that the paper book live through a bad run with the money limits applied, is not a gate. The limits will be adapted to the resources available at the time.
+- **Rob's words.** "1 and 2 and we'll adapt 3 to whatever resources are available at the time, the stronger the strategy the less the limits apply so lets focus on making the best system possible."
+- **Evidence on "the stronger the strategy the less the limits apply"** (BT-T2 passes 1 to 3, after the fact):
+  - **Supported where the strategy is strong.**
+    - In crypto's four-week market-wide run (lock weeks 26 to 29), the crypto bets A2 armed won 19 of 20: +35.7¢ money, +24.3¢ skill.
+    - The crypto NO picks it did not arm lost 53 of 77.
+    - The arming rule stepped around the run. But 17 of the 20 armed bets came in one week.
+  - **Not supported where it is weak.** The armed book's own cluster (lock weeks 30 to 32: 15 losses on post counts and stocks) fell on post counts, A2's one losing kind (−9.5¢, 15 events).
+  - **So the limits matter less where a kind's record is strong and more where it is weak.** One design that follows: size each kind's limit by that kind's own record, rather than one limit for all. Not decided; it waits for forward records by kind.
+- **Still open.**
+  - **Fills.** The recorder runs on Rob's machine (`~/polymarket_record` in WSL), so the paper-fill check needs its data or a run there.
+  - **Where to focus first to make the system as strong as possible** (Rob: "lets focus on making the best system possible"). Next question.
