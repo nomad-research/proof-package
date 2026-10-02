@@ -769,3 +769,7 @@ Each thesis subgraph is one basket; a basket is which positions, not sizing; lin
   - A2, passes 4 and 5: +4.0¢, direction only. Of its 464 original armed positions, 86 stay armed and 214 had no trade near the lock. On BT-A (liquid events): +13.4¢ (+1.8 to +25.5).
   - E3b, mention picks on both sides: +8.1¢ (+5.1 to +11.3), shown at real prices. Where at least $100 traded near the lock: +3.1¢, direction only.
   - Forward A2 labels (addendum A4) added before W01 settles.
+- **The reader with news (decision 25).** Passes 4 and 5 re-read with headlines from the week before each lock; 55 audited sessions; scored at real prices.
+  - Accuracy improves: log score −0.084 cold, −0.036 with news; location calls closer.
+  - Betting edge does not: E1 +2.5¢, A2 +2.3¢, news minus cold +1.7¢, all direction only.
+  - News stays out of belief on backtest evidence. The mention edge (E3b) is still the one edge shown at real prices.

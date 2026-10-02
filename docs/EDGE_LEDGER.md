@@ -94,6 +94,12 @@ What it blocks earns about nothing, and every NO position together in P4 earned 
 - **A2 on BT-A,** the liquid draw: +13.4¢ (+1.8 to +25.5), a secondary.
 - **E1 now rests on the forward tests,** which price at the live ask.
 
+**With news (2026-10-02, `lookbacks/polymarket/V19_NEWS_RESULT.md`, registered).** Passes 4 and 5 were re-read with headlines from the week before each lock and scored at real prices.
+- **E1:** +2.5¢ (−2.8 to +7.3), direction only.
+- **A2:** +2.3¢, direction only.
+- **News adds +1.7¢** (−0.8 to +4.5), direction only.
+- **The reader becomes more accurate** (log score −0.084 cold, −0.036 with news), **but not more profitable.** News is what the market already knows.
+
 ## E2. Linked events: "if A then B"
 
 **In plain English.** When the session says two events move together and A happens, B holds more often than other contracts of the same kind and price.
@@ -175,7 +181,7 @@ It may help explain why location (S2) never beats the market: the session's best
 | N3 | "Sooner than the market thinks" (T0's timing reading) | Mostly the V1 pool's selection: date-ladder YES rungs beat their price by +13 points with no claim at all | `T0_BASE_RATE.md` |
 | N4 | Hedging as a source of edge | Changes risk, not expected value, with single-event contracts. V1 and V1b inconclusive, pooled +2.7 (−2.0 to +7.5) | `EVALUATION.md` |
 | N5 | The sessions' own "what will happen" picks | −2.3 points against matched contracts; 72% were favourites | T0 |
-| N6 | The model's probabilities as a whole | Log score loses to the market in BT-A (from July on) and in BT-T2 (−0.09). The edge is where it disagrees, not in its overall accuracy | BT-A, BT-T2 |
+| N6 | The model's probabilities as a whole | Log score loses to the market in BT-A (from July on) and in BT-T2 (−0.09). The edge is where it disagrees, not in its overall accuracy. With news it improves to −0.036 against real prices, still not beating the market (`V19_NEWS_RESULT.md`) | BT-A, BT-T2, news test |
 
 ## Market facts learned on the way (useful in any design)
 

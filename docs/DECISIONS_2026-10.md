@@ -533,3 +533,22 @@ Supersedes the starting point's §9 line "nothing is built until the design is a
 - **Still open.** Which edge the system is built for. The ledger's mechanisms:
   - **E1 and E3: base rates against salience.** The crowd prices what is in the news; the reader prices how things usually go and the exact rule.
   - **E2: linked events.** The market prices each event alone; a reader who sees the link knows more about B once A is known.
+
+## 25. News makes the reader more accurate, not more profitable (2026-10-02)
+
+- **Rob's words.** "Bro of course we can use the news"; "Let's test everything we've done since yesterday ruled things as failed but with news access".
+- **Decision.**
+  - **News is allowed as an input to the reader.** R6 still keeps every prediction market's price out.
+  - **On the backtests, news does not earn a place in belief.** The registered test reads direction only, so news enters forward only as a registered variant (`V19_NEWS_prereg.md` §4).
+    - E1 with news: +2.5¢ (−2.8 to +7.3), direction only.
+    - A2 with news: +2.3¢ (−9.6 to +13.4), direction only.
+    - What news adds to E1: +1.7¢ (−0.8 to +4.5), direction only.
+  - **Neither E1 nor A2 returns to the design on backtest evidence.**
+- **Evidence** (`lookbacks/polymarket/V19_NEWS_RESULT.md`). Passes 4 and 5 were re-read with Google News headlines from the 7 days before each lock: 55 audited sessions, scored at real prices against the frozen cold readings.
+  - **Accuracy improves clearly:**
+    - log score against the real price, −0.084 cold and −0.036 with news (news minus cold +0.048, +0.025 to +0.074);
+    - location calls closer to what happened (+0.12, +0.03 to +0.21).
+  - **The betting edge does not move.** News is what the market already knows, so a reader that reads it agrees with the market more.
+- **Still open.**
+  - **Where the system's edge comes from, now that** neither the cold nor the news-fed reader beats real prices on the NO side. The mention edge (E3b, +8.1¢) is what stands on the backtests.
+  - **Untested:** the two-step reader (habit anchor first, then facts) and fuller news than headlines.
