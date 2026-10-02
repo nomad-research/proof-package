@@ -586,3 +586,27 @@ Supersedes the starting point's §9 line "nothing is built until the design is a
 - **Still open.**
   - **Judgment links:** forward, through T3 and the reader.
   - **The reader's two-step form** (habit anchor, then facts) on habit questions, with mention markets as the core.
+
+## 28. The problem statement: bet only where a countable record disagrees with the price (2026-10-02)
+
+- **Rob's words.** "I think we should aim for the edge set that allows us to best take contrarian but statistically significant viewpoints." Then "yeah that sounds good", to the wording below.
+- **Decision. The problem statement:**
+  > Nomad bets only where a countable record disagrees with the price, against the story the crowd is pricing. Mechanical wherever possible, judgment only where needed.
+  - **A record:** enough past cases of the same kind to count how often the outcome happens.
+  - **A significant gap:** the price lies outside what the count supports, given how uncertain the count is.
+  - **A reason:** usually the crowd is pricing a story in the news, not the count.
+  - **"Contrarian"** means against the story and toward the count, not against the favourite. Being contrarian alone is not an edge (N2).
+  - **Mechanical:**
+    - building the count;
+    - the significance test;
+    - the real-price and depth checks;
+    - sizing.
+  - **Judgment:** which past cases count, and this week's facts.
+  - **R6 holds.** The count forms the view; the price only decides whether the gap is big enough to bet.
+- **Evidence.**
+  - A bet that agrees with the price earns nothing before fees. Prediction markets are zero-sum.
+  - At real prices, siding with the crowd on likely outcomes (35% to 90%) lost 5 to 9 points against what happened, but that lean faded from April–June to July–September (ledger, market facts).
+  - The reader's own picks of what would happen lost 2.3 points (N5); 72% were favourites.
+  - The mention edge (E3b) is the one edge shown at real prices.
+- **Still open.**
+  - **The count-only test on mention markets:** do past transcripts alone, with no reader, reproduce E3b's +8.1¢? Queued; it needs transcripts.
